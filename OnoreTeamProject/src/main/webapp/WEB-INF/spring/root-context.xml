@@ -9,8 +9,8 @@
 	<bean id="config" class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/>
 		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE"/>
-		<property name="username" value=""/> <!-- db 이름, 패스워드 만들어야함 -->
-		<property name="password" value=""/>
+		<property name="username" value="onore"/>
+		<property name="password" value="1234"/>
 	</bean>
 	
 	<bean id="ds" class="com.zaxxer.hikari.HikariDataSource">
@@ -22,6 +22,6 @@
 		<property name="configLocation" value="classpath:/mybatis-config-base.xml" />
 	</bean>
 	
-	<mybatis-spring:scan base-package="com.onore.project.파트명.mapper" /> <!-- 각 파트마다 mapper 스캔 -->
+	<mybatis-spring:scan base-package="com.onore.onore.파트명.mapper" /> <!-- 각 파트마다 mapper 스캔 -->
 	
 </beans>
