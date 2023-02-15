@@ -1,0 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+	
+	<header class="header">
+		<nav class="navbar">
+			<div class="navbar_logo">
+				<a href="">ONÓRE</a>
+			</div>
+
+			<ul class="navbar_menu">
+				<li><a href="">NOTICE</a></li>
+				<li><a href="">ABOUT</a></li>
+				<li><a href="">LOCATION</a></li>
+				<li><a href="">SHOP</a></li>
+				<li><a href="" class="community">COMMUNITY</a>
+					<ul class="navbar_submenu">
+						<li><a href="./qna_write">Q&A</a></li>
+						<li><a href="">REVIEW</a></li>
+					</ul></li>
+				<li><a href="">LOOKBOOK</a></li>
+			</ul>
+
+			<ul class="navbar_icons">
+				<li><i class="fa-solid fa-user"></i></li>
+				<li><i class="fa-solid fa-cart-shopping"></i></li>
+				<li><i class="fa-solid fa-lock"></i></li>
+			</ul>
+
+			<a href="#" class="navbar_toggleBtn"> <i class="fa-solid fa-bars"></i>
+			</a>
+		</nav>
+	
+	</header>
