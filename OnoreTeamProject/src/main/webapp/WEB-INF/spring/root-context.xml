@@ -21,6 +21,7 @@
 		<property name="dataSource" ref="ds" />
 		<property name="configLocation" value="classpath:/mybatis-config-base.xml" />
 	</bean>
+	
 
 	<mybatis-spring:scan base-package="com.onore.project.qna.mapper" />
 </beans>
