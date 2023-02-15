@@ -11,3 +11,4 @@
     minimenu.classList.toggle('active');
     icons.classList.toggle('active');
  });
+ 
