@@ -23,16 +23,23 @@ body {
 .logo-img {
   width: 180px;
   height: 56px;
+  margin-bottom: 10px;
+  margin-left: 20px;
 }
 
 .navbar-infomsg {
-  width: 300px;
+	width: 100%;
 }
 
-.navbar-profile {
-  width: 100%;
+.navbar-infomsg > p{
+	width: 100%;
+	margin: auto;
   text-align: right;
-  font-size: 25px;
+}
+
+.profile-img {
+	font-size: 25px;
+	margin-right: 10px;
 }
 
 .dropdown-toggle { outline: 0; }
