@@ -21,7 +21,7 @@
 
 ## 4. Story Board
   https://ovenapp.io/view/d8vEawKkOu9QQng588LYe7bLkWTRn3t6/ - 메인 페이지
-  https://ovenapp.io/view/BM4d6oB3Z3aQJa47vE3Xh4ChlqFkR2HA/ - 관리지 페이지
+  https://ovenapp.io/view/BM4d6oB3Z3aQJa47vE3Xh4ChlqFkR2HA/ - 관리자 페이지
 </br>
 
 ## 4. ERD 
