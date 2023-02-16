@@ -6,4 +6,18 @@
   <select id="getAll" resultType="com.onore.project.dto.ReviewDTO">
     SELECT * FROM reviews ORDER BY review_num DESC
   </select>
+  
+  <insert id="insert" parameterType="com.onore.project.dto.ReviewDTO">
+  	INSERT INTO reviews VALUES (
+  		16,
+  		9999,
+  		'test3',
+  		#{review_content},
+  		SYSDATE,
+  		#{review_rating},
+  		null,
+  		null,
+  		null
+  	)
+  </insert>
 </mapper>
