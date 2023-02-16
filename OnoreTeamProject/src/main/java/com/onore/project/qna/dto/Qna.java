@@ -16,11 +16,8 @@ public class Qna {
 	private String qna_content;
 	private String qna_date;
 	private String qna_category;
-	private String qna_img_path;
-	private String qna_img_1;
-	private String qna_img_2;
-	private String qna_img_3;
-	
+	private String qna_img_path; // 파일 경로
+	private String qna_img_1; // 파일 이름
 	
 	public void setRegDate(java.sql.Timestamp qna_date) {
 		SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-dd");

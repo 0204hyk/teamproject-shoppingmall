@@ -28,7 +28,7 @@
 					<tr>
 						<td>${qna.qna_num }</td>
 						<td>${qna.qna_category }</td>
-						<td>${qna.qna_title }</td>
+						<td><a href="./view?qna_num=${qna.qna_num}">${qna.qna_title }</a></td>
 						<td>${qna.mem_id }</td>
 						<td>${qna.qna_date}</td>
 					</tr>
