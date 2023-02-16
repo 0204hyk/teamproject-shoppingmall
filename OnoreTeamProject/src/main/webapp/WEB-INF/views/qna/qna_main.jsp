@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,27 +16,27 @@
 		style="padding-top: 300px; width: auto; height: 800px;">
 		<hr>
 		<div style="padding-top: 100px">
-		<table border="1">
-			<tr>
-				<th class="title">번호</th>
-				<th class="title">분류</th>
-				<th class="title">제목</th>
-				<th class="title">글쓴이</th>
-				<th class="title">등록일</th>
-			</tr>
-			<tr>
-				<td>test</td>
-				<td>test</td>
-				<td>test</td>
-				<td>test</td>
-				<td>test</td>
-			</tr>
-		</table>
+			<table border="1">
+				<tr>
+					<th class="title">번호</th>
+					<th class="title">분류</th>
+					<th class="title">제목</th>
+					<th class="title">글쓴이</th>
+					<th class="title">등록일</th>
+				</tr>
+				<c:forEach items="${qnas }" var="qna">
+					<tr>
+						<td>${qna.qna_num }</td>
+						<td>${qna.qna_category }</td>
+						<td>${qna.qna_title }</td>
+						<td>${qna.mem_id }</td>
+						<td>${qna.qna_date}</td>
+					</tr>
+				</c:forEach>
+			</table>
 		</div>
 		<hr>
 	</div>
-
-	
 	<a class="btn" href="./qna_write">글쓰기</a>
 	<%@include file="./bottom.jspf"%>
 </body>
