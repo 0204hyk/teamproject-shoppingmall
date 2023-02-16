@@ -15,22 +15,22 @@
 	<div class="border"
 		style="margin-left: 20px; padding-top: 200px; width: auto; height: 800px; margin: 50px; margin-top: 0px">
 		<form action="./qna_addWrite" method="post" enctype="multipart/form-data">
-
 			<select name="qna_category">
-				<option value="choice">분류</option>
-				<option value="goods">상품</option>
-				<option value="order_pay">주문 / 결재</option>
-				<option value="delivery">배송</option>
-				<option value="return_exchange">반품 / 교환</option>
-				<option value="other">기타</option>
+				<option value="분류">분류</option>
+				<option value="상품">상품</option>
+				<option value="주문">주문 / 결재</option>
+				<option value="배송">배송</option>
+				<option value="반품">반품 / 교환</option>
+				<option value="기타">기타</option>
 			</select> 
-			<input type="hidden" name="product_num" value="3">
-			<input type="hidden" name="mem_id">
+			<input type="hidden" name="product_num" value="1">
+			<input type="hidden" name="mem_id" value="test">
 			<input type="text" name="qna_title" value="제목을 입력해주세요."><br>
 
 			<textarea rows="30" cols="80" name="qna_content">내용을 입력해주세요.</textarea>
 			<br>
 			<div class="form-group" style="height: 150px; width: 200px;">
+				<input type="hidden" name="qna_img_path" value="/Users/kang/qna_images/">
 				<img id="previewImg1" height="100" width="100" />
 				<img id="previewImg2" height="100" width="100" />
 				<img id="previewImg3" height="100" width="100" /><br>
