@@ -9,6 +9,7 @@
   body {
     margin: 0px;
     font-family: 'Lora';
+      
   }
   
   a {
@@ -21,31 +22,64 @@
     list-style: none;
   }
   
-table {
-    width: 100%;
+  button {
+  	background-color: black;
+    color: white;
+    width: 100px;
+    height: 50px;
+    float: right;
+    border-radius: 5%;
+    margin-right: 100px;
+    margin-top: 50px;
+  }
+  
+  table {
+    width: 90%;
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
- }
+    object-fit: contain;
+    table-layout: fixed;
+    
+  }
  
-th, td {
+  th, td {
     border-bottom: 1px solid lightgray;
     padding: 10px;
-    height: 44px;
+    height: 30px;
     vertical-align: middle;
     text-align: center;
+    white-space: nowrap;
   }
+  
+ #product_num {
+ 	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+ }
+ 
+ #review_content {
+ 	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+ }
+ 
+ #mem_id {
+ 	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+ }
   
  #num {
  	width: 5%;
  }
  
  #product {
- 	width: 10%;
+ 	width: 15%;
  }
  
  #title {
- 	width: 50%;
+ 	width: 40%;
  }
  
  #writer {
@@ -60,9 +94,6 @@ th, td {
  	width: 10%;
  }
  
- 
- 
-  
   .header {
     position: fixed;
     width: 100%;

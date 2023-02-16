@@ -9,4 +9,6 @@ import com.onore.project.dto.ReviewDTO;
 public interface ReviewMapper {
 	
 	public List<ReviewDTO> getAll();
+	
+	public Integer insert(ReviewDTO rev);
 }

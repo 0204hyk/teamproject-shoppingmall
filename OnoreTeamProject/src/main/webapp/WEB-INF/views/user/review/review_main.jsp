@@ -24,17 +24,34 @@
 				<th id="writer">글쓴이</th>
 				<th id="date">등록일</th>
 				<th id="rating">평점</th>
+				
 				<c:forEach items="${reviews }" var="review">
 				<tr>
 					<td>${review.review_num }</td>
-					<td>${review.product_num }</td>
-					<td>${review.review_title }</td>
-					<td>${review.mem_id }</td>
+					<td id="prduct_name">${review.product_num }</td>
+					<td id="review_content">${review.review_content }</td>
+					<td id="mem_id">${review.mem_id }</td>
 					<td>${review.review_date }</td>
-					<td>${review.review_rating }</td>
+					<c:if test="${review.review_rating eq 5 }">
+						<td>★★★★★</td>
+					</c:if>
+					<c:if test="${review.review_rating eq 4 }">
+						<td>★★★★☆</td>
+					</c:if>
+					<c:if test="${review.review_rating eq 3 }">
+						<td>★★★☆☆</td>
+					</c:if>
+					<c:if test="${review.review_rating eq 2 }">
+						<td>★★☆☆☆</td>
+					</c:if>
+					<c:if test="${review.review_rating eq 1 }">
+						<td>★☆☆☆☆</td>
+					</c:if>
 				</tr>
 				</c:forEach>
 			</table>
+			
+			<button onclick="location.href='./write'">글쓰기</button>
 			
 		</div>
 	</div>
