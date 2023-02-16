@@ -15,6 +15,7 @@ public class Qna {
 	String qna_content;
 	String qna_date;
 	String qna_category;
+	String qna_img_path;
 	String qna_img_1;
 	String qna_img_2;
 	String qna_img_3;

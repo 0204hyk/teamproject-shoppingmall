@@ -6,8 +6,7 @@
 
 <mapper namespace="com.onore.project.qna.mapper.QnaMapper">
 	<select id="getAll" resultType="com.onore.project.qna.dto.Qna">
-		SELECT * FROM qna
-	
+		select * from qna order by qna_num DESC
 	</select>
 	
 	<insert id="qnaWrite"
