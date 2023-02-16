@@ -21,25 +21,27 @@
     list-style: none;
   }
   
- table {
+table {
     width: 100%;
     border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
  }
  
- th, td {
-    border-bottom: 1px solid gray;
+th, td {
+    border-bottom: 1px solid lightgray;
     padding: 10px;
-    height: 10%;
+    height: 44px;
+    vertical-align: middle;
+    text-align: center;
   }
   
  #num {
  	width: 5%;
- 	text-align: center;
  }
  
  #product {
  	width: 10%;
- 	text-align: center;
  }
  
  #title {
@@ -48,17 +50,14 @@
  
  #writer {
  	width: 10%;
- 	text-align: center;
  }
  
  #date {
  	width: 15%;
- 	text-align: center;
  }
  
  #rating {
  	width: 10%;
- 	text-align: center;
  }
  
  
