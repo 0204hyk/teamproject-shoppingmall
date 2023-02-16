@@ -20,7 +20,7 @@ public class UploadService {
 	QnaMapper mapper;
 	
 	public void write(Qna qna, MultipartFile file) throws Exception {
-		String imgPath = System.getProperty("user.dir") + "\\upload";
+		String imgPath = System.getProperty("user.home") + "//upload";
 		UUID uuid = UUID.randomUUID();
 		String fileName = uuid + "_" + file.getOriginalFilename();
 		
