@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.onore.project.mapper.OrdersMapper">
+	<select id="getDailySales" resultType="com.onore.project.dto.OrdersDTO">
+		SELECT * FROM orders WHERE order_date >= TO_CHAR(sysdate-7,'YYYYMMDD')
+	</select>
+</mapper>
