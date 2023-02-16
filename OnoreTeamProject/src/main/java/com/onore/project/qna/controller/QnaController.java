@@ -46,8 +46,9 @@ public class QnaController {
 	@PostMapping("/qna_addWrite")
 	public String addWrite(Model model, Qna qna) {
 		int row = qna_mapper.qnaWrite(qna);
-		log.info(model);
-		return "qna/qna_main";
+
+		
+		return "redirect:/qna/main";
 
 	}
 

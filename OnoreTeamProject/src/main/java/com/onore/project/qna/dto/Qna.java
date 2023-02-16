@@ -10,7 +10,6 @@ public class Qna {
 	Integer qna_num;
 	Integer product_num;
 	String mem_id;
-	String qna_pw;
 	String qna_title;
 	String qna_content;
 	String qna_date;
