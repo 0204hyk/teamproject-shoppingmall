@@ -2,22 +2,23 @@ package com.onore.project.qna.dto;
 
 import java.text.SimpleDateFormat;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 
 @Data
 public class Qna {
 	
-	Integer qna_num;
-	Integer product_num;
-	String mem_id;
-	String qna_title;
-	String qna_content;
-	String qna_date;
-	String qna_category;
-	String qna_img_path;
-	String qna_img_1;
-	String qna_img_2;
-	String qna_img_3;
+	private Integer qna_num;
+	private Integer product_num;
+	private String mem_id;
+	private String qna_title;
+	private String qna_content;
+	private String qna_date;
+	private String qna_category;
+	private String qna_img_path; // 파일 경로
+	private String qna_img_1; // 파일 이름
+
 	
 	public void setRegDate(java.sql.Timestamp qna_date) {
 		SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-dd");

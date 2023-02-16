@@ -12,8 +12,10 @@
 	<%@include file="./top.jspf"%>
 
 
-	<div class="border" style="margin-left: 20px; padding-top: 200px; width: auto; height: 800px; margin: 50px; margin-top: 0px">
-		<form action="./qna_addWrite" method="post">
+	<div class="border"
+		style="margin-left: 20px; padding-top: 200px; width: auto; height: 800px; margin: 50px; margin-top: 0px">
+		<form action="./qna_addWrite" method="post"
+			enctype="multipart/form-data">
 			<select name="qna_category">
 				<option value="분류">분류</option>
 				<option value="상품">상품</option>
@@ -21,22 +23,18 @@
 				<option value="배송">배송</option>
 				<option value="반품 / 교환">반품 / 교환</option>
 				<option value="기타">기타</option>
-			</select>
+			</select> 
 			<input type="hidden" name="product_num" value="1"> 
 			<input type="hidden" name="mem_id" value="test"> 
-			<input type="hidden" name="qna_img_path" value="C:\images" /> 
-			<input type="text" name="qna_title">
+			<input type="text" name="qna_title"><br>
 			<textarea rows="30" cols="80" name="qna_content">내용을 입력해주세요.</textarea>
-			<input type="text" name="qna_img_1" /> 
-			<input type="text" name="qna_img_2" /> 
-			<input type="text" name="qna_img_3" /><br>
+			<br> 
+			<input type="file" name="file" /><br> 
 			<input type="submit" value="등록하기">
 		</form>
 		<br> <a href="./main">목록으로</a>
 	</div>
 
-
-	<script src="/project/resources/qna/js/file.js"></script>
 	<%@include file="./bottom.jspf"%>
 </body>
 </html>
