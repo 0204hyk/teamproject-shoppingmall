@@ -15,11 +15,13 @@
 	
 	<div class="container-fluid">
 		<div class="row row-cols-7">
-			<nav class="col-1 flex-shrink-0 p-3 bg-light" style="width: 280px; height: 100vh">
-			   <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-			     <span class="fs-5 fw-semibold">홈페이지 바로가기</span>
-			   </a>
+			<nav class="col-1 flex-shrink-0 p-3 bg-light" style="width: 280px; height: 100vh; overflow-y: auto; position: fixed;">
 			   <ul class="list-unstyled ps-0">
+			   	 <li class="mb-1"> 
+			   	 	<a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+			     	<span class="fs-5 fw-semibold">홈페이지 바로가기</span>
+			   		</a>
+			   	 </li>
 			   	 <li class="mb-1">
 			       <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#sales-collapse" aria-expanded="false">
 			         매출통계
@@ -76,7 +78,7 @@
 			         </ul>
 			       </div>
 			     </li>
-			  	     <li class="mb-1">
+			  	 <li class="mb-1">
 			       <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#category-collapse" aria-expanded="false">
 			         카테고리
 			       </button>
@@ -96,8 +98,8 @@
 			           <li><a href="#" class="link-secondary d-inline-flex text-decoration-none rounded">계정 관리</a></li>
 			         </ul>
 			       </div>
-			     </li>
+			     </li>			     
 			   </ul>
 			</nav>
-			<div class="col">
+			<div class="col" style="padding: 50px; padding-left: 380px; display: flex; flex-wrap: wrap;">
 	

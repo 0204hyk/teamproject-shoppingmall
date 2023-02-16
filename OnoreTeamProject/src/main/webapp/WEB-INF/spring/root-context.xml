@@ -22,6 +22,6 @@
 		<property name="configLocation" value="classpath:/mybatis-config-base.xml" />
 	</bean>
 	
-	<mybatis-spring:scan base-package="com.onore.project.파트명.mapper" /> <!-- 각 파트마다 mapper 스캔 -->
+	<mybatis-spring:scan base-package="com.onore.project.mapper" /> <!-- 각 파트마다 mapper 스캔 -->
 	
 </beans>

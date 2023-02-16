@@ -84,3 +84,14 @@ body {
 .scrollarea {
   overflow-y: auto;
 }
+
+.index-content {
+  border: solid 1px black;
+  width: 650px;
+  height: 650px;
+  margin: 30px;
+}
+
+.inner-content {
+  height: 580px;
+}
