@@ -11,7 +11,7 @@
 	
 	<insert id="qnaWrite"
 		parameterType="com.onore.project.qna.dto.Qna">
-		INSERT INTO qna VALUES (qna_num_seq.nextval, #{product_num}, #{mem_id}, #{qna_title}, #{qna_content}, SYSDATE, #{qna_category}, #{qna_img_path}, #{qna_img_1})
+		INSERT INTO qna VALUES (qna_num_seq.nextval, #{product_num}, #{mem_id}, #{qna_title}, #{qna_content}, SYSDATE, #{qna_category}, #{qna_img_path}, #{qna_img_1}, #{qna_img_2}, #{qna_img_3}, 0)
 	</insert>
 	
 	<select id="getContents" resultType="com.onore.project.qna.dto.Qna">

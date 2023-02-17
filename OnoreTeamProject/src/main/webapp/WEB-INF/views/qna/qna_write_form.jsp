@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,7 @@
 
 	<div class="border"
 		style="margin-left: 20px; padding-top: 200px; width: auto; height: 800px; margin: 50px; margin-top: 0px">
-		<form action="./qna_addWrite" method="post" enctype="multipart/form-data">
+		<form action="./qna_addWrite" method="post" enctype="multipart/form-data" >
 			<select name="qna_category">
 				<option value="분류">분류</option>
 				<option value="상품">상품</option>
@@ -23,16 +24,21 @@
 				<option value="반품 / 교환">반품 / 교환</option>
 				<option value="기타">기타</option>
 			</select> 
-
+		
 			<input type="hidden" name="product_num" value="1"> 
 			<input type="hidden" name="mem_id" value="test"> 
 			<input type="text" name="qna_title"><br>
-			<textarea rows="30" cols="80" name="qna_content">내용을 입력해주세요.</textarea>
-			<input type="file" name="file" /><br> 
+			<textarea rows="30" cols="80" name="qna_content">내용을 입력해주세요.</textarea><br>
+			<input type="file" name="file1" />
+			<input type="file" name="file2" />
+			<input type="file" name="file3" />
+			<br> 
+
 			<input type="submit" value="등록하기">
 		</form>
 		<br> <a href="./main">목록으로</a>
 	</div>
+	
 
 	<%@include file="./bottom.jspf"%>
 </body>
