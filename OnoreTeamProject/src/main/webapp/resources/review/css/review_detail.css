@@ -11,10 +11,15 @@
 }
 
 .b {
+    display: flex;
     flex-direction: row;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
 }
 
+.content {
+    width: auto;
+    height: 300px;
+}
 
 
 img {

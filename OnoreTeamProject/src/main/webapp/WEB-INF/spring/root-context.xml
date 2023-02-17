@@ -27,6 +27,6 @@
 			<property name="defaultEncoding" value="utf-8" />
 	</bean>
 	
-	<mybatis-spring:scan base-package="com.onore.project.review.mapper" /> <!-- 각 파트마다 mapper 스캔 -->
+	<mybatis-spring:scan base-package="com.onore.project.mapper" /> <!-- 각 파트마다 mapper 스캔 -->
 	
 </beans>

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.onore.project.dto.ReviewDTO;
-import com.onore.project.review.mapper.ReviewMapper;
+import com.onore.project.mapper.ReviewMapper;
 import com.onore.project.review.service.PageService;
 
 @Service

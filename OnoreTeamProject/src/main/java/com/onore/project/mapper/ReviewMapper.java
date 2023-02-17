@@ -1,4 +1,4 @@
-package com.onore.project.review.mapper;
+package com.onore.project.mapper;
 
 import java.util.List;
 

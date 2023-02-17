@@ -26,7 +26,8 @@
 			</div>
 		</div>
 		<div class="b">
-			<div id="prd_name">${contents.product_num }(상품이름으로대체join)후기</div>
+		<table>
+			<div id="prd_name">${contents.product_num }(상품이름으로대체join)후기</div><br>
 			<c:if test="${contents.review_rating eq 5 }">
 				<div name="star">★★★★★</div>
 			</c:if>
@@ -43,11 +44,12 @@
 				<div name="star">★☆☆☆☆</div>
 			</c:if>
 			<div name="idndate">${contents.mem_id }/${contents.review_date }</div>
+		</table>	
 		</div>	
 		</div>
 			<hr>
 		<div class="container2">
-			<div name="content">${contents.review_content }</div>
+			<div class="content">${contents.review_content }</div>
 			<div class="img">${contents.review_ima_1 }</div>
 			<div class="img">${contents.review_ima_2 }</div>
 			<div class="img">${contents.review_ima_3 }</div>
@@ -59,6 +61,7 @@
 
 		</div>
 	</div>
+	
 	<hr>
 
 	<%@ include file="../bottom.jspf"%>
