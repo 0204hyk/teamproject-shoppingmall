@@ -30,7 +30,39 @@
 			</div>
 		</div>
 	</div>
-	
+	<c:choose>
+		<c:when test="${not empty replys }">
+			<table>
+				
+				<c:forEach items="${replys }" var="reply">
+					<tr>
+						<td>닉네임 : ${reply.comment_id }</td>
+					</tr>
+					<tr>
+						
+						<td>댓글 내용 : ${reply.comment_view }</td>
+						<td>작성일 : ${reply.write_date }</td>
+						<td><a href="./replyModify?no=${reply.comment_no }&board_id=${board.board_id}"
+							onclick="return confirm('댓글 수정을 하시겠습니까?');">수정</a></td>
+						<td><a href="./replyDelete?no=${reply.comment_no }&board_id=${board.board_id}"
+							onclick="return confirm('정말로 삭제 하시겠습니까?');">삭제</a></td>
+					</tr>
+					<tr>
+						<td style="background-color: orange"></td>
+					</tr>
+				</c:forEach>
+
+			</table>
+		</c:when>
+
+		<c:otherwise>
+			<table>
+				<tr>
+					<td>댓글을 입력해 주세요.</td>
+				</tr>
+			</table>
+		</c:otherwise>
+	</c:choose>
 	
 <script>
 $(document).on('click', '[data-toggle="lightbox"]', function(event) {

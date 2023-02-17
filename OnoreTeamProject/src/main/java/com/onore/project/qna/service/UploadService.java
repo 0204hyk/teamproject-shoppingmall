@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.onore.project.mapper.QnaMapper;
 import com.onore.project.qna.dto.Qna;
-import com.onore.project.qna.mapper.QnaMapper;
 
 
 @Service

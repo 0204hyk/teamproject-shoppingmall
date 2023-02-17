@@ -1,4 +1,4 @@
-package com.onore.project.qna.mapper;
+package com.onore.project.mapper;
 
 import java.util.List;
 

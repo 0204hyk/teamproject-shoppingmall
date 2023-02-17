@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.onore.project.mapper.QnaMapper;
 import com.onore.project.qna.dto.Qna;
-import com.onore.project.qna.mapper.QnaMapper;
 import com.onore.project.qna.service.UploadService;
 
 import lombok.extern.log4j.Log4j2;
