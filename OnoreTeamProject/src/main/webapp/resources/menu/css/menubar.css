@@ -1,12 +1,3 @@
-/* 색상을 이곳에 정의해두고 쓸 수 있다.
-사용방법 : color: var(--text-color)
-:root {
-  --text-color: black;
-  --background-color: white;
-  --icon-color:black;
-}
-*/
-
 body {
   margin: 0;
   font-family: 'Lora';
@@ -46,8 +37,8 @@ li {
   margin-top: 20px;
 }
 
-.navbar_logo a:hover { /* 메뉴명에 마우스 올리면 밝은회색으로 변함 */
-  color: black;
+.navbar_logo a:hover { /* 메뉴명에 마우스 올리면 회색으로 변함 */
+  color: gray;
 }
 
 .navbar_menu {
@@ -64,11 +55,11 @@ li {
 }
 
 .navbar_menu a:hover { /* 메뉴명에 마우스 올리면 밝은회색으로 변함 */
-  color: lightgray;
+  color: gray;
 }
 
 .navbar_menu i:hover { /* 메뉴명에 마우스 올리면 밝은회색으로 변함 */
-  color: lightgray;
+  color: gray;
 }
 
 .navbar_submenu {
@@ -81,7 +72,7 @@ li {
 
 .navbar_menu > li:hover > ul {
   display: block;
-  background-color:rgb(234 234 234);
+  background-color:darkgray;
   color: white;
   margin-top: 5px;
 }
@@ -111,7 +102,7 @@ li {
 }
 
 .footerconnect {
-  background-color: white; /* 또는 rgb(248 248 248) */
+  background-color: white;
   font-size: 25px;
   width: 30%;
   float: right;
@@ -142,10 +133,6 @@ li {
   .navbar_logo > a,
   .navbar_menu > li > a,
   .navbar_menu > li > i{
-    color: black;
-  }
-
-  .navbar_submenu > li > a {
     color: black;
   }
 

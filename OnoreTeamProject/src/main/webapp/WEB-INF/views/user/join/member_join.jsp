@@ -14,19 +14,25 @@
 <%@include file="../member/member_top.jspf" %>
     
 <div class="join_form_div">
-    <form id="join_form" action="./member/add" method="POST" name="join_form" >
-	    <div class="joindiv" style="">
+    <form id="join_form" action="./join_success" method="POST" name="join_form" >
+	    <div class="joindiv">
 		    <div class="title_join"><h2>회원가입</h2></div>
-		    <div class="title_id_content">아이디 <input type="text" name="mem_id"></div>
-		    <div class="title_password_content">비밀번호 <input type="password1" name="mem_pw"></div>
-		    <div class="title_password_content">비밀번호 확인 <input type="password2" name="mem_pw2"></div>
+		    
+		    <div class="id_wrap">
+			    <div class="title_id_content">아이디 <input class="mem_id" type="text" name="mem_id"></div>
+			    
+			    <span class="id_input_re_1">사용 가능한 아이디입니다.</span>
+			    <span class="id_input_re_2">이미 존재하는 아이디입니다.</span>
+		    </div>
+		    
+		    <div class="title_password_content">비밀번호 <input type="password" name="mem_pw"></div>
+		    <div class="title_password_content">비밀번호 확인 <input type="password" name="mem_pw2"></div>
 		    <div class="title_email_content">이메일 <input type="email" name="mem_email"></div>
 		    <div class="title_name_content">이름 <input type="text" name="mem_name"></div>
 		    <div class="title_birth_content">생년월일 <input type="text" name="mem_birth"></div>
 		    
 		    <div class="check_gender">
-			    <div class="check_men_div">남성 <input type="radio" name="mem_gender"></div>
-			    <div class="check_women_div">여성 <input type="radio" name="mem_gender"></div>
+			    <input type="radio" name="mem_gender">남성 <input type="radio" name="mem_gender">여성
 		    </div>
 		    <div class="title_phone_content">연락처 <input type="text" name="mem_phone"></div>
 			
@@ -82,7 +88,7 @@
 		    
 		    <article>
 		    <div class="joindiv">
-		    	<input class="join_success_Btn" type="submit" onclick="./member/add?mem_id=test2&mem_pw=1234" value="가입하기"><br>
+		    	<input class="join_success_Btn" type="submit" value="가입하기"><br>
 		    </div>
 		    </article>
 	      </div>
@@ -90,4 +96,12 @@
 </div>
        
 <script src="/project/resources/menu/js/menu.js"></script>
+
+<script>
+// 아이디 중복검사
+$('.mem_id').on("propertychange change keyup paste input", function(){
+	console.log("keyup 테스트");
+});
+</script>
+
 <%@include file="../member/member_bottom.jspf" %>

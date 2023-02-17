@@ -3,6 +3,7 @@
 	height: 1200px;
 	background-color: white;
 	text-align: center;	
+	border:solid 3px red;
 }
 
 .joindiv > div,
@@ -49,4 +50,18 @@ article {
 	color: white;
 	border-radius: 3px;
 	cursor: pointer; /* 마우스 올리면 손가락 모양으로 변함 */
+}
+
+
+
+
+/* 중복 아이디 존재하지 않는 경우 */
+.id_input_re_1 {
+	color : green;
+	display : none;
+}
+
+/* 중복 아이디 존재하는 경우 */
+.id_input_re_2 {
+	color : red;
 }

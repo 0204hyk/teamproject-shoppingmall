@@ -13,18 +13,7 @@ public interface MemberMapper {
 	
 	Integer memJoin(Member memberdto);
 	
-	@Select("SELECT * FROM members")
-	public List<Member> getList();
+	// Object get(String mem_id);
 	
-	@Select("SELECT * FROM members WHERE mem_id=#{id}")
-	Member get(Integer mem_id);
-	
-	@Insert("INSERT INTO member VALUES(#{mem_id}, #{mem_pw}, "
-			+ "#{mem_email}, #{mem_phone}, #{mem_name},"
-			+ "#{mem_zip_code}, #{mem_street_address},"
-			+ "#{mem_detail_address}, #{mem_gender}, #{mem_birth_date},"
-			+ "sysdate, 3000, #{mem_sms}")
-	Integer add(Member member);
-
 	
 }

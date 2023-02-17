@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,7 @@
 <%@include file="../member/member_top.jspf" %>
 
 	<div class="middle_div">
-	<form action="" method="POST" name="login" class="loginform">
+	<form action="./test" method="POST" name="loginform" class="loginform">
 		<div class="logindiv">
 			<div class="title_login_div">
 				<a>로 그 인</a>
@@ -24,14 +25,14 @@
 				<a>아이디</a>
 			</div>
 			<div class="title_inputid_div">
-				<input name="id" class="text_input" type="text">
+				<input id="mem_id" name="mem_id" type="text">
 			</div>
 
 			<div class="title_idpw_div">
 				<a>비밀번호</a>
 			</div>
 			<div class="title_inputpw_div">
-				<input name="pw" class="password_input" type="password">
+				<input id="mem_pw" name="mem_pw" type="password">
 			</div>
 
 			<article>

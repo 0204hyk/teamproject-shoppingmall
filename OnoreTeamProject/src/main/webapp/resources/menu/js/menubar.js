@@ -9,22 +9,4 @@
     menu.classList.toggle('active');
     submenu.classList.toggle('active');
  });
- 
- 
- /* 라디오버튼-아이디찾기, 비밀번호 찾기 : 체크 할 때마다 div 보이거나 숨기기 */
- function setDisplay() {
- 	if($('input:radio[id=id_search]').is(':checked')){
- 		$('.hidden_div').hide();
- 	} else {
- 		$('.hidden_div').show();
- 	}
- }
- 
- 	
-/* 마우스 포커스 깜빡임 */
-document.forms[0].id.focus();
-document.forms[0].id.select();
-
-
-/* 비밀번호 일치 불일치 메세지 띄우기 */
 
