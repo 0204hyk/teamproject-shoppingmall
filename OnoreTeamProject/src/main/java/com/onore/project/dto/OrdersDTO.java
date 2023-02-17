@@ -1,5 +1,7 @@
 package com.onore.project.dto;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import lombok.Data;
@@ -17,5 +19,5 @@ public class OrdersDTO {
 	private Date order_date;
 	private Integer total_price;
 	private Integer order_status;
-	
 }
+

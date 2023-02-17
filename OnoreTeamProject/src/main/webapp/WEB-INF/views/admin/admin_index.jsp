@@ -13,11 +13,80 @@
 	
 	<div class="index-content">
 		<div class="inner-content">
-			<div style="height: 50px;">주간 매출 그래프</div>
+			<div class="main-content-title">주간 매출 그래프</div>
 			<canvas id="index-chart"></canvas>
 		</div>
 	</div>
-	<div class="index-content">일자별 현황</div>
+	<div class="index-content">
+		<div class="main-content-title">일자별 현황</div>
+		<div>
+		<table border="1">
+			<thead>
+			  <tr>
+			    <th class="tg-0pky">일자</th>
+			    <th>주문 건수</th>
+			    <th>매출액</th>
+			    <th>가입</th>
+			    <th>문의</th>
+			    <th>후기</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			  </tr>
+			  <tr>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			  </tr>
+			  <tr>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			  </tr>
+			  <tr>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			  </tr>
+			  <tr>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			  </tr>
+			  <tr>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			  </tr>
+			</tbody>
+		</table>
+		</div>
+		<div>
+			<table></table>
+		</div>
+	</div>
 	<div class="index-content">문의</div>
 	<div class="index-content">후기</div>
 		
@@ -31,19 +100,10 @@
 		var labelList = new Array();
 		var dataList = new Array();
 
-		const today = new Date();
-
-		const year = today.getFullYear(); // 년
-		const month = today.getMonth();   // 월
-		const day = today.getDate();      // 일
-
-		for (var i = 0; i < 7; ++i) {
-			labelList.push(new Date(year, month, day -6 + i).toLocaleDateString());
-		}
-
 		for (var i = 0; i < jData.length; ++i) {
 			var d = jData[i];
-			dataList.push(d.total_price);
+			labelList.push(d.day);
+			dataList.push(d.daily_sales);
 
 		}
 
