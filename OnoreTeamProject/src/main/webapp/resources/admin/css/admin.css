@@ -95,3 +95,7 @@ body {
 .inner-content {
   height: 580px;
 }
+
+.main-content-title {
+  height: 50px;
+}

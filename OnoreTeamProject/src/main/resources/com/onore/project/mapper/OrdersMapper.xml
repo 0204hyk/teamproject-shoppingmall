@@ -3,16 +3,20 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.onore.project.mapper.OrdersMapper">
-	<select id="getDailySales" parameterType="String" resultType="com.onore.project.dto.OrdersDTO"> 
-		SELECT * FROM orders WHERE order_date >= TO_CHAR(sysdate-7,'YYYYMMDD')
- 
- 		<!-- 
-		SELECT TO_CHAR(order_date, 'YYYYMMDD') , SUM(total_price) 
-		FROM orders 
-		WHERE order_date 
-			BETWEEN TO_CHAR(sysdate-6,'YYYYMMDD') AND TO_CHAR(sysdate+1 , 'YYYYMMDD') 
-		GROUP BY TO_CHAR(order_date, 'YYYYMMDD') 
-		ORDER BY TO_CHAR(order_date, 'YYYYMMDD')
-		 -->
+	<select id="getDailySales" parameterType="String" resultType="com.onore.project.admin.dto.DailySalesDTO"> 
+		SELECT
+		    TO_CHAR(b.dt, 'YYYY.MM.DD') AS day , 
+		    NVL(SUM(a.daily_sales), 0) AS daily_sales
+		FROM 
+		    (SELECT TO_CHAR(order_date, 'YYYY.MM.DD') AS day , SUM(total_price)  AS daily_sales
+		     FROM orders
+		     WHERE order_date BETWEEN TO_CHAR(sysdate-6,'YYYY.MM.DD') AND TO_CHAR(sysdate+1 , 'YYYY.MM.DD')
+		     GROUP BY order_date) a ,
+		    (SELECT TRUNC(SYSDATE, 'DAY') + LEVEL - 2 AS dt
+		     FROM dual
+		     <![CDATA[CONNECT BY LEVEL <= 7) b]]>
+		WHERE b.dt = a.day(+)
+		GROUP BY b.dt
+		ORDER BY b.dt
 	</select>
 </mapper>
