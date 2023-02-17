@@ -29,7 +29,7 @@
 				<tr>
 					<td>${review.review_num }</td>
 					<td id="prduct_name">${review.product_num }</td>
-					<td id="review_content"><a href="./content?review_num=${review.review_num}">
+					<td id="review_content"><a href="./detail?review_num=${review.review_num}">
 					${review.review_content }</td>
 					<td id="mem_id">${review.mem_id }</td>
 					<td>${review.review_date }</td>
@@ -54,10 +54,17 @@
 			
 			<button onclick="location.href='./write'">글쓰기</button>
 			
-			<c:forEach begin="${pagination_start }" end="${pagination_end }" var="i">
-				<a href="./list?page=${i }">${i }</a>
-			</c:forEach>
-			
+			<div class="page">
+				<c:if test="${pagination_start > 5 }">
+					<a href="./list?page=${previous_page }"><</a>
+				</c:if>
+				<c:forEach begin="${pagination_start }" end="${pagination_end }" var="i">
+					<a href="./list?page=${i }">${i }</a>
+				</c:forEach>
+				<c:if test="${pagination_end % 5 eq 0 }">
+					<a href="./list?page=${next_page }">></a>
+				</c:if>
+			</div>
 		</div>
 	</div>
 	

@@ -11,4 +11,6 @@ public interface ReviewMapper {
 	public List<ReviewDTO> getAll();
 	
 	public Integer insert(ReviewDTO rev);
+	
+	public ReviewDTO get(Integer review_num);
 }

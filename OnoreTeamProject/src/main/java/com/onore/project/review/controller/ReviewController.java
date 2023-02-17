@@ -1,5 +1,6 @@
 package com.onore.project.review.controller;
 
+
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -35,19 +36,12 @@ public class ReviewController {
 	PageService page;
 	
 	@GetMapping("/list")
-	public String reviewList(Model model, HttpServletRequest req) {
-		model.addAttribute("reviews", review_mapper.getAll());
+	public String reviewList(HttpServletRequest req) {
 		
 		return page.service(req);
 	}
 	
-	@GetMapping("/main")
-	public String reviewMain() {
-		
-		return "user/review/review_main";
-	}
-	
-	
+
 	@GetMapping("/write")
 	public String reviewWrite(Model model) {
 		
@@ -59,6 +53,13 @@ public class ReviewController {
 		Integer row = review_mapper.insert(review);
 		
 		return "redirect:/review/list";
+	}
+	
+	@GetMapping("/detail")
+	public String reviewDetail(Model model, Integer review_num) {
+		model.addAttribute("contents", review_mapper.get(review_num));
+		
+		return "user/review/review_detail";
 	}
 	
 	

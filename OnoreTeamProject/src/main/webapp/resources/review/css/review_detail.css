@@ -1,0 +1,25 @@
+.detail {
+    padding:60px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.continer {
+	display: flex;
+    flex-direction: row;
+}
+
+.b {
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+}
+
+
+
+img {
+    width: 200px;
+    height: 200px;
+}
+
+
