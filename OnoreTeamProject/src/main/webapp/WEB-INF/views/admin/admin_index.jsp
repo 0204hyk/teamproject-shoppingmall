@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,8 +20,7 @@
 	</div>
 	<div class="index-content">
 		<div class="main-content-title">일자별 현황</div>
-		<div>
-		<table border="1">
+		<table border="1" style="width: 650px; height: 450px;">
 			<thead>
 			  <tr>
 			    <th class="tg-0pky">일자</th>
@@ -33,20 +33,26 @@
 			</thead>
 			<tbody>
 			  <tr>
-			    <td></td>
-			    <td></td>
-			    <td></td>
-			    <td></td>
-			    <td></td>
-			    <td></td>
+			  	<c:forEach items="${weeklyStats}" var="dailyStats">
+			  	  <td>${dailyStats.day}</td>
+			  	  <td><fmt:formatNumber value="${dailyStats.daily_sales}" pattern="#,###"/></td>
+			  	</c:forEach>
 			  </tr>
 			  <tr>
-			    <td></td>
-			    <td></td>
-			    <td></td>
-			    <td></td>
-			    <td></td>
-			    <td></td>
+			    <td>1</td>
+			    <td>2</td>
+			    <td>3</td>
+			    <td>4</td>
+			    <td>5</td>
+			    <td>6</td>
+			  </tr>
+			  <tr>
+			    <td>1</td>
+			    <td>2</td>
+			    <td>3</td>
+			    <td>4</td>
+			    <td>5</td>
+			    <td>6</td>
 			  </tr>
 			  <tr>
 			    <td></td>
@@ -82,10 +88,9 @@
 			  </tr>
 			</tbody>
 		</table>
-		</div>
-		<div>
-			<table></table>
-		</div>
+		<table border="1" style="width: 650px; height: 150px;">
+			
+		</table>
 	</div>
 	<div class="index-content">문의</div>
 	<div class="index-content">후기</div>

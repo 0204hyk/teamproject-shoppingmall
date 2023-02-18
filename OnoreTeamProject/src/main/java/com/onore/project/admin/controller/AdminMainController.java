@@ -23,8 +23,8 @@ public class AdminMainController {
 	
 	@GetMapping("/main")
 	public String main(HttpServletRequest request, HttpServletResponse response) {
+		request.setAttribute("weeklyStats", service.readWeeklyStats());
 		request.setAttribute("dailySales", service.readDailySales());
-		
 		return "/admin/admin_index";
 	}
 	
