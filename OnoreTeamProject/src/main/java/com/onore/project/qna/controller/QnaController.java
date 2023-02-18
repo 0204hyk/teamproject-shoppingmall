@@ -21,11 +21,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.onore.project.mapper.QnaMapper;
 import com.onore.project.qna.dto.Qna;
-import com.onore.project.qna.service.UploadService;
-
+import com.onore.project.qna.service.QnaService;
 import lombok.extern.log4j.Log4j2;
 import oracle.jdbc.proxy.annotation.Post;
 
@@ -35,31 +33,26 @@ import oracle.jdbc.proxy.annotation.Post;
 public class QnaController {
 
 	@Autowired
-	QnaMapper qna_mapper;
-	
-	@Autowired
-	UploadService uploadService;
-	
+	QnaService qnaService;
 
 	@GetMapping("/main")
 	public String qna(Model model) {
-		model.addAttribute("qnas", qna_mapper.getAll());
+		qnaService.QnaList(model);
+		
 		return "qna/qna_main";
 	}
 
 
 	@GetMapping("/qna_write")
 	public String create() {
-		log.info("도달했다.");
-
+		
 		return "qna/qna_write_form";
 	}
 
 	@PostMapping("/qna_addWrite")
 	public String addWrite(List<MultipartFile> file, Model model, Qna qna) throws Exception {
-
-		uploadService.write(qna, file);
-		model.addAttribute("qnas", qna_mapper.qnaWrite(qna));
+		qnaService.fileUpload(qna, file);
+		qnaService.QnaWrite(model, qna);
 		
 		return "redirect:/qna/main";
 
@@ -67,7 +60,7 @@ public class QnaController {
 	
 	@GetMapping("/view")
 	public String clickView(Model model, int qna_num) {
-		model.addAttribute("views", qna_mapper.getContents(qna_num));
+		qnaService.QnaView(model, qna_num);
 		
 		return "qna/qna_view";
 	}
