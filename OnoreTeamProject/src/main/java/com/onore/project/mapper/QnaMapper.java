@@ -11,5 +11,5 @@ public interface QnaMapper {
 	Integer qnaWrite(Qna qna);
 	
 	// 제목 클릭 후 화면 출력
-	Qna getContents(Integer qna_num);
+	List<Qna> getContents(Integer qna_num);
 }

@@ -2,8 +2,14 @@ package com.onore.project.qna.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
+
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
@@ -11,7 +17,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.onore.project.mapper.QnaMapper;
@@ -48,9 +56,9 @@ public class QnaController {
 	}
 
 	@PostMapping("/qna_addWrite")
-	public String addWrite(MultipartFile file1, MultipartFile file2, MultipartFile file3, Model model, Qna qna) throws Exception {
+	public String addWrite(List<MultipartFile> file, Model model, Qna qna) throws Exception {
 
-		uploadService.write(qna, file1, file2, file3);
+		uploadService.write(qna, file);
 		model.addAttribute("qnas", qna_mapper.qnaWrite(qna));
 		
 		return "redirect:/qna/main";
@@ -64,5 +72,5 @@ public class QnaController {
 		return "qna/qna_view";
 	}
 	
-
+	
 }
