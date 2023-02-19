@@ -20,7 +20,7 @@
 		<div class="border"
 		style="margin-left: 20px; padding-top: 200px; width: auto; height: 800px; margin: 50px; margin-top: 0px">
 		<form action="./qna_addWrite" method="post" enctype="multipart/form-data" >
-			<select name="qna_category">
+			<select name="qna_category" id="select" onchange="changeSelect(this)">
 				<option value="분류">분류</option>
 				<option value="상품">상품</option>
 				<option value="주문 / 결제">주문 / 결제</option>
@@ -28,20 +28,42 @@
 				<option value="반품 / 교환">반품 / 교환</option>
 				<option value="기타">기타</option>
 			</select> 
-		
+			
 			<input type="hidden" name="product_num" value="1"> 
 			<input type="hidden" name="mem_id" value="test"> 
-			<input type="text" name="qna_title"><br>
+			<input type="text" name="qna_title">
+			<div id="inputs">
+				
+			</div>
 			<textarea rows="30" cols="80" name="qna_content">내용을 입력해주세요.</textarea><br>
 			<input type="file" name="file"/>
 			<input type="file" name="file"/>
 			<input type="file" name="file"/>
 			<br> 
-
+			
+			
 			<input type="submit" value="등록하기">
 		</form>
 		<br> <a href="./main">목록으로</a>
 	</div>
+	
+	<script>
+		function changeSelect(e) {
+			
+			const input = document.getElementById('inputs');
+
+			const value = e.value;
+			
+			if (value === '상품') {
+				input.innerHTML += `<input type='text' name='category' />`;
+				input.innerHTML += `<button name='search'>상품검색</button>`;
+			} else {
+				input.innerHTML = '';
+			}
+	
+		}
+	</script>
+
 	<%@include file="./bottom.jspf"%>
 </body>
 </html>
