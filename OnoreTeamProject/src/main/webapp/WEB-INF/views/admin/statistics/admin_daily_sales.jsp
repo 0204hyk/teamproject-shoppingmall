@@ -54,7 +54,7 @@
 			var labelList = new Array();
 			var dataList = new Array();
 	
-			for (var i = jData.length - 1; i >= 0; --i) {
+			for (var i = 0; i < jData.length; ++i) {
 				var d = jData[i];
 				labelList.push(d.day);
 				dataList.push(d.daily_sales);
@@ -101,7 +101,7 @@
 		           	'rgba(224, 99, 132, 0.6)',
 		           	'rgba(232, 99, 132, 0.6)',
 		           	'rgba(240, 99, 132, 0.6)',
-		           	'rgba(248, 99, 132, 0.6)',
+		           	'rgba(248, 99, 132, 0.6)'
 	              ],
 	              borderColor: [
 	           	    'rgba(0, 99, 132, 1)',
@@ -135,7 +135,7 @@
 	           	    'rgba(224, 99, 132, 1)',
 	           	    'rgba(232, 99, 132, 1)',
 	           	    'rgba(240, 99, 132, 1)',
-	           	    'rgba(248, 99, 132, 1)',
+	           	    'rgba(248, 99, 132, 1)'
 	              ],
 				  borderWidth: 2
 				}]

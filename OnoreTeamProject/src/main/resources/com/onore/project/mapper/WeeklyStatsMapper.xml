@@ -15,13 +15,13 @@
 		     <![CDATA[CONNECT BY LEVEL <= 7) a,]]>
 		    (SELECT TO_CHAR(mem_register_date, 'YYYY.MM.DD') AS day, mem_id 
 		     FROM members 
-		     WHERE mem_register_date BETWEEN TO_CHAR(sysdate-6,'YYYY.MM.DD') AND TO_CHAR(sysdate+1 , 'YYYY.MM.DD')) b,
+		     WHERE mem_register_date BETWEEN TO_CHAR(SYSDATE-6,'YYYY.MM.DD') AND TO_CHAR(SYSDATE+1 , 'YYYY.MM.DD')) b,
 		    (SELECT TO_CHAR(qna_date, 'YYYY.MM.DD') AS day, qna_num 
 		     FROM qna 
-		     WHERE qna_date BETWEEN TO_CHAR(sysdate-6,'YYYY.MM.DD') AND TO_CHAR(sysdate+1 , 'YYYY.MM.DD')) c,
+		     WHERE qna_date BETWEEN TO_CHAR(SYSDATE-6,'YYYY.MM.DD') AND TO_CHAR(SYSDATE+1 , 'YYYY.MM.DD')) c,
 		    (SELECT TO_CHAR(review_date, 'YYYY.MM.DD') AS day, review_num 
 		     FROM reviews 
-		     WHERE review_date BETWEEN TO_CHAR(sysdate-6,'YYYY.MM.DD') AND TO_CHAR(sysdate+1 , 'YYYY.MM.DD')) d
+		     WHERE review_date BETWEEN TO_CHAR(SYSDATE-6,'YYYY.MM.DD') AND TO_CHAR(SYSDATE+1 , 'YYYY.MM.DD')) d
 		WHERE a.dt = b.day(+) AND a.dt = c.day(+) AND a.dt = d.day(+)
 		GROUP BY a.dt
 		ORDER BY a.dt DESC
@@ -43,13 +43,13 @@
 		      <![CDATA[CONNECT BY LEVEL <= 7) a,]]>
 		     (SELECT TO_CHAR(mem_register_date, 'YYYY.MM.DD') AS day, mem_id 
 		      FROM members 
-		      WHERE mem_register_date BETWEEN TO_CHAR(sysdate-6,'YYYY.MM.DD') AND TO_CHAR(sysdate+1 , 'YYYY.MM.DD')) b,
+		      WHERE mem_register_date BETWEEN TO_CHAR(SYSDATE-6,'YYYY.MM.DD') AND TO_CHAR(SYSDATE+1 , 'YYYY.MM.DD')) b,
 		     (SELECT TO_CHAR(qna_date, 'YYYY.MM.DD') AS day, qna_num
 		      FROM qna 
-		      WHERE qna_date BETWEEN TO_CHAR(sysdate-6,'YYYY.MM.DD') AND TO_CHAR(sysdate+1 , 'YYYY.MM.DD')) c,
+		      WHERE qna_date BETWEEN TO_CHAR(SYSDATE-6,'YYYY.MM.DD') AND TO_CHAR(SYSDATE+1 , 'YYYY.MM.DD')) c,
 		     (SELECT TO_CHAR(review_date, 'YYYY.MM.DD') AS day, review_num 
 		      FROM reviews 
-		      WHERE review_date BETWEEN TO_CHAR(sysdate-6,'YYYY.MM.DD') AND TO_CHAR(sysdate+1 , 'YYYY.MM.DD')) d
+		      WHERE review_date BETWEEN TO_CHAR(SYSDATE-6,'YYYY.MM.DD') AND TO_CHAR(SYSDATE+1 , 'YYYY.MM.DD')) d
 		    WHERE a.dt = b.day(+) AND a.dt = c.day(+) AND a.dt = d.day(+)
 		    GROUP BY a.dt)
 	</select>
