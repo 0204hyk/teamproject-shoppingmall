@@ -85,6 +85,7 @@ body {
   overflow-y: auto;
 }
 
+/* 메인 화면 */
 .index-content {
   border: solid 1px black;
   width: 650px;
@@ -92,10 +93,25 @@ body {
   margin: 30px;
 }
 
-.inner-content {
+.main-inner-content {
   height: 580px;
 }
 
 .main-content-title {
+  height: 50px;
+}
+
+/* 매출 통계 */
+.stats-content {
+  border: solid 1px black;
+  width: 1430px;
+  height: 500px
+}
+
+.stats-inner-content {
+  height: 430px;
+}
+
+.stats-title {
   height: 50px;
 }

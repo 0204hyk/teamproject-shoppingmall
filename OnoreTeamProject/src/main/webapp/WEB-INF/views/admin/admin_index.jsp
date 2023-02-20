@@ -13,7 +13,7 @@
 	<%@ include file="./admin_header.jspf" %>
 	
 	<div class="index-content">
-		<div class="inner-content">
+		<div class="main-inner-content">
 			<div class="main-content-title">주간 매출 그래프</div>
 			<canvas id="index-chart"></canvas>
 		</div>
@@ -35,33 +35,33 @@
 			  	<c:forEach items="${dailySales}" var="daySaleData" varStatus="statusNum">
 				  <tr>
 				  	<td>${daySaleData.day}</td>
-				  	<td>${daySaleData.daily_sales_cnt}</td>
-				  	<td><fmt:formatNumber value="${daySaleData.daily_sales}" pattern="#,###"/></td>
-				  	<td>${weeklyStats[statusNum.index].register_cnt}</td>
-				  	<td>${weeklyStats[statusNum.index].qna_cnt}</td>
-				  	<td>${weeklyStats[statusNum.index].review_cnt}</td>
+				  	<td><fmt:formatNumber value="${daySaleData.daily_sales_cnt}" pattern="#,###"/></td>
+				  	<td><fmt:formatNumber value="${daySaleData.daily_sales}" pattern="#,###"/> 원</td>
+				  	<td><fmt:formatNumber value="${weeklyStats[statusNum.index].register_cnt}" pattern="#,###"/></td>
+				  	<td><fmt:formatNumber value="${weeklyStats[statusNum.index].qna_cnt}" pattern="#,###"/></td>
+				  	<td><fmt:formatNumber value="${weeklyStats[statusNum.index].review_cnt}" pattern="#,###"/></td>
 				  </tr>
 			  	</c:forEach>
 			</tbody>
 		</table>
 		<table border="1" style="width: 650px; height: 75px;">
 			<tr>
-				<td>최근 7일 합계</td>
-				<td>${dailySalesTotal.sales_cnt_total}</td>
-				<td>${dailySalesTotal.daily_sales_total}</td>
-				<td>${weeklyStatsTotal.register_cnt_total}</td>
-				<td>${weeklyStatsTotal.qna_cnt_total}</td>
-				<td>${weeklyStatsTotal.review_cnt_total}</td>
+				<td>최근 7일 통계</td>
+				<td><fmt:formatNumber value="${dailySalesTotal.sales_cnt_total}" pattern="#,###"/></td>
+				<td><fmt:formatNumber value="${dailySalesTotal.daily_sales_total}" pattern="#,###"/> 원</td>
+				<td><fmt:formatNumber value="${weeklyStatsTotal.register_cnt_total}" pattern="#,###"/></td>
+				<td><fmt:formatNumber value="${weeklyStatsTotal.qna_cnt_total}" pattern="#,###"/></td>
+				<td><fmt:formatNumber value="${weeklyStatsTotal.review_cnt_total}" pattern="#,###"/></td>
 			</tr>
 		</table>
 		<table border="1" style="width: 650px; height: 75px;">
 			<tr>
-				<td>1</td>
-				<td>2</td>
-				<td>3</td>
-				<td>4</td>
-				<td>5</td>
-				<td>6</td>
+				<td>이번 달 통계</td>
+				<td><fmt:formatNumber value="${monthSalesTotal.sales_cnt_total}" pattern="#,###"/></td>
+				<td><fmt:formatNumber value="${monthSalesTotal.daily_sales_total}" pattern="#,###"/> 원</td>
+				<td><fmt:formatNumber value="${monthStatsTotal.register_cnt_total}" pattern="#,###"/></td>
+				<td><fmt:formatNumber value="${monthStatsTotal.qna_cnt_total}" pattern="#,###"/></td>
+				<td><fmt:formatNumber value="${monthStatsTotal.review_cnt_total}" pattern="#,###"/></td>
 			</tr>
 		</table>
 	</div>

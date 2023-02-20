@@ -21,13 +21,15 @@ public class AdminMainController {
 	@Autowired
 	AdminMainService service;
 	
-	@GetMapping("/main")
+	@GetMapping(value={"/", "/main"})
 	public String main(HttpServletRequest request, HttpServletResponse response) {
 		request.setAttribute("dailySalesToChart", service.readDailySalesToChart());
 		request.setAttribute("dailySales", service.readDailySales());
 		request.setAttribute("dailySalesTotal", service.readDailySalesTotal());
 		request.setAttribute("weeklyStats", service.readWeeklyStats());
 		request.setAttribute("weeklyStatsTotal", service.readWeeklyStatsTotal());
+		request.setAttribute("monthSalesTotal", service.readSalesThisMonthTotal());
+		request.setAttribute("monthStatsTotal", service.readStatsThisMonthTotal());
 		return "/admin/admin_index";
 	}
 	

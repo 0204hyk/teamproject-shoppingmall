@@ -12,8 +12,6 @@ public class WeeklyStatsVO {
 	private Integer review_cnt;
 	
 	// 주간 통합 데이터
-	private Integer daily_sales_total;
-	private Integer sales_cnt_total;
 	private Integer register_cnt_total;
 	private Integer qna_cnt_total;
 	private Integer review_cnt_total;

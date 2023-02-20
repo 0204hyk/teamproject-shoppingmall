@@ -24,7 +24,7 @@ public class AdminMainService_impl implements AdminMainService {
 	
 	@Override
 	public String readDailySalesToChart() {
-		List<DailySalesVO> salesList = dailySalesMapper.getDailySales();
+		List<DailySalesVO> salesList = dailySalesMapper.getSalesThisWeek();
 		ObjectMapper objMapper = new ObjectMapper();
 		
 		try {
@@ -38,7 +38,7 @@ public class AdminMainService_impl implements AdminMainService {
 	
 	@Override
 	public List<DailySalesVO> readDailySales() {
-		return dailySalesMapper.getDailySales();
+		return dailySalesMapper.getSalesThisWeek();
 	}
 
 	@Override
@@ -47,13 +47,23 @@ public class AdminMainService_impl implements AdminMainService {
 	}
 
 	@Override
-	public WeeklyStatsVO readDailySalesTotal() {
-		return weeklyStatsMapper.getDailySalesTotal();
+	public DailySalesVO readDailySalesTotal() {
+		return dailySalesMapper.getSalesThisWeekTotal();
 	}
 
 	@Override
 	public WeeklyStatsVO readWeeklyStatsTotal() {
 		return weeklyStatsMapper.getWeeklyStatsTotal();
+	}
+
+	@Override
+	public DailySalesVO readSalesThisMonthTotal() {
+		return dailySalesMapper.getSalesThisMonthTotal();
+	}
+
+	@Override
+	public WeeklyStatsVO readStatsThisMonthTotal() {
+		return weeklyStatsMapper.getStatsMonthTotal();
 	}
 
 	

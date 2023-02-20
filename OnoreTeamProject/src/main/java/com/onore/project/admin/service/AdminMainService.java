@@ -13,7 +13,8 @@ public interface AdminMainService {
 	String readDailySalesToChart();
 	List<DailySalesVO> readDailySales();
 	List<WeeklyStatsVO> readWeeklyStats();
-	WeeklyStatsVO readDailySalesTotal();
+	DailySalesVO readDailySalesTotal();
 	WeeklyStatsVO readWeeklyStatsTotal();
-	
+	DailySalesVO readSalesThisMonthTotal();
+	WeeklyStatsVO readStatsThisMonthTotal();
 }
