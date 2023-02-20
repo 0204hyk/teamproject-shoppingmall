@@ -27,7 +27,6 @@ import com.onore.project.qna.service.QnaService;
 import lombok.extern.log4j.Log4j2;
 import oracle.jdbc.proxy.annotation.Post;
 
-@Log4j2
 @Controller
 @RequestMapping("/qna")
 public class QnaController {
