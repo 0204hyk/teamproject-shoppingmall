@@ -13,7 +13,7 @@
   
   <insert id="insert" parameterType="com.onore.project.dto.ReviewDTO">
   	INSERT INTO reviews VALUES (
-  		16,
+  		review_num_seq.nextval,
   		9999,
   		'test3',
   		#{review_content},

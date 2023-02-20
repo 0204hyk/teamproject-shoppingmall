@@ -58,7 +58,12 @@ public class ReviewController {
 		return "user/review/review_detail";
 	}
 	
-	
+	@GetMapping("/modify")
+	public String reviewModify(Model model, Integer review_num) {
+		model.addAttribute("contents",review_mapper.get(review_num));
+		
+		return "user/review/review_modify";
+	}
 	
 	
 	
