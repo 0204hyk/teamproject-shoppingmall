@@ -8,13 +8,12 @@
 <title>오노레 Q&A</title>
 <%@include file="./header.jspf"%>
 <link rel="icon" href="/project/resources/qna/images/favicon.png">
-<link rel="stylesheet" href="/project/resources/qna/css/qna.css" />
+
 </head>
 <body>
 	<%@include file="./top.jspf"%>
 
-	<div class="border"
-		style="padding-top: 300px; width: auto; height: 800px;">
+	<div class="border" style="padding-top: 300px; width: auto; height: 800px;">
 		<hr>
 		<div style="padding-top: 100px">
 			<table border="1">
@@ -53,7 +52,6 @@
 		<hr>
 	</div>
 	<a class="btn" href="./qna_write">글쓰기</a>
-	<script type="text/javascript" src="/project/resource/qna/qna_main.js"></script>
 	<%@include file="./bottom.jspf"%>
 </body>
 
