@@ -11,6 +11,10 @@
   	SELECT * FROM reviews WHERE review_num=#{review_num}
   </select>
   
+  <select id="getComment" resultType="com.onore.project.dto.CommentDTO">
+  	SELECT * FROM comments WHERE review_num=#{review_num}
+  </select>
+  
   <insert id="insert" parameterType="com.onore.project.dto.ReviewDTO">
   	INSERT INTO reviews VALUES (
   		review_num_seq.nextval,
@@ -24,4 +28,15 @@
   		null
   	)
   </insert>
+  
+  <update id="modify">
+  	UPDATE reviews SET
+  	 review_content=#{review_content},
+  	 review_rating=#{review_rating}
+  	 WHERE review_num=#{review_num}
+  </update>
+  
+  <delete id="delete">
+  	DELETE FROM reviews WHERE review_num=#{review_num}
+  </delete>
 </mapper>

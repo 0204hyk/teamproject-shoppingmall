@@ -17,7 +17,7 @@
 	<div class="main" style="padding-top: 127px;  width: auto; height: 800px; margin:50px; margin-top: 0px;">
 	<hr>
 		<div class="board" style="padding: 60px;">
-			<table border-bottom="1px">
+			<table>
 				<th id="num">번호</th>
 				<th id="prduct">상품이름</th>
 				<th id="title">제목</th>

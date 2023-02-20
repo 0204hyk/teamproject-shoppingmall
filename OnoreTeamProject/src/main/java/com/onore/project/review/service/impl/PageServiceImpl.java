@@ -18,7 +18,7 @@ public class PageServiceImpl implements PageService {
 	ReviewMapper review_mapper;
 	
 	@Override
-	public String service(HttpServletRequest req) {
+	public void service(HttpServletRequest req) {
 		String pageStr = req.getParameter("page");
 		
 		List<ReviewDTO> reviews = review_mapper.getAll();
@@ -68,8 +68,5 @@ public class PageServiceImpl implements PageService {
 		req.setAttribute("pagination_end", pagination_end);
 		req.setAttribute("next_page", next_page);
 		req.setAttribute("previous_page", previous_page);
-		
-		return "user/review/review_main";
 	}
-
 }

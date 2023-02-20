@@ -9,14 +9,14 @@
 <%@ include file="../header.jspf"%>
 <link rel="icon" href="/project/resources/review/image/파비콘.png">
 <link rel="stylesheet"
-	href="/project/resources/review/css/review_detail.css">
+	href="/project/resources/review/css/review_detail.css?ver=1">
 </head>
 <body>
 
 	<%@ include file="../top.jspf"%>
 
 	<div class="main"
-		style="padding-top: 127px; width: auto; height: 800px; margin: 50px; margin-top: 0px;">
+		style="padding-top: 127px; width: auto; margin: 50px; margin-top: 0px;">
 		<hr>
 		<div class="detail">
 		<div class="container">
@@ -55,9 +55,21 @@
 			<div class="img">${contents.review_ima_3 }</div>
 		</div>
 			<hr>
-			<a href="./modify?review_num=${contents.review_num }">수정하기</a>/ <a
-				href="./delete?review_num=${contents.review_num }">삭제하기</a><br>
+			<a href="./modify?review_num=${contents.review_num }">수정하기</a>/ 
+			<a href="./delete?review_num=${contents.review_num }">삭제하기</a><br>
+			<br>
+			<form action="./comment" method="GET">
+				<textarea id="comment_content">댓글을 남겨보세요</textarea>
+				<input type="submit" value="댓글달기">
+			</form>
+			<hr>
+			<c:forEach items="${comments }" var="comment">
+				<div>${comment.mem_id }/${comment.comment_date }</div>
+				<div>${comment.comment_content }</div>
+			<hr>
+			</c:forEach>
 			<button onclick="location.href='./list'">목록으로</button>
+			
 
 		</div>
 	</div>

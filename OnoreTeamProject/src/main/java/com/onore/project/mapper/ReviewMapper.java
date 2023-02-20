@@ -4,13 +4,20 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Select;
 
+import com.onore.project.dto.CommentDTO;
 import com.onore.project.dto.ReviewDTO;
 
 public interface ReviewMapper {
 	
-	public List<ReviewDTO> getAll();
+	List<ReviewDTO> getAll();
 	
-	public Integer insert(ReviewDTO rev);
+	Integer insert(ReviewDTO rev);
 	
-	public ReviewDTO get(Integer review_num);
+	ReviewDTO get(Integer review_num);
+	
+	List<CommentDTO> getComment(Integer review_num);
+	
+	Integer modify(ReviewDTO rev);
+	
+	Integer delete(Integer review_num); 
 }

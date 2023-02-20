@@ -7,5 +7,5 @@ import com.onore.project.dto.ReviewDTO;
 
 public interface PageService {
 	
-	String service(HttpServletRequest req);
+	void service(HttpServletRequest req);
 }
