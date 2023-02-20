@@ -6,20 +6,20 @@
 <head>
 <meta charset="UTF-8">
 <title>오노레 글쓰기</title>
-<%@include file="./header.jspf"%>
-<link rel="stylesheet" href="/project/resources/qna/css/file.css" />
+<%@include file="../header.jspf"%>
+<link rel="stylesheet" href="/project/resources/qna/css/qna_write.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<%@include file="./top.jspf"%>
+	<%@include file="../top.jspf"%>
 
 
-		<div class="border"
-		style="margin-left: 20px; padding-top: 200px; width: auto; height: 800px; margin: 50px; margin-top: 0px">
-		<form action="./qna_addWrite" method="post" enctype="multipart/form-data" >
+		<div class="main"
+		style="padding-top: 127px;  width: auto; height: 800px; margin:50px; margin-top: 0px;">
+		<form class="mb-3" id="myform" action="./qna_addWrite" method="post" enctype="multipart/form-data" >
 			<select name="qna_category" id="select" onchange="changeSelect(this)">
 				<option value="분류">분류</option>
 				<option value="상품">상품</option>
@@ -35,10 +35,13 @@
 			<div id="inputs">
 				
 			</div>
-			<textarea rows="30" cols="80" name="qna_content">내용을 입력해주세요.</textarea><br>
-			<input type="file" name="file"/>
-			<input type="file" name="file"/>
-			<input type="file" name="file"/>
+			<textarea rows="10" cols="50" name="qna_content">내용을 입력해주세요.</textarea><br>
+			<input type="file" name="file" />
+			<input type="file" name="file" />
+			<input type="file" name="file" />
+			<div id="inputFile">
+			
+			</div>
 			<br> 
 			
 			
@@ -64,6 +67,6 @@
 		}
 	</script>
 
-	<%@include file="./bottom.jspf"%>
+	<%@include file="../bottom.jspf"%>
 </body>
 </html>

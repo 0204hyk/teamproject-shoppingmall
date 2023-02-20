@@ -6,32 +6,35 @@
 <head>
 <meta charset="UTF-8">
 <title>오노레 Q&A</title>
-<%@include file="./header.jspf"%>
+<%@include file="../header.jspf"%>
 <link rel="icon" href="/project/resources/qna/images/favicon.png">
-
 </head>
 <body>
-	<%@include file="./top.jspf"%>
+	<%@include file="../top.jspf"%>
 
-	<div class="border" style="padding-top: 300px; width: auto; height: 800px;">
-		<hr>
-		<div style="padding-top: 100px">
-			<table border="1">
+	<div class="main" style="padding-top: 127px; width: auto; height: 800px; margin: 50px; margin-top: 0px;">
+		<hr />
+		<div class="board" style="padding-top: 127px; width: auto; height: 800px; margin:50px; margin-top: 0px;">
+			<table>
 				<tr>
-					<th class="title">번호</th>
-					<th class="title">분류</th>
-				 	<th class="title"></th>
-					<th class="title">제목</th>
-					<th class="title">글쓴이</th>
-					<th class="title">등록일</th>
-					<th class="title">답변</th>
+					<th id="num" class="title">번호</th>
+					<th id="product" class="title">분류</th>
+				 	<th id="img">상품 사진</th>
+					<th id="title" class="title">제목</th>
+					<th id="writer" class="title">글쓴이</th>
+					<th id="date" class="title">등록일</th>
+					<th id="reply" class="title">답변</th>
 				</tr>
 				<c:forEach items="${qnas }" var="qna">
 					<tr>
 						<td>${qna.qna_num }</td>
 						<td>${qna.qna_category }</td>
+						
+						
 						<td><img style="width: 50px; height: 50px;" src="/project/resources/qna/images/${qna.qna_img_1 }"></td>
-						<td><a href="./view?qna_num=${qna.qna_num}">${qna.qna_title }</a></td>
+						
+						
+						<td><a href="./view?qna_num=${qna.qna_num}">${qna.qna_content }</a></td>
 						<td>${qna.mem_id }</td>
 						<td>${qna.qna_date}</td>
 						<c:choose>
@@ -48,11 +51,22 @@
 					</tr>
 				</c:forEach>
 			</table>
+			<button onclick="location.href='./qna_write'">글쓰기</button>
+			<div class="page">
+				<c:if test="${pagination_start > 5 }">
+					<a href="./main?page=${previous_page }"></a>
+				</c:if>
+				<c:forEach begin="${pagination_start }" end="${pagination_end }" var="i">
+					<a href="./main?page=${i }">${i }</a>
+				</c:forEach>
+				<c:if test="${pagination_end % 5 eq 0 }">
+					<a href="./main?page=${next_page }">></a>
+				</c:if>
+			</div>
 		</div>
-		<hr>
 	</div>
-	<a class="btn" href="./qna_write">글쓰기</a>
-	<%@include file="./bottom.jspf"%>
+	<hr />
+	<%@include file="../bottom.jspf"%>
 </body>
 
 </html>

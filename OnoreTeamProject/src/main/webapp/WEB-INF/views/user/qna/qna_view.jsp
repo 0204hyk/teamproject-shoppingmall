@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<%@include file="./header.jspf"%>
-<link rel="stylesheet" href="/project/resources/qna/css/file.css" />
+<%@include file="../header.jspf"%>
+<link rel="stylesheet" href="/project/resources/qna/css/qna_detail.css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
 <link
@@ -22,37 +22,59 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
 </head>
 <body>
-	<%@include file="./top.jspf"%>
-	<c:choose>
-		<c:when test="${not empty views }">
-			<table>
-			<c:forEach items="${views }" var="view">
+	<%@include file="../top.jspf"%>
+	<table>
+		<c:forEach items="${views }" var="view">
+			제목 : ${view.qna_title } 내용 : ${view.qna_content } 	
+				<c:choose>
 				
-				제목 : ${view.qna_title } 내용 : ${view.qna_content } 	
-				<td>
-				<a href="/project/resources/qna/images/${view.qna_img_1 }" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4"> 
-					<img style="width: 150px; height: 150px;" src="/project/resources/qna/images/${view.qna_img_1 }" class="img-fluid rounded" />
-				</a> 
-				</td>
-				<td>
-				<a href="/project/resources/qna/images/${view.qna_img_2 }" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4"> 
-					<img style="width: 150px; height: 150px;" src="/project/resources/qna/images/${view.qna_img_2 }" class="img-fluid rounded" />
-				</a>
-				</td>
-				<td>
-				<a href="/project/resources/qna/images/${view.qna_img_3 }" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4"> 
-					<img style="width: 150px; height: 150px;" src="/project/resources/qna/images/${view.qna_img_3 }" class="img-fluid rounded" />
-				</a>
-				</td>
+					<c:when test="${not empty view.qna_img_1 and not empty view.qna_img_2 and not empty view.qna_img_3}">
+						<td>
+							<a href="/project/resources/qna/images/${view.qna_img_1 }" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4"> 
+							<img style="width: 150px; height: 150px;" src="/project/resources/qna/images/${view.qna_img_1 }" class="img-fluid rounded" />
+							</a> 
+						</td>
+						<td>
+							<a href="/project/resources/qna/images/${view.qna_img_2 }" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4"> 
+							<img style="width: 150px; height: 150px;" src="/project/resources/qna/images/${view.qna_img_2 }" class="img-fluid rounded" />
+							</a>
+						</td>
+						<td>
+							<a href="/project/resources/qna/images/${view.qna_img_3 }" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4"> 
+							<img style="width: 150px; height: 150px;" src="/project/resources/qna/images/${view.qna_img_3 }" class="img-fluid rounded" />
+							</a>
+						</td>
+					</c:when>
+				
+					<c:when test="${not empty view.qna_img_1 and not empty view.qna_img_2}">
+						<td>
+							<a href="/project/resources/qna/images/${view.qna_img_1 }" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4"> 
+							<img style="width: 150px; height: 150px;" src="/project/resources/qna/images/${view.qna_img_1 }" class="img-fluid rounded" />
+							</a> 
+						</td>			
+						<td>
+							<a href="/project/resources/qna/images/${view.qna_img_2 }" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4"> 
+							<img style="width: 150px; height: 150px;" src="/project/resources/qna/images/${view.qna_img_2 }" class="img-fluid rounded" />
+							</a>
+						</td>
+					</c:when>
+					
+					<c:when test="${not empty view.qna_img_1 }">
+						<td>
+							<a href="/project/resources/qna/images/${view.qna_img_1 }" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4"> 
+							<img style="width: 150px; height: 150px;" src="/project/resources/qna/images/${view.qna_img_1 }" class="img-fluid rounded" />
+							</a> 
+						</td>	
+					</c:when>
+					
+					<c:otherwise>
+						<div>
+							<h4>첨부된 사진이 없습니다.</h4>
+						</div>
+					</c:otherwise>
+				</c:choose>
 			</c:forEach>
-			</table>
-		</c:when>
-	<c:otherwise>
-		<table>
-					<h5>첨부된 사진이 없습니다.</h5>
 		</table>
-	</c:otherwise>
-	</c:choose>
 	<hr />
 	<c:choose>
 		<c:when test="${not empty replys }">
@@ -96,6 +118,6 @@
 		});
 	</script>
 
-	<%@include file="./bottom.jspf"%>
+	<%@include file="../bottom.jspf"%>
 </body>
 </html>
