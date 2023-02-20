@@ -38,14 +38,14 @@ public class QnaController {
 	public String qna(Model model) {
 		qnaService.QnaList(model);
 		
-		return "qna/qna_main";
+		return "user/qna/qna_main";
 	}
 
 
 	@GetMapping("/qna_write")
 	public String create() {
 		
-		return "qna/qna_write_form";
+		return "user/qna/qna_write_form";
 	}
 
 	@PostMapping("/qna_addWrite")
@@ -53,7 +53,7 @@ public class QnaController {
 		qnaService.fileUpload(qna, file);
 		qnaService.QnaWrite(model, qna);
 		
-		return "redirect:/qna/main";
+		return "redirect:user/qna/main";
 
 	}
 	
@@ -61,7 +61,7 @@ public class QnaController {
 	public String clickView(Model model, int qna_num) {
 		qnaService.QnaView(model, qna_num);
 		
-		return "qna/qna_view";
+		return "user/qna/qna_view";
 	}
 	
 	
