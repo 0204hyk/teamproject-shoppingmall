@@ -5,18 +5,71 @@
 <mapper namespace="com.onore.project.mapper.WeeklyStatsMapper">
 	<select id="getWeeklyStats" resultType="com.onore.project.admin.vo.WeeklyStatsVO"> 
 		SELECT
-		    a.dt AS day , 
-		    NVL(SUM(b.daily_sales), 0) AS daily_sales
-		FROM 
+		    a.dt AS day ,
+		    NVL(COUNT(DISTINCT b.mem_id), 0) AS register_cnt,
+		    NVL(COUNT(DISTINCT c.qna_num), 0) AS qna_cnt,
+		    NVL(COUNT(DISTINCT d.review_num), 0) AS review_cnt
+		FROM
 		    (SELECT TO_CHAR(SYSDATE-7 + LEVEL, 'YYYY.MM.DD') AS dt
 		     FROM dual
 		     <![CDATA[CONNECT BY LEVEL <= 7) a,]]>
-		    (SELECT TO_CHAR(order_date, 'YYYY.MM.DD') AS day , SUM(total_price)  AS daily_sales
-		     FROM orders
-		     WHERE order_date BETWEEN TO_CHAR(sysdate-6,'YYYY.MM.DD') AND TO_CHAR(sysdate+1 , 'YYYY.MM.DD')
-		     GROUP BY order_date) b
-		WHERE a.dt = b.day(+)
+		    (SELECT TO_CHAR(mem_register_date, 'YYYY.MM.DD') AS day, mem_id 
+		     FROM members 
+		     WHERE mem_register_date BETWEEN TO_CHAR(sysdate-6,'YYYY.MM.DD') AND TO_CHAR(sysdate+1 , 'YYYY.MM.DD')) b,
+		    (SELECT TO_CHAR(qna_date, 'YYYY.MM.DD') AS day, qna_num 
+		     FROM qna 
+		     WHERE qna_date BETWEEN TO_CHAR(sysdate-6,'YYYY.MM.DD') AND TO_CHAR(sysdate+1 , 'YYYY.MM.DD')) c,
+		    (SELECT TO_CHAR(review_date, 'YYYY.MM.DD') AS day, review_num 
+		     FROM reviews 
+		     WHERE review_date BETWEEN TO_CHAR(sysdate-6,'YYYY.MM.DD') AND TO_CHAR(sysdate+1 , 'YYYY.MM.DD')) d
+		WHERE a.dt = b.day(+) AND a.dt = c.day(+) AND a.dt = d.day(+)
 		GROUP BY a.dt
-		ORDER BY a.dt
+		ORDER BY a.dt DESC
+	</select>
+	<select id="getDailySalesTotal" resultType="com.onore.project.admin.vo.WeeklyStatsVO"> 
+		SELECT 
+		    SUM(daily_sales) AS daily_sales_total,
+		    SUM(daily_sales_cnt) AS sales_cnt_total
+		FROM 
+		    (SELECT
+		     a.dt AS day ,
+		     NVL(SUM(b.total_price), 0) AS daily_sales,
+		     NVL(COUNT(b.total_price), 0) AS daily_sales_cnt
+		    FROM
+		     (SELECT TO_CHAR(SYSDATE-7 + LEVEL, 'YYYY.MM.DD') AS dt
+		      FROM dual
+		      <![CDATA[CONNECT BY LEVEL <= 7) a,]]>
+		     (SELECT TO_CHAR(order_date, 'YYYY.MM.DD') AS day , total_price
+		      FROM orders
+		      WHERE order_date BETWEEN TO_CHAR(sysdate-6,'YYYY.MM.DD') AND TO_CHAR(sysdate+1 , 'YYYY.MM.DD')) b
+		    WHERE a.dt = b.day(+)
+		    GROUP BY a.dt)
+	</select>
+	<select id="getWeeklyStatsTotal" resultType="com.onore.project.admin.vo.WeeklyStatsVO"> 
+		SELECT 
+		SUM(register_cnt) AS register_cnt_total,
+		SUM(qna_cnt) AS qna_cnt_total, 
+		SUM(review_cnt) AS review_cnt_total
+		FROM
+		    (SELECT
+		     a.dt AS day ,
+		     NVL(COUNT(DISTINCT b.mem_id), 0) AS register_cnt,
+		     NVL(COUNT(DISTINCT c.qna_num), 0) AS qna_cnt,
+		     NVL(COUNT(DISTINCT d.review_num), 0) AS review_cnt
+		    FROM
+		     (SELECT TO_CHAR(SYSDATE-7 + LEVEL, 'YYYY.MM.DD') AS dt
+		     FROM dual
+		      <![CDATA[CONNECT BY LEVEL <= 7) a,]]>
+		     (SELECT TO_CHAR(mem_register_date, 'YYYY.MM.DD') AS day, mem_id 
+		      FROM members 
+		      WHERE mem_register_date BETWEEN TO_CHAR(sysdate-6,'YYYY.MM.DD') AND TO_CHAR(sysdate+1 , 'YYYY.MM.DD')) b,
+		     (SELECT TO_CHAR(qna_date, 'YYYY.MM.DD') AS day, qna_num
+		      FROM qna 
+		      WHERE qna_date BETWEEN TO_CHAR(sysdate-6,'YYYY.MM.DD') AND TO_CHAR(sysdate+1 , 'YYYY.MM.DD')) c,
+		     (SELECT TO_CHAR(review_date, 'YYYY.MM.DD') AS day, review_num 
+		      FROM reviews 
+		      WHERE review_date BETWEEN TO_CHAR(sysdate-6,'YYYY.MM.DD') AND TO_CHAR(sysdate+1 , 'YYYY.MM.DD')) d
+		    WHERE a.dt = b.day(+) AND a.dt = c.day(+) AND a.dt = d.day(+)
+		    GROUP BY a.dt)
 	</select>
 </mapper>

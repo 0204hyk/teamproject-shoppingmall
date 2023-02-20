@@ -4,11 +4,16 @@ import java.util.List;
 
 import org.json.simple.JSONObject;
 
+import com.onore.project.admin.vo.DailySalesVO;
 import com.onore.project.admin.vo.WeeklyStatsVO;
 import com.onore.project.dto.OrdersDTO;
 
 public interface AdminMainService {
 	
-	String readDailySales();
+	String readDailySalesToChart();
+	List<DailySalesVO> readDailySales();
 	List<WeeklyStatsVO> readWeeklyStats();
+	WeeklyStatsVO readDailySalesTotal();
+	WeeklyStatsVO readWeeklyStatsTotal();
+	
 }

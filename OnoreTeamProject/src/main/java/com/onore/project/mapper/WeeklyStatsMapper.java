@@ -7,4 +7,6 @@ import com.onore.project.admin.vo.WeeklyStatsVO;
 public interface WeeklyStatsMapper {
 	
 	List<WeeklyStatsVO> getWeeklyStats();
+	WeeklyStatsVO getDailySalesTotal();
+	WeeklyStatsVO getWeeklyStatsTotal();
 }

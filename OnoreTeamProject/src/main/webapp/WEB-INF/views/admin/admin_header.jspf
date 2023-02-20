@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+	
 	<header class="navbar navbar-white sticky-top bg-light flex-md-nowrap p-0 shadow">
-		<img class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 logo-img" src="/project/resources/admin/image/logo.png" alt="logo.png" />
+		<a href="<%=request.getContextPath()%>/admin/main"><img class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 logo-img" src="/project/resources/admin/image/logo.png" alt="logo.png" /></a>
 		<div class="navbar-nav navbar-infomsg">
 			<p><i class="fa-solid fa-user profile-img"></i>onore님 &nbsp환영합니다.</p>
 		</div>
@@ -28,9 +28,10 @@
 			       </button>
 			       <div class="collapse" id="sales-collapse">
 			         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-			           <li><a href="#" class="link-secondary d-inline-flex text-decoration-none rounded">일별 통계</a></li>
-			           <li><a href="#" class="link-secondary d-inline-flex text-decoration-none rounded">월별 통계</a></li>
-			           <li><a href="#" class="link-secondary d-inline-flex text-decoration-none rounded">연별 통계</a></li>
+			           <li><a href="<%=request.getContextPath()%>/admin/stats/category" class="link-secondary d-inline-flex text-decoration-none rounded">카테고리별 통계</a></li>
+			           <li><a href="<%=request.getContextPath()%>/admin/stats/daily" class="link-secondary d-inline-flex text-decoration-none rounded">일별 통계</a></li>
+			           <li><a href="<%=request.getContextPath()%>/admin/stats/monthly" class="link-secondary d-inline-flex text-decoration-none rounded">월별 통계</a></li>
+			           <li><a href="<%=request.getContextPath()%>/admin/stats/annual" class="link-secondary d-inline-flex text-decoration-none rounded">연별 통계</a></li>
 			         </ul>
 			       </div>
 			     </li>
@@ -101,5 +102,5 @@
 			     </li>			     
 			   </ul>
 			</nav>
-			<div class="col" style="padding: 50px; padding-left: 380px; display: flex; flex-wrap: wrap;">
+			<div id="contents-div" class="col" style="padding: 50px; padding-left: 380px; display: flex; flex-wrap: wrap;">
 	
