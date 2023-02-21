@@ -85,28 +85,84 @@ body {
   overflow-y: auto;
 }
 
+#contents-div > div {
+  background-color: white;
+}
+
 /* 메인 화면 */
-.index-content {
-  border: solid 1px black;
+#index-content {
+  background-color: white;
+  border-radius: 10px;
   width: 650px;
   height: 650px;
   margin: 30px;
+  padding: 5px;
 }
 
 .main-inner-content {
   height: 580px;
 }
 
-.main-content-title {
-  height: 50px;
+.content-title h1 {
+  color: rgb(93, 93, 93);
+  font-weight: 700;
+  font-size: 24px;
+  width: 180px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+}
+
+.stats-table {
+  text-align: center;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  border-collapse: separate;
+}
+
+tr, td {
+  border-bottom: solid 1px rgb(186, 186, 186);
+}
+
+th {
+  font-size: 20px;
+  background-color: rgb(241, 241, 241);
+  border-collapse: separate;
+  border-radius: 10px;
+}
+
+td {
+  font-size: 18px;
+}
+
+tr:hover {
+  background-color: rgb(235, 235, 235);  
+}
+
+.table-col-1 {
+  width: 131px;
+}
+
+.table-col-2, .table-col-4, .table-col-5, .table-col-6 {
+  width: 61px;
+}
+
+.table-col-3 {
+  width: 231px;
 }
 
 /* 매출 통계 */
 .stats-content {
-  border: solid 1px black;
+  background-color: white;
+  border-radius: 10px;
   width: 1430px;
-  height: 500px
+  height: 500px;
+  margin: 5px;
+  padding: 5px;
 }
+
+
+
 
 .stats-inner-content {
   height: 430px;

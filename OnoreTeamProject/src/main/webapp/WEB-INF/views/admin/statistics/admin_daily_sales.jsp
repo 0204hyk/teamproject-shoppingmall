@@ -12,13 +12,13 @@
 <body>
 	<%@ include file="../admin_header.jspf" %>
 	
-		<div class="stats-content">
+		<div class="stats-content shadow">
 			<div class="stats-inner-content">
-				<div class="stats-title">주간 매출 그래프</div>
+				<div class="content-title">일별 매출 그래프</div>
 				<canvas id="daily-chart"></canvas>
 			</div>
 		</div>
-		<div class="stats-content" style="height: auto;">
+		<div class="stats-content shadow" style="height: auto;">
 			<table border=1>
 				<tr>
 					<th>일자</th>
@@ -35,7 +35,7 @@
 			</table>
 			<table>
 				<tr>
-					<td>${dailySalesTotal.month}</td>
+					<th>${dailySalesTotal.month}</td>
 					<td><fmt:formatNumber value="${dailySalesTotal.sales_cnt_total}" pattern="#,###"/></td>
 					<td><fmt:formatNumber value="${dailySalesTotal.daily_sales_total}" pattern="#,###"/> 원</td>
 

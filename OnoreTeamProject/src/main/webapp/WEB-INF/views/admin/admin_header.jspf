@@ -15,7 +15,7 @@
 	
 	<div class="container-fluid">
 		<div class="row row-cols-7">
-			<nav class="col-1 flex-shrink-0 p-3 bg-light" style="width: 280px; height: 100vh; overflow-y: auto; position: fixed;">
+			<nav class="col-1 flex-shrink-0 p-3 bg-light shadow" style="width: 280px; height: 100vh; overflow-y: auto; position: fixed;">
 			   <ul class="list-unstyled ps-0">
 			   	 <li class="mb-1"> 
 			   	 	<a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
@@ -102,5 +102,4 @@
 			     </li>			     
 			   </ul>
 			</nav>
-			<div id="contents-div" class="col" style="padding: 50px; padding-left: 380px; display: flex; flex-wrap: wrap;">
-	
+			<div id="contents-div" class="col" style="padding: 30px; padding-left: 380px; display: flex; flex-wrap: wrap; background-color: rgb(250, 250, 250);">
