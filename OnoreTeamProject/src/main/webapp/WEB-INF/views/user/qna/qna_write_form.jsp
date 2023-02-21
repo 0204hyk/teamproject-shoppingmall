@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>오노레 글쓰기</title>
 <%@include file="../header.jspf"%>
-<link rel="stylesheet" href="/project/resources/qna/css/qna_write.css" />
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script
@@ -39,9 +39,11 @@
 			<div id="inputs"></div>
 			<textarea rows="10" cols="50" name="qna_content">내용을 입력해주세요.</textarea>
 			<br> 
-			<input type="file" name="file" accept="image/*" onchange="addFile(this);"  />
+			<input type="file" name="file" accept="image/*" onchange="addFile(this);" />
 			
-			<div id="file-list"></div>
+			<div id="file-list">
+			
+			</div>
 			<br> <input type="submit" value="등록하기">
 		</form>
 		<br> <a href="./main">목록으로</a>
@@ -49,20 +51,20 @@
 	<script>
 	/* 첨부파일 추가 */
 	function addFile(obj){
-	
-	
-		const str = obj.value;
 	    const input = document.getElementById('file-list');
-	    
-	    
-	    for (var i = 1; i < 3; ++i ) {
-	    	if (str) {
+	   	
+	    for (var i = 0; i <= 2; i++) {
+	    	if (i == 0) {
+	    		input.innerHTML = `<input type='file' name='file' />`;
+	    	} else if (i == 1) {
 	    		input.innerHTML += `<input type='file' name='file' />`;
-	    	} else {
+	    	} else if (i == 2) {
 	    		alert('첨부파일은 최대 3개까지 가능합니다.');
 	    	}
 	    }
-	}	
+	}
+		
+	//input.innerHTML = `<input type='file' name='file' />`;
 	</script>
 	<!-- 
 	<script src="/project/resources/qna/js/qna_write.js"></script>

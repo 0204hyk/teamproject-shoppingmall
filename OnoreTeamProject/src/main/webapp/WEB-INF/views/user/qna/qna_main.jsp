@@ -65,7 +65,7 @@
 			</div>
 		</div>
 	</div>
-	<hr />
+	
 	<%@include file="../bottom.jspf"%>
 </body>
 
