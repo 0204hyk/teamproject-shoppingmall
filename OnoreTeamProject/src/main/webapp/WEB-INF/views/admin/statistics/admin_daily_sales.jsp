@@ -32,7 +32,6 @@
 						<td><fmt:formatNumber value="${daySaleData.daily_sales}" pattern="#,###"/> 원</td>
 					</tr>
 				</c:forEach>
-				<fmt:formatNumber value="${daySaleData.daily_sales}" pattern="#,###"/>
 			</table>
 			<table>
 				<tr>

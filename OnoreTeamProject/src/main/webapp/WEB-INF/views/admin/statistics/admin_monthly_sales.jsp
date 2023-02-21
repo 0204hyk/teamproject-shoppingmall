@@ -15,7 +15,7 @@
 		<div class="stats-content">
 			<div class="stats-inner-content">
 				<div class="stats-title">주간 매출 그래프</div>
-				<canvas id="daily-chart"></canvas>
+				<canvas id="monthly-chart"></canvas>
 			</div>
 		</div>
 		<div class="stats-content" style="height: auto;">
@@ -25,20 +25,19 @@
 					<th>주문 건수</th>
 					<th>매출액</th>
 				</tr>
-				<c:forEach items="${dailySales}" var="daySaleData">
+				<c:forEach items="${monthlySales}" var="monthSaleData">
 					<tr>
-						<td>${daySaleData.day}</td>
-						<td><fmt:formatNumber value="${daySaleData.daily_sales_cnt}" pattern="#,###"/></td>
-						<td><fmt:formatNumber value="${daySaleData.daily_sales}" pattern="#,###"/> 원</td>
+						<td>${monthSaleData.month}</td>
+						<td><fmt:formatNumber value="${monthSaleData.monthly_sales_cnt}" pattern="#,###"/></td>
+						<td><fmt:formatNumber value="${monthSaleData.monthly_sales}" pattern="#,###"/> 원</td>
 					</tr>
 				</c:forEach>
-				<fmt:formatNumber value="${daySaleData.daily_sales}" pattern="#,###"/>
 			</table>
 			<table>
 				<tr>
-					<td>${dailySalesTotal.month}</td>
-					<td><fmt:formatNumber value="${dailySalesTotal.sales_cnt_total}" pattern="#,###"/></td>
-					<td><fmt:formatNumber value="${dailySalesTotal.daily_sales_total}" pattern="#,###"/> 원</td>
+					<td>${monthlySalesTotal.year}</td>
+					<td><fmt:formatNumber value="${monthlySalesTotal.monthly_sales_cnt_total}" pattern="#,###"/></td>
+					<td><fmt:formatNumber value="${monthlySalesTotal.monthly_sales_total}" pattern="#,###"/> 원</td>
 
 				</tr>
 			</table>
@@ -47,23 +46,25 @@
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	
 		<script>
-			var jsonData = ${dailySalesToChart};
+			var jsonData = ${monthlySalesToChart};
 			var jsonObject = JSON.stringify(jsonData);
 			var jData = JSON.parse(jsonObject);
 	
 			var labelList = new Array();
 			var dataList = new Array();
 	
-			for (var i = jData.length - 1; i >= 0; --i) {
+			for (var i = 0; i < jData.length; ++i) {
 				var d = jData[i];
-				labelList.push(d.day);
-				dataList.push(d.daily_sales);
+				if (d.monthly_sales != 0) {
+				labelList.push(d.month);
+				dataList.push(d.monthly_sales);					
+				}
 			}
 	
-			const ctx = document.getElementById('daily-chart');
+			const ctx = document.getElementById('monthly-chart');
 	
 			new Chart(ctx, {
-			  type: 'line',
+			  type: 'bar',
 			  data: {
 				labels: labelList,
 				datasets: [{

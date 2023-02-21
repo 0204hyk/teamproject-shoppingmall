@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.onore.project.mapper.MonthlySalesMapper">
+	<select id="getMonthlySales" resultType="com.onore.project.admin.vo.MonthlySalesVO"> 
+		SELECT
+		    a.dt AS month ,
+		    NVL(SUM(b.total_price), 0) AS monthly_sales,
+		    NVL(COUNT(b.total_price), 0) AS monthly_sales_cnt
+		FROM
+		    (SELECT TO_CHAR(SYSDATE, 'YYYY') || '-' || LPAD(LEVEL,2,'0') AS dt 
+		     FROM dual 
+		     <![CDATA[CONNECT BY LEVEL <= 12) a,]]>
+		    (SELECT TO_CHAR(order_date, 'YYYY-MM') AS month , total_price
+		     FROM orders
+		     WHERE order_date BETWEEN TO_CHAR(TRUNC(SYSDATE,'YY')) AND TO_CHAR(SYSDATE, 'YYYY') || '-12-31') b
+		WHERE a.dt = b.month(+)
+		GROUP BY a.dt
+		ORDER BY a.dt
+	</select>
+	<select id="getMonthlySalesTotal" resultType="com.onore.project.admin.vo.MonthlySalesVO">
+		SELECT
+		    TO_CHAR(sysdate, 'YYYY') AS year,
+		    SUM(monthly_sales) AS monthly_sales_total,
+		    SUM(monthly_sales_cnt) AS monthly_sales_cnt_total
+		FROM 
+		    (SELECT
+		     a.dt AS month ,
+		     NVL(SUM(b.total_price), 0) AS monthly_sales,
+		     NVL(COUNT(b.total_price), 0) AS monthly_sales_cnt
+		     FROM
+		     (SELECT TO_CHAR(SYSDATE, 'YYYY') || '-' || LPAD(LEVEL,2,'0') AS dt 
+		     FROM dual 
+		     <![CDATA[CONNECT BY LEVEL <= 12) a,]]>
+		     (SELECT TO_CHAR(order_date, 'YYYY-MM') AS month , total_price
+		     FROM orders
+		     WHERE order_date BETWEEN TO_CHAR(TRUNC(SYSDATE,'YY')) AND TO_CHAR(SYSDATE, 'YYYY') || '-12-31') b
+		    WHERE a.dt = b.month(+)
+		    GROUP BY a.dt)
+	</select>
+</mapper>

@@ -34,7 +34,10 @@ public class AdminStatsController {
 	}
 	
 	@GetMapping("/monthly")
-	public String monthlyStats() {
+	public String monthlyStats(HttpServletRequest request, HttpServletResponse response) {
+		request.setAttribute("monthlySalesToChart", service.readMonthlySalesToChart());
+		request.setAttribute("monthlySales", service.readMonthlySales());
+		request.setAttribute("monthlySalesTotal", service.readMonthlySalesTotal());
 		return "/admin/statistics/admin_monthly_sales";
 	}
 	
