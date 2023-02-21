@@ -1,51 +1,59 @@
-const fileInput1 = document.getElementById("fileUpload1");
-const fileInput2 = document.getElementById("fileUpload2");
-const fileInput3 = document.getElementById("fileUpload3");
- 
- /* 이미지1을 위한 코드추가 */
- const handleFiles1 = (e) => {
- 	const selectedFile = [...fileInput1.files];
- 	const fileReader = new FileReader();
- 
-  fileReader.readAsDataURL(selectedFile[0]);
+	var fileNo = 0;
+	var filesArr = new Array();
 
-  fileReader.onload = function () {
-    document.getElementById("previewImg1").src = fileReader.result;
-  };
-};
+	/* 첨부파일 추가 */
+	function addFile(obj){
+	    var maxFileCnt = 3;   // 첨부파일 최대 개수
+	    var attFileCnt = document.querySelectorAll('.filebox').length;    // 기존 추가된 첨부파일 개수
+	    var remainFileCnt = maxFileCnt - attFileCnt;    // 추가로 첨부가능한 개수
+	    var curFileCnt = obj.files.length;  // 현재 선택된 첨부파일 개수
 
-fileInput1.addEventListener("change", handleFiles1); 
+	    // 첨부파일 개수 확인
+	    if (curFileCnt > remainFileCnt) {
+	        alert("첨부파일은 최대 " + maxFileCnt + "개 까지 첨부 가능합니다.");
+	    } else {
+	        for (const file of obj.files) {
+	            // 첨부파일 검증
+	            if (validation(file)) {
+	                // 파일 배열에 담기
+	                var reader = new FileReader();
+	                reader.onload = function () {
+	                    filesArr.push(file);
+	                };
+	                reader.readAsDataURL(file);
 
- 
- /* 이미지2를 위한 코드추가 */
- const handleFiles2 = (e) => {
- 	const selectedFile = [...fileInput2.files];
- 	const fileReader = new FileReader();
- 
-  fileReader.readAsDataURL(selectedFile[0]);
+	                // 목록 추가
+	                let htmlData = '';
+	                htmlData += '<div id="file' + fileNo + '" class="filebox">';
+	                htmlData += '   <p class="name">' + file.name + '</p>';
+	                htmlData += '   <a class="delete" onclick="deleteFile(' + fileNo + ');"><i class="far fa-minus-square"></i></a>';
+	                htmlData += '</div>';
+	                $('.file-list').append(htmlData);
+	                fileNo++;
+	            } else {
+	                continue;
+	            }
+	        }
+	    }
+	    // 초기화
+	    document.querySelector("input[type=file]").value = "";
+	}
+	/* 첨부파일 삭제 */
+	function deleteFile(num) {
+	    document.querySelector("#file" + num).remove();
+	    filesArr[num].is_delete = true;
+	}
 
-  fileReader.onload = function () {
-    document.getElementById("previewImg2").src = fileReader.result;
-  };
-};
+	function changeSelect(e) {
 
-fileInput2.addEventListener("change", handleFiles2); 
+		const input = document.getElementById('inputs');
+		const value = e.value;
 
- 
- /* 이미지3를 위한 코드추가 */
- const handleFiles3 = (e) => {
- 	const selectedFile = [...fileInput3.files];
- 	const fileReader = new FileReader();
- 
-  fileReader.readAsDataURL(selectedFile[0]);
+		if (value === '상품') {
+			input.innerHTML += `<input type='text' name='category' />`;
+			input.innerHTML += `<button name='search'>상품검색</button>`;
+		} else {
+			input.innerHTML = '';
+		}
 
-  fileReader.onload = function () {
-    document.getElementById("previewImg3").src = fileReader.result;
-  };
-};
-
-fileInput3.addEventListener("change", handleFiles3); 
-
-function getrating(event) {
-    console.log(event.target.value);
-  }
+	}
