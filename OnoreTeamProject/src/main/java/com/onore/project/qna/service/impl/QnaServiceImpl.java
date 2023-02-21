@@ -22,7 +22,9 @@ public class QnaServiceImpl implements QnaService {
 
 	@Autowired
 	QnaMapper qna_mapper;
+	
 
+	
 	@Override
 	public void QnaList(Model model) {
 		model.addAttribute("qnas", qna_mapper.getAll());
@@ -45,6 +47,8 @@ public class QnaServiceImpl implements QnaService {
 		//String imgPath = "C:\\Users\\K\\git\\teamproject-shoppingmall\\OnoreTeamProject\\src\\main\\webapp\\resources\\qna\\images\\";
 		String imgPath = "/Users/kang/git/teamproject-shoppingmall/OnoreTeamProject/src/main/webapp/resources/qna/images/"; // 노트북
 		UUID uuid = UUID.randomUUID();
+
+		
 		String fileName1 = uuid + "_" + file.get(0).getOriginalFilename();
 		String fileName2 = uuid + "_" + file.get(1).getOriginalFilename();
 		String fileName3 = uuid + "_" + file.get(2).getOriginalFilename();
@@ -57,21 +61,18 @@ public class QnaServiceImpl implements QnaService {
 			file.get(0).transferTo(saveFile1);
 			qna.setQna_img_1(fileName1);
 			qna.setQna_img_path(imgPath);
-
 		} 
 		
 		if (!file.get(1).isEmpty()) {
 			file.get(1).transferTo(saveFile2);
 			qna.setQna_img_2(fileName2);
 			qna.setQna_img_path(imgPath);
-
 		}
 		
 		if (!file.get(2).isEmpty()) {
 			file.get(2).transferTo(saveFile3);
 			qna.setQna_img_3(fileName3);
 			qna.setQna_img_path(imgPath);
-			
 		}
 		
 	}
