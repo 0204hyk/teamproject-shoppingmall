@@ -44,36 +44,55 @@ public class QnaServiceImpl implements QnaService {
 
 	@Override
 	public void fileUpload(Qna qna, List<MultipartFile> file) throws IllegalStateException, IOException {
-		//String imgPath = "C:\\Users\\K\\git\\teamproject-shoppingmall\\OnoreTeamProject\\src\\main\\webapp\\resources\\qna\\images\\";
-		String imgPath = "/Users/kang/git/teamproject-shoppingmall/OnoreTeamProject/src/main/webapp/resources/qna/images/"; // 노트북
+		String imgPath = "C:\\Users\\K\\git\\teamproject-shoppingmall\\OnoreTeamProject\\src\\main\\webapp\\resources\\qna\\images\\";
+		//String imgPath = "/Users/kang/git/teamproject-shoppingmall/OnoreTeamProject/src/main/webapp/resources/qna/images/"; // 노트북
 		UUID uuid = UUID.randomUUID();
+		String[] fileName = new String[3];
+		
+		for (int i = 0; i < file.size(); i++) {
+			fileName[i] = uuid + "_" + file.get(i).getOriginalFilename();
+			File saveFile = new File(imgPath, fileName[i]);
+			
+			if (i == 0 && !file.get(i).isEmpty()) {
+				file.get(i).transferTo(saveFile);
+				qna.setQna_img_1(fileName[i]);
+				qna.setQna_img_path(imgPath);
+			} else if (i == 1 && !file.get(i).isEmpty()) {
+				file.get(i).transferTo(saveFile);
+				qna.setQna_img_2(fileName[i]);
+				qna.setQna_img_path(imgPath);
+			} else if (i == 2 && !file.get(i).isEmpty()) {
+				file.get(i).transferTo(saveFile);
+				qna.setQna_img_3(fileName[i]);
+				qna.setQna_img_path(imgPath);
+			}
 
-		
-		String fileName1 = uuid + "_" + file.get(0).getOriginalFilename();
-		String fileName2 = uuid + "_" + file.get(1).getOriginalFilename();
-		String fileName3 = uuid + "_" + file.get(2).getOriginalFilename();
-		
-		File saveFile1 = new File(imgPath, fileName1);
-		File saveFile2 = new File(imgPath, fileName2);
-		File saveFile3 = new File(imgPath, fileName3);
-
-		if (!file.get(0).isEmpty()) {
-			file.get(0).transferTo(saveFile1);
-			qna.setQna_img_1(fileName1);
-			qna.setQna_img_path(imgPath);
-		} 
-		
-		if (!file.get(1).isEmpty()) {
-			file.get(1).transferTo(saveFile2);
-			qna.setQna_img_2(fileName2);
-			qna.setQna_img_path(imgPath);
 		}
-		
-		if (!file.get(2).isEmpty()) {
-			file.get(2).transferTo(saveFile3);
-			qna.setQna_img_3(fileName3);
-			qna.setQna_img_path(imgPath);
-		}
+//		String fileName1 = uuid + "_" + file.get(0).getOriginalFilename();
+//		String fileName2 = uuid + "_" + file.get(1).getOriginalFilename();
+//		String fileName3 = uuid + "_" + file.get(2).getOriginalFilename();
+//		
+//		File saveFile1 = new File(imgPath, fileName1);
+//		File saveFile2 = new File(imgPath, fileName2);
+//		File saveFile3 = new File(imgPath, fileName3);
+//
+//		if (!file.get(0).isEmpty()) {
+//			file.get(0).transferTo(saveFile1);
+//			qna.setQna_img_1(fileName1);
+//			qna.setQna_img_path(imgPath);
+//		} 
+//		
+//		if (!file.get(1).isEmpty()) {
+//			file.get(1).transferTo(saveFile2);
+//			qna.setQna_img_2(fileName2);
+//			qna.setQna_img_path(imgPath);
+//		}
+//		
+//		if (!file.get(2).isEmpty()) {
+//			file.get(2).transferTo(saveFile3);
+//			qna.setQna_img_3(fileName3);
+//			qna.setQna_img_path(imgPath);
+//		}
 		
 	}
 
