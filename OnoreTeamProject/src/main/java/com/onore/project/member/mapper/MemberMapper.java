@@ -1,19 +1,18 @@
 package com.onore.project.member.mapper;
 
 import java.util.List;
-
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-
-import com.onore.project.member.dto.Member;
+import com.onore.project.member.dto.MemberDTO;
 
 public interface MemberMapper {
 	
-	List<Member> getAll();
+	public List<MemberDTO> getAll();
 	
-	Integer memJoin(Member memberdto);
-	
-	// Object get(String mem_id);
-	
+	// 회원가입
+	Integer member_join(MemberDTO memberdto) throws Exception;
+
+	/*
+	// 로그인 실패한 부분
+	MemberDTO mem_login_service(String mem_id) throws Exception;
+	*/
 	
 }

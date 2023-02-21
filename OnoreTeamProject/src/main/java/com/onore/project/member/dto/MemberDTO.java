@@ -3,16 +3,18 @@ package com.onore.project.member.dto;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
-@NoArgsConstructor
-@RequiredArgsConstructor //-- 13 --
-@AllArgsConstructor
-public class Member {
+@Component("memberDTO")
+public class MemberDTO {
 	private String mem_id;
 	private String mem_pw;
 	private String mem_email;
@@ -22,10 +24,17 @@ public class Member {
 	private String mem_street_address; 
 	private String mem_detail_address; 
 	private String mem_gender;
-	private Date mem_birth_date;
+	private String mem_birth_date;
 	private Date mem_register_date;
 	private Integer mem_point;
-	private Integer mem_sms;
+	private Integer mem_status;
+	private String mem_law1_check;
+	private String mem_law2_check;
+	private String mem_law3_check;
+	private String mem_law4_check;
+	private String mem_law5_check;
+	private String mem_sms_check;
+	private String mem_email_check;
 	
 	public String getMem_id() {
 		return mem_id;
@@ -81,10 +90,10 @@ public class Member {
 	public void setMem_gender(String mem_gender) {
 		this.mem_gender = mem_gender;
 	}
-	public Date getMem_birth_date() {
+	public String getMem_birth_date() {
 		return mem_birth_date;
 	}
-	public void setMem_birth_date(Date mem_birth_date) {
+	public void setMem_birth_date(String mem_birth_date) {
 		this.mem_birth_date = mem_birth_date;
 	}
 	public Date getMem_register_date() {
@@ -99,10 +108,54 @@ public class Member {
 	public void setMem_point(Integer mem_point) {
 		this.mem_point = mem_point;
 	}
-	public Integer getMem_sms() {
-		return mem_sms;
+	public Integer getMem_status() {
+		return mem_status;
 	}
-	public void setMem_sms(Integer mem_sms) {
-		this.mem_sms = mem_sms;
+	public void setMem_status(Integer mem_status) {
+		this.mem_status = mem_status;
 	}
+	public String getMem_law1_check() {
+		return mem_law1_check;
+	}
+	public void setMem_law1_check(String mem_law1_check) {
+		this.mem_law1_check = mem_law1_check;
+	}
+	public String getMem_law2_check() {
+		return mem_law2_check;
+	}
+	public void setMem_law2_check(String mem_law2_check) {
+		this.mem_law2_check = mem_law2_check;
+	}
+	public String getMem_law3_check() {
+		return mem_law3_check;
+	}
+	public void setMem_law3_check(String mem_law3_check) {
+		this.mem_law3_check = mem_law3_check;
+	}
+	public String getMem_law4_check() {
+		return mem_law4_check;
+	}
+	public void setMem_law4_check(String mem_law4_check) {
+		this.mem_law4_check = mem_law4_check;
+	}
+	public String getMem_law5_check() {
+		return mem_law5_check;
+	}
+	public void setMem_law5_check(String mem_law5_check) {
+		this.mem_law5_check = mem_law5_check;
+	}
+
+	public String getMem_sms_check() {
+		return mem_sms_check;
+	}
+	public void setMem_sms_check(String mem_sms_check) {
+		this.mem_sms_check = mem_sms_check;
+	}
+	public String getMem_email_check() {
+		return mem_email_check;
+	}
+	public void setMem_email_check(String mem_email_check) {
+		this.mem_email_check = mem_email_check;
+	}
+	
 }

@@ -13,7 +13,7 @@
 
 <%@include file="../member/member_top.jspf" %>
     
-<div class="join_form_div">
+<div class="middle_mypage_div">
     <form id="join_form" action="/addMember" method="POST" name="join_form" >
 	    <div class="joindiv" style="">
 		    <div class="title_join"><h2>내 정보</h2></div>

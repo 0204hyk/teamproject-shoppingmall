@@ -16,13 +16,8 @@
 <!-- CSS -->
 <script src="https://kit.fontawesome.com/43273b5a4f.js" crossorigin="anonymous"></script>
 <link href="/project/resources/menu/css/menubar.css?ver=1" rel="stylesheet"/>
-<link href="/project/resources/menu/css/login.css?ver=1" rel="stylesheet"/>
-<link href="/project/resources/menu/css/join.css?ver=1" rel="stylesheet"/>
-
-
-<!-- JS -->
-<link href="/project/resources/menu/js/menubar.js" rel="stylesheet"/>
-
+<link href="/project/resources/menu/css/login_search.css?ver=1" rel="stylesheet"/>
+<link href="/project/resources/menu/css/join_success.css?ver=1" rel="stylesheet"/>
 
 
 

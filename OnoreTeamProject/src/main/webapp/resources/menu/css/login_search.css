@@ -1,0 +1,184 @@
+.middle_login_div {
+	height: 600px;
+	padding-top: 200px;
+	background-color: white;
+}
+.middle_idpw_search_div {
+	height: 500px;
+	padding-top: 200px;
+	background-color: white;
+}
+
+.login_div {
+	height: 400px;
+	background-color: white;
+	text-align: center;	
+	
+}
+
+.login_div > div,
+.login_article {
+	margin: auto;
+	width: 400px;
+	text-align: left;
+}
+
+.idpw_search_div {
+	margin: auto;
+	width: 400px;
+	height: 400px;
+	text-align: left;
+}
+
+
+.login_title_div,
+.idpw_search_title_div {
+	padding-bottom: 50px;
+}
+
+.login_title_div > a,
+.idpw_search_title_div {
+	font-size: 25px;
+	font-weight: bold;
+	font-family: 'Do Hyeon', sans-serif;
+	color: black;
+}
+
+.check_idpw_div {
+	padding-bottom: 30px;
+}
+
+.check_idpw_div > div {
+	display: inline;
+}
+.check_idpw_div > div > a {
+	font-size: 15px;
+	font-family: 'Do Hyeon', sans-serif;
+	color: black;
+}
+
+.title_idpw_div,
+#search_id_div,
+#search_pw_div {
+	padding-bottom: 10px;
+}
+
+.login_idpw_div > a,
+#search_id_div > div > a,
+#search_pw_div > div > a {
+	font-size: 20px;
+	font-family: 'Do Hyeon', sans-serif;
+	color: darkgray;
+}
+
+.input_id_div,
+.input_pw_div,
+.search_input_name_div,
+.search_input_email_div,
+.search_input_id_div{
+	padding-bottom: 20px;
+}
+
+.input_id_div > #input_id,
+.input_pw_div > #input_pw,
+.search_input_name_div > #input_mem_name,
+.search_input_email_div > #input_mem_email,
+.search_input_id_div > #input_mem_id
+ {
+	width: 100%;
+	height: 30px;
+}
+
+.member_search_div {
+	height: 30px;
+	width: 100%;
+}
+
+.remember_id_div,
+.member_idpw_search_div{
+	float: left;
+	width: 49%;
+}
+
+.member_search_div > div > a
+ {
+	color: darkgray;
+	font-size: 12px;
+}
+
+.member_idpw_search_div {
+	text-align: right;
+}
+
+
+.login_Btn_div,
+.email_send_div {
+	text-align: center;
+	padding-top: 20px;
+}
+
+.join_Btn_div {
+	text-align: center;
+}
+
+.loginBtn,
+.email_send_Btn {
+	width:200px;
+	height: 50px;
+	font-weight: bold;
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 20px;
+	background-color: black;
+	color: white;
+	border-radius: 3px;
+	cursor: pointer; /* 마우스 올리면 손가락 모양으로 변함 */
+}
+
+.joinBtn {
+	width:200px;
+	height: 50px;
+	font-weight: bold;
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 20px;
+	background-color: white;
+	border-radius: 3px;
+	cursor: pointer; /* 마우스 올리면 손가락 모양으로 변함 */
+}
+
+.joinBtn:hover {
+	width:200px;
+	height: 50px;
+	font-weight: bold;
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 20px;
+	background-color: black;
+	color: white;
+	border-radius: 3px;
+}
+
+
+.go_login_Btn_div {
+	text-align: center;
+}
+
+.go_login_Btn {
+	width:200px;
+	height: 50px;
+	font-weight: bold;
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 20px;
+	background-color: white;
+	border-radius: 3px;
+	cursor: pointer; /* 마우스 올리면 손가락 모양으로 변함 */
+}
+
+.go_login_Btn:hover {
+	width:200px;
+	height: 50px;
+	font-weight: bold;
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 20px;
+	background-color: black;
+	color: white;
+	border-radius: 3px;
+}

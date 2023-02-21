@@ -4,104 +4,404 @@
 <html>
 <head>
 <meta charset="UTF-8">
-    <link rel="icon" href="/project/resources/main/images/파비콘.png">
-    <title>ONÓRE</title>
+<title>ONÓRE</title>
 <%@include file="../member/member_header.jspf" %>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+
+//아이디 정규식
+function id_check() {
+  var id = document.getElementById("mem_id").value;
+  var regId= /^[a-z]+[a-z0-9]{5,19}$/g; // 영소문자로 시작하는 6~20자리 아이디
+  if (regId.test(id) == true) {
+    document.getElementById('id_message_p').innerHTML = "사용가능한 아이디입니다"
+    document.getElementById('id_message_p').style.color = "blue";
+  } else {
+	 document.getElementById('id_message_p').innerHTML = "올바르지 않은 아이디입니다"
+	 document.getElementById('id_message_p').style.color = "red";
+  }
+}
+
+//비밀번호 정규식
+function pw_check() {
+  var pw = document.getElementById("mem_pw").value;
+  var regPw= /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/; // 8자 이상 영문자, 숫자, 특수문자 조합 비밀번호
+  if (regPw.test(pw) == true) {
+	  document.getElementById('pw_message_p').innerHTML = "사용가능한 비밀번호입니다"
+	  document.getElementById('pw_message_p').style.color = "blue";
+  } else {
+	  document.getElementById('pw_message_p').innerHTML = "올바르지 않은 비밀번호입니다"
+	  document.getElementById('pw_message_p').style.color = "red";
+  }
+}
+
+// 비밀번호 확인
+function check_pw2(){
+	var pw = document.getElementById("mem_pw").value;
+	var pw2 = document.getElementById("mem_pw2").value;
+	if(pw != pw2) {
+		document.getElementById('pw2_message_p').innerHTML = "비밀번호가 일치하지 않습니다"
+		document.getElementById('pw2_message_p').style.color = "red";
+	} else {
+		document.getElementById('pw2_message_p').innerHTML = "비밀번호가 일치합니다"
+		document.getElementById('pw2_message_p').style.color = "blue";
+	}
+};
+
+//이메일 정규식
+function check_email() {
+  var email = document.getElementById("mem_email").value;
+  var regEmail= /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+  if (regEmail.test(email) == true) {
+	  document.getElementById('email_message_p').innerHTML = "사용 가능한 이메일입니다."
+	  document.getElementById('email_message_p').style.color = "blue";
+  } else {
+	  document.getElementById('email_message_p').innerHTML = "올바른 이메일을 입력하세요."
+	  document.getElementById('email_message_p').style.color = "red";
+  }
+}
+
+//이름 정규식
+function check_name() {
+  var name = document.getElementById("mem_name").value;
+  var regName= /^[가-힣]{2,6}$/; //가~힣. 한글로 이뤄진 문자 2~6자리
+  if (regName.test(name) == true) {
+	  document.getElementById('name_message_p').innerHTML = "올바른 이름입니다."
+      document.getElementById('name_message_p').style.color = "blue";
+  } else {
+	  document.getElementById('name_message_p').innerHTML = "올바른 이름을 입력하세요."
+	  document.getElementById('name_message_p').style.color = "red";
+  }
+}
+
+
+/*
+생년월일 정규식 - 내가 넣고싶은 기능
+① 올해 나이 14세 미만이면 가입이 불가하다는 메세지가 뜨고, 가입버튼 눌러도 동작이 안되도록 해야 함
+② 오늘 기준으로 오늘 초과인 날짜는 입력되지 않도록 해야 함
+오늘 날짜 구해서 오늘 날짜 이후의 날짜는 올바르지 않은 생년월일이라고 문구 뜨게 하기 (실패..)
+var today = new Date(); // 현재 날짜 구하기
+var year = today.getFullYear(); // 년도
+var month = today.getMonth() + 1; // 월
+var date = today.getDate(); // 날짜
+var nowdate = parseInt((year.substr(2,4)) + month + date); 
+*/
+
+// 생년월일 + 성별 정규식 : 생년월일 입력 시 주민번호 뒷자리 첫번째 숫자로 성별을 자동으로 체크함
+function check_gender() {
+	var birth1 = document.getElementById('mem_birth_date').value;
+	var birth2 = document.getElementById('mem_birth_date2').value;
+	var gender = birth2.substr(0,1); // 주민번호 뒷자리 앞 첫번째 숫자를 대입
+	var regBirth1= /([0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1,2][0-9]|3[0,1]))/;
+	var regBirth2= /([1-4]{1})/;
+	 
+	 if (regBirth1.test(birth1) == true && regBirth2.test(birth2) == true ) {
+		  document.getElementById('birth_message_p').innerHTML = "사용 가능한 생년월일입니다."
+		  document.getElementById('birth_message_p').style.color = "blue";
+			if ((gender == '1') || (gender == '3')){
+				join_form.mem_gender[0].click();
+			} else if ((gender == '2') || (gender == '4')){
+				join_form.mem_gender[1].click();
+			}  
+	  } else {
+		  document.getElementById('birth_message_p').innerHTML = "올바른 생년월일을 입력하세요."
+		  document.getElementById('birth_message_p').style.color = "red";  
+	  }
+}
+
+
+// 연락처(핸드폰번호) 정규식
+function check_phone() {
+  var phone = document.getElementById("mem_phone").value;
+  var regPhone= /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/; // - 생략하고 01?(3글자) 방식으로 나머지 적용
+  if (regPhone.test(phone) == true) {
+	  document.getElementById('phone_message_p').innerHTML = "올바른 연락처 입니다."
+	  document.getElementById('phone_message_p').style.color = "blue";
+  } else {
+	  document.getElementById('phone_message_p').innerHTML = "올바른 연락처를 입력하세요."
+	  document.getElementById('phone_message_p').style.color = "red";
+  }
+}	
+
+
+function check() {
+    var f = document.join_form; 
+    if (f.mem_id.value == "") {
+        alert("아이디를 입력해주세요");
+        f.mem_id.focus();
+        return false;
+    }
+
+    if (f.mem_pw.value == "") {
+        alert("비밀번호를 입력해주세요");
+        f.mem_pw.focus();
+        
+        return false;
+    }
+
+    if (f.mem_pw.value != f.mem_pw2.value) {
+        alert("비빌번호를 다르게 입력했습니다.");
+        f.mem_pw2.select();
+        return false;
+    }
+
+    if (f.mem_email.value == "") {
+        alert("이메일을 입력해주세요");
+        f.mem_email.focus();
+        return false;
+    }
     
+    if (f.mem_name.value == "") {
+        alert("이름을 입력해주세요");
+        f.mem_name.focus();
+        return false;
+    }
+
+    if (f.mem_birth_date.value == "") {
+        alert("생년월일을 입력해주세요");
+        f.mem_birth_date.focus();
+        return false;
+    }
+
+    if (f.mem_phone.value == "") {
+        alert("전화번호를 입력해주세요");
+        f.mem_phone.focus();
+        return false;
+    }
+
+
+    if (f.mem_law1_check.value != checked) {
+        alert("필수항목을 체크해주세요");
+        f.mem_law1_check.focus();
+        return false;
+    }
+    
+    if (f.mem_law2_check.value != checked) {
+        alert("필수항목을 체크해주세요");
+        f.mem_law2_check.focus();
+        return false;
+    }
+    
+    if (f.mem_law3_check.value != checked) {
+        alert("필수항목을 체크해주세요");
+        f.mem_law3_check.focus();
+        return false;
+    }   
+}   
+
+// 체크박스 전체 선택
+function checkAll() {
+	if($("#mem_law_check_all").is(':checked')){
+		$("input[name=mem_law2_check]").prop("checked", true);
+		$("input[name=mem_law3_check]").prop("checked", true);
+		$("input[name=mem_law4_check]").prop("checked", true);
+		$("input[name=mem_law5_check]").prop("checked", true);
+		$("input[name=mem_sms_check]").prop("checked", true);
+		$("input[name=mem_email_check]").prop("checked", true);
+		if(checked){
+			obj.value="Y";
+		} else {
+			obj.value = "N";
+		}
+	} else {
+		$("input[name=mem_law2_check]").prop("checked", false);
+		$("input[name=mem_law3_check]").prop("checked", false);
+		$("input[name=mem_law4_check]").prop("checked", false);
+		$("input[name=mem_law5_check]").prop("checked", false);
+		$("input[name=mem_sms_check]").prop("checked", false);
+		$("input[name=mem_email_check]").prop("checked", false);
+	}
+}
+
+//이용약관, 수신여부 체크박스 - 체크하면 Y, 아니면 N이 들어가야하는데 체크 안 하면 null이 들어감...
+
+</script>
+
+
 </head>
 <body>
-
 <%@include file="../member/member_top.jspf" %>
     
-<div class="join_form_div">
-    <form id="join_form" action="./join_success" method="POST" name="join_form" >
-	    <div class="joindiv">
-		    <div class="title_join"><h2>회원가입</h2></div>
+<!-- middle 시작 -->
+
+<div class="middle_join_div">
+    <form id="join_form" action="./join_success" method="POST" name="join_form" onsubmit="return check()">
+	    <div class="join_div">
+		    <div class="join_title_div"><a>회원가입</a></div>
+		    <div class="join_id_div">
+		    	<div class="a_div"><a>아이디*</a></div>
+		    	<div class="input_div">
+		    		<input class="mem_id" id="mem_id" type="text" name="mem_id" placeholder="※6-20자의 영문 소문자와 숫자로만 입력" onchange="id_check()">
+		    	</div>
+				<div class="message_div"><p id="id_message_p"></p></div>
 		    
-		    <div class="id_wrap">
-			    <div class="title_id_content">아이디 <input class="mem_id" type="text" name="mem_id"></div>
-			    
-			    <span class="id_input_re_1">사용 가능한 아이디입니다.</span>
-			    <span class="id_input_re_2">이미 존재하는 아이디입니다.</span>
+		    <div class="join_pw1_div">
+		    	<div class="a_div"><a>비밀번호*</a></div>
+		    	<div class="input_div"><input id="mem_pw" type="password" name="mem_pw" placeholder="※8자 이상 영문자, 숫자, 특수문자 조합" maxlength="18" onchange="pw_check()"></div>
+		    </div>
+		    <div class="message_div"><p id="pw_message_p"></p></div>
+		    <div class="join_pw2_div">
+		    	<div class="a_div"><a>비밀번호 확인*</a></div>
+		    	<div class="input_div"><input id="mem_pw2" type="password" name="mem_pw2" placeholder="비밀번호를 확인하세요" onchange="check_pw2()"></div>
+		    </div>
+		    <div class="message_div"><p id="pw2_message_p"></p></div>
+		    
+		    <div class="join_email_div">
+		    	<div class="a_div"><a>이메일*</a></div>
+		    	<div class="input_div"><input id="mem_email" type="text" name="mem_email" placeholder="ex)onore123@naver.com" onchange="check_email()"></div>
+		    </div>
+		    <div class="message_div"><p id="email_message_p"></p></div>
+		    
+		    <div class="join_name_div">
+		    	<div class="a_div"><a>이름*</a></div>
+		    	<div class="input_div"><input id="mem_name" type="text" name="mem_name" placeholder="이름을 입력하세요" onchange="check_name()"></div>
+		    </div>
+		    <div class="message_div"><p id="name_message_p"></p></div>
+		    
+		    <div class="join_birth_date_div">
+		    	<div class="a_div"><a>생년월일*</a></div>
+		    	<div class="input_div">
+		    	<input id="mem_birth_date" type="text" name="mem_birth_date" maxlength="6" onchange="check_gender()">
+		    	<a>-</a>
+		    	<input id="mem_birth_date2" type="text" name="mem_birth_date2" maxlength="1" onchange="check_gender()"></div>
+		    </div>
+		    <div class="message_div"><p id="birth_message_p"></p></div>	    
+		    
+		    <div class="join_gender_div">
+		    	<div class="a_div"><a>성별*</a></div>
+			    <div class="input_radio_div">
+			    	<input id="mem_gender" type="radio" name="mem_gender" value="M" onchange="check_gender()"><a>남성</a>
+			    	<input id="mem_gender" type="radio" name="mem_gender" value="F" onchange="check_gender()"><a>여성</a>
+			    </div>
+			    <div class="message_div"><p id="mem_gender"></p></div>	 
+		    </div>
+		    <div class="join_phone_div">
+		    	<div class="a_div"><a>연락처*</a></div>
+		    	<div class="input_div"><input id="mem_phone" type="text" name="mem_phone" placeholder="'-'를 제외하고 입력하세요" oninput="check_phone()"></div>
+		    </div>
+		   <div class="message_div"><p id="phone_message_p"></p></div>
+		
+			<div class="join_check_law1_div">
+				<div class="input_check_div"><input id="mem_law1_check" type="checkbox" name="mem_law1_check" oninput="mem_law1_check(this);" ></div>
+				<div class="a_law_div"><a>[필수] 만 14세 이상입니다.</a></div>
+			</div>
+			
+			
+			<div class="checkbox_group"> <!-- 체크박스 그룹 -->
+			<div class="join_check_all_div">
+				<div class="input_check_div"><input class="mem_law_check_all" id="mem_law_check_all" type="checkbox" name="mem_law_check_all" onclick="checkAll();"></div>
+				<div class="a_law_div"><a>[필수] 모두 동의합니다.</a></div>
+			</div>
+			
+			<div class="join_check_law2_div">
+				<div class="input_check_div"><input class="law_check_box" id="mem_law2_check" type="checkbox" name="mem_law2_check"></div>
+				<div class="a_law_div"><a>[필수] 이용약관 동의</a></div>
+			</div>
+			<div class="join_check_law_content_div">
+				It is a long established fact that a reader will be distracted by<br>
+				the readable content of a page when looking at its layout. <br>
+				The point of using Lorem Ipsum is that it has a more-or-less <br>
+				normal distribution of letters, as opposed to using 'Content here, <br> 
+				content here', making it look like readable English. Many desktop  <br>
+				publishing packages and web page editors now use Lorem Ipsum as their <br>
+				default model text
+				It is a long established fact that a reader will be distracted by<br>
+				the readable content of a page when looking at its layout. <br>
+				The point of using Lorem Ipsum is that it has a more-or-less <br>
+				normal distribution of letters, as opposed to using 'Content here, <br> 
+				content here', making it look like readable English. Many desktop  <br>
+				publishing packages and web page editors now use Lorem Ipsum as their <br>
+				default model text
+			</div>
+			
+			<div class="join_check_law3_div">
+				<div class="input_check_div"><input class="law_check_box" id="mem_law3_check" type="checkbox" name="mem_law3_check"></div>
+				<div class="a_law_div"><a>[필수] 개인정보 수집 및 이용 동의</a></div>
+			</div>
+			<div class="join_check_law_content_div">
+				It is a long established fact that a reader will be distracted by<br>
+				the readable content of a page when looking at its layout. <br>
+				The point of using Lorem Ipsum is that it has a more-or-less <br>
+				normal distribution of letters, as opposed to using 'Content here, <br> 
+				content here', making it look like readable English. Many desktop  <br>
+				publishing packages and web page editors now use Lorem Ipsum as their <br>
+				default model text
+				It is a long established fact that a reader will be distracted by<br>
+				the readable content of a page when looking at its layout. <br>
+				The point of using Lorem Ipsum is that it has a more-or-less <br>
+				normal distribution of letters, as opposed to using 'Content here, <br> 
+				content here', making it look like readable English. Many desktop  <br>
+				publishing packages and web page editors now use Lorem Ipsum as their <br>
+				default model text
+			</div>
+			
+			<div class="join_check_law4_div">
+				<div class="input_check_div"><input class="law_check_box" id="mem_law4_check" type="checkbox" name="mem_law4_check"></div>
+				<div class="a_law_div"><a>[선택] 개인정보 처리 위탁 동의</a></div>
+			</div>
+			<div class="join_check_law_content_div">
+				It is a long established fact that a reader will be distracted by<br>
+				the readable content of a page when looking at its layout. <br>
+				The point of using Lorem Ipsum is that it has a more-or-less <br>
+				normal distribution of letters, as opposed to using 'Content here, <br> 
+				content here', making it look like readable English. Many desktop  <br>
+				publishing packages and web page editors now use Lorem Ipsum as their <br>
+				default model text
+				It is a long established fact that a reader will be distracted by<br>
+				the readable content of a page when looking at its layout. <br>
+				The point of using Lorem Ipsum is that it has a more-or-less <br>
+				normal distribution of letters, as opposed to using 'Content here, <br> 
+				content here', making it look like readable English. Many desktop  <br>
+				publishing packages and web page editors now use Lorem Ipsum as their <br>
+				default model text
+			</div>
+			
+			<div class="join_check_law5_div">
+				<div class="input_check_div"><input class="law_check_box" id="mem_law5_check" type="checkbox" name="mem_law5_check"></div>
+				<div class="a_law_div"><a>[선택] 쇼핑정보 수신 동의</a></div>
+			</div>
+		    <div class="join_check_law_content_div">
+				It is a long established fact that a reader will be distracted by<br>
+				the readable content of a page when looking at its layout. <br>
+				The point of using Lorem Ipsum is that it has a more-or-less <br>
+				normal distribution of letters, as opposed to using 'Content here, <br> 
+				content here', making it look like readable English. Many desktop  <br>
+				publishing packages and web page editors now use Lorem Ipsum as their <br>
+				default model text
+				It is a long established fact that a reader will be distracted by<br>
+				the readable content of a page when looking at its layout. <br>
+				The point of using Lorem Ipsum is that it has a more-or-less <br>
+				normal distribution of letters, as opposed to using 'Content here, <br> 
+				content here', making it look like readable English. Many desktop  <br>
+				publishing packages and web page editors now use Lorem Ipsum as their <br>
+				default model text
+			</div>
+			
+		    <div class="join_check_sms_div">
+		    	<div class="input_check_div"><input class="law_check_box" id="mem_sms_check" type="checkbox" name="mem_sms_check"></div>
+		    	<div class="a_sms_div"><a>[선택] SMS 수신 여부</a></div>
 		    </div>
 		    
-		    <div class="title_password_content">비밀번호 <input type="password" name="mem_pw"></div>
-		    <div class="title_password_content">비밀번호 확인 <input type="password" name="mem_pw2"></div>
-		    <div class="title_email_content">이메일 <input type="email" name="mem_email"></div>
-		    <div class="title_name_content">이름 <input type="text" name="mem_name"></div>
-		    <div class="title_birth_content">생년월일 <input type="text" name="mem_birth"></div>
-		    
-		    <div class="check_gender">
-			    <input type="radio" name="mem_gender">남성 <input type="radio" name="mem_gender">여성
+		    <div class="join_check_email_div">
+		    	<div class="input_check_div"><input class="law_check_box" id="mem_email_check"type="checkbox" name="mem_email_check"></div>
+		    	<div class="a_email_div"><a>[선택] 이메일 수신 여부</a></div>
 		    </div>
-		    <div class="title_phone_content">연락처 <input type="text" name="mem_phone"></div>
-			
-			<div class="age_law_div"><input type="checkbox" name="age_law"><a class="age_law">[필수] 만 14세 이상입니다.</a></div>
-			<div class="all_agree_div"><input type="checkbox" name="all_agree"><a class="all_agree">[필수] 모두 동의합니다.</a></div>
-			
-			<div class="agree1_div"><input type="checkbox" name="agree1"><a class=agree1>[필수] 이용약관 동의</a></div>
-			<div class="agree1_text_div">
-				It is a long established fact that a reader will be distracted by<br>
-				the readable content of a page when looking at its layout. <br>
-				The point of using Lorem Ipsum is that it has a more-or-less <br>
-				normal distribution of letters, as opposed to using 'Content here, <br> 
-				content here', making it look like readable English. Many desktop  <br>
-				publishing packages and web page editors now use Lorem Ipsum as their <br>
-				default model text
-			</div>
-			
-			<div class="agree2_div"><input type="checkbox" name="agree2"><a class=agree2>[필수] 개인정보 수집 및 이용 동의</a></div>
-			<div class="agree2_text_div">
-				It is a long established fact that a reader will be distracted by<br>
-				the readable content of a page when looking at its layout. <br>
-				The point of using Lorem Ipsum is that it has a more-or-less <br>
-				normal distribution of letters, as opposed to using 'Content here, <br> 
-				content here', making it look like readable English. Many desktop  <br>
-				publishing packages and web page editors now use Lorem Ipsum as their <br>
-				default model text
-			</div>
-			
-			<div class="agree3_div"><input type="checkbox" name="agree3"><a class=agree3>[선택] 개인정보 처리 위탁 동의</a></div>
-			<div class="agree3_text_div">
-				It is a long established fact that a reader will be distracted by<br>
-				the readable content of a page when looking at its layout. <br>
-				The point of using Lorem Ipsum is that it has a more-or-less <br>
-				normal distribution of letters, as opposed to using 'Content here, <br> 
-				content here', making it look like readable English. Many desktop  <br>
-				publishing packages and web page editors now use Lorem Ipsum as their <br>
-				default model text
-			</div>
-			
-			<div class="agree4_div"><input type="checkbox" name="agree4"><a class=agree4>[선택] 쇼핑정보 수신 동의</a></div>
-		    <div class="agree4_text_div">
-				It is a long established fact that a reader will be distracted by<br>
-				the readable content of a page when looking at its layout. <br>
-				The point of using Lorem Ipsum is that it has a more-or-less <br>
-				normal distribution of letters, as opposed to using 'Content here, <br> 
-				content here', making it look like readable English. Many desktop  <br>
-				publishing packages and web page editors now use Lorem Ipsum as their <br>
-				default model text
-			</div>
-			
-		    <div class="sms_check_div"><input type="checkbox" name="sms_check"><a class=sms_check>[선택] 쇼핑정보 수신 동의</a></div>
-		    <div class="eamil_check_div"><input type="checkbox" name="email_check"><a class=email_check>[선택] 쇼핑정보 수신 동의</a></div>
-		    
+		    <div class="message_div"><p id="law_check_p"></p></div>	 
+		    </div> <!-- 체크박스 그룹 -->
 		    <article>
-		    <div class="joindiv">
+		    <div class="join_success_Btn_div">
 		    	<input class="join_success_Btn" type="submit" value="가입하기"><br>
 		    </div>
 		    </article>
 	      </div>
+	      </div>
 	</form>
 </div>
-       
-<script src="/project/resources/menu/js/menu.js"></script>
+<!-- middle 끝 -->
 
-<script>
-// 아이디 중복검사
-$('.mem_id').on("propertychange change keyup paste input", function(){
-	console.log("keyup 테스트");
-});
-</script>
 
+
+<script src="/project/resources/menu/js/menubar.js?ver=2"></script>
 <%@include file="../member/member_bottom.jspf" %>

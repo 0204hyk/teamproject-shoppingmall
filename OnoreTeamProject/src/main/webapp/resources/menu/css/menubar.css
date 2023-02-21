@@ -77,6 +77,11 @@ li {
   margin-top: 5px;
 }
 
+.member_login_id {
+	font-size : 10px;
+	color : black;
+}
+
 .navbar_toggleBtn{
   display: none; /* 화면이 작아졌을 때만 나오게 하기위함 */
   position: absolute; /* 제일 위로 올라감 */
