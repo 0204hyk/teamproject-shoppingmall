@@ -53,6 +53,12 @@ public class ReviewServiceImpl implements ReviewService{
 		
 		return review_mapper.getComment(reivew_num);
 	}
+
+	@Override
+	public Integer insertComment(CommentDTO com) {
+		
+		return review_mapper.comment(com);
+	}
 	
 	
 }

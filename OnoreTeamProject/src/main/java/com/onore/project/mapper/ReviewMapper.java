@@ -20,4 +20,6 @@ public interface ReviewMapper {
 	Integer modify(ReviewDTO rev);
 	
 	Integer delete(Integer review_num); 
+	
+	Integer comment(CommentDTO com);
 }

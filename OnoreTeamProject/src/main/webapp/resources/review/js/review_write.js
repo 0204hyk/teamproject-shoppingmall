@@ -59,4 +59,3 @@ for (var i = 0; i < star.length; ++i) {
     star[i].checked=true;
   } 
 }
-  

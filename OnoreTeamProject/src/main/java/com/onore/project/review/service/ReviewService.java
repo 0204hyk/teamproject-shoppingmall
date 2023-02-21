@@ -18,4 +18,6 @@ public interface ReviewService {
 	Integer modify(ReviewDTO rev);
 	
 	Integer delete(Integer review_num);
+	
+	Integer insertComment(CommentDTO com);
 }

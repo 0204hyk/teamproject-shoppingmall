@@ -12,7 +12,7 @@
   </select>
   
   <select id="getComment" resultType="com.onore.project.dto.CommentDTO">
-  	SELECT * FROM comments WHERE review_num=#{review_num}
+  	SELECT * FROM comments WHERE review_num=#{review_num} ORDER BY comment_num DESC
   </select>
   
   <insert id="insert" parameterType="com.onore.project.dto.ReviewDTO">
@@ -26,6 +26,16 @@
   		null,
   		null,
   		null
+  	)
+  </insert>
+  
+  <insert id="comment" parameterType="com.onore.project.dto.CommentDTO">
+  	INSERT INTO comments VALUES (
+  		comment_num_seq.nextval,
+  		#{review_num},
+  		'abc123',
+  		#{comment_content},
+  		SYSDATE
   	)
   </insert>
   

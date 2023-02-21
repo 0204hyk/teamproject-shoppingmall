@@ -6,9 +6,12 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,6 +58,7 @@ public class ReviewController {
 	@GetMapping("/detail")
 	public String reviewDetail(Model model, Integer review_num) {
 		model.addAttribute("contents", review_service.get(review_num));
+		model.addAttribute("comments", review_service.getComment(review_num));
 		
 		return "user/review/review_detail";
 	}
@@ -81,11 +85,22 @@ public class ReviewController {
 	}
 	
 	
-//	@ResponseBody
-//	@GetMapping(value="/detail")
-//	public List<CommentDTO> viewComment(Model model, Integer review_num) {
-//		List<CommentDTO> comments = review_service.getComment(review_num);
-//		
-//		return comments;
-//	}
+	@ResponseBody
+	@PostMapping(value="/comment")
+	public CommentDTO createComment(@RequestBody CommentDTO comment) {
+		log.info(comment);
+		review_service.insertComment(comment);
+		
+		return comment;
+	}
+	
+	
+	@ResponseBody
+	@PostMapping(value="/com_list")
+	public List<CommentDTO> listComment (Integer review_num) {
+		
+		List<CommentDTO> com = review_service.getComment(review_num);
+		
+		return com;
+	}
 }
