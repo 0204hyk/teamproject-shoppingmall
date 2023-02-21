@@ -1,5 +1,12 @@
 package com.onore.project.mapper;
 
-public interface AnnualSalesMapper {
+import java.util.List;
 
+import com.onore.project.admin.vo.AnnualSalesVO;
+
+public interface AnnualSalesMapper {
+	
+	List<AnnualSalesVO> getAnnualSales();
+	AnnualSalesVO getAnnualSalesTotal();
+	
 }

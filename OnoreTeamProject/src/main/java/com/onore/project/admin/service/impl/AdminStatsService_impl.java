@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onore.project.admin.service.AdminStatsService;
+import com.onore.project.admin.vo.AnnualSalesVO;
 import com.onore.project.admin.vo.DailySalesVO;
 import com.onore.project.admin.vo.MonthlySalesVO;
+import com.onore.project.mapper.AnnualSalesMapper;
 import com.onore.project.mapper.DailySalesMapper;
 import com.onore.project.mapper.MonthlySalesMapper;
 
@@ -21,6 +23,9 @@ public class AdminStatsService_impl implements AdminStatsService{
 	
 	@Autowired
 	MonthlySalesMapper monthlySalesMapper;
+	
+	@Autowired
+	AnnualSalesMapper annualSalesMapper;
 	
 	@Override
 	public String readDailySalesToChart() {
@@ -68,6 +73,30 @@ public class AdminStatsService_impl implements AdminStatsService{
 	@Override
 	public MonthlySalesVO readMonthlySalesTotal() {
 		return monthlySalesMapper.getMonthlySalesTotal();
+	}
+
+	@Override
+	public String readAnnualSalesToChart() {
+		List<AnnualSalesVO> salesList = annualSalesMapper.getAnnualSales();
+		ObjectMapper objMapper = new ObjectMapper();
+		
+		try {
+			String jsonStr = objMapper.writeValueAsString(salesList);
+			return jsonStr;
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+			return null;
+		}		
+	}
+
+	@Override
+	public List<AnnualSalesVO> readAnnualSales() {
+		return annualSalesMapper.getAnnualSales();
+	}
+
+	@Override
+	public AnnualSalesVO readAnnualSalesTotal() {
+		return annualSalesMapper.getAnnualSalesTotal();
 	}
 
 }

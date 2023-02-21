@@ -42,7 +42,10 @@ public class AdminStatsController {
 	}
 	
 	@GetMapping("/annual")
-	public String annualStats() {
+	public String annualStats(HttpServletRequest request, HttpServletResponse response) {
+		request.setAttribute("annualSalesToChart", service.readAnnualSalesToChart());
+		request.setAttribute("annualSales", service.readAnnualSales());
+		request.setAttribute("annualSalesTotal", service.readAnnualSalesTotal());
 		return "/admin/statistics/admin_annual_sales";
 	}
 	

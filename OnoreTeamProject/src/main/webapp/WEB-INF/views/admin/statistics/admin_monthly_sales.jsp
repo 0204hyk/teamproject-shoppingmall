@@ -55,10 +55,8 @@
 	
 			for (var i = 0; i < jData.length; ++i) {
 				var d = jData[i];
-				if (d.monthly_sales != 0) {
 				labelList.push(d.month);
-				dataList.push(d.monthly_sales);					
-				}
+				dataList.push(d.monthly_sales);
 			}
 	
 			const ctx = document.getElementById('monthly-chart');
