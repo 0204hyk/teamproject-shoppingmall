@@ -9,5 +9,6 @@ public interface NoticeMapper {
 	Integer insertNotice(NoticeDTO notice);
 	List<NoticeDTO> getAllNotice();
 	NoticeDTO getNotice(Integer notice_num);
+	Integer updateNotice(NoticeDTO notice);
 	
 }

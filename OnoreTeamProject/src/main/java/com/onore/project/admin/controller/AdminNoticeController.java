@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.onore.project.admin.service.AdminNoticeService;
 import com.onore.project.dto.NoticeDTO;
+import com.onore.project.mapper.NoticeMapper;
 
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
@@ -48,8 +49,20 @@ public class AdminNoticeController {
 	}
 	
 	@GetMapping("/modify")
-	public String noticeModify(HttpServletRequest request) {
+	public String noticeModifyForm(HttpServletRequest request) {
 		request.setAttribute("notice", service.readNotice(Integer.parseInt(request.getParameter("notice_num"))));
 		return "/admin/notice/admin_notice_modify";
+	}
+	
+	@PostMapping("/modify")
+	public String noticeModify(HttpServletRequest request) {
+		if (!request.getParameter("notice_title").equals("") && !request.getParameter("notice_content").equals("")) {
+			NoticeDTO notice = new NoticeDTO();
+			notice.setNotice_num(Integer.parseInt(request.getParameter("notice_num")));
+			notice.setNotice_title(request.getParameter("notice_title"));
+			notice.setNotice_content(request.getParameter("notice_content"));
+			service.noticeModifyService(notice);
+		}
+		return "redirect:/admin/notice/list";
 	}
 }

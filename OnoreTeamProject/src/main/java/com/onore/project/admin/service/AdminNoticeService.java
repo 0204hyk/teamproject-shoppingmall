@@ -9,4 +9,5 @@ public interface AdminNoticeService {
 	Integer noticeWriteService(NoticeDTO notice);
 	List<NoticeDTO> readAllNotice();
 	NoticeDTO readNotice(Integer notice_num);
+	Integer noticeModifyService(NoticeDTO notice);
 }

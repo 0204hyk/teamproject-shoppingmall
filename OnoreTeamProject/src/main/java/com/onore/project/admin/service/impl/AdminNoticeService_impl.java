@@ -34,5 +34,10 @@ public class AdminNoticeService_impl implements AdminNoticeService {
 		return noticeMapper.getNotice(notice_num);
 	}
 
+	@Override
+	public Integer noticeModifyService(NoticeDTO notice) {
+		return noticeMapper.updateNotice(notice);
+	}
+
 	
 }

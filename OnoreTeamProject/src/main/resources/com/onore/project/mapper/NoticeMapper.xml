@@ -19,4 +19,9 @@
 	<select id="getNotice" resultType="com.onore.project.dto.NoticeDTO">
 		SELECT * FROM notice WHERE notice_num = #{notice_num}
 	</select>
+	<update id="updateNotice" parameterType="com.onore.project.dto.NoticeDTO">
+		UPDATE notice 
+		SET notice_title = #{notice_title}, notice_content = #{notice_content} 
+		WHERE notice_num = #{notice_num}
+	</update>
 </mapper>

@@ -16,7 +16,8 @@
 	<div class="notice-content shadow">
 		<div class="notice-title"><h1>공지사항 수정</h1></div>
 		<div class="container">
-			<form action="" method="POST">
+			<form action="<%=request.getContextPath()%>/admin/notice/modify" method="POST">
+				<input type="hidden" name="notice_num" value="${notice.notice_num}"/>
 				<input type="text" class="notice-write-title" name="notice_title" placeholder="제목을 입력하세요." value="${notice.notice_title}"/>
 		  		<textarea class="summernote" name="notice_content">${notice.notice_content}</textarea>
 		  		<div class="d-grid gap-5 d-md-flex justify-content-md-end" style="margin-top: 10px;">
