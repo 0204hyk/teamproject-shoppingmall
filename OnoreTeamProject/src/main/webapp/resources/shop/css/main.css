@@ -1,7 +1,7 @@
 .flex-container {
     display: flex;
     margin: auto;
-}
+ }
 
 
 .image-box {
@@ -53,9 +53,10 @@
 }
 
 .category-btn > a {
-	margin-left: 20px;
+	margin-left: 100px;
 	font: oblique;
 	font-size: 20px;
 }
+
 
 

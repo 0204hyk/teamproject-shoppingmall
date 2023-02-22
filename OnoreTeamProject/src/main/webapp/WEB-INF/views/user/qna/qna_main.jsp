@@ -54,7 +54,7 @@
 			<button onclick="location.href='./qna_write'">글쓰기</button>
 			<div class="page">
 				<c:if test="${pagination_start > 5 }">
-					<a href="./main?page=${previous_page }"></a>
+					<a href="./main?page=${previous_page }"><</a>
 				</c:if>
 				<c:forEach begin="${pagination_start }" end="${pagination_end }" var="i">
 					<a href="./main?page=${i }">${i }</a>
