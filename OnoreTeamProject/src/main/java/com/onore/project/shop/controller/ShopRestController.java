@@ -28,6 +28,12 @@ public class ShopRestController {
 		
 	}
 	
+	@GetMapping(value = {"/restful/loafers"}, produces = "application/json; charset=UTF-8")
+	public List<ProductsDTO> loafers() {
+
+		return shopService.loafersView();
+		
+	}
 	
 	
 	

@@ -10,4 +10,6 @@ public interface ShopService {
 
 	
 	List<ProductsDTO> bootsView();
+	
+	List<ProductsDTO> loafersView();
 }

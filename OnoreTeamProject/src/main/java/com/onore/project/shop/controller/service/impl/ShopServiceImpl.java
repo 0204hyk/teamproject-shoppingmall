@@ -23,4 +23,10 @@ public class ShopServiceImpl implements ShopService{
 		
 	}
 
+	@Override
+	public List<ProductsDTO> loafersView() {
+		
+		return shop_mapper.getLoafers();
+	}
+
 }
