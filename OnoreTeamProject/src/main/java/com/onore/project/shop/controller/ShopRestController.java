@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.onore.project.dto.ProductsDTO;
-import com.onore.project.qna.service.ShopService;
+import com.onore.project.shop.controller.service.ShopService;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -21,12 +21,14 @@ public class ShopRestController {
 	@Autowired
 	ShopService shopService;
 	
-	@GetMapping(value = {"/restful/test1"}, produces = "application/json; charset=UTF-8")
-	public List<ProductsDTO> test1() {
+	@GetMapping(value = {"/restful/boots"}, produces = "application/json; charset=UTF-8")
+	public List<ProductsDTO> boots() {
 
 		return shopService.bootsView();
 		
 	}
+	
+	
 	
 	
 }

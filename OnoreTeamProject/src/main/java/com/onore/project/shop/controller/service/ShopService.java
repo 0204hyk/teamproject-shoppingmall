@@ -1,4 +1,4 @@
-package com.onore.project.qna.service;
+package com.onore.project.shop.controller.service;
 
 import java.util.List;
 

@@ -8,4 +8,6 @@ import com.onore.project.dto.ProductsDTO;
 public interface ShopMapper {
 	
 	List<ProductsDTO> getBoots();
+	
+	List<ProductsDTO> getLoafers();
 }

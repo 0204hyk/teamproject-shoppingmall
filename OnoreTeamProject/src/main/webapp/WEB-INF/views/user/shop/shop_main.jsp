@@ -29,33 +29,37 @@
 		<div class="category-btn">
 			<button>All</button>
 			<button id="ajax-boots">BOOTS</button>
-			<button>LOAFERS</button>
+			<button id="ajax-loafers">LOAFERS</button>
 			<button>OXFORDS</button>
 			<button>SNAKERS</button>
 		
 		</div>
 		<div class="flex-container2">
-			<div id="ajax-out">
+	
+			
+			<div id="img" class="img-container1">
+			
 			
 			</div>
-			<div class="img-container1">
-				<img src="/project/resources/shop/image/boots/boots1.png" alt="" />
+			<div id="img2" class="img-container2">
+				
+				
 			</div>
-			<div class="img-container2">
-				<img src="/project/resources/shop/image/boots/boots2.png" alt="" />
+			<div id="img3" class="img-container3">
+			
+			
 			</div>
-			<div class="img-container3">
-				<img src="/project/resources/shop/image/boots/boots3.png" alt="" />
+			<div id="img4" class="img-container4">
+			
+			
 			</div>
-			<div class="img-container4">
-				<img src="/project/resources/shop/image/boots/boots4.png" alt="" />
+			<div id="img5" class="img-container5">
+			
 			</div>
-			<div class="img-container5">
-				<img src="/project/resources/shop/image/boots/boots5.png" alt="" />
+			<div id="img6" class="img-container6">
+			
 			</div>
-			<div class="img-container6">
-				<img src="/project/resources/shop/image/boots/boots6.png" alt="" />
-			</div>
+			
 		</div>
 	</div>
 	<script src="/project/resources/shop/js/ajax.js"></script>

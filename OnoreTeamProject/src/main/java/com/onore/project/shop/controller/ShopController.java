@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.onore.project.dto.ProductsDTO;
 import com.onore.project.mapper.ShopMapper;
-import com.onore.project.qna.service.ShopService;
+import com.onore.project.shop.controller.service.ShopService;
 
 import lombok.extern.java.Log;
 import lombok.extern.log4j.Log4j2;
@@ -20,7 +20,9 @@ import lombok.extern.log4j.Log4j2;
 @Controller
 @RequestMapping("/shop")
 public class ShopController {
-
+	
+	
+	
 	@Autowired
 	ShopService shopService;
 	
