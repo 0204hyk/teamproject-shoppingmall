@@ -15,7 +15,7 @@
 	<div id="index-content" class="shadow">
 		<div class="main-inner-content">
 			<div class="content-title"><h1>주간 매출 그래프</h1></div>
-			<canvas id="index-chart"></canvas>
+			<canvas id="index-chart" class="container"></canvas>
 		</div>
 	</div>
 	<div id="index-content" class="shadow">

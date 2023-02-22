@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-	<title>공지사항 등록</title>
+	<title>공지사항 수정</title>
 	<%@ include file="../admin_cdn.jspf" %>
 	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
@@ -14,13 +14,13 @@
 	<%@ include file="../admin_header.jspf" %>
 	
 	<div class="notice-content shadow">
-		<div class="notice-title"><h1>공지사항 등록</h1></div>
+		<div class="notice-title"><h1>공지사항 수정</h1></div>
 		<div class="container">
-			<form action="<%=request.getContextPath()%>/admin/notice/write" method="POST">
-				<input type="text" class="notice-write-title" name="notice_title" placeholder="제목을 입력하세요."/>
-		  		<textarea class="summernote" name="notice_content"></textarea>
+			<form action="" method="POST">
+				<input type="text" class="notice-write-title" name="notice_title" placeholder="제목을 입력하세요." value="${notice.notice_title}"/>
+		  		<textarea class="summernote" name="notice_content">${notice.notice_content}</textarea>
 		  		<div class="d-grid gap-5 d-md-flex justify-content-md-end" style="margin-top: 10px;">
-		  			<input type="submit" class="submit-btn btn btn-secondary btn-lg" value="등 록" />
+		  			<input type="submit" class="submit-btn btn btn-secondary btn-lg" value="수 정" />
 		  		</div>
 		  	</form>
 		</div>

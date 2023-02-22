@@ -13,4 +13,10 @@
 		    #{notice_content},
 		    SYSDATE)
 	</insert>
+	<select id="getAllNotice" resultType="com.onore.project.dto.NoticeDTO">
+		SELECT * FROM notice ORDER BY notice_num DESC
+	</select>
+	<select id="getNotice" resultType="com.onore.project.dto.NoticeDTO">
+		SELECT * FROM notice WHERE notice_num = #{notice_num}
+	</select>
 </mapper>

@@ -26,7 +26,7 @@ public class AdminStatsController {
 	}
 	
 	@GetMapping("/daily")
-	public String dailyStats(HttpServletRequest request, HttpServletResponse response) {
+	public String dailyStats(HttpServletRequest request) {
 		request.setAttribute("dailySalesToChart", service.readDailySalesToChart());
 		request.setAttribute("dailySales", service.readDailySales());
 		request.setAttribute("dailySalesTotal", service.readDailySalesTotal());
@@ -34,7 +34,7 @@ public class AdminStatsController {
 	}
 	
 	@GetMapping("/monthly")
-	public String monthlyStats(HttpServletRequest request, HttpServletResponse response) {
+	public String monthlyStats(HttpServletRequest request) {
 		request.setAttribute("monthlySalesToChart", service.readMonthlySalesToChart());
 		request.setAttribute("monthlySales", service.readMonthlySales());
 		request.setAttribute("monthlySalesTotal", service.readMonthlySalesTotal());
@@ -42,7 +42,7 @@ public class AdminStatsController {
 	}
 	
 	@GetMapping("/annual")
-	public String annualStats(HttpServletRequest request, HttpServletResponse response) {
+	public String annualStats(HttpServletRequest request) {
 		request.setAttribute("annualSalesToChart", service.readAnnualSalesToChart());
 		request.setAttribute("annualSales", service.readAnnualSales());
 		request.setAttribute("annualSalesTotal", service.readAnnualSalesTotal());

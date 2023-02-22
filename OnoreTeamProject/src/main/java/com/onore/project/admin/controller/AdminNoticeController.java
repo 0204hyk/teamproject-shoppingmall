@@ -31,16 +31,25 @@ public class AdminNoticeController {
 	
 	@PostMapping("/write")
 	public String noticeWrite(HttpServletRequest request) {
-		NoticeDTO notice = new NoticeDTO();
-		notice.setNotice_title(request.getParameter("notice_title"));
-		notice.setNotice_content(request.getParameter("notice_content"));
-		service.noticeWriteService(notice);
+		if (!request.getParameter("notice_title").equals("") && !request.getParameter("notice_content").equals("")) {
+			NoticeDTO notice = new NoticeDTO();
+			notice.setNotice_title(request.getParameter("notice_title"));
+			notice.setNotice_content(request.getParameter("notice_content"));
+			service.noticeWriteService(notice);			
+		}
 		
 		return "redirect:/admin/notice/write";
 	}
 	
 	@GetMapping("/list")
-	public String noticeList() {
+	public String noticeList(HttpServletRequest request) {
+		request.setAttribute("notices", service.readAllNotice());
 		return "/admin/notice/admin_notice_list";
+	}
+	
+	@GetMapping("/modify")
+	public String noticeModify(HttpServletRequest request) {
+		request.setAttribute("notice", service.readNotice(Integer.parseInt(request.getParameter("notice_num"))));
+		return "/admin/notice/admin_notice_modify";
 	}
 }

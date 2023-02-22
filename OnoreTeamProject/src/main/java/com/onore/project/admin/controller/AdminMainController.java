@@ -22,7 +22,7 @@ public class AdminMainController {
 	AdminMainService service;
 	
 	@GetMapping(value={"/", "/main"})
-	public String main(HttpServletRequest request, HttpServletResponse response) {
+	public String main(HttpServletRequest request) {
 		request.setAttribute("dailySalesToChart", service.readDailySalesToChart());
 		request.setAttribute("dailySales", service.readDailySales());
 		request.setAttribute("dailySalesTotal", service.readDailySalesTotal());

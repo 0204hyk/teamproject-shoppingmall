@@ -120,22 +120,22 @@ body {
   border-collapse: separate;
 }
 
-tr, td {
+.stats-table tr, td {
   border-bottom: solid 1px rgb(186, 186, 186);
 }
 
-th {
+.stats-table th {
   font-size: 20px;
   background-color: rgb(241, 241, 241);
   border-collapse: separate;
   border-radius: 10px;
 }
 
-td {
+.stats-table td {
   font-size: 18px;
 }
 
-tr:hover {
+.stats-table tr:hover {
   background-color: rgb(235, 235, 235);  
 }
 
@@ -190,7 +190,7 @@ tr:hover {
 
 .notice-title h1 {
   color: rgb(93, 93, 93);
-  font-weight: 600;
+  font-weight: 600; 
   font-size: 24px;
   margin-top: 10px;
   margin-bottom: 0px;
@@ -206,6 +206,15 @@ tr:hover {
 }
 
 .submit-btn {
-  width: 120px;
+  width: 180px;
   font-size: 24px;
+}
+
+.notice-board {
+  text-align: center;
+}
+
+.pagination-btn {
+  margin-right: 5px;
+  text-decoration: none;
 }

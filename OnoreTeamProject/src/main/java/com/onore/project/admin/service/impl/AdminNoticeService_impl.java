@@ -1,5 +1,7 @@
 package com.onore.project.admin.service.impl;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -20,6 +22,16 @@ public class AdminNoticeService_impl implements AdminNoticeService {
 	@Override
 	public Integer noticeWriteService(NoticeDTO notice) {
 		return noticeMapper.insertNotice(notice);
+	}
+
+	@Override
+	public List<NoticeDTO> readAllNotice() {
+		return noticeMapper.getAllNotice();
+	}
+
+	@Override
+	public NoticeDTO readNotice(Integer notice_num) {
+		return noticeMapper.getNotice(notice_num);
 	}
 
 	
