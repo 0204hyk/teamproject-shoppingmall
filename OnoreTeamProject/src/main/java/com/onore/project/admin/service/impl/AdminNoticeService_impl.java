@@ -1,0 +1,26 @@
+package com.onore.project.admin.service.impl;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.databind.ext.SqlBlobSerializer;
+import com.onore.project.admin.service.AdminNoticeService;
+import com.onore.project.dto.NoticeDTO;
+import com.onore.project.mapper.NoticeMapper;
+
+@Service
+public class AdminNoticeService_impl implements AdminNoticeService {
+	
+	@Autowired
+	NoticeMapper noticeMapper;
+
+	@Override
+	public Integer noticeWriteService(NoticeDTO notice) {
+		return noticeMapper.insertNotice(notice);
+	}
+
+	
+}
