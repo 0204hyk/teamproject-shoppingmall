@@ -50,12 +50,15 @@
 .category-btn {
 	padding-top: 50px;
 	margin-left: 50px;
+	float: left;
+	display: flex;
+	
 }
 
-.category-btn > a {
-	margin-left: 100px;
-	font: oblique;
-	font-size: 20px;
+.category-btn > button {
+	margin-left: 20px;
+	font-size: 15px;
+		
 }
 
 

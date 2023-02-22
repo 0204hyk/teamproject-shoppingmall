@@ -27,13 +27,17 @@
 			</div>
 		</div>
 		<div class="category-btn">
-			<a href="">All</a>
-			<a href="">BOOTS</a>
-			<a href="">LOAFERS</a>
-			<a href="">OXFORDS</a>
-			<a href="">SNAKERS</a>
+			<button>All</button>
+			<button id="ajax-boots">BOOTS</button>
+			<button>LOAFERS</button>
+			<button>OXFORDS</button>
+			<button>SNAKERS</button>
+		
 		</div>
 		<div class="flex-container2">
+			<div id="ajax-out">
+			
+			</div>
 			<div class="img-container1">
 				<img src="/project/resources/shop/image/boots/boots1.png" alt="" />
 			</div>
@@ -54,6 +58,7 @@
 			</div>
 		</div>
 	</div>
+	<script src="/project/resources/shop/js/ajax.js"></script>
 	<%@ include file="../bottom.jspf" %>
 </body>
 </html>
