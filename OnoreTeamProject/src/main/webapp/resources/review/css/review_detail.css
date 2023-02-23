@@ -27,9 +27,57 @@ img {
     height: 200px;
 }
 
-button {
-	margin-right: 0px;
-	margin-bottom: 0px;
+#comment {
+	background-color: white;
+    color: black;
+    width: 50px;
+    height: 30px;
+    float: right;
+    margin: 0px;
+    border: 0px;
+}
+
+textarea {
+	resize: none;
+}
+
+#write_reply {
+	overflow: auto;
+}
+
+#reply_detail {
+	overflow: auto;
+}
+
+#com_mo_de {
+	display:flex;
+	float: right;
+}
+
+#com_mo_de > button {
+	background-color: white;
+    color: black;
+    width: 50px;
+    height: 30px;
+    margin: 0px;
+    border: 0px;
+    
+}
+
+
+
+#comment {
+	margin: 0px;
+	width: 80px;
+}
+
+#list {
+	background-color: black;
+    color: white;
+    width: 100px;
+    height: 30px;
+    float: right;
+    margin-top: 30px;
 }
 
 

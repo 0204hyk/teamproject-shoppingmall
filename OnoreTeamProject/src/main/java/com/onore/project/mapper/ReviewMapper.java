@@ -9,17 +9,25 @@ import com.onore.project.dto.ReviewDTO;
 
 public interface ReviewMapper {
 	
+	// 글
+	
 	List<ReviewDTO> getAll();
 	
 	Integer insert(ReviewDTO rev);
 	
 	ReviewDTO get(Integer review_num);
 	
-	List<CommentDTO> getComment(Integer review_num);
-	
 	Integer modify(ReviewDTO rev);
 	
 	Integer delete(Integer review_num); 
 	
-	Integer comment(CommentDTO com);
+	// 댓글
+	
+	List<CommentDTO> getReplyAll(Integer review_num);
+	
+	Integer insertReply(CommentDTO com);
+	
+	Integer replyModify(CommentDTO com);
+	
+	Integer replyDelete(Integer comment_num);
 }

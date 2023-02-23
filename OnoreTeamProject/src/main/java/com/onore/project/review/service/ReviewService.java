@@ -11,13 +11,9 @@ public interface ReviewService {
 	
 	ReviewDTO get(Integer review_num);
 	
-	List<CommentDTO> getComment(Integer reivew_num);
-	
 	Integer insert(ReviewDTO rev);
 	
 	Integer modify(ReviewDTO rev);
 	
 	Integer delete(Integer review_num);
-	
-	Integer insertComment(CommentDTO com);
 }

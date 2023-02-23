@@ -1,4 +1,4 @@
-/* 색상을 이곳에 정의해두고 쓸 수 있다. */
++/* 색상을 이곳에 정의해두고 쓸 수 있다. */
 /* 사용방법 : color: var(--text-color)*/
 :root {
     --text-color: black;
@@ -31,6 +31,7 @@
     border-radius: 5%;
     margin: 60px;
     margin-top: 30px;
+    cursor: pointer; 
   }
   
   .page {

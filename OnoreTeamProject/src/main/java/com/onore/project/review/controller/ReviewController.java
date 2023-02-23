@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.onore.project.dto.CommentDTO;
 import com.onore.project.dto.ReviewDTO;
 import com.onore.project.review.service.PageService;
+import com.onore.project.review.service.ReplyService;
 import com.onore.project.review.service.ReviewService;
 
 import lombok.extern.log4j.Log4j2;
@@ -34,6 +35,9 @@ public class ReviewController {
 	
 	@Autowired
 	ReviewService review_service;
+	
+	@Autowired
+	ReplyService reply_service;
 	
 	@GetMapping("/list")
 	public String reviewList(HttpServletRequest req) {
@@ -58,7 +62,7 @@ public class ReviewController {
 	@GetMapping("/detail")
 	public String reviewDetail(Model model, Integer review_num) {
 		model.addAttribute("contents", review_service.get(review_num));
-		model.addAttribute("comments", review_service.getComment(review_num));
+		model.addAttribute("comments", reply_service.getReply(review_num));
 		
 		return "user/review/review_detail";
 	}
@@ -84,23 +88,39 @@ public class ReviewController {
 		return "redirect:/review/list";
 	}
 	
+	@ResponseBody
+	@GetMapping("/replyList/{num}")
+	public List<CommentDTO> replyList(@PathVariable("num")Integer review_num) {
+		List<CommentDTO> reply = reply_service.getReply(review_num);
+		
+		return reply;
+	}
 	
 	@ResponseBody
 	@PostMapping(value="/comment")
 	public CommentDTO createComment(@RequestBody CommentDTO comment) {
 		log.info(comment);
-		review_service.insertComment(comment);
+		reply_service.insertReply(comment);
 		
 		return comment;
 	}
 	
+	@ResponseBody
+	@PostMapping(value="/com_modify")
+	public String modfiyReply(@RequestBody CommentDTO com, Integer review_num) {
+		Integer row = reply_service.replyModify(com);
+		
+		return "redirect:/review/detail?review_num=" + review_num;
+	}
 	
 	@ResponseBody
-	@PostMapping(value="/com_list")
-	public List<CommentDTO> listComment (Integer review_num) {
+	@GetMapping("/com_delete/{num}")
+	public String deleteReply(@PathVariable("num")Integer comment_num, Integer review_num) {
+		Integer row = reply_service.replyDelete(comment_num);
 		
-		List<CommentDTO> com = review_service.getComment(review_num);
-		
-		return com;
+		return "redirect:/review/detail?review_num=" + review_num;
 	}
+	
+
+	
 }

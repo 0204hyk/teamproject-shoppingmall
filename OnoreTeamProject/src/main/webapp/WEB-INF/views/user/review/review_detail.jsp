@@ -9,8 +9,8 @@
 <%@ include file="../header.jspf"%>
 <link rel="icon" href="/project/resources/review/image/파비콘.png">
 <link rel="stylesheet"
-	href="/project/resources/review/css/review_detail.css?ver=2">
-<script src="/project/resources/review/js/review_detail.js?ver=1" defer></script>
+	href="/project/resources/review/css/review_detail.css?ver=5">
+<script src="/project/resources/review/js/review_detail.js?ver=2" defer></script>
 </head>
 <body>
 
@@ -60,24 +60,39 @@
 			<a href="./modify?review_num=${contents.review_num }">수정하기</a>/ 
 			<a href="./delete?review_num=${contents.review_num }">삭제하기</a><br>
 			<br> 
-			
+			<div id="write_reply">
 			<form action="./comment" method="POST">
 			<input type="hidden" value="${contents.review_num }" id="num">
-			<textarea id="comment_content"></textarea>
+			<textarea id="comment_content" rows="2" cols="60">댓글을 입력해주세요</textarea>
 			<button type="button" id="comment">댓글달기</button>
+			</div>
 			</form>
 
 			<hr>
 			
 			<c:forEach items="${comments }" var="comment">
-				<div>${comment.mem_id }/${comment.comment_date }</div>
-				<div>${comment.comment_content }</div>
-				<!-- <button id=com_modify>수정</button><button id=com_delete>삭제</button> -->
+				
+					<input type="hidden" id="com_num" value="${comment.comment_num }">
+					<div>${comment.mem_id }/${comment.comment_date }</div>
+				<div id="reply_detail">	
+					<div>${comment.comment_content }</div>
+					<div id="com_mo_de">
+						<button class="com_modify" value="${comment.comment_num }">수정</button>  
+						<button class="com_delete" value="${comment.comment_num }">삭제</button>
+					</div>
+				</div>
+				<div id="reply_modify_form" style="display: none;">
+					<form action="./com_modify" method="POST">
+						<textarea id="reply_modify">${comment.comment_content }</textarea>
+						<input class="modify" type="button" value="수정">
+				</div>	
+				</form>
+				
 			<hr>
 			</c:forEach>
 			
 			<div id="view"></div>
-			<button onclick="location.href='./list'">목록으로</button>
+			<button onclick="location.href='./list'" id="list">목록으로</button>
 			
 
 		</div>
@@ -87,51 +102,6 @@
 
 	<%@ include file="../bottom.jspf"%>
 
-	<script>
-		const view = document.getElementById('view');
-		//const num = document.getElementById('num').value;
-		//const content = document.getElementById('comment_content').value;
-		const comment = document.getElementById('comment');
-		
-		function refreshMemList(){
-			location.reload();
-		} 
-		
-		comment.addEventListener('click', (e) => {
-		    const xhttp = new XMLHttpRequest();
-		    xhttp.addEventListener('readystatechange', (e) => {
-		    	console.log('readyState: ', xhttp.readyState);
-		    	console.log('httpStatus: ', xhttp.status);
-		        if (e.target.readyState == 4 && e.target.status == 200) {
-		            
-		            const obj = JSON.parse(e.target.responseText);
-		            
-		            view.innerHTML =`${obj.mem_id}`;
-		            view.innerHTML =`${obj.comment_date}<br>`;
-		            view.innerHTML =`${obj.comment_content}<br>`;
-		            
-		            //refreshMemList();
-		        }
-		    });
-		    xhttp.open('POST', './comment');
-
-		    xhttp.setRequestHeader('Content-type', 'application/json');
-		    const num = document.getElementById('num').value;
-		    const content = document.getElementById('comment_content').value;
-
-			const com = {
-					review_num: num,
-					comment_content: content
-			}
-			
-			console.log(num);
-			console.log(content);
-			
-		    // send(payload) : 데이터를 실어 보낼 수 있다
-		    xhttp.send(JSON.stringify(com));
-		    
-		});
-	</script>
 
 </body>
 </html>

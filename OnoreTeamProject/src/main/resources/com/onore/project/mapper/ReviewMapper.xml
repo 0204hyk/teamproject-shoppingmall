@@ -11,7 +11,7 @@
   	SELECT * FROM reviews WHERE review_num=#{review_num}
   </select>
   
-  <select id="getComment" resultType="com.onore.project.dto.CommentDTO">
+  <select id="getReplyAll" resultType="com.onore.project.dto.CommentDTO">
   	SELECT * FROM comments WHERE review_num=#{review_num} ORDER BY comment_num DESC
   </select>
   
@@ -29,7 +29,7 @@
   	)
   </insert>
   
-  <insert id="comment" parameterType="com.onore.project.dto.CommentDTO">
+  <insert id="insertReply" parameterType="com.onore.project.dto.CommentDTO">
   	INSERT INTO comments VALUES (
   		comment_num_seq.nextval,
   		#{review_num},
@@ -46,7 +46,17 @@
   	 WHERE review_num=#{review_num}
   </update>
   
+  <update id="replyModify">
+  	UPDATE comments SET 
+  		comment_content=#{comment_content} 
+  		WHERE comment_num=#{comment_num}
+  </update>
+  
   <delete id="delete">
   	DELETE FROM reviews WHERE review_num=#{review_num}
+  </delete>
+  
+  <delete id="replyDelete">
+  	DELETE FROM comments WHERE comment_num=#{comment_num}
   </delete>
 </mapper>
