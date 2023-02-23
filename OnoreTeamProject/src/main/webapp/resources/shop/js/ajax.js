@@ -29,7 +29,7 @@ ajaxBtn1.addEventListener('click', (e) => {
 	ajaxOut1.addEventListener('mouseenter', (e) => {
 		const obj = JSON.parse(xhttp.responseText);
 		ajaxOut1.style.opacity = 0.3;
-		ajaxOut1.innerHTML = `${obj[0].product_price}원<img src=${obj[0].product_thumbnail}/>`;
+		ajaxOut1.innerHTML = `<fmt:formatNumber value='${obj[0].product_price}' pattern='#,###'/>원<img src=${obj[0].product_thumbnail}/>`;
 	});
 	
 	ajaxOut2.addEventListener('mouseenter', (e) => {
