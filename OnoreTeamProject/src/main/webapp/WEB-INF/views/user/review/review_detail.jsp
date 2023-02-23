@@ -9,8 +9,7 @@
 <%@ include file="../header.jspf"%>
 <link rel="icon" href="/project/resources/review/image/파비콘.png">
 <link rel="stylesheet"
-	href="/project/resources/review/css/review_detail.css?ver=5">
-<script src="/project/resources/review/js/review_detail.js?ver=2" defer></script>
+	href="/project/resources/review/css/review_detail.css?ver=6">
 </head>
 <body>
 
@@ -72,19 +71,19 @@
 			
 			<c:forEach items="${comments }" var="comment">
 				
-					<input type="hidden" id="com_num" value="${comment.comment_num }">
+					<input type="hidden" class="com_num" value="${comment.comment_num }">
 					<div>${comment.mem_id }/${comment.comment_date }</div>
 				<div id="reply_detail">	
 					<div>${comment.comment_content }</div>
 					<div id="com_mo_de">
-						<button class="com_modify" value="${comment.comment_num }">수정</button>  
-						<button class="com_delete" value="${comment.comment_num }">삭제</button>
+						<button id="com_modify" value="${comment.comment_num }">수정</button>  
+						<button class="com_delete" data="${comment.comment_num }">삭제</button>
 					</div>
 				</div>
 				<div id="reply_modify_form" style="display: none;">
 					<form action="./com_modify" method="POST">
 						<textarea id="reply_modify">${comment.comment_content }</textarea>
-						<input class="modify" type="button" value="수정">
+						<input id="modify" type="button" value="수정">
 				</div>	
 				</form>
 				
@@ -102,6 +101,7 @@
 
 	<%@ include file="../bottom.jspf"%>
 
-
+<script src="/project/resources/review/js/review_detail.js?ver=4" defer></script>
 </body>
+
 </html>
