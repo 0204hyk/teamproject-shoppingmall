@@ -10,7 +10,7 @@ ajaxBtn1.addEventListener('click', (e) => {
        		const obj = JSON.parse(xhttp.responseText);
             for (var i = 0; i < obj.length; i++) {
             	console.log('요청 성공!', obj);
-           		ajaxOut.innerHTML += <img src="obj[i].product_path + obj.[i].product_thumbnail" />;
+           		ajaxOut.innerHTML += `<img src="obj[i].product_path + obj.[i].product_thumbnail" />`;
             }
         }
 
