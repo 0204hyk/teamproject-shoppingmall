@@ -12,4 +12,6 @@ public interface ShopService {
 	List<ProductsDTO> bootsView();
 	
 	List<ProductsDTO> loafersView();
+	
+	List<ProductsDTO> bootSelect(int product_num);
 }

@@ -15,6 +15,7 @@
 	<%@ include file="../top.jspf" %>
 
 	<div  style="padding-top: 127px; width: auto; height: 2000px; margin: 50px; margin-top: 0px;">
+	<hr />
 		<div class="image-box">
 			<img class="image-thumbnail" src="/project/resources/shop/image/boots_main.png" alt="메인 구두 사진" />
 		</div>
@@ -32,12 +33,10 @@
 			<button id="ajax-loafers">LOAFERS</button>
 			<button>OXFORDS</button>
 			<button>SNAKERS</button>
-		
-		</div>
-		<div class="flex-container2">
-	
 			
-			<div id="img" class="img-container1">
+		</div>
+		<div id="imgBox" class="flex-container2">
+			<div id="img1" class="img-container1">
 			
 			
 			</div>

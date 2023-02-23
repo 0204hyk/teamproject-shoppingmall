@@ -12,5 +12,8 @@
 		select * from products where category_num = 2
 	</select>
 	
+	<select id="getSelectBoot" resultType="com.onore.project.dto.ProductsDTO">
+		select * from products where category_num = #{product_num}
+	</select>
 	
 </mapper>

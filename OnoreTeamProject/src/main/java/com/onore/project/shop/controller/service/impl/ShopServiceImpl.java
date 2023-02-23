@@ -29,4 +29,10 @@ public class ShopServiceImpl implements ShopService{
 		return shop_mapper.getLoafers();
 	}
 
+	@Override
+	public List<ProductsDTO> bootSelect(int product_num) {
+		
+		return shop_mapper.getSelectBoot(product_num);
+	}
+
 }
