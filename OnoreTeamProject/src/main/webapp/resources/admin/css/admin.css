@@ -218,3 +218,10 @@ body {
   margin-right: 5px;
   text-decoration: none;
 }
+
+#summernote > p > img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
