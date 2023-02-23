@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.onore.project.order.mapper.OrderMapper">
+	<insert id="insertOrder" parameterType="com.onore.project.order.dto.OrderDTO">
+		INSERT INTO orders VALUES(#{order_id}, #{order_name}, #{orderer_name}, #{orderer_phone},
+			#{orderer_email}, #{receiver_name}, #{receiver_zip_code}, #{receiver_address}, 
+			#{receiver_detail_address}, #{receiver_phone}, #{receiver_req}, #{discount_coupon},
+			#{discount_points}, #{total_price}, #{total_discount}, #{pay_price}, #{pay_method}, 1, sysdate)
+	</insert>
+	<insert id="insertOrderInfo" parameterType="com.onore.project.order.dto.OrderInfoDTO">
+		INSERT INTO order_infos VALUES(#{order_info_id}, #{order_id}, #{product_id}, #{product_name}, #{order_info_size},
+										#{order_info_qty}, #{order_info_option}, #{order_info_price}, sysdate)
+	</insert>
+	<select id="getOrder" resultType="com.onore.project.order.dto.OrderDTO">
+		SELECT * FROM orders WHERE order_id = #{order_id}
+	</select>
+	<select id="getOrderInfos" resultType="com.onore.project.order.dto.OrderInfoDTO">
+		SELECT * FROM order_infos WHERE order_id = #{order_id}
+	</select>
+
+</mapper>
