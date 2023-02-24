@@ -1,6 +1,10 @@
 package com.onore.project.admin.controller;
 
+import java.net.http.HttpRequest;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,7 +46,46 @@ public class AdminNoticeController {
 	
 	@GetMapping("/list")
 	public String noticeList(HttpServletRequest request) {
-		request.setAttribute("notices", service.readAllNotice());
+		String pageStr = request.getParameter("page");
+		
+		List<NoticeDTO> notices = service.readAllNotice();
+		
+		int page; 
+		
+		if (pageStr == null) {
+			page = 1;
+		} else {
+			page = Integer.parseInt(pageStr);
+		}
+		
+		int board_size = 14;
+		int notice_size = notices.size();
+		int start_index = (page - 1) * board_size;
+		int end_index = page * board_size;
+		end_index = end_index > notice_size ? notice_size : end_index;
+		
+		int max_page = notice_size % board_size == 0 ?
+				notice_size / board_size : notice_size / board_size + 1;
+		
+		int page_size = 10;
+		int pagination_start;
+		int pagination_end;
+		
+		if (page % 10 == 0) {
+			pagination_end = (page / page_size) * page_size; 
+		} else {
+			pagination_end = (page / page_size + 1) * page_size;
+		}
+		
+		pagination_start = page % page_size == 0 ? 
+				page - 9 : (page / page_size) * page_size + 1;
+		
+		pagination_end = pagination_end > max_page ? max_page : pagination_end;
+		
+		request.setAttribute("notices", notices.subList(start_index, end_index));
+		request.setAttribute("pagination_start", pagination_start);
+		request.setAttribute("pagination_end", pagination_end);
+		
 		return "/admin/notice/admin_notice_list";
 	}
 	

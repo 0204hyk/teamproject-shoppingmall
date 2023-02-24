@@ -35,15 +35,13 @@
 						</c:forEach>
 					</tbody>
 				</table>
-				<div style="text-align: right;">
-					<ul class="pagination justify-content-center" style="font-size: 20px;">
-						<li><a href="#" class="pagination-btn text-secondary">◀</a></li>
-						<li><a href="#" class="pagination-btn text-secondary">1</a></li>
-						<li><a href="#" class="pagination-btn text-secondary">2</a></li>
-						<li><a href="#" class="pagination-btn text-secondary">3</a></li>
-						<li><a href="#" class="pagination-btn text-secondary">4</a></li>
-						<li><a href="#" class="pagination-btn text-secondary">5</a></li>
-						<li><a href="#" class="pagination-btn text-secondary">▶</a></li>
+				<div style="text-align: right;">						
+					<ul class="pagination justify-content-center" style="font-size: 20px; margin-bottom: 0px;">
+						<li><a href="#" class="pagination-btn text-secondary" id="prev-btn">◀</a></li>
+						<c:forEach begin="${pagination_start}" end="${pagination_end}" var="i">
+							<li><a href="<%=request.getContextPath()%>/admin/notice/list?page=${i}" class="pagination-btn text-secondary">${i}</a></li>
+						</c:forEach>
+						<li><a href="#" class="pagination-btn text-secondary" id="next-btn">▶</a></li>
 					</ul>
 					<input type="submit" class="submit-btn btn btn-secondary btn-lg" value="삭 제"/>
 					<input type="button" onclick="location.href='<%=request.getContextPath()%>/admin/notice/write'" class="submit-btn btn btn-secondary btn-lg" value="등 록"/>			
@@ -52,7 +50,6 @@
 		</form>
 	</div>
 	
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="/project/resources/admin/js/notice_list.js"></script>
 	<%@ include file="../admin_footer.jspf" %>
 </body>

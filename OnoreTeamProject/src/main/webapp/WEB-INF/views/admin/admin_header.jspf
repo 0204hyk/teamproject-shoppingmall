@@ -18,7 +18,7 @@
 			<nav class="col-1 flex-shrink-0 p-3 bg-light shadow" style="width: 280px; height: 100vh; overflow-y: auto; position: fixed;">
 			   <ul class="list-unstyled ps-0">
 			   	 <li class="mb-1"> 
-			   	 	<a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+			   	 	<a href="<%=request.getContextPath()%>/main/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
 			     	<span class="fs-5 fw-semibold">홈페이지 바로가기</span>
 			   		</a>
 			   	 </li>
@@ -41,7 +41,7 @@
 			       </button>
 			       <div class="collapse" id="orders-collapse">
 			         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-			           <li><a href="#" class="link-secondary d-inline-flex text-decoration-none rounded">주문 관리</a></li>
+			           <li><a href="javascript:acyncMovePage('/project/admin/notice/list')" class="link-secondary d-inline-flex text-decoration-none rounded">주문 관리</a></li>
 			         </ul>
 			       </div>
 			     </li>
