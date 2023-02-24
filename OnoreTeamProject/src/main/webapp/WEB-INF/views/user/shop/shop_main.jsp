@@ -60,6 +60,20 @@
 			
 			</div>
 			
+			<div id="img7" class="img-container6">
+			
+			</div>
+			
+			<div id="img8" class="img-container6">
+			
+			</div>
+			
+			<div id="img9" class="img-container6">
+			
+			</div>
+			
+			
+			
 		</div>
 	</div>
 	<script src="/project/resources/shop/js/ajax.js"></script>

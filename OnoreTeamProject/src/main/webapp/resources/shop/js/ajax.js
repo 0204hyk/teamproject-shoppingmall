@@ -9,6 +9,10 @@ const ajaxOut3 = document.getElementById('img3');
 const ajaxOut4 = document.getElementById('img4');
 const ajaxOut5 = document.getElementById('img5');
 const ajaxOut6 = document.getElementById('img6');
+const ajaxOut7 = document.getElementById('img7');
+const ajaxOut8 = document.getElementById('img8');
+const ajaxOut9 = document.getElementById('img9');
+
 
 ajaxBtn1.addEventListener('click', (e) => {
 
@@ -17,21 +21,27 @@ ajaxBtn1.addEventListener('click', (e) => {
     xhttp.addEventListener('readystatechange', (e) => {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
 			const obj = JSON.parse(xhttp.responseText);
+			console.log(obj);
            	ajaxOut1.innerHTML = `<img src=${obj[0].product_thumbnail}/>`;
 			ajaxOut2.innerHTML = `<img src=${obj[1].product_thumbnail}/>`;
 			ajaxOut3.innerHTML = `<img src=${obj[2].product_thumbnail}/>`;
 			ajaxOut4.innerHTML = `<img src=${obj[3].product_thumbnail}/>`;
 			ajaxOut5.innerHTML = `<img src=${obj[4].product_thumbnail}/>`;
 			ajaxOut6.innerHTML = `<img src=${obj[5].product_thumbnail}/>`;
+			ajaxOut7.innerHTML = `<img src=${obj[6].product_thumbnail}/>`;			
+			ajaxOut8.innerHTML = `<img src=${obj[7].product_thumbnail}/>`;
+			ajaxOut9.innerHTML = `<img src=${obj[8].product_thumbnail}/>`;
+			
+			
         }
     });
 	
 	ajaxOut1.addEventListener('mouseenter', (e) => {
 		const obj = JSON.parse(xhttp.responseText);
 
-		console.log(`<fmt:formatNumber value=${obj[0].product_price} pattern='#,###'/>`);
+		console.log(` />`);
 		ajaxOut1.style.opacity = 0.3;
-		ajaxOut1.innerHTML = `<img src=${obj[0].product_thumbnail}/>`;
+		ajaxOut1.innerHTML = `<fmt:formatNumber value=${obj[0].product_price} pattern='#,###' /><img src=${obj[0].product_thumbnail}/>`;
 	});
 	
 	ajaxOut2.addEventListener('mouseenter', (e) => {
