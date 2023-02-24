@@ -114,12 +114,12 @@ ajaxBtn2.addEventListener('click', (e) => {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
        		const obj = JSON.parse(xhttp.responseText);
 
-           		ajaxOut1.innerHTML = `<img src=${obj[0].product_thumbnail}/>`;
-           		ajaxOut2.innerHTML = `<img src=${obj[1].product_thumbnail}/>`;
-           		ajaxOut3.innerHTML = `<img src=${obj[2].product_thumbnail}/>`;
-           		ajaxOut4.innerHTML = `<img src=${obj[3].product_thumbnail}/>`;
-           		ajaxOut5.innerHTML = `<img src=${obj[4].product_thumbnail}/>`;
-           		ajaxOut6.innerHTML = `<img src=${obj[5].product_thumbnail}/>`;
+           	ajaxOut1.innerHTML = `<img src=${obj[0].product_thumbnail}/>`;
+           	ajaxOut2.innerHTML = `<img src=${obj[1].product_thumbnail}/>`;
+         	ajaxOut3.innerHTML = `<img src=${obj[2].product_thumbnail}/>`;
+           	ajaxOut4.innerHTML = `<img src=${obj[3].product_thumbnail}/>`;
+           	ajaxOut5.innerHTML = `<img src=${obj[4].product_thumbnail}/>`;
+           	ajaxOut6.innerHTML = `<img src=${obj[5].product_thumbnail}/>`;
 
         }
     });
