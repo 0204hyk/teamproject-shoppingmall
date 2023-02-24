@@ -1,4 +1,4 @@
-package com.onore.project.qna.service.impl;
+package com.onore.project.shop.controller.service.impl;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 
 import com.onore.project.dto.ProductsDTO;
 import com.onore.project.mapper.ShopMapper;
-import com.onore.project.qna.service.ShopService;
+import com.onore.project.shop.controller.service.ShopService;
 
 @Service
 public class ShopServiceImpl implements ShopService{
@@ -21,6 +21,18 @@ public class ShopServiceImpl implements ShopService{
 		
 	return shop_mapper.getBoots();
 		
+	}
+
+	@Override
+	public List<ProductsDTO> loafersView() {
+		
+		return shop_mapper.getLoafers();
+	}
+
+	@Override
+	public List<ProductsDTO> bootSelect(int product_num) {
+		
+		return shop_mapper.getSelectBoot(product_num);
 	}
 
 }

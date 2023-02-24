@@ -23,117 +23,138 @@
 </head>
 <body>
 	<%@include file="../top.jspf"%>
-	
-	<div class="main" style="padding-top: 127px; width: auto; height: 1200px; margin: 50px; margin-top: 0px;">
-	<hr />
-	<div>
-	<table style="width: 1200px; height: 600px; border: 1px solid black;">
-		<c:forEach items="${views }" var="view">
-			<tr> 
-				<td colspan="3">${view.qna_title } </td>
-				
-			</tr>
-			<tr> 
-				<td colspan="3">내용 : ${view.qna_content } </td>
-			</tr>
-			
-				<c:choose>
-					<c:when test="${not empty view.qna_img_1 and not empty view.qna_img_2 and not empty view.qna_img_3}">
-						<td>
-							<a href="/project/resources/qna/images/${view.qna_img_1 }" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4"> 
-							<img style="width: 150px; height: 150px;" src="/project/resources/qna/images/${view.qna_img_1 }" class="img-fluid rounded" />
-							</a> 
-						</td>
-					
-						<td>
-							<a href="/project/resources/qna/images/${view.qna_img_2 }" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4"> 
-							<img style="width: 150px; height: 150px;" src="/project/resources/qna/images/${view.qna_img_2 }" class="img-fluid rounded" />
-							</a>
-						</td>
-						<td>
-							<a href="/project/resources/qna/images/${view.qna_img_3 }" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4"> 
-							<img style="width: 150px; height: 150px;" src="/project/resources/qna/images/${view.qna_img_3 }" class="img-fluid rounded" />
-							</a>
-						</td>
-					
-					</c:when>
-				
-					<c:when test="${not empty view.qna_img_1 and not empty view.qna_img_2}">
-						<tr>
-						<td>
-							<a href="/project/resources/qna/images/${view.qna_img_1 }" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4"> 
-							<img style="width: 150px; height: 150px;" src="/project/resources/qna/images/${view.qna_img_1 }" class="img-fluid rounded" />
-							</a> 
-						</td>			
-						<td>
-							<a href="/project/resources/qna/images/${view.qna_img_2 }" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4"> 
-							<img style="width: 150px; height: 150px;" src="/project/resources/qna/images/${view.qna_img_2 }" class="img-fluid rounded" />
-							</a>
-						</td>
-						</tr>
-					</c:when>
-					
-					<c:when test="${not empty view.qna_img_1 }">
-						<tr>
-						<td>
-							<a href="/project/resources/qna/images/${view.qna_img_1 }" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4"> 
-							<img style="width: 150px; height: 150px;" src="/project/resources/qna/images/${view.qna_img_1 }" class="img-fluid rounded" />
-							</a> 
-						</td>	
-						</tr>
-					</c:when>
-					
-					<c:otherwise>
-						<div>
-							<h4>첨부된 사진이 없습니다.</h4>
-						</div>
-					</c:otherwise>
-				</c:choose>
-			</c:forEach>
-		</table>
-	
-	<c:choose>
-		<c:when test="${not empty replys }">
-			<table>
-				<c:forEach items="${replys }" var="reply">
-					<tr>
-						<td>닉네임 : ${reply.comment_id }</td>
-					</tr>
-					<tr>
 
-						<td>댓글 내용 : ${reply.comment_view }</td>
-						<td>작성일 : ${reply.write_date }</td>
-						<td><a
-							href="./replyModify?no=${reply.comment_no }&board_id=${board.board_id}"
-							onclick="return confirm('댓글 수정을 하시겠습니까?');">수정</a></td>
-						<td><a
-							href="./replyDelete?no=${reply.comment_no }&board_id=${board.board_id}"
-							onclick="return confirm('정말로 삭제 하시겠습니까?');">삭제</a></td>
+	<div class="main"
+		style="padding-top: 127px; width: auto; height: 1200px; margin: 50px; margin-top: 0px;">
+		<hr />
+		<div>
+			<table style="width: 1200px; height: 600px; border: 1px solid black;">
+				<c:forEach items="${views }" var="view">
+					<tr>
+						<td colspan="3">${view.qna_title }</td>
+
 					</tr>
 					<tr>
-						<td style="background-color: orange"></td>
+						<td colspan="3">내용 : ${view.qna_content }</td>
 					</tr>
+
+					<c:choose>
+						<c:when
+							test="${not empty view.qna_img_1 and not empty view.qna_img_2 and not empty view.qna_img_3}">
+							<td><a
+								href="/project/resources/qna/images/${view.qna_img_1 }"
+								data-toggle="lightbox" data-gallery="example-gallery"
+								class="col-sm-4"> 
+								<img style="width: 150px; height: 150px;"
+									src="/project/resources/qna/images/${view.qna_img_1 }"
+									class="img-fluid rounded" />
+							</a>
+							</td>
+
+							<td>
+							<a
+								href="/project/resources/qna/images/${view.qna_img_2 }"
+								data-toggle="lightbox" data-gallery="example-gallery"
+								class="col-sm-4"> 
+								<img style="width: 150px; height: 150px;"
+									src="/project/resources/qna/images/${view.qna_img_2 }"
+									class="img-fluid rounded" />
+							</a>
+							</td>
+							<td>
+							<a href="/project/resources/qna/images/${view.qna_img_3 }"
+								data-toggle="lightbox" data-gallery="example-gallery"
+								class="col-sm-4"> <img style="width: 150px; height: 150px;"
+									src="/project/resources/qna/images/${view.qna_img_3 }"
+									class="img-fluid rounded" />
+							</a>
+							</td>
+
+						</c:when>
+
+						<c:when
+							test="${not empty view.qna_img_1 and not empty view.qna_img_2}">
+							<tr>
+								<td>
+								<a
+									href="/project/resources/qna/images/${view.qna_img_1 }"
+									data-toggle="lightbox" data-gallery="example-gallery"
+									class="col-sm-4"> <img style="width: 150px; height: 150px;"
+										src="/project/resources/qna/images/${view.qna_img_1 }"
+										class="img-fluid rounded" />
+								</a>
+								</td>
+								<td>
+								<a
+									href="/project/resources/qna/images/${view.qna_img_2 }"
+									data-toggle="lightbox" data-gallery="example-gallery"
+									class="col-sm-4"> <img style="width: 150px; height: 150px;"
+										src="/project/resources/qna/images/${view.qna_img_2 }"
+										class="img-fluid rounded" />
+								</a>
+								</td>
+							</tr>
+						</c:when>
+
+						<c:when test="${not empty view.qna_img_1 }">
+							<tr>
+								<td>
+								<a href="/project/resources/qna/images/${view.qna_img_1 }"
+									data-toggle="lightbox" data-gallery="example-gallery"
+									class="col-sm-4"> <img style="width: 150px; height: 150px;"
+										src="/project/resources/qna/images/${view.qna_img_1 }"
+										class="img-fluid rounded" />
+								</a>
+								</td>
+							</tr>
+						</c:when>
+
+						<c:otherwise>
+							<div>
+								<h4>첨부된 사진이 없습니다.</h4>
+							</div>
+						</c:otherwise>
+					</c:choose>
 				</c:forEach>
-
 			</table>
-		</c:when>
 
-		<c:otherwise>
-			<table>
-				<tr>
-					<td>댓글을 입력해 주세요.</td>
-				</tr>
-			</table>
-		</c:otherwise>
-	</c:choose>
+			<c:choose>
+				<c:when test="${not empty replys }">
+					<table>
+						<c:forEach items="${replys }" var="reply">
+							<tr>
+								<td>닉네임 : ${reply.comment_id }</td>
+							</tr>
+							<tr>
+
+								<td>댓글 내용 : ${reply.comment_view }</td>
+								<td>작성일 : ${reply.write_date }</td>
+								<td>
+								<a href="./replyModify?no=${reply.comment_no }&board_id=${board.board_id}"
+									onclick="return confirm('댓글 수정을 하시겠습니까?');">수정</a></td>
+								<td>
+								<a href="./replyDelete?no=${reply.comment_no }&board_id=${board.board_id}"
+									onclick="return confirm('정말로 삭제 하시겠습니까?');">삭제</a></td>
+							</tr>
+							<tr>
+								<td style="background-color: orange"></td>
+							</tr>
+						</c:forEach>
+
+					</table>
+				</c:when>
+
+				<c:otherwise>
+					<table>
+						<tr>
+							<td>댓글을 입력해 주세요.</td>
+						</tr>
+					</table>
+				</c:otherwise>
+			</c:choose>
+		</div>
 	</div>
-	</div>
-	<script>
-		$(document).on('click', '[data-toggle="lightbox"]', function(event) {
-			event.preventDefault();
-			$(this).ekkoLightbox();
-		});
-	</script>
+
 
 	<%@include file="../bottom.jspf"%>
 </body>
