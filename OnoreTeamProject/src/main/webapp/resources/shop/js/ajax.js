@@ -113,14 +113,6 @@ ajaxBtn2.addEventListener('click', (e) => {
  
         if (xhttp.readyState == 4 && xhttp.status == 200) {
        		const obj = JSON.parse(xhttp.responseText);
-<<<<<<< HEAD
-            for (var i = 0; i < obj.length; i++) {
-            	console.log('요청 성공!', obj);
-           		ajaxOut.innerHTML += `<img src="obj[i].product_path + obj.[i].product_thumbnail" />`;
-            }
-        }
-=======
->>>>>>> branch '강병천' of https://github.com/0204hyk/teamproject-shoppingmall.git
 
            		ajaxOut1.innerHTML = `<img src=${obj[0].product_thumbnail}/>`;
            		ajaxOut2.innerHTML = `<img src=${obj[1].product_thumbnail}/>`;
