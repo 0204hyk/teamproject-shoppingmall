@@ -1,0 +1,19 @@
+.main > div {
+	margin-left: 100px;
+	margin-right: 100px;
+}
+
+.top {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 100px;
+}
+
+.left > img {
+	width: 500px;
+	height: 500px;
+}
+
+.right {
+	width: 500px;
+}

@@ -101,7 +101,7 @@
 
 	<%@ include file="../bottom.jspf"%>
 
-<script src="/project/resources/review/js/review_detail.js?ver=4" defer></script>
+<script src="/project/resources/review/js/review_detail.js?ver=5" defer></script>
 </body>
 
 </html>
