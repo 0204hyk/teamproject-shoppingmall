@@ -1,20 +1,18 @@
 package com.onore.project.admin.controller;
 
-import java.net.http.HttpRequest;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.onore.project.admin.service.AdminNoticeService;
 import com.onore.project.dto.NoticeDTO;
-import com.onore.project.mapper.NoticeMapper;
 
-import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
@@ -36,10 +34,10 @@ public class AdminNoticeController {
 			NoticeDTO notice = new NoticeDTO();
 			notice.setNotice_title(request.getParameter("notice_title"));
 			notice.setNotice_content(request.getParameter("notice_content"));
-			service.noticeWriteService(notice);			
+			service.noticeWriteService(notice);
 		}
 		
-		return "redirect:/admin/notice/write";
+		return "redirect:/admin/notice/list";
 	}
 	
 	@GetMapping("/list")
@@ -62,6 +60,16 @@ public class AdminNoticeController {
 			notice.setNotice_title(request.getParameter("notice_title"));
 			notice.setNotice_content(request.getParameter("notice_content"));
 			service.noticeModifyService(notice);
+		}
+		return "redirect:/admin/notice/list";
+	}
+	
+	@PostMapping("/delete")
+	public String noticeDelete(@RequestParam(value = "row_check", required = false) String[] row_check) {
+		if (row_check != null) {
+			for (String notice_num : row_check) {
+				service.noticeDeleteService(Integer.parseInt(notice_num));
+			}
 		}
 		return "redirect:/admin/notice/list";
 	}

@@ -19,7 +19,8 @@
 			<form action="<%=request.getContextPath()%>/admin/notice/write" method="POST">
 				<input type="text" class="notice-write-title" name="notice_title" placeholder="제목을 입력하세요." autofocus/>
 		  		<textarea class="summernote" name="notice_content"></textarea>
-		  		<div class="d-grid gap-5 d-md-flex justify-content-md-end" style="margin-top: 10px;">
+		  		<div class="d-grid d-md-flex justify-content-md-end" style="margin-top: 15px;">
+		  			<input type="button" onclick="location.href='<%=request.getContextPath()%>/admin/notice/list'" class="submit-btn btn btn-secondary btn-lg" value="취 소" />
 		  			<input type="submit" class="submit-btn btn btn-secondary btn-lg" value="등 록" />
 		  		</div>
 		  	</form>

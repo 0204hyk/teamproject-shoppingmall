@@ -18,7 +18,7 @@ public class NoticeDTO {
 	private String notice_content;
 	private Date notice_date;
 	
-	private static SimpleDateFormat dayFormat = new SimpleDateFormat("yy.MM.dd");
+	private static SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy.MM.dd");
 	private static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
 	
 	public String getCreationDateTime() {		

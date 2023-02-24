@@ -10,5 +10,5 @@ public interface NoticeMapper {
 	List<NoticeDTO> getAllNotice();
 	NoticeDTO getNotice(Integer notice_num);
 	Integer updateNotice(NoticeDTO notice);
-	
+	Integer deleteNotice(Integer notice_num);
 }

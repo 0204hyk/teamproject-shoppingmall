@@ -42,7 +42,8 @@ public class ImageUploadRestController {
 			InputStream fileStream = multipartFile.getInputStream();
 			FileUtils.copyInputStreamToFile(fileStream, targetFile);	//파일 저장
 			jsonObject.addProperty("url", "/project/resources/admin/image/notice/" + savedFileName);
-			jsonObject.addProperty("responseCode", "success");				
+			jsonObject.addProperty("responseCode", "success");		
+			fileStream.close();
 		} catch (IOException e) {
 			FileUtils.deleteQuietly(targetFile);	//저장된 파일 삭제
 			jsonObject.addProperty("responseCode", "error");

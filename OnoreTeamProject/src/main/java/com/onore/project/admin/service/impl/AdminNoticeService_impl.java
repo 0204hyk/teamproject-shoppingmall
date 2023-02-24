@@ -39,5 +39,10 @@ public class AdminNoticeService_impl implements AdminNoticeService {
 		return noticeMapper.updateNotice(notice);
 	}
 
+	@Override
+	public Integer noticeDeleteService(Integer notice_num) {
+		return noticeMapper.deleteNotice(notice_num);
+	}
+
 	
 }

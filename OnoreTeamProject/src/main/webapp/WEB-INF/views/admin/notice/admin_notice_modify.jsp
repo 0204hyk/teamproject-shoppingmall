@@ -18,9 +18,10 @@
 		<div class="container">
 			<form action="<%=request.getContextPath()%>/admin/notice/modify" method="POST">
 				<input type="hidden" name="notice_num" value="${notice.notice_num}"/>
-				<input type="text" class="notice-write-title" name="notice_title" placeholder="제목을 입력하세요." value="${notice.notice_title}"/>
+				<input type="text" class="notice-write-title" name="notice_title" placeholder="제목을 입력하세요." value="${notice.notice_title}" autofocus/>
 		  		<textarea class="summernote" name="notice_content">${notice.notice_content}</textarea>
-		  		<div class="d-grid gap-5 d-md-flex justify-content-md-end" style="margin-top: 10px;">
+		  		<div class="d-grid d-md-flex justify-content-md-end" style="margin-top: 15px;">
+		 			<button onclick="location.href='<%=request.getContextPath()%>/admin/notice/list'" class="submit-btn btn btn-secondary btn-lg">취 소</button>
 		  			<input type="submit" class="submit-btn btn btn-secondary btn-lg" value="수 정" />
 		  		</div>
 		  	</form>
@@ -31,31 +32,7 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js""></script>
 	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 	<script src=" https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/lang/summernote-ko-KR.min.js"></script>
-    <script>
-        $(document).ready(function() {
-        	$('.summernote').summernote({
-                	placeholder: '내용을 작성해주세요.',
-                	height: 560,
-                	lang: 'ko-KR',
-                	disableResizeEditor: true,
-        		  toolbar: [
-        			    // [groupName, [list of button]]
-        			    ['fontname', ['fontname']],
-        			    ['fontsize', ['fontsize']],
-        			    ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
-        			    ['color', ['forecolor','color']],
-        			    ['table', ['table']],
-        			    ['para', ['ul', 'ol', 'paragraph']],
-        			    ['height', ['height']],
-        			    ['insert',['picture','link','video']],
-        			    ['view', ['fullscreen', 'help']]
-        			  ],
-        			fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
-        			fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72']
-        	});
-            $('.dropdown-toggle').dropdown();
-        });
-    </script>
+	<script src="/project/resources/admin/js/summernote.js"></script>
 		
 	<%@ include file="../admin_footer.jspf" %>
 </body>

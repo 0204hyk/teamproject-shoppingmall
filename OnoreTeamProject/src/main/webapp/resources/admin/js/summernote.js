@@ -42,7 +42,6 @@ function uploadSummernoteImageFile(file, el) {
         enctype : 'multipart/form-data',
         processData : false,
         success : function(data) {
-            alert(data.url);
             $(el).summernote('editor.insertImage', data.url);
         }
     });
