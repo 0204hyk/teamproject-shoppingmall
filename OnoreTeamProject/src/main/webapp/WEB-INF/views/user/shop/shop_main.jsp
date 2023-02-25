@@ -10,6 +10,7 @@
 <%@ include file="../header.jspf" %>
 <link rel="stylesheet" href="/project/resources/shop/css/main.css" />
 <link rel="stylesheet" href="/project/resources/shop/css/category.css" />
+	
 </head>
 <body>
 	
@@ -29,51 +30,77 @@
 			</div>
 		</div>
 		<div class="category-btn">
-			<button>All</button>
+			<button id="ajax-all">All</button>
+			<button id="ajax-derby">DERBY</button>
 			<button id="ajax-boots">BOOTS</button>
-			<button id="ajax-loafers">LOAFERS</button>
-			<button>OXFORDS</button>
-			<button>SNAKERS</button>
+			<button id="ajax-loafer">LOAFER</button>
+			<button id="ajax-snakers">SNAKERS</button>
 			
 		</div>
+		
 		<div id="imgBox" class="flex-container2">
-			<div id="img1" class="img-container1">
-			
-			
-			</div>
-			<div id="img2" class="img-container2">
+		
+			<div class="img-container">
+				<div  class="test">
+					
 				
+				</div>
+
+			</div>
+			
+			<div class="img-container">
+				<div  class="test">
+					
+			
+					
+				</div>
 				
 			</div>
-			<div id="img3" class="img-container3">
 			
+			<div class="img-container">
+				<div  class="test">
 			
-			</div>
-			<div id="img4" class="img-container4">
-			
-			
-			</div>
-			<div id="img5" class="img-container5">
-			
-			</div>
-			<div id="img6" class="img-container6">
+				</div>
 			
 			</div>
 			
-			<div id="img7" class="img-container6">
+			<div class="img-container">
+				<div  class="test">
 			
+				</div>
 			</div>
 			
-			<div id="img8" class="img-container6">
+			<div class="img-container">
+				
+				<div  class="test">
 			
+				</div>
 			</div>
 			
-			<div id="img9" class="img-container6">
-			
+			<div class="img-container">
+				<div  class="test">
+				
+				</div>
 			</div>
 			
+			<div class="img-container">
+				<div  class="test">
+				
+				</div>
+			</div>
 			
+			<div class="img-container">
+				<div  class="test">
+				
+				</div>
+			</div>
 			
+			<div class="img-container">
+				<div  class="test">
+				
+				</div>
+			</div>
+		
 		</div>
 	</div>
 	<script src="/project/resources/shop/js/ajax.js"></script>

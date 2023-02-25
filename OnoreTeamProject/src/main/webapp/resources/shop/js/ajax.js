@@ -1,141 +1,78 @@
-const ajaxBtn1 = document.getElementById('ajax-boots');
-const ajaxBtn2 = document.getElementById('ajax-loafers');
+const categoryAll = document.getElementById('ajax-all');
+const derbyBtn = document.getElementById('ajax-derby');
+const bootsBtn = document.getElementById('ajax-boots');
+const loaferBtn = document.getElementById('ajax-loafer');
+const snakersBtn = document.getElementById('ajax-snakers');
+
+const imgOut1 = document.getElementById('img1');
+const imgOut2 = document.getElementById('img2');
+const imgOut3 = document.getElementById('img3');
+const imgOut4 = document.getElementById('img4');
+const imgOut5 = document.getElementById('img5');
+const imgOut6 = document.getElementById('img6');
+const imgOut7 = document.getElementById('img7');
+const imgOut8 = document.getElementById('img8');
+const imgOut9 = document.getElementById('img9');
+
+const imgInfo = document.getElementsByClassName('img-info');
+
+const xhttp = new XMLHttpRequest();
 
 
 
-const ajaxOut1 = document.getElementById('img1');
-const ajaxOut2 = document.getElementById('img2');
-const ajaxOut3 = document.getElementById('img3');
-const ajaxOut4 = document.getElementById('img4');
-const ajaxOut5 = document.getElementById('img5');
-const ajaxOut6 = document.getElementById('img6');
-const ajaxOut7 = document.getElementById('img7');
-const ajaxOut8 = document.getElementById('img8');
-const ajaxOut9 = document.getElementById('img9');
-
-
-ajaxBtn1.addEventListener('click', (e) => {
-
-    const xhttp = new XMLHttpRequest();
-
-    xhttp.addEventListener('readystatechange', (e) => {
+derbyBtn.addEventListener('click', (e) => {
+	
+   	xhttp.addEventListener('readystatechange', (e) => {
+   
         if (xhttp.readyState == 4 && xhttp.status == 200) {
 			const obj = JSON.parse(xhttp.responseText);
-			console.log(obj);
-           	ajaxOut1.innerHTML = `<img src=${obj[0].product_thumbnail}/>`;
-			ajaxOut2.innerHTML = `<img src=${obj[1].product_thumbnail}/>`;
-			ajaxOut3.innerHTML = `<img src=${obj[2].product_thumbnail}/>`;
-			ajaxOut4.innerHTML = `<img src=${obj[3].product_thumbnail}/>`;
-			ajaxOut5.innerHTML = `<img src=${obj[4].product_thumbnail}/>`;
-			ajaxOut6.innerHTML = `<img src=${obj[5].product_thumbnail}/>`;
-			ajaxOut7.innerHTML = `<img src=${obj[6].product_thumbnail}/>`;			
-			ajaxOut8.innerHTML = `<img src=${obj[7].product_thumbnail}/>`;
-			ajaxOut9.innerHTML = `<img src=${obj[8].product_thumbnail}/>`;
-			
-			
-        }
-    });
-	
-	ajaxOut1.addEventListener('mouseenter', (e) => {
-		const obj = JSON.parse(xhttp.responseText);
+				for ( i = 0; i < obj.length; ++i) {
+					const onoreImg = document.getElementsByClassName('img-container')[i];
+					onoreImg.innerHTML += `<img src=${obj[i].product_thumbnail} />`;	
+					
+					
+					const test = document.getElementsByClassName('test')[i];
+ 					test.innerHTML += `<h3>${obj[i].product_price}원</h3>`;
+ 					test.innerHTML += `<h4>${obj[i].product_name}</h4>`; 
+					test.style.display = 'none';
+					
+					
+					
+					onoreImg.addEventListener('mouseenter', (e) => {
+					
+						test.style.display = 'initial';
+						
 
-		console.log(` />`);
-		ajaxOut1.style.opacity = 0.3;
-		ajaxOut1.innerHTML = `<fmt:formatNumber value=${obj[0].product_price} pattern='#,###' /><img src=${obj[0].product_thumbnail}/>`;
+					});
+					
+					
+					onoreImg.addEventListener('mouseleave', (e) => {
+					
+						test.style.display = 'none';
+				
+					});
+					
+					onoreImg.addEventListener('click', (e) => {
+						
+						
+					});
+				}	
+		}
 	});
 	
-	ajaxOut2.addEventListener('mouseenter', (e) => {
-		const obj = JSON.parse(xhttp.responseText);
-		ajaxOut2.style.opacity = 0.3;
-		ajaxOut2.innerHTML = `${obj[1].product_price}원<img src=${obj[1].product_thumbnail}/>`;
-	});
-	
-	ajaxOut3.addEventListener('mouseenter', (e) => {
-		const obj = JSON.parse(xhttp.responseText);
-		ajaxOut3.style.opacity = 0.3;
-		ajaxOut3.innerHTML = `${obj[2].product_price}원<img src=${obj[2].product_thumbnail}/>`;
-	});
-	
-	ajaxOut4.addEventListener('mouseenter', (e) => {
-		const obj = JSON.parse(xhttp.responseText);
-		ajaxOut4.style.opacity = 0.3;
-		ajaxOut4.innerHTML = `${obj[3].product_price}원<img src=${obj[3].product_thumbnail}/>`;
-	});
-	
-	ajaxOut5.addEventListener('mouseenter', (e) => {
-		const obj = JSON.parse(xhttp.responseText);
-		ajaxOut5.style.opacity = 0.3;
-		ajaxOut5.innerHTML = `${obj[4].product_price}원<img src=${obj[4].product_thumbnail}/>`;
-	});
-	
-	ajaxOut6.addEventListener('mouseenter', (e) => {
-		const obj = JSON.parse(xhttp.responseText);
-		ajaxOut6.style.opacity = 0.3;
-		ajaxOut6.innerHTML = `${obj[5].product_price}원<img src=${obj[5].product_thumbnail}/>`;
-	});
-	
-	ajaxOut1.addEventListener('mouseleave', (e) => {
-		const obj = JSON.parse(xhttp.responseText);
-		ajaxOut1.style.opacity = 1;
-		ajaxOut1.innerHTML = `<img src=${obj[0].product_thumbnail}/>`;
-	});
-	
-	ajaxOut2.addEventListener('mouseleave', (e) => {
-		const obj = JSON.parse(xhttp.responseText);
-		ajaxOut2.style.opacity = 1;
-		ajaxOut2.innerHTML = `<img src=${obj[1].product_thumbnail}/>`;
-	});
-	
-	ajaxOut3.addEventListener('mouseleave', (e) => {
-		const obj = JSON.parse(xhttp.responseText);
-		ajaxOut3.style.opacity = 1;
-		ajaxOut3.innerHTML = `<img src=${obj[2].product_thumbnail}/>`;
-	});
-	
-	ajaxOut4.addEventListener('mouseleave', (e) => {
-		const obj = JSON.parse(xhttp.responseText);
-		ajaxOut4.style.opacity = 1;
-		ajaxOut4.innerHTML = `<img src=${obj[3].product_thumbnail}/>`;
-	});
-	
-	ajaxOut5.addEventListener('mouseleave', (e) => {
-		const obj = JSON.parse(xhttp.responseText);
-		ajaxOut5.style.opacity = 1;
-		ajaxOut5.innerHTML = `<img src=${obj[4].product_thumbnail}/>`;
-	});
-	
-	ajaxOut6.addEventListener('mouseleave', (e) => {
-		const obj = JSON.parse(xhttp.responseText);
-		ajaxOut6.style.opacity = 1;
-		ajaxOut6.innerHTML = `<img src=${obj[5].product_thumbnail}/>`;
-	});
-	
-	
-	
-    xhttp.open('GET', '/project/restful/boots');
+
+	xhttp.open('GET', '/project/restful/boots');
     xhttp.send();
 });
 
-ajaxBtn2.addEventListener('click', (e) => {
 
-    const xhttp = new XMLHttpRequest();
-    xhttp.addEventListener('readystatechange', (e) => {
- 
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-       		const obj = JSON.parse(xhttp.responseText);
 
-           	ajaxOut1.innerHTML = `<img src=${obj[0].product_thumbnail}/>`;
-           	ajaxOut2.innerHTML = `<img src=${obj[1].product_thumbnail}/>`;
-         	ajaxOut3.innerHTML = `<img src=${obj[2].product_thumbnail}/>`;
-           	ajaxOut4.innerHTML = `<img src=${obj[3].product_thumbnail}/>`;
-           	ajaxOut5.innerHTML = `<img src=${obj[4].product_thumbnail}/>`;
-           	ajaxOut6.innerHTML = `<img src=${obj[5].product_thumbnail}/>`;
 
-        }
-    });
 
-    xhttp.open('GET', '/project/restful/loafers');
 
-    xhttp.send();
-});
 
+	
+	
+	
+	
+	
