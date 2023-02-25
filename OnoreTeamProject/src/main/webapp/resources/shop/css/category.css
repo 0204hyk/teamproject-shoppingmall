@@ -9,20 +9,29 @@
     height: 800px;
 }
 
-.img-container  {
-	width:300px;
-    height:300px;
-    padding: 5px;
-    margin: auto;
-    overflow:hidden;
-    object-fit:cover;
-}
 
-.test:hover {
-	opacity: 0.3;
-	
+.img-container  {
+	width:250px;
+    height:250px;
+    padding: 5px;
+   	overflow: hidden;
+   	margin:0 auto;
+   	vertical-align: middle;
+    background-position: center;
 }
 
 .img-container > img {
 	width:200px;
 	height:200px;
+	object-fit:cover;
+}
+
+.test {
+	position: absolute;
+	z-index: 2;
+	padding-top: 20px;
+	margin-left: 50px;
+	text-align: center;
+	color: black;
+	
+}

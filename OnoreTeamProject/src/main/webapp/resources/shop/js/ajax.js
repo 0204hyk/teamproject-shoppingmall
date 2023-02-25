@@ -28,17 +28,20 @@ derbyBtn.addEventListener('click', (e) => {
 			const obj = JSON.parse(xhttp.responseText);
 				for ( i = 0; i < obj.length; ++i) {
 					const onoreImg = document.getElementsByClassName('img-container')[i];
-					onoreImg.innerHTML += `<img src=${obj[i].product_thumbnail} />`;	
-					
+					onoreImg.innerHTML += `<img src=${obj[i].product_thumbnail} class='imgs' />`;	
+					const number = `${obj[i].product_num }`;
 					
 					const test = document.getElementsByClassName('test')[i];
- 					test.innerHTML += `<h3>${obj[i].product_price}원</h3>`;
  					test.innerHTML += `<h4>${obj[i].product_name}</h4>`; 
+ 					test.innerHTML += `<h5>${obj[i].product_price}원</h5>`;
+ 		
 					test.style.display = 'none';
 					
 					
 					
 					onoreImg.addEventListener('mouseenter', (e) => {
+						const image = document.getElementsByClassName('imgs');
+						
 					
 						test.style.display = 'initial';
 						
@@ -47,14 +50,14 @@ derbyBtn.addEventListener('click', (e) => {
 					
 					
 					onoreImg.addEventListener('mouseleave', (e) => {
-					
+						onoreImg.style.opacity = '1';
 						test.style.display = 'none';
-				
+						
 					});
 					
 					onoreImg.addEventListener('click', (e) => {
-						
-						
+						console.log(number);
+						location.href = '/product/shop/detail/' + number;
 					});
 				}	
 		}
