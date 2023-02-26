@@ -1,7 +1,7 @@
-function acyncMovePage(url){
+function movePageByGet(url){
     var ajaxOption = {
             url : url,
-            async : true,
+            async : false,
             type : "GET",
             dataType : "html",
             cache : false
@@ -14,4 +14,3 @@ function acyncMovePage(url){
 		$('#contents-div').html(data);
     });
 }
-

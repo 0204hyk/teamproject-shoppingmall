@@ -28,10 +28,10 @@
 			       </button>
 			       <div class="collapse" id="sales-collapse">
 			         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-			           <li><a href="<%=request.getContextPath()%>/admin/stats/category" class="link-secondary d-inline-flex text-decoration-none rounded">카테고리별 통계</a></li>
-			           <li><a href="<%=request.getContextPath()%>/admin/stats/daily" class="link-secondary d-inline-flex text-decoration-none rounded">일별 통계</a></li>
-			           <li><a href="<%=request.getContextPath()%>/admin/stats/monthly" class="link-secondary d-inline-flex text-decoration-none rounded">월별 통계</a></li>
-			           <li><a href="<%=request.getContextPath()%>/admin/stats/annual" class="link-secondary d-inline-flex text-decoration-none rounded">연별 통계</a></li>
+			           <li><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/stats/category')" class="link-secondary d-inline-flex text-decoration-none rounded">카테고리별 통계</a></li>
+			           <li><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/stats/daily')" class="link-secondary d-inline-flex text-decoration-none rounded">일별 통계</a></li>
+			           <li><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/stats/monthly')" class="link-secondary d-inline-flex text-decoration-none rounded">월별 통계</a></li>
+			           <li><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/stats/annual')" class="link-secondary d-inline-flex text-decoration-none rounded">연별 통계</a></li>
 			         </ul>
 			       </div>
 			     </li>
@@ -41,7 +41,7 @@
 			       </button>
 			       <div class="collapse" id="orders-collapse">
 			         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-			           <li><a href="javascript:acyncMovePage('/project/admin/notice/list')" class="link-secondary d-inline-flex text-decoration-none rounded">주문 관리</a></li>
+			           <li><a href="#" class="link-secondary d-inline-flex text-decoration-none rounded">주문 관리</a></li>
 			         </ul>
 			       </div>
 			     </li>
@@ -51,8 +51,8 @@
 			       </button>
 			       <div class="collapse" id="notice-collapse">
 			         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-			           <li><a href="<%=request.getContextPath()%>/admin/notice/write" class="link-secondary d-inline-flex text-decoration-none rounded">공지사항 등록</a></li>
-			           <li><a href="<%=request.getContextPath()%>/admin/notice/list" class="link-secondary d-inline-flex text-decoration-none rounded">공지사항 관리</a></li>
+			           <li><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/notice/write')" class="link-secondary d-inline-flex text-decoration-none rounded">공지사항 등록</a></li>
+			           <li><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/notice/list')" class="link-secondary d-inline-flex text-decoration-none rounded">공지사항 관리</a></li>
 			         </ul>
 			       </div>
 			     </li>
@@ -101,4 +101,6 @@
 			     </li>			     
 			   </ul>
 			</nav>
-			<div id="contents-div" class="col" style="padding: 30px; padding-left: 380px; display: flex; flex-wrap: wrap; background-color: rgb(250, 250, 250);">
+		</div>
+	</div>	
+		

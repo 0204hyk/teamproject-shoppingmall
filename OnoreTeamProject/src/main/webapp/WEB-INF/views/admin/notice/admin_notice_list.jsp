@@ -6,14 +6,12 @@
 <head>
 <meta charset="UTF-8">
 	<title>공지사항 목록</title>
-	<%@ include file="../admin_cdn.jspf" %>
 </head>
 <body>
-	<%@ include file="../admin_header.jspf" %>
 	
 	<div class="notice-content shadow">
 		<div class="notice-title"><h1>공지사항 목록</h1></div>
-		<form action="<%=request.getContextPath()%>/admin/notice/delete" method="POST">
+		<form id="notice-list-form" name="notice-list-form" method="POST">
 			<div class="container">
 				<table class="notice-board table table-hover">
 					<thead class="table-secondary">
@@ -29,7 +27,7 @@
 							<tr>
 								<td style="width: 50px;"><input type="checkbox" class="row-check" name="row_check" value="${notice.notice_num}"/></td>
 								<td style="width: 80px;">${notice.notice_num}</td>
-								<td><a href="<%=request.getContextPath()%>/admin/notice/modify?notice_num=${notice.notice_num}">${notice.notice_title}</a></td>
+								<td><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/notice/modify?notice_num=${notice.notice_num}')">${notice.notice_title}</a></td>
 								<td style="width: 200px;">${notice.creationDateTime}</td>
 							</tr>
 						</c:forEach>
@@ -43,14 +41,47 @@
 						</c:forEach>
 						<li><a href="#" class="pagination-btn text-secondary" id="next-btn">▶</a></li>
 					</ul>
-					<input type="submit" class="submit-btn btn btn-secondary btn-lg" value="삭 제"/>
-					<input type="button" onclick="location.href='<%=request.getContextPath()%>/admin/notice/write'" class="submit-btn btn btn-secondary btn-lg" value="등 록"/>			
+					<input type="button" id="notice-delete-btn" class="submit-btn btn btn-secondary btn-lg" value="삭 제"/>
+					<input type="button" onclick="movePageByGet('<%=request.getContextPath()%>/admin/notice/write')" class="submit-btn btn btn-secondary btn-lg" value="등 록"/>			
 				</div>
 			</div>
 		</form>
 	</div>
 	
+		<script>
+        	$(document).ready(function(){
+        	    $('#notice-delete-btn').click(function() {
+					if ($("input:checkbox[name=row_check]:checked").length == 0) {
+						alert('삭제할 항목을 선택해주세요.');
+					} else {
+						var result = confirm('삭제하시겠습니까?');
+	
+						if(result) {
+							var formData = $('#notice-list-form').serialize();
+							
+							var checked = $("input:checkbox[name=row_check]:checked").length;
+							$.ajax({
+								url: "<%=request.getContextPath()%>/admin/notice/delete",
+								type: "POST",
+								cache: false,
+								data: formData,
+								cache : false,
+								success: function(data){
+									alert(checked + "개의 글을 삭제하였습니다.");
+									movePageByGet('<%=request.getContextPath()%>/admin/notice/list');
+								},
+								error: function (request, status, error){        
+									console.log(error);
+								}
+							})     
+						} else {
+							
+						}
+					}
+        	    });
+        	});
+	</script>
 	<script src="/project/resources/admin/js/notice_list.js"></script>
-	<%@ include file="../admin_footer.jspf" %>
+	
 </body>
 </html>

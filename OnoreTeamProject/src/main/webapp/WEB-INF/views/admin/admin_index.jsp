@@ -12,64 +12,64 @@
 <body>
 	<%@ include file="./admin_header.jspf" %>
 	
-	<div id="index-content" class="shadow">
-		<div class="main-inner-content">
-			<div class="content-title"><h1>주간 매출 그래프</h1></div>
-			<canvas id="index-chart" class="container"></canvas>
+	<div id="contents-div" class="col" style="padding: 30px; padding-left: 380px; display: flex; flex-wrap: wrap; background-color: rgb(250, 250, 250);">
+		<div id="index-content" class="shadow">
+			<div class="main-inner-content">
+				<div class="content-title"><h1>주간 매출 그래프</h1></div>
+				<canvas id="index-chart" class="container"></canvas>
+			</div>
+		</div>
+		<div id="index-content" class="shadow">
+			<div class="content-title"><h1>일자별 현황</h1></div>
+			<table class="stats-table" style="width: 620px; height: 440px; border-radius: 15px">
+				<tr>
+				  <th class="table-col-1">일자</th>
+				  <th class="table-col-2">주문수</th>
+				  <th class="table-col-3">매출액</th>
+				  <th class="table-col-4">가입</th>
+				  <th class="table-col-5">문의</th>
+				  <th class="table-col-6">후기</th>
+				</tr>
+			    <c:forEach items="${dailySales}" var="daySaleData" varStatus="statusNum">
+				  <tr>
+					<td class="table-col-1">${daySaleData.day}</td>
+					<td class="table-col-2"><fmt:formatNumber value="${daySaleData.daily_sales_cnt}" pattern="#,###"/></td>
+					<td class="table-col-3"><fmt:formatNumber value="${daySaleData.daily_sales}" pattern="#,###"/> 원</td>
+					<td class="table-col-4"><fmt:formatNumber value="${weeklyStats[statusNum.index].register_cnt}" pattern="#,###"/></td>
+					<td class="table-col-5"><fmt:formatNumber value="${weeklyStats[statusNum.index].qna_cnt}" pattern="#,###"/></td>
+				    <td class="table-col-6"><fmt:formatNumber value="${weeklyStats[statusNum.index].review_cnt}" pattern="#,###"/></td>
+				  </tr>
+		    	</c:forEach>
+			</table>
+			<table class="stats-table" style="width: 620px; height: 60px;">
+				<tr>
+					<th class="table-col-1">최근 7일 통계</td>
+					<td class="table-col-2"><fmt:formatNumber value="${dailySalesTotal.sales_cnt_total}" pattern="#,###"/></td>
+					<td class="table-col-3"><fmt:formatNumber value="${dailySalesTotal.daily_sales_total}" pattern="#,###"/> 원</td>
+					<td class="table-col-4"><fmt:formatNumber value="${weeklyStatsTotal.register_cnt_total}" pattern="#,###"/></td>
+					<td class="table-col-5"><fmt:formatNumber value="${weeklyStatsTotal.qna_cnt_total}" pattern="#,###"/></td>
+					<td class="table-col-6"><fmt:formatNumber value="${weeklyStatsTotal.review_cnt_total}" pattern="#,###"/></td>
+				</tr>
+			</table>
+			<table class="stats-table" style="width: 620px; height: 60px;">
+				<tr>
+					<th class="table-col-1">이번 달 통계</td>
+					<td class="table-col-2"><fmt:formatNumber value="${monthSalesTotal.sales_cnt_total}" pattern="#,###"/></td>
+					<td class="table-col-3"><fmt:formatNumber value="${monthSalesTotal.daily_sales_total}" pattern="#,###"/> 원</td>
+					<td class="table-col-4"><fmt:formatNumber value="${monthStatsTotal.register_cnt_total}" pattern="#,###"/></td>
+					<td class="table-col-5"><fmt:formatNumber value="${monthStatsTotal.qna_cnt_total}" pattern="#,###"/></td>
+					<td class="table-col-6"><fmt:formatNumber value="${monthStatsTotal.review_cnt_total}" pattern="#,###"/></td>
+				</tr>
+			</table>
+		</div>
+		<div id="index-content" class="shadow">
+			<div class="content-title"><h1>문 의</h1></div>
+		</div>
+		<div id="index-content" class="shadow">
+			<div class="content-title"><h1>후 기</h1></div>
 		</div>
 	</div>
-	<div id="index-content" class="shadow">
-		<div class="content-title"><h1>일자별 현황</h1></div>
-		<table class="stats-table" style="width: 620px; height: 440px; border-radius: 15px">
-			<tr>
-			  <th class="table-col-1">일자</th>
-			  <th class="table-col-2">주문수</th>
-			  <th class="table-col-3">매출액</th>
-			  <th class="table-col-4">가입</th>
-			  <th class="table-col-5">문의</th>
-			  <th class="table-col-6">후기</th>
-			</tr>
-		    <c:forEach items="${dailySales}" var="daySaleData" varStatus="statusNum">
-			  <tr>
-				<td class="table-col-1">${daySaleData.day}</td>
-				<td class="table-col-2"><fmt:formatNumber value="${daySaleData.daily_sales_cnt}" pattern="#,###"/></td>
-				<td class="table-col-3"><fmt:formatNumber value="${daySaleData.daily_sales}" pattern="#,###"/> 원</td>
-				<td class="table-col-4"><fmt:formatNumber value="${weeklyStats[statusNum.index].register_cnt}" pattern="#,###"/></td>
-				<td class="table-col-5"><fmt:formatNumber value="${weeklyStats[statusNum.index].qna_cnt}" pattern="#,###"/></td>
-			    <td class="table-col-6"><fmt:formatNumber value="${weeklyStats[statusNum.index].review_cnt}" pattern="#,###"/></td>
-			  </tr>
-	    	</c:forEach>
-		</table>
-		<table class="stats-table" style="width: 620px; height: 60px;">
-			<tr>
-				<th class="table-col-1">최근 7일 통계</td>
-				<td class="table-col-2"><fmt:formatNumber value="${dailySalesTotal.sales_cnt_total}" pattern="#,###"/></td>
-				<td class="table-col-3"><fmt:formatNumber value="${dailySalesTotal.daily_sales_total}" pattern="#,###"/> 원</td>
-				<td class="table-col-4"><fmt:formatNumber value="${weeklyStatsTotal.register_cnt_total}" pattern="#,###"/></td>
-				<td class="table-col-5"><fmt:formatNumber value="${weeklyStatsTotal.qna_cnt_total}" pattern="#,###"/></td>
-				<td class="table-col-6"><fmt:formatNumber value="${weeklyStatsTotal.review_cnt_total}" pattern="#,###"/></td>
-			</tr>
-		</table>
-		<table class="stats-table" style="width: 620px; height: 60px;">
-			<tr>
-				<th class="table-col-1">이번 달 통계</td>
-				<td class="table-col-2"><fmt:formatNumber value="${monthSalesTotal.sales_cnt_total}" pattern="#,###"/></td>
-				<td class="table-col-3"><fmt:formatNumber value="${monthSalesTotal.daily_sales_total}" pattern="#,###"/> 원</td>
-				<td class="table-col-4"><fmt:formatNumber value="${monthStatsTotal.register_cnt_total}" pattern="#,###"/></td>
-				<td class="table-col-5"><fmt:formatNumber value="${monthStatsTotal.qna_cnt_total}" pattern="#,###"/></td>
-				<td class="table-col-6"><fmt:formatNumber value="${monthStatsTotal.review_cnt_total}" pattern="#,###"/></td>
-			</tr>
-		</table>
-	</div>
-	<div id="index-content" class="shadow">
-		<div class="content-title"><h1>문 의</h1></div>
-	</div>
-	<div id="index-content" class="shadow">
-		<div class="content-title"><h1>후 기</h1></div>
-	</div>
 		
-	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	
 	<script>
 		var jsonData = ${dailySalesToChart};
 		var jsonObject = JSON.stringify(jsonData);
@@ -84,9 +84,9 @@
 			dataList.push(d.daily_sales);
 		}
 
-		const ctx = document.getElementById('index-chart');
+		const indexChart = document.getElementById('index-chart');
 
-		new Chart(ctx, {
+		new Chart(indexChart, {
 		  type: 'bar',
 		  data: {
 			labels: labelList,
@@ -126,8 +126,6 @@
 		  }
 		});
 	  </script>
-	  
-	
-	<%@ include file="./admin_footer.jspf" %>
+	 
 </body>
 </html>
