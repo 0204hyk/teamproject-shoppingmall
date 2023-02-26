@@ -10,7 +10,7 @@
 <%@ include file="../header.jspf" %>
 <link rel="stylesheet" href="/project/resources/shop/css/main.css" />
 <link rel="stylesheet" href="/project/resources/shop/css/category.css" />
-	
+
 </head>
 <body>
 	
@@ -41,7 +41,7 @@
 		<div id="imgBox" class="flex-container2">
 		
 			<div class="img-container">
-				<div  class="test">
+				<div  class="img-info">
 					
 					
 				</div>
@@ -49,7 +49,7 @@
 			</div>
 			
 			<div class="img-container">
-				<div  class="test">
+				<div  class="img-info">
 					
 				
 				</div>
@@ -57,49 +57,49 @@
 			</div>
 			
 			<div class="img-container">
-				<div  class="test">
+				<div  class="img-info">
 					
 				
 				</div>
 			</div>
 			
 			<div class="img-container">
-				<div  class="test">
+				<div  class="img-info">
 					
 				
 				</div>
 			</div>
 			
 			<div class="img-container">
-				<div  class="test">
+				<div  class="img-info">
 					
 				
 				</div>
 			</div>
 			
 			<div class="img-container">
-				<div  class="test">
+				<div  class="img-info">
 					
 				
 				</div>
 			</div>
 			
 			<div class="img-container">
-				<div  class="test">
+				<div  class="img-info">
 					
 				
 				</div>
 			</div>
 			
 			<div class="img-container">
-				<div  class="test">
+				<div  class="img-info">
 					
 				
 				</div>
 			</div>
 			
 			<div class="img-container">
-				<div  class="test">
+				<div  class="img-info">
 					
 				
 				</div>
@@ -107,6 +107,17 @@
 		
 		</div>
 	</div>
+		<div class="page">
+				<c:if test="${pagination_start > 5 }">
+					<a href="./main?page=${previous_page }"><</a>
+				</c:if>
+				<c:forEach begin="${pagination_start }" end="${pagination_end }" var="i">
+					<a href="./main?page=${i }">${i }</a>
+				</c:forEach>
+				<c:if test="${pagination_end % 5 eq 0 }">
+					<a href="./main?page=${next_page }">></a>
+				</c:if>
+			</div>
 	<script src="/project/resources/shop/js/ajax.js"></script>
 	<%@ include file="../bottom.jspf" %>
 </body>

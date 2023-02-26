@@ -1,5 +1,7 @@
 package com.onore.project.shop.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -27,7 +29,9 @@ public class ShopController {
 	ShopService shopService;
 	
 	@GetMapping("/main")
-	public String main() {
+	public String main(HttpServletRequest req) {
+		
+		shopService.Page(req);
 		
 		return "user/shop/shop_main";
 	}
