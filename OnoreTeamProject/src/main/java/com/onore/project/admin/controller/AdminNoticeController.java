@@ -1,14 +1,11 @@
 package com.onore.project.admin.controller;
 
-import java.net.http.HttpRequest;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -85,7 +82,7 @@ public class AdminNoticeController {
 		request.setAttribute("notices", notices.subList(start_index, end_index));
 		request.setAttribute("pagination_start", pagination_start);
 		request.setAttribute("pagination_end", pagination_end);
-		
+				
 		return "/admin/notice/admin_notice_list";
 	}
 	

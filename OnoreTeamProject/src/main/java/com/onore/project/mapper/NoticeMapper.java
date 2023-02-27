@@ -8,6 +8,7 @@ public interface NoticeMapper {
 	
 	Integer insertNotice(NoticeDTO notice);
 	List<NoticeDTO> getAllNotice();
+	Integer getTotalCount();
 	NoticeDTO getNotice(Integer notice_num);
 	Integer updateNotice(NoticeDTO notice);
 	Integer deleteNotice(Integer notice_num);

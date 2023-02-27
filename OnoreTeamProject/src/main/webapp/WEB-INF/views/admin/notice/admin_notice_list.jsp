@@ -33,14 +33,24 @@
 						</c:forEach>
 					</tbody>
 				</table>
-				<div style="text-align: right;">						
-					<ul class="pagination justify-content-center" style="font-size: 20px; margin-bottom: 0px;">
+				<div style="text-align: right;">
+					<ul class="pagination justify-content-center" style="margin-bottom: 0px;">
+						<li class="page-item"><a class="page-link" href="#">이전</a></li>						
+						<c:forEach begin="${pagination_start}" end="${pagination_end}" var="i">
+					    <li class="page-item">
+					    	<a class="page-link" href="<%=request.getContextPath()%>/admin/notice/list">${i}</a>
+					    </li>
+					    </c:forEach>
+						<li class="page-item"><a class="page-link" href="#">다음</a></li>				    
+					</ul>
+									
+<!-- 				<ul class="pagination justify-content-center" style="font-size: 20px; margin-bottom: 0px;">
 						<li><a href="#" class="pagination-btn text-secondary" id="prev-btn">◀</a></li>
 						<c:forEach begin="${pagination_start}" end="${pagination_end}" var="i">
 							<li><a href="<%=request.getContextPath()%>/admin/notice/list?page=${i}" class="pagination-btn text-secondary">${i}</a></li>
 						</c:forEach>
 						<li><a href="#" class="pagination-btn text-secondary" id="next-btn">▶</a></li>
-					</ul>
+					</ul> -->
 					<input type="button" id="notice-delete-btn" class="submit-btn btn btn-secondary btn-lg" value="삭 제"/>
 					<input type="button" onclick="movePageByGet('<%=request.getContextPath()%>/admin/notice/write')" class="submit-btn btn btn-secondary btn-lg" value="등 록"/>			
 				</div>
