@@ -30,6 +30,14 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
+	<!-- 비밀번호 암호화 -->
+	<param-name>contextConfigLocation</param-name>
+	<param-value>
+		/WEB-INF/spring/appServlet/servlet-context.xml
+		/WEB-INF/spring/spring-security.xml
+	</param-value>
+	<!-- 비밀번호 암호화 끝 -->
+	
 	<filter> 
 	    <filter-name>encodingFilter</filter-name> 
 	    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class> 

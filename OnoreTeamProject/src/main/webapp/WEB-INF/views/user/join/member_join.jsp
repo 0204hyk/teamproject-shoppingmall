@@ -5,29 +5,55 @@
 <head>
 <meta charset="UTF-8">
 <title>ONÓRE</title>
-<%@include file="../member/member_header.jspf" %>
-
-
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script>
 
+// 아이디 중복체크
+    function idCheck(){
+        var id = $('#mem_id').val(); //id값이 "id"인 입력란의 값을 저장
+        $.ajax({
+            url:'./idCheck', //Controller에서 요청 받을 주소
+            type:'post', //POST 방식으로 전달
+            data:{"mem_id":id},
+            success:function(cnt){ //컨트롤러에서 넘어온 cnt값을 받는다 
+                if(cnt == 0){ //cnt가 1이 아니면(=0일 경우) -> 사용 가능한 아이디 
+                    document.getElementById('id_message_p').innerHTML = "사용가능한 아이디입니다"
+                    document.getElementById('id_message_p').style.color = "blue";
+                } else { // cnt가 1일 경우 -> 이미 존재하는 아이디
+              	  	document.getElementById('id_message_p').innerHTML = "이미 존재하는 아이디입니다"
+              	  	document.getElementById('id_message_p').style.color = "red";
+                }
+            },
+            error:function(){
+            	  document.getElementById('id_message_p').innerHTML = "에러";
+                  document.getElementById('id_message_p').style.color = "red";
+            }
+        });
+        };
+
+/*
 //아이디 정규식
-function id_check() {
+function idCheck() {
   var id = document.getElementById("mem_id").value;
-  var regId= /^[a-z]+[a-z0-9]{5,19}$/g; // 영소문자로 시작하는 6~20자리 아이디
+  var regId= /^[a-z]+[a-z0-9]{4,19}$/g; // 영소문자로 시작하는 5~20자리 아이디
   if (regId.test(id) == true) {
     document.getElementById('id_message_p').innerHTML = "사용가능한 아이디입니다"
     document.getElementById('id_message_p').style.color = "blue";
   } else {
 	 document.getElementById('id_message_p').innerHTML = "올바르지 않은 아이디입니다"
 	 document.getElementById('id_message_p').style.color = "red";
+	 return;
   }
+  
+  // 중복확인 - 서버로 현재 입력된 아이디를 전송 > 결과 받아오기
+  
 }
+*/
 
 //비밀번호 정규식
-function pw_check() {
+function check_pw() {
   var pw = document.getElementById("mem_pw").value;
-  var regPw= /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/; // 8자 이상 영문자, 숫자, 특수문자 조합 비밀번호
+  var regPw= /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%^*#?&()])[A-Za-z\d$@$!%^*#?&()]{8,}$/; // 8자 이상 영문자, 숫자, 특수문자 조합 비밀번호
   if (regPw.test(pw) == true) {
 	  document.getElementById('pw_message_p').innerHTML = "사용가능한 비밀번호입니다"
 	  document.getElementById('pw_message_p').style.color = "blue";
@@ -214,18 +240,14 @@ function checkAll() {
 		$("input[name=mem_email_check]").prop("checked", false);
 	}
 }
-
 //이용약관, 수신여부 체크박스 - 체크하면 Y, 아니면 N이 들어가야하는데 체크 안 하면 null이 들어감...
-
 </script>
-
-
+<%@include file="../member/member_header.jspf" %>   
 </head>
 <body>
 <%@include file="../member/member_top.jspf" %>
     
 <!-- middle 시작 -->
-
 <div class="middle_join_div">
     <form id="join_form" action="./join_success" method="POST" name="join_form" onsubmit="return check()">
 	    <div class="join_div">
@@ -233,13 +255,13 @@ function checkAll() {
 		    <div class="join_id_div">
 		    	<div class="a_div"><a>아이디*</a></div>
 		    	<div class="input_div">
-		    		<input class="mem_id" id="mem_id" type="text" name="mem_id" placeholder="※6-20자의 영문 소문자와 숫자로만 입력" onchange="id_check()">
+		    		<input class="mem_id" id="mem_id" type="text" name="mem_id" placeholder="※6-20자의 영문 소문자와 숫자로만 입력" onchange="idCheck()">
 		    	</div>
 				<div class="message_div"><p id="id_message_p"></p></div>
 		    
 		    <div class="join_pw1_div">
 		    	<div class="a_div"><a>비밀번호*</a></div>
-		    	<div class="input_div"><input id="mem_pw" type="password" name="mem_pw" placeholder="※8자 이상 영문자, 숫자, 특수문자 조합" maxlength="18" onchange="pw_check()"></div>
+		    	<div class="input_div"><input id="mem_pw" type="password" name="mem_pw" placeholder="※8자 이상 영문자, 숫자, 특수문자 조합" maxlength="18" onchange="check_pw()"></div>
 		    </div>
 		    <div class="message_div"><p id="pw_message_p"></p></div>
 		    <div class="join_pw2_div">
@@ -392,7 +414,7 @@ function checkAll() {
 		    </div> <!-- 체크박스 그룹 -->
 		    <article>
 		    <div class="join_success_Btn_div">
-		    	<input class="join_success_Btn" type="submit" value="가입하기"><br>
+		    	<input class="join_success_Btn" type="submit" onclick="location.href='join.do'" value="가입하기"><br>
 		    </div>
 		    </article>
 	      </div>
@@ -400,8 +422,6 @@ function checkAll() {
 	</form>
 </div>
 <!-- middle 끝 -->
-
-
 
 <script src="/project/resources/menu/js/menubar.js?ver=2"></script>
 <%@include file="../member/member_bottom.jspf" %>

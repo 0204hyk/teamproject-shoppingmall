@@ -9,12 +9,19 @@
 <!-- 구글 폰트 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
 
 
 <!-- CSS -->
 <script src="https://kit.fontawesome.com/43273b5a4f.js" crossorigin="anonymous"></script>
-<link href="/project/resources/main/css/main.css?ver=3" rel="stylesheet"/>
+<link href="/project/resources/menu/css/menubar.css?ver=3" rel="stylesheet"/>
+<link href="/project/resources/menu/css/login_search.css?ver=2" rel="stylesheet"/>
+<link href="/project/resources/menu/css/join_success.css?ver=2" rel="stylesheet"/>
 
-<!-- JS -->
-<link href="/project/resources/main/js/main.js?ver=3" rel="stylesheet"/>
+<!-- js -->
+<link href="/project/resources/menu/js/menubar.js?ver=2" rel="stylesheet"/>
+
+
+
+

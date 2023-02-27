@@ -5,15 +5,20 @@
 }
 
 .middle_join_success_div {
-	height: 800px;
-	paddding-top: 200px;
+	height: 1000px;
+	padding-top: 200px;
 	background-color: white;
 }
 
 .join_success_div {
-	height: 500px;
+	height: 250px;
+	width: 50%;
+	margin: auto;
+	background-color: rgb(246 249 254);
 	color: black;
-	font-size: 50px;
+	font-size: 20px;
+	border: solid 1px red;
+	text-align: center;
 }
 
 .join_div {
@@ -135,6 +140,18 @@
 	text-align: center;
 }
 .join_success_Btn {
+	width:200px;
+	height: 50px;
+	font-weight: bold;
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 20px;
+	background-color: black;
+	color: white;
+	border-radius: 3px;
+	cursor: pointer; /* 마우스 올리면 손가락 모양으로 변함 */
+}
+
+.login_go_btn {
 	width:200px;
 	height: 50px;
 	font-weight: bold;

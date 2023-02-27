@@ -160,6 +160,33 @@
 		    <artifactId>mybatis-spring</artifactId>
 		    <version>2.0.7</version>
 		</dependency>
+		
+		
+		<!-- 스프링 시큐리티 : 비밀번호 암호화 -->
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-core</artifactId>
+		    <version>5.0.8.RELEASE</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-web</artifactId>
+		    <version>5.0.8.RELEASE</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-config</artifactId>
+		    <version>5.0.8.RELEASE</version>
+		</dependency>
+		<!-- 비밀번호 암호와 완료 끝 -->
+				
+		
+		
 			
 		<!-- Test -->
 		<dependency>

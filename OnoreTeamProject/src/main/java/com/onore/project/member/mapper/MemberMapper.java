@@ -9,10 +9,12 @@ public interface MemberMapper {
 	
 	// 회원가입
 	Integer member_join(MemberDTO memberdto) throws Exception;
-
-	/*
-	// 로그인 실패한 부분
-	MemberDTO mem_login_service(String mem_id) throws Exception;
-	*/
+	
+	// 로그인
+	MemberDTO signIn(MemberDTO dto) throws Exception;
+	
+	// 아이디 중복체크
+	int idCheck(String mem_id);
 	
 }
+
