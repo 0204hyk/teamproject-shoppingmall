@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,10 +43,10 @@ public class AdminNoticeController {
 	}
 	
 	@GetMapping("/list")
-	public String noticeList(HttpServletRequest request) {
+	public String noticeList(@ModelAttribute("NoticeDTO") NoticeDTO notice, HttpServletRequest request) {
 		String pageStr = request.getParameter("page");
 		
-		List<NoticeDTO> notices = service.readAllNotice();
+		List<NoticeDTO> noticeList = service.readAllNotice();
 		
 		int page; 
 		
@@ -56,7 +57,7 @@ public class AdminNoticeController {
 		}
 		
 		int board_size = 14;
-		int notice_size = notices.size();
+		int notice_size = noticeList.size();
 		int start_index = (page - 1) * board_size;
 		int end_index = page * board_size;
 		end_index = end_index > notice_size ? notice_size : end_index;
@@ -79,10 +80,24 @@ public class AdminNoticeController {
 		
 		pagination_end = pagination_end > max_page ? max_page : pagination_end;
 		
-		request.setAttribute("notices", notices.subList(start_index, end_index));
+		boolean prevBtn = true;
+		boolean nextBtn = true;
+		
+		if (pagination_start == 1) {
+			prevBtn = false;
+		}
+		
+		if (pagination_end == max_page) {
+			nextBtn = false;
+		}
+		
+		request.setAttribute("noticeList", noticeList.subList(start_index, end_index));
 		request.setAttribute("pagination_start", pagination_start);
 		request.setAttribute("pagination_end", pagination_end);
-				
+		request.setAttribute("prev", prevBtn);
+		request.setAttribute("next", nextBtn);
+		request.setAttribute("page", page);
+		
 		return "/admin/notice/admin_notice_list";
 	}
 	

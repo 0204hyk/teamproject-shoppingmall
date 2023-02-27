@@ -5,11 +5,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 @Data
 public class NoticeDTO {

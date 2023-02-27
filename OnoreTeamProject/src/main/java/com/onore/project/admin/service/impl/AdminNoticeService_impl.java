@@ -24,11 +24,6 @@ public class AdminNoticeService_impl implements AdminNoticeService {
 	public List<NoticeDTO> readAllNotice() {
 		return noticeMapper.getAllNotice();
 	}
-		
-	@Override
-	public Integer readTotalCount() {
-		return noticeMapper.getTotalCount();
-	}
 
 	@Override
 	public NoticeDTO readNotice(Integer notice_num) {
@@ -44,6 +39,5 @@ public class AdminNoticeService_impl implements AdminNoticeService {
 	public Integer noticeDeleteService(Integer notice_num) {
 		return noticeMapper.deleteNotice(notice_num);
 	}
-
 	
 }

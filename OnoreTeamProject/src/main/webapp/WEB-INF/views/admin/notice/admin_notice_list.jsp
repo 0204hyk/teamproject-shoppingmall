@@ -23,7 +23,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${notices}" var="notice">
+						<c:forEach items="${noticeList}" var="notice">
 							<tr>
 								<td style="width: 50px;"><input type="checkbox" class="row-check" name="row_check" value="${notice.notice_num}"/></td>
 								<td style="width: 80px;">${notice.notice_num}</td>
@@ -35,31 +35,42 @@
 				</table>
 				<div style="text-align: right;">
 					<ul class="pagination justify-content-center" style="margin-bottom: 0px;">
-						<li class="page-item"><a class="page-link" href="#">이전</a></li>						
+						<c:if test="${prev == true}">
+							<li class="page-item">
+								<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/notice/list?page=${pagination_start - 1}')">«</a>
+							</li>												
+						</c:if>
+						
 						<c:forEach begin="${pagination_start}" end="${pagination_end}" var="i">
-					    <li class="page-item">
-					    	<a class="page-link" href="<%=request.getContextPath()%>/admin/notice/list">${i}</a>
-					    </li>
-					    </c:forEach>
-						<li class="page-item"><a class="page-link" href="#">다음</a></li>				    
-					</ul>
-									
-<!-- 				<ul class="pagination justify-content-center" style="font-size: 20px; margin-bottom: 0px;">
-						<li><a href="#" class="pagination-btn text-secondary" id="prev-btn">◀</a></li>
-						<c:forEach begin="${pagination_start}" end="${pagination_end}" var="i">
-							<li><a href="<%=request.getContextPath()%>/admin/notice/list?page=${i}" class="pagination-btn text-secondary">${i}</a></li>
+							<c:if test="${page == i}">
+						    	<li class="page-item active">
+						    		<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/notice/list?page=${i}')">${i}</a>
+						    	</li>
+							</c:if>
+							<c:if test="${page != i}">
+						    	<li class="page-item">
+						    		<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/notice/list?page=${i}')">${i}</a>
+						    	</li>
+							</c:if>
 						</c:forEach>
-						<li><a href="#" class="pagination-btn text-secondary" id="next-btn">▶</a></li>
-					</ul> -->
+						
+					    <c:if test="${next == true }">
+							<li class="page-item">
+								<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/notice/list?page=${pagination_end + 1}')">»</a>
+							</li>				    					    
+					    </c:if>
+					</ul>
 					<input type="button" id="notice-delete-btn" class="submit-btn btn btn-secondary btn-lg" value="삭 제"/>
 					<input type="button" onclick="movePageByGet('<%=request.getContextPath()%>/admin/notice/write')" class="submit-btn btn btn-secondary btn-lg" value="등 록"/>			
 				</div>
 			</div>
 		</form>
 	</div>
-	
+		
 		<script>
         	$(document).ready(function(){
+        		var page = <%=request.getParameter("page")%>
+        		
         	    $('#notice-delete-btn').click(function() {
 					if ($("input:checkbox[name=row_check]:checked").length == 0) {
 						alert('삭제할 항목을 선택해주세요.');
@@ -90,7 +101,7 @@
 					}
         	    });
         	});
-	</script>
+  	</script>
 	<script src="/project/resources/admin/js/notice_list.js"></script>
 	
 </body>
