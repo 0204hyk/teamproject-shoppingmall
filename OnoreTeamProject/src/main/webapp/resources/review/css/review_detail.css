@@ -64,8 +64,6 @@ textarea {
     
 }
 
-
-
 #comment {
 	margin: 0px;
 	width: 80px;
@@ -78,6 +76,14 @@ textarea {
     height: 30px;
     float: right;
     margin-top: 30px;
+}
+
+.sub-container2 {
+	display: flex;
+}
+
+.sub-container2 > div {
+	margin: 0 20px;
 }
 
 

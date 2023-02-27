@@ -16,9 +16,9 @@ public class ReviewDTO {
 	private String review_content;
 	private LocalDate review_date;
 	private Integer review_rating;
-	private String review_ima_1;
-	private String review_ima_2;
-	private String review_ima_3;
+	private String review_img_1;
+	private String review_img_2;
+	private String review_img_3;
 
 //	public void setDate() {
 //		SimpleDateFormat dayformat = new SimpleDateFormat("yyyy-MM-dd");

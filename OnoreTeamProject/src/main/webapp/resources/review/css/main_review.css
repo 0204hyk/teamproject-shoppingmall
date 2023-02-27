@@ -43,66 +43,7 @@
     justify-content: space-around;
   }
   
-  table {
-    width: 90%;
-    border-collapse: collapse;
-    margin-left: auto;
-    margin-right: auto;
-    object-fit: contain;
-    table-layout: fixed;
-    
-  }
- 
-  th, td {
-    border-bottom: 1px solid lightgray;
-    padding: 10px;
-    height: 30px;
-    vertical-align: middle;
-    text-align: center;
-    white-space: nowrap;
-  }
   
- #product_num {
- 	overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
- }
- 
- #review_content {
- 	overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
- }
- 
- #mem_id {
- 	overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
- }
-  
- #num {
- 	width: 5%;
- }
- 
- #product {
- 	width: 15%;
- }
- 
- #title {
- 	width: 40%;
- }
- 
- #writer {
- 	width: 10%;
- }
- 
- #date {
- 	width: 15%;
- }
- 
- #rating {
- 	width: 10%;
- }
  
   .header {
     position: fixed;

@@ -6,4 +6,8 @@
 	<select id="getDetail" resultType="com.onore.project.dto.ProductDTO">
 		SELECT * FROM products WHERE product_num=3
 	</select>
+	
+	<select id="getProReview" resultType="com.onore.project.dto.ReviewDTO">
+		SELECT * FROM reviews WHERE product_num=3
+	</select>
 </mapper>
