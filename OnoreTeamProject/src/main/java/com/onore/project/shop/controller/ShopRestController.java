@@ -22,17 +22,23 @@ public class ShopRestController {
 	@Autowired
 	ShopService shopService;
 	
+	@GetMapping(value = {"/restful/all"}, produces = "application/json; charset=UTF-8")
+	public List<ProductsDTO> categoryAll() {
+		
+		return shopService.all();
+	}
+	
+	@GetMapping(value = {"/restful/derby"}, produces = "application/json; charset=UTF-8")
+	public List<ProductsDTO> derby() {
+
+		return shopService.derbyView();
+		
+	}
+	
 	@GetMapping(value = {"/restful/boots"}, produces = "application/json; charset=UTF-8")
 	public List<ProductsDTO> boots() {
 
 		return shopService.bootsView();
-		
-	}
-	
-	@GetMapping(value = {"/restful/loafers"}, produces = "application/json; charset=UTF-8")
-	public List<ProductsDTO> loafers() {
-
-		return shopService.loafersView();
 		
 	}
 	

@@ -11,11 +11,10 @@ import com.onore.project.dto.ProductsDTO;
 public interface ShopService {
 
 	
+	List<ProductsDTO> all();
+	List<ProductsDTO> derbyView();
 	List<ProductsDTO> bootsView();
-	
 	List<ProductsDTO> loafersView();
-	
-	List<ProductsDTO> bootSelect(int product_num);
 	
 	void Page(HttpServletRequest req);
 	

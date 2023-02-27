@@ -16,7 +16,7 @@
 	
 	<%@ include file="../top.jspf" %>
 
-	<div  style="padding-top: 127px; width: auto; height: 2000px; margin: 50px; margin-top: 0px;">
+	<div class="main" style="padding-top: 127px; width: auto; height: auto; margin: 50px; margin-top: 0px;" >
 	<hr />
 		<div class="image-box">
 			<img class="image-thumbnail" src="/project/resources/shop/image/boots_main.png" alt="메인 구두 사진" />
@@ -38,27 +38,14 @@
 			
 		</div>
 		
-		<div id="imgBox" class="flex-container2">
+		<div id="imgBox" class="flex-container2" onscroll="scroll">
 		
 			<div class="img-container">
-				<div  class="img-info">
+				<div class="img-info">
 					
 					
 				</div>
-
-			</div>
-			
-			<div class="img-container">
-				<div  class="img-info">
-					
-				
-				</div>
-				
-			</div>
-			
-			<div class="img-container">
-				<div  class="img-info">
-					
+				<div class="img-info2">
 				
 				</div>
 			</div>
@@ -68,11 +55,7 @@
 					
 				
 				</div>
-			</div>
-			
-			<div class="img-container">
-				<div  class="img-info">
-					
+				<div class="img-info2">
 				
 				</div>
 			</div>
@@ -82,43 +65,174 @@
 					
 				
 				</div>
-			</div>
-			
-			<div class="img-container">
-				<div  class="img-info">
-					
+				<div class="img-info2">
 				
 				</div>
 			</div>
 			
 			<div class="img-container">
-				<div  class="img-info">
+				<div class="img-info">
 					
+				
+				</div>
+				<div class="img-info2">
 				
 				</div>
 			</div>
 			
 			<div class="img-container">
-				<div  class="img-info">
+				<div class="img-info">
 					
 				
 				</div>
+				<div class="img-info2">
+				
+				</div>
 			</div>
-		
+			
+			<div class="img-container">
+				<div class="img-info">
+					
+				
+				</div>
+				<div class="img-info2">
+				
+				</div>
+			</div>
+			
+			<div class="img-container">
+				<div class="img-info">
+					
+				
+				</div>
+				<div class="img-info2">
+				
+				</div>
+			</div>
+			
+			<div class="img-container">
+				<div class="img-info">
+					
+				
+				</div>
+				<div class="img-info2">
+				
+				</div>
+			</div>
+			
+			<div class="img-container">
+				<div class="img-info">
+					
+				
+				</div>
+				<div class="img-info2">
+				
+				</div>
+			</div>
+			<div class="img-container">
+				<div class="img-info">
+					
+				
+				</div>
+				<div class="img-info2">
+				
+				</div>
+			</div>
+			<div class="img-container">
+				<div class="img-info">
+					
+				
+				</div>
+				<div class="img-info2">
+				
+				</div>
+			</div>
+			<div class="img-container">
+				<div class="img-info">
+					
+				
+				</div>
+				<div class="img-info2">
+				
+				</div>
+			</div>
+			<div class="img-container">
+				<div class="img-info">
+					
+				
+				</div>
+				<div class="img-info2">
+				
+				</div>
+			</div>
+			<div class="img-container">
+				<div class="img-info">
+					
+				
+				</div>
+				<div class="img-info2">
+				
+				</div>
+			</div>
+			<div class="img-container">
+				<div class="img-info">
+					
+				
+				</div>
+				<div class="img-info2">
+				
+				</div>
+			</div>
+			<div class="img-container">
+				<div class="img-info">
+					
+				
+				</div>
+				<div class="img-info2">
+				
+				</div>
+			</div>
+			<div class="img-container">
+				<div class="img-info">
+					
+				
+				</div>
+				<div class="img-info2">
+				
+				</div>
+			</div>
+			<div class="img-container">
+				<div class="img-info">
+					
+				
+				</div>
+				<div class="img-info2">
+				
+				</div>
+			</div>
+			<div class="img-container">
+				<div class="img-info">
+					
+				
+				</div>
+				<div class="img-info2">
+				
+				</div>
+			</div>
+			<div class="img-container">
+				<div class="img-info">
+					
+				
+				</div>
+				<div class="img-info2">
+				
+				</div>
+			</div>
 		</div>
 	</div>
-		<div class="page">
-				<c:if test="${pagination_start > 5 }">
-					<a href="./main?page=${previous_page }"><</a>
-				</c:if>
-				<c:forEach begin="${pagination_start }" end="${pagination_end }" var="i">
-					<a href="./main?page=${i }">${i }</a>
-				</c:forEach>
-				<c:if test="${pagination_end % 5 eq 0 }">
-					<a href="./main?page=${next_page }">></a>
-				</c:if>
-			</div>
+
 	<script src="/project/resources/shop/js/ajax.js"></script>
 	<%@ include file="../bottom.jspf" %>
+		
 </body>
 </html>

@@ -20,22 +20,29 @@ public class ShopServiceImpl implements ShopService{
 	ShopMapper shop_mapper;
 	
 	@Override
-	public List<ProductsDTO> bootsView() {
+	public List<ProductsDTO> all() {
 		
-	return shop_mapper.getBoots();
+		return shop_mapper.getAll();
+	}
+	
+	
+	@Override
+	public List<ProductsDTO> derbyView() {
+		
+		return shop_mapper.getDerby();
 		
 	}
 
+	@Override
+	public List<ProductsDTO> bootsView() {
+		
+		return shop_mapper.getBoots();
+	}
+	
 	@Override
 	public List<ProductsDTO> loafersView() {
 		
 		return shop_mapper.getLoafers();
-	}
-
-	@Override
-	public List<ProductsDTO> bootSelect(int product_num) {
-		
-		return shop_mapper.getSelectBoot(product_num);
 	}
 
 	@Override
@@ -91,5 +98,9 @@ public class ShopServiceImpl implements ShopService{
 		req.setAttribute("previous_page", previous_page);
 		
 	}
+
+	
+
+	
 
 }
