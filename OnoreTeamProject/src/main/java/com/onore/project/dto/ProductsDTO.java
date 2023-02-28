@@ -1,11 +1,10 @@
 package com.onore.project.dto;
 
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
 public class ProductsDTO {
-	
+
 	private Integer product_num;
 	private Integer category_num;
 	private String product_name;
@@ -15,5 +14,5 @@ public class ProductsDTO {
 	private String product_thumbnail;
 	private Integer product_views;
 	private Integer product_likes;
-	
+
 }

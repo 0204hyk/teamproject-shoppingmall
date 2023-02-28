@@ -2,7 +2,6 @@ package com.onore.project.qna.service.impl;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,9 +21,9 @@ public class QnaServiceImpl implements QnaService {
 
 	@Autowired
 	QnaMapper qna_mapper;
-	
 
-	
+
+
 	@Override
 	public void QnaList(Model model) {
 		model.addAttribute("qnas", qna_mapper.getAll());
@@ -48,21 +47,21 @@ public class QnaServiceImpl implements QnaService {
 		String imgPath = "/Users/kang/git/teamproject-shoppingmall/OnoreTeamProject/src/main/webapp/resources/qna/images/"; // 노트북
 		UUID uuid = UUID.randomUUID();
 		String[] fileName = new String[3];
-		
+
 		for (int i = 0; i < file.size(); i++) {
 			fileName[i] = uuid + "_" + file.get(i).getOriginalFilename();
 			File saveFile = new File(imgPath, fileName[i]);
-			
+
 			if (i == 0 && !file.get(i).isEmpty()) {
 				file.get(i).transferTo(saveFile);
 				qna.setQna_img_1(fileName[i]);
 				qna.setQna_img_path(imgPath);
-				
+
 			} else if (i == 1 && !file.get(i).isEmpty()) {
 				file.get(i).transferTo(saveFile);
 				qna.setQna_img_2(fileName[i]);
 				qna.setQna_img_path(imgPath);
-				
+
 			} else if (i == 2 && !file.get(i).isEmpty()) {
 				file.get(i).transferTo(saveFile);
 				qna.setQna_img_3(fileName[i]);
@@ -94,18 +93,18 @@ public class QnaServiceImpl implements QnaService {
 				page, start_index, end_index);
 
 
-		int max_page = board_size % page_size == 0 ? 
+		int max_page = board_size % page_size == 0 ?
 				board_size / page_size : board_size / page_size + 1;
 
 		int pagination_size = 5;
 		int pagination_start = (page / pagination_size) * pagination_size + 1;
 		pagination_start = page % pagination_size == 0 ?
-				page - 4 : pagination_start; 
+				page - 4 : pagination_start;
 		int pagination_end = (page/ pagination_size + 1) * pagination_size;
 		if (page % pagination_size == 0) {
 			pagination_end= pagination_end - pagination_size;
 		} else {
-			pagination_end = pagination_end > max_page ? 
+			pagination_end = pagination_end > max_page ?
 					max_page : pagination_end;
 		}
 
