@@ -59,6 +59,7 @@
 	border: solid 1px yellow;
 	float: left;
 	margin-left: 5px;
+	
 }
 
 .bus_subway_div {
@@ -100,5 +101,5 @@
 	padding-top: 20px;
 	text-align: left;
 	font-size: 15px;
-	font-family: 'Do Hyeon', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 }

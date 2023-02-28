@@ -1,6 +1,9 @@
 package com.onore.project.member.mapper;
 
 import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.onore.project.member.dto.MemberDTO;
 
 public interface MemberMapper {
@@ -14,7 +17,6 @@ public interface MemberMapper {
 	MemberDTO signIn(MemberDTO dto) throws Exception;
 	
 	// 아이디 중복체크
-	int idCheck(String mem_id);
-	
+	public int idCheck(String mem_id) throws Exception;
 }
 

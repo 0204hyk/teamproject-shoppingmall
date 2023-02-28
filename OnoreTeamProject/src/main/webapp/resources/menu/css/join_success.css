@@ -5,24 +5,24 @@
 }
 
 .middle_join_success_div {
-	height: 1000px;
+	height: 700px;
 	padding-top: 200px;
 	background-color: white;
 }
 
 .join_success_div {
-	height: 250px;
-	width: 50%;
+	padding-top: 20px;
+	height: 430px;
+	width: 100%;
 	margin: auto;
-	background-color: rgb(246 249 254);
+	background-color: rgb(245 245 245);
 	color: black;
 	font-size: 20px;
-	border: solid 1px red;
 	text-align: center;
 }
 
 .join_div {
-	height: 1800px;
+	height: 1500px;
 	background-color: white;
 	text-align: center;
 }
@@ -93,6 +93,9 @@
 	font-size: 12px;
 }
 
+.checkbox_group {
+height: 750px;
+	}
 
 .a_sms_div,
 .a_email_div {
@@ -135,8 +138,7 @@
 
 
 .join_success_Btn_div {
-	padding-top: 50px;
-	border: solid 1xp black;
+	padding-top: 30px;
 	text-align: center;
 }
 .join_success_Btn {
@@ -152,6 +154,7 @@
 }
 
 .login_go_btn {
+	margin-top: 30px;
 	width:200px;
 	height: 50px;
 	font-weight: bold;

@@ -1,6 +1,8 @@
 package com.onore.project.member.service;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,10 +38,7 @@ public class MemberServiceImpl implements MemberService{
 
 	// 아이디 중복체크
 	@Override
-	public int idCheck(String mem_id) {
-		int cnt = mapper.idCheck(mem_id);
-		System.out.println("cnt : " + cnt);
-		return cnt;
+	public int idCheck(String mem_id) throws Exception {
+		return mapper.idCheck(mem_id);
 	}
-
 }

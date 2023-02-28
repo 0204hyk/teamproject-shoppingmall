@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.onore.project.member.dto.MemberDTO;
 import com.onore.project.member.mapper.MemberMapper;
@@ -34,12 +33,14 @@ public class MemberController {
 	MemberDTO memberdto;
 	
 	// 아이디 중복체크
-	@PostMapping("/idCheck")
-	@ResponseBody
-	public int idCheck(@RequestParam("mem_id") String mem_id) {
-		int cnt = service.idCheck(mem_id);
-		return cnt;
-	}
+    @RequestMapping("/idCheck")
+    public void idCheck(@RequestParam String mem_id, HttpServletResponse res) throws Exception {
+        int result = 0;
+        if (service.idCheck(mem_id) != 0) {
+            result = 1;
+        }
+        res.getWriter().print(result);
+    }
 	
 	//회원 가입 insert
 	@GetMapping("/join")
@@ -71,6 +72,7 @@ public class MemberController {
 		
 		model.addAttribute("member", mapper.member_join(memberdto));
 		
+		
 		return "user/join/member_join_success";
 	}
 
@@ -85,25 +87,30 @@ public class MemberController {
 	public String signIn(RedirectAttributes rttr, MemberDTO dto, HttpServletRequest request) throws Exception {
 
 		String id = request.getParameter("mem_id");
+		String pw = request.getParameter("mem_pw");
+		int result = 0;
+		
+	    if (id == null || id.isEmpty() || pw == null || pw.isEmpty()) {
+	    	rttr.addFlashAttribute("result", result);
+	        return "redirect:/login";
+	    }
 		
 		MemberDTO signIn = mapper.signIn(dto);
 		HttpSession session = request.getSession();
 		
 		// 비밀번호 복호화
 		BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
-		String pw = request.getParameter("mem_pw");
 		boolean pwdMatch = scpwd.matches(dto.getMem_pw(), signIn.getMem_pw());
 		// 비밀번호 복호화 끝
 		
 		if (signIn != null && pwdMatch == true) {
 			session.setAttribute("signIn", signIn);	
-			session.setMaxInactiveInterval(20) ; // 세션유지 시간 24시간((60*60)*24)
+			session.setMaxInactiveInterval(60 * 60 * 24) ; // 세션유지 시간 24시간((60*60)*24)
 			System.out.println(session.getId() + "로그인");
 			return "redirect:/main/";
 		} else {
-			session.setAttribute("signIn", null);
-			int result = 0;
-			rttr.addFlashAttribute("result", result);
+			session.setAttribute("signIn", null);	
+			rttr.addFlashAttribute("result", result);	
 			return "redirect:/login";
 		} 
 	}
@@ -117,9 +124,9 @@ public class MemberController {
 		return "user/main/onore";
 	}
 	
-	//회원 가입 insert
+	//아이디/비밀번호 찾기 페이지
 	@GetMapping("/member_search")
-	public String member_search() throws Exception {
+	public String member_search(HttpServletRequest request, Model model, MemberDTO memberdto) throws Exception {
 		return "user/login/member_search";
 	}
 

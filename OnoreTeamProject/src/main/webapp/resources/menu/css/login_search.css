@@ -5,9 +5,14 @@
 	background-color: white;
 }
 
-.login_div,
-.search_idpw_div {
+.login_div {
 	height: 370px;
+	background-color: white;
+	text-align: center;	
+}
+
+.search_idpw_div {
+	height: 400px;
 	background-color: white;
 	text-align: center;	
 }
@@ -33,12 +38,15 @@
 	color: black;
 }
 
+.check_idpw_div {
+	padding-bottom : 30px;
+}
+
 .check_idpw_div > div {
 	display: inline;
 	font-size: 15px;
 	font-family: 'Do Hyeon', sans-serif;
 	color: black;
-	padding-bottom: 30px;
 }
 
 .title_idpw_div,

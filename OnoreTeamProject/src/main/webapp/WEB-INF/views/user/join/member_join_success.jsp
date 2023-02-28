@@ -13,8 +13,13 @@
 <!-- middle 시작 -->
 <div class="middle_join_success_div">
 	<div class="join_success_div">
-	    	<p> ${member_join_success.mem_name}님 회원가입을 축하드립니다!</p>
-	    	<p> 가입하신 아이디는 <strong>${member_join_success.mem_id}</strong>입니다. </p>
+			<p style="font-size: 35px; font-weight: bold;" > 환영합니다! </p>
+	    	<p style="font-size: 20px;"> <strong>${param.mem_name}</strong>님, 회원가입을 축하합니다!</p>
+	    	<p style="font-size: 20px;"> ONORE 가입하신 아이디는 <strong>${param.mem_id}</strong>입니다. </p>
+	    	
+	    	<p style="font-weight : bold; font-size: 12px; color: darkgray;"> ONORE에서는 항상 회원님들의 입장에서 </p>
+	    	<p style="font-weight : bold; font-size: 12px; color: darkgray"> 보다 좋은 서비스를 받으실 수 있도록 노력하겠습니다. </p>
+	    	<p style="font-weight : bold; font-size: 12px; color: darkgray"> 감사합니다. </p>
 	    	
 	    	<button type="button" class="login_go_btn" onclick="location.href='./login'">로그인하러 가기</button>  	
 	 </div>
