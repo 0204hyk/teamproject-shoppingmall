@@ -7,7 +7,5 @@ import com.onore.project.dto.ReviewDTO;
 
 public interface Shop1Mapper {
 	
-	ProductsDTO getDetail(Integer product_num);
 	
-	List<ReviewDTO> getProReview(Integer product_num);
 }

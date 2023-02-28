@@ -24,6 +24,12 @@
 	<select id="getSnakers" resultType="com.onore.project.dto.ProductsDTO">
 		select * from products where category_num = 4
 	</select>
+	<select id="getDetail" resultType="com.onore.project.dto.ProductsDTO">
+		SELECT * FROM products WHERE product_num=3
+	</select>
 	
+	<select id="getProReview" resultType="com.onore.project.dto.ReviewDTO">
+		SELECT * FROM reviews WHERE product_num=3
+	</select>
 	
 </mapper>
