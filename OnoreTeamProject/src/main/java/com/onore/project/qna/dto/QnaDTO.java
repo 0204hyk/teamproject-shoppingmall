@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Qna {
+public class QnaDTO {
 
 	private Integer qna_num;
 	private Integer product_num;

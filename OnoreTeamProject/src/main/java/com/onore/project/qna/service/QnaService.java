@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.onore.project.qna.dto.Qna;
+import com.onore.project.qna.dto.QnaDTO;
 
 public interface QnaService {
 
@@ -16,9 +16,9 @@ public interface QnaService {
 
 	void QnaList(Model model);
 
-	void QnaWrite(Model model, Qna qna);
+	void QnaWrite(Model model, QnaDTO qna);
 
 	void QnaView(Model model, int qna_num);
 
-	void fileUpload(Qna qna, List<MultipartFile> file) throws IllegalStateException, IOException;
+	void fileUpload(QnaDTO qna, List<MultipartFile> file) throws IllegalStateException, IOException;
 }

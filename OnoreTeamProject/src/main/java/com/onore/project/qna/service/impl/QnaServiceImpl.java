@@ -13,7 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.onore.project.mapper.QnaMapper;
-import com.onore.project.qna.dto.Qna;
+import com.onore.project.qna.dto.QnaDTO;
 import com.onore.project.qna.service.QnaService;
 
 @Service
@@ -30,7 +30,7 @@ public class QnaServiceImpl implements QnaService {
 	}
 
 	@Override
-	public void QnaWrite(Model model, Qna qna) {
+	public void QnaWrite(Model model, QnaDTO qna) {
 		model.addAttribute("qnas", qna_mapper.qnaWrite(qna));
 
 	}
@@ -42,7 +42,7 @@ public class QnaServiceImpl implements QnaService {
 	}
 
 	@Override
-	public void fileUpload(Qna qna, List<MultipartFile> file) throws IllegalStateException, IOException {
+	public void fileUpload(QnaDTO qna, List<MultipartFile> file) throws IllegalStateException, IOException {
 		//String imgPath = "C:\\Users\\K\\git\\teamproject-shoppingmall\\OnoreTeamProject\\src\\main\\webapp\\resources\\qna\\images\\";
 		String imgPath = "/Users/kang/git/teamproject-shoppingmall/OnoreTeamProject/src/main/webapp/resources/qna/images/"; // 노트북
 		UUID uuid = UUID.randomUUID();
@@ -74,7 +74,7 @@ public class QnaServiceImpl implements QnaService {
 	public void Page(HttpServletRequest req) {
 		String pageStr = req.getParameter("page");
 
-		List<Qna> pages = qna_mapper.getAll();
+		List<QnaDTO> pages = qna_mapper.getAll();
 
 		int page;
 		if (pageStr == null) {
