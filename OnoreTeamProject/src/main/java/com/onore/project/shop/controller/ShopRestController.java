@@ -42,9 +42,18 @@ public class ShopRestController {
 		
 	}
 	
-//	@GetMapping(value = {"/restful/loafer/{product_num}"}, produces = "application/json; charset=UTF-8")
-//	public List<ProductsDTO> loafer(@PathVariable("product_num")Integer product_num) {
-//		return shopService.bootSelect(product_num);
-//	}
+	@GetMapping(value = {"/restful/loafers"}, produces = "application/json; charset=UTF-8")
+	public List<ProductsDTO> loafer() {
+
+		return shopService.loafersView();
+		
+	}
+	
+	@GetMapping(value = {"/restful/snakers"}, produces = "application/json; charset=UTF-8")
+	public List<ProductsDTO> snakers() {
+
+		return shopService.snakersView();
+		
+	}
 
 }

@@ -35,8 +35,8 @@
 				<option value="기타">기타</option>
 			</select> 
 			<input type="hidden" name="product_num" value="1"> 
-			<input type="hidden" name="mem_id" value="test"> <input type="text"
-				name="qna_title">
+			<input type="hidden" name="mem_id" value="test"> 
+			<input type="text" name="qna_title">
 			<div id="inputs"></div>
 			<textarea rows="10" cols="50" name="qna_content">내용을 입력해주세요.</textarea>
 			<br> 

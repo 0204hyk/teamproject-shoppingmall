@@ -1,5 +1,6 @@
 .main {
 	overflow: hidden;
+
 }
 
 .flex-container2 {
@@ -10,7 +11,8 @@
     margin-top: 100px;
     text-align: center;
     width: 1400px;
-	overflow: auto;
+	height: 1000px;
+	overflow: scroll;
 
 }
 
