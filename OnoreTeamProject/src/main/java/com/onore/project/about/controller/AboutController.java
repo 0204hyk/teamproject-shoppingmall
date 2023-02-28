@@ -1,4 +1,4 @@
-package com.onore.project.about;
+package com.onore.project.about.controller;
 
 
 import org.springframework.stereotype.Controller;
