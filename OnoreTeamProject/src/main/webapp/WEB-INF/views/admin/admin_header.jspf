@@ -72,19 +72,8 @@
 			       </button>
 			       <div class="collapse" id="product-collapse">
 			         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-			           <li><a href="#" class="link-secondary d-inline-flex text-decoration-none rounded">상품 등록</a></li>
-			           <li><a href="#" class="link-secondary d-inline-flex text-decoration-none rounded">상품 수정</a></li>
-			           <li><a href="#" class="link-secondary d-inline-flex text-decoration-none rounded">상품 삭제</a></li>
-			         </ul>
-			       </div>
-			     </li>
-			  	 <li class="mb-1">
-			       <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#category-collapse" aria-expanded="false">
-			         카테고리
-			       </button>
-			       <div class="collapse" id="category-collapse">
-			         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-			           <li><a href="#" class="link-secondary d-inline-flex text-decoration-none rounded">카테고리 관리</a></li>
+			           <li><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/product/regist')" class="link-secondary d-inline-flex text-decoration-none rounded">상품 등록</a></li>
+			           <li><a href="#" class="link-secondary d-inline-flex text-decoration-none rounded">상품 관리</a></li>
 			         </ul>
 			       </div>
 			     </li>

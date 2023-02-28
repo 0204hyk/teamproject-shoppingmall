@@ -16,7 +16,7 @@
 		<div class="container">
 			<form id="notice-modify-form" name="notice-modify-form" method="POST">
 				<input type="hidden" name="notice_num" value="${notice.notice_num}"/>
-				<input type="text" class="notice-write-title" name="notice_title" placeholder="제목을 입력하세요." value="${notice.notice_title}"/>
+				<input type="text" class="notice-write-title" name="notice_title" placeholder="제목을 입력해주세요." value="${notice.notice_title}"/>
 		  		<textarea class="summernote" name="notice_content">${notice.notice_content}</textarea>
 		  		<div class="d-grid d-md-flex justify-content-md-end" style="margin-top: 15px;">
 		 			<input type="button" onclick="movePageByGet('<%=request.getContextPath()%>/admin/notice/list')" class="submit-btn btn btn-secondary btn-lg" value="취 소"/>
@@ -27,29 +27,10 @@
 	</div>
 	
 	
-		<script>
-		function modifyNotice(url){
-		    var formData = $('#notice-modify-form').serialize();
-		    
-		    $.ajax({
-		        url: url,
-		        type: "POST",
-		        cache: false,
-		        data: formData,
-		        cache : false,
-		        success: function(data){
-		        	alert('공지사항 수정 완료');
-		            movePageByGet('<%=request.getContextPath()%>/admin/notice/list');
-		        },
-		        error: function (request, status, error){        
-		            console.log(error);
-		        }
-		    })     
-		}
-	</script>
 	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 	<script src=" https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/lang/summernote-ko-KR.min.js"></script>
-	<script src="/project/resources/admin/js/summernote.js"></script>
+	<script src="/project/resources/admin/js/summernote_notice.js"></script>
+	<script src="/project/resources/admin/js/notice_write.js"></script>
 	
 </body>
 </html>

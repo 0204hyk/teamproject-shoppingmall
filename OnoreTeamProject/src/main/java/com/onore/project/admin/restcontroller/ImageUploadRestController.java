@@ -26,7 +26,7 @@ import lombok.extern.log4j.Log4j2;
 public class ImageUploadRestController {
 	
 	@PostMapping(value="/admin/notice_image.upload", produces = "application/json; charset=utf8")
-	public String uploadSummernoteImageFile(@RequestParam("file") MultipartFile multipartFile, HttpServletRequest request ) throws IOException {
+	public String uploadNoticeSummernoteImageFile(@RequestParam("file") MultipartFile multipartFile, HttpServletRequest request) throws IOException {
 		
 		JsonObject jsonObject = new JsonObject();
 		
@@ -52,5 +52,34 @@ public class ImageUploadRestController {
 		String result = jsonObject.toString();
 		return result;
 	}
+	
+	@PostMapping(value="/admin/product_image.upload", produces = "application/json; charset=utf8")
+	public String uploadProductSummernoteImageFile(@RequestParam("file") MultipartFile multipartFile, HttpServletRequest request) throws IOException {
+		
+		JsonObject jsonObject = new JsonObject();
+				
+		String contextRoot = request.getSession().getServletContext().getRealPath("/");
+		String fileRoot = contextRoot+"resources/admin/image/product/detail_image/";
+		
+		String originalFileName = multipartFile.getOriginalFilename();	//오리지날 파일명
+		String extension = originalFileName.substring(originalFileName.lastIndexOf("."));	//파일 확장자
+		String savedFileName = UUID.randomUUID() + extension;	//저장될 파일 명
+		
+		File targetFile = new File(fileRoot + savedFileName);	
+		try {
+			InputStream fileStream = multipartFile.getInputStream();
+			FileUtils.copyInputStreamToFile(fileStream, targetFile);	//파일 저장
+			jsonObject.addProperty("url", "/project/resources/admin/image/product/detail_image/" + savedFileName);
+			jsonObject.addProperty("responseCode", "success");		
+			fileStream.close();
+		} catch (IOException e) {
+			FileUtils.deleteQuietly(targetFile);	//저장된 파일 삭제
+			jsonObject.addProperty("responseCode", "error");
+			e.printStackTrace();
+		}
+		String result = jsonObject.toString();
+		return result;
+	}
+
 
 }

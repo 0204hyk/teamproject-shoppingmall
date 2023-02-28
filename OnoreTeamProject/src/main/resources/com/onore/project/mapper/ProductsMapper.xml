@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.onore.project.mapper.ProductsMapper">
+	<insert id="insertProduct" parameterType="com.onore.project.dto.ProductsDTO">
+		<selectKey keyProperty="product_num" order="BEFORE" resultType="int">
+			SELECT products_seq.nextval FROM dual
+		</selectKey>
+		INSERT INTO products VALUES (
+		    #{product_num},
+		    #{category_num},
+		    #{product_name},
+		    #{product_price},
+		    #{product_info},
+		    #{product_thumbnail_1}, 
+		    #{product_thumbnail_2}, 
+		    #{product_thumbnail_3},
+		    0,
+		    0)
+	</insert>
+</mapper>

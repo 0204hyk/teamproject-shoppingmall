@@ -221,3 +221,72 @@ body {
   margin-right: 20px;
   text-decoration: none;
 }
+
+/* 상품 */
+.product-content {
+  background-color: white;
+  border-radius: 10px;
+  width: 1430px;
+  height: auto;
+  margin: 5px;
+  padding: 5px;
+}
+
+.product-title {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.product-title h1 {
+  color: rgb(93, 93, 93);
+  font-weight: 600; 
+  font-size: 24px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  margin-left: 15px;
+}
+
+.product-info {
+  font-family: 'Noto Sans KR', sans-serif; 
+  font-weight: 500;
+  font-size: 18px;
+  width: 35%;
+}
+
+.input-label {
+  font-size: 20px;
+  width: 80px;
+  margin-bottom: 5px;
+  margin-right: -8px;
+  padding-top: 6px;
+}
+
+.category-select {
+  width: 35%; 
+  font-family: 'Noto Sans KR', sans-serif; 
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.label-container {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.thumbnail-container {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.input-thumbnail {
+  width: 100%;
+  margin: 10px;
+}
+
+.thumbnail-preview {
+  display: block;
+  margin: 0 auto;
+  width: 200px; 
+  height: 200px;
+  text-align: center;
+}
