@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.onore.project.qna.dto.QnaDTO;
+import com.onore.project.dto.QnaDTO;
 
 public interface QnaService {
 

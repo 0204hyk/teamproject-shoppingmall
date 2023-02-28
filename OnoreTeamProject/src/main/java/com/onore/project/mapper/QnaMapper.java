@@ -2,7 +2,7 @@ package com.onore.project.mapper;
 
 import java.util.List;
 
-import com.onore.project.qna.dto.QnaDTO;
+import com.onore.project.dto.QnaDTO;
 
 public interface QnaMapper {
 

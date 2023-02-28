@@ -12,8 +12,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.onore.project.dto.QnaDTO;
 import com.onore.project.mapper.QnaMapper;
-import com.onore.project.qna.dto.QnaDTO;
 import com.onore.project.qna.service.QnaService;
 
 @Service

@@ -1,4 +1,4 @@
-package com.onore.project.qna.dto;
+package com.onore.project.dto;
 
 import java.time.LocalDate;
 
