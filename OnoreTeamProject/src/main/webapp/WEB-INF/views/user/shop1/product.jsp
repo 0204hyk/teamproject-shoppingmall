@@ -22,15 +22,16 @@
 				<img src="${product.product_thumbnail }" id="test">
 			</div>
 			<div class="right">
-				<h3>${product.product_name }</h3>
-				<h5>★★★★★</h5>
+				<h1 id="product_name">${product.product_name }</h1>
+				<h3>★★★★★</h3>
 				<hr>
-				${product.product_info }
+				<h3>${product.product_info }</h3>
 				<hr>
-				${product.product_price }원
+				<h3 id="price">${product.product_price }원</h3>
 				<br>
 				<form action="/order" method="POST">
-				SIZE<br>
+				<h3>SIZE</h3>
+				<br>
 					<select name="size" id="size">
 						<option value="default" selected>선택하세요</option>
 						<option value="240">240</option>
@@ -43,18 +44,27 @@
 						<option value="275">275</option>
 						<option value="280">280</option>
 					</select><br>
-				HIDDEN HEEL<br>
-					<select name="hiddenheel" id="heel">
+				<h3>HIDDEN HEEL</h3>
+				<br>
+					<select name="hiddenheel" id="heel" disabled>
 						<option value="default" selected>선택하세요</option>
-						<option value="plusheel">속굽추가 | 총 굽높이 5cm (EVENT)</option>
-						<option value="noheel">추가안함 | 총 굽높이 4cm</option>
+						<option value="속굽추가 | 총 굽높이 5cm (EVENT)">속굽추가 | 총 굽높이 5cm (EVENT)</option>
+						<option value="추가안함 | 총 굽높이 4cm">추가안함 | 총 굽높이 4cm</option>
 					</select><br>	
-				SOLE <br>
-					<select name="sole" id="sole">
+				<h3>SOLE</h3>
+				 <br>
+					<select name="sole" id="sole" disabled>
 						<option value="default" selected>선택하세요</option>
-						<option value="clear">Clear Detail Sole</option>
-						<option value="black">All Black Sole</option>
+						<option value="Clear Detail Sole">Clear Detail Sole</option>
+						<option value="All Black Sole">All Black Sole</option>
 					</select><br>
+				
+				<div id="select" style="display: grid;"></div>
+				<div id="cnt" style="display:none;">
+				<input type ="button" onclick='count("plus")' value="+">
+       			<div id='result'>1</div>
+        		<input type ="button" onclick='count("minus")' value="-">
+        		</div>
 				<hr>
 				주문수량 1 개<br>
 				총 상품금액 ${product.product_price }원<br>
@@ -91,7 +101,7 @@
 					<c:forEach items="${reviews }" var="review">
 						<tr>
 							<th rowspan="2" id="review_img"><img src="${review.review_img_1 }"></th>
-							<th style="width: 200px;">${review.mem_id }/${review.review_date }</th>
+							<th class="id" style="width: 200px;">${review.maskingName }/${review.review_date }</th>
 							<c:if test="${review.review_rating eq 5 }">
 								<th class="star">
 									<i class="fa-solid fa-star"></i>
@@ -139,7 +149,7 @@
 							</c:if>
 						</tr>
 						<tr>
-							<td colspan="2">${review.review_content }</td>
+							<td class="contents" colspan="2">${review.review_content }</td>
 						</tr>
 				</c:forEach>
 			</table>

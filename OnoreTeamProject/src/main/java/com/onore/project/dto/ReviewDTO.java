@@ -19,10 +19,22 @@ public class ReviewDTO {
 	private String review_img_1;
 	private String review_img_2;
 	private String review_img_3;
+	
+	// id마스킹처리 ex) ${review.maskingName}
+	public String getmaskingName() {
 
-//	public void setDate() {
-//		SimpleDateFormat dayformat = new SimpleDateFormat("yyyy-MM-dd");
-//		
-//		this.review_date = dayformat.format(review_date);
-//	}
+		String firstName = mem_id.substring(0,1);
+		String midName = mem_id.substring(1, mem_id.length() - 1);
+
+		String masking = "";
+		for(int i = 0; i < midName.length(); ++i) {
+			masking += "*";
+		}
+
+		String lastName = mem_id.substring(mem_id.length() - 1, mem_id.length());
+
+		String maskingName = firstName + masking + lastName;
+
+		return maskingName;
+	}
 }

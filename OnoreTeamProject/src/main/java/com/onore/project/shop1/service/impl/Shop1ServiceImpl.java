@@ -28,5 +28,4 @@ public class Shop1ServiceImpl implements Shop1Service {
 		return shop_mapper.getProReview(product_num);
 	}
 	
-	
 }

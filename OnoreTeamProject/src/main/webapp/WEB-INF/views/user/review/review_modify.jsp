@@ -8,7 +8,7 @@
 <title>ONÓRE</title>
 <%@ include file="../header.jspf"%>
 <link rel="icon" href="/project/resources/review/image/파비콘.png">
-<link rel="stylesheet"href="/project/resources/review/css/review_write.css">
+<link rel="stylesheet"href="/project/resources/review/css/review_write.css?ver=1">
 <script src="/project/resources/review/js/review_write.js?ver=1" defer></script>
 </head>
 <body>

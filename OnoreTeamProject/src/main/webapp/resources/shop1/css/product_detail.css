@@ -64,12 +64,18 @@ body {
 td {
 	text-align: left;
 	border-bottom: 1px solid gray;
-    padding: 10px;
+    padding: 20px;
+    font-size: 13px;
 }
 
 th > img {
 	width: 100px;
 	height: 100px;
+}
+
+.id {
+	font-size: 15px;
+	padding-left: 20px;
 }
 
 table {
@@ -110,4 +116,14 @@ table {
     white-space: nowrap;
 }
 
+span {
+	width: 500px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+    white-space: pre;
+}
 
+#a {
+	text-align: right;
+	margin-right: 50px;
+}

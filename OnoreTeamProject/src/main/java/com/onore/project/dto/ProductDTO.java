@@ -13,4 +13,6 @@ public class ProductDTO {
 	private String product_thumbnail; //사진경로 
 	private Integer product_views;
 	private Integer product_likes;
+	
+	
 }

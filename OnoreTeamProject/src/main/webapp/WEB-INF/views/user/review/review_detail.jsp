@@ -9,7 +9,7 @@
 <%@ include file="../header.jspf"%>
 <link rel="icon" href="/project/resources/review/image/파비콘.png">
 <link rel="stylesheet"
-	href="/project/resources/review/css/review_detail.css?ver=7">
+	href="/project/resources/review/css/review_detail.css?ver=8">
 </head>
 <body>
 

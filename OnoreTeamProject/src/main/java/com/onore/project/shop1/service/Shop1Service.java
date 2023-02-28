@@ -10,4 +10,5 @@ public interface Shop1Service {
 	ProductDTO getDetail(Integer product_num);
 	
 	List<ReviewDTO> getProReview(Integer product_num);
+
 }

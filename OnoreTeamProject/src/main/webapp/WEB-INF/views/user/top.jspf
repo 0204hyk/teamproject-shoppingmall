@@ -4,7 +4,7 @@
 <header class="header">
 	<nav class="navbar">
 		<div class="navbar_logo">
-			<a href="">ONÓRE</a>
+			<a href=""><img src="/project/resources/review/image/logo.png"></a>
 		</div>
 
 		<ul class="navbar_menu">
