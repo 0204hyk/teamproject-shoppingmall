@@ -8,8 +8,8 @@
 <title>ONÓRE</title>
 <%@ include file="../header.jspf" %>
 <link rel="icon" href="/project/resources/review/image/파비콘.png">
-<link rel="stylesheet"href="/project/resources/shop1/css/product_detail.css?ver=4">
-<script src="/project/resources/shop1/js/product_detail.js" defer></script>
+<link rel="stylesheet"href="/project/resources/shop1/css/product_detail.css?ver=5">
+<script src="/project/resources/shop1/js/product_detail.js?ver=1" defer></script>
 </head>
 <body>
 
@@ -85,6 +85,7 @@
 		<div class="bottom">
 			<div class="review">
 			<h3>후기(리뷰게시판에 검색(해당상품)결과로 넘어가게하기)</h3>
+			<br>
 			<hr>
 				<table id="review-table">
 					<c:forEach items="${reviews }" var="review">
@@ -145,23 +146,23 @@
 			</div>
 			<div class="qna">
 				<h3>Q & A(문의게시판 나중에 연동예정)</h3>
-			<hr>
-				<table id="qna-table">
+			<br>
+				<table>
 					<c:forEach items="${reviews }" var="review">
 						<tr>
-							<th>번호</th>
-							<th>제목</th>	
-							<th>글쓴이</th>
-							<th>등록일</th>
-							<th>답변상태</th>
+							<th class="title">번호</th>
+							<th class="title">제목</th>	
+							<th class="title">글쓴이</th>
+							<th class="title">등록일</th>
+							<th class="title">답변상태</th>
 						</tr>
 						<tr>
-							<td>${review.review_num }</td>
-							<td>${review.review_content }</td>
-							<td>${review.mem_id }</td>
-							<td>${review.review_date }</td>
-							<td>${review.review_rating }</td>
-						</tr>
+							<td class="qna_con">${review.review_num }</td>
+							<td class="qna_con" id="con">문의제목</td>
+							<td class="qna_con">${review.mem_id }</td>
+							<td class="qna_con">${review.review_date }</td>
+							<td class="qna_con">${review.review_rating }</td>
+						</tr> 
 				</c:forEach>
 			</table>
 			</div>

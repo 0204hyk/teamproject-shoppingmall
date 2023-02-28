@@ -61,7 +61,7 @@ body {
 	text-align: left;
 }
 
-#review-table > td {
+td {
 	text-align: left;
 	border-bottom: 1px solid gray;
     padding: 10px;
@@ -74,7 +74,7 @@ th > img {
 
 table {
 	border-collapse: collapse;
-	width: 100%;
+	width: 1000px;
 }
 
 #review_img {
@@ -95,9 +95,19 @@ table {
 	padding-top: 100px;
 }
  
-#qna-table > th, td {
-    border-bottom: 1px solid lightgray;
-    padding: 10px;
-    text-align: center;
+.title {
+	border-bottom: 1px solid gray;
+	padding: 10px;
 }
+
+.qna_con {
+	text-align: center;
+}
+
+#con {
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 
