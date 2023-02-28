@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>오노레 SHOP</title>
 <%@ include file="../header.jspf" %>
 <link rel="stylesheet" href="/project/resources/shop/css/main.css" />
 <link rel="stylesheet" href="/project/resources/shop/css/category.css" />
@@ -30,15 +30,14 @@
 			</div>
 		</div>
 		<div class="category-btn">
-			<button id="ajax-all">All</button>
-			<button id="ajax-derby">DERBY</button>
-			<button id="ajax-boots">BOOTS</button>
-			<button id="ajax-loafer">LOAFER</button>
-			<button id="ajax-snakers">SNAKERS</button>
-			
+			<a id="ajax-all">All</a>
+			<a id="ajax-derby">DERBY</a>
+			<a id="ajax-boots">BOOTS</a>
+			<a id="ajax-loafer">LOAFER</a>
+			<a id="ajax-snakers">SNAKERS</a>
 		</div>
 		
-		<div id="imgBox" class="flex-container2" onscroll="scroll">
+		<div id="imgBox" class="flex-container2">
 		
 			<div class="img-container">
 				<div class="img-info">
@@ -231,7 +230,7 @@
 		</div>
 	</div>
 
-	<script src="/project/resources/shop/js/ajax.js"></script>
+	<script src="/project/resources/shop/js/category.js"></script>
 	<%@ include file="../bottom.jspf" %>
 		
 </body>

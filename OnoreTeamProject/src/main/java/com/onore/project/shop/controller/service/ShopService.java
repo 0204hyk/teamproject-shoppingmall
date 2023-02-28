@@ -12,10 +12,14 @@ public interface ShopService {
 
 	
 	List<ProductsDTO> all();
+	
 	List<ProductsDTO> derbyView();
+	
 	List<ProductsDTO> bootsView();
+	
 	List<ProductsDTO> loafersView();
 	
-	void Page(HttpServletRequest req);
+	List<ProductsDTO> snakersView();
+
 	
 }

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>오노레 Q&A</title>
 <%@include file="../header.jspf"%>
 <link rel="stylesheet" href="/project/resources/qna/css/qna_detail.css" />
 <link rel="stylesheet"

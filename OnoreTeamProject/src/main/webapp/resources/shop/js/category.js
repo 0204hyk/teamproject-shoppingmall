@@ -18,18 +18,20 @@ window.addEventListener('load', function() {
 					onoreImg.innerHTML += `<img src=${obj[i].product_thumbnail} class='imgs' />`;	
 					let number = `${obj[i].product_num }`;
 					let onoreInfo = document.getElementsByClassName('img-info2')[i];
- 					onoreInfo.innerHTML += `<span class='information'>${obj[i].product_name} ${obj[i].product_price}</span>`;
- 					
+ 					onoreInfo.innerHTML += `<span class='information'><h4>${obj[i].product_name}</h4><h5>${obj[i].product_price}원</h5></span>`;
+ 					onoreImg.style.opacity = '1';
  					onoreInfo.style.display = 'none';
 					
 					// category.css .test를 img-info로 바꾸면 z-index 적용.
 					
 					onoreImg.addEventListener('mouseenter', (e) => {
+						onoreImg.style.opacity = '0.3';
 						onoreInfo.style.display = 'initial';
 					});
 					
 					
 					onoreImg.addEventListener('mouseleave', (e) => {
+						onoreImg.style.opacity = '1';
 						onoreInfo.style.display = 'none';
 						
 					});
@@ -72,7 +74,7 @@ categoryAll.addEventListener('click', (e) => {
 					let number = `${obj[i].product_num }`;
 					
  					let onoreInfo = document.getElementsByClassName('img-info2')[i];
- 					onoreInfo.innerHTML = `<span class='information'>${obj[i].product_name} ${obj[i].product_price}</span>`;
+ 					onoreInfo.innerHTML += `<span class='information'><h4>${obj[i].product_name}</h4><h5>${obj[i].product_price}원</h5></span>`;
  
  					onoreInfo.style.display = 'none';
  				
@@ -130,7 +132,7 @@ derbyBtn.addEventListener('click', (e) => {
 					let number = `${obj[i].product_num }`;
 					
  					let onoreInfo = document.getElementsByClassName('img-info2')[i];
- 					onoreInfo.innerHTML = `<span class='information'>${obj[i].product_name} ${obj[i].product_price}</span>`;
+ 					onoreInfo.innerHTML += `<span class='information'><h4>${obj[i].product_name}</h4><h5>${obj[i].product_price}원</h5></span>`;
  
  					onoreInfo.style.display = 'none';
 			
@@ -182,7 +184,7 @@ bootsBtn.addEventListener('click', (e) => {
 					let number = `${obj[i].product_num }`;
 					
  					let onoreInfo = document.getElementsByClassName('img-info2')[i];
- 					onoreInfo.innerHTML = `<span class='information'>${obj[i].product_name} ${obj[i].product_price}</span>`;
+ 					onoreInfo.innerHTML += `<span class='information'><h4>${obj[i].product_name}</h4><h5>${obj[i].product_price}원</h5></span>`;
  
  					onoreInfo.style.display = 'none';
 					
@@ -209,5 +211,107 @@ bootsBtn.addEventListener('click', (e) => {
     xhttp.send();
 });
 
+loaferBtn.addEventListener('click', (e) => {
 	
+	const imgSize = document.getElementsByClassName('imgs').length;
+	const imgInfo = document.getElementsByClassName('information').length;
+	for (i = 0; i < imgSize; ++i) {
+		let onoreImg = document.getElementsByClassName('img-info')[i];
+		onoreImg.innerHTML = '';
+	 	let onoreInfo = document.getElementsByClassName('img-info2')[i];
+		onoreInfo.innerHTML = '';
+
+	}
+	
+	let xhttp = new XMLHttpRequest();	
+	
+   	xhttp.addEventListener('readystatechange', (e) => {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+			let obj = JSON.parse(xhttp.responseText);
+		
+				for ( i = 0; i < obj.length; ++i) {
+					let onoreImg = document.getElementsByClassName('img-info')[i];
+			
+					onoreImg.innerHTML = `<img src=${obj[i].product_thumbnail} class='imgs' />`;	
+					let number = `${obj[i].product_num }`;
+					
+ 					let onoreInfo = document.getElementsByClassName('img-info2')[i];
+ 					onoreInfo.innerHTML += `<span class='information'><h4>${obj[i].product_name}</h4><h5>${obj[i].product_price}원</h5></span>`;
+ 
+ 					onoreInfo.style.display = 'none';
+					
+
+					// category.css .test를 img-info로 바꾸면 z-index 적용.
+					
+					onoreImg.addEventListener('mouseenter', (e) => {
+					});
+					
+					
+					onoreImg.addEventListener('mouseleave', (e) => {
+						
+					});
+					
+					onoreImg.addEventListener('click', (e) => {
+						location.href = '/product/shop/detail/?product_num=' + number;
+					});
+				}	
+		}
+	});
+	
+
+	xhttp.open('GET', '/project/restful/loafers');
+    xhttp.send();
+});
+
+snakersBtn.addEventListener('click', (e) => {
+	
+	const imgSize = document.getElementsByClassName('imgs').length;
+	const imgInfo = document.getElementsByClassName('information').length;
+	for (i = 0; i < imgSize; ++i) {
+		let onoreImg = document.getElementsByClassName('img-info')[i];
+		onoreImg.innerHTML = '';
+	 	let onoreInfo = document.getElementsByClassName('img-info2')[i];
+		onoreInfo.innerHTML = '';
+
+	}
+	
+	let xhttp = new XMLHttpRequest();	
+	
+   	xhttp.addEventListener('readystatechange', (e) => {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+			let obj = JSON.parse(xhttp.responseText);
+		
+				for ( i = 0; i < obj.length; ++i) {
+					let onoreImg = document.getElementsByClassName('img-info')[i];
+			
+					onoreImg.innerHTML = `<img src=${obj[i].product_thumbnail} class='imgs' />`;	
+					let number = `${obj[i].product_num }`;
+					
+ 					let onoreInfo = document.getElementsByClassName('img-info2')[i];
+ 					onoreInfo.innerHTML += `<span class='information'><h4>${obj[i].product_name}</h4><h5>${obj[i].product_price}원</h5></span>`;
+ 
+ 					onoreInfo.style.display = 'none';
+					
+
+					// category.css .test를 img-info로 바꾸면 z-index 적용.
+					
+					onoreImg.addEventListener('mouseenter', (e) => {
+					});
+					
+					
+					onoreImg.addEventListener('mouseleave', (e) => {
+						
+					});
+					
+					onoreImg.addEventListener('click', (e) => {
+						location.href = '/product/shop/detail/?product_num=' + number;
+					});
+				}	
+		}
+	});
+	
+
+	xhttp.open('GET', '/project/restful/snakers');
+    xhttp.send();
+});
 	

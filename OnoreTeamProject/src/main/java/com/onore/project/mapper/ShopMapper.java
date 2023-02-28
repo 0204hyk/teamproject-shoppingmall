@@ -15,4 +15,6 @@ public interface ShopMapper {
 	
 	List<ProductsDTO> getLoafers();
 	
+	List<ProductsDTO> getSnakers();
+	
 }

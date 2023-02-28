@@ -22,20 +22,14 @@ import lombok.extern.log4j.Log4j2;
 @Controller
 @RequestMapping("/shop")
 public class ShopController {
-	
-	
-	
+
 	@Autowired
 	ShopService shopService;
 	
 	@GetMapping("/main")
-	public String main(HttpServletRequest req) {
-		
-		shopService.Page(req);
-		
+	public String main() {
+
 		return "user/shop/shop_main";
+		
 	}
-	
-	
-	
 }
