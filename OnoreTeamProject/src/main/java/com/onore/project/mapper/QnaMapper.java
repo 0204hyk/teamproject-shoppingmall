@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.onore.project.dto.QnaDTO;
 
+
+
 public interface QnaMapper {
 
 	List<QnaDTO> getAll();
