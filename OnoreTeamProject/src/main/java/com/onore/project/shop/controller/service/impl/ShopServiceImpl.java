@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.onore.project.dto.ProductsDTO;
+import com.onore.project.dto.ReviewDTO;
 import com.onore.project.mapper.ShopMapper;
 import com.onore.project.shop.controller.service.ShopService;
 
@@ -51,4 +52,17 @@ public class ShopServiceImpl implements ShopService{
 		return shop_mapper.getSnakers();
 
 	}
+	
+	@Override
+	public ProductsDTO getDetail(Integer product_num) {
+		
+		return shop_mapper.getDetail(product_num);
+	}
+
+	@Override
+	public List<ReviewDTO> getProReview(Integer product_num) {
+		
+		return shop_mapper.getProReview(product_num);
+	}
+	
 }

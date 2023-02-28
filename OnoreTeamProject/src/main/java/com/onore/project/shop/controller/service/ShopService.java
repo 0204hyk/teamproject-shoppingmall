@@ -3,6 +3,7 @@ package com.onore.project.shop.controller.service;
 import java.util.List;
 
 import com.onore.project.dto.ProductsDTO;
+import com.onore.project.dto.ReviewDTO;
 
 public interface ShopService {
 
@@ -17,5 +18,7 @@ public interface ShopService {
 
 	List<ProductsDTO> snakersView();
 
+	ProductsDTO getDetail(Integer product_num);
 
+	List<ReviewDTO> getProReview(Integer product_num);
 }
