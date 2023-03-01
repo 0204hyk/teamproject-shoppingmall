@@ -10,8 +10,16 @@ public interface QnaMapper {
 
 	List<QnaDTO> getAll();
 
+	
+	QnaDTO qnaModifyForm(Integer qna_num);
+	
 	Integer qnaWrite(QnaDTO qna);
-
+	
+	
+	Integer qnaModifyComple(QnaDTO qna);
+	
+	Integer qnaDelete(Integer qna_num);
+	
 	// 제목 클릭 후 화면 출력
 	List<QnaDTO> getContents(Integer qna_num);
 }

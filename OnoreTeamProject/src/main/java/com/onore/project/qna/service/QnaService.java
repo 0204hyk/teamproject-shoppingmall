@@ -12,13 +12,21 @@ import com.onore.project.dto.QnaDTO;
 
 public interface QnaService {
 
-	void Page(HttpServletRequest req);
+	void page(HttpServletRequest req);
 
-	void QnaList(Model model);
+	void qnaList(Model model);
 
-	void QnaWrite(Model model, QnaDTO qna);
+	void qnaWrite(Model model, QnaDTO qna);
 
-	void QnaView(Model model, int qna_num);
+	void qnaView(Model model, int qna_num);
 
+	
+	
+	QnaDTO qnaModifyForm(Integer qna_num);
+	
+	Integer qnaModifyComple(QnaDTO qna);
+	
+	Integer qnaDelete(Integer qna_num);
+	
 	void fileUpload(QnaDTO qna, List<MultipartFile> file) throws IllegalStateException, IOException;
 }

@@ -25,22 +25,41 @@ public class QnaServiceImpl implements QnaService {
 
 
 	@Override
-	public void QnaList(Model model) {
+	public void qnaList(Model model) {
 		model.addAttribute("qnas", qna_mapper.getAll());
 	}
 
 	@Override
-	public void QnaWrite(Model model, QnaDTO qna) {
+	public void qnaWrite(Model model, QnaDTO qna) {
 		model.addAttribute("qnas", qna_mapper.qnaWrite(qna));
 
 	}
 
 	@Override
-	public void QnaView(Model model, int qna_num) {
+	public void qnaView(Model model, int qna_num) {
 		model.addAttribute("views", qna_mapper.getContents(qna_num));
 
 	}
+	
+	@Override
+	public QnaDTO qnaModifyForm(Integer qna_num) {
+		
+		return qna_mapper.qnaModifyForm(qna_num);
+	}
+	
+	@Override
+	public Integer qnaModifyComple(QnaDTO qna) {
+		
+		return qna_mapper.qnaModifyComple(qna);
+	}
 
+	@Override
+	public Integer qnaDelete(Integer qna_num) {
+		
+		return qna_mapper.qnaDelete(qna_num);
+	}
+	
+	
 	@Override
 	public void fileUpload(QnaDTO qna, List<MultipartFile> file) throws IllegalStateException, IOException {
 		//String imgPath = "C:\\Users\\K\\git\\teamproject-shoppingmall\\OnoreTeamProject\\src\\main\\webapp\\resources\\qna\\images\\";
@@ -71,7 +90,7 @@ public class QnaServiceImpl implements QnaService {
 	}
 
 	@Override
-	public void Page(HttpServletRequest req) {
+	public void page(HttpServletRequest req) {
 		String pageStr = req.getParameter("page");
 
 		List<QnaDTO> pages = qna_mapper.getAll();
@@ -124,4 +143,8 @@ public class QnaServiceImpl implements QnaService {
 
 
 	}
+
+	
+
+	
 }

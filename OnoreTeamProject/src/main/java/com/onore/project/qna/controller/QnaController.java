@@ -29,7 +29,7 @@ public class QnaController {
 	@GetMapping("/main")
 	public String qna(HttpServletRequest req) {
 
-		qnaService.Page(req);
+		qnaService.page(req);
 
 		return "user/qna/qna_main";
 	}
@@ -45,7 +45,7 @@ public class QnaController {
 	public String addWrite(List<MultipartFile> file, Model model, QnaDTO qna) throws Exception {
 
 		qnaService.fileUpload(qna, file);
-		qnaService.QnaWrite(model, qna);
+		qnaService.qnaWrite(model, qna);
 
 		return "redirect:/qna/main";
 
@@ -53,11 +53,36 @@ public class QnaController {
 
 	@GetMapping("/view")
 	public String clickView(Model model, int qna_num) {
-		qnaService.QnaView(model, qna_num);
+		qnaService.qnaView(model, qna_num);
 
 		return "user/qna/qna_view";
 	}
-
-
+	
+	
+	@GetMapping("/qna_modify")
+	public String qnaModifyForm(Model model, Integer qna_num) {
+		model.addAttribute("qna", qnaService.qnaModifyForm(qna_num));
+		return "user/qna/qna_modify";
+	}
+	
+	@PostMapping("/qna_modify")
+	public String qnaModifyForm(Model model, QnaDTO qna) {
+		
+		qnaService.qnaModifyComple(qna);
+		
+		return "redirect:/qna/qna_view";
+		
+	}
+	
+	
+	
+	@GetMapping("/qnaDelete")
+	public String qnaDelete(Model model, Integer qna_num) {
+		qnaService.qnaDelete(qna_num);
+		
+		return "redirect:/qna/main";
+		
+	}
+	
 
 }

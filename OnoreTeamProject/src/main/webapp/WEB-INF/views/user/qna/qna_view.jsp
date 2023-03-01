@@ -6,8 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>오노레 Q&A</title>
-<%@include file="../header.jspf"%>
-<link rel="stylesheet" href="/project/resources/qna/css/qna_detail.css" />
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
 <link
@@ -20,6 +19,8 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+<%@include file="../header.jspf"%>
+<link rel="stylesheet" href="/project/resources/qna/css/qna_detail.css" />
 </head>
 <body>
 	<%@include file="../top.jspf"%>
@@ -28,46 +29,50 @@
 		style="padding-top: 127px; width: auto; height: 1200px; margin: 50px; margin-top: 0px;">
 		<hr />
 		<div>
-			<table style="width: 1200px; height: 600px; border: 1px solid black;">
+			<div style="width: 1200px; height: 600px; ">
 				<c:forEach items="${views }" var="view">
-					<tr>
-						<td colspan="3">${view.qna_title }</td>
-
-					</tr>
-					<tr>
-						<td colspan="3">내용 : ${view.qna_content }</td>
-					</tr>
-
+				<div >
+					<h4>[${view.qna_category }] ${view.qna_title } </h4>
+				</div>
+				
+					<div style="width: 1200px; height: 400px;">
+						<h4>${view.qna_content }</h4>
+					</div>
+					
+					<div style="width: 1200px; height: 400px;">
 					<c:choose>
 						<c:when
 							test="${not empty view.qna_img_1 and not empty view.qna_img_2 and not empty view.qna_img_3}">
-							<td><a
+							<td>
+								<a
 								href="/project/resources/qna/images/${view.qna_img_1 }"
 								data-toggle="lightbox" data-gallery="example-gallery"
 								class="col-sm-4"> 
 								<img style="width: 150px; height: 150px;"
 									src="/project/resources/qna/images/${view.qna_img_1 }"
 									class="img-fluid rounded" />
-							</a>
+								</a>
 							</td>
 
 							<td>
-							<a
+								<a
 								href="/project/resources/qna/images/${view.qna_img_2 }"
 								data-toggle="lightbox" data-gallery="example-gallery"
 								class="col-sm-4"> 
 								<img style="width: 150px; height: 150px;"
 									src="/project/resources/qna/images/${view.qna_img_2 }"
 									class="img-fluid rounded" />
-							</a>
+								</a>
 							</td>
 							<td>
-							<a href="/project/resources/qna/images/${view.qna_img_3 }"
+								<a
+								href="/project/resources/qna/images/${view.qna_img_3 }"
 								data-toggle="lightbox" data-gallery="example-gallery"
-								class="col-sm-4"> <img style="width: 150px; height: 150px;"
+								class="col-sm-4"> 
+								<img style="width: 150px; height: 150px;"
 									src="/project/resources/qna/images/${view.qna_img_3 }"
 									class="img-fluid rounded" />
-							</a>
+								</a>
 							</td>
 
 						</c:when>
@@ -76,22 +81,24 @@
 							test="${not empty view.qna_img_1 and not empty view.qna_img_2}">
 							<tr>
 								<td>
-								<a
+									<a
 									href="/project/resources/qna/images/${view.qna_img_1 }"
 									data-toggle="lightbox" data-gallery="example-gallery"
-									class="col-sm-4"> <img style="width: 150px; height: 150px;"
+									class="col-sm-4"> 
+									<img style="width: 150px; height: 150px;"
 										src="/project/resources/qna/images/${view.qna_img_1 }"
 										class="img-fluid rounded" />
-								</a>
+									</a>
 								</td>
 								<td>
-								<a
+									<a
 									href="/project/resources/qna/images/${view.qna_img_2 }"
 									data-toggle="lightbox" data-gallery="example-gallery"
-									class="col-sm-4"> <img style="width: 150px; height: 150px;"
+									class="col-sm-4"> 
+									<img style="width: 150px; height: 150px;"
 										src="/project/resources/qna/images/${view.qna_img_2 }"
 										class="img-fluid rounded" />
-								</a>
+									</a>
 								</td>
 							</tr>
 						</c:when>
@@ -99,12 +106,14 @@
 						<c:when test="${not empty view.qna_img_1 }">
 							<tr>
 								<td>
-								<a href="/project/resources/qna/images/${view.qna_img_1 }"
+									<a
+									href="/project/resources/qna/images/${view.qna_img_1 }"
 									data-toggle="lightbox" data-gallery="example-gallery"
-									class="col-sm-4"> <img style="width: 150px; height: 150px;"
+									class="col-sm-4"> 
+									<img style="width: 150px; height: 150px;"
 										src="/project/resources/qna/images/${view.qna_img_1 }"
 										class="img-fluid rounded" />
-								</a>
+									</a>
 								</td>
 							</tr>
 						</c:when>
@@ -115,8 +124,13 @@
 							</div>
 						</c:otherwise>
 					</c:choose>
+					<!-- 해당 ID가 작성한게 맞으면 보이게 끔 수정 -->
+					<a href="./qna_modify?qna_num=${view.qna_num }" onclick="return confirm('해당 글을 수정 하시겠습니까?');">글 수정하기</a>
+					<a href="./qna_delete?qna_num=${view.qna_num }" onclick="return confirm('정말로 삭제 하시겠습니까?');">글 삭제하기</a>
+					</div>
 				</c:forEach>
-			</table>
+			
+			</div>
 
 			<c:choose>
 				<c:when test="${not empty replys }">
@@ -130,11 +144,15 @@
 								<td>댓글 내용 : ${reply.comment_view }</td>
 								<td>작성일 : ${reply.write_date }</td>
 								<td>
-								<a href="./replyModify?no=${reply.comment_no }&board_id=${board.board_id}"
-									onclick="return confirm('댓글 수정을 하시겠습니까?');">수정</a></td>
+									<a
+									href="./replyModify?no=${reply.comment_no }&board_id=${board.board_id}"
+									onclick="return confirm('댓글 수정을 하시겠습니까?');">수정</a>
+								</td>
 								<td>
-								<a href="./replyDelete?no=${reply.comment_no }&board_id=${board.board_id}"
-									onclick="return confirm('정말로 삭제 하시겠습니까?');">삭제</a></td>
+									<a
+									href="./replyDelete?no=${reply.comment_no }&board_id=${board.board_id}"
+									onclick="return confirm('정말로 삭제 하시겠습니까?');">삭제</a>
+								</td>
 							</tr>
 							<tr>
 								<td style="background-color: orange"></td>
@@ -147,7 +165,7 @@
 				<c:otherwise>
 					<table>
 						<tr>
-							<td>댓글을 입력해 주세요.</td>
+							<td>관리자의 댓글을 기다리고 있어요.</td>
 						</tr>
 					</table>
 				</c:otherwise>
@@ -155,6 +173,13 @@
 		</div>
 	</div>
 
+	<!-- BootStrap modal 이미지 모달창 jquery -->
+	<script>
+	$(document).on('click', '[data-toggle="lightbox"]', function(event) {
+   		event.preventDefault();
+    	$(this).ekkoLightbox();
+	});
+	</script>
 
 	<%@include file="../bottom.jspf"%>
 </body>

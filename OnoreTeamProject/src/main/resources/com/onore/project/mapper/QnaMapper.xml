@@ -16,4 +16,25 @@
 	<select id="getContents" resultType="com.onore.project.dto.QnaDTO">
 		SELECT * FROM qna WHERE qna_num = #{qna_num}
 	</select>
+	
+	
+	<select id="qnaModifyForm" resultType="com.onore.project.dto.QnaDTO">
+		SELECT * FROM qna WHERE qna_num = #{qna_num}
+	
+	</select>
+	
+	<update id="qnaModifyComple">
+		UPDATE qna SET
+		qna_title = #{qna_title},
+		qna_content = #{qna_content}
+		
+		WHERE qna_num = ${qna_num}
+	
+	</update>
+	
+	<delete id="qnaDelete">
+		DELETE FROM qna WHERE qna_num=#{qna_num}
+	
+	</delete>
+	
 </mapper>

@@ -8,6 +8,10 @@
 <title>오노레 Q&A</title>
 <%@include file="../header.jspf"%>
 <link rel="icon" href="/project/resources/qna/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/project/resources/qna/css/qna_main.css" />
 </head>
 <body>
 	<%@include file="../top.jspf"%>
@@ -30,9 +34,9 @@
 						<td>${qna.qna_num }</td>
 						<td>${qna.qna_category }</td>
 						
-						
+					
 						<td><img style="width: 50px; height: 50px;" src="/project/resources/qna/images/${qna.qna_img_1 }"></td>
-						
+				
 						
 						<td><a href="./view?qna_num=${qna.qna_num}">${qna.qna_content }</a></td>
 						<td>${qna.mem_id }</td>

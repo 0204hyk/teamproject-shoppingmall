@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>오노레 글쓰기</title>
-<%@include file="../header.jspf"%>
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -16,14 +15,16 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+<link rel="stylesheet" href="/project/resources/qna/css/qna_write.css" />
+<%@include file="../header.jspf"%>
 </head>
 <body>
 	<%@include file="../top.jspf"%>
 
 
 	<div class="main"
-		style="padding-top: 127px; width: auto; height: 800px; margin: 50px; margin-top: 0px;">
+		style="padding-top: 127px; width: auto; height: auto; margin: 50px; margin-top: 0px;">
+		<div class="qna-form">
 		<form class="mb-3" id="myform" action="./qna_addWrite" method="post"
 			enctype="multipart/form-data">
 			<select name="qna_category" id="select" onchange="changeSelect(this)">
@@ -37,39 +38,26 @@
 			<input type="hidden" name="product_num" value="1"> 
 			<input type="hidden" name="mem_id" value="test"> 
 			<input type="text" name="qna_title">
-			<div id="inputs"></div>
-			<textarea rows="10" cols="50" name="qna_content">내용을 입력해주세요.</textarea>
-			<br> 
-			<input type="file" name="file" accept="image/*" onchange="addFile(this);" />
-			
-			<div id="file-list">
+			<div id="inputs">
 			
 			</div>
-			<br> <input type="submit" value="등록하기">
+			<textarea rows="10" cols="100" name="qna_content">내용을 입력해주세요.</textarea>
+			<br>
+			<input type="file" name="file" accept="image/*" onchange="addFile(this);" />
+			<div id="file-list">
+			
+			
+			</div>
+			
+			<input type="submit" value="등록하기">
 		</form>
-		<br> <a href="./main">목록으로</a>
+		</div>
 	</div>
-	<script>
-	/* 첨부파일 추가 */
-	function addFile(obj){
-	    const input = document.getElementById('file-list');
-	   	
-	    for (var i = 0; i <= 2; i++) {
-	    	if (i == 0) {
-	    		input.innerHTML = `<input type='file' name='file' />`;
-	    	} else if (i == 1) {
-	    		input.innerHTML += `<input type='file' name='file' />`;
-	    	} else if (i == 2) {
-	    		alert('첨부파일은 최대 3개까지 가능합니다.');
-	    	}
-	    }
-	}
-		
-	//input.innerHTML = `<input type='file' name='file' />`;
-	</script>
-	<!-- 
-	<script src="/project/resources/qna/js/qna_write.js"></script>
- 	-->
+
+
+	<script type="text/javascript"
+		src="/project/resources/qna/js/qna_write.js"></script>
+
 	<%@include file="../bottom.jspf"%>
 </body>
 </html>
