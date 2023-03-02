@@ -28,24 +28,61 @@
 				</div>
 				<div class="b">
 					<table>
-						<div id="prd_name">${contents.product_num }(상품이름으로대체join)후기</div>
-						<br>
+						<tr>
+							<td rowspan="3"><td>
+							<td id="prd_name">${contents.product_num } 후기</td>
+						</tr>
+						<tr>
+						
 						<c:if test="${contents.review_rating eq 5 }">
-							<div name="star">★★★★★</div>
+							<th name="star">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+							</th>
 						</c:if>
 						<c:if test="${contents.review_rating eq 4 }">
-							<div name="star">★★★★☆</div>
+							<th name="star">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</th>
 						</c:if>
 						<c:if test="${contents.review_rating eq 3 }">
-							<div name="star">★★★☆☆</div>
+							<th name="star">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</th>
 						</c:if>
 						<c:if test="${contents.review_rating eq 2 }">
-							<div name="star">★★☆☆☆</div>
+							<th name="star">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</th>
 						</c:if>
 						<c:if test="${contents.review_rating eq 1 }">
-							<div name="star">★☆☆☆☆</div>
+							<th name="star">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</th>
 						</c:if>
-						<div name="idndate">${contents.mem_id }/${contents.review_date }</div>
+						</tr>
+						<tr>
+						<th name="idndate">${contents.mem_id }/${contents.review_date }</th>
+						</tr>
 					</table>
 				</div>
 			</div>

@@ -11,6 +11,8 @@ const heels = document.getElementById('heel');
 const soles = document.getElementById('sole');
 
 const op = document.getElementById('select');
+const cntinfo = document.getElementById('cntinfo');
+const priceinfo = document.getElementById('priceinfo');
 
 const prices = document.getElementById('price').innerText;
 const price = prices.replace(/[^0-9]/g, '');
@@ -37,7 +39,9 @@ function count(type) {
     cnt.innerText = number;
 
     const a = document.getElementById('a');
-    a.innerHTML = number * price;
+    a.innerHTML = number * price + " 원 &nbsp;&nbsp;&nbsp;&nbsp; <i class='fa-solid fa-xmark fa-lg' id='cancel'></i>";
+    cntinfo.innerHTML = number + "개";
+    priceinfo.innerHTML = number * price + "원";
 };
 
 
@@ -58,10 +62,15 @@ sizes.addEventListener('change', (e) => {
                     if (sole != 'default') {
                        
                         op.innerHTML ="<div id='box'>" + "<hr>" + "<span>" + name + "&nbsp;&nbsp;[" + size + "/" + heel + "/" + sole + "]</span>" 
-                        + "<br>" + "<div id='a'>" + price + " won &nbsp;&nbsp;&nbsp;&nbsp; <i class='fa-solid fa-xmark' id='cancel'></i> </div>" 
+                        + "<br>" + "<div id='a'>" + price + " 원 &nbsp;&nbsp;&nbsp;&nbsp; <i class='fa-solid fa-xmark fa-lg' id='cancel'></i> </div>" 
                         + "</div>"
                         ;
                         cnt.style.display = "";
+
+                        console.log(cnt.innerText);
+
+                        cntinfo.innerHTML = cnt.innerText + "개";
+                        priceinfo.innerHTML = price + "원";
 
                         const cancel = document.getElementById('cancel');
                         cancel.addEventListener('click', (e) => {
@@ -82,22 +91,23 @@ sizes.addEventListener('change', (e) => {
     }
 });
 
-function idMasking(id) {
-    const firstName = id.substr(0,1)
-    const midName = id.substr(1, id.length - 1);
+const detailView = document.getElementById('detailView');
+const detail = document.getElementsByClassName('mid')[0];
 
-    const masking = "";
-    for(var i = 0; i < midName.length; ++i) {
-        masking += "*";
-    }
+const reviewView= document.getElementById('reviewView');
+const review = document.getElementsByClassName('review')[0];
 
-    const lastName = id.substr(id.length - 1, id.length);
+const qnaView= document.getElementById('qnaView');
+const qna = document.getElementsByClassName('qna')[0];
 
-    const maskingName = firstName + masking + lastName;
+detailView.addEventListener('click', () => {
+    window.scrollBy({top: detail.getBoundingClientRect().top, behavior: 'smooth'});
+});
 
-    return maskingName;
-};
+reviewView.addEventListener('click', () => {
+    window.scrollTo({top: qna.getBoundingClientRect().top, behavior: 'smooth'});
+});
 
-
-
-
+qnaView.addEventListener('click', () => {
+    window.scrollBy({top: qna.getBoundingClientRect().top, behavior: 'smooth'});
+});

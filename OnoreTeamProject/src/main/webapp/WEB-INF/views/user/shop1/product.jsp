@@ -23,19 +23,19 @@
 			</div>
 			<div class="right">
 				<h1 id="product_name">${product.product_name }</h1>
-				<h3>★★★★★</h3>
-				<hr>
-				<h3>${product.product_info }</h3>
-				<hr>
-				<h3 id="price">${product.product_price }원</h3>
-				<br>
-				<form action="/order" method="POST">
-				<h3>SIZE</h3>
-				<br>
+				<button class="heart"><i class="fa-regular fa-heart fa-2x"></i></button>
+				<hr style="margin-top: 20px;">
+				<div id="info"><br>${product.product_info }</div>
+				<hr style="margin-top: 50px;" >
+				<div id="price">${product.product_price }원</div>
+				
+				<form method="POST" id="form">
+				
+				<div class="option">SIZE</div>
 					<select name="size" id="size">
 						<option value="default" selected>선택하세요</option>
 						<option value="240">240</option>
-						<option value="245">250</option>
+						<option value="245">245</option>
 						<option value="250">250</option>
 						<option value="255">255</option>
 						<option value="260">260</option>
@@ -43,34 +43,37 @@
 						<option value="270">270</option>
 						<option value="275">275</option>
 						<option value="280">280</option>
-					</select><br>
-				<h3>HIDDEN HEEL</h3>
-				<br>
-					<select name="hiddenheel" id="heel" disabled>
+					</select>
+					
+				<div class="option">HIDDEN HEEL</div>
+					<select name="heel" id="heel" disabled>
 						<option value="default" selected>선택하세요</option>
 						<option value="속굽추가 | 총 굽높이 5cm (EVENT)">속굽추가 | 총 굽높이 5cm (EVENT)</option>
 						<option value="추가안함 | 총 굽높이 4cm">추가안함 | 총 굽높이 4cm</option>
-					</select><br>	
-				<h3>SOLE</h3>
-				 <br>
+					</select>
+						
+				<div class="option">SOLE</div>
 					<select name="sole" id="sole" disabled>
 						<option value="default" selected>선택하세요</option>
 						<option value="Clear Detail Sole">Clear Detail Sole</option>
 						<option value="All Black Sole">All Black Sole</option>
-					</select><br>
+					</select>
+					
 				
 				<div id="select" style="display: grid;"></div>
 				<div id="cnt" style="display:none;">
-				<input type ="button" onclick='count("plus")' value="+">
+        		<input type ="button" onclick='count("minus")' value="-" class="count">
        			<div id='result'>1</div>
-        		<input type ="button" onclick='count("minus")' value="-">
+				<input type ="button" onclick='count("plus")' value="+" class="count">
         		</div>
 				<hr>
-				주문수량 1 개<br>
-				총 상품금액 ${product.product_price }원<br>
+				<div style="margin: 40px 0;">
+				주문수량 <span id="cntinfo"></span> <br>
+				총 주문금액 <span id="priceinfo"></span>
+				</div>
 				<hr>
-				<input type="submit" value="주문하기">
-				<input type="submit" value="장바구니">
+				<input type="submit" value="주문하기" formaction="../order" id="order">
+				<input type="submit" value="장바구니" formaction="./cart" id="cart">
 				</form>
 			</div>
 		</div>
@@ -78,9 +81,9 @@
 		<div class="mid">
 		<div id="header">
 			<nav class="nav">
-				<a href="#mid"><span>제품상세</span></a>
-				<a href="#review"><span>리뷰</span></a>
-				<a href="#qna"><span>문의</span></a>
+				<a href="#mid"><span id="detailView">제품상세</span></a>
+				<a href="#review"><span id="reviewView">리뷰</span></a>
+				<a href="#qna"><span id="qnaView">문의</span></a>
 			</nav>
 		</div>
 			<div id="detail">
@@ -171,7 +174,7 @@
 							<td class="qna_con" id="con">문의제목</td>
 							<td class="qna_con">${review.mem_id }</td>
 							<td class="qna_con">${review.review_date }</td>
-							<td class="qna_con">${review.review_rating }</td>
+							<td class="qna_con"><span id="answer">답변완료</span></td>
 						</tr> 
 				</c:forEach>
 			</table>

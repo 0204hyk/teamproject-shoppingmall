@@ -98,4 +98,6 @@ textarea {
 	margin: 0 20px;
 }
 
-
+.fa-solid.fa-star, .fa-regular.fa-star {
+ 	color: orange;
+ }

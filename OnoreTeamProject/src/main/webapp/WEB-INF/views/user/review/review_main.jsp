@@ -35,19 +35,49 @@
 					<td id="mem_id">${review.mem_id }</td>
 					<td>${review.review_date }</td>
 					<c:if test="${review.review_rating eq 5 }">
-						<td>★★★★★</td>
+						<td>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+						</td>
 					</c:if>
 					<c:if test="${review.review_rating eq 4 }">
-						<td>★★★★☆</td>
+						<td>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</td>
 					</c:if>
 					<c:if test="${review.review_rating eq 3 }">
-						<td>★★★☆☆</td>
+						<td>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</td>
 					</c:if>
 					<c:if test="${review.review_rating eq 2 }">
-						<td>★★☆☆☆</td>
+						<td>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</td>
 					</c:if>
 					<c:if test="${review.review_rating eq 1 }">
-						<td>★☆☆☆☆</td>
+						<td>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</td>
 					</c:if>
 				</tr>
 				</c:forEach>

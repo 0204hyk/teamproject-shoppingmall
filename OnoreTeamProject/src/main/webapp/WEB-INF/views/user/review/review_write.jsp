@@ -35,7 +35,7 @@
 				<br>
 				<textarea id="reviewContents" name="review_content" cols="30" rows="30">리뷰를 작성해주세요</textarea><br>
 					<span>이미지 파일 첨부</span> <br>
-					<img id="previewImg1" height="100" width="100" />
+					<img id="previewImg1" height="100" width="100" border="0" />
 					<img id="previewImg2" height="100" width="100" />
 					<img id="previewImg3" height="100" width="100" /><br>
 					<input type="file" id="fileUpload1" accept=".jpg, .png, .bmp, .jpeg" />
