@@ -27,7 +27,7 @@
 		<div class="qna-form">
 		<form class="mb-3" id="myform" action="./qna_addWrite" method="post"
 			enctype="multipart/form-data">
-			<select name="qna_category" id="select" onchange="changeSelect(this)">
+			<select name="qna_category" id="select" onchange="changeSelect(this);">
 				<option value="분류">분류</option>
 				<option value="상품">상품</option>
 				<option value="주문 / 결제">주문 / 결제</option>
@@ -43,12 +43,18 @@
 			</div>
 			<textarea rows="10" cols="100" name="qna_content">내용을 입력해주세요.</textarea>
 			<br>
-			<input type="file" name="file" accept="image/*" onchange="addFile(this);" />
+			<input type="file" name="file" id="image" class="img-input" accept="image/*" onchange="PreviewImage();"/>
+			<!-- input type=file 들어가는 곳 -->
 			<div id="file-list">
-			
 			
 			</div>
 			
+			<div class="img-preview">
+				<img class="image-box" name="qna_img_1" id="user-image1" />
+				<img class="image-box" name="qna_img_2" id="user-image2" />
+				<img class="image-box" name="qna_img_3" id="user-image3" />
+			</div>
+		
 			<input type="submit" value="등록하기">
 		</form>
 		</div>

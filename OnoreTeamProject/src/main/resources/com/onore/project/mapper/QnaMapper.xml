@@ -22,12 +22,18 @@
 		SELECT * FROM qna WHERE qna_num = #{qna_num}
 	
 	</select>
+	<select id="getProductName" resultType="com.onore.project.dto.ProductsDTO">
+		SELECT product_name FROM products WHERE product_name = #{product_name}
 	
+	</select>
 	<update id="qnaModifyComple">
 		UPDATE qna SET
 		qna_title = #{qna_title},
-		qna_content = #{qna_content}
-		
+		qna_content = #{qna_content},
+		qna_category = #{qna_category},
+		qna_img_1 = #{qna_img_1},
+		qna_img_2 = #{qna_img_2},
+		qna_img_3 = #{qna_img_3}
 		WHERE qna_num = ${qna_num}
 	
 	</update>

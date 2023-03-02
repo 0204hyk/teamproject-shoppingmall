@@ -28,26 +28,51 @@
 	<div class="main"
 		style="padding-top: 127px; width: auto; height: 1200px; margin: 50px; margin-top: 0px;">
 		<hr />
-		
-		<form action="./qna_modify" method="POST">
-		<div>
-			<div style="width: 1200px; height: 600px; ">
-				<input type="hidden" name="qna_num" value=${qna.qna_num } />
-				<div >
-		
-				<input type="text" name="qna_title" value=${qna.qna_title } />
-				</div>
-				
-					<div style="width: 1200px; height: 400px;">
-						<textarea rows="10" cols="100" name="qna_content">${qna.qna_content }</textarea>
+
+		<form action="./qna_modify" method="POST" enctype="multipart/form-data">
+			<div>
+				<div style="width: 1200px; height: 600px;">
+					<input type="hidden" name="qna_num" value=${qna.qna_num } />
+					<div>
+						<select name="qna_category" id="select"
+							>
+							<option value="분류">분류</option>
+							<option value="상품">상품</option>
+							<option value="주문 / 결제">주문 / 결제</option>
+							<option value="배송">배송</option>
+							<option value="반품 / 교환">반품 / 교환</option>
+							<option value="기타">기타</option>
+						</select> 
+							<input type="text" name="qna_title" value=${qna.qna_title } />
 					</div>
-	
+
+				
+						<textarea rows="10" cols="100" name="qna_content">${qna.qna_content }</textarea>
+						<br>
+						<input type="file" name="file" accept="image/*" id="image1" class="img-input" onchange="PreviewImage();"/><br>
+						<input type="file" name="file" accept="image/*" id="image2" class="img-input" onchange="PreviewImage2();"/><br>
+						<input type="file" name="file" accept="image/*" id="image3" class="img-input" onchange="PreviewImage3();"/>
+						
+					
+					<div>
+						<img style="width: 150px; height: 150px;"
+						class="image-box" id="user-image1" src="/project/resources/qna/images/${qna.qna_img_1 }"/>
+						<img style="width: 150px; height: 150px;"
+						class="image-box" id="user-image2" src="/project/resources/qna/images/${qna.qna_img_2 }"/>
+						<img style="width: 150px; height: 150px;"
+						class="image-box" id="user-image3" src="/project/resources/qna/images/${qna.qna_img_3 }"/>
+						
+				
+					</div>
+				
+				</div>
 			</div>
-		</div>
-		<input type="submit" value="글 수정">
+			<input type="submit" value="글 수정">
 		</form>
 	</div>
-
+	
+	<script type="text/javascript"
+		src="/project/resources/qna/js/qna_modify.js"></script>
 
 	<%@include file="../bottom.jspf"%>
 </body>

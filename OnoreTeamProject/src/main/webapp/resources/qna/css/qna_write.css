@@ -19,3 +19,9 @@
 	padding-left: 30px;
 	overflow: auto;
 }
+
+.image-box {
+	border: 0px;
+	width: 100px;
+	height: 100px;
+}

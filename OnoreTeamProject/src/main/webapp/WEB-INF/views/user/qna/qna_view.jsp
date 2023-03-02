@@ -32,6 +32,7 @@
 			<div style="width: 1200px; height: 600px; ">
 				<c:forEach items="${views }" var="view">
 				<div >
+					<img src="" alt="" style="width: 150px; height: 150px;"/>
 					<h4>[${view.qna_category }] ${view.qna_title } </h4>
 				</div>
 				
@@ -50,7 +51,7 @@
 								class="col-sm-4"> 
 								<img style="width: 150px; height: 150px;"
 									src="/project/resources/qna/images/${view.qna_img_1 }"
-									class="img-fluid rounded" />
+									name="qna_img_1" class="img-fluid rounded" />
 								</a>
 							</td>
 
@@ -61,7 +62,7 @@
 								class="col-sm-4"> 
 								<img style="width: 150px; height: 150px;"
 									src="/project/resources/qna/images/${view.qna_img_2 }"
-									class="img-fluid rounded" />
+									name="qna_img_2" class="img-fluid rounded" />
 								</a>
 							</td>
 							<td>
@@ -71,7 +72,7 @@
 								class="col-sm-4"> 
 								<img style="width: 150px; height: 150px;"
 									src="/project/resources/qna/images/${view.qna_img_3 }"
-									class="img-fluid rounded" />
+									name="qna_img_3" class="img-fluid rounded" />
 								</a>
 							</td>
 
@@ -87,7 +88,7 @@
 									class="col-sm-4"> 
 									<img style="width: 150px; height: 150px;"
 										src="/project/resources/qna/images/${view.qna_img_1 }"
-										class="img-fluid rounded" />
+										name="qna_img_1" class="img-fluid rounded" />
 									</a>
 								</td>
 								<td>
@@ -97,7 +98,7 @@
 									class="col-sm-4"> 
 									<img style="width: 150px; height: 150px;"
 										src="/project/resources/qna/images/${view.qna_img_2 }"
-										class="img-fluid rounded" />
+										name="qna_img_2" class="img-fluid rounded" />
 									</a>
 								</td>
 							</tr>
@@ -112,7 +113,7 @@
 									class="col-sm-4"> 
 									<img style="width: 150px; height: 150px;"
 										src="/project/resources/qna/images/${view.qna_img_1 }"
-										class="img-fluid rounded" />
+										name="qna_img_1" class="img-fluid rounded" />
 									</a>
 								</td>
 							</tr>

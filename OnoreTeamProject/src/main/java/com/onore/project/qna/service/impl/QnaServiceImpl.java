@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.onore.project.dto.ProductsDTO;
 import com.onore.project.dto.QnaDTO;
 import com.onore.project.mapper.QnaMapper;
 import com.onore.project.qna.service.QnaService;
@@ -59,6 +60,12 @@ public class QnaServiceImpl implements QnaService {
 		return qna_mapper.qnaDelete(qna_num);
 	}
 	
+	@Override
+	public List<ProductsDTO> getProductName(String product_name) {
+		
+		return qna_mapper.getProductName(product_name);
+		
+	}
 	
 	@Override
 	public void fileUpload(QnaDTO qna, List<MultipartFile> file) throws IllegalStateException, IOException {
@@ -143,6 +150,8 @@ public class QnaServiceImpl implements QnaService {
 
 
 	}
+
+	
 
 	
 

@@ -1,5 +1,6 @@
 package com.onore.project.qna.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -66,17 +67,18 @@ public class QnaController {
 	}
 	
 	@PostMapping("/qna_modify")
-	public String qnaModifyForm(Model model, QnaDTO qna) {
+	public String qnaModifyForm(List<MultipartFile> file, HttpServletRequest req, QnaDTO qna) throws IllegalStateException, IOException {
 		
+		String qna_num = req.getParameter("qna_num");
+		qnaService.fileUpload(qna, file);
 		qnaService.qnaModifyComple(qna);
 		
-		return "redirect:/qna/qna_view";
+		return "redirect:/qna/view?qna_num=" + qna_num;
 		
 	}
 	
 	
-	
-	@GetMapping("/qnaDelete")
+	@GetMapping("/qna_delete")
 	public String qnaDelete(Model model, Integer qna_num) {
 		qnaService.qnaDelete(qna_num);
 		
