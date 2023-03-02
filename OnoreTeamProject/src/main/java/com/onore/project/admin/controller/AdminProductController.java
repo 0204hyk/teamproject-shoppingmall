@@ -1,6 +1,6 @@
 package com.onore.project.admin.controller;
 
-import java.nio.channels.WritableByteChannel;
+import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,9 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.onore.project.admin.service.AdminProductService;
-import com.onore.project.dto.ProductsDTO;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -30,14 +32,14 @@ public class AdminProductController {
 	}
 	
 	@PostMapping("/regist")
-	public String productRegist(HttpServletRequest request) {
+	public String productRegist(HttpServletRequest request, @RequestParam(value = "product_thumbnail_1", required = false) MultipartFile product_thumbnail_1,
+			@RequestParam(value = "product_thumbnail_2", required = false) MultipartFile product_thumbnail_2, 
+			@RequestParam(value = "product_thumbnail_3", required = false) MultipartFile product_thumbnail_3) throws IOException {
+		
 		String category_num = request.getParameter("category_num");
 		String product_name = request.getParameter("product_name");
 		String product_price = request.getParameter("product_price");
 		String product_info = request.getParameter("product_info");
-		String product_thumbnail_1 = request.getParameter("product_thumbnail_1");
-		String product_thumbnail_2 = request.getParameter("product_thumbnail_2");
-		String product_thumbnail_3 = request.getParameter("product_thumbnail_3");
 		
 		System.out.println("category_num" + category_num);
 		System.out.println("product_name" + product_name);
