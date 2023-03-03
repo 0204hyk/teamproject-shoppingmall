@@ -3,23 +3,27 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.onore.project.mapper.ReviewMapper">
-  <select id="getAll" resultType="com.onore.project.dto.ReviewDTO">
-    SELECT * FROM reviews ORDER BY review_num DESC
+  <select id="getAll" resultType="com.onore.project.dto.ReviewandProductDTO">
+    SELECT * FROM reviews INNER JOIN products USING (product_num) ORDER BY review_num DESC
   </select>
-  
-  <select id="get" resultType="com.onore.project.dto.ReviewDTO">
-  	SELECT * FROM reviews WHERE review_num=#{review_num}
-  </select>
+
+  <select id="get" resultType="com.onore.project.dto.ReviewandProductDTO">
+  	SELECT * FROM reviews INNER JOIN products  USING (product_num) WHERE review_num=#{review_num}
+  </select> 
   
   <select id="getReplyAll" resultType="com.onore.project.dto.CommentDTO">
   	SELECT * FROM comments WHERE review_num=#{review_num} ORDER BY comment_num DESC
   </select>
   
+  <select id="cntReply" resultType="Integer">
+  	SELECT COUNT(*) FROM comments WHERE review_num=#{review_num}
+  </select>
+  
   <insert id="insert" parameterType="com.onore.project.dto.ReviewDTO">
   	INSERT INTO reviews VALUES (
   		review_num_seq.nextval,
-  		9999,
-  		'test3',
+  		3,
+  		'abc123',
   		#{review_content},
   		SYSDATE,
   		#{review_rating},

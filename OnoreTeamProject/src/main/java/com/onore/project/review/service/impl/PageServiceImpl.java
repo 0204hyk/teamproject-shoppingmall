@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.onore.project.dto.ReviewDTO;
+import com.onore.project.dto.ReviewandProductDTO;
 import com.onore.project.mapper.ReviewMapper;
 import com.onore.project.review.service.PageService;
 
@@ -17,11 +18,13 @@ public class PageServiceImpl implements PageService {
 	@Autowired
 	ReviewMapper review_mapper;
 	
+	
+	
 	@Override
 	public void service(HttpServletRequest req) {
 		String pageStr = req.getParameter("page");
 		
-		List<ReviewDTO> reviews = review_mapper.getAll();
+		List<ReviewandProductDTO> reviews = review_mapper.getAll();
 		
 		int page;
 		if (pageStr == null) {

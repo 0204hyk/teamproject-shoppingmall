@@ -20,6 +20,7 @@
 		<div class="board" style="padding: 60px;">
 			<table>
 				<th id="num">번호</th>
+				<th></th>
 				<th id="prduct">상품이름</th>
 				<th id="title">제목</th>
 				<th id="writer">글쓴이</th>
@@ -29,10 +30,13 @@
 				<c:forEach items="${reviews }" var="review">
 				<tr>
 					<td>${review.review_num }</td>
-					<td id="prduct_name">${review.product_num }</td>
+					<td id="product_name">
+						<img src ="${review.product_thumbnail}">
+					</td>
+					<td><span id="prd_name">${review.product_name }</span> </td>
 					<td id="review_content"><a href="./detail?review_num=${review.review_num}">
 					${review.review_content }</td>
-					<td id="mem_id">${review.mem_id }</td>
+					<td id="mem_id">${review.maskingName }</td>
 					<td>${review.review_date }</td>
 					<c:if test="${review.review_rating eq 5 }">
 						<td>

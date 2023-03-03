@@ -4,12 +4,13 @@ import java.util.List;
 
 import com.onore.project.dto.CommentDTO;
 import com.onore.project.dto.ReviewDTO;
+import com.onore.project.dto.ReviewandProductDTO;
 
 public interface ReviewService {
 	
-	List<ReviewDTO> getAll();
+	List<ReviewandProductDTO> getAll();
 	
-	ReviewDTO get(Integer review_num);
+	ReviewandProductDTO get(Integer review_num);
 	
 	Integer insert(ReviewDTO rev);
 	

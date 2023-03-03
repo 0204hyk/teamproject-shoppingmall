@@ -1,7 +1,12 @@
+.write {
+	width: 1000px;
+	margin: 10px auto;
+}
+
 #myform fieldset{
     display: inline-block;
     direction: rtl;
-    border:0;
+    border: 0;
 }
 #myform fieldset legend{
     text-align: right;
@@ -23,15 +28,19 @@
 #myform input[type=radio]:checked ~ label{
     text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 }
+
+
+
 #reviewContents {
     width: 100%;
-    height: 150px;
+    height: 400px;
     padding: 10px;
     box-sizing: border-box;
     border: solid 1.5px #D3D3D3;
     border-radius: 5px;
     font-size: 16px;
     resize: none;
+    margin: 20px 0;
 }
 
 button {
@@ -45,3 +54,37 @@ button {
     margin-top: 30px;
     cursor: pointer; 
   }
+  
+.container {
+	display: flex;
+	margin: 20px 0;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    margin: 0 5px;
+}
+
+
+#prd_name {
+	text-align: left;
+	padding-left: 30px;
+    font-size: 40px;
+}
+
+#write_btn {
+	background-color: black;
+    color: white;
+    width: 100px;
+    height: 50px;
+    float: right;
+    border-radius: 5%;
+    margin: 30px 10px 0 0;
+    cursor: pointer; 
+}
+
+.sub-container2 {
+	display: inline-block;
+	width: 100%;
+}

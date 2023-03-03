@@ -1,15 +1,12 @@
 package com.onore.project.dto;
 
-
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
+
 import lombok.Data;
 
 @Data
-public class ReviewDTO {
-
+public class ReviewandProductDTO {
+	
 	private Integer review_num;
 	private Integer product_num;
 	private String mem_id;
@@ -19,8 +16,16 @@ public class ReviewDTO {
 	private String review_img_1;
 	private String review_img_2;
 	private String review_img_3;
-
 	
+	private Integer category_num;
+	private String product_name;
+	private Integer product_price;
+	private String product_info;
+	private String product_thumbnail; //사진경로 
+	private Integer product_views;
+	private Integer product_likes;
+	
+
 	// id마스킹처리 ex) ${review.maskingName}
 	public String getmaskingName() {
 

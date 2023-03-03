@@ -37,5 +37,10 @@ public class ReplyServiceImpl implements ReplyService {
 		
 		return review_mapper.replyDelete(comment_num);
 	}
-
+	
+	@Override
+	public Integer cntReply(Integer review_num) {
+		
+		return review_mapper.cntReply(review_num);
+	}
 }

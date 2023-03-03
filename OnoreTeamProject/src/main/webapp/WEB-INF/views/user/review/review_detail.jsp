@@ -22,66 +22,64 @@
 			<div class="container">
 				<div class="a">
 					<div name="prd_img">
-						<img
-							src="https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20221209_17%2F1670592358699313Mx_JPEG%2F71728257412032350_95336586.jpg&type=sc960_832">
+						<img src="${contents.product_thumbnail }">
 					</div>
 				</div>
 				<div class="b">
 					<table>
 						<tr>
-							<td rowspan="3"><td>
-							<td id="prd_name">${contents.product_num } 후기</td>
+							<th id="prd_name">${contents.product_name } 후기</th>
 						</tr>
 						<tr>
 						
 						<c:if test="${contents.review_rating eq 5 }">
-							<th name="star">
+							<td name="star" class="rating">
 								<i class="fa-solid fa-star"></i>
 								<i class="fa-solid fa-star"></i>
 								<i class="fa-solid fa-star"></i>
 								<i class="fa-solid fa-star"></i>
 								<i class="fa-solid fa-star"></i>
-							</th>
+							</td>
 						</c:if>
 						<c:if test="${contents.review_rating eq 4 }">
-							<th name="star">
+							<td name="star" class="rating">
 								<i class="fa-solid fa-star"></i>
 								<i class="fa-solid fa-star"></i>
 								<i class="fa-solid fa-star"></i>
 								<i class="fa-solid fa-star"></i>
 								<i class="fa-regular fa-star"></i>
-							</th>
+							</td>
 						</c:if>
 						<c:if test="${contents.review_rating eq 3 }">
-							<th name="star">
+							<td name="star" class="rating">
 								<i class="fa-solid fa-star"></i>
 								<i class="fa-solid fa-star"></i>
 								<i class="fa-solid fa-star"></i>
 								<i class="fa-regular fa-star"></i>
 								<i class="fa-regular fa-star"></i>
-							</th>
+							</td>
 						</c:if>
 						<c:if test="${contents.review_rating eq 2 }">
-							<th name="star">
+							<td name="star" class="rating">
 								<i class="fa-solid fa-star"></i>
 								<i class="fa-solid fa-star"></i>
 								<i class="fa-regular fa-star"></i>
 								<i class="fa-regular fa-star"></i>
 								<i class="fa-regular fa-star"></i>
-							</th>
+							</td>
 						</c:if>
 						<c:if test="${contents.review_rating eq 1 }">
-							<th name="star">
+							<td name="star" class="rating">
 								<i class="fa-solid fa-star"></i>
 								<i class="fa-regular fa-star"></i>
 								<i class="fa-regular fa-star"></i>
 								<i class="fa-regular fa-star"></i>
 								<i class="fa-regular fa-star"></i>
-							</th>
+							</td>
 						</c:if>
 						</tr>
 						<tr>
-						<th name="idndate">${contents.mem_id }/${contents.review_date }</th>
+						<td id="idndate">${contents.maskingName } &nbsp; / &nbsp; ${contents.review_date }</td>
 						</tr>
 					</table>
 				</div>
@@ -108,26 +106,30 @@
 				</div>
 			</div>
 			<hr>
-
-			<a href="./modify?review_num=${contents.review_num }">수정하기</a>/ <a
-				href="./delete?review_num=${contents.review_num }">삭제하기</a><br>
+			<div class="button">
+				<a href="./modify?review_num=${contents.review_num }">수정하기</a> / 
+				<a href="./delete?review_num=${contents.review_num }">삭제하기</a><br>
+			</div>
 			<br>
 			<div id="write_reply">
+			<h4> 댓글(${cnt })</h4>
 				<form action="./comment" method="POST">
 					<input type="hidden" value="${contents.review_num }" id="num">
-					<textarea id="comment_content" rows="2" cols="60">댓글을 입력해주세요</textarea>
+					<textarea id="comment_content" rows="3" cols="120" placeholder="댓글을 입력해주세요"></textarea><br>
 					<button type="button" id="comment">댓글달기</button>
 			</div>
 			</form>
-
+			
 			<hr>
-
+			
+			
 			<c:forEach items="${comments }" var="comment">
-
+			<div class="comment_box">
 				<input type="hidden" class="com_num" value="${comment.comment_num }">
-				<div>${comment.mem_id }/${comment.comment_date }</div>
+				<div><span id="mem">${comment.maskingName }</span>  &nbsp;&nbsp; ${comment.comment_date }</div>
+				<br>
 				<div id="reply_detail">
-					<div>${comment.comment_content }</div>
+					<div id="get_content">${comment.comment_content }</div>
 					<div id="com_mo_de">
 						<button id="com_modify" value="${comment.comment_num }">수정</button>
 						<button class="com_delete" data="${comment.comment_num }">삭제</button>
@@ -135,18 +137,18 @@
 				</div>
 				<div id="reply_modify_form" style="display: none;">
 					<form action="./com_modify" method="POST">
-						<textarea id="reply_modify">${comment.comment_content }</textarea>
+						<textarea id="reply_modify" rows="3" cols="120">${comment.comment_content }</textarea>
+						<br>
+						<input id="modify_cancel" type="button" value="취소">
 						<input id="modify" type="button" value="수정">
+						<br>
 				</div>
 				</form>
-
+				</div>	
 				<hr>
 			</c:forEach>
-
-			<div id="view"></div>
 			<button onclick="location.href='./list'" id="list">목록으로</button>
-
-
+			<br>
 		</div>
 	</div>
 

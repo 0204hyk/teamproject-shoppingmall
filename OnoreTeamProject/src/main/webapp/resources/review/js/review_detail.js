@@ -1,8 +1,11 @@
-
-const view = document.getElementById('view');
-//const num = document.getElementById('num').value;
-//const content = document.getElementById('comment_content').value;
 const comment = document.getElementById('comment');
+const comment_content = document.getElementById('comment_content');
+
+comment_content.addEventListener('click', (e) =>{
+    comment_content.value="";
+});
+
+
 
 function refreshList() {
     location.reload();
@@ -36,13 +39,24 @@ comment.addEventListener('click', (e) => {
 
 });
 
+
+
 const re_modify = document.getElementById('com_modify'); // 수정버튼
 const modify = document.getElementById('modify'); // 수정완료버튼
+
+const modify_cancel = document.getElementById('modify_cancel'); // 수정취소
+const get_content = document.getElementById('get_content').innerText;
 
 // 댓글 수정 구현
 re_modify.addEventListener('click', (e) => {
     document.getElementById('reply_detail').style.display = "none";
     document.getElementById('reply_modify_form').style.display ="";
+});
+
+modify_cancel.addEventListener('click', (e) =>{
+    document.getElementById('reply_detail').style.display = "";
+    document.getElementById('reply_modify_form').style.display ="none";
+    document.getElementById('reply_modify').value = get_content;
 });
 
 
@@ -105,3 +119,4 @@ re_delete.addEventListener('click', (e) => {
     xhttp.send();
 });
 }
+
