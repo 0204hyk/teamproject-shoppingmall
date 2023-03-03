@@ -49,20 +49,22 @@
 				
 						<textarea rows="10" cols="100" name="qna_content">${qna.qna_content }</textarea>
 						<br>
+						
 						<input type="file" name="file" accept="image/*" id="image1" class="img-input" onchange="PreviewImage();"/><br>
 						<input type="file" name="file" accept="image/*" id="image2" class="img-input" onchange="PreviewImage2();"/><br>
 						<input type="file" name="file" accept="image/*" id="image3" class="img-input" onchange="PreviewImage3();"/>
-						
 					
+						<input type="hidden" name="qna_img_1" value="${qna.qna_img_1 }"/>
+						<input type="hidden" name="qna_img_2" value="${qna.qna_img_2 }"/>
+						<input type="hidden" name="qna_img_3" value="${qna.qna_img_2 }"/>
+						
 					<div>
 						<img style="width: 150px; height: 150px;"
 						class="image-box" id="user-image1" src="/project/resources/qna/images/${qna.qna_img_1 }"/>
 						<img style="width: 150px; height: 150px;"
 						class="image-box" id="user-image2" src="/project/resources/qna/images/${qna.qna_img_2 }"/>
 						<img style="width: 150px; height: 150px;"
-						class="image-box" id="user-image3" src="/project/resources/qna/images/${qna.qna_img_3 }"/>
-						
-				
+						class="image-box" id="user-image3" src="/project/resources/qna/images/${qna.qna_img_3 }"/>		
 					</div>
 				
 				</div>

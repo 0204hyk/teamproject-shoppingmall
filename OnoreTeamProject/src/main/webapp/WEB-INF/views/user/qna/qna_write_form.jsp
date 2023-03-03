@@ -21,7 +21,6 @@
 <body>
 	<%@include file="../top.jspf"%>
 
-
 	<div class="main"
 		style="padding-top: 127px; width: auto; height: auto; margin: 50px; margin-top: 0px;">
 		<div class="qna-form">
@@ -37,24 +36,22 @@
 			</select> 
 			<input type="hidden" name="product_num" value="1"> 
 			<input type="hidden" name="mem_id" value="test"> 
-			<input type="text" name="qna_title">
+			<input type="text" name="qna_title" placeholder="제목을 입력해 주세요.">
 			<div id="inputs">
 			
 			</div>
-			<textarea rows="10" cols="100" name="qna_content">내용을 입력해주세요.</textarea>
+			<textarea rows="10" cols="100" name="qna_content" placeholder="내용을 입력해 주세요." ></textarea>
 			<br>
 			<input type="file" name="file" id="image" class="img-input" accept="image/*" onchange="PreviewImage();"/>
 			<!-- input type=file 들어가는 곳 -->
 			<div id="file-list">
 			
 			</div>
-			
 			<div class="img-preview">
 				<img class="image-box" name="qna_img_1" id="user-image1" />
 				<img class="image-box" name="qna_img_2" id="user-image2" />
 				<img class="image-box" name="qna_img_3" id="user-image3" />
 			</div>
-		
 			<input type="submit" value="등록하기">
 		</form>
 		</div>

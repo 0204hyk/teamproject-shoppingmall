@@ -43,6 +43,13 @@ public class QnaServiceImpl implements QnaService {
 	}
 	
 	@Override
+	public void qnaReply(Model model, int qna_num) {
+		
+		
+	}
+	
+	
+	@Override
 	public QnaDTO qnaModifyForm(Integer qna_num) {
 		
 		return qna_mapper.qnaModifyForm(qna_num);
@@ -153,7 +160,4 @@ public class QnaServiceImpl implements QnaService {
 
 	
 
-	
-
-	
 }

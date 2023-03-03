@@ -23,7 +23,7 @@
 	
 	</select>
 	<select id="getProductName" resultType="com.onore.project.dto.ProductsDTO">
-		SELECT product_name FROM products WHERE product_name = #{product_name}
+		SELECT product_name, product_thumbnail FROM products WHERE LOWER(product_name) LIKE '%' || LOWER(#{product_name}) || '%'
 	
 	</select>
 	<update id="qnaModifyComple">

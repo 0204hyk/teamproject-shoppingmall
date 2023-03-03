@@ -20,7 +20,8 @@ public interface QnaService {
 	void qnaWrite(Model model, QnaDTO qna);
 
 	void qnaView(Model model, int qna_num);
-
+		
+	void qnaReply(Model model, int qna_num);
 	QnaDTO qnaModifyForm(Integer qna_num);
 	
 	Integer qnaModifyComple(QnaDTO qna);

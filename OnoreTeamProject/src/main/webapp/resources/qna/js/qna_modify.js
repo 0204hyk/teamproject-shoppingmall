@@ -8,7 +8,12 @@ function PreviewImage() {
 	};
 					
 	preview.readAsDataURL(document.getElementById('image1').files[0]);
+	
+	var fileInput = document.getElementsByClassName("img-input");
 
+		
+	
+	
 };
 
 
