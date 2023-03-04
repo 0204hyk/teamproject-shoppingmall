@@ -40,14 +40,16 @@
 			<div id="inputs">
 			
 			</div>
+			<div class="img-preview">
 			<textarea rows="10" cols="100" name="qna_content" placeholder="내용을 입력해 주세요." ></textarea>
 			<br>
 			<input type="file" name="file" id="image" class="img-input" accept="image/*" onchange="PreviewImage();"/>
+			
 			<!-- input type=file 들어가는 곳 -->
 			<div id="file-list">
 			
 			</div>
-			<div class="img-preview">
+		
 				<img class="image-box" name="qna_img_1" id="user-image1" />
 				<img class="image-box" name="qna_img_2" id="user-image2" />
 				<img class="image-box" name="qna_img_3" id="user-image3" />

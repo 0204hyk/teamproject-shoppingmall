@@ -23,7 +23,7 @@
 				<tr>
 					<th id="num" class="title">번호</th>
 					<th id="product" class="title">분류</th>
-				 	<th id="img">상품 사진</th>
+				 	<th id="img">       </th>
 					<th id="title" class="title">제목</th>
 					<th id="writer" class="title">글쓴이</th>
 					<th id="date" class="title">등록일</th>
@@ -34,10 +34,14 @@
 						<td>${qna.qna_num }</td>
 						<td>${qna.qna_category }</td>
 						
-					
-						<td><img style="width: 50px; height: 50px;" src="/project/resources/qna/images/${qna.qna_img_1 }"></td>
-				
-						
+						<c:choose>
+							<c:when test="${not empty qna.qna_img_1 }">
+							<td><img style="width: 50px; height: 50px;" src="/project/resources/qna/images/${qna.qna_img_1 }"></td>
+							</c:when>
+							<c:otherwise>
+							<td></td>
+							</c:otherwise>
+						</c:choose>
 						<td><a href="./view?qna_num=${qna.qna_num}">${qna.qna_content }</a></td>
 						<td>${qna.mem_id }</td>
 						<td>${qna.qna_date}</td>

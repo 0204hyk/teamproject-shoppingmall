@@ -1,22 +1,29 @@
-
 .main {
-	
 	padding-top: 50px;
 	border: 1px solid black;
 	overflow: hidden;
 
 }
 
-.selectProduct {
-	width: 300px;
+.searchInput {
+	height: 1000px;
+	z-index: 3;
+}
 
+.selectProduct {
+	width: 400px;
+	z-index: 2;
+}
+
+img-preview {
+	z-index:1;
+	
 }
 .selectProduct:hover {
 	background-color: lightgray;	
 }
 
 .qna-form {
-	
 	padding-top: 50px;
 	border: 1px solid black;
 	width: 1200px;
@@ -35,18 +42,8 @@
 	height: 100px;
 }
 
-
-
-
-.selectProduct {
-	
-	
-	
-}
-
 #inputs {
 	cursor: pointer;
-
 	
 }
 
@@ -54,5 +51,3 @@
 	width: 100px;
 	height: 100px;
 }
-
-

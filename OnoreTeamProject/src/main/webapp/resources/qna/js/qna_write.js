@@ -86,7 +86,7 @@ function changeSelect() {
  					var searchInput = document.getElementById('searchInput');
  			
  					for (var i = 0; i < obj.length; ++i) {
- 						searchInput.innerHTML += `<div class="selectProduct" ><img id="searchImg" src=${obj[i].product_thumbnail}  /> <span class="product_name">${obj[i].product_name}</span></div>`;
+ 						searchInput.innerHTML += `<div class="selectProduct"><img id="searchImg" src=${obj[i].product_thumbnail}  /> <span class="product_name">${obj[i].product_name}</span></div>`;
  						
  					}
  					
