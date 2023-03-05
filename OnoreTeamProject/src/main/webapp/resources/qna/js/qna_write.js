@@ -75,7 +75,7 @@ function changeSelect() {
 	if (value == '상품') {
 		input.innerHTML += `<input type="search" name="product_name" id="product" placeholder="상품명을 입력하세요." /><input type="button" id="search" value="검색하기" />`;
 		input.innerHTML += `<div id="searchInput"></div>`;
-		
+	
 		const searchBtn = document.getElementById('search');
 		searchBtn.addEventListener('click', (e) => {
 			let xhttp = new XMLHttpRequest();	
@@ -84,29 +84,30 @@ function changeSelect() {
 					let obj = JSON.parse(xhttp.responseText);
 					var value = document.getElementById('product');
  					var searchInput = document.getElementById('searchInput');
- 			
  					for (var i = 0; i < obj.length; ++i) {
  						searchInput.innerHTML += `<div class="selectProduct"><img id="searchImg" src=${obj[i].product_thumbnail}  /> <span class="product_name">${obj[i].product_name}</span></div>`;
  						
  					}
+ 					
  					
  					var len = document.getElementsByClassName('selectProduct').length;
  				
  					for (var j = 0; j < len; ++j) {
  						var selected = document.getElementsByClassName('selectProduct')[j];
  						var product_name = document.getElementsByClassName('product_name')[j];
+ 				
  						selected.addEventListener('click', (e) => {
 							value.value = e.target.innerText;
 							searchInput.innerHTML = '';
+							
  						});
  						
  					}	
- 					
- 					console.log(value.value);
 
  					product.addEventListener('click', (e) => {
  						
  						searchInput.innerHTML = '';
+ 						
  					});
 				}	
 		
