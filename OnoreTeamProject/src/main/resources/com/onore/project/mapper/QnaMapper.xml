@@ -9,7 +9,7 @@
 	</select>
 	
 	<insert id="qnaWrite"
-		parameterType="com.onore.project.dto.QnaDTO">
+		parameterType="com.onore.project.dto.QnaAndProductsDTO">
 		INSERT INTO qna VALUES (qna_num_seq.nextval, #{product_num}, #{mem_id}, #{qna_title}, #{qna_content}, SYSDATE, #{qna_category}, #{qna_img_path}, #{qna_img_1}, #{qna_img_2}, #{qna_img_3}, 0)
 	</insert>
 	
@@ -26,6 +26,12 @@
 		SELECT product_num, product_name, product_thumbnail FROM products WHERE LOWER(product_name) LIKE '%' || LOWER(#{product_name}) || '%'
 	
 	</select>
+	
+	<select id="getQnaAndProductsAll" resultType="com.onore.project.dto.QnaAndProductsDTO">
+		SELECT * FROM qna, products WHERE qna.product_num = products.product_num(+) ORDER BY qna_num DESC
+	</select>
+	
+	
 	<update id="qnaModifyComple">
 		UPDATE qna SET
 		qna_title = #{qna_title},

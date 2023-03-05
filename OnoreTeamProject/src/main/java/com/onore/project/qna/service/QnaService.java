@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.onore.project.dto.ProductsDTO;
+import com.onore.project.dto.QnaAndProductsDTO;
 import com.onore.project.dto.QnaDTO;
 
 public interface QnaService {
@@ -17,7 +18,9 @@ public interface QnaService {
 
 	void qnaList(Model model);
 
-	void qnaWrite(Model model, QnaDTO qna);
+	void qnaAll(Model model);
+	
+	void qnaWrite(Model model, QnaAndProductsDTO qna);
 
 	void qnaView(Model model, int qna_num);
 		

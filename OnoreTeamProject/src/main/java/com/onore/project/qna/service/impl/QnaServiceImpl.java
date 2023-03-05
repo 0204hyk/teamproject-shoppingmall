@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.onore.project.dto.ProductsDTO;
+import com.onore.project.dto.QnaAndProductsDTO;
 import com.onore.project.dto.QnaDTO;
 import com.onore.project.mapper.QnaMapper;
 import com.onore.project.qna.service.QnaService;
@@ -27,11 +28,18 @@ public class QnaServiceImpl implements QnaService {
 
 	@Override
 	public void qnaList(Model model) {
-		model.addAttribute("qnas", qna_mapper.getAll());
+		model.addAttribute("qnas", qna_mapper.getQnaAndProductsAll());
+		
 	}
-
+	
 	@Override
-	public void qnaWrite(Model model, QnaDTO qna) {
+	public void qnaAll(Model model) {
+		
+		
+	}
+	
+	@Override
+	public void qnaWrite(Model model, QnaAndProductsDTO qna) {
 		model.addAttribute("qnas", qna_mapper.qnaWrite(qna));
 
 	}
@@ -107,7 +115,7 @@ public class QnaServiceImpl implements QnaService {
 	public void page(HttpServletRequest req) {
 		String pageStr = req.getParameter("page");
 
-		List<QnaDTO> pages = qna_mapper.getAll();
+		List<QnaAndProductsDTO> pages = qna_mapper.getQnaAndProductsAll();
 
 		int page;
 		if (pageStr == null) {
@@ -157,6 +165,8 @@ public class QnaServiceImpl implements QnaService {
 
 
 	}
+
+
 
 	
 

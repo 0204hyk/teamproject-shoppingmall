@@ -35,13 +35,14 @@
 						<td>${qna.qna_category }</td>
 						
 						<c:choose>
-							<c:when test="${not empty qna.qna_img_1 }">
-							<td><img style="width: 50px; height: 50px;" src="/project/resources/qna/images/${qna.qna_img_1 }"></td>
+							<c:when test="${not empty qna.product_thumbnail}">
+								<td><img style="width: 50px; height: 50px;" src=${qna.product_thumbnail }></td>
 							</c:when>
 							<c:otherwise>
-							<td></td>
+								<td></td>
 							</c:otherwise>
 						</c:choose>
+	
 						<td><a href="./view?qna_num=${qna.qna_num}">${qna.qna_content }</a></td>
 						<td>${qna.mem_id }</td>
 						<td>${qna.qna_date}</td>

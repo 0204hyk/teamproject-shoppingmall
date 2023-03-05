@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.onore.project.dto.QnaAndProductsDTO;
 import com.onore.project.dto.QnaDTO;
 import com.onore.project.qna.service.QnaService;
 
@@ -43,10 +44,10 @@ public class QnaController {
 	}
 
 	@PostMapping("/qna_addWrite")
-	public String addWrite(List<MultipartFile> file, Model model, QnaDTO qna) throws Exception {
+	public String addWrite(List<MultipartFile> file, Model model, QnaDTO qna, QnaAndProductsDTO qnap) throws Exception {
 
 		qnaService.fileUpload(qna, file);
-		qnaService.qnaWrite(model, qna);
+		qnaService.qnaWrite(model, qnap);
 
 		return "redirect:/qna/main";
 

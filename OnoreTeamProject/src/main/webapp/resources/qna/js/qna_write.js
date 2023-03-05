@@ -71,7 +71,7 @@ function changeSelect() {
 	const itemSelect = document.getElementById('select');
 	var value = itemSelect.options[itemSelect.selectedIndex].value;
 	var input = document.getElementById('inputs');
-		
+	var product_num = document.getElementById('p_num');
 	if (value == '상품') {
 		input.innerHTML += `<input type="search" name="product_name" id="product" placeholder="상품명을 입력하세요." /><input type="button" id="search" value="검색하기" />`;
 		input.innerHTML += `<div id="searchInput"></div>`;
@@ -85,9 +85,9 @@ function changeSelect() {
 					var value = document.getElementById('product');
  					var searchInput = document.getElementById('searchInput');
  					for (var i = 0; i < obj.length; ++i) {
- 						searchInput.innerHTML += `<div class="selectProduct"><img id="searchImg" src=${obj[i].product_thumbnail}  /> <span class="product_name">${obj[i].product_name}</span></div>`;
- 						
+ 						searchInput.innerHTML += `<div class="selectProduct"><input type="hidden" value=${obj[i].product_num} /><img id="searchImg" src=${obj[i].product_thumbnail}  /> <span class="product_name">${obj[i].product_name}</span></div>`;
  					}
+ 					
  					
  					
  					var len = document.getElementsByClassName('selectProduct').length;
@@ -97,6 +97,8 @@ function changeSelect() {
  						var product_name = document.getElementsByClassName('product_name')[j];
  				
  						selected.addEventListener('click', (e) => {
+					
+							product_num.value = (e.target.children[0].defaultValue);
 							value.value = e.target.innerText;
 							searchInput.innerHTML = '';
 							

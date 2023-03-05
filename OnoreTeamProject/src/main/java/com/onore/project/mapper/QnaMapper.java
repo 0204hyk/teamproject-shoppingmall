@@ -3,6 +3,7 @@ package com.onore.project.mapper;
 import java.util.List;
 
 import com.onore.project.dto.ProductsDTO;
+import com.onore.project.dto.QnaAndProductsDTO;
 import com.onore.project.dto.QnaDTO;
 
 
@@ -10,11 +11,12 @@ import com.onore.project.dto.QnaDTO;
 public interface QnaMapper {
 
 	List<QnaDTO> getAll();
-
+	
+	List<QnaAndProductsDTO> getQnaAndProductsAll();
 	
 	QnaDTO qnaModifyForm(Integer qna_num);
 	
-	Integer qnaWrite(QnaDTO qna);
+	Integer qnaWrite(QnaAndProductsDTO qna);
 
 	Integer qnaModifyComple(QnaDTO qna);
 	

@@ -34,7 +34,7 @@
 				<option value="반품 / 교환">반품 / 교환</option>
 				<option value="기타">기타</option>
 			</select> 
-			<!--  <input type="hidden" name="product_num" value="1"> -->
+			<input type="hidden" id="p_num" name="product_num" value="">
 			<input type="hidden" name="mem_id" value="test"> 
 			<input type="text" name="qna_title" placeholder="제목을 입력해 주세요.">
 			<div id="inputs">
