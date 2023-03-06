@@ -29,7 +29,9 @@
   		#{review_rating},
   		null,
   		null,
-  		null
+  		null,
+  		0,
+  		0
   	)
   </insert>
   

@@ -8,6 +8,6 @@
 	</select>
 	
 	<select id="getProReview" resultType="com.onore.project.dto.ReviewDTO">
-		SELECT * FROM reviews WHERE product_num=3
+		SELECT * FROM reviews WHERE product_num=3 ORDER BY review_num DESC
 	</select>
 </mapper>

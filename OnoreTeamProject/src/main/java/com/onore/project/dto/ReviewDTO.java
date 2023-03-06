@@ -19,6 +19,8 @@ public class ReviewDTO {
 	private String review_img_1;
 	private String review_img_2;
 	private String review_img_3;
+	private Integer review_good;
+	private Integer review_bad;
 
 	
 	// id마스킹처리 ex) ${review.maskingName}

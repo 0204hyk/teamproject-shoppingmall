@@ -32,8 +32,12 @@ function count(type) {
         number = parseInt(number) + 1;
 
     } else if (type === 'minus') {
-
-        number = parseInt(number) - 1;
+        if(number > 1) {
+            number = parseInt(number) - 1; 
+        } else {
+            number = 1;
+        }
+       
     }
 
     cnt.innerText = number;

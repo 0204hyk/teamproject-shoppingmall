@@ -1,5 +1,6 @@
 package com.onore.project.review.service.impl;
 
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -27,7 +28,6 @@ public class ReviewServiceImpl implements ReviewService{
 
 	@Override
 	public Integer insert(ReviewDTO rev) {
-		
 		return review_mapper.insert(rev);
 	}
 

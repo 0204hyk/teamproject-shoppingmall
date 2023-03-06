@@ -2,9 +2,6 @@ const fileInput1 = document.getElementById("fileUpload1");
 const fileInput2 = document.getElementById("fileUpload2");
 const fileInput3 = document.getElementById("fileUpload3");
 
-
- 
-
  /* 이미지1을 위한 코드추가 */
  const handleFiles1 = (e) => {
  	const selectedFile = [...fileInput1.files];
@@ -54,12 +51,5 @@ function getrating(event) {
     console.log(event.target.value);
   }
   
-/* 별점 불러와서 체크하기 */
-// const star = document.getElementsByName('review_rating');
-// // const rating = document.getElementById('star').value;
+  
 
-// for (var i = 0; i < star.length; ++i) {
-// 	if (star[i].value == rating) {
-//     star[i].checked=true;
-//   } 
-// }

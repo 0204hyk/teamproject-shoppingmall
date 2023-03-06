@@ -108,7 +108,7 @@
 			<hr>
 			<div class="button">
 				<a href="./modify?review_num=${contents.review_num }">수정하기</a> / 
-				<a href="./delete?review_num=${contents.review_num }">삭제하기</a><br>
+				<a href="./delete?review_num=${contents.review_num }" onclick="return confirm('삭제하시겠습니까?')">삭제하기</a><br>
 			</div>
 			<br>
 			<div id="write_reply">

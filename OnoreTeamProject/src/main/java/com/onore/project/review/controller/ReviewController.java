@@ -74,7 +74,8 @@ public class ReviewController {
 	}
 	
 	@GetMapping("/modify")
-	public String reviewModify(Model model, Integer review_num) {
+	public String reviewModify(Model model, Integer review_num, Integer product_num) {
+		model.addAttribute("product", shop_service.getDetail(product_num));
 		model.addAttribute("contents",review_service.get(review_num));
 		
 		return "user/review/review_modify";

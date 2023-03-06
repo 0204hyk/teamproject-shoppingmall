@@ -20,6 +20,7 @@
 		style="padding-top: 127px; width: auto; margin: 50px; margin-top: 0px;">
 		<hr>
 		<div class="write">
+		<form class="mb-3" id="myform" action="./write" method="POST" enctype="multipart/form-data">
 			<div class="container">
 				<div class="a">
 					<div name="prd_img">
@@ -33,22 +34,19 @@
 						</tr>
 						<tr>
 							<th>
-								<form class="mb-3" id="myform" action="./write" method="POST"
-									enctype="multipart/form-data">
-									<fieldset>
-										<!--  <div class="text-bold">제품을 평가해주세요</div>-->
-										<input type="radio" name="review_rating" value="5" id="rate1"
+								<fieldset>
+									<!--  <div class="text-bold">제품을 평가해주세요</div>-->
+									<input type="radio" name="review_rating" value="5" id="rate1"
 											onclick="getrating(event)"> <label for="rate1">★</label>
-										<input type="radio" name="review_rating" value="4" id="rate2"
+									<input type="radio" name="review_rating" value="4" id="rate2"
 											onclick="getrating(event)"> <label for="rate2">★</label>
-										<input type="radio" name="review_rating" value="3" id="rate3"
+									<input type="radio" name="review_rating" value="3" id="rate3"
 											onclick="getrating(event)"> <label for="rate3">★</label>
-										<input type="radio" name="review_rating" value="2" id="rate4"
+									<input type="radio" name="review_rating" value="2" id="rate4"
 											onclick="getrating(event)"> <label for="rate4">★</label>
-										<input type="radio" name="review_rating" value="1" id="rate5"
+									<input type="radio" name="review_rating" value="1" id="rate5"
 											onclick="getrating(event)"> <label for="rate5">★</label>
-									</fieldset>
-								</form>
+								</fieldset>
 							</th>
 						</tr>
 					</table>
@@ -56,22 +54,24 @@
 			</div>
 			<hr>
 			<div class="container2">
-				<textarea id="reviewContents" name="review_content" cols="150"
-					rows="30" form="myform.mb-3">리뷰를 작성해주세요</textarea>
+				<textarea  name="review_content" id="reviewContents" cols="150"
+					rows="30" >리뷰를 작성해주세요</textarea>
 				<div id="img-box">
 					<div id="test1"></div>
-					<!--  
 					<img id="previewImg1" /> 
 					<img id="previewImg2" /> 
-					<img id="previewImg3" />-->
+					<img id="previewImg3" />
 				</div>
+				<br>
 				<div class="sub-container2">
 					<input type="file" id="fileUpload1" accept=".jpg, .png, .bmp, .jpeg" />
 					<input type="file" id="fileUpload2" accept=".jpg, .png, .bmp, .jpeg" /> 
 					<input type="file" id="fileUpload3" accept=".jpg, .png, .bmp, .jpeg" />
-					<br> <input id="write_btn" type="submit" form="myform.mb-3" value="등록">
+					<br> 
+					<input type="submit" id="write_btn" formaction="./write" value="등록" onclick="return confirm('완료하시겠습니까?')">
 				</div>
 			</div>
+			</form>
 		</div>
 	</div>
 

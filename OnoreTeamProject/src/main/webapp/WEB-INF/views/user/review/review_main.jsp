@@ -15,7 +15,7 @@
 	<%@ include file="../top.jspf" %>
 
 	
-	<div class="main" style="padding-top: 127px;  width: auto; height: 800px; margin:50px; margin-top: 0px;">
+	<div class="main" style="padding-top: 127px;  width: auto;  margin:50px; margin-top: 0px;">
 	<hr>
 		<div class="board" style="padding: 60px;">
 			<table>
