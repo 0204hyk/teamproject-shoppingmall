@@ -19,7 +19,7 @@
 		#{mem_birth_date},
 		SYSDATE,
 		3000,
-		#{mem_status},
+		1,
 		#{mem_law1_check},	
 		#{mem_law2_check},	
 		#{mem_law3_check},	
@@ -40,19 +40,37 @@
 	SELECT COUNT(*) FROM members WHERE mem_id = #{mem_id}
 </select>
 
-<!-- 아이디 찾기 -->
-<select id="search_id" resultType="com.onore.project.member.dto.MemberDTO">
-	SELECT mem_id FROM members WHERE mem_name = #{mem_name} AND mem_email = #{mem_email}
+<!-- 아이디 찾기 : mem_id가 null인 경우 0으로 대체하여 NULL에러 방지-->
+<select id="find_id" resultType="String">
+	SELECT NVL(mem_id, 0) FROM members WHERE mem_name = #{mem_name} AND mem_email = #{mem_email}
 </select>
 
 <!-- 비밀번호 찾기(1) : 아이디와 이메일이 DB에 존재하는지 먼저 검사 -->
-<select id="search_pw" resultType="com.onore.project.member.dto.MemberDTO">
-	SELECT mem_pw FROM members WHERE mem_id = #{mem_id} AND mem_email = #{mem_email}
+<select id="find_pw" resultType="String">
+	SELECT NVL(mem_pw, 0) FROM members WHERE mem_id = #{mem_id} AND mem_email = #{mem_email}
 </select>
 	
 <!-- 비밀번호 찾기(2) : 임시비밀번호 발급 -->
-<select id="update_pw" resultType="com.onore.project.member.dto.MemberDTO">
-	UPDATE members SET mem_pw = #{mem_pw} WHERE mem_id = #{mem_id}
+<select id="modifyPw" parameterType="com.onore.project.member.dto.MemberDTO">
+	UPDATE members SET mem_pw = #{mem_pw} WHERE mem_id = #{mem_id} AND mem_email = #{mem_email}
 </select>
+
+<!-- 회원정보 상세조회 -->
+<select id="getMember" parameterType="String" resultType="com.onore.project.member.dto.MemberDTO">
+	SELECT
+		mem_id, 
+		mem_pw, 
+		mem_email, 
+		mem_phone, 
+		mem_sms_check, 
+		mem_email_check
+	FROM members
+	WHERE mem_id = #{mem_id}
+</select>
+
+<!-- 회원정보 수정 -->
+<update id="memberInfoModify">
+	UPDATE members SET mem_pw = #{mem_pw}, mem_email = #{mem_email}, mem_phone = #{mem_phone}, mem_sms_check = #{mem_sms_check}, mem_email_check = #{mem_email_check}  WHERE mem_id = #{mem_id}
+</update>
 
 </mapper>				

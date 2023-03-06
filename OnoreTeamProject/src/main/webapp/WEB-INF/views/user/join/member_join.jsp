@@ -326,7 +326,6 @@ $(document).ready(function() { // 체크를 하나 해제하면 모두 동의합
 				<div class="message_div">
 					<p id="phone_message_p"></p>
 				</div>
-
 				<div class="join_check_law1_div">
 					<div class="input_check_div">
 						<input id="mem_law1_check" type="checkbox" name="mem_law1_check" value="Y" required>

@@ -1,8 +1,8 @@
 package com.onore.project.member.mapper;
 
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
+import org.springframework.ui.Model;
 
 import com.onore.project.member.dto.MemberDTO;
 
@@ -17,6 +17,19 @@ public interface MemberMapper {
 	MemberDTO signIn(MemberDTO dto) throws Exception;
 	
 	// 아이디 중복체크
-	public int idCheck(String mem_id) throws Exception;
+	int idCheck(String mem_id) throws Exception;
+	
+	// 아이디 찾기
+	String find_id(@Param("mem_name") String name, @Param("mem_email") String email);
+	
+	// 비밀번호 찾기
+	String find_pw(@Param("mem_id") String id, @Param("mem_email") String email);
+	
+	// 회원정보 불러오기
+	 MemberDTO getMember(String memberId) throws Exception;
+	 
+	 // 회원정보 수정하기
+	 MemberDTO memberInfoModify(MemberDTO memberdto) throws Exception;
+
 }
 

@@ -12,14 +12,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.onore.project.member.dto.MemberDTO;
 import com.onore.project.member.mapper.MemberMapper;
 import com.onore.project.member.service.MemberService;
 
-import lombok.extern.log4j.Log4j2;
-
-@Log4j2
 @Controller
 public class MemberController { 
 
@@ -95,24 +93,33 @@ public class MemberController {
 	        return "redirect:/login";
 	    }
 		
-		MemberDTO signIn = mapper.signIn(dto);
+		MemberDTO signIn = mapper.signIn(dto); // 세션값
 		HttpSession session = request.getSession();
 		
-		// 비밀번호 복호화
-		BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
-		boolean pwdMatch = scpwd.matches(dto.getMem_pw(), signIn.getMem_pw());
-		// 비밀번호 복호화 끝
+    	System.out.println("result : " + result);
+    	System.out.println("id : " + id);
+		System.out.println("signIn : " + signIn);
+		System.out.println("session : " + session);
 		
-		if (signIn != null && pwdMatch == true) {
-			session.setAttribute("signIn", signIn);	
-			session.setMaxInactiveInterval(60 * 60 * 24) ; // 세션유지 시간 24시간((60*60)*24)
-			System.out.println(session.getId() + "로그인");
-			return "redirect:/main/";
-		} else {
-			session.setAttribute("signIn", null);	
-			rttr.addFlashAttribute("result", result);	
-			return "redirect:/login";
-		} 
+	    if (signIn != null) {
+	    	// 비밀번호 복호화
+	        BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
+	        boolean pwdMatch = scpwd.matches(dto.getMem_pw(), signIn.getMem_pw());
+	        if (pwdMatch) { // 비밀번호 일치
+	            session.setAttribute("signIn", signIn);    
+	            session.setMaxInactiveInterval(60 * 60 * 24) ; // 세션유지 시간 24시간((60*60)*24)
+	            System.out.println(session.getId() + "로그인");
+	            return "redirect:/main/";
+	        } else { // 비밀번호 불일치
+	            result = 1;
+	        }
+	    } else { // 회원 정보 없음
+	        result = 1;
+	    }
+	    
+	    session.setAttribute("signIn", null);    
+	    rttr.addFlashAttribute("result", result);    
+	    return "redirect:/login";
 	}
 	
 	// 로그아웃 - session
@@ -129,6 +136,28 @@ public class MemberController {
 	public String member_search(HttpServletRequest request, Model model, MemberDTO memberdto) throws Exception {
 		return "user/login/member_search";
 	}
+	
+	
+	//아이디 찾기 
+	@RequestMapping(value = "/find_id", method = RequestMethod.POST)
+	@ResponseBody
+	public String find_id(@RequestParam("mem_name") String name,@RequestParam("mem_email") String email) {
+		
+	String result = service.find_id(name, email);
+		
+	return result;
+	}
+	
+	//비밀번호 찾기 - 성공
+	@RequestMapping(value = "/find_pw", method = RequestMethod.POST)
+	@ResponseBody
+	public String find_pw(@RequestParam("mem_id") String id,@RequestParam("mem_email") String email) {
+		
+	String result = service.find_pw(id, email);
+		
+	return result;
+	}
+
 
 }
 

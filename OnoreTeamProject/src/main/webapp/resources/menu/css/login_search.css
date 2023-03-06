@@ -12,19 +12,35 @@
 }
 
 .search_idpw_div {
-	height: 400px;
+	height: 410px;
 	background-color: white;
 	text-align: center;	
 }
 
+.search_id_result,
+.search_pw_result{
+	height: 30px;
+}
+
 .login_div > div,
-.login_article,
-.search_idpw_div > div,
-.search_id_article,
-.search_pw_article
+.login_article
  {
 	margin: auto;
 	width: 400px;
+	text-align: left;	
+}
+
+.search_idpw_div > div {
+	margin: auto;
+	width: 400px;
+	text-align: left;
+}
+
+.search_id_article,
+.search_pw_article {
+	margin: auto;
+	width: 400px;
+	margin-top: 20px;
 	text-align: left;
 }
 
@@ -74,7 +90,8 @@
 .input_id_div > #input_id,
 .input_pw_div > #input_pw,
 .search_input_name_div > #input_mem_name,
-.search_input_email_div > #input_mem_email,
+.search_input_email_div > #input_mem_email1,
+.search_input_email_div > #input_mem_email2,
 .search_input_id_div > #input_mem_id
  {
 	width: 100%;
@@ -102,14 +119,12 @@
 	text-align: right;
 }
 
+
 .message_div {
-	height: 50px;
 	font-size: 12px;
 	font-weight: bold;
-	width: 100%;
 	color: red;
 }
-
 
 .login_Btn_div,
 .search_id_btn_div,

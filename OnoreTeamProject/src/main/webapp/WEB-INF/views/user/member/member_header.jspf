@@ -6,24 +6,24 @@
 <link rel="icon" href="/project/resources/main/images/fabicon.png">
 
 
-<!-- 구글 폰트 -->
+<!-- 폰트 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@800&display=swap" rel="stylesheet">
 
 <!-- CSS -->
 <script src="https://kit.fontawesome.com/43273b5a4f.js" crossorigin="anonymous"></script>
-<link href="/project/resources/menu/css/menubar.css?ver=6" rel="stylesheet"/>
-<link href="/project/resources/menu/css/login_search.css?ver=6" rel="stylesheet"/>
-<link href="/project/resources/menu/css/join_success.css?ver=6" rel="stylesheet"/>
-<link href="/project/resources/menu/css/mypage.css?ver=6" rel="stylesheet"/>
-<link href="/project/resources/menu/css/location.css?ver=6" rel="stylesheet"/>
+<link href="/project/resources/menu/css/menubar.css?ver=2" rel="stylesheet"/>
+<link href="/project/resources/menu/css/login_search.css?ver=2" rel="stylesheet"/>
+<link href="/project/resources/menu/css/join_success.css?ver=2" rel="stylesheet"/>
+<link href="/project/resources/menu/css/location.css?ver=2" rel="stylesheet"/>
+<link href="/project/resources/mypage/css/mypage_main.css?ver=2" rel="stylesheet"/>
+<link href="/project/resources/mypage/css/member_info_modify.css?ver=2" rel="stylesheet"/>
 
 <!-- js -->
-<link href="/project/resources/menu/js/menubar.js?ver=6" rel="stylesheet"/>
-
-
+<link href="/project/resources/menu/js/menubar.js?ver=2" rel="stylesheet"/>
 
 

@@ -40,8 +40,15 @@
 				<div class="member_idpw_search_div"><a class="member_idpw_searchBtn" href="./member_search">아이디/비밀번호 찾기</a></div>
 				</div>
 				<div class="message_div">
-				<c:if test = "${result == 0 }">
-				아이디와 비밀번호를 확인해주세요.
+				<c:if test="${result == 0}">
+					<div class="message_div">
+						아이디와 비밀번호를 확인해주세요.
+					</div>
+				</c:if>
+				<c:if test="${result == 1}">
+					<div class="message_div">
+						아이디 또는 비밀번호가 틀렸습니다.
+					</div>
 				</c:if>
 				</div>
 				

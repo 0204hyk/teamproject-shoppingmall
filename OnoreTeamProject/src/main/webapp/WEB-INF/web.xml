@@ -6,7 +6,13 @@
 	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring/root-context.xml</param-value>
+		<param-value>
+		/WEB-INF/spring/root-context.xml	
+		<!-- 비밀번호 암호화 -->
+	    /WEB-INF/spring/appServlet/servlet-context.xml
+	    /WEB-INF/spring/spring-security.xml
+	    <!-- 비밀번호 암호화 끝 -->
+	    </param-value>
 	</context-param>
 	
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->
@@ -29,14 +35,6 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
-	<!-- 비밀번호 암호화 -->
-	<param-name>contextConfigLocation</param-name>
-	<param-value>
-		/WEB-INF/spring/appServlet/servlet-context.xml
-		/WEB-INF/spring/spring-security.xml
-	</param-value>
-	<!-- 비밀번호 암호화 끝 -->
 	
 	<filter> 
 	    <filter-name>encodingFilter</filter-name> 

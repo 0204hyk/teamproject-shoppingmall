@@ -184,10 +184,31 @@
 		    <version>5.0.8.RELEASE</version>
 		</dependency>
 		<!-- 비밀번호 암호와 완료 끝 -->
-				
 		
+		<!-- 이메일로 임시 비밀번호 발급 -->
+		<!-- mail 서포트 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			 <version>${org.springframework-version}</version>
+		</dependency>
 		
-			
+		<!-- mail library -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency>
+		
+		<!-- 메일 관련 api -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-email</artifactId>
+			<version>1.5</version>
+		</dependency>
+		<!-- 이메일로 임시 비밀번호 발급 끝 -->		
+		
+
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
