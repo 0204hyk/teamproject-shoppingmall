@@ -21,5 +21,5 @@ public interface ShopMapper {
 	ProductsDTO getDetail(Integer product_num);
 	
 	List<ReviewDTO> getProReview(Integer product_num);
-
+	
 }

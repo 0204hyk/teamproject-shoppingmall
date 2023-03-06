@@ -1,5 +1,6 @@
 package com.onore.project.review.service.impl;
 
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.onore.project.dto.CommentDTO;
 import com.onore.project.dto.ReviewDTO;
+import com.onore.project.dto.ReviewandProductDTO;
 import com.onore.project.mapper.ReviewMapper;
 import com.onore.project.review.service.ReviewService;
 
@@ -19,19 +21,18 @@ public class ReviewServiceImpl implements ReviewService{
 	ReviewMapper review_mapper;
 	
 	@Override
-	public List<ReviewDTO> getAll() {
+	public List<ReviewandProductDTO> getAll() {
 		
 		return review_mapper.getAll();
 	}
 
 	@Override
 	public Integer insert(ReviewDTO rev) {
-		
 		return review_mapper.insert(rev);
 	}
 
 	@Override
-	public ReviewDTO get(Integer review_num) {
+	public ReviewandProductDTO get(Integer review_num) {
 		
 		return review_mapper.get(review_num);
 	}
@@ -47,4 +48,6 @@ public class ReviewServiceImpl implements ReviewService{
 		
 		return review_mapper.delete(review_num);
 	}
+
+	
 }

@@ -14,4 +14,6 @@ public interface ReplyService {
 	Integer replyModify(CommentDTO com);
 	
 	Integer replyDelete(Integer comment_num);
+	
+	Integer cntReply(Integer review_num);
 }

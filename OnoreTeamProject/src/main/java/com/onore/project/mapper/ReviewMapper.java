@@ -6,16 +6,17 @@ import org.apache.ibatis.annotations.Select;
 
 import com.onore.project.dto.CommentDTO;
 import com.onore.project.dto.ReviewDTO;
+import com.onore.project.dto.ReviewandProductDTO;
 
 public interface ReviewMapper {
 	
 	// 글
 	
-	List<ReviewDTO> getAll();
+	List<ReviewandProductDTO> getAll();
 	
 	Integer insert(ReviewDTO rev);
 	
-	ReviewDTO get(Integer review_num);
+	ReviewandProductDTO get(Integer review_num);
 	
 	Integer modify(ReviewDTO rev);
 	
@@ -30,4 +31,6 @@ public interface ReviewMapper {
 	Integer replyModify(CommentDTO com);
 	
 	Integer replyDelete(Integer comment_num);
+	
+	Integer cntReply(Integer review_num);
 }
