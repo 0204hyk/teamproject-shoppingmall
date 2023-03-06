@@ -30,4 +30,9 @@ public class AdminProductService_impl implements AdminProductService{
 		return productsMapper.insertProduct(product);
 	}
 
+	@Override
+	public List<ProductsDTO> readAllProduct() {
+		return productsMapper.getAllProduct();
+	}
+
 }

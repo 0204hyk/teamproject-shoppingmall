@@ -49,27 +49,29 @@ $('input[name=product_thumbnail_3]').click(function(){
 
 // 상품등록 ajax POST
 function productRegist(url){
-    // let registFormData = $('#product-regist-form').serialize();
     let category_num = $('#input-category').val();
     let product_name = $('#input-name').val();
     let product_price = $('#input-price').val();
-    let product_thumbnail_1 = $('#thumbnail1').val();
-    let product_thumbnail_2 = $('#thumbnail2').val();
-    let product_thumbnail_3 = $('#thumbnail3').val();
-    let product_info = $('#input-detail').val();
+    let product_info = $('#input-info').val();
+    let product_thumbnail_1 = $('#thumbnail1')[0];
+    let product_thumbnail_2 = $('#thumbnail2')[0];
+    let product_thumbnail_3 = $('#thumbnail3')[0];
+    let product_detail = $('#input-detail').val();
     
     let registFormData = new FormData();
     registFormData.append("category_num", category_num);
     registFormData.append("product_name", product_name);
     registFormData.append("product_price", product_price);
-    registFormData.append("product_thumbnail_1", product_thumbnail_1);
-    registFormData.append("product_thumbnail_2", product_thumbnail_2);
-    registFormData.append("product_thumbnail_3", product_thumbnail_3);
     registFormData.append("product_info", product_info);
+    registFormData.append("product_thumbnail_1", product_thumbnail_1.files[0]);
+    registFormData.append("product_thumbnail_2", product_thumbnail_2.files[0]);
+    registFormData.append("product_thumbnail_3", product_thumbnail_3.files[0]);
+    registFormData.append("product_detail", product_detail);
 
     $.ajax({
         url: url,
         type: "POST",
+        enctype: 'multipart/form-data',
         cache: false,
         data: registFormData,
         contentType: false,
@@ -82,30 +84,4 @@ function productRegist(url){
             console.log(error);
         }
     })     
-}
-
-function posting() {
-  let title = $('#title').val()
-  let content = $("#content").val()
-
-  let file = $('#file')[0].files[0]
-  //파일을 보낼려면 formdata에 실어서 보내야한다
-  let form_data = new FormData()
-
-  form_data.append("file_give", file)
-  form_data.append("title_give", title)
-  form_data.append("content_give", content)
-
-  $.ajax({
-    type: "POST",
-    url: "/diary",
-    data: form_data,
-    cache: false,
-    contentType: false,
-    processData: false,
-    success: function (response) {
-      alert(response["msg"])
-      window.location.reload()
-    }
-  });
 }

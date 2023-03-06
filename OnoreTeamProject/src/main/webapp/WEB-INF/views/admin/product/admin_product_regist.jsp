@@ -14,7 +14,7 @@
 	<div class="product-content shadow">
 		<div class="product-title"><h1>상품 등록</h1></div>
 		<div class="container">
-			<form id="product-regist-form" name="product-regist-form" method="POST">
+			<form id="product-regist-form" name="product-regist-form" method="POST" enctype="multipart/form-data">
 				<div class="label-container">
 					<label for="input-category" class="input-label">분 류</label>
 					<select id="input-category" class="form-select category-select" name="category_num">
@@ -32,8 +32,12 @@
 					<label for="input-price" class="input-label">가 격</label>
 				<input type="text" id="input-price" class="form-control product-info" name="product_price" placeholder="상품의 가격을 입력해주세요."/>
 				</div>
+				<div>
+					<p class="thumbnail-title" style="font-size: 20px; margin-top: 5px;">상품 소개글</p>
+					<textarea name="product_info" id="input-info" class="form-control product-info" rows="5" placeholder="상품의 소개글을 작성해주세요." style="resize: none; width: 100%;"></textarea>
+				</div>
 				<div class="thumbnail-contaioner">
-					<p class="thumbnail-title" style="font-size: 20px;">상품 썸네일</p>
+					<p class="thumbnail-title" style="font-size: 20px; margin-top: 15px;">상품 썸네일</p>
 					<div class="row">
 						<div class="col">
 							<img src="<%=request.getContextPath()%>/resources/admin/image/default_image.png" id="preview1" class="thumbnail-preview"/>
@@ -49,8 +53,8 @@
 						</div>
 					</div>
 				</div>
-				<p style="font-size: 20px">상품 상세 정보</p>
-		  		<textarea id="input-detail" class="summernote" name="product_info"></textarea>
+				<p style="font-size: 20px; margin-top: 10px;">상품 상세 정보</p>
+		  		<textarea id="input-detail" class="summernote" name="product_detail"></textarea>
 		  		<div class="d-grid d-md-flex justify-content-md-end" style="margin-top: 15px; margin-bottom: 10px;">
 		  			<input type="button" class="submit-btn btn btn-secondary btn-lg" value="취 소" />
 		  			<input type="button" onclick="productRegist('<%=request.getContextPath()%>/admin/product/regist')" class="submit-btn btn btn-secondary btn-lg" value="등 록"/>
