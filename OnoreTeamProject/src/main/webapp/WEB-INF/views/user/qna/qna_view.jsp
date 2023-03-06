@@ -32,7 +32,14 @@
 			<div style="width: 1200px; height: 600px; ">
 				<c:forEach items="${views }" var="view">
 				<div >
-					<img src="" alt="" style="width: 150px; height: 150px;"/>
+					<c:choose>
+							<c:when test="${not empty view.product_thumbnail}">
+								<td><img style="width: 50px; height: 50px;" src=${view.product_thumbnail }>${view.product_info }</td>
+							</c:when>
+							<c:otherwise>
+								<td></td>
+							</c:otherwise>
+						</c:choose>
 					<h4>[${view.qna_category }] ${view.qna_title } </h4>
 				</div>
 				

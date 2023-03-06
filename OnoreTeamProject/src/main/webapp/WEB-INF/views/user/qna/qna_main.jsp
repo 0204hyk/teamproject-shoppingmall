@@ -23,7 +23,7 @@
 				<tr>
 					<th id="num" class="title">번호</th>
 					<th id="product" class="title">분류</th>
-				 	<th id="img">       </th>
+				 	<th id="img"> </th>
 					<th id="title" class="title">제목</th>
 					<th id="writer" class="title">글쓴이</th>
 					<th id="date" class="title">등록일</th>
@@ -36,7 +36,7 @@
 						
 						<c:choose>
 							<c:when test="${not empty qna.product_thumbnail}">
-								<td><img style="width: 50px; height: 50px;" src=${qna.product_thumbnail }></td>
+								<td><img style="width: 30px; height: 30px;" src=${qna.product_thumbnail }></td>
 							</c:when>
 							<c:otherwise>
 								<td></td>

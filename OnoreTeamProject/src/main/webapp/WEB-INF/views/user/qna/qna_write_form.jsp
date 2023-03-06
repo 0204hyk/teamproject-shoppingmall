@@ -41,15 +41,35 @@
 			
 			</div>
 			<div class="img-preview">
-			<textarea rows="10" cols="100" name="qna_content" placeholder="내용을 입력해 주세요." ></textarea>
-			<br>
-			<input type="file" name="file" id="image" class="img-input" accept="image/*" onchange="PreviewImage();"/>
-			
-			<!-- input type=file 들어가는 곳 -->
-			<div id="file-list">
-			
-			</div>
+				<textarea rows="10" cols="100" name="qna_content" placeholder="내용을 입력해 주세요." ></textarea>
+				<br>
+				<div id="firstImg">
+					<input type="file" name="file" id="file-input" class="img-input" accept="image/*" onchange="PreviewImage();"/>
+				
+					<div id="imgBox1">
+    
+
+        			</div>
+				</div>
 		
+				<div id="secondImg">
+					<input type="file" name="file" id="file-input2" class="img-input" accept="image/*" onchange="PreviewImage2();"/>
+				
+					<div id="imgBox2">
+    
+
+        			</div>
+				</div>
+				
+				<div id="thirdImg">
+					<input type="file" name="file" id="file-input3" class="img-input" accept="image/*" onchange="PreviewImage3();"/>
+				
+					<div id="imgBox3">
+    
+
+        			</div>
+				</div>
+				
 				<img class="image-box" name="qna_img_1" id="user-image1" />
 				<img class="image-box" name="qna_img_2" id="user-image2" />
 				<img class="image-box" name="qna_img_3" id="user-image3" />
@@ -58,7 +78,6 @@
 		</form>
 		</div>
 	</div>
-
 
 	<script type="text/javascript"
 		src="/project/resources/qna/js/qna_write.js"></script>

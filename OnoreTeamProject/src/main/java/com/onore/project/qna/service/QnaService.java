@@ -20,7 +20,7 @@ public interface QnaService {
 
 	void qnaAll(Model model);
 	
-	void qnaWrite(Model model, QnaAndProductsDTO qna);
+	void qnaWrite(Model model, QnaDTO qna);
 
 	void qnaView(Model model, int qna_num);
 		

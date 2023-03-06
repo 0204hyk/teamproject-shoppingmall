@@ -51,3 +51,43 @@ img-preview {
 	width: 100px;
 	height: 100px;
 }
+
+
+<!-- 이미지 삭제 버튼 모아둔 곳 -->
+
+#firstImg {
+    position: relative;
+    z-index: 2;
+}
+
+#imgBox1 {
+    position: absolute;
+    z-index: 1;
+    margin-left: 70px;
+    margin-top: 60px;
+}
+
+#secondImg {
+    position: relative;
+    z-index: 2;
+}
+
+#imgBox2 {
+    position: absolute;
+    z-index: 1;
+    margin-left: 180px;
+    margin-top: 30px;
+}
+
+#thirdImg {
+    position: relative;
+    z-index: 2;
+}
+
+#imgBox3 {
+    position: absolute;
+    z-index: 1;
+    margin-left: 275px;
+    margin-top: 7px;
+}
+

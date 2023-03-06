@@ -44,10 +44,10 @@ public class QnaController {
 	}
 
 	@PostMapping("/qna_addWrite")
-	public String addWrite(List<MultipartFile> file, Model model, QnaDTO qna, QnaAndProductsDTO qnap) throws Exception {
+	public String addWrite(List<MultipartFile> file, Model model, QnaDTO qna) throws Exception {
 
 		qnaService.fileUpload(qna, file);
-		qnaService.qnaWrite(model, qnap);
+		qnaService.qnaWrite(model, qna);
 
 		return "redirect:/qna/main";
 

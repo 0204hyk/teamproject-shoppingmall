@@ -39,7 +39,7 @@ public class QnaServiceImpl implements QnaService {
 	}
 	
 	@Override
-	public void qnaWrite(Model model, QnaAndProductsDTO qna) {
+	public void qnaWrite(Model model, QnaDTO qna) {
 		model.addAttribute("qnas", qna_mapper.qnaWrite(qna));
 
 	}
