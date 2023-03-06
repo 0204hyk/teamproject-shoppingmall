@@ -1,0 +1,30 @@
+.detail {
+    padding:60px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.container {
+	display: flex;
+    flex-direction: row;
+}
+
+.b {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.content {
+    width: auto;
+    height: 300px;
+}
+
+
+img {
+    width: 200px;
+    height: 200px;
+}
+
+

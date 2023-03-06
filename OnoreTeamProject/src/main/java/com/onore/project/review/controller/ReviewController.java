@@ -22,7 +22,7 @@ import com.onore.project.dto.ReviewDTO;
 import com.onore.project.review.service.PageService;
 import com.onore.project.review.service.ReplyService;
 import com.onore.project.review.service.ReviewService;
-import com.onore.project.shop1.service.Shop1Service;
+import com.onore.project.shop.service.ShopService;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -41,7 +41,7 @@ public class ReviewController {
 	ReplyService reply_service;
 	
 	@Autowired
-	Shop1Service shop_service;
+	ShopService shopService;
 	
 	@GetMapping("/list")
 	public String reviewList(HttpServletRequest req) {
@@ -52,7 +52,7 @@ public class ReviewController {
 	
 	@GetMapping("/write")
 	public String reviewWrite(Model model, Integer product_num) {
-		model.addAttribute("product", shop_service.getDetail(product_num));
+		model.addAttribute("product", shopService.getDetail(product_num));
 		
 		return "user/review/review_write";
 	}
@@ -75,7 +75,7 @@ public class ReviewController {
 	
 	@GetMapping("/modify")
 	public String reviewModify(Model model, Integer review_num, Integer product_num) {
-		model.addAttribute("product", shop_service.getDetail(product_num));
+		model.addAttribute("product", shopService.getDetail(product_num));
 		model.addAttribute("contents",review_service.get(review_num));
 		
 		return "user/review/review_modify";
@@ -106,7 +106,6 @@ public class ReviewController {
 	@ResponseBody
 	@PostMapping(value="/comment")
 	public CommentDTO createComment(@RequestBody CommentDTO comment) {
-		log.info(comment);
 		reply_service.insertReply(comment);
 		
 		return comment;

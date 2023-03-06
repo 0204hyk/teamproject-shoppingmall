@@ -22,7 +22,7 @@
 			<div class="container">
 				<div class="a">
 					<div name="prd_img">
-						<img src="${contents.product_thumbnail }">
+						<img src="${contents.product_thumbnail_1 }">
 					</div>
 				</div>
 				<div class="b">
@@ -117,8 +117,8 @@
 					<input type="hidden" value="${contents.review_num }" id="num">
 					<textarea id="comment_content" rows="3" cols="120" placeholder="댓글을 입력해주세요"></textarea><br>
 					<button type="button" id="comment">댓글달기</button>
+				</form>	
 			</div>
-			</form>
 			
 			<hr>
 			
@@ -126,7 +126,7 @@
 			<c:forEach items="${comments }" var="comment">
 			<div class="comment_box">
 				<input type="hidden" class="com_num" value="${comment.comment_num }">
-				<div><span id="mem">${comment.maskingName }</span>  &nbsp;&nbsp; ${comment.comment_date }</div>
+				<div><span id="mem">${comment.comment_id }</span>  &nbsp;&nbsp; ${comment.comment_date }</div>
 				<br>
 				<div id="reply_detail">
 					<div id="get_content">${comment.comment_content }</div>
@@ -141,9 +141,11 @@
 						<br>
 						<input id="modify_cancel" type="button" value="취소">
 						<input id="modify" type="button" value="수정">
+					</form>	
 						<br>
+						
 				</div>
-				</form>
+				
 				</div>	
 				<hr>
 			</c:forEach>

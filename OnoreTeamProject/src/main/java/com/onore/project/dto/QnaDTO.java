@@ -22,7 +22,7 @@ public class QnaDTO {
 	private String qna_img_3;
 	private Integer qna_status;
 
-
+	
 
 }
 

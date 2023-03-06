@@ -1,0 +1,31 @@
+package com.onore.project.mapper;
+
+import java.util.List;
+
+import com.onore.project.dto.ProductsDTO;
+import com.onore.project.dto.QnaAndProductsDTO;
+import com.onore.project.dto.QnaDTO;
+
+
+
+public interface QnaMapper {
+
+	List<QnaDTO> getAll();
+	
+	List<QnaAndProductsDTO> getQnaAndProductsAll();
+	
+	QnaDTO qnaModifyForm(Integer qna_num);
+	
+	Integer qnaWrite(QnaDTO qna);
+
+	Integer qnaModifyComple(QnaDTO qna);
+	
+	Integer qnaDelete(Integer qna_num);
+	
+	// 제목 클릭 후 화면 출력
+	//List<QnaDTO> getContents(Integer qna_num);
+	List<QnaAndProductsDTO> getContents(Integer qna_num);
+
+	
+	List<ProductsDTO> getProductName(String product_name);
+}

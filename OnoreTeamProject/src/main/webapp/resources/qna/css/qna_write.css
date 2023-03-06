@@ -1,0 +1,93 @@
+.main {
+	padding-top: 50px;
+	border: 1px solid black;
+	overflow: hidden;
+
+}
+
+.searchInput {
+	height: 1000px;
+	z-index: 3;
+}
+
+.selectProduct {
+	width: 400px;
+	z-index: 2;
+}
+
+img-preview {
+	z-index:1;
+	
+}
+.selectProduct:hover {
+	background-color: lightgray;	
+}
+
+.qna-form {
+	padding-top: 50px;
+	border: 1px solid black;
+	width: 1200px;
+	overflow: auto;
+}
+
+.mb-3 {
+	
+	padding-left: 30px;
+	overflow: auto;
+}
+
+.image-box {
+	border: 0px;
+	width: 100px;
+	height: 100px;
+}
+
+#inputs {
+	cursor: pointer;
+	
+}
+
+#searchImg {
+	width: 100px;
+	height: 100px;
+}
+
+
+<!-- 이미지 삭제 버튼 모아둔 곳 -->
+
+#firstImg {
+    position: relative;
+    z-index: 2;
+}
+
+#imgBox1 {
+    position: absolute;
+    z-index: 1;
+    margin-left: 70px;
+    margin-top: 60px;
+}
+
+#secondImg {
+    position: relative;
+    z-index: 2;
+}
+
+#imgBox2 {
+    position: absolute;
+    z-index: 1;
+    margin-left: 180px;
+    margin-top: 30px;
+}
+
+#thirdImg {
+    position: relative;
+    z-index: 2;
+}
+
+#imgBox3 {
+    position: absolute;
+    z-index: 1;
+    margin-left: 275px;
+    margin-top: 7px;
+}
+
