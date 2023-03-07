@@ -1,14 +1,14 @@
 const purchase_btn = document.getElementById("purchase_btn");
 const payment_method = document.querySelector('input[name="pay_method"]:checked').value;
 const order_name = document.getElementById('order_name');
-const pay_price = document.getElementById('pay_price');
 const orderer_name = document.getElementById('orderer_name');
 
 const urlParams = new URL(location.href).searchParams;
 const success = urlParams.get('success');
 
-if(is_purchased == null) {
-	purchase_btn.addEventListener('click', (e) => {
+	// if(purchase_btn.getAttribute('id') == 'purchase_btn') {
+	// purchase_btn.addEventListener('click', (e) => {
+function purchase() {
 			// // 해당 이벤트의 기본 동작을 막을 수 있다.
 			// e.preventDefault();
 			
@@ -85,50 +85,6 @@ if(is_purchased == null) {
 			
 			// 검사가 끝난 후 최종적으로 결제 진행
 			tossPay();
-		});
-	} else if (is_purchased == 'true') {
-		const purchase_submit = document.getElementById('purchase_submit');
-		const form = document.getElementById('order_form');
 		
-		purchase_submit.addEventListener('click', () => {
-			console.log(payment_key.value);
-			console.log(order_id.value);
-			console.log(amount.value);
-			fetch('https://api.tosspayments.com/v1/payments/confirm', {
-				method: 'POST',
-				headers: { 
-					'Authorization': 'Basic dGVzdF9za196WExrS0V5cE5BcldtbzUwblgzbG1lYXhZRzVSOg==',
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify({
-					'paymentKey': payment_key.value,
-					'orderId': order_id.value,
-					'amount': amount.value
-				})
-			}).then((data) => {
-				const xhttp = new XMLHttmpRequest();
-				
-				xhttp.addEventListener('readystatechange', (e) => {
-					if (xhttp.readyState == 4 && xhttp.status == 200) {
-						form.action = '/puchaseAPI/order/result';
-						form.method = 'POST';
-						form.submit();
-					}
-				});
-				
-				xhttp.open('POST', '/order/approve');
-				
-				const pay_data = {
-					pay_id: 'pay_' + getToday(),
-					order_id: order_id.value,
-					pay_price: pay_price.value,
-					pay_method: payment_method,
-					refund_req: 0,
-					refund_status: 0
-				}
-				
-				xhttp.send(JSON.stringify(pay_data));
-		})
-		  .catch((error) => alert(error.json().code));  
-	});
+		//});
 }

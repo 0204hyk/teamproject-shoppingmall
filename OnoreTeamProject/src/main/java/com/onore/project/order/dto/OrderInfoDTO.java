@@ -7,8 +7,8 @@ import lombok.Data;
 @Data
 public class OrderInfoDTO {
 
-	private String order_info_id;
-	private String order_id;
+	private Integer order_info_num;
+	private Integer order_num;
 	private String product_id;
 	private String product_name;
 	private Integer order_info_qty;

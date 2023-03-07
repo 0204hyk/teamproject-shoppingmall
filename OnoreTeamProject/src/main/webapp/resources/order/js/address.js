@@ -2,6 +2,7 @@ const receiver_address_btn = document.getElementById('receiver_address_btn');
 const receiver_zip_code = document.getElementById('receiver_zip_code');
 const receiver_address = document.getElementById('receiver_address');
 const receiver_detail_address = document.getElementById('receiver_detail_address');
+const receiver_name = document.getElementById('receiver_name');
 
 receiver_address_btn.addEventListener('click', () => {
         new daum.Postcode({
@@ -50,3 +51,14 @@ receiver_address_btn.addEventListener('click', () => {
             }
         }).open();
 });
+
+// 기본 배송지 및 신규 배송지 클릭시 액션
+function setAddress(event) {
+	if(event.target.value == 'new') {
+		receiver_name.value = null;
+		receiver_zip_code.value = null;
+		receiver_address.value = null;
+		receiver_detail_address.value = null;
+		receiver_phone.value = null;
+	}
+}

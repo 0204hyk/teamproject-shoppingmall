@@ -6,8 +6,10 @@ import lombok.NonNull;
 @Data
 public class OrderDTO {
 
+	private Integer order_num;
 	private String order_id;
 	private String order_name;
+	private String orderer_id;
 	private String orderer_name;
 	private String orderer_phone;
 	private String orderer_email;
@@ -15,7 +17,7 @@ public class OrderDTO {
 	private String receiver_zip_code;
 	private String receiver_address;
 	private String receiver_detail_address;
-	private Integer receiver_phone;
+	private String receiver_phone;
 	private String receiver_req;
 	private String discount_coupon;
 	private Integer discount_points;
