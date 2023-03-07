@@ -126,7 +126,7 @@ public class AdminProductController {
 	public String productModifyForm(HttpServletRequest request) {
 		request.setAttribute("categories", service.readCaregoriesList());
 		request.setAttribute("product", service.readProduct(Integer.parseInt(request.getParameter("product_num"))));
-		return "/admin/notice/admin_product_modify";
+		return "/admin/product/admin_product_modify";
 	}
 	
 	
