@@ -12,8 +12,6 @@ function PreviewImage() {
 	var fileInput = document.getElementsByClassName("img-input");
 
 		
-	
-	
 };
 
 

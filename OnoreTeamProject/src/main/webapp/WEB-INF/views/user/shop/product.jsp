@@ -72,6 +72,8 @@
 				총 주문금액 <span id="priceinfo"></span>
 				</div>
 				<hr>
+				<input type="hidden" value="${product.product_num }" name="product_num">
+				<input type="hidden" value="" id="order_cnt" name="order_cnt">
 				<input type="submit" value="주문하기" formaction="../order" id="order">
 				<input type="submit" value="장바구니" formaction="./cart" id="cart">
 				</form>
@@ -156,9 +158,10 @@
 						</tr>
 				</c:forEach>
 			</table>
+			<button onclick="location.href='../review/write?prodcut_num=${product.product_num}'">리뷰쓰기</button>
 			</div>
 			<div class="qna">
-				<h3>Q & A(문의게시판 나중에 연동예정)</h3>
+				<h3>Q & A</h3>
 			<br>
 				<table>
 					<c:forEach items="${reviews }" var="review">
@@ -178,6 +181,7 @@
 						</tr> 
 				</c:forEach>
 			</table>
+			
 			</div>
 		</div>
 			

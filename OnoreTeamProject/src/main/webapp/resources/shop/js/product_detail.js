@@ -19,7 +19,7 @@ const price = prices.replace(/[^0-9]/g, '');
 
 const name = document.getElementById('product_name').innerText;
 
-
+const order_cnt = document.getElementById('order_cnt');
 
 function count(type) {
 
@@ -41,11 +41,15 @@ function count(type) {
     }
 
     cnt.innerText = number;
+    
+    
 
     const a = document.getElementById('a');
     a.innerHTML = number * price + " 원 &nbsp;&nbsp;&nbsp;&nbsp; <i class='fa-solid fa-xmark fa-lg' id='cancel'></i>";
     cntinfo.innerHTML = number + "개";
     priceinfo.innerHTML = number * price + "원";
+    order_cnt.value = number;
+    console.log(order_cnt);
 };
 
 
