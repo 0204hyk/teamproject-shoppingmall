@@ -34,6 +34,5 @@ public interface QnaService {
 	
 	List<ProductsDTO> getProductName(String product_name);
 	
-	
 	void fileUpload(QnaDTO qna, List<MultipartFile> file) throws IllegalStateException, IOException;
 }

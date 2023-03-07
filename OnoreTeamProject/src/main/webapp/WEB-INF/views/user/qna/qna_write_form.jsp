@@ -22,7 +22,8 @@
 	<%@include file="../top.jspf"%>
 
 	<div class="main"
-		style="padding-top: 127px; width: auto; height: auto; margin: 50px; margin-top: 0px;">
+		style="padding-top: 127px; width: auto; margin: 50px; margin-top: 0px;">
+		<hr>
 		<div class="qna-form">
 		<form class="mb-3" id="myform" action="./qna_addWrite" method="post"
 			enctype="multipart/form-data">
@@ -36,49 +37,45 @@
 			</select> 
 			<input type="hidden" id="p_num" name="product_num" value="">
 			<input type="hidden" name="mem_id" value="abc123"> 
-			<input type="text" name="qna_title" placeholder="제목을 입력해 주세요.">
+			<input type="text" name="qna_title" id="title" placeholder="제목을 입력해 주세요.">
+			<br>
 			<div id="inputs">
-			
 			</div>
-			<div class="img-preview">
-				<textarea rows="10" cols="100" name="qna_content" placeholder="내용을 입력해 주세요." ></textarea>
-				<br>
+			
+			<hr>
+				<textarea rows="30" cols="150" id="qna_content" name="qna_content" placeholder="내용을 입력해 주세요." ></textarea>
+			<hr>	
+			<br>
+			
+				<div id="img-box">
+					<img class="image-box" name="qna_img_1" id="user-image1" />
+					<img class="image-box" name="qna_img_2" id="user-image2" />
+					<img class="image-box" name="qna_img_3" id="user-image3" />
+				</div>
+			<br>
+			
+			<div class="img-preview">	
 				<div id="firstImg">
 					<input type="file" name="file" id="file-input" class="img-input" accept="image/*" onchange="PreviewImage();"/>
-				
-					<div id="imgBox1">
-    
-
-        			</div>
+					<span id="imgBox1"></span>
 				</div>
 		
 				<div id="secondImg">
 					<input type="file" name="file" id="file-input2" class="img-input" accept="image/*" onchange="PreviewImage2();"/>
-				
-					<div id="imgBox2">
-    
-
-        			</div>
+					<span id="imgBox2"></span>
 				</div>
 				
 				<div id="thirdImg">
 					<input type="file" name="file" id="file-input3" class="img-input" accept="image/*" onchange="PreviewImage3();"/>
-				
-					<div id="imgBox3">
-    
-
-        			</div>
+					<span id="imgBox3"></span>
 				</div>
 				
-				<img class="image-box" name="qna_img_1" id="user-image1" />
-				<img class="image-box" name="qna_img_2" id="user-image2" />
-				<img class="image-box" name="qna_img_3" id="user-image3" />
 			</div>
-			<input type="submit" value="등록하기">
+			<input type="submit" id="write_btn" value="등록" onclick="return confirm('완료하시겠습니까?')">
 		</form>
 		</div>
 	</div>
-
+	<hr>
 	<script type="text/javascript"
 		src="/project/resources/qna/js/qna_write.js"></script>
 

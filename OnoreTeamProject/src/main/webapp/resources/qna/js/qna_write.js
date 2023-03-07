@@ -206,7 +206,7 @@ function changeSelect() {
 	var input = document.getElementById('inputs');
 	var product_num = document.getElementById('p_num');
 	if (value == '상품') {
-		input.innerHTML += `<input type="search" name="product_name" id="product" placeholder="상품명을 입력하세요." /><input type="button" id="search" value="검색하기" />`;
+		input.innerHTML += `<input type="text" name="product_name" id="product" placeholder="상품명을 입력하세요." /><input type="button" id="search" value="검색하기" />`;
 		input.innerHTML += `<div id="searchInput"></div>`;
 	
 		const searchBtn = document.getElementById('search');

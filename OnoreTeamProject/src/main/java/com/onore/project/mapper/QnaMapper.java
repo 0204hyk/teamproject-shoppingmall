@@ -5,6 +5,7 @@ import java.util.List;
 import com.onore.project.dto.ProductsDTO;
 import com.onore.project.dto.QnaAndProductsDTO;
 import com.onore.project.dto.QnaDTO;
+import com.onore.project.dto.QnaReplyDTO;
 
 
 
@@ -21,6 +22,8 @@ public interface QnaMapper {
 	Integer qnaModifyComple(QnaDTO qna);
 	
 	Integer qnaDelete(Integer qna_num);
+	
+	QnaReplyDTO getReply(Integer qna_num);
 	
 	// 제목 클릭 후 화면 출력
 	//List<QnaDTO> getContents(Integer qna_num);

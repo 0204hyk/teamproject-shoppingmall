@@ -26,7 +26,6 @@
 		-->
 	</select>
 	
-	
 	<select id="qnaModifyForm" resultType="com.onore.project.dto.QnaDTO">
 		SELECT * FROM qna WHERE qna_num = #{qna_num}
 	
@@ -35,6 +34,11 @@
 		SELECT product_num, product_name, product_thumbnail FROM products WHERE LOWER(product_name) LIKE '%' || LOWER(#{product_name}) || '%'
 	
 	</select>
+	
+	<select id="getReply" resultType="com.onore.project.dto.QnaReplyDTO">
+		SELECT * FROM qna_re WHERE qna_num=#{qna_num}
+	</select>
+	
 
 	<update id="qnaModifyComple">
 		UPDATE qna SET

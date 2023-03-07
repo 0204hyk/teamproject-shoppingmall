@@ -52,7 +52,7 @@ public class QnaServiceImpl implements QnaService {
 	
 	@Override
 	public void qnaReply(Model model, int qna_num) {
-		
+		model.addAttribute("replys", qna_mapper.getReply(qna_num));
 		
 	}
 	
