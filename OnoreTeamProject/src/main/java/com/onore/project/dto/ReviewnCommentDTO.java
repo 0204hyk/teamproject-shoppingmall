@@ -2,6 +2,9 @@ package com.onore.project.dto;
 
 import java.time.LocalDate;
 
+import lombok.Data;
+
+@Data
 public class ReviewnCommentDTO {
 	
 	private Integer review_num;

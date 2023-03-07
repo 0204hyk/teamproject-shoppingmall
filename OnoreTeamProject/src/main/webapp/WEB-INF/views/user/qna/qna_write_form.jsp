@@ -65,7 +65,7 @@
 					<input type="file" name="file" id="file-input3" class="img-input" accept="image/*" onchange="PreviewImage3();"/>
 				
 					<div id="imgBox3">
-    
+
 
         			</div>
 				</div>

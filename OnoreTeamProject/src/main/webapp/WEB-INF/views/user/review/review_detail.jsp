@@ -90,17 +90,17 @@
 				<div class="sub-container2">
 					<div class="img">
 						<c:if test="${not empty contents.review_img_1}">
-							<img src="${contents.review_img_1 }">
+							<img src="/project/resources/review/image/${contents.review_img_1 }">
 						</c:if>
 					</div>
 					<div class="img">
 						<c:if test="${not empty contents.review_img_2}">
-							<img src="${contents.review_img_2 }">
+							<img src="/project/resources/review/image/${contents.review_img_2 }">
 						</c:if>
 					</div>
 					<div class="img">
 						<c:if test="${not empty contents.review_img_3}">
-							<img src="${contents.review_img_3 }">
+							<img src="/project/resources/review/image/${contents.review_img_3 }">
 						</c:if>
 					</div>
 				</div>

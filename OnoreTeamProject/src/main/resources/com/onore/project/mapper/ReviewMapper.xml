@@ -23,13 +23,14 @@
   	INSERT INTO reviews VALUES (
   		review_num_seq.nextval,
   		3,
-  		'abc123',
+  		'test',
   		#{review_content},
   		SYSDATE,
   		#{review_rating},
-  		null,
-  		null,
-  		null,
+  		#{review_img_path},
+  		#{review_img_1},
+  		#{review_img_2},
+  		#{review_img_3},
   		0,
   		0
   	)

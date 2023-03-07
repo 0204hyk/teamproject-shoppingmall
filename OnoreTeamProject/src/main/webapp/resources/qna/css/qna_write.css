@@ -5,20 +5,25 @@
 
 }
 
-.searchInput {
-	height: 1000px;
+#inputs {
+	position: relative;
 	z-index: 3;
 }
 
-.selectProduct {
-	width: 400px;
+#searchInput {
+	position: absolute;
 	z-index: 2;
 }
 
-img-preview {
-	z-index:1;
-	
+.img-preivew {
+	position: relative;
+	z-index: 1;
 }
+
+.selectProduct {
+	background-color: white;
+}
+
 .selectProduct:hover {
 	background-color: lightgray;	
 }

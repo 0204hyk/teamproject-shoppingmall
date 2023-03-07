@@ -3,6 +3,7 @@ package com.onore.project.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Select;
+import org.springframework.ui.Model;
 
 import com.onore.project.dto.CommentDTO;
 import com.onore.project.dto.ReviewDTO;

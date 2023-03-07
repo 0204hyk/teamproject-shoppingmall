@@ -23,7 +23,7 @@
 		<form class="mb-3" id="myform" action="./write" method="POST" enctype="multipart/form-data">
 			<div class="container">
 				<div class="a">
-					<div name="prd_img">
+					<div class="prd_img">
 						<img src="${product.product_thumbnail }">
 					</div>
 				</div>
@@ -54,19 +54,18 @@
 			</div>
 			<hr>
 			<div class="container2">
-				<textarea  name="review_content" id="reviewContents" cols="150"
+				<textarea name="review_content" id="reviewContents" cols="150"
 					rows="30" >리뷰를 작성해주세요</textarea>
 				<div id="img-box">
-					<div id="test1"></div>
-					<img id="previewImg1" /> 
-					<img id="previewImg2" /> 
-					<img id="previewImg3" />
+					<img name="review_img_1" id="previewImg1" /> 
+					<img name="review_img_2" id="previewImg2" /> 
+					<img name="review_img_3" id="previewImg3" />
 				</div>
 				<br>
 				<div class="sub-container2">
-					<input type="file" id="fileUpload1" accept=".jpg, .png, .bmp, .jpeg" />
-					<input type="file" id="fileUpload2" accept=".jpg, .png, .bmp, .jpeg" /> 
-					<input type="file" id="fileUpload3" accept=".jpg, .png, .bmp, .jpeg" />
+					<input type="file" id="fileUpload1" name="file" accept="image/*" />
+					<input type="file" id="fileUpload2" name="file" accept="image/*" /> 
+					<input type="file" id="fileUpload3" name="file" accept="image/*" />
 					<br> 
 					<input type="submit" id="write_btn" formaction="./write" value="등록" onclick="return confirm('완료하시겠습니까?')">
 				</div>
