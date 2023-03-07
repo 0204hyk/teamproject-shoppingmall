@@ -230,7 +230,7 @@ function changeSelect() {
  						var product_name = document.getElementsByClassName('product_name')[j];
  				
  						selected.addEventListener('click', (e) => {
-					
+							console.log(e.target.children[0]);
 							product_num.value = (e.target.children[0].defaultValue);
 							value.value = e.target.innerText;
 							searchInput.innerHTML = '';
