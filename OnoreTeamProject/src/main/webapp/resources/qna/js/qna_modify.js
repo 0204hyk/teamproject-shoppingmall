@@ -1,4 +1,3 @@
-
 const handler = {
             init() {
                 const fileInput = document.querySelector('#file-input');
@@ -59,8 +58,8 @@ const handler2 = {
 
 
                 fileInput2.addEventListener('change', () => {
-
-
+           
+                
                     var files2 = Array.from(fileInput2.files)
 
                     files2.forEach(file => {
@@ -124,11 +123,11 @@ const handler2 = {
 
 
             removeFile3: () => {
-
+         
 
                 document.addEventListener('click', (e) => {
                     if (e.target.className !== 'file-remove3') return;
-
+          
                     const removeTargetId3 = e.target.dataset.index;
                     console.log(e.target);
 
@@ -161,6 +160,7 @@ const handler2 = {
         handler3.init3()
         handler3.removeFile3()
 
+
 const imageBox = document.getElementsByClassName('img-input')[0];
 function PreviewImage() {
 	
@@ -171,13 +171,9 @@ function PreviewImage() {
 		
 	};
 					
-	preview.readAsDataURL(document.getElementById('image1').files[0]);
+	preview.readAsDataURL(document.getElementById('file-input').files[0]);
 	
-	var fileInput = document.getElementsByClassName("img-input");
 
-		
-	
-	
 };
 
 
@@ -190,7 +186,7 @@ function PreviewImage2() {
 		
 	};
 					
-	preview.readAsDataURL(document.getElementById('image2').files[0]);
+	preview.readAsDataURL(document.getElementById('file-input2').files[0]);
 
 };
 
@@ -203,7 +199,7 @@ function PreviewImage3() {
 		
 	};
 					
-	preview.readAsDataURL(document.getElementById('image3').files[0]);
+	preview.readAsDataURL(document.getElementById('file-input3').files[0]);
 
 };
 
@@ -228,8 +224,6 @@ function changeSelect() {
  					for (var i = 0; i < obj.length; ++i) {
  						searchInput.innerHTML += `<div class="selectProduct"><input type="hidden" value=${obj[i].product_num} /><img id="searchImg" src=${obj[i].product_thumbnail}  /> <span class="product_name">${obj[i].product_name}</span></div>`;
  					}
-
-
 
  					var len = document.getElementsByClassName('selectProduct').length;
 

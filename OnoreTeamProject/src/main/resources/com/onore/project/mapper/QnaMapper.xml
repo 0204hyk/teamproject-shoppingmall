@@ -39,6 +39,7 @@
 	<update id="qnaModifyComple">
 		UPDATE qna SET
 		qna_title = #{qna_title},
+		product_num = #{product_num},
 		qna_content = #{qna_content},
 		qna_category = #{qna_category},
 		qna_img_1 = #{qna_img_1},

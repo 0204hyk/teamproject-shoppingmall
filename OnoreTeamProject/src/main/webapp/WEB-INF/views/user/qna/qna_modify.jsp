@@ -34,8 +34,7 @@
 				<div style="width: 1200px; height: 600px;">
 					<input type="hidden" name="qna_num" value=${qna.qna_num } />
 					<div>
-						<select name="qna_category" id="select"
-							>
+						<select name="qna_category" id="select" onchange="changeSelect(this);">
 							<option value="분류">분류</option>
 							<option value="상품">상품</option>
 							<option value="주문 / 결제">주문 / 결제</option>
@@ -43,17 +42,37 @@
 							<option value="반품 / 교환">반품 / 교환</option>
 							<option value="기타">기타</option>
 						</select> 
+						<input type="search" />
 							<input type="text" name="qna_title" value=${qna.qna_title } />
+							<input type="hidden" id="p_num" name="product_num" value="">
 					</div>
-
+						<div id="inputs">
+			
+						</div>
 				
 						<textarea rows="10" cols="100" name="qna_content">${qna.qna_content }</textarea>
 						<br>
-						
-						<input type="file" name="file" accept="image/*" id="image1" class="img-input" onchange="PreviewImage();"/><br>
-						<input type="file" name="file" accept="image/*" id="image2" class="img-input" onchange="PreviewImage2();"/><br>
-						<input type="file" name="file" accept="image/*" id="image3" class="img-input" onchange="PreviewImage3();"/>
-					
+					<div id="firstImg">
+						<input type="file" name="file" accept="image/*" id="file-input" class="img-input" onchange="PreviewImage();"/>
+						<div id="imgBox1">
+    
+
+        				</div>
+					</div>
+					<div id="secondImg">
+						<input type="file" name="file" accept="image/*" id="file-input2" class="img-input" onchange="PreviewImage2();"/>
+						<div id="imgBox2">
+    
+
+        				</div>
+					</div>
+					<div id="thirdImg">
+						<input type="file" name="file" accept="image/*" id="file-input3" class="img-input" onchange="PreviewImage3();"/>
+						<div id="imgBox3">
+
+
+        				</div>
+					</div>
 						<input type="hidden" name="qna_img_1" value="${qna.qna_img_1 }"/>
 						<input type="hidden" name="qna_img_2" value="${qna.qna_img_2 }"/>
 						<input type="hidden" name="qna_img_3" value="${qna.qna_img_2 }"/>

@@ -6,23 +6,23 @@
 <mapper namespace="com.onore.project.mapper.ShopMapper">
 	
 	<select id="getAll" resultType="com.onore.project.dto.ProductsDTO">
-		select * from products
+		SELECT * FROM products
 	</select>
 	
 	<select id="getDerby" resultType="com.onore.project.dto.ProductsDTO">
-		select * from products where category_num = 1
+		SELECT * FROM products WHERE category_num = 1
 	</select>
 	
 	<select id="getBoots" resultType="com.onore.project.dto.ProductsDTO">
-		select * from products where category_num = 2
+		SELECT * FROM products WHERE category_num = 2
 	</select>
 	
 	<select id="getLoafers" resultType="com.onore.project.dto.ProductsDTO">
-		select * from products where category_num = 3
+		SELECT * FROM products WHERE category_num = 3
 	</select>
 	
 	<select id="getSnakers" resultType="com.onore.project.dto.ProductsDTO">
-		select * from products where category_num = 4
+		SELECT * FROM products WHERE category_num = 4
 	</select>
 	<select id="getDetail" resultType="com.onore.project.dto.ProductsDTO">
 		SELECT * FROM products WHERE product_num=3
