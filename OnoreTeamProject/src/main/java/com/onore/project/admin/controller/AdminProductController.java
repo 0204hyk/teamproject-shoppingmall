@@ -60,7 +60,7 @@ public class AdminProductController {
 			service.productRegist(product);
 		}
 		
-		return "redirect:/admin/product/regist";
+		return "redirect:/admin/product/list";
 	}
 	
 	@GetMapping("/list")
@@ -77,7 +77,7 @@ public class AdminProductController {
 			page = Integer.parseInt(pageStr);
 		}
 		
-		int board_size = 14;
+		int board_size = 5;
 		int notice_size = productList.size();
 		int start_index = (page - 1) * board_size;
 		int end_index = page * board_size;
@@ -121,4 +121,23 @@ public class AdminProductController {
 		
 		return "/admin/product/admin_product_list";
 	}
+	
+	@GetMapping("/modify")
+	public String productModifyForm(HttpServletRequest request) {
+		request.setAttribute("categories", service.readCaregoriesList());
+		request.setAttribute("product", service.readProduct(Integer.parseInt(request.getParameter("product_num"))));
+		return "/admin/notice/admin_product_modify";
+	}
+	
+	
+	@PostMapping("/delete")
+	public String productDelete(@RequestParam(value = "row_check", required = false) String[] row_check) {
+		if (row_check != null) {
+			for (String product_num : row_check) {
+				service.productDeleteService(Integer.parseInt(product_num));
+			}
+		}
+		return "redirect:/admin/product/list";
+	}
+
 }

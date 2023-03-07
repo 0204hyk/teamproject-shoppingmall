@@ -34,5 +34,20 @@ public class AdminProductService_impl implements AdminProductService{
 	public List<ProductsDTO> readAllProduct() {
 		return productsMapper.getAllProduct();
 	}
+	
+	@Override
+	public ProductsDTO readProduct(Integer product_num) {
+		return productsMapper.getProduct(product_num);
+	}
+
+	@Override
+	public Integer productModifyService(ProductsDTO product) {
+		return productsMapper.updateProduct(product);
+	}
+	
+	@Override
+	public Integer productDeleteService(Integer product_num) {
+		return productsMapper.deleteProduct(product_num);
+	}
 
 }

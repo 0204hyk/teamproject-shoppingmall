@@ -78,10 +78,48 @@ function productRegist(url){
         processData: false,    
         success: function(data){
             alert('상품 등록 완료');
-            movePageByGet('/project/admin/product/regist');
+            movePageByGet('/project/admin/product/list');
         },
         error: function (request, status, error){        
             console.log(error);
         }
     })     
+}
+
+function productModify(url){
+  let category_num = $('#input-category').val();
+  let product_name = $('#input-name').val();
+  let product_price = $('#input-price').val();
+  let product_info = $('#input-info').val();
+  let product_thumbnail_1 = $('#thumbnail1')[0];
+  let product_thumbnail_2 = $('#thumbnail2')[0];
+  let product_thumbnail_3 = $('#thumbnail3')[0];
+  let product_detail = $('#input-detail').val();
+  
+  let registFormData = new FormData();
+  registFormData.append("category_num", category_num);
+  registFormData.append("product_name", product_name);
+  registFormData.append("product_price", product_price);
+  registFormData.append("product_info", product_info);
+  registFormData.append("product_thumbnail_1", product_thumbnail_1.files[0]);
+  registFormData.append("product_thumbnail_2", product_thumbnail_2.files[0]);
+  registFormData.append("product_thumbnail_3", product_thumbnail_3.files[0]);
+  registFormData.append("product_detail", product_detail);
+
+  $.ajax({
+      url: url,
+      type: "POST",
+      enctype: 'multipart/form-data',
+      cache: false,
+      data: registFormData,
+      contentType: false,
+      processData: false,    
+      success: function(data){
+          alert('상품 수정 완료');
+          movePageByGet('/project/admin/product/list');
+      },
+      error: function (request, status, error){        
+          console.log(error);
+      }
+  })     
 }

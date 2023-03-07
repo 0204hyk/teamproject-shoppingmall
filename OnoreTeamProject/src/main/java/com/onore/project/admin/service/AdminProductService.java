@@ -9,4 +9,7 @@ public interface AdminProductService {
 	List<CategoriesDTO> readCaregoriesList();
 	Integer productRegist(ProductsDTO product);
 	List<ProductsDTO> readAllProduct();
+	ProductsDTO readProduct(Integer product_num);
+	Integer productModifyService(ProductsDTO product);
+	Integer productDeleteService(Integer product_num);
 }
