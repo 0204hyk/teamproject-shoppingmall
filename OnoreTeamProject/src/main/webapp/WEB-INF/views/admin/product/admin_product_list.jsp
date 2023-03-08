@@ -19,7 +19,7 @@
 							<th><input type="checkbox" id="all-check"/></th>
 							<th>NO</th>
 							<th>이미지</th>
-							<th>상품명</th>
+							<th style="padding-right: 100px;">상품명</th>
 							<th>조회수</th>
 							<th>좋아요수</th>
 							<th>상품등록일</th>
@@ -38,7 +38,7 @@
 										<td style="width: 250px;"><img src="${product.product_thumbnail_1}" alt="이미지 미리보기" style="width: 100px; height: 100px;"/></td>
 									</c:otherwise>
 								</c:choose>
-								<td style="vertical-align: middle;"><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/product/modify?product_num=${product.product_num}')">${product.product_name}</a></td>
+								<td style="vertical-align: middle; padding-right: 100px;"><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/product/modify?product_num=${product.product_num}')">${product.product_name}</a></td>
 								<td style="width: 80px; vertical-align: middle;">${product.product_views}</td>
 								<td style="width: 80px; vertical-align: middle;">${product.product_likes}</td>
 								<td style="width: 200px; vertical-align: middle;">${product.creationDateTime}</td>
