@@ -52,5 +52,5 @@ public class ShopRestController {
 		return shopService.snakersView();
 
 	}
-
+	
 }

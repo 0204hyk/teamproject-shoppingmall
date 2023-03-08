@@ -102,7 +102,8 @@ table {
 }
 
 .qna {
-	padding-top: 100px;
+	padding-top: 150px;
+	padding-bottom: 100px;
 }
  
 .title {
@@ -187,7 +188,7 @@ select > option {
 
 #priceinfo {
 	margin: 20px 0;
-	margin-left: 340px;
+	margin-left: 330px;
 }
 
 #cnt {
@@ -259,4 +260,19 @@ form {
 	padding: 5px;
 	height: 20px;
 	font-weight: bold;
+}
+
+#review, #qna {
+  	background-color: black;
+    color: white;
+    width: 120px;
+    height: 50px;
+    float: right;
+    border-radius: 5%;
+    margin-top: 50px;
+    cursor: pointer; 
+}
+
+h3 {
+	margin: 50px 0;
 }

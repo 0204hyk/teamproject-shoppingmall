@@ -16,6 +16,7 @@ const priceinfo = document.getElementById('priceinfo');
 
 const prices = document.getElementById('price').innerText;
 const price = prices.replace(/[^0-9]/g, '');
+const price2 = prices.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 const name = document.getElementById('product_name').innerText;
 
@@ -45,11 +46,13 @@ function count(type) {
     
 
     const a = document.getElementById('a');
-    a.innerHTML = number * price + " 원 &nbsp;&nbsp;&nbsp;&nbsp; <i class='fa-solid fa-xmark fa-lg' id='cancel'></i>";
+    a.innerHTML = (number * price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "원 &nbsp;&nbsp;&nbsp;&nbsp; <i class='fa-solid fa-xmark fa-lg' id='cancel'></i>";
     cntinfo.innerHTML = number + "개";
-    priceinfo.innerHTML = number * price + "원";
+    priceinfo.innerHTML = (number * price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '원';
     order_cnt.value = number;
-    console.log(order_cnt);
+    console.log(price);
+    console.log((price * number));
+    
 };
 
 
@@ -70,7 +73,7 @@ sizes.addEventListener('change', (e) => {
                     if (sole != 'default') {
                        
                         op.innerHTML ="<div id='box'>" + "<hr>" + "<span>" + name + "&nbsp;&nbsp;[" + size + "/" + heel + "/" + sole + "]</span>" 
-                        + "<br>" + "<div id='a'>" + price + " 원 &nbsp;&nbsp;&nbsp;&nbsp; <i class='fa-solid fa-xmark fa-lg' id='cancel'></i> </div>" 
+                        + "<br>" + "<div id='a'>" + price2 + " 원 &nbsp;&nbsp;&nbsp;&nbsp; <i class='fa-solid fa-xmark fa-lg' id='cancel'></i> </div>" 
                         + "</div>"
                         ;
                         cnt.style.display = "";
@@ -119,3 +122,39 @@ reviewView.addEventListener('click', () => {
 qnaView.addEventListener('click', () => {
     window.scrollBy({top: qna.getBoundingClientRect().top, behavior: 'smooth'});
 });
+
+
+const nowish = document.getElementById('nowish'); // 빈하트
+const wish = document.getElementById('wish'); // 가득찬하트
+const prd_num = document.getElementById('product_num').value;
+
+nowish.addEventListener('click', (e) => {
+    const xhttp = new XMLHttpRequest();
+    xhttp.addEventListener('readystatechange', (e) =>{
+        if (e.target.readyState == 4 && e.target.status == 200) {
+        	console.log('찜하기');
+            nowish.style.display="none";
+            wish.style.display="";
+        }
+    });
+    console.log(prd_num);
+    xhttp.open('GET', './wish/' + prd_num);
+    xhttp.send();
+});
+
+wish.addEventListener('click', (e) => {
+    const xhttp = new XMLHttpRequest();
+    xhttp.addEventListener('readystatechange', (e) =>{
+    	 console.log('readyState: ', xhttp.readyState);
+        console.log('httpStatus: ', xhttp.status);
+        if (e.target.readyState == 4 && e.target.status == 200) {
+            wish.style.display="none";
+            nowish.style.display="";
+        }
+    });
+  
+    xhttp.open('GET', './nowish');
+    xhttp.send();
+});
+
+

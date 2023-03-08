@@ -64,5 +64,19 @@ public class ShopServiceImpl implements ShopService{
 		
 		return shop_mapper.getProReview(product_num);
 	}
+
+
+	@Override
+	public Integer getWish(Integer product_num, String mem_id ) {
+		
+		return shop_mapper.getWish(product_num, mem_id);
+	}
+
+
+	@Override
+	public Integer deleteWish(Integer product_num, String mem_id) {
+		
+		return shop_mapper.deleteWish(product_num, mem_id);
+	}
 	
 }

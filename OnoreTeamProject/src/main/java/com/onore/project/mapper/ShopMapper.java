@@ -22,4 +22,7 @@ public interface ShopMapper {
 	
 	List<ReviewDTO> getProReview(Integer product_num);
 	
+	Integer getWish ( Integer product_num, String mem_id);
+	
+	Integer deleteWish(Integer product_num, String mem_id);
 }

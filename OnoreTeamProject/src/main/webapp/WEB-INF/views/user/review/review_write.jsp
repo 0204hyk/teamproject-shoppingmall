@@ -53,24 +53,33 @@
 				</div>
 			</div>
 			<hr>
-			<div class="container2">
-				<textarea  name="review_content" id="reviewContents" cols="150"
+			<!-- 리뷰작성폼 div 바깥으로 이동 2023.03.08 수정  -->
+			<textarea  name="review_content" id="reviewContents" cols="150"
 					rows="30" >리뷰를 작성해주세요</textarea>
+			
+			<div class="container2">
 				<div id="img-box">
-					<div id="test1"></div>
 					<img id="previewImg1" /> 
 					<img id="previewImg2" /> 
 					<img id="previewImg3" />
 				</div>
 				<br>
+				<!-- 파일선택 input 을 각 div로 감쌈 2023.03.08 수정  -->
 				<div class="sub-container2">
-					<input type="file" id="fileUpload1" accept=".jpg, .png, .bmp, .jpeg" />
-					<input type="file" id="fileUpload2" accept=".jpg, .png, .bmp, .jpeg" /> 
-					<input type="file" id="fileUpload3" accept=".jpg, .png, .bmp, .jpeg" />
+					<div>
+						<input type="file" id="fileUpload1" accept=".jpg, .png, .bmp, .jpeg" />
+					</div>
+					<div>
+						<input type="file" id="fileUpload2" accept=".jpg, .png, .bmp, .jpeg" />
+					 </div>
+					 <div>
+						<input type="file" id="fileUpload3" accept=".jpg, .png, .bmp, .jpeg" />
+					 </div>	
 					<br> 
-					<input type="submit" id="write_btn" formaction="./write" value="등록" onclick="return confirm('완료하시겠습니까?')">
 				</div>
+				<br>
 			</div>
+			<input type="submit" id="write_btn" formaction="./write" value="등록" onclick="return confirm('완료하시겠습니까?')">
 			</form>
 		</div>
 	</div>

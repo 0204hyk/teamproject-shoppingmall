@@ -141,7 +141,8 @@
 			<c:forEach items="${comments }" var="comment">
 			<div class="comment_box">
 				<input type="hidden" class="com_num" value="${comment.comment_num }">
-				<div><span id="mem">${comment.comment_id }</span>  &nbsp;&nbsp; ${comment.comment_date }</div>
+				<span class="mem" style="display: none">${comment.comment_id }</span>
+				<div><span class="com_id"></span> &nbsp;&nbsp; ${comment.comment_date }</div>
 				<br>
 				<div id="reply_detail">
 					<div id="get_content">${comment.comment_content }</div>

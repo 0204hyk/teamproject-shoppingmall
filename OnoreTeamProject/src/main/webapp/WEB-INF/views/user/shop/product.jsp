@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,11 +24,14 @@
 			</div>
 			<div class="right">
 				<h1 id="product_name">${product.product_name }</h1>
-				<button class="heart"><i class="fa-regular fa-heart fa-2x"></i></button>
+				<button class="heart" id="nowish"><i class="fa-regular fa-heart fa-2x"></i></button>
+				<button class="heart" id="wish" style="display: none;"><i class="fa-solid fa-heart fa-2x"></i></button>
 				<hr style="margin-top: 20px;">
 				<div id="info"><br>${product.product_info }</div>
 				<hr style="margin-top: 50px;" >
-				<div id="price">${product.product_price }원</div>
+				<div id="price"  style="display: none;">${product.product_price }</div>
+				 
+				<div><h3><fmt:formatNumber value="${product.product_price }" pattern="#,###" /> 원</h3></div>
 				
 				<form method="POST" id="form">
 				
@@ -72,7 +76,7 @@
 				총 주문금액 <span id="priceinfo"></span>
 				</div>
 				<hr>
-				<input type="hidden" value="${product.product_num }" name="product_num">
+				<input type="hidden" value="${product.product_num }" name="product_num" id="product_num">
 				<input type="hidden" value="" id="order_cnt" name="order_cnt">
 				<input type="submit" value="주문하기" formaction="../order" id="order">
 				<input type="submit" value="장바구니" formaction="./cart" id="cart">
@@ -158,13 +162,13 @@
 						</tr>
 				</c:forEach>
 			</table>
-			<button onclick="location.href='../review/write?prodcut_num=${product.product_num}'">리뷰쓰기</button>
+			<button onclick="location.href='../review/write?prodcut_num=${product.product_num}'" id="review">리뷰쓰기</button>
 			</div>
 			<div class="qna">
 				<h3>Q & A</h3>
 			<br>
 				<table>
-					<c:forEach items="${reviews }" var="review">
+					<c:forEach items="${qnas }" var="qna">
 						<tr>
 							<th class="title">번호</th>
 							<th class="title">제목</th>	
@@ -173,18 +177,30 @@
 							<th class="title">답변상태</th>
 						</tr>
 						<tr>
-							<td class="qna_con">${review.review_num }</td>
-							<td class="qna_con" id="con">문의제목</td>
-							<td class="qna_con">${review.mem_id }</td>
-							<td class="qna_con">${review.review_date }</td>
-							<td class="qna_con"><span id="answer">답변완료</span></td>
+							<td class="qna_con">${qna.qna_num }</td>
+							<td class="qna_con" id="con">${qna.qna_title }</td>
+							<td class="qna_con">${qna.maskingName }</td>
+							<td class="qna_con">${qna.qna_date }</td>
+							<td class="qna_con">
+								<c:choose>
+									<c:when test="${qna.qna_status eq 0 }">
+										<span id="answer">답변 대기중</span>
+									</c:when>
+									<c:when test="${qna.qna_status eq 1 }">
+										<span id="answer">답변 완료</span>
+									</c:when>
+									<c:otherwise>
+										<span id="answer">${qna.qna_status }</span>
+									</c:otherwise>
+								</c:choose>
+							</td>
 						</tr> 
 				</c:forEach>
 			</table>
-			
+			<button onclick="location.href='../qna/qna_write?prodcut_num=${product.product_num}'" id="qna">문의하기</button>
 			</div>
 		</div>
-			
+			<br>
 	</div>
 	<hr>
 	

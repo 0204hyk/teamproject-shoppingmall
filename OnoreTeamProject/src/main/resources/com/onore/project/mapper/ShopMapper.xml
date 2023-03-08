@@ -33,4 +33,16 @@
 		SELECT * FROM reviews WHERE product_num=3
 	</select>
 	
+	<insert id="getWish" parameterType="com.onore.project.dto.WishDTO">
+  		INSERT INTO wish_list VALUES (
+  			wish_num_seq.nextval,
+  			3,
+  			'abc123'
+  		)
+  	</insert>
+  	
+  	<delete id="deleteWish">
+  		DELETE FROM wish_list WHERE product_num=3  AND mem_id='abc123'
+ 	</delete>
+	
 </mapper>
