@@ -16,7 +16,7 @@ window.addEventListener('load', function() {
 			
 				for ( i = 0; i < obj.length; ++i) {
 					let onoreImg = document.getElementsByClassName('img-info')[i];
-					onoreImg.innerHTML += `<img src=${obj[i].product_thumbnail} class='imgs' />`;	
+					onoreImg.innerHTML += `<img src=${obj[i].product_thumbnail_1} class='imgs' />`;	
 					let number = `${obj[i].product_num }`;
 					
 					// 상품 가격 변수에 저장 후 정규표현식으로 천원 단위 표현
@@ -26,16 +26,16 @@ window.addEventListener('load', function() {
 					let onoreInfo = document.getElementsByClassName('img-info2')[i];
  					onoreInfo.innerHTML += `<span class='information'><h4>${obj[i].product_name}</h4><h5>${total}원</h5></span>`;
  					onoreImg.style.opacity = '1';
- 					onoreInfo.style.display = 'none';
+ 					onoreInfo.style.visibility = 'hidden';
 					
 					onoreImg.addEventListener('mouseenter', (e) => {
 						onoreImg.style.opacity = '0.3';
-						onoreInfo.style.display = 'initial';
+						onoreInfo.style.visibility = 'visible';
 					});
 					
 					onoreImg.addEventListener('mouseleave', (e) => {
 						onoreImg.style.opacity = '1';
-						onoreInfo.style.display = 'none';
+						onoreInfo.style.visibility = 'hidden';
 						
 					});
 					
@@ -73,23 +73,23 @@ categoryAll.addEventListener('click', (e) => {
 				for ( i = 0; i < obj.length; ++i) {
 					let onoreImg = document.getElementsByClassName('img-info')[i];
 			
-					onoreImg.innerHTML = `<img src=${obj[i].product_thumbnail} class='imgs' />`;	
+					onoreImg.innerHTML = `<img src=${obj[i].product_thumbnail_1} class='imgs' />`;	
 					let number = `${obj[i].product_num }`;
 					let price = `${obj[i].product_price}`;
 					let total = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
  					let onoreInfo = document.getElementsByClassName('img-info2')[i];
  					onoreInfo.innerHTML += `<span class='information'><h4>${obj[i].product_name}</h4><h5>${total}원</h5></span>`;
  					onoreImg.style.opacity = '1';
- 					onoreInfo.style.display = 'none';
+ 					onoreInfo.style.visibility = 'hidden';
 					
 					onoreImg.addEventListener('mouseenter', (e) => {
 						onoreImg.style.opacity = '0.3';
-						onoreInfo.style.display = 'initial';
+						onoreInfo.style.visibility = 'visible';
 					});
 					
 					onoreImg.addEventListener('mouseleave', (e) => {
 						onoreImg.style.opacity = '1';
-						onoreInfo.style.display = 'none';
+						onoreInfo.style.visibility = 'hidden';
 						
 					});
 					
@@ -128,23 +128,23 @@ derbyBtn.addEventListener('click', (e) => {
 				for ( i = 0; i < obj.length; ++i) {
 					let onoreImg = document.getElementsByClassName('img-info')[i];
 			
-					onoreImg.innerHTML = `<img src=${obj[i].product_thumbnail} class='imgs' />`;	
+					onoreImg.innerHTML = `<img src=${obj[i].product_thumbnail_1} class='imgs' />`;	
 					let number = `${obj[i].product_num }`;
 					let price = `${obj[i].product_price}`;
 					let total = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
  					let onoreInfo = document.getElementsByClassName('img-info2')[i];
  					onoreInfo.innerHTML += `<span class='information'><h4>${obj[i].product_name}</h4><h5>${total}원</h5></span>`;
 					onoreImg.style.opacity = '1';
- 					onoreInfo.style.display = 'none';
+ 					onoreInfo.style.visibility = 'hidden';
 					
 					onoreImg.addEventListener('mouseenter', (e) => {
 						onoreImg.style.opacity = '0.3';
-						onoreInfo.style.display = 'initial';
+						onoreInfo.style.visibility = 'visible';
 					});
 					
 					onoreImg.addEventListener('mouseleave', (e) => {
 						onoreImg.style.opacity = '1';
-						onoreInfo.style.display = 'none';
+						onoreInfo.style.visibility = 'hidden';
 						
 					});
 					
@@ -182,23 +182,23 @@ bootsBtn.addEventListener('click', (e) => {
 				for ( i = 0; i < obj.length; ++i) {
 					let onoreImg = document.getElementsByClassName('img-info')[i];
 			
-					onoreImg.innerHTML = `<img src=${obj[i].product_thumbnail} class='imgs' />`;	
+					onoreImg.innerHTML = `<img src=${obj[i].product_thumbnail_1} class='imgs' />`;	
 					let number = `${obj[i].product_num }`;
 					let price = `${obj[i].product_price}`;
 					let total = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
  					let onoreInfo = document.getElementsByClassName('img-info2')[i];
  					onoreInfo.innerHTML += `<span class='information'><h4>${obj[i].product_name}</h4><h5>${total}원</h5></span>`;
 					onoreImg.style.opacity = '1';
- 					onoreInfo.style.display = 'none';
+ 					onoreInfo.style.visibility = 'hidden';
 					
 					onoreImg.addEventListener('mouseenter', (e) => {
 						onoreImg.style.opacity = '0.3';
-						onoreInfo.style.display = 'initial';
+						onoreInfo.style.visibility = 'visible';
 					});
 					
 					onoreImg.addEventListener('mouseleave', (e) => {
 						onoreImg.style.opacity = '1';
-						onoreInfo.style.display = 'none';
+						onoreInfo.style.visibility = 'hidden';
 						
 					});
 					
@@ -235,7 +235,7 @@ loaferBtn.addEventListener('click', (e) => {
 				for ( i = 0; i < obj.length; ++i) {
 					let onoreImg = document.getElementsByClassName('img-info')[i];
 			
-					onoreImg.innerHTML = `<img src=${obj[i].product_thumbnail} class='imgs' />`;	
+					onoreImg.innerHTML = `<img src=${obj[i].product_thumbnail_1} class='imgs' />`;	
 					let number = `${obj[i].product_num }`;
 					let price = `${obj[i].product_price}`;
 					let total = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -243,16 +243,16 @@ loaferBtn.addEventListener('click', (e) => {
  					onoreInfo.innerHTML += `<span class='information'><h4>${obj[i].product_name}</h4><h5>${total}원</h5></span>`;
  
  					onoreImg.style.opacity = '1';
- 					onoreInfo.style.display = 'none';
+ 					onoreInfo.style.visibility = 'hidden';
 					
 					onoreImg.addEventListener('mouseenter', (e) => {
 						onoreImg.style.opacity = '0.3';
-						onoreInfo.style.display = 'initial';
+						onoreInfo.style.visibility = 'visible';
 					});
 					
 					onoreImg.addEventListener('mouseleave', (e) => {
 						onoreImg.style.opacity = '1';
-						onoreInfo.style.display = 'none';
+						onoreInfo.style.visibility = 'hidden';
 						
 					});
 					
@@ -289,23 +289,23 @@ snakersBtn.addEventListener('click', (e) => {
 				for ( i = 0; i < obj.length; ++i) {
 					let onoreImg = document.getElementsByClassName('img-info')[i];
 			
-					onoreImg.innerHTML = `<img src=${obj[i].product_thumbnail} class='imgs' />`;	
+					onoreImg.innerHTML = `<img src=${obj[i].product_thumbnail_1} class='imgs' />`;	
 					let number = `${obj[i].product_num }`;
 					let price = `${obj[i].product_price}`;
 					let total = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
  					let onoreInfo = document.getElementsByClassName('img-info2')[i];
  					onoreInfo.innerHTML += `<span class='information'><h4>${obj[i].product_name}</h4><h5>${total}원</h5></span>`;
  					onoreImg.style.opacity = '1';
- 					onoreInfo.style.display = 'none';
+ 					onoreInfo.style.visibility = 'hidden';
 					
 					onoreImg.addEventListener('mouseenter', (e) => {
 						onoreImg.style.opacity = '0.3';
-						onoreInfo.style.display = 'initial';
+						onoreInfo.style.visibility = 'visible';
 					});
 					
 					onoreImg.addEventListener('mouseleave', (e) => {
 						onoreImg.style.opacity = '1';
-						onoreInfo.style.display = 'none';
+						onoreInfo.style.visibility = 'hidden';
 						
 					});
 					
