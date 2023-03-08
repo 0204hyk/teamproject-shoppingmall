@@ -21,7 +21,14 @@
 					<select id="input-category" class="form-select category-select" name="category_num">
 						<option value="0">카테고리를 선택해주세요.</option>
 						<c:forEach items="${categories}" var="category">
-							<option value="${category.category_num}">${category.category_name}</option>
+							<c:choose>
+								<c:when test="${product.category_num == category.category_num}">
+									<option value="${category.category_num}" selected>${category.category_name}</option>		
+								</c:when>
+								<c:otherwise>
+									<option value="${category.category_num}">${category.category_name}</option>								
+								</c:otherwise>
+							</c:choose>
 						</c:forEach>
 					</select>
 				</div>
