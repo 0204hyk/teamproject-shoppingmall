@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.onore.project.dto.ProductsDTO;
-import com.onore.project.shop.controller.service.ShopService;
+import com.onore.project.shop.service.ShopService;
 
 import lombok.extern.log4j.Log4j2;
 

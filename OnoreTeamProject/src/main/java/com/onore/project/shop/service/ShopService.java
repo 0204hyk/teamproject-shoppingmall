@@ -1,4 +1,4 @@
-package com.onore.project.shop.controller.service;
+package com.onore.project.shop.service;
 
 import java.util.List;
 

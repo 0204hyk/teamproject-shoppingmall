@@ -24,7 +24,7 @@ import com.onore.project.dto.ReviewDTO;
 import com.onore.project.review.service.PageService;
 import com.onore.project.review.service.ReplyService;
 import com.onore.project.review.service.ReviewService;
-import com.onore.project.shop.controller.service.ShopService;
+import com.onore.project.shop.service.ShopService;
 
 import lombok.extern.log4j.Log4j2;
 

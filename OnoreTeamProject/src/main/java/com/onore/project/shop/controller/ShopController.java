@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.onore.project.shop.controller.service.ShopService;
+import com.onore.project.shop.service.ShopService;
+
 
 @Controller
 @RequestMapping("/shop")
