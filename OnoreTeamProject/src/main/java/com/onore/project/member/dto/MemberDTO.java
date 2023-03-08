@@ -1,17 +1,7 @@
 package com.onore.project.member.dto;
 
 import java.util.Date;
-import java.util.List;
-
 import org.springframework.stereotype.Component;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 
 @Component("memberDTO")
 public class MemberDTO {

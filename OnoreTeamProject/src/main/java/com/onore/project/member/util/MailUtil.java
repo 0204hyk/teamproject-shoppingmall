@@ -1,11 +1,9 @@
 package com.onore.project.member.util;
 
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import com.onore.project.member.dto.MemberDTO;
 import com.onore.project.member.service.MemberService;
 

@@ -1,9 +1,6 @@
 package com.onore.project.member.service;
 
 import java.util.List;
-
-import org.springframework.ui.Model;
-
 import com.onore.project.member.dto.MemberDTO;
 
 

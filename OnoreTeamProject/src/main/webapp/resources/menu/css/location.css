@@ -15,7 +15,7 @@
 	text-align: center;
 	font-weight: bold;
 	font-size : 25px;
-	font-family: 'Do Hyeon', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
 .map_div {
@@ -47,6 +47,7 @@
 	height: 550px;
 	background-color: white;
 	margin-left: 50px;
+	position: absolute; <!-- 지도 고정 -->
 }
 
 .bus_div,
@@ -55,15 +56,15 @@
 	text-align: left;
 	font-weight: bold;
 	font-size : 20px;
-	font-family: 'Do Hyeon', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
 .bus_content,
 .subway_content,
 .park_content {
 	text-align: left;
-	font-size : 15px;
-	font-family: 'Do Hyeon', sans-serif;
+	font-size : 14px;
+	font-family: 'Noto Sans KR', sans-serif;
 	margin-bottom: 20px;
 	color : darkgray;
 }
