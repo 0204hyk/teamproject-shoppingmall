@@ -68,6 +68,10 @@
 					<input type="file" id="fileUpload2" accept=".jpg, .png, .bmp, .jpeg" /> 
 					<input type="file" id="fileUpload3" accept=".jpg, .png, .bmp, .jpeg" />
 					<br> 
+					<input type="hidden" name="review_img_1" value="${qna.qna_img_1 }"/>
+					<input type="hidden" name="review_img_1" value="${qna.qna_img_2 }"/>
+					<input type="hidden" name="review_img_1" value="${qna.qna_img_2 }"/>
+					
 					<input id="modify_btn" type="submit" value="수정" onclick="return confirm('수정하시겠습니까?')">
 				</div>
 			</div>
