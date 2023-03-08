@@ -24,6 +24,5 @@
 	</bean>
 	
 	<!-- 각 파트마다 mapper 스캔 -->
-	<mybatis-spring:scan base-package="com.onore.project.order.mapper" />
-	<mybatis-spring:scan base-package="com.onore.project.member.mapper" />
+	<mybatis-spring:scan base-package="com.onore.project.mapper" />
 </beans>

@@ -4,18 +4,18 @@
 <header class="header">
 	<nav class="navbar">
 		<div class="navbar_logo">
-			<a href="">ONÓRE</a>
+			<a href=""><img src="/project/resources/review/image/logo.png"></a>
 		</div>
 
 		<ul class="navbar_menu">
 			<li><a href="">NOTICE</a></li>
-			<li><a href="">ABOUT</a></li>
+			<li><a href="../about/">ABOUT</a></li>
 			<li><a href="">LOCATION</a></li>
-			<li><a href="">SHOP</a></li>
+			<li><a href="../shop/main">SHOP</a></li>
 			<li><a href="" class="community">COMMUNITY</a>
 				<ul class="navbar_submenu">
-					<li><a href="">Q&A</a></li>
-					<li><a href="">REVIEW</a></li>
+					<li><a href="../qna/main">Q&A</a></li>
+					<li><a href="../review/list">REVIEW</a></li>
 				</ul></li>
 			<li><a href="">LOOKBOOK</a></li>
 		</ul>

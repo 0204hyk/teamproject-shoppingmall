@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.onore.project.member.dto.CouponDTO;
-import com.onore.project.member.dto.MembersDTO;
-import com.onore.project.member.mapper.MemberMapper;
+import com.onore.project.dto.CouponDTO;
+import com.onore.project.dto.MembersDTO;
+import com.onore.project.mapper.MemberMapper;
 import com.onore.project.member.service.MemberService;
 
 @Service

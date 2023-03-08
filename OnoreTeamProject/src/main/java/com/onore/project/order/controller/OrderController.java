@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.onore.project.member.dto.CouponDTO;
-import com.onore.project.member.dto.MembersDTO;
+import com.onore.project.dto.CouponDTO;
+import com.onore.project.dto.MembersDTO;
 import com.onore.project.member.service.MemberService;
-import com.onore.project.order.dto.OrderDTO;
-import com.onore.project.order.dto.OrderInfoDTO;
-import com.onore.project.order.dto.PurchaseInfoDTO;
+import com.onore.project.dto.OrderDTO;
+import com.onore.project.dto.OrderInfoDTO;
+import com.onore.project.dto.PurchaseInfoDTO;
 import com.onore.project.order.service.OrderService;
 
 @Controller
@@ -63,7 +63,7 @@ public class OrderController {
 		model.addAttribute("coupons", coupons);
 		model.addAttribute("accessible_points", accessible_points);
 		
-		return "order/order_main";
+		return "user/order/order_main";
 	}
 	
 	@PostMapping("/result")
@@ -93,7 +93,7 @@ public class OrderController {
 				Integer row = member_service.updateMemberAddress(address);
 				if (row <= 0) {
 					model.addAttribute("status", "update_address_failed");
-					return "order/order_fail";
+					return "user/order/order_fail";
 				}
 			}
 			
@@ -107,14 +107,14 @@ public class OrderController {
 				model.addAttribute("order", order);
 				model.addAttribute("payment_key", payment_key);
 				model.addAttribute("amount", amount);
-				return "order/order_result";
+				return "user/order/order_result";
 			} else {
 				model.addAttribute("status", "order_info_failed");
-				return "order/order_fail";
+				return "user/order/order_fail";
 			}
 		} else {
 			model.addAttribute("status", "order_failed");
-			return "order/order_fail";
+			return "user/order/order_fail";
 		}
 	}
 	
@@ -138,7 +138,7 @@ public class OrderController {
 		} else {
 			model.addAttribute("discount_by_coupon", discount_by_coupon);
 		}
-		return "order/order_complete";
+		return "user/order/order_complete";
 	}
 	
 	@PostMapping("/updateReceiver")

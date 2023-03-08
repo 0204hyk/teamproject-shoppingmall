@@ -2,8 +2,8 @@ package com.onore.project.member.service;
 
 import java.util.List;
 
-import com.onore.project.member.dto.CouponDTO;
-import com.onore.project.member.dto.MembersDTO;
+import com.onore.project.dto.CouponDTO;
+import com.onore.project.dto.MembersDTO;
 
 public interface MemberService {
 

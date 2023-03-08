@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.onore.project.review.dto.CommentDTO;
-import com.onore.project.review.mapper.ReviewMapper;
+import com.onore.project.dto.CommentDTO;
+import com.onore.project.mapper.ReviewMapper;
 import com.onore.project.review.service.ReplyService;
 
 @Service
@@ -37,5 +37,10 @@ public class ReplyServiceImpl implements ReplyService {
 		
 		return review_mapper.replyDelete(comment_num);
 	}
-
+	
+	@Override
+	public Integer cntReply(Integer review_num) {
+		
+		return review_mapper.cntReply(review_num);
+	}
 }

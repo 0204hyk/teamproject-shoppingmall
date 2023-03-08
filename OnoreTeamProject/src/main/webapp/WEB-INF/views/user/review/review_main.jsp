@@ -8,17 +8,19 @@
 <title>ONÓRE</title>
 <%@ include file="../header.jspf" %>
 <link rel="icon" href="/project/resources/review/image/파비콘.png">
+<link rel="stylesheet"href="/project/resources/review/css/review_list.css?ver=1">
 </head>
 <body>
 
 	<%@ include file="../top.jspf" %>
 
 	
-	<div class="main" style="padding-top: 127px;  width: auto; height: 800px; margin:50px; margin-top: 0px;">
+	<div class="main" style="padding-top: 127px;  width: auto;  margin:50px; margin-top: 0px;">
 	<hr>
 		<div class="board" style="padding: 60px;">
 			<table>
 				<th id="num">번호</th>
+				<th></th>
 				<th id="prduct">상품이름</th>
 				<th id="title">제목</th>
 				<th id="writer">글쓴이</th>
@@ -28,25 +30,58 @@
 				<c:forEach items="${reviews }" var="review">
 				<tr>
 					<td>${review.review_num }</td>
-					<td id="prduct_name">${review.product_num }</td>
+					<td id="product_name">
+						<img src ="${review.product_thumbnail_1}">
+					</td>
+					<td><span id="prd_name">${review.product_name }</span> </td>
 					<td id="review_content"><a href="./detail?review_num=${review.review_num}">
 					${review.review_content }</td>
-					<td id="mem_id">${review.mem_id }</td>
+					<td id="mem_id">${review.maskingName }</td>
 					<td>${review.review_date }</td>
 					<c:if test="${review.review_rating eq 5 }">
-						<td>★★★★★</td>
+						<td>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+						</td>
 					</c:if>
 					<c:if test="${review.review_rating eq 4 }">
-						<td>★★★★☆</td>
+						<td>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</td>
 					</c:if>
 					<c:if test="${review.review_rating eq 3 }">
-						<td>★★★☆☆</td>
+						<td>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</td>
 					</c:if>
 					<c:if test="${review.review_rating eq 2 }">
-						<td>★★☆☆☆</td>
+						<td>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</td>
 					</c:if>
 					<c:if test="${review.review_rating eq 1 }">
-						<td>★☆☆☆☆</td>
+						<td>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</td>
 					</c:if>
 				</tr>
 				</c:forEach>

@@ -1,8 +1,8 @@
 .detail {
-    padding:60px;
+    padding:60px 0;
     margin-left: auto;
     margin-right: auto;
-    
+    width: 1000px;
 }
 
 .container {
@@ -14,11 +14,13 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .content {
     width: auto;
     height: 300px;
+    font-size: 20px;
 }
 
 
@@ -26,6 +28,17 @@ img {
     width: 200px;
     height: 200px;
 }
+
+button {
+  	background-color: black;
+    color: white;
+    width: 100px;
+    height: 70px;
+    float: right;
+    border-radius: 5%;
+    margin-top: 30px;
+    cursor: pointer; 
+  }
 
 #comment {
 	background-color: white;
@@ -35,6 +48,11 @@ img {
     float: right;
     margin: 0px;
     border: 0px;
+}
+
+#comment_content {
+	border: solid 1px gray;
+	font-size: 13px;
 }
 
 textarea {
@@ -61,23 +79,76 @@ textarea {
     height: 30px;
     margin: 0px;
     border: 0px;
-    
+    font-size: 15px;
 }
-
-
 
 #comment {
 	margin: 0px;
 	width: 80px;
+	
+	font-size: 15px;
 }
 
 #list {
 	background-color: black;
     color: white;
-    width: 100px;
-    height: 30px;
+    width: 120px;
+    height: 50px;
     float: right;
-    margin-top: 30px;
+    margin: 30px 0;
 }
 
+.sub-container2 {
+	display: flex;
+}
 
+.sub-container2 > div {
+	margin: 0 20px;
+}
+
+.fa-solid.fa-star, .fa-regular.fa-star {
+ 	color: orange;
+ }
+
+.rating {
+    text-align: left;
+    padding-left: 30px;
+    vertical-align: top;
+    font-size: 20px;
+}
+
+#prd_name {
+    text-align: left;
+    padding-left: 30px;
+    font-size: 40px;
+    vertical-align: top;
+    height: 80px;
+}
+
+#idndate {
+    text-align: right;
+}
+
+table {
+	width: 100%;
+}
+
+#mem {
+	font-weight: bold;
+}
+
+#modify, #modify_cancel {
+	background-color: white;
+	border: 0px;
+	font-size: 15px;
+	cursor: pointer;
+	float: right;
+}
+
+.comment_box {
+	margin: 20px 0;
+}
+
+hr {
+	margin-top: 10px;
+}

@@ -1,8 +1,11 @@
-
-const view = document.getElementById('view');
-//const num = document.getElementById('num').value;
-//const content = document.getElementById('comment_content').value;
 const comment = document.getElementById('comment');
+const comment_content = document.getElementById('comment_content');
+
+comment_content.addEventListener('click', (e) =>{
+    comment_content.value="";
+});
+
+
 
 function refreshList() {
     location.reload();
@@ -36,25 +39,28 @@ comment.addEventListener('click', (e) => {
 
 });
 
-const re_modifys = document.querySelectorAll('.com_modify'); // 수정버튼
-const modify = document.querySelectorAll('.modify'); // 수정완료버튼
-const re_deletes = document.querySelectorAll('.com_delete'); // 삭제버튼
 
 
+const re_modify = document.getElementById('com_modify'); // 수정버튼
+const modify = document.getElementById('modify'); // 수정완료버튼
+
+const modify_cancel = document.getElementById('modify_cancel'); // 수정취소
+const get_content = document.getElementById('get_content').innerText;
 
 // 댓글 수정 구현
-
-re_modifys.forEach(btn => {
-btn.addEventListener('click', (e) => {
-    const re_modify = e.target;
-    const reply_num = re_modify.document.getElementByClassName('com_modify').value;
+re_modify.addEventListener('click', (e) => {
     document.getElementById('reply_detail').style.display = "none";
     document.getElementById('reply_modify_form').style.display ="";
 });
+
+modify_cancel.addEventListener('click', (e) =>{
+    document.getElementById('reply_detail').style.display = "";
+    document.getElementById('reply_modify_form').style.display ="none";
+    document.getElementById('reply_modify').value = get_content;
 });
 
-modify.forEach(btn3 => {
-btn3.addEventListener('click', (e) => {
+
+modify.addEventListener('click', (e) => {
     const xhttp = new XMLHttpRequest();
     
     xhttp.addEventListener('readystatechange', (e) => {
@@ -71,7 +77,7 @@ btn3.addEventListener('click', (e) => {
 
     xhttp.setRequestHeader('Content-type', 'application/json');
    
-    const com_num = document.getElementById('com_num').value;
+    const com_num = re_modify.value;
     const update_reply = document.getElementById('reply_modify').value;
 
     console.log(com_num);
@@ -87,10 +93,14 @@ btn3.addEventListener('click', (e) => {
     // send(payload) : 데이터를 실어 보낼 수 있다
     xhttp.send(JSON.stringify(com));
 });
-});
 
-re_deletes.forEach(btn2 => {
-btn2.addEventListener('click', (e) => {
+
+const de_cnt = document.getElementsByClassName('com_delete');
+
+for (var i = 0; i < de_cnt.length; ++i) {
+const re_delete = document.getElementsByClassName('com_delete')[i]; // 삭제버튼
+
+re_delete.addEventListener('click', (e) => {
     const xhttp = new XMLHttpRequest();
     xhttp.addEventListener('readystatechange', (e) => {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
@@ -100,7 +110,7 @@ btn2.addEventListener('click', (e) => {
     });
 	
 	const num = document.getElementById('num').value;
-	const com_num = document.getElementById('com_num').value;
+	const com_num = re_delete.getAttribute('data');
 
     console.log(num);
     console.log(com_num);
@@ -108,4 +118,5 @@ btn2.addEventListener('click', (e) => {
     xhttp.open('GET', './com_delete/'+com_num);
     xhttp.send();
 });
-});
+}
+

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.onore.project.mapper.ShopMapper">
+	
+	<select id="getAll" resultType="com.onore.project.dto.ProductsDTO">
+		select * from products
+	</select>
+	
+	<select id="getDerby" resultType="com.onore.project.dto.ProductsDTO">
+		select * from products where category_num = 1
+	</select>
+	
+	<select id="getBoots" resultType="com.onore.project.dto.ProductsDTO">
+		select * from products where category_num = 2
+	</select>
+	
+	<select id="getLoafers" resultType="com.onore.project.dto.ProductsDTO">
+		select * from products where category_num = 3
+	</select>
+	
+	<select id="getSnakers" resultType="com.onore.project.dto.ProductsDTO">
+		select * from products where category_num = 4
+	</select>
+	
+	<select id="getDetail" resultType="com.onore.project.dto.ProductsDTO">
+		SELECT * FROM products WHERE product_num=#{product_num}
+	</select>
+	
+	<select id="getProReview" resultType="com.onore.project.dto.ReviewDTO">
+		SELECT * FROM reviews WHERE product_num=3
+	</select>
+	
+	<insert id="addToCart" parameterType="com.onore.project.dto.CartDTO">
+		INSERT INTO cart VALUES (cart_seq.nextval, #{product_num}, #{mem_id}, #{cart_product_qty}, #{cart_product_option})
+	</insert>
+	
+	<select id="getCart" resultType="com.onore.project.dto.CartDTO">
+		SELECT * FROM cart WHERE mem_id=#{mem_id}
+	</select>
+</mapper>

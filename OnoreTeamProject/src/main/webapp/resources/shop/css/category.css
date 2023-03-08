@@ -1,0 +1,69 @@
+
+
+.flex-container2 {
+	display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+	text-align: center;
+    width: 1400px;
+	justify-content: space-evenly;
+	align-content: space-evenly;
+	margin: 0 auto;
+}
+
+.category-btn{
+	padding-bottom: 100px;
+	
+}
+
+.category-btn > a {
+	cursor: pointer;
+}
+
+#ajax-all {
+	
+	font-size: 25px;
+	padding-left: 20px;
+	margin-right: 20px;
+	
+}
+
+#ajax-derby {
+	
+	font-size: 25px;
+	margin-right: 20px;
+}
+
+#ajax-boots {
+	
+	font-size: 25px;
+	margin-right: 20px;
+}
+
+#ajax-loafer {
+	
+	font-size: 25px;
+	margin-right: 20px;
+}
+
+#ajax-sneakers {
+	
+	font-size: 25px;
+}
+
+
+.img-info > img{
+	width:300px;
+	height:300px;
+
+}
+
+.img-info2 > span {
+	font-size: 20px;
+	color: black;	
+	text-align: center;
+	
+}
+
+
+
+

@@ -2,9 +2,9 @@ package com.onore.project.order.service;
 
 import java.util.List;
 
-import com.onore.project.order.dto.PurchaseInfoDTO;
-import com.onore.project.order.dto.OrderDTO;
-import com.onore.project.order.dto.OrderInfoDTO;
+import com.onore.project.dto.PurchaseInfoDTO;
+import com.onore.project.dto.OrderDTO;
+import com.onore.project.dto.OrderInfoDTO;
 
 public interface OrderService {
 
