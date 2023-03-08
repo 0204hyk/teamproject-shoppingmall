@@ -1,25 +1,24 @@
-.main {
-	overflow: hidden;
 
-}
 
 .flex-container2 {
 	display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-	margin-left: 100px;
-    margin-top: 100px;
-    text-align: center;
+	text-align: center;
     width: 1400px;
-	height: 1000px;
-	overflow: scroll;
-
+	justify-content: space-evenly;
+	align-content: space-evenly;
+	margin: 0 auto;
 }
 
 .category-btn{
-	padding-bottom: 150px;
+	padding-bottom: 100px;
 	
 }
+
+.category-btn > a {
+	cursor: pointer;
+}
+
 #ajax-all {
 	
 	font-size: 25px;
@@ -49,16 +48,6 @@
 #ajax-snakers {
 	
 	font-size: 25px;
-}
-
-.img-container  {
-	width:500px;
-    height:500px;
-    padding: 5px;
-   	margin:0 auto;
-   	vertical-align: middle;
-    background-position: center;
- 	
 }
 
 
