@@ -66,11 +66,12 @@ public class OrderController {
 		return "order/order_main";
 	}
 	
-	// 
 	@PostMapping("/result")
-	public String purchase(Model model, OrderDTO order, @RequestParam String payment_key,
+	public String purchase(Model model, OrderDTO order,	@RequestParam String mem_id,
+														@RequestParam(required = false)
+														String set_default_check,
+														@RequestParam String payment_key,
 			   											@RequestParam String amount,
-			   											@RequestParam String order_id,
 													    @RequestParam List<String> product_name,
 			 										    @RequestParam List<String> order_info_size,
 			 										    @RequestParam List<String> order_info_option,
@@ -83,6 +84,19 @@ public class OrderController {
 		int order_result = order_service.insertOrder(order);
 		
 		if(order_result > 0) {
+			if(set_default_check != null) {
+				MembersDTO address = new MembersDTO();
+				address.setMem_id(mem_id);
+				address.setMem_zip_code(order.getReceiver_zip_code());
+				address.setMem_address(order.getReceiver_address());
+				address.setMem_detail_address(order.getReceiver_detail_address());
+				Integer row = member_service.updateMemberAddress(address);
+				if (row <= 0) {
+					model.addAttribute("status", "update_address_failed");
+					return "order/order_fail";
+				}
+			}
+			
 			List<OrderDTO> all_orders = order_service.getAllOrders();
 			System.out.println(all_orders);
 			order.setOrder_num(all_orders.get(all_orders.size()-1).getOrder_num());
@@ -95,6 +109,7 @@ public class OrderController {
 				model.addAttribute("amount", amount);
 				return "order/order_result";
 			} else {
+				model.addAttribute("status", "order_info_failed");
 				return "order/order_fail";
 			}
 		} else {

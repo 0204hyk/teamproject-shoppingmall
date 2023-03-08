@@ -14,7 +14,7 @@ public class OrderDTO {
 	private String orderer_phone;
 	private String orderer_email;
 	private String receiver_name;
-	private String receiver_zip_code;
+	private Integer receiver_zip_code;
 	private String receiver_address;
 	private String receiver_detail_address;
 	private String receiver_phone;

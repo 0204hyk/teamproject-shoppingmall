@@ -25,6 +25,9 @@
 		setTimeout(() => {
 			purchase_submit();
 		}, 3000);
+		
+		console.log("${order.order_id}");
+		console.log("${order.order_num}");
 	</script>
 	<script charset="utf-8" src="<%=request.getContextPath()%>/resources/order/js/purchase_submit.js"></script>
 </body>

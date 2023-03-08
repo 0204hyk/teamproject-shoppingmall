@@ -7,6 +7,8 @@ import com.onore.project.member.dto.MembersDTO;
 
 public interface MemberMapper {
 
+	Integer updateMemberAddress(MembersDTO member);
+	
 	MembersDTO getMemberInfo(String mem_id);
 	
 	List<CouponDTO> getCoupons(String mem_id);

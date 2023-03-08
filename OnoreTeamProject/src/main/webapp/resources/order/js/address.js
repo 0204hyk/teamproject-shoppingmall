@@ -60,5 +60,7 @@ function setAddress(event) {
 		receiver_address.value = null;
 		receiver_detail_address.value = null;
 		receiver_phone.value = null;
-	}
+	} else if (event.target.value == 'default') {
+		location.reload();
+	} 
 }

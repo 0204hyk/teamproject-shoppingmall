@@ -14,8 +14,7 @@ function getToday(){
 
 const order_id = document.getElementById('order_id');
 const order_num = document.getElementById('order_num');
-const pay_price_lbl = document.getElementById('pay_price_lbl');
-const pay_price_btn = document.getElementById('pay_price_btn');
+const pay_price = document.getElementById('pay_price');
 const pay_method = document.getElementById('pay_method');
 const payment_key = document.getElementById('payment_key');
 const amount = document.getElementById('amount');
@@ -23,6 +22,9 @@ const amount = document.getElementById('amount');
 const purchase_url = window.location.protocol + "//" + window.location.host + "/project/order/purchase";
 
 function purchase_submit() {
+		console.log(payment_key.value);
+		console.log(order_id.value);
+		console.log(amount.value);
 		const form = document.getElementById('purchase_form');
 			fetch('https://api.tosspayments.com/v1/payments/confirm', {
 				method: 'POST',
@@ -55,7 +57,7 @@ function purchase_submit() {
 				const pay_data = {
 					pay_id: 'pay_' + getToday(),
 					order_num: order_num.value,
-					pay_price: pay_price_lbl.value,
+					pay_price: pay_price.value,
 					pay_method: pay_method.value,
 					pay_status: 1,
 					refund_req: 0,

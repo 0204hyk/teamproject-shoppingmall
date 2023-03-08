@@ -25,7 +25,7 @@ let removedObj = null;
 function tossPay() {
  if(payment_method == 'card') {
     tossPayments.requestPayment('카드',{
-      amount: pay_price.value,
+      amount: pay_price_lbl.value,
       orderId: 'order_' + getToday(),
       orderName: order_name.innerText, //order_name은 span이라서 innerText로 받음
       customerName: orderer_name.value,
@@ -36,8 +36,6 @@ function tossPay() {
 		order_id.value = data.orderId;
 		paid_price.value = data.amount;
 		amount.value = data.amount;
-	    
-	    
 	    
 	    form.action = '/project/order/result';
 	    form.method = 'POST';

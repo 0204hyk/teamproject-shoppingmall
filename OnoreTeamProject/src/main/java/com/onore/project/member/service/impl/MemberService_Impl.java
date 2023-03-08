@@ -17,6 +17,12 @@ public class MemberService_Impl implements MemberService {
 	MemberMapper member_mapper;
 	
 	@Override
+	public Integer updateMemberAddress(MembersDTO member) {
+		
+		return member_mapper.updateMemberAddress(member);
+	}
+	
+	@Override
 	public MembersDTO getMemberInfo(String mem_id) {
 		
 		return member_mapper.getMemberInfo(mem_id);

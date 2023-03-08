@@ -182,6 +182,7 @@
 					<input type="text" class="form-control form-control-lg"
 						placeholder="이름" id="orderer_name" name="orderer_name" value="${orderer.mem_name}">
 				</div>
+				<div id="orderer_name_msg" class="text-danger"></div>
 			</div>
 			<div class="mb-3">
 				<label for="orderer_phone" class="col-sm-2 col-form-label">연락처</label>
@@ -189,6 +190,7 @@
 					<input type="text" class="form-control form-control-lg"
 						placeholder="연락처" id="orderer_phone" name="orderer_phone" value="${orderer.mem_phone}">
 				</div>
+				<div id="orderer_phone_msg" class="text-danger"></div>
 			</div>
 			<div class="mb-3">
 				<label for="orderer_email" class="col-sm-2 col-form-label">이메일</label>
@@ -196,6 +198,7 @@
 					<input type="text" class="form-control form-control-lg"
 						placeholder="이메일" id="orderer_email" name="orderer_email" value="${orderer.mem_email}">
 				</div>
+				<div id="orderer_email_msg" class="text-danger"></div>
 			</div>
 		</div>
 
@@ -203,59 +206,101 @@
 
 		<div id="shipping_address" class="container-sm w-auto">
 			<h5>배송지</h5>
-
-			<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-				<input type="radio" class="btn-check" name="address_btn" id="btnradio1" value="default" onclick="setAddress(event)"
-					autocomplete="off" checked>
-				<label class="btn btn-outline-dark" for="btnradio1">기존 배송지</label>
-				<input type="radio" class="btn-check" name="address_btn" id="btnradio2" value="new" onclick="setAddress(event)"
-					autocomplete="off">
-				<label class="btn btn-outline-dark" for="btnradio2">신규 배송지</label>
-			</div>
-			<br>
-			<div class="mb-3">
-				<label for="receiver_name" class="col-sm-2 col-form-label">수령인</label>
-				<input type="text" class="form-control form-control-lg"
-					placeholder="수령인" id="receiver_name" name="receiver_name" value="${orderer.mem_name}">
-
-			</div>
-			<label for="receiver_postalcode" class="col-sm-2 col-form-label">우편번호</label>
-			<div class="input-group mb-3">
-				<input type="text" class="form-control form-control-lg"
-					placeholder="우편번호" id="receiver_zip_code" name="receiver_zip_code" value="${orderer.mem_zip_code}">
-				<button class="btn btn-outline-dark" type="button"
-					id="receiver_address_btn" onclick="getAddress()">검색</button>
-			</div>
-			<div class="mb-3">
-				<label for="receiver_address" class="col-sm-2 col-form-label">주소</label>
-				<input type="text" class="form-control form-control-lg"
-					style="background-color: rgb(214, 214, 214);" placeholder="기본주소"
-					id="receiver_address" name="receiver_address" value="${orderer.mem_address}" readonly/>
-				<input type="text" class="form-control form-control-lg" placeholder="상세주소"
-					id="receiver_detail_address" name="receiver_detail_address" value="${orderer.mem_detail_address}">
-			</div>
-			<div class="mb-3">
-				<label for="receiver_phone" class="col-sm-2 col-form-label">연락처</label>
-				<div class="col-md">
-					<input type="text" class="form-control form-control-lg"
-						placeholder="연락처" id="receiver_phone" name="receiver_phone" value="${orderer.mem_phone}">
-				</div>
+			<input type="hidden" name="mem_id" value="${orderer.mem_id}" />
+			<c:choose>
+				<c:when test="${orderer.mem_address eq null}">
+					<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+						<input type="radio" class="btn-check" name="address_btn" id="btnradio1" value="default" onclick="setAddress(event)"
+							autocomplete="off" disabled>
+						<label class="btn btn-outline-dark" for="btnradio1">기존 배송지</label>
+						<input type="radio" class="btn-check" name="address_btn" id="btnradio2" value="new" onclick="setAddress(event)"
+							autocomplete="off" checked>
+						<label class="btn btn-outline-dark" for="btnradio2">신규 배송지</label>
+					</div>
+					<div class="mb-3">
+						<label for="receiver_name" class="col-sm-2 col-form-label">수령인</label>
+						<input type="text" class="form-control form-control-lg"
+							placeholder="수령인" id="receiver_name" name="receiver_name">
+						<div id="receiver_name_msg" class="text-danger"></div>
+					</div>
+					<label for="receiver_postalcode" class="col-sm-2 col-form-label">우편번호</label>
+					<div class="input-group mb-3">
+						<input type="text" class="form-control form-control-lg"
+							placeholder="우편번호" id="receiver_zip_code" name="receiver_zip_code">
+						<button class="btn btn-outline-dark" type="button"
+							id="receiver_address_btn" onclick="getAddress()">검색</button>
+						<div id="receiver_zip_code_msg" class="text-danger"></div>
+					</div>
+					<div class="mb-3">
+						<label for="receiver_address" class="col-sm-2 col-form-label">주소</label>
+						<input type="text" class="form-control form-control-lg"
+							style="background-color: rgb(214, 214, 214);" placeholder="기본주소"
+							id="receiver_address" name="receiver_address" readonly/>
+						<div id="receiver_address_msg" class="text-danger"></div>
+						<input type="text" class="form-control form-control-lg" placeholder="상세주소"
+							id="receiver_detail_address" name="receiver_detail_address">
+						<div id="receiver_detail_address_msg" class="text-danger"></div>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" id="flexCheckDefault" type="checkbox" name="set_default_check" value="default" checked>
+						<label class="form-check-label" for="flexCheckDefault"> 기본 배송지로 설정하기 </label>						
+					</div>
+				</c:when>
+				<c:otherwise>
+					<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+						<input type="radio" class="btn-check" name="address_btn" id="btnradio1" value="default" onclick="setAddress(event)"
+							autocomplete="off" checked>
+						<label class="btn btn-outline-dark" for="btnradio1">기존 배송지</label>
+						<input type="radio" class="btn-check" name="address_btn" id="btnradio2" value="new" onclick="setAddress(event)"
+							autocomplete="off">
+						<label class="btn btn-outline-dark" for="btnradio2">신규 배송지</label>
+					</div>
+					<div class="mb-3">
+						<label for="receiver_name" class="col-sm-2 col-form-label">수령인</label>
+						<input type="text" class="form-control form-control-lg"
+							placeholder="수령인" id="receiver_name" name="receiver_name" value="${orderer.mem_name}">
+						<div id="receiver_name_msg" class="text-danger"></div>
+					</div>
+					<label for="receiver_postalcode" class="col-sm-2 col-form-label">우편번호</label>
+					<div class="input-group mb-3">
+						<input type="text" class="form-control form-control-lg"
+							placeholder="우편번호" id="receiver_zip_code" name="receiver_zip_code" value="${orderer.mem_zip_code}">
+						<button class="btn btn-outline-dark" type="button" id="receiver_address_btn">검색</button>
+						<div id="receiver_zip_code_msg" class="text-danger"></div>
+					</div>
+					<div class="mb-3">
+						<label for="receiver_address" class="col-sm-2 col-form-label">주소</label>
+						<input type="text" class="form-control form-control-lg"
+							style="background-color: rgb(214, 214, 214);" placeholder="기본주소"
+							id="receiver_address" name="receiver_address" value="${orderer.mem_address}" readonly/>
+						<div id="receiver_address_msg" class="text-danger"></div>
+						<input type="text" class="form-control form-control-lg" placeholder="상세주소"
+							id="receiver_detail_address" name="receiver_detail_address" value="${orderer.mem_detail_address}">
+						<div id="receiver_detail_address_msg" class="text-danger"></div>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" id="flexCheckDefault" type="checkbox" name="set_default_check" value="default">
+						<label class="form-check-label" for="flexCheckDefault"> 기본 배송지로 설정하기 </label>						
+					</div>
+				</c:otherwise>
+			</c:choose>
 				<br>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="flexCheckDefault">
-					<label class="form-check-label" for="flexCheckDefault"> 기본 배송지로 설정하기 </label>
-				</div>
-				<hr>
+				<div class="mb-3">
+						<label for="receiver_phone" class="col-sm-2 col-form-label">연락처</label>
+						<div class="col-md">
+							<input type="text" class="form-control form-control-lg"
+								placeholder="연락처" id="receiver_phone" name="receiver_phone" value="${orderer.mem_phone}">
+						<div id="receiver_phone_msg" class="text-danger"></div>
+						</div>
+					</div>
 				<div class="mb-3">
 					<label for="receiver_req" class="col-sm-4 col-form-label">배송 시 요청사항</label>
 					<div class="col-md">
 						<input type="text" class="form-control form-control-lg"
 							placeholder="요청사항" id="receiver_req" name="receiver_req">
 					</div>
-					<br> <small>※ 제주 및 도서 산간 지역의 배송은 추가 배송비가 발생할 수 있습니다.</small>
 				</div>
 			</div>
-		</div>
 
 		<div class="blank"></div>
 
@@ -343,7 +388,7 @@
 				<input type="hidden" id="payment_key" name="payment_key"/>
 		      	<input type="hidden" id="order_id" name="order_id"/>
 		    	<input type="hidden" id="amount" name="amount"/>		        			        		
-		        <button type="button" id="purchase_btn" onclick="purchase();" class="btn btn-lg btn-dark w-100 rounded-1"><span id="pay_price_btn">${total_price}</span>원 결제하기</button>
+		        <button type="button" id="purchase_btn" class="btn btn-lg btn-dark w-100 rounded-1"><span id="pay_price_btn">${total_price}</span>원 결제하기</button>
 	        </footer>
         </form>
 	</div>
