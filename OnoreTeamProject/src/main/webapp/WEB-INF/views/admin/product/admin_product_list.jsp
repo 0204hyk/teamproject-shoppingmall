@@ -30,7 +30,14 @@
 							<tr>
 								<td style="width: 50px; vertical-align: middle;"><input type="checkbox" class="row-check" name="row_check" value="${product.product_num}"/></td>
 								<td style="width: 80px; vertical-align: middle;">${product.product_num}</td>
-								<td style="width: 250px;"><img src="${product.product_thumbnail_1}" alt="이미지 미리보기" style="width: 100px; height: 100px;"/></td>
+								<c:choose>
+									<c:when test="${empty product.product_thumbnail_1}">
+										<td style="width: 250px;"><img src="<%=request.getContextPath()%>/resources/admin/image/default_image.png" alt="이미지 미리보기" style="width: 100px; height: 100px;"/></td>
+									</c:when>
+									<c:otherwise>							
+										<td style="width: 250px;"><img src="${product.product_thumbnail_1}" alt="이미지 미리보기" style="width: 100px; height: 100px;"/></td>
+									</c:otherwise>
+								</c:choose>
 								<td style="vertical-align: middle;"><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/product/modify?product_num=${product.product_num}')">${product.product_name}</a></td>
 								<td style="width: 80px; vertical-align: middle;">${product.product_views}</td>
 								<td style="width: 80px; vertical-align: middle;">${product.product_likes}</td>

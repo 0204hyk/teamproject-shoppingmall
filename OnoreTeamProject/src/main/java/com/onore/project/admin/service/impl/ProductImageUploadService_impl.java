@@ -19,6 +19,10 @@ public class ProductImageUploadService_impl implements ProductImageUploadService
 
 	@Override
 	public String uploadFile(HttpServletRequest request, MultipartFile file) {
+		if (file == null) {
+			return null;
+		}
+		
 		JsonObject jsonObject = new JsonObject();
 		String product_name = request.getParameter("product_name"); 
 		

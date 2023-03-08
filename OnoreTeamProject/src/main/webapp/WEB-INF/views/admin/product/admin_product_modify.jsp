@@ -15,10 +15,11 @@
 		<div class="product-title"><h1>상품 수정</h1></div>
 		<div class="container">
 			<form id="product-regist-form" name="product-regist-form" method="POST" enctype="multipart/form-data">
+				<input type="hidden" id="input-num" name="product_num" value="${product.product_num}"/>
 				<div class="label-container">
 					<label for="input-category" class="input-label">분 류</label>
 					<select id="input-category" class="form-select category-select" name="category_num">
-						<option>카테고리를 선택해주세요.</option>
+						<option value="0">카테고리를 선택해주세요.</option>
 						<c:forEach items="${categories}" var="category">
 							<option value="${category.category_num}">${category.category_name}</option>
 						</c:forEach>
@@ -40,24 +41,45 @@
 					<p class="thumbnail-title" style="font-size: 20px; margin-top: 15px;">상품 썸네일</p>
 					<div class="row">
 						<div class="col">
-							<img src="${product.product_thumbnail_1}" id="preview1" class="thumbnail-preview"/>
+							<c:choose>
+								<c:when test="${empty product.product_thumbnail_1}">
+									<img src="<%=request.getContextPath()%>/resources/admin/image/default_image.png" id="preview1" class="thumbnail-preview"/>		
+								</c:when>
+								<c:otherwise>
+									<img src="${product.product_thumbnail_1}" id="preview1" class="thumbnail-preview"/>
+								</c:otherwise>
+							</c:choose>
 							<input class="form-control input-thumbnail" type="file" id="thumbnail1" name="product_thumbnail_1" accept="image/*">
 						</div>
 						<div class="col">
-							<img src="${product.product_thumbnail_2}" id="preview2" class="thumbnail-preview"/>
+							<c:choose>
+								<c:when test="${empty product.product_thumbnail_2}">
+									<img src="<%=request.getContextPath()%>/resources/admin/image/default_image.png" id="preview2" class="thumbnail-preview"/>		
+								</c:when>
+								<c:otherwise>
+									<img src="${product.product_thumbnail_2}" id="preview2" class="thumbnail-preview"/>
+								</c:otherwise>
+							</c:choose>							
 							<input class="form-control input-thumbnail" type="file" id="thumbnail2" name="product_thumbnail_2" accept="image/*" disabled>
 						</div>
 						<div class="col">
-							<img src="${product.product_thumbnail_3}" id="preview3" class="thumbnail-preview"/>
+							<c:choose>
+								<c:when test="${empty product.product_thumbnail_3}">
+									<img src="<%=request.getContextPath()%>/resources/admin/image/default_image.png" id="preview3" class="thumbnail-preview"/>		
+								</c:when>
+								<c:otherwise>
+									<img src="${product.product_thumbnail_3}" id="preview3" class="thumbnail-preview"/>
+								</c:otherwise>
+							</c:choose>					
 							<input class="form-control input-thumbnail" type="file" id="thumbnail3" name="product_thumbnail_3" accept="image/*" disabled>
 						</div>
 					</div>
 				</div>
 				<p style="font-size: 20px; margin-top: 10px;">상품 상세 정보</p>
-		  		<textarea id="input-detail" class="summernote" name="product_detail"></textarea>
+		  		<textarea id="input-detail" class="summernote" name="product_detail">${product.product_detail}</textarea>
 		  		<div class="d-grid d-md-flex justify-content-md-end" style="margin-top: 15px; margin-bottom: 10px;">
 		  			<input type="button" onclick="movePageByGet('<%=request.getContextPath()%>/admin/product/list')" class="submit-btn btn btn-secondary btn-lg" value="취 소" />
-		  			<input type="button" onclick="productModify('<%=request.getContextPath()%>/admin/product/regist')" class="submit-btn btn btn-secondary btn-lg" value="수 정"/>
+		  			<input type="button" onclick="productModify('<%=request.getContextPath()%>/admin/product/modify')" class="submit-btn btn btn-secondary btn-lg" value="수 정"/>
 		  		</div>
 		  	</form>
 		</div>

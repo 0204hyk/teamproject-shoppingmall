@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.onore.project.admin.service.AdminProductService;
 import com.onore.project.admin.service.ProductImageUploadService;
+import com.onore.project.dto.NoticeDTO;
 import com.onore.project.dto.ProductsDTO;
 
 import lombok.extern.log4j.Log4j2;
@@ -40,14 +41,15 @@ public class AdminProductController {
 	public String productRegist(HttpServletRequest request, @RequestParam(value = "product_thumbnail_1", required = false) MultipartFile product_thumbnail_1,
 			@RequestParam(value = "product_thumbnail_2", required = false) MultipartFile product_thumbnail_2, 
 			@RequestParam(value = "product_thumbnail_3", required = false) MultipartFile product_thumbnail_3) throws IOException {
-
+		
 		String category_num = request.getParameter("category_num");
 		String product_name = request.getParameter("product_name");
 		String product_price = request.getParameter("product_price");
 		String product_info = request.getParameter("product_info");
 		String product_detail = request.getParameter("product_detail");
 
-		if (!category_num.equals("") && !product_name.equals("") && !product_price.equals("") && !product_info.equals("")) {
+		if (!category_num.equals("0") && !product_name.equals("") && !product_price.equals("") 
+				&& !product_info.equals("") && !product_detail.equals("")) {
 			ProductsDTO product = new ProductsDTO();
 			product.setCategory_num(Integer.parseInt(category_num));
 			product.setProduct_name(product_name);
@@ -57,7 +59,7 @@ public class AdminProductController {
 			product.setProduct_thumbnail_1(uploadService.uploadFile(request, product_thumbnail_1));
 			product.setProduct_thumbnail_2(uploadService.uploadFile(request, product_thumbnail_2));
 			product.setProduct_thumbnail_3(uploadService.uploadFile(request, product_thumbnail_3));
-			service.productRegist(product);
+			System.out.println(service.productRegist(product));
 		}
 		
 		return "redirect:/admin/product/list";
@@ -129,6 +131,34 @@ public class AdminProductController {
 		return "/admin/product/admin_product_modify";
 	}
 	
+	@PostMapping("/modify")
+	public String noticeModify(HttpServletRequest request, @RequestParam(value = "product_thumbnail_1", required = false) MultipartFile product_thumbnail_1,
+			@RequestParam(value = "product_thumbnail_2", required = false) MultipartFile product_thumbnail_2, 
+			@RequestParam(value = "product_thumbnail_3", required = false) MultipartFile product_thumbnail_3) {
+				
+		String product_num = request.getParameter("product_num");
+		String category_num = request.getParameter("category_num");
+		String product_name = request.getParameter("product_name");
+		String product_price = request.getParameter("product_price");
+		String product_info = request.getParameter("product_info");
+		String product_detail = request.getParameter("product_detail");
+		
+		if (!category_num.equals("0") && !product_name.equals("") && !product_price.equals("") 
+				&& !product_info.equals("") && !product_detail.equals("")) {
+			ProductsDTO product = new ProductsDTO();
+			product.setProduct_num(Integer.parseInt(product_num));
+			product.setCategory_num(Integer.parseInt(category_num));
+			product.setProduct_name(product_name);
+			product.setProduct_price(Integer.parseInt(product_price.replace(",", "")));
+			product.setProduct_info(product_info);
+			product.setProduct_detail(product_detail);
+			product.setProduct_thumbnail_1(uploadService.uploadFile(request, product_thumbnail_1));
+			product.setProduct_thumbnail_2(uploadService.uploadFile(request, product_thumbnail_2));
+			product.setProduct_thumbnail_3(uploadService.uploadFile(request, product_thumbnail_3));
+			service.productModifyService(product);
+		}
+		return "redirect:/admin/notice/list";
+	}
 	
 	@PostMapping("/delete")
 	public String productDelete(@RequestParam(value = "row_check", required = false) String[] row_check) {

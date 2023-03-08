@@ -18,7 +18,7 @@
 				<div class="label-container">
 					<label for="input-category" class="input-label">분 류</label>
 					<select id="input-category" class="form-select category-select" name="category_num">
-						<option selected>카테고리를 선택해주세요.</option>
+						<option value="0" selected>카테고리를 선택해주세요.</option>
 						<c:forEach items="${categories}" var="category">
 							<option value="${category.category_num}">${category.category_name}</option>
 						</c:forEach>

@@ -49,6 +49,8 @@ $('input[name=product_thumbnail_3]').click(function(){
 
 // 상품등록 ajax POST
 function productRegist(url){
+
+    let product_num = $('#input-num').val;
     let category_num = $('#input-category').val();
     let product_name = $('#input-name').val();
     let product_price = $('#input-price').val();
@@ -59,6 +61,7 @@ function productRegist(url){
     let product_detail = $('#input-detail').val();
     
     let registFormData = new FormData();
+    registFormData.append("product_num", product_num);
     registFormData.append("category_num", category_num);
     registFormData.append("product_name", product_name);
     registFormData.append("product_price", product_price);
@@ -87,6 +90,7 @@ function productRegist(url){
 }
 
 function productModify(url){
+  let product_num = $('#input-num').val();
   let category_num = $('#input-category').val();
   let product_name = $('#input-name').val();
   let product_price = $('#input-price').val();
@@ -97,6 +101,7 @@ function productModify(url){
   let product_detail = $('#input-detail').val();
   
   let registFormData = new FormData();
+  registFormData.append("product_num", product_num);
   registFormData.append("category_num", category_num);
   registFormData.append("product_name", product_name);
   registFormData.append("product_price", product_price);
