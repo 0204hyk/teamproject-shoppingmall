@@ -34,4 +34,20 @@ public class QnaAndProductsDTO {
 	private Integer product_likes;
 	private Date product_date;
 	
+	public String getmaskingName() {
+
+		String firstName = mem_id.substring(0,1);
+		String midName = mem_id.substring(1, mem_id.length() - 1);
+
+		String masking = "";
+		for(int i = 0; i < midName.length(); ++i) {
+			masking += "*";
+		}
+
+		String lastName = mem_id.substring(mem_id.length() - 1, mem_id.length());
+
+		String maskingName = firstName + masking + lastName;
+
+		return maskingName;
+	}
 }
