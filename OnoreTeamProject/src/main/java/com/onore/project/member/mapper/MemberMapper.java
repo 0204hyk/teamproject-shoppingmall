@@ -23,13 +23,22 @@ public interface MemberMapper {
 	String find_id(@Param("mem_name") String name, @Param("mem_email") String email);
 	
 	// 비밀번호 찾기
-	String find_pw(@Param("mem_id") String id, @Param("mem_email") String email);
+	//String find_pw(@Param("mem_id") String id, @Param("mem_email") String email);
+	public MemberDTO searchPwd(MemberDTO dto);
 	
 	// 회원정보 불러오기
 	 MemberDTO getMember(String memberId) throws Exception;
 	 
 	 // 회원정보 수정하기
-	 MemberDTO memberInfoModify(MemberDTO memberdto) throws Exception;
+	 Integer memberInfoModify(MemberDTO memberdto) throws Exception;
+	 
+	 // 비밀번호 수정하기
+	 Integer memberPwModify(MemberDTO memberdto) throws Exception;
+	 
+	 // 회원탈퇴 하기
+	 Integer memberDeleteDo(MemberDTO memberdto) throws Exception;
 
+	
+	 
 }
 

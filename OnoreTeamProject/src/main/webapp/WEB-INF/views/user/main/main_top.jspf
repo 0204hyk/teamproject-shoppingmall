@@ -21,9 +21,19 @@
         </li>
         <li><a href="">LOOKBOOK</a></li>  
         <li><a href=""><i class="fa-solid fa-user"></i></a>
-        	<ul class="navbar_submenu">
-            	<li><a href="/project/mypage">MY PAGE</a></li>
-            </ul>
+		    <ul class="navbar_submenu">
+		        <c:choose>
+		            <c:when test="${sessionScope.signIn == null}">
+		                <li><a href="/project/login">MY PAGE</a></li>
+		            </c:when>
+		            <c:when test="${sessionScope.signIn.mem_id ne 'admin'}">
+		                <li><a href="/project/mypage">MY PAGE</a></li>
+		            </c:when>
+		            <c:otherwise>
+		                <li><a href="#">관리자메뉴</a></li>
+		            </c:otherwise>
+		        </c:choose>
+		    </ul>
         </li>
         <li><a href=""><i class="fa-solid fa-cart-shopping"></i></a></li>
        

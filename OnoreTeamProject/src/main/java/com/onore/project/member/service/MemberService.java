@@ -24,14 +24,24 @@ public interface MemberService {
 	String find_id(String name, String email);
 	
 	// 비밀번호 찾기
-	String find_pw(String id, String email);
+	// String find_pw(String id, String email);
+	public void updatePwd(MemberDTO dto1);
+	public MemberDTO searchPwd(MemberDTO dto);
 	
 	// 회원정보 불러오기
 	MemberDTO getMember(String memberId) throws Exception;
 	
 	// 회원정보 수정하기
-	MemberDTO memberInfoModify(MemberDTO memberdto) throws Exception;
+	Integer memberInfoModify(MemberDTO memberdto) throws Exception;
+	
+	// 비밀번호 수정하기
+	Integer memberPwModify(MemberDTO memberdto) throws Exception;
+	
+	// 회원탈퇴 하기
+	Integer memberDeleteDo(MemberDTO memberdto) throws Exception;
+
 	
 
+	
 }
 

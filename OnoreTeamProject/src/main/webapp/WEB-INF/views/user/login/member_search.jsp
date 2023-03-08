@@ -53,7 +53,7 @@ function findId_click(){
 	});
 };
 	
-	
+/*	
 // 비밀번호 찾기
 function findPw_click(){
 	var id=$('#input_mem_id').val()
@@ -83,6 +83,30 @@ function findPw_click(){
             }
 	});
 };
+*/
+
+//임시 비밀번호 이메일 전송
+$(function(){
+	$("#search_pw_btn").click(function(){
+		let mem_id=$("input[name='mem_id']").val();
+		let mem_email=$("input[name='mem_email']").val();
+		$.ajax({
+			url:"/project/finduserpwd",
+			dataType:'json',
+			data:{"mem_id":mem_id,"mem_email":mem_email},
+			success:function(data){
+				if(data==true){
+					alert("임시 비밀번호가 발급되었습니다.메일함을 확인해 주세요");
+					console.log(data);
+				}else{
+					alert("아이디 또는 이메일을 정확하게 입력해 주세요");
+					console.log(data);
+			}
+	   	}
+	});
+});
+});
+
 
 </script>
 <%@include file="../member/member_header.jspf" %>    
@@ -93,7 +117,6 @@ function findPw_click(){
 <!-- middle 시작 -->
 <div class="middle_idpw_search_div">
 	<div class="search_idpw_div">
-		
 		<div class="search_idpw_title_div">
 			<a>아이디/비밀번호 찾기</a>
 		</div>
@@ -126,6 +149,8 @@ function findPw_click(){
 			</article>
 		</div>
 
+
+	<form action="finduserpwd" method="POST">
 		<div id="search_pw_div" style="display: none;">
 			<div class="search_id_div">
 				<a>아이디</a>
@@ -137,7 +162,7 @@ function findPw_click(){
 				<a>이메일</a>
 			</div>
 			<div class="search_input_email_div">
-				<input name="input_mem_email2" id="input_mem_email2" class="input_mem_email2" type="email">
+				<input name="mem_email" id="input_mem_email2" class="input_mem_email2" type="email">
 			</div>
 	
   			<div class="search_pw_result"><a id="search_pw_result_a"></a></div>
@@ -148,6 +173,7 @@ function findPw_click(){
 				</div>
 			</article>
 		</div>	
+	</form>
 	</div>
 	<div class="go_login_Btn_div">
 		<input class="go_login_Btn" type="submit" onclick="location.href='./login'" value="로그인 하기">

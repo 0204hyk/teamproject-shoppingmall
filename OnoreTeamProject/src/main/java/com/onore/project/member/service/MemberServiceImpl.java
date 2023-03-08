@@ -1,16 +1,9 @@
 package com.onore.project.member.service;
 
 import java.util.List;
-import java.util.UUID;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.security.crypto.bcrypt.BCrypt;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-
 import com.onore.project.member.dto.MemberDTO;
 import com.onore.project.member.mapper.MemberMapper;
 
@@ -57,6 +50,7 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 
+	/*
 	// 비밀번호 찾기 -- 성공
 	@Override
 	public String find_pw(String id, String email) {
@@ -68,8 +62,8 @@ public class MemberServiceImpl implements MemberService{
 		}
 		return result ;
 	}
+	*/
 
-	
 	// 회원정보 상세페이지
 	@Override
 	public MemberDTO getMember(String memberId) throws Exception {
@@ -78,8 +72,33 @@ public class MemberServiceImpl implements MemberService{
 
 	// 회원정보 수정하기
 	@Override
-	public MemberDTO memberInfoModify(MemberDTO memberdto) throws Exception {
+	public Integer memberInfoModify(MemberDTO memberdto) throws Exception {
 		return mapper.memberInfoModify(memberdto);
+	}
+
+
+	// 비밀번호 수정
+	@Override
+	public Integer memberPwModify(MemberDTO memberdto) throws Exception {
+		return mapper.memberPwModify(memberdto);
+	}
+
+	// 회원 탈퇴하기
+	@Override
+	public Integer memberDeleteDo(MemberDTO memberdto) throws Exception {
+		return mapper.memberDeleteDo(memberdto);
+	
+	}
+
+	// 비밀번호 변경 - 임시비밀번호 이메일로 보내기 --  실패
+	@Override
+	public void updatePwd(MemberDTO dto1) {
+		return;
+	}
+
+	@Override
+	public MemberDTO searchPwd(MemberDTO dto) {
+		return mapper.searchPwd(dto);
 	}
 
 }

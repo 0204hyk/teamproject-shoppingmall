@@ -34,23 +34,38 @@
 	width: 20%;
 	height: 150px;
 	color: white;
-	margin-left: 50px;
 	display: flex;
   	justify-content: center;
   	align-items: center;
 }
 
-.member_modify_div {
-	float: right;
-	width: 10%;
-	height: 150px;
+.photo_div > i {
+	font-size : 100px;
+	color: white;
+}
+
+.member_id_div {
+	float: left;
+	width: 70%;
+	height: 80px;
+	color: white;
 	display: flex;
 	justify-content: center;
   	align-items: center;
+  	font-size: 30px;
 }
 
-.member_modify_btn {
-	margin-top: 30px;
+.member_modify_div {
+	float: right;
+  	height: 30px;
+  	width: 40%;
+  	text-align: center;
+  	margin-top : 30px;
+}
+
+.member_pw_btn,
+.member_modify_btn,
+.member_delete_btn {
 	width:100px;
 	height: 30px;
 	font-size: 12px;
@@ -58,24 +73,8 @@
 	color: black;
 	border-radius: 3px;
 	cursor: pointer;
-}
-
-
-.photo_div > i {
-	font-size : 100px;
-	color: white;
-}
-
-
-.member_id_div {
 	float: left;
-	width: 50%;
-	height: 150px;
-	color: white;
-	display: flex;
-	justify-content: center;
-  	align-items: center;
-  	font-size: 30px;
+	margin-right: 15px;
 }
 
 .recent_order_history_div,

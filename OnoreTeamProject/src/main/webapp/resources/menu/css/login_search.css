@@ -71,6 +71,12 @@
 	padding-bottom: 10px;
 }
 
+#search_pw_div {
+	margin: auto;
+	width: 400px;
+	text-align: left;	
+}
+
 .login_idpw_div > a,
 #search_id_div > div > a,
 #search_pw_div > div > a {

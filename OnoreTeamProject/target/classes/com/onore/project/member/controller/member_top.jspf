@@ -35,8 +35,7 @@
 		    </ul>
         </li>
         <li><a href=""><i class="fa-solid fa-cart-shopping"></i></a></li>
-       
-       
+         
         <c:if test="${signIn == null}">
         <li><a href="/project/login"><i class="fa-solid fa-lock"></i></a></li>
          </c:if>

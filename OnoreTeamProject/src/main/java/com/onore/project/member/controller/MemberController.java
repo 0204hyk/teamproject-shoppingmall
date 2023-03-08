@@ -1,9 +1,12 @@
 package com.onore.project.member.controller;
 
+import java.util.UUID;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.onore.project.member.dto.MemberDTO;
 import com.onore.project.member.mapper.MemberMapper;
 import com.onore.project.member.service.MemberService;
+import com.onore.project.member.util.MailUtil;
 
 @Controller
 public class MemberController { 
@@ -148,6 +152,7 @@ public class MemberController {
 	return result;
 	}
 	
+	/*
 	//비밀번호 찾기 - 성공
 	@RequestMapping(value = "/find_pw", method = RequestMethod.POST)
 	@ResponseBody
@@ -157,7 +162,37 @@ public class MemberController {
 		
 	return result;
 	}
-
-
+	*/
+	
+	// 임시 비밀번호 이메일 전송 -- 실패
+	@PostMapping(value = "/finduserpwd", produces = {MediaType.APPLICATION_JSON_VALUE})
+	public @ResponseBody String findPw(MemberDTO dto) throws Exception {
+		BCryptPasswordEncoder encoder= new BCryptPasswordEncoder();
+		String result=null;
+		
+		//회원정보 불러오기
+		MemberDTO dto1 = service.searchPwd(dto);
+		System.out.println(dto1);
+		
+		//가입된 이메일이 존재한다면 이메일 전송
+		if(dto1!=null) {
+			
+			//임시 비밀번호 생성(UUID이용)
+			String tempPw=UUID.randomUUID().toString().replace("-", "");//-를 제거
+			tempPw = tempPw.substring(0,10);//tempPw를 앞에서부터 10자리 잘라줌
+			
+			dto1.setMem_pw(tempPw);//임시 비밀번호 담기
+	
+			MailUtil mail=new MailUtil(); //메일 전송하기
+			mail.sendEmail(dto1);
+			service.updatePwd(dto1);
+			String securePw = encoder.encode(dto1.getMem_pw());//회원 비밀번호를 암호화하면 vo객체에 다시 저장
+			dto1.setMem_pw(securePw);
+			result="true";
+		}else {
+			result="false";
+		}
+		return result;
+	}
 }
 

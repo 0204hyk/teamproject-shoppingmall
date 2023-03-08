@@ -17,7 +17,11 @@
 			<div class="mypage_title">My Page</div>
 			<div class="photo_div"><i id="member_icon" class="fa-solid fa-circle-user"></i></div>
 			<div class="member_id_div">${sessionScope.signIn.mem_id}님</div>
-			<div class="member_modify_div"><input type="button" class="member_modify_btn" onclick="location.href='./member_info_modify'" value="회원정보수정"></div>
+			<div class="member_modify_div">
+				<input type="button" class="member_pw_btn" onclick="location.href='./member_pw_modify'" value="비밀번호변경">
+				<input type="button" class="member_modify_btn" onclick="location.href='./member_info_modify'" value="회원정보수정">
+				<input type="button" class="member_delete_btn" onclick="location.href='./memberDelete'" value="회원탈퇴">
+			</div>
 		</div>
         
         <div class="recent_order_history_div">
