@@ -31,7 +31,7 @@
 				<tr>
 					<td>${review.review_num }</td>
 					<td id="product_name">
-						<img src ="${review.product_thumbnail}">
+						<img src ="${review.product_thumbnail_1}">
 					</td>
 					<td><span id="prd_name">${review.product_name }</span> </td>
 					<td id="review_content"><a href="./detail?review_num=${review.review_num}">

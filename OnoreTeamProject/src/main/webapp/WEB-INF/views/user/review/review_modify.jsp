@@ -23,7 +23,7 @@
 			<div class="container">
 				<div class="a">
 					<div name="prd_img">
-						<img src="${product.product_thumbnail }">
+						<img src="${product.product_thumbnail_1 }">
 					</div>
 				</div>
 				<div class="b">

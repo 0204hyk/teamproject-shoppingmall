@@ -23,8 +23,8 @@
 		<form class="mb-3" id="myform" action="./write" method="POST" enctype="multipart/form-data">
 			<div class="container">
 				<div class="a">
-					<div class="prd_img">
-						<img src="${product.product_thumbnail }">
+					<div name="prd_img">
+						<img src="${product.product_thumbnail_1 }">
 					</div>
 				</div>
 				<div class="b">
@@ -54,19 +54,22 @@
 			</div>
 			<hr>
 			<div class="container2">
-				<textarea name="review_content" id="reviewContents" cols="150"
-					rows="30" >리뷰를 작성해주세요</textarea>
-				<div id="img-box">
-					<img name="review_img_1" id="previewImg1" /> 
-					<img name="review_img_2" id="previewImg2" /> 
-					<img name="review_img_3" id="previewImg3" />
+				<textarea  name="review_content" id="reviewContents" cols="150"
+					rows="30" placeholder="리뷰를 작성해 주세요."></textarea>
+				<div id="image-box">
+					<img id="user-image1" class="image-box" /> 
+					<img id="user-image2" class="image-box"/> 
+					<img id="user-image3" class="image-box"/>
 				</div>
 				<br>
 				<div class="sub-container2">
-					<input type="file" id="fileUpload1" name="file" accept="image/*" />
-					<input type="file" id="fileUpload2" name="file" accept="image/*" /> 
-					<input type="file" id="fileUpload3" name="file" accept="image/*" />
-					<br> 
+				
+					<input type="file" name="file" id="file-input" class="inputW" accept="image/*" onchange="PreviewImage();" />
+					<span id="imgBox1"></span>
+					<input type="file" name="file" id="file-input2" class="inputW" accept="image/*" onchange="PreviewImage2();"/> 
+					<span id="imgBox2"></span>
+					<input type="file" name="file" id="file-input3" class="inputW" accept="image/*" onchange="PreviewImage3();"/>
+					<span id="imgBox3"></span>
 					<input type="submit" id="write_btn" formaction="./write" value="등록" onclick="return confirm('완료하시겠습니까?')">
 				</div>
 			</div>

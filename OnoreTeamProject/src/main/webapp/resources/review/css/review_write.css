@@ -55,16 +55,24 @@ button {
     cursor: pointer; 
   }
   
-.container {
-	display: flex;
-	margin: 20px 0;
-}
+
 
 
 img {
     width: 180px;
     height: 180px;
     margin: 0 5px;
+}
+
+.image-box {
+	border: 0px;
+	width: 230px;
+	height: 230px;
+	margin-right: 80px;
+}
+
+.sub-container2 {
+	display: flex;
 }
 
 
@@ -90,7 +98,24 @@ img {
 	width: 100%;
 }
 
-#fileUpload1, #fileUpload2, #fileUpload3 {
+
+.file-remove {
+	background-color: white;
+	border: 0;
+	color: black;
+}
+.file-remove2 {
+	background-color: white;
+	border: 0;
+	color: black;
+}
+.file-remove3 {
+	background-color: white;
+	border: 0;
+	color: black;
+}
+
+#file-input, #file-input2, #file-input3 {
 	width: 180px;
 	margin-left: 8px;
 }

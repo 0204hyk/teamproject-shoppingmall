@@ -22,7 +22,7 @@
 			<div class="container">
 				<div class="a">
 					<div name="prd_img">
-						<img src="${contents.product_thumbnail }">
+						<img src="${contents.product_thumbnail_1 }">
 					</div>
 				</div>
 				<div class="b">
@@ -90,17 +90,32 @@
 				<div class="sub-container2">
 					<div class="img">
 						<c:if test="${not empty contents.review_img_1}">
-							<img src="/project/resources/review/image/${contents.review_img_1 }">
+							<a href="${contents.review_img_1 }"
+							data-toggle="lightbox" data-gallery="example-gallery"
+							class="col-sm-4">
+						<img src="${contents.review_img_1 }"
+								name="qna_img_1" class="img-fluid rounded" />
+						</a>
 						</c:if>
 					</div>
 					<div class="img">
 						<c:if test="${not empty contents.review_img_2}">
-							<img src="/project/resources/review/image/${contents.review_img_2 }">
+							<a href="${contents.review_img_2 }"
+							data-toggle="lightbox" data-gallery="example-gallery"
+							class="col-sm-4">
+						<img src="${contents.review_img_2 }"
+								name="qna_img_1" class="img-fluid rounded" />
+						</a>
 						</c:if>
 					</div>
 					<div class="img">
 						<c:if test="${not empty contents.review_img_3}">
-							<img src="/project/resources/review/image/${contents.review_img_3 }">
+							<a href="${contents.review_img_3 }"
+							data-toggle="lightbox" data-gallery="example-gallery"
+							class="col-sm-4">
+						<img src="${contents.review_img_3 }"
+								name="qna_img_1" class="img-fluid rounded" />
+						</a>
 						</c:if>
 					</div>
 				</div>
@@ -117,8 +132,8 @@
 					<input type="hidden" value="${contents.review_num }" id="num">
 					<textarea id="comment_content" rows="3" cols="120" placeholder="댓글을 입력해주세요"></textarea><br>
 					<button type="button" id="comment">댓글달기</button>
+				</form>	
 			</div>
-			</form>
 			
 			<hr>
 			
@@ -126,7 +141,7 @@
 			<c:forEach items="${comments }" var="comment">
 			<div class="comment_box">
 				<input type="hidden" class="com_num" value="${comment.comment_num }">
-				<div><span id="mem">${comment.maskingName }</span>  &nbsp;&nbsp; ${comment.comment_date }</div>
+				<div><span id="mem">${comment.comment_id }</span>  &nbsp;&nbsp; ${comment.comment_date }</div>
 				<br>
 				<div id="reply_detail">
 					<div id="get_content">${comment.comment_content }</div>
@@ -141,9 +156,11 @@
 						<br>
 						<input id="modify_cancel" type="button" value="취소">
 						<input id="modify" type="button" value="수정">
+					</form>	
 						<br>
+						
 				</div>
-				</form>
+				
 				</div>	
 				<hr>
 			</c:forEach>

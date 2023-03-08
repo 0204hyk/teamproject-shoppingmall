@@ -19,8 +19,6 @@
 .img-preview {
 	z-index:1;
 	position: relative;
-	
-	
 }
 .selectProduct:hover {
 	background-color: lightgray;	
@@ -183,3 +181,7 @@ hr {
     cursor: pointer; 
 }
 
+#file-input, #file-input2, #file-input3 {
+	width: 180px;
+	margin-left: 8px;
+}

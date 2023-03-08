@@ -47,7 +47,7 @@
 			<hr>	
 			<br>
 			
-				<div id="img-box">
+				<div id="image-box">
 					<img class="image-box" name="qna_img_1" id="user-image1" />
 					<img class="image-box" name="qna_img_2" id="user-image2" />
 					<img class="image-box" name="qna_img_3" id="user-image3" />

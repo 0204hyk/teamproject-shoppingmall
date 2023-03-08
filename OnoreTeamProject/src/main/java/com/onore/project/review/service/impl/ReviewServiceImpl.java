@@ -34,6 +34,7 @@ public class ReviewServiceImpl implements ReviewService{
 
 	@Override
 	public void insert(Model model, ReviewDTO rev) {
+		
 		model.addAttribute(review_mapper.insert(rev));
 	}
 
