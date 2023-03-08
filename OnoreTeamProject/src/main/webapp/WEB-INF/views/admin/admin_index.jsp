@@ -21,7 +21,7 @@
 		</div>
 		<div id="index-content" class="shadow">
 			<div class="content-title"><h1>일자별 현황</h1></div>
-			<table class="stats-table" style="width: 620px; height: 440px; border-radius: 15px">
+			<table class="index-table" style="width: 620px; height: 440px; border-radius: 15px">
 				<tr>
 				  <th class="table-col-1">일자</th>
 				  <th class="table-col-2">주문수</th>
@@ -41,7 +41,7 @@
 				  </tr>
 		    	</c:forEach>
 			</table>
-			<table class="stats-table" style="width: 620px; height: 60px;">
+			<table class="index-table" style="width: 620px; height: 60px;">
 				<tr>
 					<th class="table-col-1">최근 7일 통계</td>
 					<td class="table-col-2"><fmt:formatNumber value="${dailySalesTotal.sales_cnt_total}" pattern="#,###"/></td>
@@ -51,7 +51,7 @@
 					<td class="table-col-6"><fmt:formatNumber value="${weeklyStatsTotal.review_cnt_total}" pattern="#,###"/></td>
 				</tr>
 			</table>
-			<table class="stats-table" style="width: 620px; height: 60px;">
+			<table class="index-table" style="width: 620px; height: 60px;">
 				<tr>
 					<th class="table-col-1">이번 달 통계</td>
 					<td class="table-col-2"><fmt:formatNumber value="${monthSalesTotal.sales_cnt_total}" pattern="#,###"/></td>

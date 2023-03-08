@@ -12,31 +12,30 @@
 	
 	<div class="stats-content shadow">
 		<div class="stats-inner-content">
-			<div class="content-title">일별 매출 그래프</div>
+			<div class="content-title"><h1>일별 매출 그래프</h1></div>
 			<canvas id="daily-chart"></canvas>
 		</div>
 	</div>
-	<div class="stats-content shadow" style="height: auto;">
-		<table border=1>
+	<div class="stats-content shadow" style="height: auto; padding-top: 15px; padding-left: 15px;">
+		<table class="stats-table">
 			<tr>
-				<th>일자</th>
-				<th>주문 건수</th>
-				<th>매출액</th>
+				<th class="stats-table-col-1">일자</th>
+				<th class="stats-table-col-2">매출액</th>
+				<th class="stats-table-col-3">주문 건수</th>
 			</tr>
 			<c:forEach items="${dailySales}" var="daySaleData">
 				<tr>
-					<td>${daySaleData.day}</td>
-					<td><fmt:formatNumber value="${daySaleData.daily_sales_cnt}" pattern="#,###"/></td>
-					<td><fmt:formatNumber value="${daySaleData.daily_sales}" pattern="#,###"/> 원</td>
+					<td class="stats-table-col-1">${daySaleData.day}</td>
+					<td class="stats-table-col-2"><fmt:formatNumber value="${daySaleData.daily_sales}" pattern="#,###"/> 원</td>
+					<td class="stats-table-col-3"><fmt:formatNumber value="${daySaleData.daily_sales_cnt}" pattern="#,###"/> 건</td>
 				</tr>
 			</c:forEach>
 		</table>
-		<table>
+		<table class="stats-table">
 			<tr>
-				<th>${dailySalesTotal.month}</td>
-				<td><fmt:formatNumber value="${dailySalesTotal.sales_cnt_total}" pattern="#,###"/></td>
-				<td><fmt:formatNumber value="${dailySalesTotal.daily_sales_total}" pattern="#,###"/> 원</td>
-
+				<th class="stats-table-col-1">${dailySalesTotal.month}</td>
+				<td class="stats-table-col-2"><fmt:formatNumber value="${dailySalesTotal.daily_sales_total}" pattern="#,###"/> 원</td>
+				<td class="stats-table-col-3"><fmt:formatNumber value="${dailySalesTotal.sales_cnt_total}" pattern="#,###"/> 건</td>
 			</tr>
 		</table>
 	</div>

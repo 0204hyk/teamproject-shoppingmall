@@ -113,29 +113,30 @@ body {
   margin-left: 15px;
 }
 
-.stats-table {
+.index-table {
   text-align: center;
   margin-left: 10px;
   margin-bottom: 10px;
   border-collapse: separate;
 }
 
-.stats-table tr, td {
+.index-table tr, td {
   border-bottom: solid 1px rgb(186, 186, 186);
 }
 
-.stats-table th {
+.index-table th {
   font-size: 20px;
-  background-color: rgb(241, 241, 241);
+  background-color: rgb(170, 170, 170);
+  color: white;
   border-collapse: separate;
   border-radius: 10px;
 }
 
-.stats-table td {
+.index-table td {
   font-size: 18px;
 }
 
-.stats-table tr:hover {
+.index-table tr:hover {
   background-color: rgb(235, 235, 235);  
 }
 
@@ -169,6 +170,45 @@ body {
 .stats-title {
   height: 50px;
 }  
+
+.stats-table {
+  text-align: center;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  border-collapse: separate;
+}
+
+.stats-table tr, td {
+  border-bottom: solid 1px rgb(186, 186, 186);
+}
+
+.stats-table th {
+  font-size: 24px;
+  background-color: rgb(170, 170, 170);
+  color: white;
+  border-collapse: separate;
+  border-radius: 10px;
+}
+
+.stats-table td {
+  font-size: 20px;
+}
+
+.stats-table tr:hover {
+  background-color: rgb(235, 235, 235);  
+}
+
+.stats-table-col-1 {
+  width: 300px;
+}
+
+.stats-table-col-2 {
+  width: 780px;
+}
+
+.stats-table-col-3 {
+  width: 300px;
+}
 
 
 /* 공지사항 */

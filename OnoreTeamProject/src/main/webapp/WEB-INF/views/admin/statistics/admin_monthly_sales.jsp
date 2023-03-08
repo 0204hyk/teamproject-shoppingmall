@@ -12,7 +12,7 @@
 	
 	<div class="stats-content shadow">
 		<div class="stats-inner-content">
-			<div class="content-title">월별 매출 그래프</div>
+			<div class="content-title"><h1>월별 매출 그래프</h1></div>
 			<canvas id="monthly-chart"></canvas>
 		</div>
 	</div>
