@@ -13,15 +13,19 @@ public class ReviewandProductDTO {
 	private String review_content;
 	private LocalDate review_date;
 	private Integer review_rating;
+	private String review_img_path;
 	private String review_img_1;
 	private String review_img_2;
 	private String review_img_3;
-	
+	private Integer review_good;
+	private Integer review_bad;
 	private Integer category_num;
 	private String product_name;
 	private Integer product_price;
 	private String product_info;
-	private String product_thumbnail; //사진경로 
+	private String product_thumbnail_1;
+	private String product_thumbnail_2;
+	private String product_thumbnail_3;
 	private Integer product_views;
 	private Integer product_likes;
 	

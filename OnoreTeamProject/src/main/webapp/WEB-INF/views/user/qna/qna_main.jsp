@@ -16,9 +16,9 @@
 <body>
 	<%@include file="../top.jspf"%>
 
-	<div class="main" style="padding-top: 127px; width: auto; height: 800px; margin: 50px; margin-top: 0px;">
+	<div class="main" style="padding-top: 127px; width: auto; margin: 50px; margin-top: 0px;">
 		<hr />
-		<div class="board" style="padding-top: 127px; width: auto; height: 800px; margin:50px; margin-top: 0px;">
+		<div class="board" style="padding: 60px;">
 			<table>
 				<tr>
 					<th id="num" class="title">번호</th>
@@ -35,16 +35,16 @@
 						<td>${qna.qna_category }</td>
 						
 						<c:choose>
-							<c:when test="${not empty qna.product_thumbnail}">
-								<td><img style="width: 30px; height: 30px;" src=${qna.product_thumbnail }></td>
+							<c:when test="${not empty qna.product_thumbnail_1}">
+								<td><img style="width: 40px; height: 40px;" src=${qna.product_thumbnail_1 }></td>
 							</c:when>
 							<c:otherwise>
 								<td></td>
 							</c:otherwise>
 						</c:choose>
 	
-						<td><a href="./view?qna_num=${qna.qna_num}">${qna.qna_content }</a></td>
-						<td>${qna.mem_id }</td>
+						<td id="qna_title"><a href="./view?qna_num=${qna.qna_num}">${qna.qna_title }</a></td>
+						<td id="mem_id">${qna.maskingName }</td>
 						<td>${qna.qna_date}</td>
 						<c:choose>
 							<c:when test="${qna.qna_status eq 0 }">
@@ -74,6 +74,8 @@
 			</div>
 		</div>
 	</div>
+	
+	<hr>
 	
 	<%@include file="../bottom.jspf"%>
 </body>

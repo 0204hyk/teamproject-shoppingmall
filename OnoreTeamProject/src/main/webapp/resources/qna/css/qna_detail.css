@@ -1,99 +1,69 @@
 .detail {
-    padding:60px;
+    padding:60px 0;
     margin-left: auto;
     margin-right: auto;
-    
+    width: 1000px;
 }
 
 .container {
 	display: flex;
     flex-direction: row;
+    height: 80px;
+    margin-left: 0px;
+    padding-left: 0px;
 }
 
-.b {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+
+.sub-container2 {
+	display: flex;
+}
+
+.sub-container2 > div {
+	margin: 0 20px;
+}
+
+h3 {
+	font-weight: bold;
 }
 
 .content {
     width: auto;
     height: 300px;
+    font-size: 20px;
 }
-
 
 img {
     width: 200px;
     height: 200px;
 }
 
-.image-box {
-	border: 0px;
-	width: 100px;
-	height: 100px;
+#prd_name, #title {
+    text-align: left;
+    font-size: 40px;
+    height: 50px;
+    margin-bottom: 20px;
 }
 
-#inputs {
-	position: relative;
-	z-index: 3;
+hr {
+  border-top: 1px solid gray;
 }
 
-#searchInput {
-	position: absolute;
-	z-index: 2;
+#comment {
+	font-weight: bold;
+	font-size: 20px;
 }
 
-.selectProduct {
-	background-color: white;
-}
+button {
+  	background-color: black;
+    color: white;
+    width: 120px;
+    height: 50px;
+    float: right;
+    border-radius: 5%;
+    margin: 30px 0;
+    cursor: pointer; 
+  }
 
-.selectProduct:hover {
-	background-color: lightgray;	
-}
-#inputs {
-	cursor: pointer;
-	
-}
-
-#searchImg {
-	width: 100px;
-	height: 100px;
-}
-
-<!-- 이미지 삭제 버튼 모아둔 곳 -->
-
-#firstImg {
-    position: relative;
-    z-index: 2;
-}
-
-#imgBox1 {
-    position: absolute;
-    z-index: 1;
-    margin-left: 70px;
-    margin-top: 60px;
-}
-
-#secondImg {
-    position: relative;
-    z-index: 2;
-}
-
-#imgBox2 {
-    position: absolute;
-    z-index: 1;
-    margin-left: 180px;
-    margin-top: 30px;
-}
-
-#thirdImg {
-    position: relative;
-    z-index: 2;
-}
-
-#imgBox3 {
-    position: absolute;
-    z-index: 1;
-    margin-left: 275px;
-    margin-top: 7px;
+  .comment_box {
+	margin: 20px 0;
 }

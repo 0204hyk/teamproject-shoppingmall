@@ -31,6 +31,7 @@
     border-radius: 5%;
     margin: 60px;
     margin-top: 30px;
+    cursor: pointer;
   }
   
   .page {
@@ -55,22 +56,23 @@
   th, td {
     border-bottom: 1px solid lightgray;
     padding: 10px;
-    height: 30px;
+    height: 40px;
     vertical-align: middle;
     text-align: center;
     white-space: nowrap;
   }
   
  #product_num {
- 	overflow: hidden;
+ 	 overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
  }
  
- #review_content {
+ #qna_title {
  	overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    text-align: left;
  }
  
  #mem_id {
@@ -88,7 +90,8 @@
  }
  
  #title {
- 	width: 40%;
+ 	width: 25%;
+ 	text-align: left;
  }
  
  #writer {
@@ -99,7 +102,7 @@
  	width: 15%;
  }
  
- #rating {
+ #reply {
  	width: 10%;
  }
  
