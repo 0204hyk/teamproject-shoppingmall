@@ -1,0 +1,80 @@
+.main {
+	overflow: hidden;
+
+}
+
+.flex-container2 {
+	display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+	margin-left: 100px;
+    margin-top: 100px;
+    text-align: center;
+    width: 1400px;
+	height: 1000px;
+	overflow: scroll;
+
+}
+
+.category-btn{
+	padding-bottom: 150px;
+	
+}
+#ajax-all {
+	
+	font-size: 25px;
+	padding-left: 20px;
+	margin-right: 20px;
+	
+}
+
+#ajax-derby {
+	
+	font-size: 25px;
+	margin-right: 20px;
+}
+
+#ajax-boots {
+	
+	font-size: 25px;
+	margin-right: 20px;
+}
+
+#ajax-loafer {
+	
+	font-size: 25px;
+	margin-right: 20px;
+}
+
+#ajax-snakers {
+	
+	font-size: 25px;
+}
+
+.img-container  {
+	width:500px;
+    height:500px;
+    padding: 5px;
+   	margin:0 auto;
+   	vertical-align: middle;
+    background-position: center;
+ 	
+}
+
+
+.img-info > img{
+	width:300px;
+	height:300px;
+
+}
+
+.img-info2 > span {
+	font-size: 20px;
+	color: black;	
+	text-align: center;
+	
+}
+
+
+
+
