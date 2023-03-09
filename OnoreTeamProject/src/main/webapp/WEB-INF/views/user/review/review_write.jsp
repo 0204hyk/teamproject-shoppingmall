@@ -66,14 +66,18 @@
 				<br>
 				<!-- 파일선택 input 을 각 div로 감쌈 2023.03.08 수정  -->
 				<div class="sub-container2">
-					<div>
-						<input type="file" id="fileUpload1" accept=".jpg, .png, .bmp, .jpeg" />
+					<div id="firstImg">
+						<input type="file" name="file" id="fileUpload1" accept="image/*" onchange="PreviewImage();" />
+						<span id="imgBox1"></span>
+						
 					</div>
-					<div>
-						<input type="file" id="fileUpload2" accept=".jpg, .png, .bmp, .jpeg" />
+					<div id="secondImg">
+						<input type="file" name="file" id="fileUpload2" accept="image/*" onchange="PreviewImage2();" />
+						<span id="imgBox2"></span>
 					 </div>
-					 <div>
-						<input type="file" id="fileUpload3" accept=".jpg, .png, .bmp, .jpeg" />
+					 <div id="thirdImg">
+						<input type="file" name="file" id="fileUpload3" accept="image/*" onchange="PreviewImage3();" />
+						<span id="imgBox3"></span>
 					 </div>	
 					<br> 
 				</div>

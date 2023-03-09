@@ -1,3 +1,11 @@
+function PreviewImage() {
+	
+	var preview = new FileReader();
+	preview.onload = function (e) {
+		document.getElementById('user-image1').src = e.target.result;
+	};			
+	preview.readAsDataURL(document.getElementById('file-input').files[0]);
+};
 const handler = {
             init() {
                 const fileInput = document.querySelector('#file-input');
@@ -6,15 +14,15 @@ const handler = {
                     var files = Array.from(fileInput.files)
                     files.forEach(file => {
                         fileList.innerHTML = `
-                            <input type='button' data-index='${file.lastModified}' id="${file.lastModified}" class='file-remove' value='x'></input>
+                            <input type='button' data-index='${file.lastModified}' id="${file.lastModified}" class='file-remove' value='X'></input>
                         `;
                     });
                 });
+                
             },
 
-
             removeFile: () => {
-
+            
                 document.addEventListener('click', (e) => {
                     if (e.target.className !== 'file-remove') return;
                     const removeTargetId = e.target.dataset.index;
@@ -48,6 +56,22 @@ const handler = {
 
         handler.init()
         handler.removeFile()
+
+
+
+function PreviewImage2() {
+
+	var preview = new FileReader();
+	preview.onload = function (e) {
+	
+		document.getElementById('user-image2').src = e.target.result;
+		
+	};
+					
+	preview.readAsDataURL(document.getElementById('file-input2').files[0]);
+
+};
+
 
 const handler2 = {
             init2() {
@@ -101,6 +125,20 @@ const handler2 = {
 
         handler2.init2()
         handler2.removeFile2()
+
+function PreviewImage3() {
+
+	var preview = new FileReader();
+	preview.onload = function (e) {
+	
+		document.getElementById('user-image3').src = e.target.result;
+		
+	};
+					
+	preview.readAsDataURL(document.getElementById('file-input3').files[0]);
+
+};
+
         const handler3 = {
             init3() {
 
@@ -159,44 +197,8 @@ const handler2 = {
 
         handler3.init3()
         handler3.removeFile3()
-        
+
 const imageBox = document.getElementsByClassName('img-input')[0];
-
-function PreviewImage() {
-	
-	var preview = new FileReader();
-	preview.onload = function (e) {
-		document.getElementById('user-image1').src = e.target.result;
-	};			
-	preview.readAsDataURL(document.getElementById('file-input').files[0]);
-};
-
-function PreviewImage2() {
-
-	var preview = new FileReader();
-	preview.onload = function (e) {
-	
-		document.getElementById('user-image2').src = e.target.result;
-		
-	};
-					
-	preview.readAsDataURL(document.getElementById('file-input2').files[0]);
-
-};
-
-function PreviewImage3() {
-
-	var preview = new FileReader();
-	preview.onload = function (e) {
-	
-		document.getElementById('user-image3').src = e.target.result;
-		
-	};
-					
-	preview.readAsDataURL(document.getElementById('file-input3').files[0]);
-
-};
-
 
 
 function changeSelect() {
@@ -218,11 +220,9 @@ function changeSelect() {
 					var value = document.getElementById('product');
  					var searchInput = document.getElementById('searchInput');
  					for (var i = 0; i < obj.length; ++i) {
- 						searchInput.innerHTML += `<div class="selectProduct"><input type="hidden" value=${obj[i].product_num} /><img id="searchImg" src=${obj[i].product_thumbnail}  /> <span class="product_name">${obj[i].product_name}</span></div>`;
+ 						searchInput.innerHTML += `<div class="selectProduct"><input type="hidden" value=${obj[i].product_num} /><img id="searchImg" src=${obj[i].product_thumbnail_1}  /> <span class="product_name">${obj[i].product_name}</span></div>`;
  					}
- 					
- 					
- 					
+
  					var len = document.getElementsByClassName('selectProduct').length;
  				
  					for (var j = 0; j < len; ++j) {
@@ -230,7 +230,7 @@ function changeSelect() {
  						var product_name = document.getElementsByClassName('product_name')[j];
  				
  						selected.addEventListener('click', (e) => {
-					
+							console.log(e.target.children[0]);
 							product_num.value = (e.target.children[0].defaultValue);
 							value.value = e.target.innerText;
 							searchInput.innerHTML = '';

@@ -1,19 +1,26 @@
-
-
-.searchInput {
-	height: 1000px;
+#inputs {
+	cursor: pointer;
+	position: relative;
 	z-index: 3;
+}
+
+#searchInput {
+	height: 1000px;
+	z-index: 2;
+	position: absolute;
 }
 
 .selectProduct {
 	width: 400px;
-	z-index: 2;
+	background-color:white;
+
 }
 
-img-preview {
+.img-preview {
 	z-index:1;
-	
+	position: relative;
 }
+
 .selectProduct:hover {
 	background-color: lightgray;	
 }
@@ -25,6 +32,7 @@ img-preview {
 }
 
 .mb-3 {
+	
 	padding-left: 30px;
 	overflow: auto;
 }
@@ -36,10 +44,7 @@ img-preview {
 	margin-right: 80px;
 }
 
-#inputs {
-	cursor: pointer;
-	
-}
+
 
 #searchImg {
 	width: 100px;
@@ -62,7 +67,7 @@ img-preview {
 }
 
 #secondImg {
-    position: relative;
+
     z-index: 2;
 }
 
@@ -74,7 +79,7 @@ img-preview {
 }
 
 #thirdImg {
-    position: relative;
+   
     z-index: 2;
 }
 
@@ -86,6 +91,16 @@ img-preview {
 }
 
 .file-remove {
+	background-color: white;
+	border: 0;
+	color: black;
+}
+.file-remove2 {
+	background-color: white;
+	border: 0;
+	color: black;
+}
+.file-remove3 {
 	background-color: white;
 	border: 0;
 	color: black;
@@ -105,7 +120,8 @@ img-preview {
 
 #inputs {
 	margin: 40px 0;
-	
+	position: relative;
+	z-index: 3;
 }
 
 #search {
@@ -164,4 +180,9 @@ hr {
     border-radius: 5%;
     margin: 30px 10px 0 0;
     cursor: pointer; 
+}
+
+#file-input, #file-input2, #file-input3 {
+	width: 230px;
+	margin-left: 8px;
 }

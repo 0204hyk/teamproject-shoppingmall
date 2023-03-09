@@ -36,7 +36,7 @@
 				<option value="기타">기타</option>
 			</select> 
 			<input type="hidden" id="p_num" name="product_num" value="">
-			<input type="hidden" name="mem_id" value="abc123"> 
+			<input type="hidden" name="mem_id" value="test"> 
 			<input type="text" name="qna_title" id="title" placeholder="제목을 입력해 주세요.">
 			<br>
 			<div id="inputs">
@@ -47,7 +47,7 @@
 			<hr>	
 			<br>
 			
-				<div id="img-box">
+				<div id="image-box">
 					<img class="image-box" name="qna_img_1" id="user-image1" />
 					<img class="image-box" name="qna_img_2" id="user-image2" />
 					<img class="image-box" name="qna_img_3" id="user-image3" />
@@ -76,8 +76,7 @@
 		</div>
 	</div>
 	<hr>
-	<script type="text/javascript"
-		src="/project/resources/qna/js/qna_write.js"></script>
+	<script type="text/javascript" src="/project/resources/qna/js/qna_write.js"></script>
 
 	<%@include file="../bottom.jspf"%>
 </body>
