@@ -58,19 +58,19 @@
 					rows="30">${contents.review_content }</textarea>
 				<div id="img-box">
 					<div id="test1"></div>
-					<img id="previewImg1" /> 
-					<img id="previewImg2" /> 
-					<img id="previewImg3" />
+					<img id="previewImg1" src="/project/resources/review/image/${contents.review_img_1 }" /> 
+					<img id="previewImg2" src="/project/resources/review/image/${contents.review_img_2 }" /> 
+					<img id="previewImg3" src="/project/resources/review/image/${contents.review_img_3 }"/>
 				</div>
 				<br>
 				<div class="sub-container2">
-					<input type="file" id="fileUpload1" accept=".jpg, .png, .bmp, .jpeg" />
-					<input type="file" id="fileUpload2" accept=".jpg, .png, .bmp, .jpeg" /> 
-					<input type="file" id="fileUpload3" accept=".jpg, .png, .bmp, .jpeg" />
+					<input type="file" id="fileUpload1" accept="image/*" />
+					<input type="file" id="fileUpload2" accept="image/*" /> 
+					<input type="file" id="fileUpload3" accept="image/*" />
 					<br> 
-					<input type="hidden" name="review_img_1" value="${qna.qna_img_1 }"/>
-					<input type="hidden" name="review_img_1" value="${qna.qna_img_2 }"/>
-					<input type="hidden" name="review_img_1" value="${qna.qna_img_2 }"/>
+					<input type="hidden" name="review_img_1" value="${contents.review_img_1 }"/>
+					<input type="hidden" name="review_img_1" value="${contents.review_img_2 }"/>
+					<input type="hidden" name="review_img_1" value="${contents.review_img_3 }"/>
 					
 					<input id="modify_btn" type="submit" value="수정" onclick="return confirm('수정하시겠습니까?')">
 				</div>
