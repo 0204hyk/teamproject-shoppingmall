@@ -53,6 +53,7 @@
 				</div>
 			</div>
 			<hr>
+			<input type="hidden" name="mem_id" value="${sessionScope.signIn.mem_id}">
 			<!-- 리뷰작성폼 div 바깥으로 이동 2023.03.08 수정  -->
 			<textarea  name="review_content" id="reviewContents" cols="150"
 					rows="30" >리뷰를 작성해주세요</textarea>

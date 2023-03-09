@@ -23,7 +23,7 @@
   	INSERT INTO reviews VALUES (
   		review_num_seq.nextval,
   		3,
-  		'abc1234',
+  		#{mem_id},
   		#{review_content},
   		SYSDATE,
   		#{review_rating},
