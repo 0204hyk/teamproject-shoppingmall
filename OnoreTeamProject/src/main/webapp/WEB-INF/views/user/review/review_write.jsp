@@ -55,7 +55,7 @@
 			<hr>
 			<!-- 리뷰작성폼 div 바깥으로 이동 2023.03.08 수정  -->
 			<textarea  name="review_content" id="reviewContents" cols="150"
-					rows="30" >리뷰를 작성해주세요</textarea>
+					rows="30" placeholder="리뷰를 작성해 주세요." ></textarea>
 			
 			<div class="container2">
 				<div id="img-box">
