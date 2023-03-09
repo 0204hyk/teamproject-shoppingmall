@@ -89,7 +89,7 @@
 			
 			<span id="comment_id" style="display: none;">${sessionScope.signIn.mem_id}</span>
 			
-			<button onclick="location.href='./write'">글쓰기</button>
+			<button id="write_btn">글쓰기</button>
 			
 			<div class="page">
 				<c:if test="${pagination_start > 5 }">
@@ -110,10 +110,20 @@
 	<%@ include file="../bottom.jspf" %>
 
 <script>
+	const write = document.getElementById('write_btn');
 	const id = document.getElementById('comment_id').innerText;
+	
+	write.addEventListener('click', (e) => {
 	if (id !== "") {
-		
+		location.href='./write';
+	} else {
+		if(confirm('로그인이 필요한 서비스입니다 로그인 하시겠습니까?')){
+			location.href='/project/login';
+		} else {
+			
+		}
 	}
+	});
 </script>
 
 </body>

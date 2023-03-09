@@ -9,7 +9,7 @@
 <%@ include file="../header.jspf"%>
 <link rel="icon" href="/project/resources/review/image/파비콘.png">
 <link rel="stylesheet"
-	href="/project/resources/review/css/review_write.css">
+	href="/project/resources/review/css/review_modify.css">
 <script src="/project/resources/review/js/review_modify.js" defer></script>
 </head>
 <body>
@@ -35,7 +35,8 @@
 						<tr>
 							<th>
 								<fieldset>
-									<!--  <div class="text-bold">제품을 평가해주세요</div>-->
+									<input type="hidden" name="review_num" value="${contents.review_num }">
+									<input type="hidden" id="star" value="${contents.review_rating }">
 									<input type="radio" name="review_rating" value="5" id="rate1"
 											onclick="getrating(event)"> <label for="rate1">★</label>
 									<input type="radio" name="review_rating" value="4" id="rate2"
@@ -55,7 +56,7 @@
 			<hr>
 			<!-- 리뷰작성폼 div 바깥으로 이동 2023.03.08 수정  -->
 			<textarea  name="review_content" id="reviewContents" cols="150"
-					rows="30" >리뷰를 작성해주세요</textarea>
+					rows="30" >${contents.review_content }</textarea>
 			
 			<div class="container2">
 				<div id="img-box">
@@ -86,7 +87,7 @@
 				</div>
 				<!-- 버튼 안밀리게 버튼만큼 위치조정 div 생성 -->
 				<div style="height: 80px;">
-				<input type="submit" id="write_btn" formaction="./write" value="등록" onclick="return confirm('완료하시겠습니까?')">
+				<input type="submit" id="write_btn" formaction="./modify" value="수정" onclick="return confirm('수정하시겠습니까?')">
 				</div>
 				<br>
 			</div>
