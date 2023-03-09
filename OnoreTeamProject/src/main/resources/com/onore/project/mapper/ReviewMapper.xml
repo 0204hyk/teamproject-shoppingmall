@@ -27,6 +27,7 @@
   		#{review_content},
   		SYSDATE,
   		#{review_rating},
+  		#{review_img_path},
   		#{review_img_1},
   		#{review_img_2},
   		#{review_img_3},

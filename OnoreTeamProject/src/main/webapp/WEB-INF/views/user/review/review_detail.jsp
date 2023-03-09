@@ -90,30 +90,30 @@
 				<div class="sub-container2">
 					<div class="img">
 						<c:if test="${not empty contents.review_img_1}">
-							<a href="${contents.review_img_1 }"
+							<a href="/project/resources/review/image/${contents.review_img_1 }"
 							data-toggle="lightbox" data-gallery="example-gallery"
 							class="col-sm-4">
-						<img src="${contents.review_img_1 }"
+						<img src="/project/resources/review/image/${contents.review_img_1 }"
 								name="qna_img_1" class="img-fluid rounded" />
 						</a>
 						</c:if>
 					</div>
 					<div class="img">
 						<c:if test="${not empty contents.review_img_2}">
-							<a href="${contents.review_img_2 }"
+							<a href="/project/resources/review/image/${contents.review_img_2 }"
 							data-toggle="lightbox" data-gallery="example-gallery"
 							class="col-sm-4">
-						<img src="${contents.review_img_2 }"
+						<img src="/project/resources/review/image/${contents.review_img_2 }"
 								name="qna_img_1" class="img-fluid rounded" />
 						</a>
 						</c:if>
 					</div>
 					<div class="img">
 						<c:if test="${not empty contents.review_img_3}">
-							<a href="${contents.review_img_3 }"
+							<a href="/project/resources/review/image/${contents.review_img_3 }"
 							data-toggle="lightbox" data-gallery="example-gallery"
 							class="col-sm-4">
-						<img src="${contents.review_img_3 }"
+						<img src="/project/resources/review/image/${contents.review_img_3 }"
 								name="qna_img_1" class="img-fluid rounded" />
 						</a>
 						</c:if>

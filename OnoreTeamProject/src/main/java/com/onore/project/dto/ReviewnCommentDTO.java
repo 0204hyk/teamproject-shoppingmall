@@ -13,9 +13,12 @@ public class ReviewnCommentDTO {
 	private String review_content;
 	private LocalDate review_date;
 	private Integer review_rating;
+	private String review_img_path;
 	private String review_img_1;
 	private String review_img_2;
 	private String review_img_3;
+	private Integer review_good;
+	private Integer review_bad;
 	
 	private Integer comment_num;
 	private String comment_id;
