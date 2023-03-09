@@ -7,6 +7,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.onore.project.dto.CommentDTO;
 import com.onore.project.dto.ReviewDTO;
@@ -27,8 +28,9 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 
 	@Override
-	public Integer insert(ReviewDTO rev) {
-		return review_mapper.insert(rev);
+	public void insert(Model model, ReviewDTO rev) {
+		
+		model.addAttribute(review_mapper.insert(rev));
 	}
 
 	@Override
