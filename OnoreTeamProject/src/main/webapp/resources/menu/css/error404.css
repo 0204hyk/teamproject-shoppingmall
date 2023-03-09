@@ -1,0 +1,29 @@
+.middle_error404_div {
+	height: 700px;
+	padding-top: 200px;
+	background-color: rgb(245 245 245);
+}
+
+.error404_div {
+	padding-top: 20px;
+	height: 430px;
+	width: 100%;
+	margin: auto;
+	background-color: rgb(245 245 245);
+	color: black;
+	font-size: 20px;
+	text-align: center;
+}
+
+.main_go_btn {
+	margin-top: 30px;
+	width:200px;
+	height: 50px;
+	font-weight: bold;
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 20px;
+	background-color: black;
+	color: white;
+	border-radius: 3px;
+	cursor: pointer; /* 마우스 올리면 손가락 모양으로 변함 */
+}
