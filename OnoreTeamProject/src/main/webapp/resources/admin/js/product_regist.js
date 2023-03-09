@@ -63,7 +63,7 @@ $('input[name=product_thumbnail_3]').change(function(){
     $('#preview3').attr('src', "/project/resources/admin/image/default_image.png");
   }
 })
-// 상품등록 ajax POST
+// 상품등록 POST
 function productRegist(url){
   if ($('select[name=category_num]').val() == 0) {
     alert('상품의 카테고리를 선택해주세요.');
@@ -124,6 +124,18 @@ function productRegist(url){
   }
 }
 
+// 상품 등록 취소 버튼 클릭시
+$("#regist-cancle-btn").click(function(){
+  var result = confirm('상품등록을 취소하시겠습니까?');
+  if (result) {
+      movePageByGet('/project/admin/product/list');
+  } else {
+
+  }
+});
+
+
+// 상품 수정 POST
 function productModify(url){
   if ($('select[name=category_num]').val() == 0) {
     alert('상품의 카테고리를 선택해주세요.');
@@ -183,3 +195,13 @@ function productModify(url){
     }
   }
 }
+
+// 상품 수정 취소 버튼 클릭 시
+$("#modify-cancle-btn").click(function(){
+  var result = confirm('상품수정을 취소하시겠습니까?');
+  if (result) {
+      movePageByGet('/project/admin/product/list');
+  } else {
+
+  }
+});

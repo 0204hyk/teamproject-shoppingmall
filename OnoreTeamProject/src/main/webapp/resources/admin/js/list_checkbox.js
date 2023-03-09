@@ -5,7 +5,7 @@ $("#all-check").click(function(){
     } else {
      $(".row-check").prop("checked", false);
     }
-   });
+});
 
 $(".row-check").click(function(){
     $("#all-check").prop("checked", false);

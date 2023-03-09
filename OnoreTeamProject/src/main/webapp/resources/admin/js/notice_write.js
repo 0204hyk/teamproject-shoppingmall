@@ -24,7 +24,16 @@ function writeNotice(url){
 
         }
     }
-}
+}    
+
+$("#write-cancle-btn").click(function(){
+    var result = confirm('공지사항 등록을 취소하시겠습니까?');
+    if (result) {
+        movePageByGet('/project/admin/notice/list');
+    } else {
+
+    }
+});
 
 function modifyNotice(url){
     if ($('input[name=notice_title]').val() == '') {
@@ -53,3 +62,12 @@ function modifyNotice(url){
         }
     }
 }
+
+$("#modify-cancle-btn").click(function(){
+    var result = confirm('공지사항 수정을 취소하시겠습니까?');
+    if (result) {
+        movePageByGet('/project/admin/notice/list');
+    } else {
+
+    }
+});

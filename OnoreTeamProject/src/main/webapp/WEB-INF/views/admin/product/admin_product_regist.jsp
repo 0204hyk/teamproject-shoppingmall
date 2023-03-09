@@ -56,7 +56,7 @@
 				<p style="font-size: 20px; margin-top: 10px;">상품 상세 정보</p>
 		  		<textarea id="input-detail" class="summernote" name="product_detail"></textarea>
 		  		<div class="d-grid d-md-flex justify-content-md-end" style="margin-top: 15px; margin-bottom: 10px;">
-		  			<input type="button" onclick="movePageByGet('<%=request.getContextPath()%>/admin/product/list')" class="submit-btn btn btn-secondary btn-lg" value="취 소" />
+		  			<input type="button" id="regist-cancle-btn" class="submit-btn btn btn-secondary btn-lg" value="취 소" />
 		  			<input type="button" onclick="productRegist('<%=request.getContextPath()%>/admin/product/regist')" class="submit-btn btn btn-secondary btn-lg" value="등 록"/>
 		  		</div>
 		  	</form>

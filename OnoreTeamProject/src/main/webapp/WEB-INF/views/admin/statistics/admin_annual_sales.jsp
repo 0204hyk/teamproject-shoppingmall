@@ -17,25 +17,25 @@
 		</div>
 	</div>
 	<div class="stats-content shadow" style="height: auto;">
-		<table border=1>
+		<table class="stats-table">
 			<tr>
-				<th>일자</th>
-				<th>주문 건수</th>
-				<th>매출액</th>
+				<th class="stats-table-col-1">일자</th>
+				<th class="stats-table-col-2">매출액</th>
+				<th class="stats-table-col-3">주문 건수</th>
 			</tr>
 			<c:forEach items="${annualSales}" var="yearSaleData">
 				<tr>
-					<td>${yearSaleData.year}</td>
-					<td><fmt:formatNumber value="${yearSaleData.annual_sales_cnt}" pattern="#,###"/></td>
-					<td><fmt:formatNumber value="${yearSaleData.annual_sales}" pattern="#,###"/> 원</td>
+					<td class="stats-table-col-1">${yearSaleData.year}</td>
+					<td class="stats-table-col-2"><fmt:formatNumber value="${yearSaleData.annual_sales}" pattern="#,###"/> 원</td>
+					<td class="stats-table-col-3"><fmt:formatNumber value="${yearSaleData.annual_sales_cnt}" pattern="#,###"/> 건</td>
 				</tr>
 			</c:forEach>
 		</table>
-		<table>
+		<table class="stats-table">
 			<tr>
-				<th>${annualSalesTotal.ten_years}</td>
-				<td><fmt:formatNumber value="${annualSalesTotal.annual_sales_cnt_total}" pattern="#,###"/></td>
-				<td><fmt:formatNumber value="${annualSalesTotal.annual_sales_total}" pattern="#,###"/> 원</td>
+				<th class="stats-table-col-1">${annualSalesTotal.ten_years}</td>
+				<td class="stats-table-col-2"><fmt:formatNumber value="${annualSalesTotal.annual_sales_total}" pattern="#,###"/> 원</td>
+				<td class="stats-table-col-3"><fmt:formatNumber value="${annualSalesTotal.annual_sales_cnt_total}" pattern="#,###"/> 건</td>
 
 			</tr>
 		</table>
