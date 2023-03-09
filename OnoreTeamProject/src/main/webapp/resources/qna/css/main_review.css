@@ -1,0 +1,298 @@
+/* 색상을 이곳에 정의해두고 쓸 수 있다. */
+/* 사용방법 : color: var(--text-color)*/
+:root {
+    --text-color: black;
+    --background-color: white;
+    --icon-color:black;
+  }
+  
+  body {
+    margin: 0px;
+    font-family: 'Lora';
+      
+  }
+  
+  a {
+    text-decoration: none; /* 밑줄 없애기 */
+    color: black;
+  }
+  
+  
+  li {
+    list-style: none;
+  }
+  
+  button {
+  	background-color: black;
+    color: white;
+    width: 100px;
+    height: 50px;
+    float: right;
+    border-radius: 5%;
+    margin: 60px;
+    margin-top: 30px;
+  }
+  
+  .page {
+  	color: gray;
+  	text-align: center;
+  	margin: 60px;
+  	margin-top: 100px;
+  	font-size: large;
+    justify-content: space-around;
+  }
+  
+  table {
+    width: 90%;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+    table-layout: fixed;
+    
+  }
+ 
+  th, td {
+    border-bottom: 1px solid lightgray;
+    padding: 10px;
+    height: 30px;
+    vertical-align: middle;
+    text-align: center;
+    white-space: nowrap;
+  }
+  
+ #product_num {
+ 	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+ }
+ 
+ #review_content {
+ 	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+ }
+ 
+ #mem_id {
+ 	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+ }
+  
+ #num {
+ 	width: 5%;
+ }
+ 
+ #product {
+ 	width: 15%;
+ }
+ 
+ #title {
+ 	width: 40%;
+ }
+ 
+ #writer {
+ 	width: 10%;
+ }
+ 
+ #date {
+ 	width: 15%;
+ }
+ 
+ #rating {
+ 	width: 10%;
+ }
+ 
+  .header {
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+  }
+  
+  
+  .navbar {
+    display: flex; /* 아이템을 한 줄에 나란히 */
+    justify-content:right; /* 오른쪽부터 쌓기*/
+    align-items: center; /* 수직적으로 중간 배치 */
+    background-color: white;
+    padding: 8px 12px;  /* 상하 8px, 좌우 12px */
+  }
+  
+  .navbar_logo {
+    font-size: 40px;
+    margin-right: auto; /*로고만 오른쪽에 놓기 */
+    margin-left: 70px;
+    margin-top: 20px;
+  }
+  
+  .navbar_logo a:hover { /* 메뉴명에 마우스 올리면 검정색으로 변함 */
+    color: gray;
+  }
+  
+  .navbar_menu {
+    display:flex; /*한 줄에 하나씩*/
+    list-style: none; /* 점(disk) 없애기 */
+    padding-left: 0;
+    margin-top: 60px;
+  }
+  
+  .navbar_menu li {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  
+  .navbar_menu a:hover { /* 메뉴명에 마우스 올리면 검정색으로 변함 */
+    color: gray;
+  }
+  
+  .navbar_submenu{
+    display: none;
+    position: absolute;
+    font-size: 12px;
+    text-align: center;
+    padding: 0 10px;
+  }
+  
+  .navbar_menu > li:hover > ul {
+    display: block;
+    background-color:lightgray;
+    opacity: 0.8;
+    margin-top: 5px;
+  }
+  
+  .navbar_icons {
+    list-style: none;
+    color: black;
+    display: flex;
+    padding-left: 0;
+    cursor: pointer;
+    margin-top: 60px;
+    margin-right: 70px;
+  }
+  
+  .navbar_icons i:hover{ /* 아이콘에 마우스 올리면 검정색으로 변함 */
+    color: gray;
+  }
+  
+  .navbar_icons li {
+    padding: 8px 12px;
+    font-size: 15px;
+  }
+  
+  .navbar_toggleBtn{
+    display: none; /* 화면이 작아졌을 때만 나오게 하기위함 */
+    position: absolute; /* 제일 위로 올라감 */
+    right: 20px; /* 오른쪽에서 30px 떨어진 곳에 붙임 */
+    font-size: 24px;
+  }
+  
+  .footer {
+    background-color: rgb(248 248 248);
+    float: left;
+    width: 100%;
+    justify-content:right;
+  }
+  
+  .footercontent {
+    background-color: rgb(248 248 248);
+    font-size: 10px;
+    width: 60%;
+    float: left;
+    padding: 15px;
+    color:black;
+  }
+  
+  .footerconnect {
+    background-color: rgb(248 248 248);
+    font-size: 25px;
+    width: 30%;
+    float: right;
+    text-align: left;
+    color: black;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .teamname {
+    font-size: 10px;
+    color: black;
+  }
+  
+  @media screen and (max-width: 840px){
+    .navbar{
+      flex-direction: column;
+      align-items: flex-start;
+      background-color: rgb(248 248 248);
+    }
+  
+    .navbar_logo {
+      align-items: center;
+      margin: auto;
+    }
+  
+    .navbar > a,
+    .navbar_logo > a,
+    .navbar_menu > li > a{
+      color: darkgray;
+    }
+  
+    .navbar_submenu > li > a {
+      color: white;
+    }
+  
+    .navbar_menu{
+      display: none; /* 메뉴 아이템이 사라진다 */
+      flex-direction: column;
+      align-items: center;
+      width:100%;
+      overflow: hidden;
+    }
+  
+    .navbar_menu > li {
+      float: left;
+      text-align: center;
+    }
+  
+    .navbar_submenu > li {
+      line-height: 10px;
+    }
+  
+    .navbar_submenu {
+      height: 0;
+      overflow: hidden;
+    }
+  
+    .navbar_menu > li:hover {
+      transition-duration: 0.5s;
+    }
+  
+    .navbar_menu > li:hover .navbar_submenu {
+      height: 60px;
+      transition-duration: 1s;
+    }
+  
+    .navbar_icons{
+      display: none; /*  아이콘이 사라진다 */
+      justify-content: center;
+      width: 100%;
+    }
+  
+    .navbar_toggleBtn {
+      display: block;
+    }
+  
+    /* 토글버튼을 누르면 메뉴와 아이콘이 활성화 된다*/
+    .navbar_menu.active,
+    .navbar_icons.active {
+      display: flex;
+    }
+  
+    .footercontent{
+      text-align: center;
+    }
+  
+    .background{
+      height: 455px;
+    }
+  
+  }

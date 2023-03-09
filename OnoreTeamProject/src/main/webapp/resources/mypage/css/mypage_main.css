@@ -1,0 +1,28 @@
+.flex-container {
+    display: flex;
+    margin: auto;
+    width: 1200px;
+ }
+
+.my-orders {
+	width: 40%;
+	height: 500px;
+	overflow: hidden;
+	padding-left: 30px;
+	float: left;
+	margin: auto;
+}
+
+.my-info {
+	width: 40%;
+	height: 500px;
+	overflow: hidden;
+	float: right;
+	margin: auto;
+}
+
+.search {
+	width: 100px;
+	height: 50px;
+}
+
