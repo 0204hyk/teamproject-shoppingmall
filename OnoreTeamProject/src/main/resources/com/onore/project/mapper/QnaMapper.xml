@@ -26,11 +26,17 @@
 		-->
 	</select>
 	
-	
 	<select id="qnaModifyForm" resultType="com.onore.project.dto.QnaDTO">
 		SELECT * FROM qna WHERE qna_num = #{qna_num}
 	
 	</select>
+	
+	<select id="getReply" resultType="com.onore.project.dto.QnaReplyDTO">
+		SELECT * FROM qna_re WHERE qna_num = #{qna_num}
+	
+	</select>
+	
+	
 	<select id="getProductName" resultType="com.onore.project.dto.ProductsDTO">
 		SELECT product_num, product_name, product_thumbnail_1 FROM products WHERE LOWER(product_name) LIKE '%' || LOWER(#{product_name}) || '%'
 	

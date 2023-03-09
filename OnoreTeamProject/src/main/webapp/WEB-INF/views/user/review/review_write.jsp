@@ -53,25 +53,39 @@
 				</div>
 			</div>
 			<hr>
+			<!-- 리뷰작성폼 div 바깥으로 이동 2023.03.08 수정  -->
+			<textarea  name="review_content" id="reviewContents" cols="150"
+					rows="30" >리뷰를 작성해주세요</textarea>
+			
 			<div class="container2">
-				<textarea  name="review_content" id="reviewContents" cols="150"
-					rows="30" placeholder="리뷰를 작성해 주세요."></textarea>
-				<div id="image-box">
-					<img id="user-image1" class="image-box" /> 
-					<img id="user-image2" class="image-box"/> 
-					<img id="user-image3" class="image-box"/>
+				<div id="img-box">
+					<img id="previewImg1" /> 
+					<img id="previewImg2" /> 
+					<img id="previewImg3" />
 				</div>
 				<br>
+				<!-- 파일선택 input 을 각 div로 감쌈 2023.03.08 수정  -->
 				<div class="sub-container2">
-				
-					<input type="file" name="file" id="file-input" class="inputW" accept="image/*" onchange="PreviewImage();" />
-					<span id="imgBox1"></span>
-					<input type="file" name="file" id="file-input2" class="inputW" accept="image/*" onchange="PreviewImage2();"/> 
-					<span id="imgBox2"></span>
-					<input type="file" name="file" id="file-input3" class="inputW" accept="image/*" onchange="PreviewImage3();"/>
-					<span id="imgBox3"></span>
-					<input type="submit" id="write_btn" formaction="./write" value="등록" onclick="return confirm('완료하시겠습니까?')">
+					<div id="firstImg">
+						<input type="file" name="file" id="fileUpload1" accept="image/*" onchange="PreviewImage();" />
+						<span id="imgBox1"></span>
+						
+					</div>
+					<div id="secondImg">
+						<input type="file" name="file" id="fileUpload2" accept="image/*" onchange="PreviewImage2();" />
+						<span id="imgBox2"></span>
+					 </div>
+					 <div id="thirdImg">
+						<input type="file" name="file" id="fileUpload3" accept="image/*" onchange="PreviewImage3();" />
+						<span id="imgBox3"></span>
+					 </div>	
+					<br> 
 				</div>
+				<!-- 버튼 안밀리게 버튼만큼 위치조정 div 생성 -->
+				<div style="height: 80px;">
+				<input type="submit" id="write_btn" formaction="./write" value="등록" onclick="return confirm('완료하시겠습니까?')">
+				</div>
+				<br>
 			</div>
 			</form>
 		</div>

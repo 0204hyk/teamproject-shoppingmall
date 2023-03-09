@@ -56,7 +56,7 @@ public class QnaController {
 	@GetMapping("/view")
 	public String clickView(Model model, int qna_num) {
 		qnaService.qnaView(model, qna_num);
-		
+		qnaService.qnaReply(model, qna_num);
 		return "user/qna/qna_view";
 	}
 	

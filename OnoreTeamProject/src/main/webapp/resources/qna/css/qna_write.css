@@ -20,6 +20,7 @@
 	z-index:1;
 	position: relative;
 }
+
 .selectProduct:hover {
 	background-color: lightgray;	
 }

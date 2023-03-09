@@ -94,7 +94,7 @@ categoryAll.addEventListener('click', (e) => {
 					});
 					
 					onoreImg.addEventListener('click', (e) => {
-						location.href = '/product/shop/detail/?product_num=' + number;
+						location.href = '/project/shop/detail?product_num=' + number;
 					});
 				}	
 		}
@@ -149,7 +149,7 @@ derbyBtn.addEventListener('click', (e) => {
 					});
 					
 					onoreImg.addEventListener('click', (e) => {
-						location.href = '/product/shop/detail/?product_num=' + number;
+						location.href = '/project/shop/detail?product_num=' + number;
 					});
 				}	
 		}

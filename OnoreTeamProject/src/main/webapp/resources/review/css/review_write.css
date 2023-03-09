@@ -55,24 +55,16 @@ button {
     cursor: pointer; 
   }
   
-
+.container {
+	display: flex;
+	margin: 20px 0;
+}
 
 
 img {
     width: 180px;
     height: 180px;
     margin: 0 5px;
-}
-
-.image-box {
-	border: 0px;
-	width: 230px;
-	height: 230px;
-	margin-right: 80px;
-}
-
-.sub-container2 {
-	display: flex;
 }
 
 
@@ -93,12 +85,65 @@ img {
     cursor: pointer; 
 }
 
-.sub-container2 {
-	display: inline-block;
-	width: 100%;
+/* 첨부 이미지 사이즈 설정  2023.03.08 수정  */
+#previewImg1, #previewImg2, #previewImg3 {
+	border: 0px;
+	width: 230px;
+	height: 230px;
+	margin-right: 80px;
 }
 
+/* 파일 선택 3가지 포함한 div  2023.03.08 수정 */
+.sub-container2 {
+	display: flex;
+	
+}
 
+/* 각 파일 선택에 관한 길이 수정  2023.03.08 수정 */
+.sub-container2 > div {
+	width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+	margin-right: 120px;
+}
+<!-- 이미지 삭제 버튼 모아둔 곳 -->
+
+#firstImg {
+    position: relative;
+    z-index: 2;
+}
+
+#imgBox1 {
+    position: absolute;
+    z-index: 1;
+    vertical-align: center;
+    font-size: 20px;
+}
+
+#secondImg {
+
+    z-index: 2;
+}
+
+#imgBox2 {
+    position: absolute;
+    z-index: 1;
+    vertical-align: center;
+    font-size: 20px;
+}
+
+#thirdImg {
+   
+    z-index: 2;
+}
+
+#imgBox3 {
+    position: absolute;
+    z-index: 1;
+    vertical-align: center;
+    font-size: 20px;
+}
 .file-remove {
 	background-color: white;
 	border: 0;
@@ -115,7 +160,9 @@ img {
 	color: black;
 }
 
-#file-input, #file-input2, #file-input3 {
+/* 파일 선택 쪽 폰트 사이즈  2023.03.08 수정 */
+#fileUpload1, #fileUpload2, #fileUpload3 {
 	width: 230px;
 	margin-left: 8px;
+	font-size: 16px;
 }
