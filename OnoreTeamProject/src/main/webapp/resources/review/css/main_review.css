@@ -40,6 +40,7 @@
   .header {
     position: fixed;
     width: 100%;
+    z-index: 9999;
   }
   
   
@@ -49,6 +50,7 @@
     align-items: center; /* 수직적으로 중간 배치 */
     background-color: white;
     padding: 8px 12px;  /* 상하 8px, 좌우 12px */
+    
   }
   
   .navbar_logo {

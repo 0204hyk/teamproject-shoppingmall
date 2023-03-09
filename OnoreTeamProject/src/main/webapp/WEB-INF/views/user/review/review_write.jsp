@@ -77,9 +77,12 @@
 					 </div>	
 					<br> 
 				</div>
+				<!-- 버튼 안밀리게 버튼만큼 위치조정 div 생성 -->
+				<div style="height: 80px;">
+				<input type="submit" id="write_btn" formaction="./write" value="등록" onclick="return confirm('완료하시겠습니까?')">
+				</div>
 				<br>
 			</div>
-			<input type="submit" id="write_btn" formaction="./write" value="등록" onclick="return confirm('완료하시겠습니까?')">
 			</form>
 		</div>
 	</div>
