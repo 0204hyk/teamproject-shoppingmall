@@ -13,6 +13,8 @@
 		String sole = request.getParameter("sole");
 		String order_cnt = request.getParameter("order_cnt");
 		String product_num = request.getParameter("product_num");
+		HttpSession se = request.getSession();
+		String name = se.getId();
 	%>
 	
 	<%=size %>
@@ -20,6 +22,8 @@
 	<%=sole %>
 	<%=order_cnt %>
 	<%=product_num %>
+	<%=name %>
+	
 	
 	
 </body>

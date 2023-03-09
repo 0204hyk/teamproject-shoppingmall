@@ -35,7 +35,7 @@
 					</td>
 					<td><span id="prd_name">${review.product_name }</span> </td>
 					<td id="review_content"><a href="./detail?review_num=${review.review_num}">
-					${review.review_content }</td>
+					${review.review_content }</a></td>
 					<td id="mem_id">${review.maskingName }</td>
 					<td>${review.review_date }</td>
 					<c:if test="${review.review_rating eq 5 }">
@@ -87,6 +87,8 @@
 				</c:forEach>
 			</table>
 			
+			<span id="comment_id" style="display: none;">${sessionScope.signIn.mem_id}</span>
+			
 			<button onclick="location.href='./write'">글쓰기</button>
 			
 			<div class="page">
@@ -106,6 +108,13 @@
 	<hr>
 	
 	<%@ include file="../bottom.jspf" %>
+
+<script>
+	const id = document.getElementById('comment_id').innerText;
+	if (id !== "") {
+		
+	}
+</script>
 
 </body>
 </html>

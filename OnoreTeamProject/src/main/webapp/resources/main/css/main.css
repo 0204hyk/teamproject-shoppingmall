@@ -40,6 +40,11 @@ li {
   margin-top: 20px;
 }
 
+.navbar_logo > a > img {
+  	width: 160px;
+  	height: 50px;
+  }
+
 .navbar_logo a:hover { /* 메뉴명에 마우스 올리면 검정색으로 변함 */
   color: black;
 }

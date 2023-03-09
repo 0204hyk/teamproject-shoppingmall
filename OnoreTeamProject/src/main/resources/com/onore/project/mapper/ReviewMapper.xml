@@ -23,7 +23,7 @@
   	INSERT INTO reviews VALUES (
   		review_num_seq.nextval,
   		3,
-  		'abc123',
+  		'abc1234',
   		#{review_content},
   		SYSDATE,
   		#{review_rating},
@@ -39,7 +39,7 @@
   	INSERT INTO comments VALUES (
   		comment_num_seq.nextval,
   		#{review_num},
-  		'abc123',
+  		#{comment_id},
   		#{comment_content},
   		SYSDATE
   	)
