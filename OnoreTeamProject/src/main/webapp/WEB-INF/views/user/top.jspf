@@ -40,11 +40,11 @@
               </c:choose>
         
         <c:if test="${signIn == null}">
-        <li><a href="/project/login"><i class="fa-solid fa-lock"></i></a></li>
+        <li><a href="/project/login"><i class="fa-solid fa-unlock"></i></a></li>
          </c:if>
          
          <c:if test="${signIn != null}">
-         <li><a href="/project/logout"><i class="fa-solid fa-unlock"></i></a></li>
+         <li><a href="/project/logout"><i class="fa-solid fa-lock" style="color: blue;"></i></a></li>
          <li class="main_login_id">${signIn.mem_name}님 환영합니다!</li>
        </c:if>
     </ul>

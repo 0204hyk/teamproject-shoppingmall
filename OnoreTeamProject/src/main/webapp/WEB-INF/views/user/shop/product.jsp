@@ -26,12 +26,13 @@
 				<h1 id="product_name">${product.product_name }</h1>
 				<button class="heart" id="nowish"><i class="fa-regular fa-heart fa-2x"></i></button>
 				<button class="heart" id="wish" style="display: none;"><i class="fa-solid fa-heart fa-2x"></i></button>
+				<span style="display: none;" id="mem_id">${sessionScope.signIn.mem_id }</span>
 				<hr style="margin-top: 20px;">
 				<div id="info"><br>${product.product_info }</div>
 				<hr style="margin-top: 50px;" >
 				<div id="price"  style="display: none;">${product.product_price }</div>
 				 
-				<div><h3><fmt:formatNumber value="${product.product_price }" pattern="#,###" /> 원</h3></div>
+				<div id="prices"><fmt:formatNumber value="${product.product_price }" pattern="#,###" /> 원</div>
 				
 				<form method="POST" id="form">
 				
@@ -63,23 +64,25 @@
 						<option value="All Black Sole">All Black Sole</option>
 					</select>
 					
+				<br>
 				
-				<div id="select" style="display: grid;"></div>
-				<div id="cnt" style="display:none;">
-        		<input type ="button" onclick='count("minus")' value="-" class="count">
+				<div class="option">수량</div>
+				<div id="select" style="display: flex;">
+        		<input type ="button" onclick='count("minus")' value="-" class="count" id="minus" disabled>
        			<div id='result'>1</div>
-				<input type ="button" onclick='count("plus")' value="+" class="count">
-        		</div>
+				<input type ="button" onclick='count("plus")' value="+" class="count" id="plus" disabled>
+				</div>
+				<br>
 				<hr>
-				<div style="margin: 40px 0;">
+				<div style="margin-bottom: 30px;">
 				주문수량 <span id="cntinfo"></span> <br>
 				총 주문금액 <span id="priceinfo"></span>
 				</div>
 				<hr>
 				<input type="hidden" value="${product.product_num }" name="product_num" id="product_num">
 				<input type="hidden" value="" id="order_cnt" name="order_cnt">
-				<input type="submit" value="주문하기" formaction="../order" id="order">
-				<input type="submit" value="장바구니" formaction="./cart" id="cart">
+				<input type="submit" value="주문하기" formaction="../order" id="order" disabled>
+				<input type="submit" value="장바구니" formaction="./cart" id="cart" disabled>
 				</form>
 			</div>
 		</div>
@@ -87,9 +90,9 @@
 		<div class="mid">
 		<div id="header">
 			<nav class="nav">
-				<a href="#mid"><span id="detailView">제품상세</span></a>
-				<a href="#review"><span id="reviewView">리뷰</span></a>
-				<a href="#qna"><span id="qnaView">문의</span></a>
+				<a href="#mid" onclick="move(detail)"><span id="detailView">제품상세</span></a>
+				<a href="#review" onclick="move(review)"><span id="reviewView">리뷰</span></a>
+				<a href="#qna" onclick="move(qna)"><span id="qnaView">문의</span></a>
 			</nav>
 		</div>
 			<div id="detail">
@@ -103,7 +106,7 @@
 		<hr>
 		<div class="bottom">
 			<div class="review">
-			<h3>후기(리뷰게시판에 검색(해당상품)결과로 넘어가게하기)</h3>
+			<h3>후기</h3>
 			<br>
 			<hr>
 				<table id="review-table">
@@ -162,7 +165,7 @@
 						</tr>
 				</c:forEach>
 			</table>
-			<button onclick="location.href='../review/write?prodcut_num=${product.product_num}'" id="review">리뷰쓰기</button>
+			<button id="review">리뷰쓰기</button>
 			</div>
 			<div class="qna">
 				<h3>Q & A</h3>
@@ -197,7 +200,7 @@
 						</tr> 
 				</c:forEach>
 			</table>
-			<button onclick="location.href='../qna/qna_write?prodcut_num=${product.product_num}'" id="qna">문의하기</button>
+			<button id="qna">문의하기</button>
 			</div>
 		</div>
 			<br>

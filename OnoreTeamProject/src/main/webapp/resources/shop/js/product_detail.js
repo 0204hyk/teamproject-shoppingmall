@@ -5,7 +5,6 @@ const showValue = (target) => {
     console.log(value);
 }
 
-
 const sizes = document.getElementById('size');
 const heels = document.getElementById('heel');
 const soles = document.getElementById('sole');
@@ -22,9 +21,19 @@ const name = document.getElementById('product_name').innerText;
 
 const order_cnt = document.getElementById('order_cnt');
 
-function count(type) {
+const cnt = document.getElementById('result');
 
-    const cnt = document.getElementById('result');
+const plus = document.getElementById('plus');
+const minus = document.getElementById('minus');
+
+const prd_num = document.getElementById('product_num').value;
+const mem_id = document.getElementById('mem_id').innerText;
+
+const order = document.getElementById('order');
+const cart = document.getElementById('cart');
+
+
+function count(type) {
 
     let number = cnt.innerText;
 
@@ -43,19 +52,51 @@ function count(type) {
 
     cnt.innerText = number;
     
-    
-
-    const a = document.getElementById('a');
-    a.innerHTML = (number * price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "원 &nbsp;&nbsp;&nbsp;&nbsp; <i class='fa-solid fa-xmark fa-lg' id='cancel'></i>";
     cntinfo.innerHTML = number + "개";
     priceinfo.innerHTML = (number * price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '원';
     order_cnt.value = number;
-    console.log(price);
-    console.log((price * number));
-    
 };
 
+sizes.addEventListener('click', ()=> {
+	if (mem_id === '') {
+			if(confirm("로그인이 필요한 서비스입니다. 로그인 하시겠습니까?")) {
+				location.href='/project/login'
+			} else {
+				event.preventDefault();
+			}
+		}
+}); 
 
+const review_btn = document.getElementById('review');
+const qna_btn = document.getElementById('qna');
+
+review_btn.addEventListener('click', (e) => {
+	if (mem_id === '') {
+			if(confirm("로그인이 필요한 서비스입니다. 로그인 하시겠습니까?")) {
+				location.href='/project/login'
+			} else {
+				e.preventDefault();
+				e.stopPropagation(); 
+			}
+	} else {
+		location.href='../review/write?product_num=' + prd_num 
+	}
+	
+});
+
+qna_btn.addEventListener('click', (e) => {
+	if (mem_id === '') {
+			if(confirm("로그인이 필요한 서비스입니다. 로그인 하시겠습니까?")) {
+				location.href='/project/login'
+			} else {
+				e.preventDefault();
+				e.stopPropagation(); 
+			}
+	} else {
+		location.href='../qna/qna_write?product_num=' + prd_num 
+	}
+	
+});
 
 // 사이즈
 sizes.addEventListener('change', (e) => {
@@ -71,7 +112,7 @@ sizes.addEventListener('change', (e) => {
                 soles.addEventListener('change', (e) => {
                     const sole = soles.options[soles.selectedIndex].value;
                     if (sole != 'default') {
-                       
+                       /*
                         op.innerHTML ="<div id='box'>" + "<hr>" + "<span>" + name + "&nbsp;&nbsp;[" + size + "/" + heel + "/" + sole + "]</span>" 
                         + "<br>" + "<div id='a'>" + price2 + " 원 &nbsp;&nbsp;&nbsp;&nbsp; <i class='fa-solid fa-xmark fa-lg' id='cancel'></i> </div>" 
                         + "</div>"
@@ -79,22 +120,15 @@ sizes.addEventListener('change', (e) => {
                         cnt.style.display = "";
 
                         console.log(cnt.innerText);
-
+						*/
+						plus.removeAttribute("disabled");
+						minus.removeAttribute("disabled");
                         cntinfo.innerHTML = cnt.innerText + "개";
-                        priceinfo.innerHTML = price + "원";
-
-                        const cancel = document.getElementById('cancel');
-                        cancel.addEventListener('click', (e) => {
-                            const box = document.getElementById('box');
-                            box.remove();
-                            cnt.style.display="none";
-                            sizes.value = 'default';
-                            heels.value = 'default';
-                            soles.value = 'default';
-                            heels.disabled = true;
-                            soles.disabled = true;
-                        });
-                        
+                        priceinfo.innerHTML = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "원";
+						
+						cart.removeAttribute("disabled");
+						order.removeAttribute("disabled");
+						
                     }
                 });
             }
@@ -111,35 +145,58 @@ const review = document.getElementsByClassName('review')[0];
 const qnaView= document.getElementById('qnaView');
 const qna = document.getElementsByClassName('qna')[0];
 
+/*
 detailView.addEventListener('click', () => {
     window.scrollBy({top: detail.getBoundingClientRect().top, behavior: 'smooth'});
 });
 
 reviewView.addEventListener('click', () => {
-    window.scrollTo({top: qna.getBoundingClientRect().top, behavior: 'smooth'});
+    window.scrollBy({top: review.getBoundingClientRect().top, behavior: 'smooth'});
 });
 
 qnaView.addEventListener('click', () => {
     window.scrollBy({top: qna.getBoundingClientRect().top, behavior: 'smooth'});
 });
+*/
+
+function move(name) {
+	window.scrollBy({top: name.getBoundingClientRect().top, behavior: 'smooth'});
+}
 
 
 const nowish = document.getElementById('nowish'); // 빈하트
 const wish = document.getElementById('wish'); // 가득찬하트
-const prd_num = document.getElementById('product_num').value;
+
+
+console.log(mem_id);
 
 nowish.addEventListener('click', (e) => {
-    const xhttp = new XMLHttpRequest();
-    xhttp.addEventListener('readystatechange', (e) =>{
-        if (e.target.readyState == 4 && e.target.status == 200) {
-        	console.log('찜하기');
-            nowish.style.display="none";
-            wish.style.display="";
-        }
-    });
-    console.log(prd_num);
-    xhttp.open('GET', './wish/' + prd_num);
-    xhttp.send();
+	if(mem_id !== '') {
+	    const xhttp = new XMLHttpRequest();
+	    xhttp.addEventListener('readystatechange', (e) =>{
+	        if (e.target.readyState == 4 && e.target.status == 200) {
+	        	console.log('찜하기');
+	            nowish.style.display="none";
+	            wish.style.display="";
+	        }
+	    });
+	    
+	    xhttp.open('POST', './wish');
+	    xhttp.setRequestHeader('Content-type', 'application/json');
+	    
+	    const obj = {
+	    	product_num : prd_num,
+	    	mem_id : mem_id
+	    }
+	    
+	    xhttp.send(JSON.stringify(obj));
+	    	
+	    
+	    } else {
+	    	if(confirm('로그인이 필요한 서비스입니다 로그인 하시겠습니까?')) {
+				location.href='/project/login';
+			}
+	     }
 });
 
 wish.addEventListener('click', (e) => {
@@ -153,8 +210,16 @@ wish.addEventListener('click', (e) => {
         }
     });
   
-    xhttp.open('GET', './nowish');
-    xhttp.send();
+    xhttp.open('POST', './nowish');
+    
+    xhttp.setRequestHeader('Content-type', 'application/json');
+    
+    const obj = {
+    	product_num : prd_num,
+    	mem_id : mem_id
+    }
+    
+     xhttp.send(JSON.stringify(obj));
 });
 
 

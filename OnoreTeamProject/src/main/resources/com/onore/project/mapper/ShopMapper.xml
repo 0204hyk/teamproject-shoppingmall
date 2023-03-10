@@ -26,23 +26,27 @@
 	</select>
 	
 	<select id="getDetail" resultType="com.onore.project.dto.ProductsDTO">
-		SELECT * FROM products WHERE product_num=3
+		SELECT * FROM products WHERE product_num=#{product_num}
 	</select>
 	
 	<select id="getProReview" resultType="com.onore.project.dto.ReviewDTO">
-		SELECT * FROM reviews WHERE product_num=3
+		SELECT * FROM reviews WHERE product_num=#{product_num}
+	</select>
+	
+	<select id="getProQna" resultType="com.onore.project.dto.QnaDTO">
+		SELECT * FROM qna WHERE product_num=#{product_num}
 	</select>
 	
 	<insert id="getWish" parameterType="com.onore.project.dto.WishDTO">
   		INSERT INTO wish_list VALUES (
   			wish_num_seq.nextval,
-  			3,
-  			'abc123'
+  			#{product_num},
+  			#{mem_id}
   		)
   	</insert>
   	
   	<delete id="deleteWish">
-  		DELETE FROM wish_list WHERE product_num=3  AND mem_id='abc123'
+  		DELETE FROM wish_list WHERE product_num=#{product_num}  AND mem_id=#{mem_id}
  	</delete>
 	
 </mapper>

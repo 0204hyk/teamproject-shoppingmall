@@ -3,7 +3,9 @@ package com.onore.project.shop.service;
 import java.util.List;
 
 import com.onore.project.dto.ProductsDTO;
+import com.onore.project.dto.QnaDTO;
 import com.onore.project.dto.ReviewDTO;
+import com.onore.project.dto.WishDTO;
 
 public interface ShopService {
 
@@ -22,7 +24,9 @@ public interface ShopService {
 
 	List<ReviewDTO> getProReview(Integer product_num);
 	
-	Integer getWish (Integer product_num, String mem_id);
+	List<QnaDTO> getProQna(Integer product_num);
 	
-	Integer deleteWish(Integer product_num, String mem_id);
+	Integer getWish (WishDTO wish);
+	
+	Integer deleteWish(WishDTO wish);
 }

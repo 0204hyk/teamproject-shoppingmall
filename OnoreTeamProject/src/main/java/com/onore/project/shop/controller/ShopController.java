@@ -35,7 +35,7 @@ public class ShopController {
 	public String detailProduct(Model model, Integer product_num) {
 		model.addAttribute("product", shopService.getDetail(product_num));
 		model.addAttribute("reviews", shopService.getProReview(product_num));
-		qnaService.qnaList(model);
+		model.addAttribute("qnas", shopService.getProQna(product_num));
 		
 		return "user/shop/product";
 	}
@@ -47,14 +47,16 @@ public class ShopController {
 	}
 	
 	@ResponseBody
-	@GetMapping("/wish/{num}")
-	public void getWish(@PathVariable("num") Integer product_num, String mem_id) {
-		shopService.getWish(product_num, mem_id);
+	@PostMapping("/wish")
+	public void getWish(@RequestBody WishDTO wish) {
+		shopService.getWish(wish);
+		
 	}
 	
 	@ResponseBody
-	@GetMapping("/nowish")
-	public void deleteWish(Integer product_num, String mem_id) {
-		shopService.deleteWish(product_num, mem_id);
+	@PostMapping("/nowish")
+	public void deleteWish(@RequestBody WishDTO wish) {
+		shopService.deleteWish(wish);
 	}
+	
 }

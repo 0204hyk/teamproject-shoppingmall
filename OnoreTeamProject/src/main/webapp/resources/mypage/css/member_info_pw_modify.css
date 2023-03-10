@@ -1,12 +1,11 @@
 /* member_info_modify */
 .middle_info_modify_div{
-	height: 1800px;
+	height: 800px;
 	padding-top: 200px;
 	background-color: white;
 }
 
 .info_modify_div {
-	height: 1500px;
 	background-color: white;
 	text-align: center;
 }

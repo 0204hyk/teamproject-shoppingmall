@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.onore.project.dto.ProductsDTO;
+import com.onore.project.dto.QnaDTO;
 import com.onore.project.dto.ReviewDTO;
+import com.onore.project.dto.WishDTO;
 import com.onore.project.mapper.ShopMapper;
 import com.onore.project.shop.service.ShopService;
 
@@ -67,16 +69,25 @@ public class ShopServiceImpl implements ShopService{
 
 
 	@Override
-	public Integer getWish(Integer product_num, String mem_id ) {
+	public List<QnaDTO> getProQna(Integer product_num) {
 		
-		return shop_mapper.getWish(product_num, mem_id);
+		return shop_mapper.getProQna(product_num);
+	}
+	
+	
+	@Override
+	public Integer getWish(WishDTO wish) {
+		
+		return shop_mapper.getWish(wish);
 	}
 
 
 	@Override
-	public Integer deleteWish(Integer product_num, String mem_id) {
+	public Integer deleteWish(WishDTO wish) {
 		
-		return shop_mapper.deleteWish(product_num, mem_id);
+		return shop_mapper.deleteWish(wish);
 	}
+
+
 	
 }

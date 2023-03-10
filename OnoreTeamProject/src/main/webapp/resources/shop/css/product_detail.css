@@ -15,6 +15,10 @@ body {
 	column-gap: 100px;
 }
 
+.left {
+	margin-top: 50px;
+}
+
 .left > img {
 	width: 500px;
 	height: 500px;
@@ -58,7 +62,8 @@ body {
 }
 
 #product_name {
-	margin-bottom: 5px;
+	margin-bottom: 60px;
+	font-size: 50px
 }
 
 #review-table {
@@ -157,8 +162,10 @@ select > option {
 }
 
 #info {
-	margin: 20px 0;
-	padiing: 10px;
+	margin: 30px 0;
+	padding: 10px;
+	letter-spacing: 3px;
+	line-height: 30px
 }
 
 #price {
@@ -199,13 +206,33 @@ select > option {
 }
 
 .count {
-	width: 30px;
-	height: 30px;
+	width: 50px;
+	height: 40px;
 	background-color: white;
-	border: 0px;
+	border: 1px solid gray;
 	cursor: pointer;
-	font-size: 20px;
+	font-size: 25px;
+	color: gray;
+	font-weight: bold;
 }
+
+#result {
+	border-top:1px solid gray; 
+	border-bottom:1px solid gray; 
+	width: 50px;
+	height: 40px;
+	text-align: center;
+	padding: 5px;
+	box-sizing: border-box;
+	font-weight: bold;
+	font-size: 17px;
+}
+
+#prices {
+	margin: 60px 0;
+	font-size: 25px;
+}
+
 
 #order {
 	color: white;
@@ -224,7 +251,7 @@ select > option {
 #cart {
 	color: darkred;
 	background-color: white;
-	border: solid 1px red;
+	border: solid 1px darkred;
 	width: 150px;
 	height: 70px;
 	border-radius: 5%;
