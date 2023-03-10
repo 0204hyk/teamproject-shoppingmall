@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.onore.project.dto.QnaAndProductsDTO;
 import com.onore.project.dto.QnaDTO;
+import com.onore.project.dto.QnaReplyDTO;
 import com.onore.project.qna.service.QnaService;
 
 import lombok.extern.log4j.Log4j2;
@@ -58,6 +59,16 @@ public class QnaController {
 		qnaService.qnaView(model, qna_num);
 		qnaService.qnaReply(model, qna_num);
 		return "user/qna/qna_view";
+	}
+	
+	@PostMapping("/qna_replyWrite")
+	public String qnaReplyWrite(Model model, HttpServletRequest req ,QnaReplyDTO reply) {
+		String qna_num = req.getParameter("qna_num");
+		int qna_number = Integer.parseInt(qna_num);
+		
+		qnaService.qnaReplyWrite(model, reply);
+		qnaService.qnaUpdateStatus(qna_number);
+		return "redirect:/qna/view?qna_num=" + qna_num;
 	}
 	
 	

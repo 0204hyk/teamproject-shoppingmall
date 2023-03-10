@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.onore.project.dto.ProductsDTO;
 import com.onore.project.dto.QnaAndProductsDTO;
 import com.onore.project.dto.QnaDTO;
+import com.onore.project.dto.QnaReplyDTO;
 import com.onore.project.mapper.QnaMapper;
 import com.onore.project.qna.service.QnaService;
 
@@ -45,6 +46,19 @@ public class QnaServiceImpl implements QnaService {
 	}
 
 	@Override
+	public void qnaReplyWrite(Model model, QnaReplyDTO reply) {
+		model.addAttribute("reply", qna_mapper.insertReply(reply));
+		
+	}
+	
+	@Override
+	public Integer qnaUpdateStatus(Integer qna_num) {
+		
+		
+		return qna_mapper.updateStatus(qna_num);
+	}
+	
+	@Override
 	public void qnaView(Model model, int qna_num) {
 		model.addAttribute("views", qna_mapper.getContents(qna_num));
 
@@ -56,7 +70,7 @@ public class QnaServiceImpl implements QnaService {
 		model.addAttribute("replys", qna_mapper.getReply(qna_num));
 	}
 	
-	
+
 	@Override
 	public QnaDTO qnaModifyForm(Integer qna_num) {
 		
@@ -168,6 +182,5 @@ public class QnaServiceImpl implements QnaService {
 
 
 
-	
 
 }

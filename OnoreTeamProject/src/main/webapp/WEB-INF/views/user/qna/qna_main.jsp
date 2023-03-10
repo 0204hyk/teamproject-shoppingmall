@@ -60,7 +60,11 @@
 					</tr>
 				</c:forEach>
 			</table>
+			
+			
 			<button onclick="location.href='./qna_write'">글쓰기</button>
+			
+			
 			<div class="page">
 				<c:if test="${pagination_start > 5 }">
 					<a href="./main?page=${previous_page }"><</a>

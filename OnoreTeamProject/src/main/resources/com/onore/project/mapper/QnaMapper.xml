@@ -18,6 +18,13 @@
 		INSERT INTO qna VALUES (qna_num_seq.nextval, #{product_num}, #{mem_id}, #{qna_title}, #{qna_content}, SYSDATE, #{qna_category}, #{qna_img_path}, #{qna_img_1}, #{qna_img_2}, #{qna_img_3}, 0)
 	</insert>
 	
+	
+	<insert id="insertReply" parameterType="com.onore.project.dto.QnaReplyDTO" >
+		INSERT INTO qna_re VALUES (reply_num_seq.nextval, #{qna_num}, #{reply_content}, SYSDATE)
+	
+	</insert>
+	
+	
 	<select id="getContents" resultType="com.onore.project.dto.QnaAndProductsDTO">
 		SELECT * FROM qna, products WHERE qna.product_num = products.product_num(+) AND qna_num = #{qna_num} ORDER BY qna_num DESC
 		
@@ -37,6 +44,8 @@
 	</select>
 	
 	
+	
+	
 	<select id="getProductName" resultType="com.onore.project.dto.ProductsDTO">
 		SELECT product_num, product_name, product_thumbnail_1 FROM products WHERE LOWER(product_name) LIKE '%' || LOWER(#{product_name}) || '%'
 	
@@ -53,6 +62,12 @@
 		qna_img_3 = #{qna_img_3}
 		WHERE qna_num = ${qna_num}
 	
+	</update>
+	
+	<update id="updateStatus">
+		UPDATE qna SET 
+		qna_status = 1
+		WHERE qna_num = ${qna_num}
 	</update>
 	
 	<delete id="qnaDelete">
