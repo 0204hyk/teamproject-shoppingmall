@@ -17,7 +17,7 @@ public class NoticeDTO {
 	private static SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy.MM.dd");
 	private static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
 	
-	public String getCreationDateTime() {		
+	public String getCreationNoticeDate() {		
 		LocalDate creationDate = LocalDate.ofInstant(notice_date.toInstant(), ZoneId.systemDefault());
 		LocalDate today = LocalDate.ofInstant(new Date().toInstant(), ZoneId.systemDefault());
 		

@@ -2,11 +2,11 @@ package com.onore.project.admin.service;
 
 import java.util.List;
 
-import org.json.simple.JSONObject;
-
 import com.onore.project.admin.vo.DailySalesVO;
 import com.onore.project.admin.vo.WeeklyStatsVO;
-import com.onore.project.dto.OrdersDTO;
+import com.onore.project.dto.QnaDTO;
+import com.onore.project.dto.ReviewDTO;
+import com.onore.project.dto.ReviewandProductDTO;
 
 public interface AdminMainService {
 	
@@ -17,4 +17,6 @@ public interface AdminMainService {
 	WeeklyStatsVO readWeeklyStatsTotal();
 	DailySalesVO readSalesThisMonthTotal();
 	WeeklyStatsVO readStatsThisMonthTotal();
+	List<QnaDTO> readRecentQna();
+	List<ReviewandProductDTO> readRecentReview();
 }

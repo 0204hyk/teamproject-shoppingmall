@@ -28,7 +28,7 @@
 								<td style="width: 50px;"><input type="checkbox" class="row-check" name="row_check" value="${notice.notice_num}"/></td>
 								<td style="width: 80px;">${notice.notice_num}</td>
 								<td><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/notice/modify?notice_num=${notice.notice_num}')">${notice.notice_title}</a></td>
-								<td style="width: 200px;">${notice.creationDateTime}</td>
+								<td style="width: 200px;">${notice.creationNoticeDate}</td>
 							</tr>
 						</c:forEach>
 					</tbody>

@@ -120,6 +120,7 @@ public class AdminProductController {
 		request.setAttribute("prev", prevBtn);
 		request.setAttribute("next", nextBtn);
 		request.setAttribute("page", page);
+		request.setAttribute("categories", service.readCaregoriesList());
 		
 		return "/admin/product/admin_product_list";
 	}

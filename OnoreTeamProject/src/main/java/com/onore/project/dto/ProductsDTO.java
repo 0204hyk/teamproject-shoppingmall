@@ -20,14 +20,12 @@ public class ProductsDTO {
    private String product_thumbnail_1;
    private String product_thumbnail_2;
    private String product_thumbnail_3;
-   private Integer product_views;
-   private Integer product_likes;
    private Date product_date;
    
    private static SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy.MM.dd");
    private static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
 	
-   public String getCreationDateTime() {		
+   public String getCreationProductDate() {		
 	   LocalDate creationDate = LocalDate.ofInstant(product_date.toInstant(), ZoneId.systemDefault());
 	   LocalDate today = LocalDate.ofInstant(new Date().toInstant(), ZoneId.systemDefault());
 	   return creationDate.isEqual(today) ? 

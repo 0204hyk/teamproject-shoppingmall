@@ -63,10 +63,56 @@
 			</table>
 		</div>
 		<div id="index-content" class="shadow">
-			<div class="content-title"><h1>문 의</h1></div>
+			<div class="content-title" style="display: flex;">
+				<h1>문 의</h1>
+				<div class="more-btn-container"><button class="more-btn">더 보기</button></div>
+			</div>
+			<div class="index-qna">
+				<c:forEach items="${recentQna}" var="qna">
+					<div class="index-qna-content">
+						<c:choose>
+							<c:when test="${empty review.review_img_1}">
+								<img src="<%=request.getContextPath()%>/resources/admin/image/default_image.png" alt="문의 이미지" />		
+							</c:when>
+							<c:otherwise>
+								<img src="${reivew.review_img_path}${review.review_img_1}" alt="문의 이미지" />
+							</c:otherwise>
+						</c:choose>					
+						<div>
+							<div>[ ${qna.qna_category} ]</div>
+							<div><a href="#">${qna.qna_title}</a></div>
+							<div>${qna.mem_id}</div>
+							<div>${qna.adminPageQnaDate}</div>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
 		</div>
 		<div id="index-content" class="shadow">
-			<div class="content-title"><h1>후 기</h1></div>
+			<div class="content-title" style="display: flex;">
+				<h1>후 기</h1>
+				<div class="more-btn-container"><button class="more-btn">더 보기</button></div>
+			</div>
+			<div class="index-review">
+				<c:forEach items="${recentReview}" var="review">
+					<div class="index-review-content">
+						<c:choose>
+							<c:when test="${empty qna.qna_img_1}">
+								<img src="<%=request.getContextPath()%>/resources/admin/image/default_image.png" alt="문의 이미지" />		
+							</c:when>
+							<c:otherwise>
+								<img src="${qna.qna_img_path}${qna.qna_img_1}" alt="문의 이미지" />
+							</c:otherwise>
+						</c:choose>					
+						<div>
+							<div>[ ${review.product_name} ]</div>
+							<div><a href="#">${review.review_content}</a></div>
+							<div>${review.mem_id}</div>
+							<div>${review.adminPageReviewDate}</div>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
 		</div>
 	</div>
 		

@@ -6,14 +6,14 @@
 	<select id="getAnnualSales" resultType="com.onore.project.admin.vo.AnnualSalesVO"> 
 		SELECT
 		    a.dt AS year ,
-		    NVL(SUM(b.total_price), 0) AS annual_sales,
-		    NVL(COUNT(b.total_price), 0) AS annual_sales_cnt
+		    NVL(SUM(b.pay_price), 0) AS annual_sales,
+		    NVL(COUNT(b.pay_price), 0) AS annual_sales_cnt
 		FROM
 		    (SELECT LEVEL AS dt
 		     FROM dual
 		     WHERE LEVEL > TO_NUMBER(TO_CHAR(SYSDATE,'YYYY'))-10
 		     <![CDATA[CONNECT BY LEVEL <= TO_NUMBER(TO_CHAR(SYSDATE, 'YYYY'))) a,]]>
-		    (SELECT TO_CHAR(order_date, 'YYYY') AS year , total_price
+		    (SELECT TO_CHAR(order_date, 'YYYY') AS year , pay_price
 		     FROM orders
 		     WHERE TO_CHAR(order_date, 'YYYY') BETWEEN TO_CHAR(ADD_MONTHS(SYSDATE, -108), 'YYYY') AND TO_CHAR(SYSDATE, 'YYYY')) b
 		WHERE a.dt = b.year(+)
@@ -28,14 +28,14 @@
 		FROM 
 		    (SELECT
 		    a.dt AS year ,
-		    NVL(SUM(b.total_price), 0) AS annual_sales,
-		    NVL(COUNT(b.total_price), 0) AS annual_sales_cnt
+		    NVL(SUM(b.pay_price), 0) AS annual_sales,
+		    NVL(COUNT(b.pay_price), 0) AS annual_sales_cnt
 		FROM
 		    (SELECT LEVEL AS dt
 		     FROM dual
 		     WHERE LEVEL > TO_NUMBER(TO_CHAR(SYSDATE,'YYYY'))-10
 		     <![CDATA[CONNECT BY LEVEL <= TO_NUMBER(TO_CHAR(SYSDATE, 'YYYY'))) a,]]>
-		    (SELECT TO_CHAR(order_date, 'YYYY') AS year , total_price
+		    (SELECT TO_CHAR(order_date, 'YYYY') AS year , pay_price
 		     FROM orders
 		     WHERE TO_CHAR(order_date, 'YYYY') BETWEEN TO_CHAR(ADD_MONTHS(SYSDATE, -108), 'YYYY') AND TO_CHAR(SYSDATE, 'YYYY')) b
 		    WHERE a.dt = b.year(+)

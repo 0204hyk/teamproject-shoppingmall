@@ -17,8 +17,6 @@
 		    #{product_thumbnail_1}, 
 		    #{product_thumbnail_2}, 
 		    #{product_thumbnail_3},
-		    0,
-		    0,
 		    SYSDATE)
 	</insert>
 	<select id="getAllProduct" resultType="com.onore.project.dto.ProductsDTO">

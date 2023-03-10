@@ -62,8 +62,8 @@
 			       </button>
 			       <div class="collapse" id="board-collapse">
 			         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-			           <li><a href="#" class="link-secondary d-inline-flex text-decoration-none rounded">문의글 관리</a></li>
-			           <li><a href="#" class="link-secondary d-inline-flex text-decoration-none rounded">후기글 관리</a></li>
+			           <li><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/board/qna')" class="link-secondary d-inline-flex text-decoration-none rounded">문의글 관리</a></li>
+			           <li><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/board/review')" class="link-secondary d-inline-flex text-decoration-none rounded">후기글 관리</a></li>
 			         </ul>
 			       </div>
 			     </li>

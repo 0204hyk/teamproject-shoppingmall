@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.onore.project.mapper.QnaMapper">
+	<!-- getAll 사용하지 않음. 
+	<select id="getAll" resultType="com.onore.project.dto.QnaDTO">
+		select * from qna order by qna_num DESC
+	</select>
+	-->
+	<select id="getQnaAndProductsAll" resultType="com.onore.project.dto.QnaAndProductsDTO">
+		SELECT * FROM qna, products WHERE qna.product_num = products.product_num(+) ORDER BY qna_num DESC
+	</select>
+	
+	<insert id="qnaWrite"
+		parameterType="com.onore.project.dto.QnaDTO">
+		INSERT INTO qna VALUES (qna_num_seq.nextval, #{product_num}, #{mem_id}, #{qna_title}, #{qna_content}, SYSDATE, #{qna_category}, #{qna_img_path}, #{qna_img_1}, #{qna_img_2}, #{qna_img_3}, 0)
+	</insert>
+	
+	
+	<insert id="insertReply" parameterType="com.onore.project.dto.QnaReplyDTO" >
+		INSERT INTO qna_re VALUES (reply_num_seq.nextval, #{qna_num}, #{reply_content}, SYSDATE)
+	
+	</insert>
+	
+	
+	<select id="getContents" resultType="com.onore.project.dto.QnaAndProductsDTO">
+		SELECT * FROM qna, products WHERE qna.product_num = products.product_num(+) AND qna_num = #{qna_num} ORDER BY qna_num DESC
+		
+		<!--  
+		SELECT * FROM qna WHERE qna_num = #{qna_num}
+		-->
+	</select>
+	
+	<select id="qnaModifyForm" resultType="com.onore.project.dto.QnaDTO">
+		SELECT * FROM qna WHERE qna_num = #{qna_num}
+	
+	</select>
+	
+	<select id="getReply" resultType="com.onore.project.dto.QnaReplyDTO">
+		SELECT * FROM qna_re WHERE qna_num = #{qna_num}
+	
+	</select>
+	
+	
+	
+	
+	<select id="getProductName" resultType="com.onore.project.dto.ProductsDTO">
+		SELECT product_num, product_name, product_thumbnail_1 FROM products WHERE LOWER(product_name) LIKE '%' || LOWER(#{product_name}) || '%'
+	
+	</select>
+
+	<update id="qnaModifyComple">
+		UPDATE qna SET
+		qna_title = #{qna_title},
+		product_num = #{product_num},
+		qna_content = #{qna_content},
+		qna_category = #{qna_category},
+		qna_img_1 = #{qna_img_1},
+		qna_img_2 = #{qna_img_2},
+		qna_img_3 = #{qna_img_3}
+		WHERE qna_num = ${qna_num}
+	
+	</update>
+	
+	<update id="updateStatus">
+		UPDATE qna SET 
+		qna_status = 1
+		WHERE qna_num = ${qna_num}
+	</update>
+	
+	<delete id="qnaDelete">
+		DELETE FROM qna WHERE qna_num=#{qna_num}
+	
+	</delete>
+	<select id="getRecentQna" resultType="com.onore.project.dto.QnaDTO">
+		<![CDATA[SELECT * FROM (SELECT * FROM qna ORDER BY qna_num DESC) WHERE ROWNUM <= 6]]>
+	</select>
+</mapper>

@@ -10,7 +10,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onore.project.admin.service.AdminMainService;
 import com.onore.project.admin.vo.DailySalesVO;
 import com.onore.project.admin.vo.WeeklyStatsVO;
+import com.onore.project.dto.QnaDTO;
+import com.onore.project.dto.ReviewDTO;
+import com.onore.project.dto.ReviewandProductDTO;
 import com.onore.project.mapper.DailySalesMapper;
+import com.onore.project.mapper.QnaMapper;
+import com.onore.project.mapper.ReviewMapper;
 import com.onore.project.mapper.WeeklyStatsMapper;
 
 @Service
@@ -21,6 +26,12 @@ public class AdminMainService_impl implements AdminMainService {
 	
 	@Autowired
 	WeeklyStatsMapper weeklyStatsMapper;
+	
+	@Autowired
+	QnaMapper qnaMapper;
+	
+	@Autowired
+	ReviewMapper reviewMapper;
 	
 	@Override
 	public String readDailySalesToChart() {
@@ -66,5 +77,15 @@ public class AdminMainService_impl implements AdminMainService {
 		return weeklyStatsMapper.getStatsMonthTotal();
 	}
 
+	@Override
+	public List<QnaDTO> readRecentQna() {
+		return qnaMapper.getRecentQna();
+	}
+
+	@Override
+	public List<ReviewandProductDTO> readRecentReview() {
+		return reviewMapper.getRecentReview();
+	}
+	
 	
 }

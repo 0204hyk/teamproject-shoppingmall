@@ -30,6 +30,8 @@ public class AdminMainController {
 		request.setAttribute("weeklyStatsTotal", service.readWeeklyStatsTotal());
 		request.setAttribute("monthSalesTotal", service.readSalesThisMonthTotal());
 		request.setAttribute("monthStatsTotal", service.readStatsThisMonthTotal());
+		request.setAttribute("recentQna", service.readRecentQna());
+		request.setAttribute("recentReview", service.readRecentReview());
 		return "/admin/admin_index";
 	}
 	

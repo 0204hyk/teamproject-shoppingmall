@@ -1,16 +1,15 @@
 package com.onore.project.dto;
 
-
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
+
 import lombok.Data;
 
 @Data
-public class ReviewDTO {
-
+public class ReviewandProductDTO {
+	
 	private Integer review_num;
 	private Integer product_num;
 	private String mem_id;
@@ -23,8 +22,19 @@ public class ReviewDTO {
 	private String review_img_3;
 	private Integer review_good;
 	private Integer review_bad;
-
 	
+	private Integer category_num;
+	private String product_name;
+	private Integer product_price;
+	private String product_info;
+	private String product_thumbnail_1;
+	private Integer product_views;
+	private Integer product_likes;
+	private String product_detail;
+	private String product_thumbnail_2;
+	private String product_thumbnail_3;
+	
+
 	// id마스킹처리 ex) ${review.maskingName}
 	public String getmaskingName() {
 
@@ -52,5 +62,11 @@ public class ReviewDTO {
 	    return creationDate.isEqual(today) ? 
 		 	   timeFormat.format(review_date) : dayFormat.format(review_date);
     }
+    
+    // 관리자 메인 페이지에 사용할 시간 형식
+    private static SimpleDateFormat adminPageFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-}
+    public String getAdminPageReviewDate() {
+    	return adminPageFormat.format(review_date);
+    }
+}	

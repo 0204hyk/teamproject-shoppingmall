@@ -16,7 +16,7 @@
 			<canvas id="monthly-chart"></canvas>
 		</div>
 	</div>
-	<div class="stats-content shadow" style="height: auto;">
+	<div class="stats-content shadow" style="height: auto; padding-top: 15px; padding-left: 15px;">
 		<table class="stats-table">
 			<tr>
 				<th class="stats-table-col-1">일자</th>

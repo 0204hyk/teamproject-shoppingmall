@@ -6,12 +6,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-	<title>상품 목록</title>
+	<title>문의글 목록</title>
 </head>
 <body>
 	
-	<div class="product-content shadow" style="height: 830px;">
-		<div class="product-title"><h1>상품 목록</h1></div>
+	<div class="board-content shadow">
+		<div class="board-title"><h1>문의글 목록</h1></div>
 		<form id="product-list-form" name="product-list-form" method="POST">
 			<div class="container">
 				<table class="product-board table table-hover">
@@ -79,7 +79,6 @@
 					    </c:if>
 					</ul>
 					<input type="button" id="product-delete-btn" class="submit-btn btn btn-secondary btn-lg" value="삭 제"/>
-					<input type="button" onclick="movePageByGet('<%=request.getContextPath()%>/admin/product/regist')" class="submit-btn btn btn-secondary btn-lg" value="등 록"/>			
 				</div>
 			</div>
 		</form>
