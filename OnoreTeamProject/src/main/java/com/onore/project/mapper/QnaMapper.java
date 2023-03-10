@@ -24,7 +24,6 @@ public interface QnaMapper {
 	
 	Integer updateStatus(Integer qna_num);
 	
-	
 	Integer qnaModifyComple(QnaDTO qna);
 	
 	Integer qnaDelete(Integer qna_num);
