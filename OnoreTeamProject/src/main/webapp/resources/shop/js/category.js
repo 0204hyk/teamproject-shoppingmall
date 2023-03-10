@@ -203,7 +203,7 @@ bootsBtn.addEventListener('click', (e) => {
 					});
 					
 					onoreImg.addEventListener('click', (e) => {
-						location.href = '/product/shop/detail/?product_num=' + number;
+						location.href = '/project/shop/detail?product_num=' + number;
 					});
 				}	
 		}
@@ -257,7 +257,7 @@ loaferBtn.addEventListener('click', (e) => {
 					});
 					
 					onoreImg.addEventListener('click', (e) => {
-						location.href = '/product/shop/detail/?product_num=' + number;
+						location.href = '/project/shop/detail?product_num=' + number;
 					});
 				}	
 		}
@@ -310,7 +310,7 @@ sneakersBtn.addEventListener('click', (e) => {
 					});
 					
 					onoreImg.addEventListener('click', (e) => {
-						location.href = '/product/shop/detail/?product_num=' + number;
+						location.href = '/project/shop/detail?product_num=' + number;
 					});
 				}	
 		}
