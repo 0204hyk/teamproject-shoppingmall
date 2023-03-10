@@ -85,7 +85,9 @@
 					onclick="return confirm('해당 글을 수정 하시겠습니까?');">수정하기</a> /
 				<a href="./qna_delete?qna_num=${view.qna_num }"
 					onclick="return confirm('정말로 삭제 하시겠습니까?');">삭제하기</a>
-			</div>		
+			</div>
+			
+			<c:if test="${sessionScope.signIn.mem_id eq 'admin'}">
 			<div id="write_reply">
 				<form action="./qna_replyWrite" method="POST">
 					<input type="hidden" value="${view.qna_num }" name="qna_num" id="num">
@@ -93,9 +95,11 @@
 					<input type="submit" id="comment" value="댓글달기"></input>
 				</form>	
 			</div>
+			</c:if>
 			</c:forEach>
 			<br>
-		<div id="reply">
+
+		<div id="reply"> 
 			<div id="comment">[ 댓글 ]</div>
 			<br>
 			<c:choose>

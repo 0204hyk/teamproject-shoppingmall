@@ -33,7 +33,7 @@
 					<tr>
 						<td>${qna.qna_num }</td>
 						<td>${qna.qna_category }</td>
-						
+					
 						<c:choose>
 							<c:when test="${not empty qna.product_thumbnail_1}">
 								<td><img style="width: 40px; height: 40px;" src=${qna.product_thumbnail_1 }></td>
@@ -42,8 +42,16 @@
 								<td></td>
 							</c:otherwise>
 						</c:choose>
-	
-						<td id="qna_title"><a href="./view?qna_num=${qna.qna_num}">${qna.qna_title }</a></td>
+						<!-- <td id="qna_title"><a onclick="qnaView();" href="./view?qna_num=${qna.qna_num}">${qna.qna_title }</a></td>
+						 -->
+						<c:if test="${sessionScope.signIn.mem_id eq qna.mem_id || sessionScope.signIn.mem_id eq 'admin' }">
+							<td id="qna_title"><a href="./view?qna_num=${qna.qna_num}">${qna.qna_title }</a></td>
+						</c:if>
+						
+						<c:if test="${sessionScope.signIn.mem_id ne qna.mem_id}">
+							<td id="qna_title"><a onclick="alert('해당 글의 작성자가 아닙니다.')" >${qna.qna_title }</a></td>
+						</c:if>
+						
 						<td id="mem_id">${qna.maskingName }</td>
 						<td>${qna.qna_date}</td>
 						<c:choose>
@@ -60,10 +68,10 @@
 					</tr>
 				</c:forEach>
 			</table>
-			
-			
-			<button onclick="location.href='./qna_write'">글쓰기</button>
-			
+		
+			<!-- <button id="write" onclick="location.href='./qna_write'">글쓰기</button> -->
+			<button id="write" onclick="qnaWrite();">글쓰기</button>
+		
 			
 			<div class="page">
 				<c:if test="${pagination_start > 5 }">
@@ -80,7 +88,20 @@
 	</div>
 	
 	<hr>
-	
+	<script type="text/javascript">
+		function qnaWrite() {
+			if (${empty sessionScope.signIn.mem_id}) {
+				if (confirm("로그인이 필요한 서비스 입니다.")) {
+					location.href="../login"
+				}
+			} else {
+				location.href="./qna_write"
+			}
+		}
+		
+
+		
+	</script>
 	<%@include file="../bottom.jspf"%>
 </body>
 </html>
