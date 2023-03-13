@@ -70,7 +70,7 @@
 				</div>
 				
 			</div>
-			<input type="submit" id="write_btn" value="문의 등록" onclick="return confirm('문의를 남기시겠습니까?')">
+			<input type="submit" id="write_btn" value="문의 등록">
 		</form>
 		</div>
 	</div>

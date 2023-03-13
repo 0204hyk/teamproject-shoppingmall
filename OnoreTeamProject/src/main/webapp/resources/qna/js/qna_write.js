@@ -1,3 +1,27 @@
+const title = document.getElementById('title');
+const content = document.getElementById('qna_content');
+const writeBtn = document.getElementById('write_btn');
+
+writeBtn.addEventListener('click', (e) => {
+	if (title.value == "") {
+		alert('제목을 입력하세요.');
+		title.focus();
+		e.preventDefault();
+	} else if (content.value == "") {
+		alert('내용을 입력하세요.');
+		content.focus();
+		e.preventDefault();
+	} 
+	if (title.value != "" && content.value != "") {
+		if (confirm('문의를 등록하시겠습니까?')) {
+			alert('문의 등록이 완료되었습니다.');
+		} else {
+			e.preventDefault();
+		}
+
+	}
+});
+
 function PreviewImage() {
 	
 	var preview = new FileReader();
@@ -35,10 +59,6 @@ const handler = {
 
                     var dataTranster = new DataTransfer();
 
-                    // document.querySelector('#file-input').files =
-                    //             Array.from(files).filter(file => file.lastModified !== removeTarget);
-
-
                     Array.from(files)
                         .filter(file => file.lastModified != removeTargetId)
                         .forEach(file => {
@@ -49,7 +69,8 @@ const handler = {
 
                     document.querySelector('#file-input').files = dataTranster.files;
                     removeTarget.remove();
-                    removeImage.src = '';
+                    removeImage.src = '/project/resources/qna/images/blank.png';
+                 
                 })
             }
         }
@@ -106,8 +127,7 @@ const handler2 = {
                     var removeImage2 = document.getElementById('user-image2');
                     const files2 = document.querySelector('#file-input2').files;
                     var dataTranster2 = new DataTransfer();
-                    // document.querySelector('#file-input').files =
-                    //             Array.from(files).filter(file => file.lastModified !== removeTarget);
+
                     Array.from(files2)
                         .filter(file => file.lastModified != removeTargetId2)
                         .forEach(file => {
@@ -118,7 +138,7 @@ const handler2 = {
 
                     document.querySelector('#file-input2').files = dataTranster2.files;
                     removeTarget2.remove();
-                    removeImage2.src = '';
+                    removeImage2.src = '/project/resources/qna/images/blank.png';
                 })
             }
         }
@@ -190,7 +210,7 @@ function PreviewImage3() {
 
                     document.querySelector('#file-input3').files = dataTranster3.files;
                     removeTarget3.remove();
-                    removeImage3.src = '';
+                    removeImage3.src = '/project/resources/qna/images/blank.png';
                 })
             }
         }
@@ -208,7 +228,7 @@ function changeSelect() {
 	var input = document.getElementById('inputs');
 	var product_num = document.getElementById('p_num');
 	if (value == '상품') {
-		input.innerHTML += `<input type="text" name="product_name" id="product" placeholder="상품명을 입력하세요." /><input type="button" id="search" value="검색하기" />`;
+		input.innerHTML += `<input type="search" name="product_name" id="product" placeholder="상품명을 입력하세요." /><input type="button" id="search" value="검색하기" />`;
 		input.innerHTML += `<div id="searchInput"></div>`;
 	
 		const searchBtn = document.getElementById('search');
@@ -258,6 +278,7 @@ function changeSelect() {
 		input.innerHTML = '';
 	}
 }
+
 
 
 

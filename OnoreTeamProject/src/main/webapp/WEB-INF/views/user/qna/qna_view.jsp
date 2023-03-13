@@ -81,10 +81,12 @@
 				<hr>
 			<div style="margin-bottom: 50px;">
 				<!-- 해당 ID가 작성한게 맞으면 보이게 끔 수정 -->
+				<c:if test="${sessionScope.signIn.mem_id ne 'admin'}">
 				<a href="./qna_modify?qna_num=${view.qna_num }"
-					onclick="return confirm('해당 글을 수정 하시겠습니까?');">수정하기</a> /
+					onclick="return confirm('해당 글을 수정 하시겠습니까?');">글 수정하기</a> /
+				</c:if>
 				<a href="./qna_delete?qna_num=${view.qna_num }"
-					onclick="return confirm('해당 글을 정말로 삭제 하시겠습니까?');">삭제하기</a>
+					onclick="return confirm('해당 글을 정말로 삭제 하시겠습니까?');">글 삭제하기</a>
 			</div>
 			
 			<c:if test="${sessionScope.signIn.mem_id eq 'admin'}">
