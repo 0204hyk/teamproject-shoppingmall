@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ONÓRE</title>
+<link href="/project/resources/menu/css/join_success.css?ver=1" rel="stylesheet"/>
+<%@include file="../header.jspf" %>
+</head>
+<body>
+<%@include file="../top.jspf" %>
+    
+<!-- middle 시작 -->
+<div class="middle_join_success_div">
+	<div class="join_success_div">
+			<p style="font-size: 35px; font-weight: bold;" > 죄송합니다, 오류입니다. </p>
+	   		<p style="font-weight : bold; font-size: 12px; color: darkgray;"> 이용에 불편을 드린 점 진심으로 사과드리며, </p>
+	    	<p style="font-weight : bold; font-size: 12px; color: darkgray;"> ONORE에서는 항상 회원님들의 입장에서 </p>
+	    	<p style="font-weight : bold; font-size: 12px; color: darkgray"> 보다 좋은 서비스를 받으실 수 있도록 노력하겠습니다. </p>
+	    	<p style="font-weight : bold; font-size: 12px; color: darkgray"> 감사합니다. </p>
+	    	
+	    	<button type="button" class="login_go_btn" onclick="location.href='./login'">메인으로 가기</button>  	
+	 </div>
+</div>
+<!-- middle 끝 -->
+       
+<script src="/project/resources/menu/js/menubar.js"></script>
+<%@include file="../bottom.jspf" %>
