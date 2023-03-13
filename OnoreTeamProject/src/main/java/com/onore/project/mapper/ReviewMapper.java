@@ -12,25 +12,25 @@ public interface ReviewMapper {
 	
 	// 글
 	
-	List<ReviewandProductDTO> getAll();
-	
-	Integer insert(ReviewDTO rev);
-	
-	ReviewandProductDTO get(Integer review_num);
-	
-	Integer modify(ReviewDTO rev);
-	
-	Integer delete(Integer review_num); 
-	
-	// 댓글
-	
-	List<CommentDTO> getReplyAll(Integer review_num);
-	
-	Integer insertReply(CommentDTO com);
-	
-	Integer replyModify(CommentDTO com);
-	
-	Integer replyDelete(Integer comment_num);
-	
-	Integer cntReply(Integer review_num);
+		List<ReviewandProductDTO> getAll();
+		
+		Integer insert(ReviewDTO rev);
+		
+		ReviewandProductDTO get(Integer review_num);
+		
+		Integer modify(ReviewDTO rev);
+		
+		Integer delete(Integer review_num); 
+		
+		// 댓글
+		
+		List<CommentDTO> getReplyAll(Integer review_num);
+		
+		Integer insertReply(CommentDTO com);
+		
+		Integer replyModify(CommentDTO com);
+		
+		Integer replyDelete(Integer comment_num);
+		
+		Integer cntReply(Integer review_num);
 }
