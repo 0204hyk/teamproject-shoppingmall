@@ -47,11 +47,5 @@ public class HomeController extends SavedRequestAwareAuthenticationSuccessHandle
 		return "home";
 	}
 	
-	@RequestMapping(value = "/error/error404", method = RequestMethod.GET)
-	public String Error404() {
-		log.info("에러 발생 시 하고 싶은 일 적는 곳");
-		return "error/error404";
-	}
-
 
 }
