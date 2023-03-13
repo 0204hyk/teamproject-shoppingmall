@@ -4,7 +4,9 @@ import java.util.List;
 
 import com.onore.project.dto.CartDTO;
 import com.onore.project.dto.ProductsDTO;
+import com.onore.project.dto.QnaDTO;
 import com.onore.project.dto.ReviewDTO;
+import com.onore.project.dto.WishDTO;
 
 
 public interface ShopMapper {
@@ -23,6 +25,12 @@ public interface ShopMapper {
 	
 	List<ReviewDTO> getProReview(Integer product_num);
 	
+	List<QnaDTO> getProQna(Integer product_num);
+	
+	Integer getWish (WishDTO wish);
+	
+	Integer deleteWish(WishDTO wish);
+	
 	Integer addToCart(CartDTO cart);
 		
 	List<CartDTO> getCartList(String mem_id);
@@ -34,9 +42,5 @@ public interface ShopMapper {
 	Integer deleteCart(Integer cart_num);
 	
 	Integer deleteAllCart();
-	
-	Integer getWish ( Integer product_num, String mem_id);
-	
-	Integer deleteWish(Integer product_num, String mem_id);
 	
 }

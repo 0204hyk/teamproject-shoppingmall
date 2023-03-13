@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,14 +37,14 @@
 					<img src="${product.product_thumbnail_1 }" id="test">
 				</div>
 				<div class="right">
-					<h1 id="product_name">${product.product_name }</h1>
-					<button class="heart"><i class="fa-regular fa-heart fa-2x"></i></button>
+					<button class="heart" id="nowish"><i class="fa-regular fa-heart fa-2x"></i></button>
+					<button class="heart" id="wish" style="display: none;"><i class="fa-solid fa-heart fa-2x"></i></button>
 					<hr style="margin-top: 20px;">
 					<div id="info"><br>${product.product_info }</div>
 					<hr style="margin-top: 50px;" >
 					<div id="price">${product.product_price }원</div>
 					
-					<br>
+					<div id="prices"><fmt:formatNumber value="${product.product_price }" pattern="#,###" /> 원</div>
 					<form method="POST" id="form">
 					<div class="option">SIZE</div>
 						<select name="size" id="size">
@@ -97,9 +98,9 @@
 		<div class="mid">
 		<div id="header">
 			<nav class="nav">
-				<a href="#mid"><span id="detailView">제품상세</span></a>
-				<a href="#review"><span id="reviewView">리뷰</span></a>
-				<a href="#qna"><span id="qnaView">문의</span></a>
+				<a href="#mid" onclick="move(detail)"><span id="detailView">제품상세</span></a>
+				<a href="#review" onclick="move(review)"><span id="reviewView">리뷰</span></a>
+				<a href="#qna" onclick="move(qna)"><span id="qnaView">문의</span></a>
 			</nav>
 		</div>
 			<div id="detail">
@@ -177,8 +178,9 @@
 			<div class="qna">
 				<h3>Q & A</h3>
 			<br>
+				<br>
 				<table>
-					<c:forEach items="${reviews }" var="review">
+					<c:forEach items="${qnas }" var="qna">
 						<tr>
 							<th class="title">번호</th>
 							<th class="title">제목</th>	
@@ -187,18 +189,30 @@
 							<th class="title">답변상태</th>
 						</tr>
 						<tr>
-							<td class="qna_con">${review.review_num }</td>
-							<td class="qna_con" id="con">문의제목</td>
-							<td class="qna_con">${review.mem_id }</td>
-							<td class="qna_con">${review.review_date }</td>
-							<td class="qna_con"><span id="answer">답변완료</span></td>
+							<td class="qna_con">${qna.qna_num }</td>
+							<td class="qna_con" id="con">${qna.qna_title }</td>
+							<td class="qna_con">${qna.maskingName }</td>
+							<td class="qna_con">${qna.qna_date }</td>
+							<td class="qna_con">
+								<c:choose>
+									<c:when test="${qna.qna_status eq 0 }">
+										<span id="answer">답변 대기중</span>
+									</c:when>
+									<c:when test="${qna.qna_status eq 1 }">
+										<span id="answer">답변 완료</span>
+									</c:when>
+									<c:otherwise>
+										<span id="answer">${qna.qna_status }</span>
+									</c:otherwise>
+								</c:choose>
+							</td>
 						</tr> 
 				</c:forEach>
 			</table>
-			
+			<button id="qna">문의하기</button>
 			</div>
 		</div>
-			
+			<br>
 	</div>
 	<hr>
 	

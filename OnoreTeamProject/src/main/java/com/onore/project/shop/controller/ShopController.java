@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.onore.project.dto.CartDTO;
 import com.onore.project.dto.MemberDTO;
 import com.onore.project.dto.ProductsDTO;
+import com.onore.project.dto.WishDTO;
 import com.onore.project.shop.service.ShopService;
 
 @Controller
@@ -39,6 +40,7 @@ public class ShopController {
 		
 		model.addAttribute("product", shopService.getDetail(product_num));
 		model.addAttribute("reviews", shopService.getProReview(product_num));
+		model.addAttribute("qnas", shopService.getProQna(product_num));
 		
 		return "user/shop/product";
 	}
@@ -182,15 +184,16 @@ public class ShopController {
 	}
 	
 	@ResponseBody
-	@GetMapping("/wish/{num}")
-	public void getWish(@PathVariable("num") Integer product_num, String mem_id) {
-		shopService.getWish(product_num, mem_id);
+	@PostMapping("/wish")
+	public void getWish(@RequestBody WishDTO wish) {
+		shopService.getWish(wish);
+		
 	}
 	
 	@ResponseBody
-	@GetMapping("/nowish")
-	public void deleteWish(Integer product_num, String mem_id) {
-		shopService.deleteWish(product_num, mem_id);
+	@PostMapping("/nowish")
+	public void deleteWish(@RequestBody WishDTO wish) {
+		shopService.deleteWish(wish);
 	}
 	
 }
