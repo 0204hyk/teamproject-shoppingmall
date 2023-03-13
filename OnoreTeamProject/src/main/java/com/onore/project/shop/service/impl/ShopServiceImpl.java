@@ -52,17 +52,17 @@ public class ShopServiceImpl implements ShopService{
 		return shop_mapper.getSnakers();
 
 	}
-	
+
 	@Override
 	public ProductsDTO getDetail(Integer product_num) {
-		
+
 		return shop_mapper.getDetail(product_num);
 	}
 
 	@Override
 	public List<ReviewDTO> getProReview(Integer product_num) {
-		
+
 		return shop_mapper.getProReview(product_num);
 	}
-	
+
 }

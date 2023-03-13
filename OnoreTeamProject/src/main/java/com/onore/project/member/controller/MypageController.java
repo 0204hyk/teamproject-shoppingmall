@@ -46,7 +46,7 @@ public class MypageController {
 
 	// 회원정보수정하기
 	@RequestMapping("/memberInfoModify")
-	public String memberInfoModify(Model model, MemberDTO memberdto) throws Exception { 
+	public String memberInfoModify(Model model, MemberDTO memberdto) throws Exception {
 		mapper.memberInfoModify(memberdto);
 		return "redirect:/mypage";
 	}
@@ -60,8 +60,8 @@ public class MypageController {
 		memberdto.setMem_pw(password);
 		// 비밀번호 암호화 끝
 		mapper.memberPwModify(memberdto);
-		
-		model.addAttribute("member", mapper.memberPwModify(memberdto)); 
+
+		model.addAttribute("member", mapper.memberPwModify(memberdto));
 		System.out.println("비밀번호 수정 성공");
 		return "redirect:/mypage";
 	}
@@ -99,7 +99,7 @@ public class MypageController {
 			} else {
 				System.out.println("탈퇴 실패");
 			}
-			
+
 			session.invalidate();
 			return "redirect:/user/main/onore";
 		}

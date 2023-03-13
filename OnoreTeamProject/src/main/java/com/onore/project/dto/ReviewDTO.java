@@ -1,10 +1,8 @@
 package com.onore.project.dto;
 
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
+
 import lombok.Data;
 
 @Data
@@ -23,7 +21,7 @@ public class ReviewDTO {
 	private Integer review_good;
 	private Integer review_bad;
 
-	
+
 	// id마스킹처리 ex) ${review.maskingName}
 	public String getmaskingName() {
 

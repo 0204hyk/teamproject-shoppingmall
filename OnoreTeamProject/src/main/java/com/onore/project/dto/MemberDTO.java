@@ -4,8 +4,6 @@ import java.util.Date;
 
 import org.springframework.stereotype.Component;
 
-import lombok.Data;
-
 @Component("memberDTO")
 public class MemberDTO {
    private String mem_id;
@@ -14,8 +12,8 @@ public class MemberDTO {
    private String mem_phone;
    private String mem_name;
    private Integer mem_zip_code;
-   private String mem_street_address; 
-   private String mem_detail_address; 
+   private String mem_street_address;
+   private String mem_detail_address;
    private String mem_gender;
    private String mem_birth_date;
    private Date mem_register_date;
@@ -28,7 +26,7 @@ public class MemberDTO {
    private String mem_law5_check;
    private String mem_sms_check;
    private String mem_email_check;
-   
+
    public String getMem_id() {
       return mem_id;
    }

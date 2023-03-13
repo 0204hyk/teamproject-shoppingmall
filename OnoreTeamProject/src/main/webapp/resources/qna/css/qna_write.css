@@ -11,7 +11,8 @@
 }
 
 .selectProduct {
-	width: 400px;
+	width: 830px;
+	
 	background-color:white;
 
 }
@@ -47,8 +48,8 @@
 
 
 #searchImg {
-	width: 100px;
-	height: 100px;
+	width: 80px;
+	height: 80px;
 }
 
 

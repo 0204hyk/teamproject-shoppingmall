@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class ReviewandProductDTO {
-	
+
 	private Integer review_num;
 	private Integer product_num;
 	private String mem_id;
@@ -28,7 +28,7 @@ public class ReviewandProductDTO {
 	private String product_thumbnail_3;
 	private Integer product_views;
 	private Integer product_likes;
-	
+
 
 	// id마스킹처리 ex) ${review.maskingName}
 	public String getmaskingName() {

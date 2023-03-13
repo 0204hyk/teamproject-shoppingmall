@@ -1,11 +1,10 @@
 package com.onore.project.member.controller;
 
-import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,12 +15,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.onore.project.dto.MemberDTO;
 import com.onore.project.mapper.MemberMapper;
 import com.onore.project.member.service.MemberService;
 
 @Controller
-public class MemberController { 
+public class MemberController {
 
 	@Autowired
 	MemberMapper mapper;
@@ -31,7 +31,7 @@ public class MemberController {
 
 	@Autowired
 	MemberDTO memberdto;
-	
+
 	// 아이디 중복체크
     @RequestMapping("/idCheck")
     public void idCheck(@RequestParam String mem_id, HttpServletResponse res) throws Exception {
@@ -41,7 +41,7 @@ public class MemberController {
         }
         res.getWriter().print(result);
     }
-	
+
 	//회원 가입 insert
 	@GetMapping("/join")
 	public String member_join() throws Exception {
@@ -60,7 +60,7 @@ public class MemberController {
 
 	// 회원 가입 성공시 나오는 페이지
 	@PostMapping("/join_success")
-	public String member_join_success(Model model, MemberDTO memberdto) throws Exception {	
+	public String member_join_success(Model model, MemberDTO memberdto) throws Exception {
 
 		// 비밀번호 암호화
 		BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
@@ -69,10 +69,10 @@ public class MemberController {
 		memberdto.setMem_pw(password);
 		System.out.println(memberdto.toString());
 		// 비밀번호 암호화 끝
-		
+
 		model.addAttribute("member", mapper.member_join(memberdto));
-		
-		
+
+
 		return "user/join/member_join_success";
 	}
 
@@ -84,11 +84,11 @@ public class MemberController {
 	    if (uri != null && !uri.contains("/login")) {
 	        request.getSession().setAttribute("prevPage", uri);
 	    }
-		
-		
+
+
 		return "user/login/member_login";
 	}
-	
+
 	// 로그인 하기 - session, 비밀번호 복호화
 	@PostMapping("/signIn.do")
 	public String signIn(RedirectAttributes rttr, MemberDTO dto, HttpServletRequest request) throws Exception {
@@ -96,26 +96,26 @@ public class MemberController {
 		String id = request.getParameter("mem_id");
 		String pw = request.getParameter("mem_pw");
 		int result = 0;
-		
+
 	    if (id == null || id.isEmpty() || pw == null || pw.isEmpty()) {
 	    	rttr.addFlashAttribute("result", result);
 	        return "redirect:/login";
 	    }
-		
+
 		MemberDTO signIn = mapper.signIn(dto); // 세션값
 		HttpSession session = request.getSession();
-		
+
     	System.out.println("result : " + result);
     	System.out.println("id : " + id);
 		System.out.println("signIn : " + signIn);
 		System.out.println("session : " + session);
-		
+
 	    if (signIn != null) {
 	    	// 비밀번호 복호화
 	        BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
 	        boolean pwdMatch = scpwd.matches(dto.getMem_pw(), signIn.getMem_pw());
 	        if (pwdMatch) { // 비밀번호 일치
-	            session.setAttribute("signIn", signIn);    
+	            session.setAttribute("signIn", signIn);
 	            session.setMaxInactiveInterval(60 * 60 * 24) ; // 세션유지 시간 24시간((60*60)*24)
 	            System.out.println(session.getId() + "로그인");
 	            return "redirect:/main/";
@@ -125,12 +125,12 @@ public class MemberController {
 	    } else { // 회원 정보 없음
 	        result = 1;
 	    }
-	    
-	    session.setAttribute("signIn", null);    
-	    rttr.addFlashAttribute("result", result);    
+
+	    session.setAttribute("signIn", null);
+	    rttr.addFlashAttribute("result", result);
 	    return "redirect:/login";
 	}
-	
+
 	// 로그아웃 - session
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
 	public String logout(HttpServletRequest request) {
@@ -139,35 +139,35 @@ public class MemberController {
 		session.invalidate(); // 아이디 값을 제외한 나머지 정보는 접근할 수 없다
 		return "user/main/onore";
 	}
-	
+
 	//아이디/비밀번호 찾기 페이지
 	@GetMapping("/member_search")
 	public String member_search(HttpServletRequest request, Model model, MemberDTO memberdto) throws Exception {
 		return "user/login/member_search";
 	}
-	
-	
-	//아이디 찾기 
+
+
+	//아이디 찾기
 	@RequestMapping(value = "/find_id", method = RequestMethod.POST)
 	@ResponseBody
 	public String find_id(@RequestParam("mem_name") String name,@RequestParam("mem_email") String email) {
-		
+
 	String result = service.find_id(name, email);
-		
+
 	return result;
 	}
-	
+
 	/*
 	//비밀번호 찾기 - 성공
 	@RequestMapping(value = "/find_pw", method = RequestMethod.POST)
 	@ResponseBody
 	public String find_pw(@RequestParam("mem_id") String id,@RequestParam("mem_email") String email) {
-		
+
 	String result = service.find_pw(id, email);
-		
+
 	return result;
 	}
 	*/
-	
+
 }
 

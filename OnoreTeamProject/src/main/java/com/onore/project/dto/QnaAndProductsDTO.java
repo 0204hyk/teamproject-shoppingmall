@@ -33,7 +33,7 @@ public class QnaAndProductsDTO {
 	private Integer product_views;
 	private Integer product_likes;
 	private Date product_date;
-	
+
 	public String getmaskingName() {
 
 		String firstName = mem_id.substring(0,1);

@@ -46,12 +46,12 @@
 	    <filter-name>encodingFilter</filter-name> 
 	    <url-pattern>/*</url-pattern> 
 	 </filter-mapping> 
- 	 <error-page>
+	 <error-page>
 		<error-code>404</error-code>
 		<location>/WEB-INF/views/user/error/error404.jsp</location>
   	 </error-page>
-  	 <error-page>
+<!--   	 <error-page>
   	 	<error-code>500</error-code>
 		<location>/WEB-INF/views/user/error/error500.jsp</location>
-  	 </error-page>
+  	 </error-page> -->
 </web-app>

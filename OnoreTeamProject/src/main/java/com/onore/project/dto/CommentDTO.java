@@ -6,13 +6,13 @@ import lombok.Data;
 
 @Data
 public class CommentDTO {
-	
+
 	private Integer comment_num;
 	private Integer review_num;
     private String comment_id;
     private String comment_content;
     private LocalDate comment_date;
-    
+
     // id마스킹처리 ex) ${review.maskingName}
  	public String getmaskingName() {
 
@@ -30,5 +30,5 @@ public class CommentDTO {
 
  		return maskingName;
  	}
-    
+
 }
