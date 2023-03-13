@@ -62,10 +62,10 @@
 						<td>${qna.qna_date}</td>
 						<c:choose>
 							<c:when test="${qna.qna_status eq 0 }">
-								<td>답변 대기중</td>
+								<td style="color:gray;">답변 대기중</td>
 							</c:when>
 							<c:when test="${qna.qna_status eq 1 }">
-								<td>답변 완료</td>
+								<td style="font-weight: bold;" >답변 완료</td>
 							</c:when>
 							<c:otherwise>
 								<td>${qna.qna_status }</td>

@@ -3,11 +3,11 @@ const content = document.getElementById('qna_content');
 const writeBtn = document.getElementById('write_btn');
 
 writeBtn.addEventListener('click', (e) => {
-	if (title.value == "") {
+	if (title.value === "") {
 		alert('제목을 입력하세요.');
 		title.focus();
 		e.preventDefault();
-	} else if (content.value == "") {
+	} else if (content.value === "") {
 		alert('내용을 입력하세요.');
 		content.focus();
 		e.preventDefault();
