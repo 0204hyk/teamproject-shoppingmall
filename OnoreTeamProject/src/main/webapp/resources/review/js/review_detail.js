@@ -72,7 +72,9 @@ if (id !== "") {
     // send(payload) : 데이터를 실어 보낼 수 있다
     xhttp.send(JSON.stringify(com));
 } else {
-	alert('로그인이 필요한 서비스입니다')
+	if(confirm('로그인이 필요한 서비스입니다. 로그인하시겠습니까?')) {
+		location.href='/project/login';
+	}
 	}    
 });
 

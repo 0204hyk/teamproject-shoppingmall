@@ -200,8 +200,22 @@ function PreviewImage3() {
         handler3.init3()
         handler3.removeFile3()
 
+const write_btn = document.getElementById('write_btn');
 
-
+write_btn.addEventListener('click', (e) => {
+	const content = document.getElementById('reviewContents');
+	
+	if (content.value === "") {
+		alert('내용을 입력해주세요');
+		e.preventDefault();
+		content.focus();
+	} else {
+		if(!confirm('수정하시겠습니까?')) {
+			e.preventDefault();
+		}
+	}
+	
+});
 
 
 

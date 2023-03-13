@@ -193,6 +193,29 @@ function PreviewImage3() {
         handler3.removeFile3()
 
 
+const write_btn = document.getElementById('write_btn');
+
+write_btn.addEventListener('click', (e) => {
+	const content = document.getElementById('reviewContents');
+
+    var value = document.querySelector('input[name = "review_rating"]:checked');
+	console.log(value);
+
+   if(value === null) {
+        alert('별점을 선택해주세요');
+         e.preventDefault();
+    } else if (content.value === "") {
+    	alert('내용을 입력해주세요')
+    	e.preventDefault();
+    	content.focus();
+    }
+    if (value !== null && content.value !== "") {
+    	if(!confirm('완료하시겠습니까?')) {
+    		e.preventDefault();
+    	}
+    	
+    }
+});
 
 
 

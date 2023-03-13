@@ -56,7 +56,7 @@
 			<hr>
 			<!-- 리뷰작성폼 div 바깥으로 이동 2023.03.08 수정  -->
 			<textarea  name="review_content" id="reviewContents" cols="150"
-					rows="30" >${contents.review_content }</textarea>
+					rows="30" placeholder="내용을 입력해주세요" >${contents.review_content }</textarea>
 			
 			<div class="container2">
 				<div id="img-box">
@@ -86,10 +86,10 @@
 					<input type="hidden" name="review_img_1" value="${contents.review_img_3 }"/>
 				</div>
 				<!-- 버튼 안밀리게 버튼만큼 위치조정 div 생성 -->
-				<div style="height: 80px;">
-				<input type="submit" id="write_btn" formaction="./modify" value="수정" onclick="return confirm('수정하시겠습니까?')">
-				</div>
 				<br>
+			</div>
+			<div style="height: 80px;">
+				<input type="submit" id="write_btn" value="수정">
 			</div>
 			</form>
 		</div>
