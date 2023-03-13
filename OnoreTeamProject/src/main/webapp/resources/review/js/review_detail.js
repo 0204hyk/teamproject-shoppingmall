@@ -120,3 +120,28 @@ re_delete.addEventListener('click', (e) => {
 });
 }
 
+const comms = document.getElementsByClassName('mem')
+for (let k = 0;  k < comms.length; ++k ){
+
+
+const comment_id = document.getElementsByClassName('mem')[k].innerText;
+const masking_Id = maskingName(comment_id);
+
+const setId = document.getElementsByClassName('com_id')[k];
+console.log(comment_id);
+console.log(maskingName(comment_id));
+
+setId.innerHTML = masking_Id;
+}
+
+function maskingName(name) {
+    if (name.length <= 2) {
+      return name.replace(name.substring(0, 1), "*");
+    }
+  
+    return (
+      name[0] +
+      "*".repeat(name.substring(1, name.length - 1).length) +
+      name[name.length - 1]
+    );
+  }

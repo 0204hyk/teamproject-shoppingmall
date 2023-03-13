@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.onore.project.dto.PurchaseInfoDTO;
 import com.onore.project.dto.OrderDTO;
 import com.onore.project.dto.OrderInfoDTO;
+import com.onore.project.dto.ProductsDTO;
 import com.onore.project.mapper.OrderMapper;
 import com.onore.project.order.service.OrderService;
 
@@ -28,22 +29,19 @@ public class OrderService_impl implements OrderService {
 	}
 	
 	@Override
-	public Integer insertOrderInfos(OrderDTO order, List<String> product_name, List<String> order_info_size,
-			List<String> order_info_option, List<String> order_info_qty, List<String> order_info_price) {
+	public Integer insertOrderInfos(OrderDTO order, ProductsDTO product, List<String> product_name, List<String> order_info_option,
+									List<String> order_info_qty, List<String> order_info_price) {
 		
 		
 		OrderInfoDTO info = new OrderInfoDTO();
 		Integer qty = product_name.size();
 		Integer row = 0;
+		System.out.println(product);
 		for (int i = 0; i < qty; i++) {
-			// order_info_id 만들기
-			LocalDateTime today = LocalDateTime.now();
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddkkmmssSSS");
 			info.setOrder_num(order.getOrder_num());
-			info.setProduct_id("product_" + formatter.format(today));
+			info.setProduct_num(product.getProduct_num());
 			info.setProduct_name(product_name.get(i));
 			info.setOrder_info_qty(Integer.parseInt(order_info_qty.get(i)));
-			info.setOrder_info_size(Integer.parseInt(order_info_size.get(i)));
 			info.setOrder_info_option(order_info_option.get(i));
 			info.setOrder_info_price(Integer.parseInt(order_info_price.get(i)));
 			row += order_mapper.insertOrderInfo(info);

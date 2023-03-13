@@ -10,7 +10,7 @@
 			#{discount_points}, #{total_price}, #{total_discount}, #{pay_price}, #{pay_method}, 1, sysdate)
 	</insert>
 	<insert id="insertOrderInfo" parameterType="com.onore.project.dto.OrderInfoDTO">
-		INSERT INTO order_infos VALUES(order_info_seq.nextval, #{order_num}, #{product_id}, #{product_name}, #{order_info_size},
+		INSERT INTO order_infos VALUES(order_info_seq.nextval, #{order_num}, #{product_num}, #{product_name},
 										#{order_info_qty}, #{order_info_option}, #{order_info_price}, sysdate)
 	</insert>
 	<insert id="insertPurchaseInfo" parameterType="com.onore.project.dto.PurchaseInfoDTO">

@@ -109,7 +109,7 @@
     }
     
 	/* 결제 버튼 */
-    footer > button, #purchase_submit {
+    footer > button {
     	height: 3.5rem;
     	position: relative;
     	right: 0.7rem;
@@ -131,42 +131,73 @@
 			<div id="order_infos" class="container-sm w-auto">
 		    <h5>주문 상품 (<span id="order_name">${order_name}</span>)</h5>
 		    <input type="hidden" value="${order_name}" name="order_name"/>
-
+			
 			<table>
-				<c:forEach begin="0" end="${product_type_qty-1}" var="i">
-				<tr>
-					<td rowspan="3">
-						<div class="img-container">
-							<img src="<c:url value="/resources/images/DODY.PNG"/>">
-						</div>
-					</td>
-					<td>
-						<p id="product_name" class="fs-2 fw-semibold">${product_name.get(i)}</p>
-						<input type="hidden" name="product_name" value="${product_name.get(i)}"/>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<p id="order_info_size" class="fs-6 text-black-50">size: ${order_info_size.get(i)} / option: ${order_info_option.get(i)}</p>
-						<input type="hidden" name="order_info_size" value="${order_info_size.get(i)}"/>
-						<input type="hidden" name="order_info_option" value="${order_info_option.get(i)}"/>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<p class="fs-5 fw-semibold">${order_info_qty.get(i)}개 / ${order_info_price.get(i)}원</p>
-						<input type="hidden" name="order_info_qty" value="${order_info_qty.get(i)}"/>
-						<input type="hidden" name="order_info_price" value="${order_info_price.get(i)}"/>
-					</td>
-				</tr>
-				</c:forEach>
+				<c:choose>
+					<c:when test="${products != null}">
+						<c:forEach begin="0" end="${products.size() - 1}" var="i">
+							<tr>
+							<td rowspan="3">
+								<div class="img-container">
+									<img src="<c:url value="/resources/images/DODY.PNG"/>">
+								</div>
+							</td>
+								<td>
+									<p id="product_name" class="fs-2 fw-semibold">${products.get(i).product_name}</p>
+									<input type="hidden" name="product_name" value="${products.get(i).product_name}"/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<p id="order_info_option" class="fs-6 text-black-50">${cart.get(i).cart_product_option}</p>
+									<input type="hidden" name="order_info_option" value="${cart.get(i).cart_product_option}"/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<p class="fs-5 fw-semibold">${cart.get(i).cart_product_qty}개 / ${cart.get(i).cart_product_price}원</p>
+									<input type="hidden" name="order_info_qty" value="${cart.get(i).cart_product_qty}"/>
+									<input type="hidden" name="order_info_price" value="${cart.get(i).cart_product_price}"/>
+									<input type="hidden" name="cart_num" value="${cart.get(i).cart_num}" />
+								</td>
+							</tr>
+						</c:forEach>
+					</c:when>
+					<c:when test="${product != null}">
+						<tr>
+							<td rowspan="3">
+								<div class="img-container">
+									<img src="<c:url value="/resources/images/DODY.PNG"/>">
+								</div>
+							</td>
+								<td>
+									<p id="product_name" class="fs-2 fw-semibold">${product.product_name}</p>
+									<input type="hidden" name="product_name" value="${product.product_name}"/>
+									<input type="hidden" name="product_num" value="${product.product_num}" />
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<p id="order_info_option" class="fs-6 text-black-50">${cart.cart_product_option}</p>
+									<input type="hidden" name="order_info_option" value="${cart.cart_product_option}"/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<p class="fs-5 fw-semibold">${cart.cart_product_qty}개 / ${cart.cart_product_price}원</p>
+									<input type="hidden" name="order_info_qty" value="${cart.cart_product_qty}"/>
+									<input type="hidden" name="order_info_price" value="${cart.cart_product_price}"/>
+								</td>
+							</tr>
+					</c:when>
+				</c:choose>
 			</table>
 			<hr>
             <div class="mb-3 row">
-				<label for="total_price" class="col-md-3 col-form-label fs-4">상품 합계</label>
+				<label class="col-md-3 col-form-label fs-4">상품 합계</label>
 				<div class="col-sm-9">
-					<input type="text" readonly class="form-control-plaintext fs-4 fw-bold"
-						value="${total_price}원">
+					<input type="text" class="form-control-plaintext fs-4 fw-bold"
+						value="${total_price}원" readonly>
 				</div>
 			</div>
 		</div>
@@ -206,9 +237,8 @@
 
 		<div id="shipping_address" class="container-sm w-auto">
 			<h5>배송지</h5>
-			<input type="hidden" name="mem_id" value="${orderer.mem_id}" />
 			<c:choose>
-				<c:when test="${orderer.mem_address eq null}">
+				<c:when test="${orderer.mem_street_address eq null}">
 					<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
 						<input type="radio" class="btn-check" name="address_btn" id="btnradio1" value="default" onclick="setAddress(event)"
 							autocomplete="off" disabled>
@@ -227,8 +257,7 @@
 					<div class="input-group mb-3">
 						<input type="text" class="form-control form-control-lg"
 							placeholder="우편번호" id="receiver_zip_code" name="receiver_zip_code">
-						<button class="btn btn-outline-dark" type="button"
-							id="receiver_address_btn" onclick="getAddress()">검색</button>
+						<button class="btn btn-outline-dark" type="button" id="receiver_address_btn">검색</button>
 						<div id="receiver_zip_code_msg" class="text-danger"></div>
 					</div>
 					<div class="mb-3">
@@ -272,7 +301,7 @@
 						<label for="receiver_address" class="col-sm-2 col-form-label">주소</label>
 						<input type="text" class="form-control form-control-lg"
 							style="background-color: rgb(214, 214, 214);" placeholder="기본주소"
-							id="receiver_address" name="receiver_address" value="${orderer.mem_address}" readonly/>
+							id="receiver_address" name="receiver_address" value="${orderer.mem_street_address}" readonly/>
 						<div id="receiver_address_msg" class="text-danger"></div>
 						<input type="text" class="form-control form-control-lg" placeholder="상세주소"
 							id="receiver_detail_address" name="receiver_detail_address" value="${orderer.mem_detail_address}">
@@ -334,33 +363,33 @@
 					placeholder="적립금" id="discount_points" name="discount_points" value="0">
 				<button class="btn btn-outline-dark" type="button" id="discount_points_btn">적용</button>
 			</div>
-			<div>사용 가능한 적립금 : <span id="accessible_points">${accessible_points}</span>원</div>
+			<c:choose>
+				<c:when test="${accessible_points <= orderer.mem_point}">
+					<div>사용 가능한 적립금 : <span id="accessible_points">${accessible_points}</span>원</div>
+				</c:when>
+				<c:otherwise>					
+					<div>사용 가능한 적립금 : <span id="accessible_points">${orderer.mem_point}</span>원</div>
+				</c:otherwise>
+			</c:choose>
 			<hr>
 			<div class="mb-3 row">
 				<label for="total_price" class="col-sm-3 col-form-label">상품 합계</label>
 				<div class="col-md-9">
-					<input type="text" readonly class="form-control-plaintext fw-bold"
-						id="total_price" name="total_price" value="${total_price}">
+					<input type="text" id="total_price_txt" class="form-control-plaintext fs-4 fw-bold" value="${total_price}원">
+					<input type="hidden" id="total_price" name="total_price" value="${total_price}" readonly>
 				</div>
 				<label for="total_discount" class="col-sm-3 col-form-label">총 할인 금액</label>
 				<div class="col-md-9">
-					<input type="text" readonly class="form-control-plaintext fw-bold"
-						id="total_discount" name="total_discount" value="0">
+					<input type="text" id="total_discount_txt" class="form-control-plaintext fs-4 fw-bold" value="0원">
+					<input type="hidden" id="total_discount" name="total_discount" value="0">
 				</div>
 			</div>
 			<hr>
 			<div class="mb-3 row">
 				<label for="pay_price" class="col-sm-3 col-form-label fs-4">결제 금액</label>
 				<div class="col-md-9">
-					<input type="text" class="form-control-plaintext fs-4 fw-bold"
-					 	id="pay_price_lbl" name="pay_price" value="${total_price}" readonly/>
-				</div>
-			</div>
-			<div class="mb-3 row">
-				<label for="paid_price" class="col-sm-4 col-form-label fs-5">결제된 금액</label>
-				<div class="col-md-8">
-					<input type="text" class="form-control-plaintext fs-4 fw-bold"
-						id="paid_price" name="paid_price" readonly/>
+					<input type="text" id="pay_price_txt" class="form-control-plaintext fs-4 fw-bold" value="${total_price}원"/>
+					<input type="hidden" id="pay_price" name="pay_price" value="${total_price}" readonly/>
 				</div>
 			</div>
 		</div>
@@ -387,8 +416,15 @@
 	        <footer id="purchased_btn_container" class="container">					
 				<input type="hidden" id="payment_key" name="payment_key"/>
 		      	<input type="hidden" id="order_id" name="order_id"/>
-		    	<input type="hidden" id="amount" name="amount"/>		        			        		
-		        <button type="button" id="purchase_btn" class="btn btn-lg btn-dark w-100 rounded-1"><span id="pay_price_btn">${total_price}</span>원 결제하기</button>
+		    	<input type="hidden" id="amount" name="amount"/>
+		    	<c:choose>
+		    		<c:when test="${products != null}">		        			        		
+		        		<button type="button" id="purchase_btn" class="btn btn-lg btn-dark w-100 rounded-1"><span id="pay_price_btn">${total_price}</span>원 결제하기</button>
+		        	</c:when>
+		        	<c:when test="${product != null}">
+		        		<button type="button" id="purchase_btn_2" class="btn btn-lg btn-dark w-100 rounded-1"><span id="pay_price_btn">${total_price}</span>원 결제하기</button>		        		
+		        	</c:when>
+		        </c:choose>
 	        </footer>
         </form>
 	</div>
@@ -399,10 +435,10 @@
 	    let tossPayments = TossPayments(clientKey);
 	</script>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/order/js/tosspayments.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/order/js/purchase_btn.js"></script>
 	<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/order/js/discount.js"></script>
 	<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/order/js/address.js"></script>
+	<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/order/js/purchase_btn.js"></script>
+	<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/order/js/tosspayments.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>

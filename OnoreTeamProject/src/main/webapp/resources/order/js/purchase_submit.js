@@ -14,7 +14,6 @@ function getToday(){
 
 const order_id = document.getElementById('order_id');
 const order_num = document.getElementById('order_num');
-const pay_price = document.getElementById('pay_price');
 const pay_method = document.getElementById('pay_method');
 const payment_key = document.getElementById('payment_key');
 const amount = document.getElementById('amount');

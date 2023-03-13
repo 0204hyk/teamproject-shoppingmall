@@ -15,27 +15,22 @@
 
 	<%@ include file="../top.jspf" %>
 
+	<div class="main" style="padding-top: 127px;  width: auto; margin:50px; margin-top: 0px;">
 	<c:choose>
-		<c:when test="${status eq 'added_to_cart'}">
-			<dialog open>
+		<c:when test="${param.status eq 'added_to_cart'}">
+			<dialog id="cart_dialog" open>
 			  <p>장바구니에 추가 되었습니다.</p>
-			  <form method="POST">
-			  	<input type="hidden" name="mem_id" value="${mem_id}"/>
-				<input type="submit" formaction="./cart" value="장바구니로 이동"/>
-			  </form>
-			  <button>계속 쇼핑하기</button>
+				<button onclick="location.href='/project/shop/cart'">장바구니로 이동</button>
+				<button onclick="close_dialog();">계속 쇼핑하기</button>
 			</dialog>
 		</c:when>
-		<c:when test="${status eq 'failed_to_cart'}">
+		<c:when test="${param.status eq 'failed_to_cart'}">
 			<script>
 				alert('실패');
 			</script>
 		</c:when>
 	</c:choose>
-
-	<div class="main" style="padding-top: 127px;  width: auto; margin:50px; margin-top: 0px;">
 	<hr>
-		<form method="POST" id="form">
 			<div class="top">
 				<div class="left">
 					<img src="${product.product_thumbnail_1 }" id="test">
@@ -49,6 +44,7 @@
 					<div id="price">${product.product_price }원</div>
 					
 					<br>
+					<form method="POST" id="form">
 					<div class="option">SIZE</div>
 						<select name="size" id="size">
 							<option value="default" selected>선택하세요</option>
@@ -80,7 +76,6 @@
 					<div id="cnt" style="display:none;">
 	        		<input type ="button" onclick='count("minus")' value="-" class="count">
 	       			<div id='result'>1</div>
-	       			<input type="hidden" id="product_qty" name="product_qty" value="1"/>
 					<input type ="button" onclick='count("plus")' value="+" class="count">
 	        		</div>
 					<hr>
@@ -89,13 +84,15 @@
 					총 주문금액 <span id="priceinfo"></span>
 					</div>
 					<hr>
-					<input type="hidden" value="${product.product_num }" name="product_num">
-					<input type="hidden" value="" id="order_cnt" name="order_cnt">
-					<input type="submit" value="주문하기" formaction="../order" id="order">
+					<input type="hidden" value="${sessionScope.signIn.mem_id}" name="mem_id"/>
+					<input type="hidden" id="product_num" value="${product.product_num }" name="product_num">
+					<input type="hidden" value="1" id="order_cnt" name="order_cnt">
+					<input type="hidden" id="cart_product_price" name="cart_product_price"/>
+					<input type="submit" value="주문하기" formaction="../order/order_directly" id="order">
 					<input type="submit" value="장바구니" formaction="./insert_cart" id="cart">
-				</div>
+				</form>
 			</div>
-		</form>
+		</div>
 		<hr>
 		<div class="mid">
 		<div id="header">

@@ -34,10 +34,40 @@
 	</select>
 	
 	<insert id="addToCart" parameterType="com.onore.project.dto.CartDTO">
-		INSERT INTO cart VALUES (cart_seq.nextval, #{product_num}, #{mem_id}, #{cart_product_qty}, #{cart_product_option})
+		INSERT INTO cart VALUES (cart_seq.nextval, #{product_num}, #{mem_id}, #{cart_product_qty},
+								 #{cart_product_price}, #{cart_product_option})
 	</insert>
 	
-	<select id="getCart" resultType="com.onore.project.dto.CartDTO">
+	<select id="getCartList" resultType="com.onore.project.dto.CartDTO">
 		SELECT * FROM cart WHERE mem_id=#{mem_id}
 	</select>
+	
+	<select id="getCart" resultType="com.onore.project.dto.CartDTO">
+		SELECT * FROM cart WHERE cart_num=#{cart_num}
+	</select>
+	
+	<update id="updateCart" parameterType="com.onore.project.dto.CartDTO">
+		UPDATE cart SET cart_product_qty = #{cart_product_qty}, cart_product_price = #{cart_product_price} 
+		WHERE cart_num = #{cart_num}
+	</update>
+	
+	<delete id="deleteCart" parameterType="Integer">
+		DELETE FROM cart WHERE cart_num = #{cart_num}
+	</delete>
+	
+	<delete id="deleteAllCart">
+		DELETE FROM cart
+	</delete>
+	
+	<insert id="getWish" parameterType="com.onore.project.dto.WishDTO">
+  		INSERT INTO wish_list VALUES (
+  			wish_num_seq.nextval,
+  			3,
+  			'abc123'
+  		)
+  	</insert>
+  	
+  	<delete id="deleteWish">
+  		DELETE FROM wish_list WHERE product_num=3  AND mem_id='abc123'
+ 	</delete>
 </mapper>

@@ -13,6 +13,4 @@ public class CommentDTO {
     private String comment_content;
     private LocalDate comment_date;
     
- // id마스킹처리 ex) ${review.maskingName}
-  	
 }

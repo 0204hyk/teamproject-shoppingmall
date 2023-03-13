@@ -53,22 +53,30 @@
 				</div>
 			</div>
 			<hr>
-			<div class="container2">
-				<textarea id="reviewContents" name="review_content" cols="150"
+			<textarea id="reviewContents" name="review_content" cols="150"
 					rows="30">${contents.review_content }</textarea>
+					
+			<div class="container2">
 				<div id="img-box">
-					<div id="test1"></div>
 					<img id="previewImg1" /> 
 					<img id="previewImg2" /> 
 					<img id="previewImg3" />
 				</div>
 				<br>
 				<div class="sub-container2">
-					<input type="file" id="fileUpload1" accept=".jpg, .png, .bmp, .jpeg" />
-					<input type="file" id="fileUpload2" accept=".jpg, .png, .bmp, .jpeg" /> 
-					<input type="file" id="fileUpload3" accept=".jpg, .png, .bmp, .jpeg" />
+					<div>
+						<input type="file" id="fileUpload1" accept=".jpg, .png, .bmp, .jpeg" />
+					</div>
+					<div>
+						<input type="file" id="fileUpload2" accept=".jpg, .png, .bmp, .jpeg" />
+					</div>
+					<div>
+						<input type="file" id="fileUpload3" accept=".jpg, .png, .bmp, .jpeg" />
+					</div>
 					<br> 
-					<input id="modify_btn" type="submit" value="수정" onclick="return confirm('수정하시겠습니까?')">
+				</div>
+				<div style="height: 80px;">
+				<input id="modify_btn" type="submit" value="수정" onclick="return confirm('수정하시겠습니까?')">
 				</div>
 			</div>
 			</form>

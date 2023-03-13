@@ -14,7 +14,6 @@ function getToday(){
 
 const payment_key = document.getElementById('payment_key');
 const order_id = document.getElementById('order_id');
-const paid_price = document.getElementById('paid_price');
 const amount = document.getElementById('amount');
 const btn_container = document.getElementById('purchased_btn_container');
 const form = document.getElementById('order_form');
@@ -25,7 +24,7 @@ let removedObj = null;
 function tossPay() {
  if(payment_method == 'card') {
     tossPayments.requestPayment('카드',{
-      amount: pay_price_lbl.value,
+      amount: pay_price.value,
       orderId: 'order_' + getToday(),
       orderName: order_name.innerText, //order_name은 span이라서 innerText로 받음
       customerName: orderer_name.value,
@@ -34,10 +33,40 @@ function tossPay() {
     .then ((data) => {
     	payment_key.value = data.paymentKey;
 		order_id.value = data.orderId;
-		paid_price.value = data.amount;
 		amount.value = data.amount;
 	    
 	    form.action = '/project/order/result';
+	    form.method = 'POST';
+	    form.submit();
+    	
+    }) // 결제 실패 설정
+    .catch((error) => {
+	  if (error.code === 'USER_CANCEL') {
+	    // 결제 고객이 결제창을 닫았을 때 에러 처리
+	   alert('Purchase canceled');
+	  } else if (error.code === 'INVALID_CARD_COMPANY') {
+	    // 유효하지 않은 카드 코드에 대한 에러 처리
+	    alert('Invalid card company');
+	  }
+	});
+  }
+ }
+ 
+ function tossPay2() {
+ if(payment_method == 'card') {
+    tossPayments.requestPayment('카드',{
+      amount: pay_price.value,
+      orderId: 'order_' + getToday(),
+      orderName: order_name.innerText, //order_name은 span이라서 innerText로 받음
+      customerName: orderer_name.value,
+    })
+    // 결제 성공 설정
+    .then ((data) => {
+    	payment_key.value = data.paymentKey;
+		order_id.value = data.orderId;
+		amount.value = data.amount;
+	    
+	    form.action = '/project/order/direct_result';
 	    form.method = 'POST';
 	    form.submit();
     	

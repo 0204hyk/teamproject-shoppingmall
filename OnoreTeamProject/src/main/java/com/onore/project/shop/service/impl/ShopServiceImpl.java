@@ -73,9 +73,45 @@ public class ShopServiceImpl implements ShopService{
 	}
 	
 	@Override
-	public List<CartDTO> getCart(String mem_id) {
+	public List<CartDTO> getCartList(String mem_id) {
 		
-		return shop_mapper.getCart(mem_id);
+		return shop_mapper.getCartList(mem_id);
 	}
 	
+	@Override
+	public CartDTO getCart(Integer cart_num) {
+		
+		return shop_mapper.getCart(cart_num);
+	}
+	
+	@Override
+	public Integer updateCart(CartDTO cart) {
+		
+		return shop_mapper.updateCart(cart);
+	}
+	
+	@Override
+	public Integer deleteCart(Integer cart_num) {
+	
+		return shop_mapper.deleteCart(cart_num);
+	}
+	
+	@Override
+	public Integer deleteAllCart() {
+		
+		return shop_mapper.deleteAllCart();
+	}
+	
+	@Override
+	public Integer getWish(Integer product_num, String mem_id ) {
+		
+		return shop_mapper.getWish(product_num, mem_id);
+	}
+
+
+	@Override
+	public Integer deleteWish(Integer product_num, String mem_id) {
+		
+		return shop_mapper.deleteWish(product_num, mem_id);
+	}
 }

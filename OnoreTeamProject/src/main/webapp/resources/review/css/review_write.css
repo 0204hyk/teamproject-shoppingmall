@@ -85,12 +85,30 @@ img {
     cursor: pointer; 
 }
 
-.sub-container2 {
-	display: inline-block;
-	width: 100%;
+/* 첨부 이미지 사이즈 설정  2023.03.08 수정  */
+#previewImg1, #previewImg2, #previewImg3 {
+	border: 0px;
+	width: 230px;
+	height: 230px;
+	margin-right: 80px;
 }
 
+/* 파일 선택 3가지 포함한 div  2023.03.08 수정 */
+.sub-container2 {
+	display: flex;
+	
+}
+
+/* 각 파일 선택에 관한 길이 수정  2023.03.08 수정 */
+.sub-container2 > div {
+	width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+	margin-right: 120px;
+}
+
+/* 파일 선택 쪽 폰트 사이즈  2023.03.08 수정 */
 #fileUpload1, #fileUpload2, #fileUpload3 {
-	width: 180px;
-	margin-left: 8px;
+	font-size: 16px;
 }

@@ -20,11 +20,17 @@ const price = prices.replace(/[^0-9]/g, '');
 const name = document.getElementById('product_name').innerText;
 
 const order_cnt = document.getElementById('order_cnt');
+const cart_product_price = document.getElementById('cart_product_price');
+
+const dialog = document.getElementById('cart_dialog');
+
+function close_dialog() {
+	dialog.close();
+}
 
 function count(type) {
 
     const cnt = document.getElementById('result');
-    const product_qty = document.getElementById('product_qty');
 
     let number = cnt.innerText; 
 
@@ -42,12 +48,12 @@ function count(type) {
     }
 
     cnt.innerText = number;
-    product_qty.value = number;
 
-    const a = document.getElementById('a');
-    a.innerHTML = number * price + " 원 &nbsp;&nbsp;&nbsp;&nbsp; <i class='fa-solid fa-xmark fa-lg' id='cancel'></i>";
+    //const a = document.getElementById('a');
+    //a.innerHTML = number * price + " 원 &nbsp;&nbsp;&nbsp;&nbsp; <i class='fa-solid fa-xmark fa-lg' id='cancel'></i>";
     cntinfo.innerHTML = number + "개";
     priceinfo.innerHTML = number * price + "원";
+    cart_product_price.value = number * price;
     order_cnt.value = number;
     console.log(order_cnt);
 };
@@ -79,6 +85,7 @@ sizes.addEventListener('change', (e) => {
 
                         cntinfo.innerHTML = cnt.innerText + "개";
                         priceinfo.innerHTML = price + "원";
+                        cart_product_price.value = price;
 
                         const cancel = document.getElementById('cancel');
                         cancel.addEventListener('click', (e) => {
@@ -118,4 +125,37 @@ reviewView.addEventListener('click', () => {
 
 qnaView.addEventListener('click', () => {
     window.scrollBy({top: qna.getBoundingClientRect().top, behavior: 'smooth'});
+});
+
+const nowish = document.getElementById('nowish'); // 빈하트
+const wish = document.getElementById('wish'); // 가득찬하트
+const prd_num = document.getElementById('product_num').value;
+
+nowish.addEventListener('click', (e) => {
+    const xhttp = new XMLHttpRequest();
+    xhttp.addEventListener('readystatechange', (e) =>{
+        if (e.target.readyState == 4 && e.target.status == 200) {
+        	console.log('찜하기');
+            nowish.style.display="none";
+            wish.style.display="";
+        }
+    });
+    console.log(prd_num);
+    xhttp.open('GET', './wish/' + prd_num);
+    xhttp.send();
+});
+
+wish.addEventListener('click', (e) => {
+    const xhttp = new XMLHttpRequest();
+    xhttp.addEventListener('readystatechange', (e) =>{
+    	 console.log('readyState: ', xhttp.readyState);
+        console.log('httpStatus: ', xhttp.status);
+        if (e.target.readyState == 4 && e.target.status == 200) {
+            wish.style.display="none";
+            nowish.style.display="";
+        }
+    });
+  
+    xhttp.open('GET', './nowish');
+    xhttp.send();
 });

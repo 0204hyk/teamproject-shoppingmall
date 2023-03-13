@@ -107,7 +107,7 @@
 <body>
 	<div class="container">
 		<div id="header" class="container-sm w-auto">
-			<h2 id="header_title">ONORE</h2>
+			<h2 id="header_title"><a>ONORE</a></h2>
 			<div class="blank bg-white"></div>
 		</div>
 
@@ -209,8 +209,8 @@
 								</tr>
 								<tr>
 									<td>
-										<p id="order_info_size" class="fs-6 text-black-50">size: ${order_infos.get(i).order_info_size} / option: Oversole</p>
-										<input type="hidden" name="order_info_size" value="${order_infos.get(i).order_info_size}"/>
+										<p id="order_info_option" class="fs-6 text-black-50">option: ${order_infos.get(i).order_info_option}</p>
+										<input type="hidden" name="order_info_option" value="${order_infos.get(i).order_info_option}"/>
 									</td>
 								</tr>
 								<tr>
@@ -340,7 +340,8 @@
 		</div>
 		<div class="blank bg-white"></div>
 		<div id="btn_container" class="container-sm w-auto">
-			<button type="button" id="home_btn" class="btn btn-lg btn-dark w-100 rounded-1">
+			<button type="button" id="home_btn" class="btn btn-lg btn-dark w-100 rounded-1"
+					onclick="location.href='http://localhost:8888/project/main/';">
 				홈으로
 			</button>
 		</div>

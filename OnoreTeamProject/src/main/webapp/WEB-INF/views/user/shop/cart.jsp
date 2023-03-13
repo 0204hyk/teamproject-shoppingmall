@@ -7,9 +7,12 @@
 <meta charset="UTF-8">
 <title>장바구니</title>
 <%@ include file="../header.jspf" %>
+<link rel="stylesheet"href="/project/resources/shop/css/cart.css">
 <link rel="icon" href="/project/resources/shop/image/파비콘.png">
 </head>
 <body>
+<script src="/project/resources/shop/js/cart.js" defer></script>
+
 <%@ include file="../top.jspf" %>
 <div class="container">
 <hr>
@@ -32,7 +35,7 @@
 			<thead>
 				<tr class="cart_header_outline"><th colspan="9"></th></tr>
 				<tr class="cart_header">
-					<th scope="col"><input type="checkbox" value="product_all"/></th>
+					<th scope="col"><input type="checkbox" id="check_all" checked/></th>
 					<th scope="col">이미지</th>
 					<th scope="col">상품 정보</th>
 					<th scope="col">판매가</th>
@@ -44,53 +47,88 @@
 				</tr>
 				<tr class="cart_header_outline"><th colspan="9"></th></tr>
 			</thead>
-			<tbody>
-				<c:forEach begin="0" end="${cart_list.size() - 1}" var="i">
-					<tr class="cart_body">
-						<td><input type="checkbox" value="${cart_product_list.get(i).product_num}" checked/></td>
-						<td><img src="${cart_product_list.get(i).product_thumbnail_1}"
-										alt="${cart_product_list.get(i).product_name}"/></td>
-						<td style="text-align: left; padding-left: 25px;">
-							<div class="product_name">${cart_product_list.get(i).product_name}</div>
-							<div class="product_options">${cart_list.get(i).cart_product_option}</div>
-						</td>
-						<td>${cart_product_list.get(i).product_price}</td>
-						<td>
-							<input type="number" value="${cart_list.get(i).cart_product_qty}" min="0" max="99"
-																style="width: 30px; text-align: center;"/> <br>
-							<button>변경</button>
-						</td>
-						<td>최대<br>${cart_product_list.get(i).product_price / 100 * 3 + 1000}원</td>
-						<td>무료</td>
-						<td>${cart_list.get(i).cart_product_qty * cart_product_list.get(i).product_price}원</td>
-						<td>
-							<button class="order_single_btn">주문하기</button>
-							<button class="delete_single_btn">삭제하기</button>
-						</td>
-					</tr>
-				</c:forEach>
-			</tbody>
+				<tbody>
+					<c:choose>
+						<c:when test="${cart_list eq null || cart_list.size() eq 0}">
+							<tr class="cart_body">
+								<td colspan="9">
+									<b>장바구니가 비어있습니다.</b>
+								</td>
+							</tr>
+						</c:when>
+						<c:otherwise>
+							<c:forEach begin="0" end="${cart_list.size() - 1}" var="i">
+								<tr class="cart_body">
+									<td><input type="checkbox" class="check" value="${cart_list.get(i).cart_num}" checked/></td>
+									<td><img class="product_img" src="${cart_product_list.get(i).product_thumbnail_1}"
+													alt="${cart_product_list.get(i).product_name}"/></td>
+									<td style="text-align: left; padding-left: 25px;">
+										<div class="product_name">${cart_product_list.get(i).product_name}</div>
+										<div class="product_options">${cart_list.get(i).cart_product_option}</div>
+									</td>
+									<td>${cart_product_list.get(i).product_price}원</td>
+									<td>
+										<form action="./update_cart" method="POST">
+											<input type="hidden" name="cart_num" value="${cart_list.get(i).cart_num}"/>
+											<input type="hidden" name="product_price" value="${cart_product_list.get(i).product_price}"/>
+											<input type="number" value="${cart_list.get(i).cart_product_qty}" min="0" max="99" 
+													name="cart_product_qty" style="width: 30px; text-align: center;"/> <br>
+											<input type="submit" value="변경"/>
+										</form>
+									</td>
+									<td>최대<br>${total_points.get(i)}원</td>
+									<td>무료</td>
+									<td><span class="cart_product_price">${cart_list.get(i).cart_product_price}</span>원</td>
+									<td>
+										<form method="POST">
+											<input type="hidden" name="selected_list" value="${cart_list.get(i).cart_num}"/>
+											<input type="submit" class="order_single_btn" formaction="../order/from_cart" value="주문하기">
+											<input type="submit" class="delete_single_btn" formaction="./delete_cart" value="삭제하기">
+										</form>
+									</td>
+								</tr>
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
+				</tbody>
 			<tfoot>
 				<tr>
 					<td colspan="9">
-						<b>상품 구매 금액: ${cart_list.get(i).cart_product_qty * cart_product_list.get(i).product_price}원 + 
-							배송비 무료 = 총 ${cart_list.get(i).cart_product_qty * cart_product_list.get(i).product_price}원</b>
+						<b>상품 구매 금액: <span id="product_total_price">${total_price}</span>원 + 
+							배송비 무료 = 총 <span id="total_price">${total_price}</span>원</b>
 					</td>
 				</tr>
 				<tr>
 					<td class="sub-button_container" colspan="9">
-						<button class="delete_all_btn">장바구니 비우기</button>
-						<button class="delete_selected_btn">선택상품 삭제</button>
+						<form method="POST">
+							<input type="hidden" id="selected_list_1" name="selected_list" />
+							<input type="submit" class="delete_selected_btn"
+										formaction="./delete_selected_cart" value="선택 상품 삭제"/>				
+							<input type="submit" class="delete_all_btn"
+										formaction="./delete_all_cart" value="장바구니 비우기" />
+						</form>
 					</td>
 				</tr>
 			</tfoot>
 		</table>
 		<div class="order-button_container">
-			<button onclick="" class="order_selected_btn">선택 상품 주문</button>
-			<button onclick="" class="order_all_btn">전체 상품 주문</button>
+			<form method="POST" style="display: inline;">
+				<input type="hidden" id="selected_list_2" name="selected_list" />
+				<input type="submit" class="order_selected_btn" formaction="../order/from_cart" value="선택 상품 주문">
+			</form>
+			<form method="POST" style="display: inline;">
+				<input type="hidden" id="cart_num_list" name="selected_list" />
+				<input type="submit" class="order_all_btn" formaction="../order/from_cart" value="전체 상품 주문" />
+			</form>
 		</div>
 	</div>
 </div>
+
+<script>
+	if('${status}' == 'update_failed') {
+		alert('수량 업데이트 실패');
+	}
+</script>
 
 <%@ include file="../bottom.jspf" %>
 

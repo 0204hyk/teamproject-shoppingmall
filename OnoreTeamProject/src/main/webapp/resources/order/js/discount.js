@@ -1,10 +1,12 @@
 // 총 가격은 주문페이지에서 변할 일이 없기 때문에 parseInt한 채로 값만 받아준다.
 const total_price = parseInt(document.getElementById('total_price').value); // 총 가격
 
-const total_discount = document.getElementById('total_discount'); // 총 할인 금액
+const total_discount_txt = document.getElementById('total_discount_txt'); // 총 할인 금액 txt
+const total_discount = document.getElementById('total_discount'); // 총 할인 금액 hidden
 const discount_points = document.getElementById('discount_points'); // 적립금 입력 text
 const discount_coupon = document.getElementById('discount_coupon'); // 쿠폰 hidden
-const pay_price_lbl = document.getElementById('pay_price_lbl');
+const pay_price_txt = document.getElementById('pay_price_txt'); // 결제 금액 text  
+const pay_price = document.getElementById('pay_price'); // 결제 금액 hidden  
 const pay_price_btn = document.getElementById('pay_price_btn');
 
 const mem_points = document.getElementById('mem_points').innerText; // 보유 포인트
@@ -19,8 +21,11 @@ const discount = (target) => {
 	coupon_value = target.value;
 	
 	// 결제 금액 표시
-	pay_price_lbl.value = total_price - total_price * coupon_value; // lbl
-	pay_price_btn.innerText = total_price - total_price * coupon_value; // btn
+	console.log(total_price);
+	console.log(coupon_value);
+	pay_price_txt.value = (total_price - total_price * coupon_value) + '원'; // 보여줄 값 lbl에 입력
+	pay_price.value = total_price - total_price * coupon_value; // controller로 전달할 값 hidden에 입력
+	pay_price_btn.innerText = total_price - total_price * coupon_value; // pay_price 버튼에도 입력
 	
 	// 적립금 초기화
 	discount_points.value = 0;
@@ -29,7 +34,8 @@ const discount = (target) => {
 	discount_coupon.value = coupon.options[coupon.selectedIndex].text;
 	
 	// 쿠폰 할인 적용 후 총 할인 금액 표시
-	total_discount.value = (total_price - parseInt(pay_price_lbl.value));
+	total_discount_txt.value = (total_price - parseInt(pay_price.value)).toString() + '원';
+	total_discount.value = (total_price - parseInt(pay_price.value));
 }
 
 
@@ -54,7 +60,8 @@ discount_points_btn.addEventListener('click', ()=> {
 
 	// 쿠폰 적용 유무에 따라 할인 금액 산정 방식이 달라야 한다.
 	if(coupon_value == null) {
-		pay_price_lbl.value = total_price - dp;
+		pay_price_txt.value = (total_price - dp).toString() + '원';
+		pay_price.value = total_price - dp;
 		pay_price_btn.innerText = total_price - dp;
 	} else {
 		// 총 할인 금액 (pay_price)
@@ -62,7 +69,8 @@ discount_points_btn.addEventListener('click', ()=> {
 	
 		// 결제 금액이 0보다 낮거나 같으면 안됨
 		if(pp > 0) {
-			pay_price_lbl.value = pp;
+			pay_price_txt.value = pp.toString() + '원';
+			pay_price.value = pp;
 			pay_price_btn.innerText = pp;
 		} else {
 			alert('The discount amount cannot be higher than the sales amount.');
@@ -71,7 +79,8 @@ discount_points_btn.addEventListener('click', ()=> {
 	}
 	
 	// 적립금 할인 적용 후 총 할인 금액 표시
-	total_discount.value = total_price - parseInt(pay_price_lbl.value);
+	total_discount_txt.value = (total_price - parseInt(pay_price.value)).toString() + '원';
+	total_discount.value = total_price - parseInt(pay_price.value);
 });
 
 
