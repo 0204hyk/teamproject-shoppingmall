@@ -16,12 +16,24 @@ const priceinfo = document.getElementById('priceinfo');
 
 const prices = document.getElementById('price').innerText;
 const price = prices.replace(/[^0-9]/g, '');
+const price2 = prices.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 const name = document.getElementById('product_name').innerText;
 
 const order_cnt = document.getElementById('order_cnt');
-const cart_product_price = document.getElementById('cart_product_price');
 
+const cnt = document.getElementById('result');
+
+const plus = document.getElementById('plus');
+const minus = document.getElementById('minus');
+
+const prd_num = document.getElementById('product_num').value;
+const mem_id = document.getElementById('mem_id').innerText;
+
+const order = document.getElementById('order');
+const cart = document.getElementById('cart');
+
+const cart_product_price = document.getElementById('cart_product_price');
 const dialog = document.getElementById('cart_dialog');
 
 function close_dialog() {
@@ -29,8 +41,6 @@ function close_dialog() {
 }
 
 function count(type) {
-
-    const cnt = document.getElementById('result');
 
     let number = cnt.innerText; 
 
@@ -130,18 +140,6 @@ sizes.addEventListener('change', (e) => {
 						cart.removeAttribute("disabled");
 						order.removeAttribute("disabled");
 
-                        const cancel = document.getElementById('cancel');
-                        cancel.addEventListener('click', (e) => {
-                            const box = document.getElementById('box');
-                            box.remove();
-                            cnt.style.display="none";
-                            sizes.value = 'default';
-                            heels.value = 'default';
-                            soles.value = 'default';
-                            heels.disabled = true;
-                            soles.disabled = true;
-                        });
-                        
                     }
                 });
             }
@@ -177,8 +175,6 @@ function move(name) {
 const nowish = document.getElementById('nowish'); // 빈하트
 const wish = document.getElementById('wish'); // 가득찬하트
 
-const prd_num = document.getElementById('product_num').value;
-
 nowish.addEventListener('click', (e) => {
 	if(mem_id !== '') {
 	    const xhttp = new XMLHttpRequest();
@@ -189,7 +185,7 @@ nowish.addEventListener('click', (e) => {
 	            wish.style.display="";
 	        }
 	    });
-	    console.log(prd_num);
+	    
 	    xhttp.open('POST', './wish');
 	    xhttp.setRequestHeader('Content-type', 'application/json');
 	    
@@ -198,8 +194,9 @@ nowish.addEventListener('click', (e) => {
 	    	mem_id : mem_id
 	    }
 	    
-	    xhttp.send();
-    } else {
+	    xhttp.send(JSON.stringify(obj));
+	    
+    	} else {
 	    	if(confirm('로그인이 필요한 서비스입니다 로그인 하시겠습니까?')) {
 				location.href='/project/login';
 			}
