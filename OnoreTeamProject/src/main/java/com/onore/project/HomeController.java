@@ -47,6 +47,11 @@ public class HomeController extends SavedRequestAwareAuthenticationSuccessHandle
 		return "home";
 	}
 	
+	@GetMapping("/error404")
+	public String Error404(HttpServletResponse res, Model model) {
+		model.addAttribute("code", "ERROR_404");
+		return "error/error";
+	}
 
 
 }
