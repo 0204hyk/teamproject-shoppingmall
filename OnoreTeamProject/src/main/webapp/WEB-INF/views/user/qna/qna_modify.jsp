@@ -31,7 +31,7 @@
 		<form action="./qna_modify" method="POST" enctype="multipart/form-data">
 		<div class="qna-form">
 			<input type="hidden" name="qna_num" value=${qna.qna_num } />
-			<select name="qna_category" id="select" onchange="changeSelect(this);">
+			<select name="qna_category" id="select"  onchange="changeSelect(this);">
 				<option value="분류">분류</option>
 				<option value="상품">상품</option>
 				<option value="주문 / 결제">주문 / 결제</option>
