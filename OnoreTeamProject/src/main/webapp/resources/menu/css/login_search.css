@@ -1,0 +1,146 @@
+a {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.middle_login_div,
+.middle_idpw_search_div {
+	height: 700px;
+	padding-top: 200px;
+	background-color: white;
+}
+
+.login_div,
+.search_idpw_div {
+	height: 340px;
+	background-color: white;
+	text-align: center;	
+}
+
+.login_div > div,
+.login_article,
+.search_idpw_div > div,
+.search_id_article,
+#search_pw_div,
+.search_pw_article
+ {
+	margin: auto;
+	width: 400px;
+	text-align: left;	
+}
+
+.login_title_div,
+.search_idpw_title_div {
+	padding-bottom: 50px;
+}
+
+.login_title_div,
+.search_idpw_title_div {
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.check_idpw_div,
+.input_id_div,
+.input_pw_div,
+.search_input_name_div,
+.search_input_email_div,
+.search_input_id_div {
+	padding-bottom: 10px;
+}
+
+.check_idpw_div > div {
+	display: inline;
+	font-size: 15px;
+}
+
+
+.login_idpw_div {
+	margin: auto;
+}
+.search_name_div,
+.search_id_div,
+.search_email_div {
+	float: left;
+	font-size: 15px;
+}
+
+.input_id_div > #input_id,
+.input_pw_div > #input_pw,
+.search_input_name_div > #input_mem_name,
+.search_input_email_div > #input_mem_email1,
+.search_input_email_div > #input_mem_email2,
+.search_input_id_div > #input_mem_id,
+.member_search_div
+ {
+	width: 100%;
+	height: 30px;
+}
+
+.remember_id_div,
+.member_idpw_search_div {
+	float: left;
+	text-align: left;
+	width: 49%;
+}
+
+.member_search_div > div {
+	font-size: 12px;
+}
+
+.member_idpw_search_div {
+	text-align: right;
+}
+
+.message_div {
+	height: 30px;
+	text-align: left;
+	color: red;
+}
+
+.search_id_result,
+.search_pw_result {
+	height: 30px;
+	text-align: left;
+}
+
+.message_div,
+#search_id_result_a,
+#search_pw_result_a {
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.login_Btn_div,
+.search_id_btn_div,
+.search_pw_btn_div,
+.join_Btn_div,
+.go_login_Btn_div {
+	text-align: center;
+	height: 50px;
+}
+
+.loginBtn,
+.search_id_btn,
+.search_pw_btn,
+.joinBtn:hover,
+.go_login_Btn:hover {
+	width: 200px;
+	height: 50px;
+	font-weight: bold;
+	font-size: 20px;
+	background-color: black;
+	color: white;
+	border-radius: 3px;
+	cursor: pointer; /* 마우스 올리면 손가락 모양으로 변함 */
+}
+
+.joinBtn,
+.go_login_Btn {
+	width: 200px;
+	height: 50px;
+	font-weight: bold;
+	font-size: 20px;
+	background-color: white;
+	border-radius: 3px;
+	cursor: pointer;
+}

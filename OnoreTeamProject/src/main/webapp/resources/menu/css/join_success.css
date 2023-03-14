@@ -1,0 +1,173 @@
+a {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.middle_join_div{
+	height: 1700px;
+	padding-top: 200px;
+	background-color: white;
+}
+
+.middle_join_success_div {
+	height: 900px;
+	padding-top: 200px;
+	background-color: white;
+}
+
+.join_success_div {
+	padding-top: 20px;
+	height: 500px;
+	width: 100%;
+	margin: auto;
+	background-color: rgb(245 245 245);
+	color: black;
+	font-size: 20px;
+	text-align: center;
+}
+
+.join_div {
+	height: 1350px;
+	background-color: white;
+	text-align: center;
+}
+
+.join_div > div,
+.join_article {
+	margin: auto;
+	width: 400px;
+	text-align: left;
+	display: block;
+}
+
+.message_div {
+	height: 30px;
+}
+
+.message_div > p {
+	padding-top: 0;
+	font-size: 10px;
+	font-weight: bold;
+	text-align: left;
+	padding-left: 100px;
+}
+
+.join_title_div {
+	padding-bottom: 50px;
+}
+
+.join_title_div > a {
+	font-size: 25px;
+	font-weight: bold;
+	color: black;
+}
+
+.a_div {
+	width: 100px;
+	height: 15px;
+	display: table-cell; /* 이름과 인풋을 옆으로 나란히 놓기 */
+	text-align: left;
+}
+
+.input_check_div {
+	width: 30px;
+	height: 20px;
+	display: table-cell; /* 이름과 인풋을 옆으로 나란히 놓기 */
+}
+
+.input_div,
+.input_radio_div,
+.a_law_div,
+.a_sms_div,
+.a_email_div  {
+	display: table-cell; /* 이름과 인풋을 옆으로 나란히 놓기 */
+	text-align: left;
+}
+
+.input_div > input {
+	width: 250px;
+	height: 30px;
+	font-size: 12px;
+}
+
+.input_div > #mem_birth_date,
+.input_div > #mem_birth_date2 {
+	margin-left: 10px; 
+	width: 100px;
+	height: 30px;
+	font-size: 12px;
+}
+
+.checkbox_group {
+height: 650px;
+	}
+
+.a_sms_div,
+.a_email_div,
+.a_law_div {
+	width: 250px;
+	height: 30px;
+}
+
+.a_div > a,
+.a_law_div > a,
+.a_sms_div > a,
+.a_email_div > a,
+.input_radio_div > a {
+	font-size: 15px;
+}
+
+.check_gender_div {
+	border: solid 1px black;
+	width: 100px;
+	display: inline-block;
+}
+
+.join_check_law_content_div {
+	border: solid 1px black;
+	font-size: 12px;
+	height: 100px;
+	overflow-y: scroll;
+	margin-bottom: 10px;
+	text-align: left;
+	padding-left: 5px;
+}
+
+.join_success_Btn_div {
+	text-align: center;
+	margin-top : 30px;
+}
+.join_success_Btn {
+	width:200px;
+	height: 50px;
+	font-weight: bold;
+	font-size: 20px;
+	background-color: black;
+	border: solid 1px black;
+	color: white;
+	border-radius: 3px;
+	cursor: pointer; /* 마우스 올리면 손가락 모양으로 변함 */
+}
+
+.join_success_Btn:hover {
+	width:200px;
+	height: 50px;
+	font-weight: bold;
+	font-size: 20px;
+	background-color: black;
+	border: solid 1px black;
+	color: white;
+	border-radius: 3px;
+	cursor: pointer; /* 마우스 올리면 손가락 모양으로 변함 */
+}
+
+.login_go_btn {
+	margin-top: 30px;
+	width:200px;
+	height: 50px;
+	font-weight: bold;
+	font-size: 20px;
+	background-color: black;
+	color: white;
+	border-radius: 3px;
+	cursor: pointer; /* 마우스 올리면 손가락 모양으로 변함 */
+}

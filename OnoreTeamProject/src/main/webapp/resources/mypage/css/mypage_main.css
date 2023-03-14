@@ -1,0 +1,151 @@
+a {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.middle_mypage_div{
+	height: 1800px;
+	padding-top: 200px;
+	background-color: white;
+}
+
+.mypage_div {
+	height: 1500px;
+	width: 70%;
+	margin: auto;
+	background-color: white;
+	text-align: center;
+}
+
+.member_info_div {
+	height : 200px;
+	background: #636363;
+	margin-bottom: 100px;
+}
+
+.mypage_title {
+	width: 100%;
+	height: 50px;
+	color: white;
+	font-size : 25px;
+	font-weight: bold;
+	text-align: left;
+	padding-left : 50px;
+}
+
+.photo_div {
+	float: left;
+	width: 20%;
+	height: 150px;
+	color: white;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+
+.photo_div > i {
+	font-size : 100px;
+	color: white;
+}
+
+.member_id_div {
+	float: left;
+	width: 70%;
+	height: 80px;
+	color: white;
+	display: flex;
+	justify-content: center;
+  	align-items: center;
+  	font-size: 30px;
+  	font-weight: bold;
+}
+
+.member_modify_div {
+	float: left;
+  	height: 30px;
+  	width: 80%;
+  	text-align: center;
+  	margin-top : 30px;
+}
+
+.member_pw_btn,
+.member_modify_btn,
+.member_delete_btn {
+	width:100px;
+	height: 30px;
+	font-size: 12px;
+	background-color: white;
+	border: solid 1px white;
+	color: black;
+	border-radius: 3px;
+	cursor: pointer;
+	float: right;
+	margin-right: 15px;
+}
+
+.member_pw_btn:hover,
+.member_modify_btn:hover,
+.member_delete_btn:hover {
+	width:100px;
+	height: 30px;
+	font-size: 12px;
+	background-color: black;
+	border: solid 1px black;
+	color: white;
+	border-radius: 3px;
+	cursor: pointer;
+	float: right;
+	margin-right: 15px;
+}
+
+.recent_order_history_div,
+.coupon_history_div,
+.qna_history_div {
+	height : 300px;
+	background: white;
+	margin-bottom: 100px;
+	border-bottom : solid 1px lightgray;
+}
+
+.recent_order_history_title,
+.coupon_history_title,
+.qna_history_title {
+	height: 50px;
+	font-size : 25px;
+	font-weight : bold;
+	text-align: left;
+	padding-left : 50px;
+	border-bottom : solid 2px black;
+}
+
+.product_photo_div {
+	width: 20%;
+	height: 250px;
+	float: left;
+}
+
+.product_content_div {
+	width:65%;
+	height: 250px;
+	float: left;
+}
+
+.product_buttons_div {
+	width: 15%;
+	height: 250px;
+	float: right;
+}
+
+.review_btn,
+.delivery_btn,
+.cancel_refund_btn {
+	background-color : black;
+	width: 100px;
+	height: 30px;
+	border-radius : 3px;
+	border: solid 1px black;
+	color: white;
+	margin-top: 20px;
+	font-size: 12px;	
+	cursor: pointer;
+	float: center;
+}
