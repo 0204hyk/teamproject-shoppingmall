@@ -12,41 +12,39 @@
 	
 	<div class="board-content shadow">
 		<div class="board-title"><h1>문의글 목록</h1></div>
-		<form id="product-list-form" name="product-list-form" method="POST">
+		<form id="qna-list-form" name="qna-list-form" method="POST">
 			<div class="container">
-				<table class="product-board table table-hover">
+				<table class="qna-board table table-hover">
 					<thead class="table-secondary">
 						<tr>
 							<th><input type="checkbox" id="all-check"/></th>
 							<th>NO</th>
 							<th>이미지</th>
+							<th>제 목</th>
 							<th>상품명</th>
 							<th>분 류</th>
-							<th>상품가격</th>
-							<th>상품등록일</th>
+							<th>작성자</th>
+							<th>작성일</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${productList}" var="product">
+						<c:forEach items="${qnaList}" var="qna">
 							<tr>
-								<td style="width: 50px; vertical-align: middle;"><input type="checkbox" class="row-check" name="row_check" value="${product.product_num}"/></td>
-								<td style="width: 80px; vertical-align: middle;">${product.product_num}</td>
+								<td style="width: 50px; vertical-align: middle;"><input type="checkbox" class="row-check" name="row_check" value="${qna.qna_num}"/></td>
+								<td style="width: 80px; vertical-align: middle;">${qna.qna_num}</td>
 								<c:choose>
-									<c:when test="${empty product.product_thumbnail_1}">
+									<c:when test="${empty qna.qna_img_1}">
 										<td style="width: 200px;"><img src="<%=request.getContextPath()%>/resources/admin/image/default_image.png" alt="이미지 미리보기" style="width: 100px; height: 100px; border-radius: 10px;"/></td>
 									</c:when>
 									<c:otherwise>							
-										<td style="width: 200px;"><img src="${product.product_thumbnail_1}" alt="이미지 미리보기" style="width: 100px; height: 100px; border-radius: 10px;"/></td>
+										<td style="width: 200px;"><img src="${qna_img_path}${qna.qna_img_1}" alt="이미지 미리보기" style="width: 100px; height: 100px; border-radius: 10px;"/></td>
 									</c:otherwise>
 								</c:choose>
-								<td style="vertical-align: middle;"><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/product/modify?product_num=${product.product_num}')">${product.product_name}</a></td>
-								<td style="width: 180px; vertical-align: middle;">
-									<c:forEach items="${categories}" var="category">
-										<c:if test="${category.category_num eq product.category_num}">${category.category_name}</c:if>
-									</c:forEach>
-								</td>
-								<td style="width: 180px; vertical-align: middle;"><fmt:formatNumber value="${product.product_price}" pattern="#,###"/> 원</td>
-								<td style="width: 180px; vertical-align: middle;">${product.creationProductDate}</td>
+								<td id="qna-title" style="vertical-align: middle;"><a href="">${qna.qna_title}</a></td>
+								<td style="width: 150px; vertical-align: middle;">${qna.product_name}</td>
+								<td style="width: 150px; vertical-align: middle;">${qna.qna_category}</td>
+								<td style="width: 150px; vertical-align: middle;">${qna.mem_id}</td>
+								<td style="width: 150px; vertical-align: middle;">${qna.creationQnaDate}</td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -55,30 +53,30 @@
 					<ul class="pagination justify-content-center" style="margin-bottom: 0px;">
 						<c:if test="${prev == true}">
 							<li class="page-item">
-								<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/product/list?page=${pagination_start - 1}')">«</a>
+								<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/board/qna?page=${pagination_start - 1}')">«</a>
 							</li>												
 						</c:if>
 						
 						<c:forEach begin="${pagination_start}" end="${pagination_end}" var="i">
 							<c:if test="${page == i}">
 						    	<li class="page-item active">
-						    		<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/product/list?page=${i}')">${i}</a>
+						    		<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/board/qna?page=${i}')">${i}</a>
 						    	</li>
 							</c:if>
 							<c:if test="${page != i}">
 						    	<li class="page-item">
-						    		<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/product/list?page=${i}')">${i}</a>
+						    		<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/board/qna?page=${i}')">${i}</a>
 						    	</li>
 							</c:if>
 						</c:forEach>
 						
 					    <c:if test="${next == true }">
 							<li class="page-item">
-								<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/product/list?page=${pagination_end + 1}')">»</a>
+								<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/board/qna?page=${pagination_end + 1}')">»</a>
 							</li>				    					    
 					    </c:if>
 					</ul>
-					<input type="button" id="product-delete-btn" class="submit-btn btn btn-secondary btn-lg" value="삭 제"/>
+					<input type="button" id="qna-delete-btn" class="submit-btn btn btn-secondary btn-lg" value="삭 제"/>
 				</div>
 			</div>
 		</form>
@@ -88,25 +86,25 @@
         	$(document).ready(function(){
         		var page = <%=request.getParameter("page")%>
         		
-        	    $('#product-delete-btn').click(function() {
+        	    $('#qna-delete-btn').click(function() {
 					if ($("input:checkbox[name=row_check]:checked").length == 0) {
 						alert('삭제할 항목을 선택해주세요.');
 					} else {
 						var result = confirm('삭제하시겠습니까?');
 						
 						if(result) {
-							var formData = $('#product-list-form').serialize();
+							var formData = $('#qna-list-form').serialize();
 							
 							var checked = $("input:checkbox[name=row_check]:checked").length;
 							$.ajax({
-								url: "<%=request.getContextPath()%>/admin/product/delete",
+								url: "<%=request.getContextPath()%>/admin/board/qna/delete",
 								type: "POST",
 								cache: false,
 								data: formData,
 								cache : false,
 								success: function(data){
-									alert(checked + "개의 상품을 삭제하였습니다.");
-									movePageByGet('<%=request.getContextPath()%>/admin/product/list');
+									alert(checked + "개의 문의글을 삭제하였습니다.");
+									movePageByGet('<%=request.getContextPath()%>/admin/board/qna');
 								},
 								error: function (request, status, error){        
 									console.log(error);

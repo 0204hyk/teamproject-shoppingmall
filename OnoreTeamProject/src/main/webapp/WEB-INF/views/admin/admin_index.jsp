@@ -65,7 +65,7 @@
 		<div id="index-content" class="shadow">
 			<div class="content-title" style="display: flex;">
 				<h1>문 의</h1>
-				<div class="more-btn-container"><button class="more-btn">더 보기</button></div>
+				<div class="more-btn-container"><button class="more-btn" onclick="javascript:movePageByGet('<%=request.getContextPath()%>/admin/board/qna')">더 보기</button></div>
 			</div>
 			<div class="index-qna">
 				<c:forEach items="${recentQna}" var="qna">
@@ -91,7 +91,7 @@
 		<div id="index-content" class="shadow">
 			<div class="content-title" style="display: flex;">
 				<h1>후 기</h1>
-				<div class="more-btn-container"><button class="more-btn">더 보기</button></div>
+				<div class="more-btn-container"><button class="more-btn" onclick="javascript:movePageByGet('<%=request.getContextPath()%>/admin/board/review')">더 보기</button></div>
 			</div>
 			<div class="index-review">
 				<c:forEach items="${recentReview}" var="review">

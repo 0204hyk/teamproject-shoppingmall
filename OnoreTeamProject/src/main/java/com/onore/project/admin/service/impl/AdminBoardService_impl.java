@@ -26,8 +26,17 @@ public class AdminBoardService_impl implements AdminBoardService {
 	}
 
 	@Override
+	public Integer qnaDeleteService(Integer qna_num) {
+		return qnaMapper.qnaDelete(qna_num);
+	}
+	
+	@Override
 	public List<ReviewandProductDTO> readAllReview() {
 		return reviewMapper.getAll();
 	}
 
+	@Override
+	public Integer reviewDeleteService(Integer review_num) {
+		return reviewMapper.delete(review_num);
+	}
 }
