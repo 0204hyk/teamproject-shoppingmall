@@ -495,7 +495,7 @@ body {
 }
 
 #qna-title {
-  max-width: 400px;
+  max-width: 300px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -506,7 +506,7 @@ body {
 }
 
 #review-content {
-  max-width: 400px;
+  max-width: 300px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
