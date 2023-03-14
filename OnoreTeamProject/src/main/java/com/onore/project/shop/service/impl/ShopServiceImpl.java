@@ -89,5 +89,12 @@ public class ShopServiceImpl implements ShopService{
 	}
 
 
+	@Override
+	public List<WishDTO> checkWish(Integer product_num) {
+		
+		return shop_mapper.checkWish(product_num);
+	}
+
+
 	
 }

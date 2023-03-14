@@ -37,6 +37,10 @@
 		SELECT * FROM qna WHERE product_num=#{product_num}
 	</select>
 	
+	<select id="checkWish" resultType="com.onore.project.dto.WishDTO">
+		SELECT * FROM wish_list WHERE product_num = #{product_num}
+	</select>
+	
 	<insert id="getWish" parameterType="com.onore.project.dto.WishDTO">
   		INSERT INTO wish_list VALUES (
   			wish_num_seq.nextval,

@@ -29,4 +29,6 @@ public interface ShopMapper {
 	Integer getWish (WishDTO wish);
 	
 	Integer deleteWish(WishDTO wish);
+	
+	List<WishDTO> checkWish(Integer product_num); 
 }

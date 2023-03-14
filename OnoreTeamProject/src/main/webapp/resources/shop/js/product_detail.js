@@ -167,7 +167,6 @@ function move(name) {
 const nowish = document.getElementById('nowish'); // 빈하트
 const wish = document.getElementById('wish'); // 가득찬하트
 
-
 console.log(mem_id);
 
 nowish.addEventListener('click', (e) => {

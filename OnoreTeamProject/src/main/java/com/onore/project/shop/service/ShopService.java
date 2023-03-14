@@ -26,7 +26,9 @@ public interface ShopService {
 	
 	List<QnaDTO> getProQna(Integer product_num);
 	
-	Integer getWish (WishDTO wish);
+	Integer getWish(WishDTO wish);
 	
 	Integer deleteWish(WishDTO wish);
+	
+	List<WishDTO> checkWish(Integer product_num); 
 }

@@ -24,8 +24,27 @@
 			</div>
 			<div class="right">
 				<h1 id="product_name">${product.product_name }</h1>
-				<button class="heart" id="nowish"><i class="fa-regular fa-heart fa-2x"></i></button>
-				<button class="heart" id="wish" style="display: none;"><i class="fa-solid fa-heart fa-2x"></i></button>
+				<c:choose>
+					<c:when test="${not empty sessionScope.signIn.mem_id }">
+						<c:forEach items="${wish }" var="wish">
+								<c:if test="${wish.mem_id eq sessionScope.signIn.mem_id}">		
+									찬하트
+									<button class="heart" id="wish" ><i class="fa-solid fa-heart fa-2x"></i></button>
+									<button class="heart" id="nowish" style="display: none;"><i class="fa-regular fa-heart fa-2x"></i></button>
+								</c:if>
+								<c:if test="${wish.mem_id ne sessionScope.signIn.mem_id}">
+									<button class="heart" id="wish" style="display: none;"><i class="fa-solid fa-heart fa-2x"></i></button>
+									<button class="heart" id="nowish"><i class="fa-regular fa-heart fa-2x"></i></button>
+								</c:if>
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
+						빈하트
+						<button class="heart" id="wish" style="display: none;"><i class="fa-solid fa-heart fa-2x"></i></button>
+						<button class="heart" id="nowish"><i class="fa-regular fa-heart fa-2x"></i></button>
+					</c:otherwise>
+				</c:choose>
+				
 				<span style="display: none;" id="mem_id">${sessionScope.signIn.mem_id }</span>
 				<hr style="margin-top: 20px;">
 				<div id="info"><br>${product.product_info }</div>
@@ -112,7 +131,7 @@
 				<table id="review-table">
 					<c:forEach items="${reviews }" var="review">
 						<tr>
-							<th rowspan="2" id="review_img"><img src="${review.review_img_1 }"></th>
+							<th rowspan="2" id="review_img"><img src="/project/resources/review/image/${review.review_img_1 }"></th>
 							<th class="id" style="width: 200px;">${review.maskingName }/${review.review_date }</th>
 							<c:if test="${review.review_rating eq 5 }">
 								<th class="star">
