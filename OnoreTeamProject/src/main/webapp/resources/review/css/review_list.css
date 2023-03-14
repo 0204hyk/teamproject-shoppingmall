@@ -1,0 +1,89 @@
+table {
+    width: 90%;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+    table-layout: fixed;
+    
+  }
+ 
+  th, td {
+    border-bottom: 1px solid lightgray;
+    padding: 10px;
+    height: 40px;
+    vertical-align: middle;
+    text-align: center;
+    white-space: nowrap;
+  }
+  
+  button {
+  	background-color: black;
+    color: white;
+    width: 100px;
+    height: 50px;
+    float: right;
+    border-radius: 5%;
+    margin: 60px;
+    margin-top: 30px;
+    cursor: pointer; 
+  }
+  
+ #product_num {
+ 	overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+
+ }
+
+ #product_name {
+   padding: 2px;
+   text-align: center;
+ }
+
+ #product_name > img {
+   width: 40px;
+   height: 40px;
+ }
+
+ 
+ #review_content {
+ 	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+ }
+ 
+ #mem_id {
+ 	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+ }
+  
+ #num {
+ 	width: 5%;
+ }
+ 
+ #product {
+ 	width: 15%;
+ }
+ 
+ #title {
+ 	width: 30%;
+ }
+ 
+ #writer {
+ 	width: 10%;
+ }
+ 
+ #date {
+ 	width: 15%;
+ }
+ 
+ #rating {
+ 	width: 10%;
+ }
+ 
+ .fa-solid.fa-star, .fa-regular.fa-star {
+ 	color: orange;
+ }
+ 

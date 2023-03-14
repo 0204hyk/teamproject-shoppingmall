@@ -29,6 +29,8 @@ $(document).ready(function () {
                 	$('#id_message_p').html('사용가능한 아이디입니다').css('color', 'blue');
 				 } else {
                 	$('#id_message_p').html('이미 사용중인 아이디입니다').css('color', 'red');
+        			alert("회원정보를 확인해주세요"); // 경고창
+        			$('#id_message_p').html('이미 사용중인 아이디입니다').css('color', 'red');
                 }
             }
         });
@@ -342,9 +344,9 @@ $(document).ready(function() {
 						<a>생년월일*</a>
 					</div>
 					<div class="input_div">
-						<input id="mem_birth_date" type="text" name="mem_birth_date" maxlength="6" onchange="check_birth()" required> 
+						<input id="mem_birth_date" type="text" name="mem_birth_date" maxlength="6" onchange="check_gender()" required> 
 						<a>-</a> 
-						<input id="mem_birth_date2" type="text" name="mem_birth_date2" maxlength="1" onchange="check_birth()" required>
+						<input id="mem_birth_date2" type="text" name="mem_birth_date2" maxlength="1" onchange="check_gender()" required>
 					</div>
 				</div>
 				<div class="message_div">
@@ -356,8 +358,8 @@ $(document).ready(function() {
 						<a>성별*</a>
 					</div>
 					<div class="input_radio_div">
-						<input id="mem_gender" type="radio" name="mem_gender" value="M" onchange="check_birth()"><a>남성</a> 
-						<input id="mem_gender" type="radio" name="mem_gender" value="F" onchange="check_birth()"><a>여성</a>
+						<input id="mem_gender" type="radio" name="mem_gender" value="M" onchange="check_gender()"><a>남성</a> 
+						<input id="mem_gender" type="radio" name="mem_gender" value="F" onchange="check_gender()"><a>여성</a>
 					</div>
 					<div class="message_div">
 						<p id="mem_gender"></p>

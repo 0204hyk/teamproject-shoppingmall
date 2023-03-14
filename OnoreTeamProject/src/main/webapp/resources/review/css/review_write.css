@@ -1,0 +1,114 @@
+.write {
+	width: 1000px;
+	margin: 10px auto;
+}
+
+#myform fieldset{
+    display: inline-block;
+    direction: rtl;
+    border: 0;
+}
+#myform fieldset legend{
+    text-align: right;
+}
+#myform input[type=radio]{
+    display: none;
+}
+#myform label{
+    font-size: 3em;
+    color: transparent;
+    text-shadow: 0 0 0 #f0f0f0;
+}
+#myform label:hover{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+#myform label:hover ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+#myform input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+
+
+
+#reviewContents {
+    width: 100%;
+    height: 400px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: solid 1.5px #D3D3D3;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: none;
+    margin: 20px 0;
+}
+
+button {
+  	background-color: black;
+    color: white;
+    width: 100px;
+    height: 50px;
+    float: right;
+    border-radius: 5%;
+    margin: 60px;
+    margin-top: 30px;
+    cursor: pointer; 
+  }
+  
+.container {
+	display: flex;
+	margin: 20px 0;
+}
+
+
+img {
+    width: 180px;
+    height: 180px;
+    margin: 0 5px;
+}
+
+
+#prd_name {
+	text-align: left;
+	padding-left: 30px;
+    font-size: 40px;
+}
+
+#write_btn {
+	background-color: black;
+    color: white;
+    width: 100px;
+    height: 50px;
+    float: right;
+    border-radius: 5%;
+    margin: 30px 10px 0 0;
+    cursor: pointer; 
+}
+
+/* 첨부 이미지 사이즈 설정  2023.03.08 수정  */
+#previewImg1, #previewImg2, #previewImg3 {
+	border: 0px;
+	width: 230px;
+	height: 230px;
+	margin-right: 80px;
+}
+
+/* 파일 선택 3가지 포함한 div  2023.03.08 수정 */
+.sub-container2 {
+	display: flex;
+	
+}
+
+/* 각 파일 선택에 관한 길이 수정  2023.03.08 수정 */
+.sub-container2 > div {
+	width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+	margin-right: 120px;
+}
+
+/* 파일 선택 쪽 폰트 사이즈  2023.03.08 수정 */
+#fileUpload1, #fileUpload2, #fileUpload3 {
+	font-size: 16px;
+}

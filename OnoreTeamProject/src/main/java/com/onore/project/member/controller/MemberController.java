@@ -52,6 +52,7 @@ public class MemberController {
 		return "user/join/member_join";
 	}
 
+	/*
 	// 회원가입성공
 	@RequestMapping("/join.do")
 	public String member_join(MemberDTO dto, HttpServletRequest request) throws Exception {
@@ -60,6 +61,22 @@ public class MemberController {
 		HttpSession session = request.getSession();
 		session.setAttribute("member_join", member_join);
 		return "user/join/member_join_success";
+	}
+	*/
+	
+	// 회원가입 성공
+	@RequestMapping("/join.do")
+	public String member_join(MemberDTO dto, HttpServletRequest request, RedirectAttributes redirectAttributes) throws Exception {
+		try {
+			mapper.member_join(dto);
+			MemberDTO member_join = mapper.signIn(dto);
+			HttpSession session = request.getSession();
+			session.setAttribute("member_join", member_join);
+			return "user/join/member_join_success";
+		} catch (Exception e) {
+			redirectAttributes.addFlashAttribute("message", "회원정보를 확인해주세요");
+		return "redirect:/join";
+		}
 	}
 
 	// 회원 가입 성공시 나오는 페이지

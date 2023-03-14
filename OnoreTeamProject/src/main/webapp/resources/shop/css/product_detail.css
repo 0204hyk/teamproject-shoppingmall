@@ -1,0 +1,278 @@
+body {
+	overflow: auto;
+	width: auto;
+}
+
+.main > div {
+	margin: 0 auto;
+	width: 1000px;
+	
+}
+
+.top {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 100px;
+}
+
+.left > img {
+	width: 500px;
+	height: 500px;
+}
+
+.right {
+	width: 500px;
+}
+
+#header {
+	background-color: white;
+	border-bottom: solid 1px gray;
+	position: sticky;
+	top: 127px;
+	width: 100%;
+	height: 60px;
+	padding-top: 30px;
+	padding-bottom: 0px;
+	overflow: auto;
+}
+
+.mid {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.nav {
+	display: flex;
+	justify-content: space-around; 
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+
+.mid > img {
+	overflow: auto;	
+}
+
+#detail {
+	margin-top: 20px;
+}
+
+#product_name {
+	margin-bottom: 5px;
+}
+
+#review-table {
+	text-align: left;
+}
+
+td {
+	text-align: left;
+	border-bottom: 1px solid gray;
+    padding: 20px;
+    font-size: 13px;
+}
+
+th > img {
+	width: 100px;
+	height: 100px;
+}
+
+.id {
+	font-size: 15px;
+	padding-left: 20px;
+}
+
+table {
+	border-collapse: collapse;
+	width: 1000px;
+}
+
+#review_img {
+	width: 100px;
+	border-bottom: 1px solid gray;
+	padding: 10px;
+}
+
+.star {
+	color: orange;
+}
+
+.bottom {
+	padding-top: 100px;
+}
+
+.qna {
+	padding-top: 150px;
+	padding-bottom: 100px;
+}
+ 
+.title {
+	border-bottom: 1px solid gray;
+	padding: 10px;
+}
+
+.qna_con {
+	text-align: center;
+	padding: 10px;
+	font-size: 15px;
+}
+
+#con {
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+span {
+	width: 500px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+    white-space: pre;
+}
+
+#a {
+	text-align: right;
+	margin-right: 50px;
+	margin-top: 10px;
+	font-size: 20px;
+}
+
+select {
+	width: 150px; 
+	padding: .8em .5em; 
+	border: 1px solid #999;
+	font-family: inherit;  
+	background: url('/project/resources/shop/image/arrow.jpg') no-repeat 95% 50%; 
+	border-radius: 0px; 
+	-webkit-appearance: none; 
+	-moz-appearance: none;
+	appearance: none;	
+	cursor: pointer;
+}
+
+select > option {
+	font-size: 15px;
+	padding: .8em .5em;
+	cursor: pointer;
+}
+
+#info {
+	margin: 20px 0;
+	padiing: 10px;
+}
+
+#price {
+	margin-top: 20px;
+	font-size: 18px;
+}
+
+.option {
+	font-size: 15px;
+	margin-bottom: 15px;
+}
+
+#size, #heel, #sole {
+	margin-bottom: 15px;
+}
+
+
+#cancel {
+	cursor: pointer;
+}
+
+#cntinfo {
+	margin: 20px 0;
+	line-height : 50px;
+	margin-left: 400px;
+}
+
+#priceinfo {
+	margin: 20px 0;
+	margin-left: 330px;
+}
+
+#cnt {
+	width: 100px;
+	display: flex;
+	justify-content: space-between;
+	font-size: 20px;
+}
+
+.count {
+	width: 30px;
+	height: 30px;
+	background-color: white;
+	border: 0px;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+#order {
+	color: white;
+	background-color: darkred;
+	border: solid 1px white;
+	width: 150px;
+	height: 70px;
+	border-radius: 5%;
+	cursor: pointer;
+	font-size: 17px;
+	font-weight: bold;
+	margin-top: 25px;
+	
+}
+
+#cart {
+	color: darkred;
+	background-color: white;
+	border: solid 1px red;
+	width: 150px;
+	height: 70px;
+	border-radius: 5%;
+	cursor: pointer;
+	font-size: 17px;
+	font-weight: bold;
+	margin: 25px 0 0 25px;
+}
+
+form {
+	margin: 20px 0 50px 0;
+}
+
+#select {
+	margin-bottom: 20px;
+}
+
+.heart {
+	margin-left: 450px;
+	color: pink;
+	background-color: white;
+	border: 0px;
+	cursor: pointer;
+}
+
+#answer {
+	display:inline-block;
+	background-color: dimgray;
+	border: 0px;
+	color: white;
+	border-radius: 5%;
+	width: 80px; 
+	padding: 5px;
+	height: 20px;
+	font-weight: bold;
+}
+
+#review, #qna {
+  	background-color: black;
+    color: white;
+    width: 120px;
+    height: 50px;
+    float: right;
+    border-radius: 5%;
+    margin-top: 50px;
+    cursor: pointer; 
+}
+
+h3 {
+	margin: 50px 0;
+}
