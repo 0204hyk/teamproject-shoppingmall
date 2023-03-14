@@ -1,121 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<link rel="stylesheet" href="/project/resources/order/css/order_main.css"/>
 <title>결제 페이지</title>
 </head>
-<style>
-	body {
-		/* background-image: url("/purchaseAPI/resources/images/bg_img.PNG"); */
-		background-color: white;
-	}
-
-	/* 가장 큰 컨테이너 */
-	.container {
-		width: 800px;	
-	}
-	
-	/* 흰색 컨테이너 */
-   .container-sm  {
-   	   width: 800px;
-       padding: 1.5rem;
-       padding-left: 1rem;
-       padding-bottom: 0.5rem;
-       background-color: white;
-       border-top: 2px solid black;
-       border-bottom: 2px solid black;
-    }
-
-	/* 컨테이너 밖 회색 공간 */
-    .blank {
-        background-color: white;
-        height: 1rem;
-    }
-
-    /* 상품 이름 */
-    /* #merchant_name {
-        margin-bottom: 0;
-    } */
-
-	/* 상품 옵션 텍스트 */
-	/* #merchant_options {
-		font-size: small;
-		margin-bottom: 0;
-	} */
-    
-	/* 가격 (~원) */
-	.form-control-plaintext {
-		text-align: right;
-	}
-	
-	/* 상품 이미지 컨테이너 */
-	.img-container {
-		margin-right: 1rem;
-	}
-	
-	/* 기존 배송지 신규 배송지 */
-	#shipping_address > .btn-group {
-		margin-bottom: 1.5rem;
-	}
-	
-	/* 배송지 주소 */
-	#receiver_address { margin-bottom: 0.5rem;}
-	
-	
-	/* 결제 방식 버튼 */
-    #card + label, #kakao + label, #deposit + label {
-    	width: 45%;
-    	margin: 0.7rem;
-    }
-	
-	/* 배너 */
-	h2 {
-		padding-left: 0.5rem;
-	}
-	
-	/* 각 컨테이너의 제목 */
-    h5 {
-    	font-weight: bolder;
-    }
-	
-	/* 상품 정보 테이블 */
-	table, tbody {
-		height: 300px;
-	}
-	
-	/* 상품 정보들 */
-	p {
-		margin-bottom: 0.5rem;
-	}
-	
-    /* 상품 이미지 */
-    img {
-     	width: 100px;
- 		height: 100px;
-        object-fit: fill;
-    }
-
-	/* 결제 버튼 컨테이너 */
-    footer {
-        position: fixed;
-        bottom: 0;
-        z-index: 2;
-        margin-bottom: 1rem;
-    }
-    
-	/* 결제 버튼 */
-    footer > button {
-    	height: 3.5rem;
-    	position: relative;
-    	right: 0.7rem;
-    }
-    
-</style>
 </head>
 
 <body>
@@ -123,7 +18,7 @@
 	<div class="container">
 		<form action="<%=request.getContextPath()%>/order/result" id="order_form" method="POST">
 			<div id="header" class="container-sm w-auto">
-		    	<h2>ONORE</h2>
+		    	<h2><a style="cursor:pointer;" onclick="toHomePage();">ONORE</a></h2>
 		    	<div class="blank bg-white"></div>
 			</div>
 			<div class="blank"></div>
@@ -139,7 +34,7 @@
 							<tr>
 							<td rowspan="3">
 								<div class="img-container">
-									<img src="<c:url value="/resources/images/DODY.PNG"/>">
+									<img src="${products.get(i).product_thumbnail_1}">
 								</div>
 							</td>
 								<td>
@@ -155,7 +50,7 @@
 							</tr>
 							<tr>
 								<td>
-									<p class="fs-5 fw-semibold">${cart.get(i).cart_product_qty}개 / ${cart.get(i).cart_product_price}원</p>
+									<p class="fs-5 fw-semibold">${cart.get(i).cart_product_qty}개 / <fmt:formatNumber value="${cart.get(i).cart_product_price}" pattern="#,###" />원</p>
 									<input type="hidden" name="order_info_qty" value="${cart.get(i).cart_product_qty}"/>
 									<input type="hidden" name="order_info_price" value="${cart.get(i).cart_product_price}"/>
 									<input type="hidden" name="cart_num" value="${cart.get(i).cart_num}" />
@@ -167,7 +62,7 @@
 						<tr>
 							<td rowspan="3">
 								<div class="img-container">
-									<img src="<c:url value="/resources/images/DODY.PNG"/>">
+									<img src="${product.product_thumbnail_1}">
 								</div>
 							</td>
 								<td>
@@ -184,7 +79,7 @@
 							</tr>
 							<tr>
 								<td>
-									<p class="fs-5 fw-semibold">${cart.cart_product_qty}개 / ${cart.cart_product_price}원</p>
+									<p class="fs-5 fw-semibold">${cart.cart_product_qty}개 / <fmt:formatNumber value="${cart.cart_product_price}" pattern="#,###" />원</p>
 									<input type="hidden" name="order_info_qty" value="${cart.cart_product_qty}"/>
 									<input type="hidden" name="order_info_price" value="${cart.cart_product_price}"/>
 								</td>
@@ -197,7 +92,7 @@
 				<label class="col-md-3 col-form-label fs-4">상품 합계</label>
 				<div class="col-sm-9">
 					<input type="text" class="form-control-plaintext fs-4 fw-bold"
-						value="${total_price}원" readonly>
+						value="<fmt:formatNumber value="${total_price}" pattern="#,###" />원" readonly>
 				</div>
 			</div>
 		</div>
@@ -356,7 +251,8 @@
 				<input type="hidden" id="discount_coupon" name="discount_coupon"/>
 			</div>
 			<label for="discount_points" class="col-sm-6 col-form-label">
-				적립금 (보유 적립금 <span id="mem_points">${orderer.mem_point}</span>원)
+				적립금 (보유 적립금 <span id="mem_points_txt"><fmt:formatNumber value="${orderer.mem_point}" pattern="#,###" /></span>원)
+				<input type="hidden" id="mem_points" value="${orderer.mem_point}"/>
 			</label>
 			<div class="input-group mb-3">
 				<input type="text" class="form-control form-control-lg"
@@ -365,17 +261,19 @@
 			</div>
 			<c:choose>
 				<c:when test="${accessible_points <= orderer.mem_point}">
-					<div>사용 가능한 적립금 : <span id="accessible_points">${accessible_points}</span>원</div>
+					<div>사용 가능한 적립금 : <span id="accessible_points_txt"><fmt:formatNumber value="${accessible_points}" pattern="#,###" /></span>원</div>
+					<input type="hidden" id="accessible_points" value="${accessible_points}"/>
 				</c:when>
 				<c:otherwise>					
-					<div>사용 가능한 적립금 : <span id="accessible_points">${orderer.mem_point}</span>원</div>
+					<div>사용 가능한 적립금 : <span id="accessible_points_txt"><fmt:formatNumber value="${orderer.mem_point}" pattern="#,###" /></span>원</div>
+					<input type="hidden" id="accessible_points" value="${accessible_points}"/>
 				</c:otherwise>
 			</c:choose>
 			<hr>
 			<div class="mb-3 row">
 				<label for="total_price" class="col-sm-3 col-form-label">상품 합계</label>
 				<div class="col-md-9">
-					<input type="text" id="total_price_txt" class="form-control-plaintext fs-4 fw-bold" value="${total_price}원">
+					<input type="text" id="total_price_txt" class="form-control-plaintext fs-4 fw-bold" value="<fmt:formatNumber value="${total_price}" pattern="#,###" />원">
 					<input type="hidden" id="total_price" name="total_price" value="${total_price}" readonly>
 				</div>
 				<label for="total_discount" class="col-sm-3 col-form-label">총 할인 금액</label>
@@ -388,7 +286,7 @@
 			<div class="mb-3 row">
 				<label for="pay_price" class="col-sm-3 col-form-label fs-4">결제 금액</label>
 				<div class="col-md-9">
-					<input type="text" id="pay_price_txt" class="form-control-plaintext fs-4 fw-bold" value="${total_price}원"/>
+					<input type="text" id="pay_price_txt" class="form-control-plaintext fs-4 fw-bold" value="<fmt:formatNumber value="${total_price}" pattern="#,###" />원"/>
 					<input type="hidden" id="pay_price" name="pay_price" value="${total_price}" readonly/>
 				</div>
 			</div>
@@ -419,10 +317,18 @@
 		    	<input type="hidden" id="amount" name="amount"/>
 		    	<c:choose>
 		    		<c:when test="${products != null}">		        			        		
-		        		<button type="button" id="purchase_btn" class="btn btn-lg btn-dark w-100 rounded-1"><span id="pay_price_btn">${total_price}</span>원 결제하기</button>
+		        		<button type="button" id="purchase_btn" class="btn btn-lg btn-dark w-100 rounded-1">
+		        			<span id="pay_price_btn">
+		        				<fmt:formatNumber value="${total_price}" pattern="#,###" />
+		        			</span>원 결제하기
+		        		</button>
 		        	</c:when>
 		        	<c:when test="${product != null}">
-		        		<button type="button" id="purchase_btn_2" class="btn btn-lg btn-dark w-100 rounded-1"><span id="pay_price_btn">${total_price}</span>원 결제하기</button>		        		
+		        		<button type="button" id="purchase_btn_2" class="btn btn-lg btn-dark w-100 rounded-1">
+		        			<span id="pay_price_btn">
+		        				<fmt:formatNumber value="${total_price}" pattern="#,###" />
+		        			</span>원 결제하기
+		        		</button>		        		
 		        	</c:when>
 		        </c:choose>
 	        </footer>
@@ -437,7 +343,7 @@
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/order/js/discount.js"></script>
 	<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/order/js/address.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/order/js/purchase_btn.js"></script>
+	<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/order/js/order_main.js"></script>
 	<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/order/js/tosspayments.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>

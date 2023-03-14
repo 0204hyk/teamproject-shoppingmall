@@ -19,7 +19,7 @@ public interface ShopService {
 
 	List<ProductsDTO> loafersView();
 
-	List<ProductsDTO> sneakersView();
+	List<ProductsDTO> snakersView();
 
 	ProductsDTO getDetail(Integer product_num);
 
@@ -42,4 +42,5 @@ public interface ShopService {
 	Integer deleteCart(Integer cart_num);
 	
 	Integer deleteAllCart();
+
 }

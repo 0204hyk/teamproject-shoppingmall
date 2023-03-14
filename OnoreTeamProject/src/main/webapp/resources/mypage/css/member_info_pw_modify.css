@@ -7,6 +7,8 @@
 
 .info_modify_div {
 	height: 1500px;
+	height: 800px;
+	padding-top: 200px;
 	background-color: white;
 	text-align: center;
 }

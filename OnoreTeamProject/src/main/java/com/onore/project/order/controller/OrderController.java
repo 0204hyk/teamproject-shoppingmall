@@ -57,7 +57,7 @@ public class OrderController {
 			cart.setProduct_num(product.getProduct_num());
 			cart.setCart_product_qty(order_cnt);
 			cart.setCart_product_price(cart_product_price);
-			cart.setCart_product_option("size: " + size + " / heel: " + heel + " / sole: " + sole);
+			cart.setCart_product_option("size: " + size + "<br> " + "heel: " + heel + "<br> " + "sole: " + sole);
 			
 			String order_name = product.getProduct_name();
 					// 상품 합계 만들기
@@ -255,6 +255,7 @@ public class OrderController {
 		// 회원 보유 적립금 += (받을 적립금(결제 금액의 3%) - 사용한 적립금)
 		MemberDTO member = member_service.getMember(order.getOrderer_id());
 		member.setMem_point(member.getMem_point() + ((order.getPay_price() / 100 * 3) - order.getDiscount_points()));
+		
 		// 적립금 업데이트
 		Integer update_points_result = member_service.updatePoints(member);
 		System.out.println(update_points_result);
@@ -301,14 +302,19 @@ public class OrderController {
 	public String orderComplete(Model model, @RequestParam String order_num) {
 		OrderDTO order = order_service.getOrder(Integer.parseInt(order_num));
 		List<OrderInfoDTO> order_infos = order_service.getOrderInfos(Integer.parseInt(order_num));
+		List<ProductsDTO> products = new ArrayList<ProductsDTO>();
+		for(int i = 0; i < order_infos.size(); i++) {
+			products.add(shop_service.getDetail(order_infos.get(i).getProduct_num()));
+		}
 		PurchaseInfoDTO purchase_info = order_service.getPurchaseInfo(Integer.parseInt(order_num));
 
 		Integer discount_by_coupon = order.getTotal_discount() - order.getDiscount_points();
-		Integer expected_points = (order.getPay_price() / 100 * 3) + 1000;
-		Integer basic_points = (order.getPay_price() / 100 * 3);
+		Integer expected_points = (order.getPay_price() / 100 * 1) + 1000;
+		Integer basic_points = (order.getPay_price() / 100 * 1);
 		
 		model.addAttribute("order", order);
 		model.addAttribute("order_infos", order_infos);
+		model.addAttribute("products", products);
 		model.addAttribute("purchase_info", purchase_info);
 		model.addAttribute("expected_points", expected_points);
 		model.addAttribute("basic_points", basic_points);

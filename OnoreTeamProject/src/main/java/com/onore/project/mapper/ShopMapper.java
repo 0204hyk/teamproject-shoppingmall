@@ -19,7 +19,7 @@ public interface ShopMapper {
 
 	List<ProductsDTO> getLoafers();
 
-	List<ProductsDTO> getSneakers();
+	List<ProductsDTO> getSnakers();
 	
 	ProductsDTO getDetail(Integer product_num);
 	

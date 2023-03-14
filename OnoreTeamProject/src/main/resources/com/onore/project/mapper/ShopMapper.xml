@@ -30,7 +30,7 @@
 	</select>
 	
 	<select id="getProReview" resultType="com.onore.project.dto.ReviewDTO">
-		SELECT * FROM reviews WHERE product_num=3
+		SELECT * FROM reviews WHERE product_num=#{product_num}
 	</select>
 	
 	<select id="getProQna" resultType="com.onore.project.dto.QnaDTO">

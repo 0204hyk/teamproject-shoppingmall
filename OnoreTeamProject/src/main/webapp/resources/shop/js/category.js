@@ -2,7 +2,7 @@ const categoryAll = document.getElementById('ajax-all');
 const derbyBtn = document.getElementById('ajax-derby');
 const bootsBtn = document.getElementById('ajax-boots');
 const loaferBtn = document.getElementById('ajax-loafer');
-const sneakersBtn = document.getElementById('ajax-sneakers');
+const snakersBtn = document.getElementById('ajax-snakers');
 
 const onoreImg = document.getElementsByClassName('img-container')[0];
 const info = document.getElementsByClassName('img-info')[0];
@@ -203,7 +203,7 @@ bootsBtn.addEventListener('click', (e) => {
 					});
 					
 					onoreImg.addEventListener('click', (e) => {
-						location.href = '/project/shop/detail/?product_num=' + number;
+						location.href = '/product/shop/detail/?product_num=' + number;
 					});
 				}	
 		}
@@ -268,7 +268,7 @@ loaferBtn.addEventListener('click', (e) => {
     xhttp.send();
 });
 
-sneakersBtn.addEventListener('click', (e) => {
+snakersBtn.addEventListener('click', (e) => {
 	
 	const imgSize = document.getElementsByClassName('imgs').length;
 	const imgInfo = document.getElementsByClassName('information').length;
@@ -317,7 +317,6 @@ sneakersBtn.addEventListener('click', (e) => {
 	});
 	
 
-	xhttp.open('GET', '/project/restful/sneakers');
+	xhttp.open('GET', '/project/restful/snakers');
     xhttp.send();
-});
-	
+});	

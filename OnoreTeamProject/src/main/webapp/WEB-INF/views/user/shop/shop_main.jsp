@@ -34,7 +34,7 @@
 			<a id="ajax-derby">DERBY</a>
 			<a id="ajax-boots">BOOTS</a>
 			<a id="ajax-loafer">LOAFER</a>
-			<a id="ajax-sneakers">SNEAKERS</a>
+			<a id="ajax-snakers">SNAKERS</a>
 		</div>
 		
 		<div id="imgBox" class="flex-container2">

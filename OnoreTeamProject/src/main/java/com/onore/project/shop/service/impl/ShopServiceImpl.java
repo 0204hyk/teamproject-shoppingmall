@@ -50,9 +50,9 @@ public class ShopServiceImpl implements ShopService{
 
 
 	@Override
-	public List<ProductsDTO> sneakersView() {
+	public List<ProductsDTO> snakersView() {
 
-		return shop_mapper.getSneakers();
+		return shop_mapper.getSnakers();
 
 	}
 	
@@ -67,7 +67,8 @@ public class ShopServiceImpl implements ShopService{
 		
 		return shop_mapper.getProReview(product_num);
 	}
-	
+
+
 	@Override
 	public List<QnaDTO> getProQna(Integer product_num) {
 		

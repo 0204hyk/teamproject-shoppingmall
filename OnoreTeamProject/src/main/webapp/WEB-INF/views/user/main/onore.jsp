@@ -7,8 +7,20 @@
 <meta charset="UTF-8">
     <link rel="icon" href="/project/resources/main/images/fabicon.png">
     <title>ONÓRE</title>
-<%@ include file="../header.jspf" %>
-    
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap"rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script src="https://kit.fontawesome.com/43273b5a4f.js"crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet"href="/project/resources/main/css/main.css">
 </head>
 <body>
 
@@ -24,7 +36,6 @@
 const toggleBtn = document.querySelector('.navbar_toggleBtn');
 const menu = document.querySelector('.navbar_menu');
 const submenu = document.querySelector('.navbar_submenu');
-
 /* 토글버튼이 클릭될 때마다 active가 없다면 active를 추가해주고,
 active가 있다면 다시 빼주는 역할*/
 toggleBtn.addEventListener('click', () => {

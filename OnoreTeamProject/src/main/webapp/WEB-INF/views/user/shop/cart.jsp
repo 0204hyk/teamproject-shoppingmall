@@ -100,26 +100,24 @@
 				</tr>
 				<tr>
 					<td class="sub-button_container" colspan="9">
-						<form method="POST">
+						<form id="delete_form">
 							<input type="hidden" id="selected_list_1" name="selected_list" />
-							<input type="submit" class="delete_selected_btn"
-										formaction="./delete_selected_cart" value="선택 상품 삭제"/>				
-							<input type="submit" class="delete_all_btn"
-										formaction="./delete_all_cart" value="장바구니 비우기" />
 						</form>
+						<button id="delete_selected_btn" class="delete_selected_btn">선택 상품 삭제</button>				
+						<button id="delete_all_btn" class="delete_all_btn">장바구니 비우기</button>
 					</td>
 				</tr>
 			</tfoot>
 		</table>
 		<div class="order-button_container">
-			<form method="POST" style="display: inline;">
+			<form id="order_selected_form" style="display: inline;">
 				<input type="hidden" id="selected_list_2" name="selected_list" />
-				<input type="submit" class="order_selected_btn" formaction="../order/from_cart" value="선택 상품 주문">
 			</form>
-			<form method="POST" style="display: inline;">
+			<button id="order_selected_btn" class="order_selected_btn">선택 상품 주문</button>
+			<form id="order_all_form" style="display: inline;">
 				<input type="hidden" id="cart_num_list" name="selected_list" />
-				<input type="submit" class="order_all_btn" formaction="../order/from_cart" value="전체 상품 주문" />
 			</form>
+			<button id="order_all_btn" class="order_all_btn">전체 상품 주문</button>
 		</div>
 	</div>
 </div>

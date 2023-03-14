@@ -2,6 +2,7 @@
 	height: 700px;
 	padding-top: 200px;
 	background-color: rgb(245 245 245);
+	background-image: url('/project/resources/main/images/error');
 }
 
 .error404_div {

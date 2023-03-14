@@ -82,6 +82,90 @@ textarea {
     font-size: 15px;
 }
 
+.detail {
+    padding:60px 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+}
+
+.container {
+	display: flex;
+    flex-direction: row;
+}
+
+.b {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.content {
+    width: auto;
+    height: 300px;
+    font-size: 20px;
+}
+
+
+img {
+    width: 200px;
+    height: 200px;
+}
+
+button {
+  	background-color: black;
+    color: white;
+    width: 100px;
+    height: 70px;
+    float: right;
+    border-radius: 5%;
+    margin-top: 30px;
+    cursor: pointer; 
+  }
+
+#comment {
+	background-color: white;
+    color: black;
+    width: 50px;
+    height: 30px;
+    float: right;
+    margin: 0px;
+    border: 0px;
+}
+
+#comment_content {
+	border: solid 1px gray;
+	font-size: 13px;
+}
+
+textarea {
+	resize: none;
+}
+
+#write_reply {
+	overflow: auto;
+}
+
+#reply_detail {
+	overflow: auto;
+}
+
+#com_mo_de {
+	display:flex;
+	float: right;
+}
+
+#com_mo_de > button {
+	background-color: white;
+    color: black;
+    width: 50px;
+    height: 30px;
+    margin: 0px;
+    border: 0px;
+    font-size: 15px;
+}
+
 #comment {
 	margin: 0px;
 	width: 80px;

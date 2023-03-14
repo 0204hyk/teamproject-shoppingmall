@@ -30,15 +30,21 @@
                       <li><a href="#">관리자메뉴</a></li>
                   </c:otherwise>
               </c:choose>
-        <li><a href="/project/shop/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
-       
-       
+              <c:choose>
+                  <c:when test="${sessionScope.signIn == null}">
+                      <li><a href="/project/login"><i class="fa-solid fa-cart-shopping"></i></a>
+                  </c:when>
+                  <c:when test="${sessionScope.signIn.mem_id ne 'admin'}">
+                      <li><a href="/project/shop/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                  </c:when>
+              </c:choose>
+        
         <c:if test="${signIn == null}">
-        <li><a href="/project/login"><i class="fa-solid fa-lock"></i></a></li>
+        <li><a href="/project/login"><i class="fa-solid fa-unlock"></i></a></li>
          </c:if>
          
          <c:if test="${signIn != null}">
-         <li><a href="/project/logout"><i class="fa-solid fa-unlock"></i></a></li>
+         <li><a href="/project/logout"><i class="fa-solid fa-lock" style="color: blue;"></i></a></li>
          <li class="main_login_id">${signIn.mem_name}님 환영합니다!</li>
        </c:if>
     </ul>
@@ -46,5 +52,6 @@
     <a href="#" class="navbar_toggleBtn">
         <i class="fa-solid fa-bars"></i>
     </a>
+    
 </nav>
 </header>

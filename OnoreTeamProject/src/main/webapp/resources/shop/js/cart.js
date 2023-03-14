@@ -17,6 +17,14 @@ const selected_list_2 = document.getElementById('selected_list_2');
 // 전체 상품 주문시 필요한 장바구니 번호 리스트 (hidden)
 const cart_num_list = document.getElementById('cart_num_list');
 
+// 선택 상품 삭제 버튼
+const delete_selected_btn = document.getElementById('delete_selected_btn');
+// 장바구니 비우기 버튼
+const delete_all_btn = document.getElementById('delete_all_btn');
+// 선택 상품 주문 버튼
+const order_selected_btn = document.getElementById('order_selected_btn');
+// 모든 상품 주문 버튼
+const order_all_btn = document.getElementById('order_all_btn');
 
 // 카트에 담은 상품별 금액 * 수량
 const cart_product_prices = document.getElementsByClassName('cart_product_price');
@@ -32,6 +40,7 @@ for(i = 0; i < check_boxes.length; i++) {
 selected_list_1.value = selected.toString();
 selected_list_2.value = selected.toString();
 cart_num_list.value = selected.toString();
+console.log(cart_num_list.value);
 
 
 // 전체 체크 액션
@@ -85,5 +94,52 @@ for(i = 0; i < check_boxes.length; i++) {
 		total_price.innerText = total;
 	});
 }
+// 제거 폼
+const delete_form = document.getElementById('delete_form');
+// 선택 상품 지우기
+delete_selected_btn.addEventListener('click', (e) => {
+	if(selected.toString() == '' || selected == []) {
+		alert('제거할 상품을 선택해 주세요');
+	} else {
+		delete_form.action = './delete_selected_cart';
+		delete_form.method = 'POST';
+		delete_form.submit();
+	}
+});
 
+// 장바구니 비우기
+delete_all_btn.addEventListener('click', () => {
+	if(cart_num_list.value == '') {
+		alert('장바구니가 이미 비어있습니다.');
+	} else {
+		delete_form.action = './delete_all_cart';
+		delete_form.method = 'POST';
+		delete_form.submit();
+	}
+});
 
+// 선택 상품 주문 폼
+const order_selected_form = document.getElementById('order_selected_form');
+// 선택 상품 주문
+order_selected_btn.addEventListener('click', () => {
+	if(selected.toString() == '' || selected == []) {
+		alert('주문할 상품을 선택해 주세요');
+	} else {
+		order_selected_form.action = '../order/from_cart';
+		order_selected_form.method = 'POST';
+		order_selected_form.submit();
+	}
+});
+
+// 모든 상품 주문 폼
+const order_all_form = document.getElementById('order_all_form');
+// 모든 상품 주문
+order_all_btn.addEventListener('click', () => {
+	if(cart_num_list.value == '') {
+		alert('주문할 상품이 없습니다.');
+	} else {
+		order_all_form.action = '../order/from_cart';
+		order_all_form.method = 'POST';
+		order_all_form.submit();
+	}
+});

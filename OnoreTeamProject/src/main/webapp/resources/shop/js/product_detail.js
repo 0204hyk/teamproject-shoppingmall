@@ -5,7 +5,6 @@ const showValue = (target) => {
     console.log(value);
 }
 
-
 const sizes = document.getElementById('size');
 const heels = document.getElementById('heel');
 const soles = document.getElementById('sole');
@@ -60,7 +59,7 @@ function count(type) {
     cnt.innerText = number;
 
     cntinfo.innerHTML = number + "개";
-     priceinfo.innerHTML = (number * price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '원';
+    priceinfo.innerHTML = (number * price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '원';
     cart_product_price.value = number * price;
     order_cnt.value = number;
     console.log(order_cnt);
@@ -134,7 +133,7 @@ sizes.addEventListener('change', (e) => {
 						minus.removeAttribute("disabled");
 						
                         cntinfo.innerHTML = cnt.innerText + "개";
-                        priceinfo.innerHTML = price + "원";
+                        priceinfo.innerHTML = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '원';
                         cart_product_price.value = price;
 
 						cart.removeAttribute("disabled");

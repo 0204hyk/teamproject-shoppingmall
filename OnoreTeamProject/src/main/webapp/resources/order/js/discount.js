@@ -9,8 +9,8 @@ const pay_price_txt = document.getElementById('pay_price_txt'); // 결제 금액
 const pay_price = document.getElementById('pay_price'); // 결제 금액 hidden  
 const pay_price_btn = document.getElementById('pay_price_btn');
 
-const mem_points = document.getElementById('mem_points').innerText; // 보유 포인트
-const accessible_points = document.getElementById('accessible_points').innerText; // 사용 가능한 포인트
+const mem_points = document.getElementById('mem_points'); // 보유 포인트 hidden
+const accessible_points = document.getElementById('accessible_points'); // 사용 가능한 포인트 hidden
 
 const coupon = document.getElementById('coupon'); // 쿠폰 select
 	
@@ -23,9 +23,9 @@ const discount = (target) => {
 	// 결제 금액 표시
 	console.log(total_price);
 	console.log(coupon_value);
-	pay_price_txt.value = (total_price - total_price * coupon_value) + '원'; // 보여줄 값 lbl에 입력
+	pay_price_txt.value = (total_price - total_price * coupon_value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '원'; // 보여줄 값 lbl에 입력
 	pay_price.value = total_price - total_price * coupon_value; // controller로 전달할 값 hidden에 입력
-	pay_price_btn.innerText = total_price - total_price * coupon_value; // pay_price 버튼에도 입력
+	pay_price_btn.innerHTML = (total_price - total_price * coupon_value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); // pay_price 버튼에도 입력
 	
 	// 적립금 초기화
 	discount_points.value = 0;
@@ -34,8 +34,8 @@ const discount = (target) => {
 	discount_coupon.value = coupon.options[coupon.selectedIndex].text;
 	
 	// 쿠폰 할인 적용 후 총 할인 금액 표시
-	total_discount_txt.value = (total_price - parseInt(pay_price.value)).toString() + '원';
-	total_discount.value = (total_price - parseInt(pay_price.value));
+	total_discount_txt.value = (total_price - pay_price.value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '원';
+	total_discount.value = (total_price - pay_price.value);
 }
 
 
@@ -43,9 +43,9 @@ const discount_points_btn = document.getElementById('discount_points_btn'); // �
 // 적립금 할인
 discount_points_btn.addEventListener('click', ()=> {
 	// parseInt 안하고 계산했더니 오류가 있어서 parse 처리
-	const mp = parseInt(mem_points); // 회원 보유 포인트
+	const mp = parseInt(mem_points.value); // 회원 보유 포인트
 	const dp = parseInt(discount_points.value); // 할인 적용할 포인트
-	const ap = parseInt(accessible_points); // 사용 가능한 포인트
+	const ap = parseInt(accessible_points.value); // 사용 가능한 포인트
 	
 	// 할인 적용할 포인트(dp)가 회원 보유 포인트(mp)와 사용 가능한 포인트(ap) 보다 작아야한다.
 	if(dp > mp) {
@@ -60,18 +60,18 @@ discount_points_btn.addEventListener('click', ()=> {
 
 	// 쿠폰 적용 유무에 따라 할인 금액 산정 방식이 달라야 한다.
 	if(coupon_value == null) {
-		pay_price_txt.value = (total_price - dp).toString() + '원';
+		pay_price_txt.value = (total_price - dp).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '원';
 		pay_price.value = total_price - dp;
-		pay_price_btn.innerText = total_price - dp;
+		pay_price_btn.innerHTML = (total_price - dp).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 	} else {
 		// 총 할인 금액 (pay_price)
 		const pp = (total_price - total_price * coupon_value) - dp;
 	
 		// 결제 금액이 0보다 낮거나 같으면 안됨
 		if(pp > 0) {
-			pay_price_txt.value = pp.toString() + '원';
+			pay_price_txt.value = pp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '원';
 			pay_price.value = pp;
-			pay_price_btn.innerText = pp;
+			pay_price_btn.innerHTML = pp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 		} else {
 			alert('The discount amount cannot be higher than the sales amount.');
 			return;
@@ -79,8 +79,8 @@ discount_points_btn.addEventListener('click', ()=> {
 	}
 	
 	// 적립금 할인 적용 후 총 할인 금액 표시
-	total_discount_txt.value = (total_price - parseInt(pay_price.value)).toString() + '원';
-	total_discount.value = total_price - parseInt(pay_price.value);
+	total_discount_txt.value = (total_price - pay_price.value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '원';
+	total_discount.value = total_price - pay_price.value;
 });
 
 

@@ -57,7 +57,7 @@ public class ShopController {
 		List<CartDTO> carts = shopService.getCartList(member.getMem_id());
 		List<ProductsDTO> products = new ArrayList<ProductsDTO>();
 		
-		String option = "size: " + size + " / heel: " + heel + " / sole: " + sole;   
+		String option = "size: " + size + "<br> " + "heel: " + heel + "<br> " + "sole: " + sole;   
 		Integer row = 0;
 		for(int i = 0; i < carts.size(); i++) {
 			products.add(shopService.getDetail(carts.get(i).getProduct_num()));
@@ -181,6 +181,7 @@ public class ShopController {
 		} else {
 			return "redirect:/shop/cart?status=delete_failed";
 		}
+
 	}
 	
 	@ResponseBody

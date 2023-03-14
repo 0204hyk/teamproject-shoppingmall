@@ -9,7 +9,7 @@ import com.onore.project.dto.OrderDTO;
 
 public interface MemberService {
 	
-	public List<MemberDTO> getAll();
+public List<MemberDTO> getAll();
 	
 	// 회원가입
 	Integer member_join(MemberDTO memberdto) throws Exception;
@@ -22,6 +22,11 @@ public interface MemberService {
 	
 	// 아이디 찾기
 	String find_id(String name, String email);
+	
+	// 비밀번호 찾기
+	// String find_pw(String id, String email);
+	public void updatePwd(MemberDTO dto1);
+	public MemberDTO searchPwd(MemberDTO dto);
 	
 	// 회원정보 불러오기
 	MemberDTO getMember(String memberId) throws Exception;

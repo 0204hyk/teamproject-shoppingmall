@@ -90,30 +90,30 @@
 				<div class="sub-container2">
 					<div class="img">
 						<c:if test="${not empty contents.review_img_1}">
-							<a href="${contents.review_img_1 }"
+							<a href="/project/resources/review/image/${contents.review_img_1 }"
 							data-toggle="lightbox" data-gallery="example-gallery"
 							class="col-sm-4">
-						<img src="${contents.review_img_1 }"
+						<img src="/project/resources/review/image/${contents.review_img_1 }"
 								name="qna_img_1" class="img-fluid rounded" />
 						</a>
 						</c:if>
 					</div>
 					<div class="img">
 						<c:if test="${not empty contents.review_img_2}">
-							<a href="${contents.review_img_2 }"
+							<a href="/project/resources/review/image/${contents.review_img_2 }"
 							data-toggle="lightbox" data-gallery="example-gallery"
 							class="col-sm-4">
-						<img src="${contents.review_img_2 }"
+						<img src="/project/resources/review/image/${contents.review_img_2 }"
 								name="qna_img_1" class="img-fluid rounded" />
 						</a>
 						</c:if>
 					</div>
 					<div class="img">
 						<c:if test="${not empty contents.review_img_3}">
-							<a href="${contents.review_img_3 }"
+							<a href="/project/resources/review/image/${contents.review_img_3 }"
 							data-toggle="lightbox" data-gallery="example-gallery"
 							class="col-sm-4">
-						<img src="${contents.review_img_3 }"
+						<img src="/project/resources/review/image/${contents.review_img_3 }"
 								name="qna_img_1" class="img-fluid rounded" />
 						</a>
 						</c:if>
@@ -122,10 +122,14 @@
 			</div>
 			<hr>
 			<div class="button">
-				<a href="./modify?review_num=${contents.review_num }">수정하기</a> / 
-				<a href="./delete?review_num=${contents.review_num }" onclick="return confirm('삭제하시겠습니까?')">삭제하기</a><br>
+				<c:if test="${sessionScope.signIn.mem_id eq contents.mem_id || sessionScope.signIn.mem_id eq 'admin'}">
+					<a href="./modify?review_num=${contents.review_num }&product_num=${contents.product_num}">수정하기</a> / 
+					<a href="./delete?review_num=${contents.review_num }" onclick="return confirm('삭제하시겠습니까?')">삭제하기</a><br>
+				</c:if>
+				
 			</div>
 			<br>
+			<span id="comment_id" style="display: none;" >${sessionScope.signIn.mem_id}</span>
 			<div id="write_reply">
 			<h4> 댓글(${cnt })</h4>
 				<form action="./comment" method="POST">
@@ -147,8 +151,10 @@
 				<div id="reply_detail">
 					<div id="get_content">${comment.comment_content }</div>
 					<div id="com_mo_de">
-						<button id="com_modify" value="${comment.comment_num }">수정</button>
-						<button class="com_delete" data="${comment.comment_num }">삭제</button>
+						<c:if test="${sessionScope.signIn.mem_id eq comment.comment_id || sessionScope.signIn.mem_id eq 'admin'}">
+							<button id="com_modify" value="${comment.comment_num }">수정</button>
+							<button class="com_delete" data="${comment.comment_num }">삭제</button>
+						</c:if>							
 					</div>
 				</div>
 				<div id="reply_modify_form" style="display: none;">

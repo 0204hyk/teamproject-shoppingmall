@@ -1,3 +1,30 @@
+const comms = document.getElementsByClassName('mem')
+for (let k = 0;  k < comms.length; ++k ){
+
+
+const comment_id = document.getElementsByClassName('mem')[k].innerText;
+const masking_Id = maskingName(comment_id);
+
+const setId = document.getElementsByClassName('com_id')[k];
+console.log(comment_id);
+console.log(maskingName(comment_id));
+
+setId.innerHTML = masking_Id;
+}
+
+// 마스킹네임
+function maskingName(name) {
+    if (name.length <= 2) {
+      return name.replace(name.substring(0, 1), "*");
+    }
+  
+    return (
+      name[0] +
+      "*".repeat(name.substring(1, name.length - 1).length) +
+      name[name.length - 1]
+    );
+  }
+
 const comment = document.getElementById('comment');
 const comment_content = document.getElementById('comment_content');
 
@@ -11,7 +38,12 @@ function refreshList() {
     location.reload();
 }
 
+const id = document.getElementById('comment_id').innerText;
+console.log("로그인아이디" + id);
+
+
 comment.addEventListener('click', (e) => {
+if (id !== "") {	
     const xhttp = new XMLHttpRequest();
     xhttp.addEventListener('readystatechange', (e) => {
         console.log('readyState: ', xhttp.readyState);
@@ -23,20 +55,27 @@ comment.addEventListener('click', (e) => {
     xhttp.open('POST', './comment');
 
     xhttp.setRequestHeader('Content-type', 'application/json');
+    
     const num = document.getElementById('num').value;
     const content = document.getElementById('comment_content').value;
+   
+	
+	
 
     const com = {
         review_num: num,
-        comment_content: content
+        comment_content: content,
+        comment_id: id
     }
 
-    console.log(num);
-    console.log(content);
-
+	
     // send(payload) : 데이터를 실어 보낼 수 있다
     xhttp.send(JSON.stringify(com));
-
+} else {
+	if(confirm('로그인이 필요한 서비스입니다. 로그인하시겠습니까?')) {
+		location.href='/project/login';
+	}
+	}    
 });
 
 
@@ -119,29 +158,3 @@ re_delete.addEventListener('click', (e) => {
     xhttp.send();
 });
 }
-
-const comms = document.getElementsByClassName('mem')
-for (let k = 0;  k < comms.length; ++k ){
-
-
-const comment_id = document.getElementsByClassName('mem')[k].innerText;
-const masking_Id = maskingName(comment_id);
-
-const setId = document.getElementsByClassName('com_id')[k];
-console.log(comment_id);
-console.log(maskingName(comment_id));
-
-setId.innerHTML = masking_Id;
-}
-
-function maskingName(name) {
-    if (name.length <= 2) {
-      return name.replace(name.substring(0, 1), "*");
-    }
-  
-    return (
-      name[0] +
-      "*".repeat(name.substring(1, name.length - 1).length) +
-      name[name.length - 1]
-    );
-  }

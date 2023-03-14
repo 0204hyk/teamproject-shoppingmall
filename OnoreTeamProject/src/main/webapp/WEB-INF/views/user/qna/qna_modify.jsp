@@ -40,10 +40,12 @@
 				<option value="기타">기타</option>
 			</select> 
 			<input type="text" name="qna_title" id="title" value="${qna.qna_title }">
+			<input type="hidden" id="p_num" name="product_num" value="">
+	
 			<br>
 			<div id="inputs">
 			</div>
-			
+
 			<hr>
 				<textarea rows="30" cols="150" id="qna_content" name="qna_content">${qna.qna_content }</textarea>
 			<hr>
@@ -59,13 +61,16 @@
 			<br>	
 			<div class="img-preview">
 				<div>
-					<input type="file" name="file" accept="image/*" id="image1" class="img-input" onchange="PreviewImage();"/><br>
+					<input type="file" name="file" accept="image/*" id="file-input" class="img-input" onchange="PreviewImage();"/>
+					<span id="imgBox1"></span>
 				</div>
 				<div>
-					<input type="file" name="file" accept="image/*" id="image2" class="img-input" onchange="PreviewImage2();"/><br>
+					<input type="file" name="file" accept="image/*" id="file-input2" class="img-input" onchange="PreviewImage2();"/>
+					<span id="imgBox2"></span>
 				</div>
 				<div>
-				<input type="file" name="file" accept="image/*" id="image3" class="img-input" onchange="PreviewImage3();"/>
+					<input type="file" name="file" accept="image/*" id="file-input3" class="img-input" onchange="PreviewImage3();"/>
+					<span id="imgBox3"></span>
 				</div>	
 				<input type="hidden" name="qna_img_1" value="${qna.qna_img_1 }"/>
 				<input type="hidden" name="qna_img_2" value="${qna.qna_img_2 }"/>
@@ -76,9 +81,7 @@
 		</form>
 	</div>
 		<hr>	
-		
-	<script type="text/javascript"
-		src="/project/resources/qna/js/qna_write.js"></script>	
+
 	
 	<script type="text/javascript"
 		src="/project/resources/qna/js/qna_modify.js"></script>

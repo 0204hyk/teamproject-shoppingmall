@@ -35,7 +35,7 @@
 					</td>
 					<td><span id="prd_name">${review.product_name }</span> </td>
 					<td id="review_content"><a href="./detail?review_num=${review.review_num}">
-					${review.review_content }</td>
+					${review.review_content }</a></td>
 					<td id="mem_id">${review.maskingName }</td>
 					<td>${review.review_date }</td>
 					<c:if test="${review.review_rating eq 5 }">
@@ -87,7 +87,9 @@
 				</c:forEach>
 			</table>
 			
-			<button onclick="location.href='./write'">글쓰기</button>
+			<span id="comment_id" style="display: none;">${sessionScope.signIn.mem_id}</span>
+			
+			<button id="write_btn">글쓰기</button>
 			
 			<div class="page">
 				<c:if test="${pagination_start > 5 }">
@@ -106,6 +108,21 @@
 	<hr>
 	
 	<%@ include file="../bottom.jspf" %>
+
+<script>
+	const write = document.getElementById('write_btn');
+	const id = document.getElementById('comment_id').innerText;
+	
+	write.addEventListener('click', (e) => {
+	if (id !== "") {
+		location.href='./write';
+	} else {
+		if(confirm('로그인이 필요한 서비스입니다 로그인 하시겠습니까?')){
+			location.href='/project/login';
+		}
+	}
+	});
+</script>
 
 </body>
 </html>

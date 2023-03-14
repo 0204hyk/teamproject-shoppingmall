@@ -8,7 +8,8 @@
 <title>ONÓRE</title>
 <%@ include file="../header.jspf"%>
 <link rel="icon" href="/project/resources/review/image/파비콘.png">
-<link rel="stylesheet"href="/project/resources/review/css/review_modify.css">
+<link rel="stylesheet"
+	href="/project/resources/review/css/review_modify.css">
 <script src="/project/resources/review/js/review_modify.js" defer></script>
 </head>
 <body>
@@ -16,10 +17,10 @@
 	<%@ include file="../top.jspf"%>
 
 	<div class="main"
-		style="padding-top: 127px; width: auto;  margin: 50px; margin-top: 0px;">
+		style="padding-top: 127px; width: auto; margin: 50px; margin-top: 0px;">
 		<hr>
 		<div class="write">
-			<form class="mb-3" id="myform" action="./modify" method="POST" enctype="multipart/form-data">
+		<form class="mb-3" id="myform" action="./write" method="POST" enctype="multipart/form-data">
 			<div class="container">
 				<div class="a">
 					<div name="prd_img">
@@ -53,36 +54,48 @@
 				</div>
 			</div>
 			<hr>
-			<textarea id="reviewContents" name="review_content" cols="150"
-					rows="30">${contents.review_content }</textarea>
-					
+			<!-- 리뷰작성폼 div 바깥으로 이동 2023.03.08 수정  -->
+			<textarea  name="review_content" id="reviewContents" cols="150"
+					rows="30" placeholder="내용을 입력해주세요" >${contents.review_content }</textarea>
+			
 			<div class="container2">
 				<div id="img-box">
-					<img id="previewImg1" /> 
-					<img id="previewImg2" /> 
-					<img id="previewImg3" />
+					<img id="previewImg1" src="/project/resources/review/image/${contents.review_img_1 }" /> 
+					<img id="previewImg2" src="/project/resources/review/image/${contents.review_img_2 }" /> 
+					<img id="previewImg3" src="/project/resources/review/image/${contents.review_img_3 }"/>
 				</div>
 				<br>
+				<!-- 파일선택 input 을 각 div로 감쌈 2023.03.08 수정  -->
 				<div class="sub-container2">
-					<div>
-						<input type="file" id="fileUpload1" accept=".jpg, .png, .bmp, .jpeg" />
+					<div id="firstImg">
+						<input type="file" name="file" id="fileUpload1" accept="image/*" onchange="PreviewImage();" />
+						<span id="imgBox1"></span>
+						
 					</div>
-					<div>
-						<input type="file" id="fileUpload2" accept=".jpg, .png, .bmp, .jpeg" />
-					</div>
-					<div>
-						<input type="file" id="fileUpload3" accept=".jpg, .png, .bmp, .jpeg" />
-					</div>
+					<div id="secondImg">
+						<input type="file" name="file" id="fileUpload2" accept="image/*" onchange="PreviewImage2();" />
+						<span id="imgBox2"></span>
+					 </div>
+					 <div id="thirdImg">
+						<input type="file" name="file" id="fileUpload3" accept="image/*" onchange="PreviewImage3();" />
+						<span id="imgBox3"></span>
+					 </div>	
 					<br> 
+					<input type="hidden" name="review_img_1" value="${contents.review_img_1 }"/>
+					<input type="hidden" name="review_img_1" value="${contents.review_img_2 }"/>
+					<input type="hidden" name="review_img_1" value="${contents.review_img_3 }"/>
 				</div>
-				<div style="height: 80px;">
-				<input id="modify_btn" type="submit" value="수정" onclick="return confirm('수정하시겠습니까?')">
-				</div>
+				<!-- 버튼 안밀리게 버튼만큼 위치조정 div 생성 -->
+				<br>
+			</div>
+			<div style="height: 80px;">
+				<input type="submit" id="write_btn" value="수정">
 			</div>
 			</form>
 		</div>
-	</div>	
-			<hr>
+	</div>
+
+	<hr>
 
 	<%@ include file="../bottom.jspf"%>
 

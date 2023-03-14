@@ -6,11 +6,10 @@ import org.apache.ibatis.annotations.Param;
 
 import com.onore.project.dto.CouponDTO;
 import com.onore.project.dto.MemberDTO;
-import com.onore.project.dto.OrderDTO;
 
 public interface MemberMapper {
 	
-	public List<MemberDTO> getAll();
+public List<MemberDTO> getAll();
 	
 	// 회원가입
 	Integer member_join(MemberDTO memberdto) throws Exception;
@@ -51,6 +50,6 @@ public interface MemberMapper {
 	 
 	// 주문완료 후 배송지 수정
 	Integer updateMemberAddress(MemberDTO member);
-	 
+
 }
 

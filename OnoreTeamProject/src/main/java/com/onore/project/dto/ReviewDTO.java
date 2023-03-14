@@ -1,10 +1,7 @@
 package com.onore.project.dto;
 
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
 import lombok.Data;
 
 @Data
@@ -16,6 +13,7 @@ public class ReviewDTO {
 	private String review_content;
 	private LocalDate review_date;
 	private Integer review_rating;
+	private String review_img_path;
 	private String review_img_1;
 	private String review_img_2;
 	private String review_img_3;

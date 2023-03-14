@@ -76,19 +76,20 @@ table tfoot tr:first-child td {
 	padding: 50px 0;
 }
 
-.order-button_container input {
+.order_selected_btn {
 	width: 150px;
 	height: 50px;
 	border-color: black;
 	border-radius: 0%;
-}
-
-.order_selected_btn {
 	background-color: white;
 	color: black;
 }
 
 .order_all_btn {
+	width: 150px;
+	height: 50px;
+	border-color: black;
+	border-radius: 0%;
 	background-color: black;
 	color: white;
 }

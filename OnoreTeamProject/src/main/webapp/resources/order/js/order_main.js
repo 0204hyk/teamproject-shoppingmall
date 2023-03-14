@@ -1,8 +1,8 @@
-const purchase_btn = document.getElementById("purchase_btn");
-const purchase_btn_2 = document.getElementById("purchase_btn_2");
-const payment_method = document.querySelector('input[name="pay_method"]:checked').value;
-const order_name = document.getElementById('order_name');
-const orderer_name = document.getElementById('orderer_name');
+const purchase_btn = document.getElementById("purchase_btn"); // 최종 결제 버튼 (여러 상품 주문)
+const purchase_btn_2 = document.getElementById("purchase_btn_2"); // 최종 결제 버튼 (단일 상품 주문)
+const payment_method = document.querySelector('input[name="pay_method"]:checked').value; // 결제 방식 radio
+const order_name = document.getElementById('order_name'); // 주문 명 div
+const orderer_name = document.getElementById('orderer_name'); 
 
 const urlParams = new URL(location.href).searchParams;
 const success = urlParams.get('success');
@@ -16,6 +16,12 @@ const receiver_zip_code_msg = document.getElementById('receiver_zip_code_msg');
 const receiver_address_msg = document.getElementById('receiver_address_msg');
 const receiver_detail_address_msg = document.getElementById('receiver_detail_address_msg');
 const receiver_phone_msg = document.getElementById('receiver_phone_msg');
+
+function toHomePage() {
+	if(window.confirm('홈페이지로 이동하시겠습니까? 주문 정보가 사라집니다.')) {
+		location.href = 'http://localhost:8888/project/main/';
+	}
+}
 
 if(purchase_btn != null) {
 purchase_btn.addEventListener('click', (e) => {
@@ -42,17 +48,17 @@ purchase_btn.addEventListener('click', (e) => {
 		}
 				
 		// 모든 입력항목은 비어있으면 안된다.(배송 요청사항, 할인 쿠폰, 적립금 제외)
-		//if ((element.value == null || element.value == '')
-		//	 									&& element.name != 'receiver_req'
-		//	 									&& element.name != 'discount_coupon'
-		//	 									&& element.name != 'discount_points'
-		//	 									&& element.name != 'paid_price') {
-			//window.alert(element.name + ' is empty!!');
+		if ((element.value == null || element.value == '')
+			 									&& element.name != 'receiver_req'
+			 									&& element.name != 'discount_coupon'
+			 									&& element.name != 'discount_points'
+			 									&& element.name != 'paid_price') {
+			window.alert(element.name + ' is empty!!');
 					
-			 // focus() : 해당 요소로 커서를 옮긴다.
-			// element.focus();
-			 //return;
-		//}
+			 //focus() : 해당 요소로 커서를 옮긴다.
+			 element.focus();
+			 return;
+		}
 		
 		if (element.value == '' && element.name == 'orderer_name') {
 			orderer_name_msg.innerText = '이름을 입력하세요';

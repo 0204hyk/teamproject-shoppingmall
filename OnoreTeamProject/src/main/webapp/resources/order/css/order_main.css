@@ -1,0 +1,93 @@
+body {
+	background-color: white;
+}
+
+/* 가장 큰 컨테이너 */
+.container {
+	width: 800px;
+}
+
+/* 흰색 컨테이너 */
+.container-sm {
+	width: 800px;
+	padding: 1.5rem;
+	padding-left: 1rem;
+	padding-bottom: 0.5rem;
+	background-color: white;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+}
+
+/* 컨테이너 밖 회색 공간 */
+.blank {
+	background-color: white;
+	height: 1rem;
+}
+
+/* 가격 (~원) */
+.form-control-plaintext {
+	text-align: right;
+}
+
+/* 상품 이미지 컨테이너 */
+.img-container {
+	margin-right: 1rem;
+}
+
+/* 기존 배송지 신규 배송지 */
+#shipping_address>.btn-group {
+	margin-bottom: 1.5rem;
+}
+
+/* 배송지 주소 */
+#receiver_address {
+	margin-bottom: 0.5rem;
+}
+
+/* 결제 방식 버튼 */
+#card+label, #kakao+label, #deposit+label {
+	width: 45%;
+	margin: 0.7rem;
+}
+
+/* 배너 */
+h2 {
+	padding-left: 0.5rem;
+}
+
+/* 각 컨테이너의 제목 */
+h5 {
+	font-weight: bolder;
+}
+
+/* 상품 정보 테이블 */
+table, tbody {
+	height: 200px;
+}
+
+/* 상품 정보들 */
+p {
+	margin-bottom: 0.5rem;
+}
+
+/* 상품 이미지 */
+img {
+	width: 100px;
+	height: 100px;
+	object-fit: fill;
+}
+
+/* 결제 버튼 컨테이너 */
+footer {
+	position: fixed;
+	bottom: 0;
+	z-index: 2;
+	margin-bottom: 1rem;
+}
+
+/* 결제 버튼 */
+footer>button {
+	height: 3.5rem;
+	position: relative;
+	right: 0.7rem;
+}

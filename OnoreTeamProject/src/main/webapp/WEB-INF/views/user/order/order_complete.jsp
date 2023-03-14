@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,105 +9,16 @@
 <title>주문 결과</title>
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-<style>
-	body {
-		/* background-image: url("/purchaseAPI/resources/images/bg_img.PNG"); */
-		background-color: white;
-	}
-
-	/* 가장 큰 컨테이너 */
-	.container {
-		width: 800px;	
-	}
-	
-	/* 흰색 컨테이너 */
-   .container-sm.w-auto  {
-   	   width: 800px;
-       padding: 1.5rem;
-       padding-left: 1rem;
-       padding-bottom: 0.5rem;
-       border-top: 2px solid black;
-       border-bottom: 2px solid black;
-    }
-
-	/* 컨테이너 사이 빈 공간 */
-    .blank {
-        /* background-color: rgb(205, 205, 205); */
-        background-color: white;
-        height: 1rem;
-    }
-    
-    /* 상품 이미지 컨테이너 */
-	.img-container {
-		margin-right: 1rem;
-	}
-    
-    /* 상세 정보 value들 */
-	.form-control-plaintext {
-		text-align: right;
-	}
-    
-    /* 상세 정보 틀 */
-    .mb-3 {
-    	margin-left: 0.5rem;
-    	margin-right: 0.5rem;
-    }
-    
-    /* 주문 금액, 결제 상세, 적립금 혜택 header */
-    .accordion-header {
-    	margin-top: 0.3rem;	
-    	margin-bottom: 0.5rem;
-    }
-    
-    /* 주문이 완료되었습니다. */
-    #order_detail_title {
-    	text-align: center;
-    	margin: 1.4rem;
-    }
-    
-    /* 배송지 변경 버튼 */
-    #revise_btn {
-    	float: right;
-    	margin-top: 0.2rem;
-    }
-    
-    /* 오노레 header */
-    #header_title {
-    	padding-left: 0.5rem;
-    }
-    
-    /* 주문 금액 표시 */
-    #pay_price, #expected_points {
-    	direction: rtl;
-    }
-    
-	/* 상품 정보들 */
-	#product_name, #order_info_size, #order_info_price {
-		margin-bottom: 0.5rem;
-	}
-	
-	#btn_container {
-		padding: 0.5rem;
-		border: none;
-	}
- 	
- 	/* 상품 정보 테이블 */
-	table, tbody {
-		height: 300px;
-	}
-	
-    /* 상품 이미지 */
-    img {
-     	width: 100px;
- 		height: 100px;
-        object-fit: fill;
-    }
-</style>
+<link rel="stylesheet" href="/project/resources/order/css/order_complete.css"/>
 </head>
 <body>
 	<div class="container">
 		<div id="header" class="container-sm w-auto">
-			<h2 id="header_title"><a>ONORE</a></h2>
+			<h2 id="header_title">
+				<a style="cursor:pointer;" onclick="location.href = 'http://localhost:8888/project/main/';">
+					ONORE
+				</a>
+			</h2>
 			<div class="blank bg-white"></div>
 		</div>
 
@@ -199,7 +110,7 @@
 								<tr>
 									<td rowspan="3">
 										<div class="img-container">
-											<img src="<c:url value="/resources/images/DODY.PNG"/>">
+											<img src="${products.get(i).product_thumbnail_1}">
 										</div>
 									</td>
 									<td>
@@ -215,7 +126,7 @@
 								</tr>
 								<tr>
 									<td>
-										<p id="order_info_price" class="fs-5 fw-semibold">${order_infos.get(i).order_info_qty}개 / ${order_infos.get(i).order_info_price}원</p>
+										<p id="order_info_price" class="fs-5 fw-semibold">${order_infos.get(i).order_info_qty}개 / <fmt:formatNumber value="${order_infos.get(i).order_info_price}" pattern="#,###" />원</p>
 										<input type="hidden" name="order_info_qty" value="${order_infos.get(i).order_info_qty}"/>
 										<input type="hidden" name="order_info_price" value="${order_infos.get(i).order_info_price}"/>
 									</td>
@@ -235,8 +146,8 @@
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<p id="pay_price" class="fs-5 fw-bold m-0">${order.pay_price}원</p>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<p id="pay_price" class="fs-5 fw-bold m-0"><fmt:formatNumber value="${order.pay_price}" pattern="#,###" />원</p>
 						</button>
 					</h2>
 					<div id="order_price_info" class="accordion-collapse collapse"
@@ -247,23 +158,39 @@
 									class="col-sm-4 col-form-label fs-6 fw-bold text-black-50">┗ 상품 금액</label>
 								<div class="col-sm-7">
 									<input type="text" class="form-control-plaintext fs-6 fw-bold text-black-50"
-										id="total_price" value="${order.total_price}원" readonly />
+										id="total_price" value="<fmt:formatNumber value="${order.total_price}" pattern="#,###" />원" readonly />
 								</div>
 							</div>
 							<div class="px-3 row">
 								<label for="discount_by_coupon"
 									class="col-sm-4 col-form-label fs-6 fw-bold text-black-50">┗ 쿠폰 할인</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control-plaintext fs-6 fw-bold text-black-50"
-										id="discount_by_coupon" value="- ${discount_by_coupon}원" readonly />
+									<c:choose>
+										<c:when test="${discount_by_coupon == '' || discount_by_coupon == 0}">										
+											<input type="text" class="form-control-plaintext fs-6 fw-bold text-black-50"
+												id="discount_by_coupon" value="0원" readonly />
+										</c:when>
+										<c:otherwise>
+											<input type="text" class="form-control-plaintext fs-6 fw-bold text-black-50"
+												id="discount_by_coupon" value="- <fmt:formatNumber value="${discount_by_coupon}" pattern="#,###" />원" readonly />
+										</c:otherwise>
+									</c:choose>
 								</div>
 							</div>
 							<div class="px-3 row">
 								<label for="discount_points"
 									class="col-sm-4 col-form-label fs-6 fw-bold text-black-50">┗ 적립금 할인</label>
 								<div class="col-sm-7">
+								<c:choose>
+									<c:when test="${discount_by_points == null || discount_by_points == 0}">
+										<input type="text" class="form-control-plaintext fs-6 fw-bold text-black-50"
+											id="discount_points" value="0원" readonly />
+									</c:when>
+									<c:otherwise>
 									<input type="text" class="form-control-plaintext fs-6 fw-bold text-black-50"
-										id="discount_points" value="- ${order.discount_points}원" readonly />
+										id="discount_points" value="- <fmt:formatNumber value="${discount_by_points}" pattern="#,###" />원" readonly />									
+									</c:otherwise>
+								</c:choose>
 								</div>
 							</div>
 						</div>
@@ -310,7 +237,7 @@
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							&nbsp;
-							<p id="expected_points" class="fs-5 fw-bold m-0">최대 ${expected_points}원</p>
+							<p id="expected_points" class="fs-5 fw-bold m-0">최대 <fmt:formatNumber value="${expected_points}" pattern="#,###" />원</p>
 						</button>
 					</h2>
 					<div id="points_info" class="accordion-collapse collapse"
@@ -319,10 +246,10 @@
 						<div class="accordion-body">
 							<div class="px-3 row">
 								<label for="basic_points"
-									class="col-sm-4 col-form-label fs-6 fw-bold text-black-50">┗ 기본 적립</label>
-								<div class="col-sm-7">
+									class="col-sm-5 col-form-label fs-6 fw-bold text-black-50">┗ 기본 적립 (결제 금액의 1%)</label>
+								<div class="col-sm-6">
 									<input type="text" class="form-control-plaintext fs-6 fw-bold text-black-50"
-										id="basic_points" value="${basic_points}원" readonly />
+										id="basic_points" value="<fmt:formatNumber value="${basic_points}" pattern="#,###" />원" readonly />
 								</div>
 							</div>
 							<div class="px-3 row">
@@ -330,7 +257,7 @@
 									class="col-sm-4 col-form-label fs-6 fw-bold text-black-50">┗ 리뷰 적립</label>
 								<div class="col-sm-7">
 									<input type="text" class="form-control-plaintext fs-6 fw-bold text-black-50"
-										id="review_points" value="1000원" readonly />
+										id="review_points" value="1,000원" readonly />
 								</div>
 							</div>
 						</div>

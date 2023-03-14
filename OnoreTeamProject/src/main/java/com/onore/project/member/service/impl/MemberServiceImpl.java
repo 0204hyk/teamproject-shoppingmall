@@ -119,4 +119,15 @@ public class MemberServiceImpl implements MemberService{
 			
 		return mapper.updateMemberAddress(member);
 	}
+
+	// 비밀번호 변경 - 임시비밀번호 이메일로 보내기 --  실패
+		@Override
+		public void updatePwd(MemberDTO dto1) {
+			return;
+		}
+
+		@Override
+		public MemberDTO searchPwd(MemberDTO dto) {
+			return mapper.searchPwd(dto);
+		}
 }
