@@ -31,7 +31,7 @@
 		<form action="./qna_modify" method="POST" enctype="multipart/form-data">
 		<div class="qna-form">
 			<input type="hidden" name="qna_num" value=${qna.qna_num } />
-			<select name="qna_category" id="select" onchange="changeSelect(this);">
+			<select name="qna_category" id="select"  onchange="changeSelect(this);">
 				<option value="분류">분류</option>
 				<option value="상품">상품</option>
 				<option value="주문 / 결제">주문 / 결제</option>
@@ -39,7 +39,7 @@
 				<option value="반품 / 교환">반품 / 교환</option>
 				<option value="기타">기타</option>
 			</select> 
-			<input type="text" name="qna_title" id="title" value="${qna.qna_title }">
+			<input type="text" name="qna_title" id="title" placeholder="제목을 입력하세요." value="${qna.qna_title }">
 			<input type="hidden" id="p_num" name="product_num" value="">
 	
 			<br>
@@ -47,7 +47,7 @@
 			</div>
 
 			<hr>
-				<textarea rows="30" cols="150" id="qna_content" name="qna_content">${qna.qna_content }</textarea>
+				<textarea rows="30" cols="150" id="qna_content" name="qna_content" placeholder="내용을 입력해 주세요.">${qna.qna_content }</textarea>
 			<hr>
 				
 			<br>
@@ -76,7 +76,7 @@
 				<input type="hidden" name="qna_img_2" value="${qna.qna_img_2 }"/>
 				<input type="hidden" name="qna_img_3" value="${qna.qna_img_2 }"/>
 			</div>			
-				<input type="submit" id="write_btn" value="수정" onclick="return confirm('수정하시겠습니까?')">
+				<input type="submit" id="write_btn" value="수정" >
 		</div>
 		</form>
 	</div>

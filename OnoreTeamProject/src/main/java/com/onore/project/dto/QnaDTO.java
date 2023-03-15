@@ -38,4 +38,5 @@ public class QnaDTO {
 
 		return maskingName;
 	}
+
 }

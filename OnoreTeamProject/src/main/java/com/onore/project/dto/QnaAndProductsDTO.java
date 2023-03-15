@@ -1,6 +1,7 @@
 package com.onore.project.dto;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -25,13 +26,14 @@ public class QnaAndProductsDTO {
 	private String product_name;
 	private Integer product_price;
 	private String product_info;
+	private String product_path;
 	private String product_thumbnail_1;
-	private Integer product_views;
-	private Integer product_likes;
-	private String product_detail;
 	private String product_thumbnail_2;
 	private String product_thumbnail_3;
-	
+	private Integer product_views;
+	private Integer product_likes;
+	private Date product_date;
+
 	public String getmaskingName() {
 
 		String firstName = mem_id.substring(0,1);

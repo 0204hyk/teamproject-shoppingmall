@@ -20,7 +20,6 @@
 </head>
 <body>
 	<%@include file="../top.jspf"%>
-
 	<div class="main"
 		style="padding-top: 127px; width: auto; margin: 50px; margin-top: 0px;">
 		<hr>
@@ -36,7 +35,7 @@
 				<option value="기타">기타</option>
 			</select> 
 			<input type="hidden" id="p_num" name="product_num" value="">
-			<input type="hidden" name="mem_id" value="test"> 
+			<input type="hidden" name="mem_id" value="${sessionScope.signIn.mem_id }"> 
 			<input type="text" name="qna_title" id="title" placeholder="제목을 입력해 주세요.">
 			<br>
 			<div id="inputs">
@@ -71,7 +70,7 @@
 				</div>
 				
 			</div>
-			<input type="submit" id="write_btn" value="등록" onclick="return confirm('완료하시겠습니까?')">
+			<input type="submit" id="write_btn" value="문의 등록">
 		</form>
 		</div>
 	</div>

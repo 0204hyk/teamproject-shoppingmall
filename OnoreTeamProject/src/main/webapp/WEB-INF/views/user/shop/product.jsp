@@ -125,7 +125,14 @@
 				<table id="review-table">
 					<c:forEach items="${reviews }" var="review">
 						<tr>
-							<th rowspan="2" id="review_img"><img src="${review.review_img_1 }"></th>
+							<c:choose>
+								<c:when test="${not empty review.review_img_1}">
+									<th rowspan="2" id="review_img"><img src="/project/resources/review/image/${review.review_img_1 }"></th>
+								</c:when>
+								<c:otherwise>								
+									<th rowspan="2" id="review_img"></th>
+								</c:otherwise>
+							</c:choose>
 							<th class="id" style="width: 200px;">${review.maskingName }/${review.review_date }</th>
 							<c:if test="${review.review_rating eq 5 }">
 								<th class="star">

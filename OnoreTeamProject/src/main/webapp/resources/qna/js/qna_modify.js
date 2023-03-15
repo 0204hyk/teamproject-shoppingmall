@@ -1,3 +1,28 @@
+const title = document.getElementById('title');
+const content = document.getElementById('qna_content');
+const writeBtn = document.getElementById('write_btn');
+
+writeBtn.addEventListener('click', (e) => {
+	if (title.value === "") {
+		alert('제목을 입력하세요.');
+		title.focus();
+		e.preventDefault();
+	} else if (content.value === "") {
+		alert('내용을 입력하세요.');
+		content.focus();
+		e.preventDefault();
+	} 
+	if (title.value != "" && content.value != "") {
+		if (confirm('문의를 등록하시겠습니까?')) {
+			alert('문의 등록이 완료되었습니다.');
+		} else {
+			e.preventDefault();
+		}
+
+	}
+});
+
+
 function PreviewImage() {
 	
 	var preview = new FileReader();

@@ -18,7 +18,7 @@
 			<p style="font-size: 35px; font-weight: bold;" > 죄송합니다, 오류입니다. </p>
 	   		<p style="font-weight : bold; font-size: 15px; color: black;"> 이용에 불편을 드린 점 진심으로 사과드리며, </p>
 	    	<p style="font-weight : bold; font-size: 15px; color:black;">편리하게 서비스를 이용하실 수 있도록 최선의 노력을 다하겠습니다.</p>
-	    	<button type="button" class="login_go_btn" onclick="location.href='/project/main/'">메인으로 가기</button>  	
+	    	<button type="button" class="login_go_btn" onclick="location.href='./login'">메인으로 가기</button>  	
 	 </div>
 </div>
 <!-- middle 끝 -->

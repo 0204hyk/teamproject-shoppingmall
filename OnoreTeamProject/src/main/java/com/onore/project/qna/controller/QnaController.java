@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.onore.project.dto.QnaAndProductsDTO;
 import com.onore.project.dto.QnaDTO;
+import com.onore.project.dto.QnaReplyDTO;
 import com.onore.project.qna.service.QnaService;
 
 import lombok.extern.log4j.Log4j2;
@@ -50,7 +50,6 @@ public class QnaController {
 		qnaService.qnaWrite(model, qna);
 
 		return "redirect:/qna/main";
-
 	}
 
 	@GetMapping("/view")
@@ -59,33 +58,39 @@ public class QnaController {
 		qnaService.qnaReply(model, qna_num);
 		return "user/qna/qna_view";
 	}
-	
-	
+
+	@PostMapping("/qna_replyWrite")
+	public String qnaReplyWrite(Model model, HttpServletRequest req ,QnaReplyDTO reply) {
+		String qna_num = req.getParameter("qna_num");
+		int qna_number = Integer.parseInt(qna_num);
+
+		qnaService.qnaReplyWrite(model, reply);
+		qnaService.qnaUpdateStatus(qna_number);
+		return "redirect:/qna/view?qna_num=" + qna_num;
+	}
+
+
 	@GetMapping("/qna_modify")
 	public String qnaModifyForm(Model model, Integer qna_num) {
 		model.addAttribute("qna", qnaService.qnaModifyForm(qna_num));
 		return "user/qna/qna_modify";
 	}
-	
+
 	@PostMapping("/qna_modify")
 	public String qnaModifyForm(List<MultipartFile> file, HttpServletRequest req, QnaDTO qna) throws IllegalStateException, IOException {
-		
+
 		String qna_num = req.getParameter("qna_num");
 		qnaService.fileUpload(qna, file);
 		qnaService.qnaModifyComple(qna);
-		
+
 		return "redirect:/qna/view?qna_num=" + qna_num;
-		
 	}
-	
-	
+
+
 	@GetMapping("/qna_delete")
 	public String qnaDelete(Model model, Integer qna_num) {
 		qnaService.qnaDelete(qna_num);
-		
-		return "redirect:/qna/main";
-		
-	}
-	
 
+		return "redirect:/qna/main";
+	}
 }

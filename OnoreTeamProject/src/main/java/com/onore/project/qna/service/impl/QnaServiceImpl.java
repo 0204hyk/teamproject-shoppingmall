@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.onore.project.dto.ProductsDTO;
 import com.onore.project.dto.QnaAndProductsDTO;
 import com.onore.project.dto.QnaDTO;
+import com.onore.project.dto.QnaReplyDTO;
 import com.onore.project.mapper.QnaMapper;
 import com.onore.project.qna.service.QnaService;
 
@@ -24,20 +25,12 @@ public class QnaServiceImpl implements QnaService {
 	@Autowired
 	QnaMapper qna_mapper;
 
-
-
 	@Override
 	public void qnaList(Model model) {
 		model.addAttribute("qnas", qna_mapper.getQnaAndProductsAll());
-		
+
 	}
-	
-	@Override
-	public void qnaAll(Model model) {
-		
-		
-	}
-	
+
 	@Override
 	public void qnaWrite(Model model, QnaDTO qna) {
 		model.addAttribute("qnas", qna_mapper.qnaWrite(qna));
@@ -45,47 +38,58 @@ public class QnaServiceImpl implements QnaService {
 	}
 
 	@Override
+	public void qnaReplyWrite(Model model, QnaReplyDTO reply) {
+		model.addAttribute("reply", qna_mapper.insertReply(reply));
+
+	}
+
+	@Override
+	public Integer qnaUpdateStatus(Integer qna_num) {
+
+		return qna_mapper.updateStatus(qna_num);
+	}
+
+	@Override
 	public void qnaView(Model model, int qna_num) {
 		model.addAttribute("views", qna_mapper.getContents(qna_num));
 
 	}
-	
+
 	@Override
 	public void qnaReply(Model model, int qna_num) {
+
 		model.addAttribute("replys", qna_mapper.getReply(qna_num));
-		
 	}
-	
-	
+
+
 	@Override
 	public QnaDTO qnaModifyForm(Integer qna_num) {
-		
+
 		return qna_mapper.qnaModifyForm(qna_num);
 	}
-	
+
 	@Override
 	public Integer qnaModifyComple(QnaDTO qna) {
-		
+
 		return qna_mapper.qnaModifyComple(qna);
 	}
 
 	@Override
 	public Integer qnaDelete(Integer qna_num) {
-		
+
 		return qna_mapper.qnaDelete(qna_num);
 	}
-	
+
 	@Override
 	public List<ProductsDTO> getProductName(String product_name) {
-		
+
 		return qna_mapper.getProductName(product_name);
-		
 	}
-	
+
 	@Override
 	public void fileUpload(QnaDTO qna, List<MultipartFile> file) throws IllegalStateException, IOException {
 		//String imgPath = "C:\\Users\\K\\git\\teamproject-shoppingmall\\OnoreTeamProject\\src\\main\\webapp\\resources\\qna\\images\\";
-		String imgPath = "/Users/kang/git/teamproject-shoppingmall/OnoreTeamProject/src/main/webapp/resources/qna/images/"; // 노트북
+		String imgPath = "/Users/minbong/git/teamproject-shoppingmall/OnoreTeamProject/src/main/webapp/resources/qna/images/"; // 노트북
 		UUID uuid = UUID.randomUUID();
 		String[] fileName = new String[3];
 
@@ -152,8 +156,6 @@ public class QnaServiceImpl implements QnaService {
 		int next_page = pagination_end + 1;
 		int previous_page = pagination_start - 1;
 
-
-
 		System.out.printf("현재 페이지는 %d페이지고, 페이지네이션 시작은 %d, 마지막 숫자는 %d 입니다.",
 				page, pagination_start, pagination_end);
 
@@ -162,12 +164,6 @@ public class QnaServiceImpl implements QnaService {
 		req.setAttribute("pagination_end", pagination_end);
 		req.setAttribute("next_page", next_page);
 		req.setAttribute("previous_page", previous_page);
-
-
 	}
-
-
-
-	
 
 }
