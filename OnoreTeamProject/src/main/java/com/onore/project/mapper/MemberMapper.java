@@ -24,21 +24,25 @@ public List<MemberDTO> getAll();
 	String find_id(@Param("mem_name") String name, @Param("mem_email") String email);
 	
 	// 비밀번호 찾기
-	//String find_pw(@Param("mem_id") String id, @Param("mem_email") String email);
-	public MemberDTO searchPwd(MemberDTO dto);
+	String find_pw(@Param("mem_id") String id, @Param("mem_email") String email);
+	void update_pw(MemberDTO member) throws Exception;
 	
 	// 회원정보 불러오기
 	 MemberDTO getMember(String memberId) throws Exception;
 	 
 	 // 회원정보 수정하기
-	 Integer memberInfoModify(MemberDTO memberdto) throws Exception;
+	 void memberInfoModify(MemberDTO memberdto) throws Exception;
 	 
 	 // 비밀번호 수정하기
 	 Integer memberPwModify(MemberDTO memberdto) throws Exception;
 	 
 	 // 회원탈퇴 하기
-	 Integer memberDeleteDo(MemberDTO memberdto) throws Exception;
-
+	 void memberDelete(MemberDTO memberdto) throws Exception;
+	 Integer passChk(MemberDTO memberdto) throws Exception;
+	 
+	// 가입시 쿠폰 지급
+	Integer insertCoupon(CouponDTO coupon);
+	 
 	 // 회원이 소유한 쿠폰 가져오기
 	 List<CouponDTO> getCoupons(String mem_id);
 	 

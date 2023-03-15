@@ -1,96 +1,67 @@
+a {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
 .middle_login_div,
 .middle_idpw_search_div {
-	height: 600px;
+	height: 700px;
 	padding-top: 200px;
 	background-color: white;
 }
 
-.login_div {
-	height: 370px;
-	background-color: white;
-	text-align: center;	
-}
-
+.login_div,
 .search_idpw_div {
-	height: 410px;
+	height: 340px;
 	background-color: white;
 	text-align: center;	
-}
-
-.search_id_result,
-.search_pw_result{
-	height: 30px;
 }
 
 .login_div > div,
-.login_article
+.login_article,
+.search_idpw_div > div,
+.search_id_article,
+#search_pw_div,
+.search_pw_article
  {
 	margin: auto;
 	width: 400px;
 	text-align: left;	
 }
 
-.search_idpw_div > div {
-	margin: auto;
-	width: 400px;
-	text-align: left;
+.login_title_div,
+.search_idpw_title_div {
+	padding-bottom: 50px;
 }
-
-.search_id_article,
-.search_pw_article {
-	margin: auto;
-	width: 400px;
-	margin-top: 20px;
-	text-align: left;
-}
-
 
 .login_title_div,
 .search_idpw_title_div {
-	height: 80px;
 	font-size: 25px;
 	font-weight: bold;
-	font-family: 'Do Hyeon', sans-serif;
-	color: black;
 }
 
-.check_idpw_div {
-	padding-bottom : 30px;
+.check_idpw_div,
+.input_id_div,
+.input_pw_div,
+.search_input_name_div,
+.search_input_email_div,
+.search_input_id_div {
+	padding-bottom: 10px;
 }
 
 .check_idpw_div > div {
 	display: inline;
 	font-size: 15px;
-	font-family: 'Do Hyeon', sans-serif;
-	color: black;
 }
 
-.title_idpw_div,
-#search_id_div,
-#search_pw_div {
-	padding-bottom: 10px;
-}
 
-#search_pw_div {
+.login_idpw_div {
 	margin: auto;
-	width: 400px;
-	text-align: left;	
 }
-
-.login_idpw_div > a,
-#search_id_div > div > a,
-#search_pw_div > div > a {
-	font-size: 20px;
-	font-family: 'Do Hyeon', sans-serif;
-	color: darkgray;
-}
-
-.input_id_div,
-.input_pw_div,
-.search_input_name_div,
-.search_input_email_div,
-.search_input_id_div{
-	padding-bottom: 20px;
+.search_name_div,
+.search_id_div,
+.search_email_div {
+	float: left;
+	font-size: 15px;
 }
 
 .input_id_div > #input_id,
@@ -98,26 +69,21 @@
 .search_input_name_div > #input_mem_name,
 .search_input_email_div > #input_mem_email1,
 .search_input_email_div > #input_mem_email2,
-.search_input_id_div > #input_mem_id
+.search_input_id_div > #input_mem_id,
+.member_search_div
  {
 	width: 100%;
 	height: 30px;
-}
-
-.member_search_div {
-	height: 30px;
-	width: 100%;
 }
 
 .remember_id_div,
-.member_idpw_search_div{
+.member_idpw_search_div {
 	float: left;
+	text-align: left;
 	width: 49%;
 }
 
-.member_search_div > div > a
- {
-	color: darkgray;
+.member_search_div > div {
 	font-size: 12px;
 }
 
@@ -125,11 +91,23 @@
 	text-align: right;
 }
 
-
 .message_div {
+	height: 30px;
+	text-align: left;
+	color: red;
+}
+
+.search_id_result,
+.search_pw_result {
+	height: 30px;
+	text-align: left;
+}
+
+.message_div,
+#search_id_result_a,
+#search_pw_result_a {
 	font-size: 12px;
 	font-weight: bold;
-	color: red;
 }
 
 .login_Btn_div,
@@ -138,22 +116,17 @@
 .join_Btn_div,
 .go_login_Btn_div {
 	text-align: center;
-}
-
-.onore_login {
-	float: left;
-	width: 100%;
 	height: 50px;
-	padding-top: 20px;
 }
 
 .loginBtn,
 .search_id_btn,
-.search_pw_btn {
+.search_pw_btn,
+.joinBtn:hover,
+.go_login_Btn:hover {
 	width: 200px;
 	height: 50px;
 	font-weight: bold;
-	font-family: 'Do Hyeon', sans-serif;
 	font-size: 20px;
 	background-color: black;
 	color: white;
@@ -161,35 +134,13 @@
 	cursor: pointer; /* 마우스 올리면 손가락 모양으로 변함 */
 }
 
-.joinBtn {
-	width: 200px;
-	height: 50px;
-	font-weight: bold;
-	font-family: 'Do Hyeon', sans-serif;
-	font-size: 20px;
-	background-color: white;
-	border-radius: 3px;
-	cursor: pointer; /* 마우스 올리면 손가락 모양으로 변함 */
-
-}
-
-.joinBtn:hover {
-	background-color: black;
-	color: white;
-}
-
+.joinBtn,
 .go_login_Btn {
 	width: 200px;
 	height: 50px;
 	font-weight: bold;
-	font-family: 'Do Hyeon', sans-serif;
 	font-size: 20px;
 	background-color: white;
 	border-radius: 3px;
-	cursor: pointer; /* 마우스 올리면 손가락 모양으로 변함 */
-}
-
-.go_login_Btn:hover {
-	background-color: black;
-	color: white;
+	cursor: pointer;
 }

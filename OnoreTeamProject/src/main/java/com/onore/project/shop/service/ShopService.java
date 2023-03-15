@@ -19,7 +19,7 @@ public interface ShopService {
 
 	List<ProductsDTO> loafersView();
 
-	List<ProductsDTO> snakersView();
+	List<ProductsDTO> sneakersView();
 
 	ProductsDTO getDetail(Integer product_num);
 
@@ -30,6 +30,8 @@ public interface ShopService {
 	Integer getWish (WishDTO wish);
 	
 	Integer deleteWish(WishDTO wish);
+	
+	String checkWish(Integer product_num); 
 	
 	Integer addToCart(CartDTO cart);
 		

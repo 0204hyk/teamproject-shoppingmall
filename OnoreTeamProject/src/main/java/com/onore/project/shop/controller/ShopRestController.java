@@ -46,10 +46,10 @@ public class ShopRestController {
 
 	}
 
-	@GetMapping(value = {"/restful/snakers"}, produces = "application/json; charset=UTF-8")
-	public List<ProductsDTO> snakers() {
+	@GetMapping(value = {"/restful/sneakers"}, produces = "application/json; charset=UTF-8")
+	public List<ProductsDTO> sneakers() {
 
-		return shopService.snakersView();
+		return shopService.sneakersView();
 
 	}
 	

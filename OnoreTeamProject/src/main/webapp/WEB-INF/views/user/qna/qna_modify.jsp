@@ -20,7 +20,7 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
 <%@include file="../header.jspf"%>
-<link rel="stylesheet" href="/project/resources/qna/css/qna_write.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/qna/css/qna_write.css" />
 </head>
 <body>
 	<%@include file="../top.jspf"%>
@@ -28,7 +28,7 @@
 	<div class="main"
 		style="padding-top: 127px; width: auto; height: 1200px; margin: 50px; margin-top: 0px;">
 		<hr>
-		<form action="./qna_modify" method="POST" enctype="multipart/form-data">
+		<form action="<%=request.getContextPath() %>/qna/qna_modify" method="POST" enctype="multipart/form-data">
 		<div class="qna-form">
 			<input type="hidden" name="qna_num" value=${qna.qna_num } />
 			<select name="qna_category" id="select"  onchange="changeSelect(this);">
@@ -53,9 +53,9 @@
 			<br>
 			
 			<div id="img-box">
-				<img class="image-box" id="user-image1" src="/project/resources/qna/images/${qna.qna_img_1 }"/>
-				<img class="image-box" id="user-image2" src="/project/resources/qna/images/${qna.qna_img_2 }"/>
-				<img class="image-box" id="user-image3" src="/project/resources/qna/images/${qna.qna_img_3 }"/>		
+				<img class="image-box" id="user-image1" src="<%=request.getContextPath() %>/resources/qna/images/${qna.qna_img_1 }"/>
+				<img class="image-box" id="user-image2" src="<%=request.getContextPath() %>/resources/qna/images/${qna.qna_img_2 }"/>
+				<img class="image-box" id="user-image3" src="<%=request.getContextPath() %>/resources/qna/images/${qna.qna_img_3 }"/>		
 			</div>
 			
 			<br>	
@@ -84,7 +84,7 @@
 
 	
 	<script type="text/javascript"
-		src="/project/resources/qna/js/qna_modify.js"></script>
+		src="<%=request.getContextPath() %>/resources/qna/js/qna_modify.js"></script>
 
 	<%@include file="../bottom.jspf"%>
 </body>

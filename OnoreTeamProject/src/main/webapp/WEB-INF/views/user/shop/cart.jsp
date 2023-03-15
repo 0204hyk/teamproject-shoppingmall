@@ -7,11 +7,11 @@
 <meta charset="UTF-8">
 <title>장바구니</title>
 <%@ include file="../header.jspf" %>
-<link rel="stylesheet"href="/project/resources/shop/css/cart.css">
-<link rel="icon" href="/project/resources/shop/image/파비콘.png">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/shop/css/cart.css">
+<link rel="icon" href="<%=request.getContextPath() %>/resources/shop/image/파비콘.png">
 </head>
 <body>
-<script src="/project/resources/shop/js/cart.js" defer></script>
+<script src="<%=request.getContextPath() %>/resources/shop/js/cart.js" defer></script>
 
 <%@ include file="../top.jspf" %>
 <div class="container">
@@ -83,7 +83,7 @@
 										<form method="POST">
 											<input type="hidden" name="selected_list" value="${cart_list.get(i).cart_num}"/>
 											<input type="submit" class="order_single_btn" formaction="../order/from_cart" value="주문하기">
-											<input type="submit" class="delete_single_btn" formaction="./delete_cart" value="삭제하기">
+											<input type="submit" class="delete_single_btn" formaction="./delete_selected_cart" value="삭제하기">
 										</form>
 									</td>
 								</tr>

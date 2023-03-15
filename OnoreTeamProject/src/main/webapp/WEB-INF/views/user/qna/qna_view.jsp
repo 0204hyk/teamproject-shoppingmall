@@ -20,7 +20,7 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
 <%@include file="../header.jspf"%>
-<link rel="stylesheet" href="/project/resources/qna/css/qna_detail.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/qna/css/qna_detail.css" />
 </head>
 <body>
 	<%@include file="../top.jspf"%>
@@ -47,30 +47,30 @@
 					<div class="sub-container2">
 						<div class="img">
 							<c:if test="${not empty view.qna_img_1 }">
-								<a href="/project/resources/qna/images/${view.qna_img_1 }"
+								<a href="<%=request.getContextPath() %>/resources/qna/images/${view.qna_img_1 }"
 									data-toggle="lightbox" data-gallery="example-gallery"
 									class="col-sm-4"> <img
-									src="/project/resources/qna/images/${view.qna_img_1 }"
+									src="<%=request.getContextPath() %>/resources/qna/images/${view.qna_img_1 }"
 									name="qna_img_1" class="img-fluid rounded" />
 								</a>
 							</c:if>
 						</div>
 						<div class="img">
 							<c:if test="${not empty view.qna_img_2 }">
-								<a href="/project/resources/qna/images/${view.qna_img_2 }"
+								<a href="<%=request.getContextPath() %>/resources/qna/images/${view.qna_img_2 }"
 									data-toggle="lightbox" data-gallery="example-gallery"
 									class="col-sm-4"> <img
-									src="/project/resources/qna/images/${view.qna_img_2 }"
+									src="<%=request.getContextPath() %>/resources/qna/images/${view.qna_img_2 }"
 									name="qna_img_1" class="img-fluid rounded" />
 								</a>
 							</c:if>
 						</div>
 						<div class="img">
 							<c:if test="${not empty view.qna_img_3 }">
-								<a href="/project/resources/qna/images/${view.qna_img_3 }"
+								<a href="<%=request.getContextPath() %>/resources/qna/images/${view.qna_img_3 }"
 									data-toggle="lightbox" data-gallery="example-gallery"
 									class="col-sm-4"> <img
-									src="/project/resources/qna/images/${view.qna_img_3 }"
+									src="<%=request.getContextPath() %>/resources/qna/images/${view.qna_img_3 }"
 									name="qna_img_1" class="img-fluid rounded" />
 								</a>
 							</c:if>

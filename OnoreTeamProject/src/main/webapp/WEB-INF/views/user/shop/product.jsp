@@ -8,9 +8,9 @@
 <meta charset="UTF-8">
 <title>ONÓRE</title>
 <%@ include file="../header.jspf" %>
-<link rel="icon" href="/project/resources/review/image/파비콘.png">
-<link rel="stylesheet"href="/project/resources/shop/css/product_detail.css?ver=5">
-<script src="/project/resources/shop/js/product_detail.js?ver=1" defer></script>
+<link rel="icon" href="<%=request.getContextPath()%>/resources/review/image/파비콘.png">
+<link rel="stylesheet"href="<%=request.getContextPath()%>/resources/shop/css/product_detail.css?ver=5">
+<script src="<%=request.getContextPath()%>/resources/shop/js/product_detail.js?ver=1" defer></script>
 </head>
 <body>
 
@@ -21,7 +21,7 @@
 		<c:when test="${param.status eq 'added_to_cart'}">
 			<dialog id="cart_dialog" open>
 			  <p>장바구니에 추가 되었습니다.</p>
-				<button onclick="location.href='/project/shop/cart'">장바구니로 이동</button>
+				<button onclick="location.href='<%=request.getContextPath()%>/shop/cart'">장바구니로 이동</button>
 				<button onclick="close_dialog();">계속 쇼핑하기</button>
 			</dialog>
 		</c:when>
@@ -38,8 +38,22 @@
 				</div>
 				<div class="right">
 					<h1 id="product_name">${product.product_name }</h1>
-					<button class="heart" id="nowish"><i class="fa-regular fa-heart fa-2x"></i></button>
-					<button class="heart" id="wish" style="display: none;"><i class="fa-solid fa-heart fa-2x"></i></button>
+					<c:choose>
+						<c:when test="${not empty sessionScope.signIn.mem_id }">
+								<c:if test="${wish eq sessionScope.signIn.mem_id}">		
+									<button class="heart" id="wish" ><i class="fa-solid fa-heart fa-2x"></i></button>
+									<button class="heart" id="nowish" style="display: none;"><i class="fa-regular fa-heart fa-2x"></i></button>	
+								</c:if>
+								<c:if test="${wish ne sessionScope.signIn.mem_id}">
+									<button class="heart" id="wish" style="display: none;"><i class="fa-solid fa-heart fa-2x"></i></button>
+									<button class="heart" id="nowish"><i class="fa-regular fa-heart fa-2x"></i></button>
+								</c:if>
+						</c:when>
+						<c:otherwise>
+							<button class="heart" id="wish" style="display: none;"><i class="fa-solid fa-heart fa-2x"></i></button>
+							<button class="heart" id="nowish"><i class="fa-regular fa-heart fa-2x"></i></button>
+						</c:otherwise>
+					</c:choose>
 					<span style="display: none;" id="mem_id">${sessionScope.signIn.mem_id }</span>
 					<hr style="margin-top: 20px;">
 					<div id="info"><br>${product.product_info }</div>
@@ -109,11 +123,11 @@
 			</nav>
 		</div>
 			<div id="detail">
-				<img src="/project/resources/shop/image/doby/doby1.jpg">
-				<img src="/project/resources/shop/image/doby/doby2.jpg">
-				<img src="/project/resources/shop/image/doby/doby3.jpg">
-				<img src="/project/resources/shop/image/doby/doby4.jpg">
-				<img src="/project/resources/shop/image/doby/doby5.jpg">
+				<img src="<%=request.getContextPath()%>/resources/shop/image/doby/doby1.jpg">
+				<img src="<%=request.getContextPath()%>/resources/shop/image/doby/doby2.jpg">
+				<img src="<%=request.getContextPath()%>/resources/shop/image/doby/doby3.jpg">
+				<img src="<%=request.getContextPath()%>/resources/shop/image/doby/doby4.jpg">
+				<img src="<%=request.getContextPath()%>/resources/shop/image/doby/doby5.jpg">
 			</div>
 		</div>
 		<hr>
@@ -127,7 +141,7 @@
 						<tr>
 							<c:choose>
 								<c:when test="${not empty review.review_img_1}">
-									<th rowspan="2" id="review_img"><img src="/project/resources/review/image/${review.review_img_1 }"></th>
+									<th rowspan="2" id="review_img"><img src="<%=request.getContextPath()%>/resources/review/image/${review.review_img_1 }"></th>
 								</c:when>
 								<c:otherwise>								
 									<th rowspan="2" id="review_img"></th>

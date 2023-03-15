@@ -21,7 +21,7 @@
 		select * from products where category_num = 3
 	</select>
 	
-	<select id="getSnakers" resultType="com.onore.project.dto.ProductsDTO">
+	<select id="getSneakers" resultType="com.onore.project.dto.ProductsDTO">
 		select * from products where category_num = 4
 	</select>
 	
@@ -48,6 +48,10 @@
   	<delete id="deleteWish">
   		DELETE FROM wish_list WHERE product_num=#{product_num}  AND mem_id=#{mem_id}
  	</delete>
+ 	
+ 	<select id="checkWish" resultType="String">
+		SELECT mem_id FROM wish_list WHERE product_num = #{product_num}
+	</select>
 	
 	<insert id="addToCart" parameterType="com.onore.project.dto.CartDTO">
 		INSERT INTO cart VALUES (cart_seq.nextval, #{product_num}, #{mem_id}, #{cart_product_qty},

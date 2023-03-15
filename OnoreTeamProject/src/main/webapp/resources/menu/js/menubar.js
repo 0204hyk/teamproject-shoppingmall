@@ -9,4 +9,3 @@
     menu.classList.toggle('active');
     submenu.classList.toggle('active');
  });
-

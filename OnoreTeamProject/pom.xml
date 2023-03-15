@@ -169,7 +169,26 @@
           <artifactId>spring-security-config</artifactId>
           <version>5.0.8.RELEASE</version>
       </dependency>
-      <!-- 비밀번호 암호와 완료 끝 -->
+      <!-- 비밀번호 암호화 완료 끝 -->
+      
+      	<!-- 이메일로 임시 비밀번호 발급 -->
+		<!-- 이메일 API -->
+        <dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-email</artifactId>
+			<version>1.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+		    <artifactId>spring-context-support</artifactId>
+		    <version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+		  <groupId>com.sun.mail</groupId>
+		  <artifactId>javax.mail</artifactId>
+		  <version>1.6.2</version>
+		</dependency>
+		<!-- 이메일로 임시 비밀번호 발급 끝 -->	
 
 
 		

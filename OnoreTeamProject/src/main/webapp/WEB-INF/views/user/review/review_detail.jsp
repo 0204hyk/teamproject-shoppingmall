@@ -7,9 +7,9 @@
 <meta charset="UTF-8">
 <title>ONÓRE</title>
 <%@ include file="../header.jspf"%>
-<link rel="icon" href="/project/resources/review/image/파비콘.png">
+<link rel="icon" href="<%=request.getContextPath() %>/resources/review/image/파비콘.png">
 <link rel="stylesheet"
-	href="/project/resources/review/css/review_detail.css?ver=8">
+	href="<%=request.getContextPath() %>/resources/review/css/review_detail.css?ver=8">
 </head>
 <body>
 
@@ -90,30 +90,30 @@
 				<div class="sub-container2">
 					<div class="img">
 						<c:if test="${not empty contents.review_img_1}">
-							<a href="/project/resources/review/image/${contents.review_img_1 }"
+							<a href="<%=request.getContextPath() %>/resources/review/image/${contents.review_img_1 }"
 							data-toggle="lightbox" data-gallery="example-gallery"
 							class="col-sm-4">
-						<img src="/project/resources/review/image/${contents.review_img_1 }"
+						<img src="<%=request.getContextPath() %>/resources/review/image/${contents.review_img_1 }"
 								name="qna_img_1" class="img-fluid rounded" />
 						</a>
 						</c:if>
 					</div>
 					<div class="img">
 						<c:if test="${not empty contents.review_img_2}">
-							<a href="/project/resources/review/image/${contents.review_img_2 }"
+							<a href="<%=request.getContextPath() %>/resources/review/image/${contents.review_img_2 }"
 							data-toggle="lightbox" data-gallery="example-gallery"
 							class="col-sm-4">
-						<img src="/project/resources/review/image/${contents.review_img_2 }"
+						<img src="<%=request.getContextPath() %>/resources/review/image/${contents.review_img_2 }"
 								name="qna_img_1" class="img-fluid rounded" />
 						</a>
 						</c:if>
 					</div>
 					<div class="img">
 						<c:if test="${not empty contents.review_img_3}">
-							<a href="/project/resources/review/image/${contents.review_img_3 }"
+							<a href="<%=request.getContextPath() %>/resources/review/image/${contents.review_img_3 }"
 							data-toggle="lightbox" data-gallery="example-gallery"
 							class="col-sm-4">
-						<img src="/project/resources/review/image/${contents.review_img_3 }"
+						<img src="<%=request.getContextPath() %>/resources/review/image/${contents.review_img_3 }"
 								name="qna_img_1" class="img-fluid rounded" />
 						</a>
 						</c:if>
@@ -180,7 +180,7 @@
 
 	<%@ include file="../bottom.jspf"%>
 
-	<script src="/project/resources/review/js/review_detail.js?ver=5" defer></script>
+	<script src="<%=request.getContextPath() %>/resources/review/js/review_detail.js?ver=5" defer></script>
 </body>
 
 </html>

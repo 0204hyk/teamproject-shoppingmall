@@ -9,13 +9,13 @@
 <title>주문 결과</title>
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-<link rel="stylesheet" href="/project/resources/order/css/order_complete.css"/>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/order/css/order_complete.css"/>
 </head>
 <body>
 	<div class="container">
 		<div id="header" class="container-sm w-auto">
 			<h2 id="header_title">
-				<a style="cursor:pointer;" onclick="location.href = 'http://localhost:8888/project/main/';">
+				<a style="cursor:pointer;" onclick="location.href = 'http://localhost:8888' + <%= request.getContextPath() %> +'/main/';">
 					ONORE
 				</a>
 			</h2>
@@ -268,13 +268,14 @@
 		<div class="blank bg-white"></div>
 		<div id="btn_container" class="container-sm w-auto">
 			<button type="button" id="home_btn" class="btn btn-lg btn-dark w-100 rounded-1"
-					onclick="location.href='http://localhost:8888/project/main/';">
+					onclick="location.href='http://localhost:8888' + <%= request.getContextPath() %> +'main/';">
 				홈으로
 			</button>
 		</div>
 		<div class="blank"></div>
 	</div>
 	<script>
+		const contextPath = '<%=request.getContextPath() %>';
 		const revise_btn = document.getElementById('revise_btn');
 		const myInput = document.getElementById('myInput');
 	

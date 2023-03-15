@@ -5,26 +5,26 @@
 <header class="header">
 <nav class="navbar">
     <div class="navbar_logo">
-        <a href="/project/main/"><img src="/project/resources/qna/images/로고.png"></a>
+        <a href="<%=request.getContextPath()%>/main/"><img src="<%=request.getContextPath()%>/resources/qna/images/로고.png"></a>
     </div>
 
     <ul class="navbar_menu">
         <li><a href="">NOTICE</a></li>
-        <li><a href="/project/about/">ABOUT</a></li>
-        <li><a href="/project/location">LOCATION</a></li>
-        <li><a href="/project/shop/main">SHOP</a></li>
+        <li><a href="<%=request.getContextPath()%>/about/">ABOUT</a></li>
+        <li><a href="<%=request.getContextPath()%>/location">LOCATION</a></li>
+        <li><a href="<%=request.getContextPath()%>/shop/main">SHOP</a></li>
         <li><a href="" class="community">COMMUNITY</a>
             <ul class="navbar_submenu">
-               <li><a href="/project/qna/main">Q&A</a></li>
-               <li><a href="/project/review/list">REVIEW</a></li>
+               <li><a href="<%=request.getContextPath()%>/qna/main">Q&A</a></li>
+               <li><a href="<%=request.getContextPath()%>/review/list">REVIEW</a></li>
             </ul>
         </li>
               <c:choose>
                   <c:when test="${sessionScope.signIn == null}">
-                      <li><a href="/project/login"><i class="fa-solid fa-user"></i></a>
+                      <li><a href="<%=request.getContextPath()%>/login"><i class="fa-solid fa-user"></i></a>
                   </c:when>
                   <c:when test="${sessionScope.signIn.mem_id ne 'admin'}">
-                      <li><a href="/project/mypage"><i class="fa-solid fa-user"></i></a>
+                      <li><a href="<%=request.getContextPath()%>/mypage"><i class="fa-solid fa-user"></i></a>
                   </c:when>
                   <c:otherwise>
                       <li><a href="#">관리자메뉴</a></li>
@@ -32,19 +32,19 @@
               </c:choose>
               <c:choose>
                   <c:when test="${sessionScope.signIn == null}">
-                      <li><a href="/project/login"><i class="fa-solid fa-cart-shopping"></i></a>
+                      <li><a href="<%=request.getContextPath()%>/login"><i class="fa-solid fa-cart-shopping"></i></i></a>
                   </c:when>
                   <c:when test="${sessionScope.signIn.mem_id ne 'admin'}">
-                      <li><a href="/project/shop/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                      <li><a href="<%=request.getContextPath()%>/shop/cart"><i class="fa-solid fa-cart-shopping"></i></i></a>
                   </c:when>
               </c:choose>
         
         <c:if test="${signIn == null}">
-        <li><a href="/project/login"><i class="fa-solid fa-unlock"></i></a></li>
+        <li><a href="<%=request.getContextPath()%>/login"><i class="fa-solid fa-unlock"></i></a></li>
          </c:if>
          
          <c:if test="${signIn != null}">
-         <li><a href="/project/logout"><i class="fa-solid fa-lock" style="color: blue;"></i></a></li>
+         <li><a href="<%=request.getContextPath()%>/logout"><i class="fa-solid fa-lock" style="color: blue;"></i></a></li>
          <li class="main_login_id">${signIn.mem_name}님 환영합니다!</li>
        </c:if>
     </ul>
@@ -52,6 +52,5 @@
     <a href="#" class="navbar_toggleBtn">
         <i class="fa-solid fa-bars"></i>
     </a>
-    
 </nav>
 </header>

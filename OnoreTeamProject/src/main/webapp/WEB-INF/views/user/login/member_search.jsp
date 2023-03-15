@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>ONÓRE</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link href="/project/resources/menu/css/login_search.css?ver=1" rel="stylesheet"/>
+<link href="<%=request.getContextPath() %>/resources/menu/css/login_search.css?ver=1" rel="stylesheet"/>
 <script>
 function search_check(num) {
 	if (num == '1'){
@@ -33,19 +33,14 @@ function findId_click(){
 		success:function(data){
 			if(data == 0){
 				$('#search_id_result_a').html("이름과 이메일을 확인하세요.");
-				$('#search_id_result_a').css({
-						                    "color": "red",
-						                    "font-size": "15px"});
+				$('#search_id_result_a').css({"color": "red"});
 				$('#input_mem_name').val('');
 				$('#input_mem_email1').val('');
 			} else {
 				$('#search_id_result_a').html('찾으시는 아이디는 [' + data + '] 입니다.');
-				$('#search_id_result_a').css({
-						                    "color": "black",
-						                    "font-size": "15px"});
+				$('#search_id_result_a').css({"color": "blue"});
 				$('#input_mem_name').val('');
-				$('#input_mem_email1').val('');
-				
+				$('#input_mem_email1').val('');	
 			}
 		},
 		 error:function(){
@@ -53,30 +48,25 @@ function findId_click(){
             }
 	});
 };
-	
-/*	
+
 // 비밀번호 찾기
 function findPw_click(){
-	var id=$('#input_mem_id').val()
+	var name=$('#input_mem_id').val()
 	var email=$('#input_mem_email2').val()
 	
 	$.ajax({
 		url:"./find_pw",
 		type:"POST",
-		data:{"mem_id":id, "mem_email":email},
+		data:{"input_mem_id":name, "input_mem_email2":email},
 		success:function(data){
 			if(data == 0){
 				$('#search_pw_result_a').html("아이디와 이메일을 확인하세요.");
-				$('#search_pw_result_a').css({
-						                    "color": "red",
-						                    "font-size": "15px"});
+				$('#search_pw_result_a').css({"color": "red"});
 				$('#input_mem_id').val('');
 				$('#input_mem_email2').val('');
 			} else {
-				$('#search_pw_result_a').html('찾으시는 비밀번호는 [' + data + '] 입니다.');
-				$('#search_pw_result_a').css({
-						                    "color": "black",
-						                    "font-size": "15px"});
+				alert('해당 이메일로 임시 비밀번호를 전송하였습니다.');
+				window.location.href = "./login"; // 이메일을 전송하고나면 로그인 창으로 이동한다.
 			}
 		},
 		 error:function(){
@@ -84,30 +74,23 @@ function findPw_click(){
             }
 	});
 };
-*/
 
 //임시 비밀번호 이메일 전송
 $(function(){
 	$("#search_pw_btn").click(function(){
-		let mem_id=$("input[name='mem_id']").val();
-		let mem_email=$("input[name='mem_email']").val();
 		$.ajax({
-			url:"/project/finduserpwd",
-			dataType:'json',
-			data:{"mem_id":mem_id,"mem_email":mem_email},
-			success:function(data){
-				if(data==true){
-					alert("임시 비밀번호가 발급되었습니다.메일함을 확인해 주세요");
-					console.log(data);
-				}else{
-					alert("아이디 또는 이메일을 정확하게 입력해 주세요");
-					console.log(data);
-			}
-	   	}
+			url : "./find_pw.do",
+			type : "POST",
+			data : {
+				id : $("#mem_id").val(),
+				email : $("#mem_email").val()
+			},
+			success : function(result) {
+				alert(result);
+			},
+		})
 	});
-});
-});
-
+})
 
 </script>
 <%@include file="../header.jspf" %>    
@@ -132,13 +115,13 @@ $(function(){
 				<a>이름</a>
 			</div>
 			<div class="search_input_name_div">
-				<input name="input_mem_name" id="input_mem_name" class="input_mem_name" type="text">
+				<input name="input_mem_name" id="input_mem_name" class="input_mem_name" type="text" placeholder="이름을 입력하세요.">
 			</div>
 			<div class="search_email_div">
 				<a>이메일</a>
 			</div>
 			<div class="search_input_email_div">
-				<input name="input_mem_email1" id="input_mem_email1" class="input_mem_email1" type="email">
+				<input name="input_mem_email1" id="input_mem_email1" class="input_mem_email1" type="email" placeholder="이메일을 입력하세요.">
 			</div>
 			
 		    <div class="search_id_result"><a id="search_id_result_a"></a></div>
@@ -150,31 +133,30 @@ $(function(){
 			</article>
 		</div>
 
-
-	<form action="finduserpwd" method="POST">
+	<!-- <form id="find_pw_form" action="./find_pw" method="POST">  -->
 		<div id="search_pw_div" style="display: none;">
 			<div class="search_id_div">
 				<a>아이디</a>
 			</div>
 			<div class="search_input_id_div">
-				<input name="mem_id" id="input_mem_id" class="input_mem_name" type="text">
+				<input name="mem_id" id="input_mem_id" class="input_mem_id" type="text" placeholder="아이디를 입력하세요.">
 			</div>
 			<div class="search_email_div">
 				<a>이메일</a>
 			</div>
 			<div class="search_input_email_div">
-				<input name="mem_email" id="input_mem_email2" class="input_mem_email2" type="email">
+				<input name="mem_email" id="input_mem_email2" class="input_mem_email2" type="email" placeholder="이메일을 입력하세요.">
 			</div>
 	
   			<div class="search_pw_result"><a id="search_pw_result_a"></a></div>
 
 			<article class="search_pw_article">
 				<div class="search_pw_btn_div">
-					<input name="search_pw_btn" class="search_pw_btn" type="submit" onclick="findPw_click()"value="비밀번호 찾기">
+					<input name="search_pw_btn" class="search_pw_btn" type="submit" onclick="findPw_click()" value="비밀번호 찾기">
 				</div>
 			</article>
 		</div>	
-	</form>
+	<!-- </form> -->
 	</div>
 	<div class="go_login_Btn_div">
 		<input class="go_login_Btn" type="submit" onclick="location.href='./login'" value="로그인 하기">
@@ -182,5 +164,5 @@ $(function(){
 </div>
 <!-- middle 끝 -->
 
-<script src="/project/resources/menu/js/menubar.js"></script>
+<script src="<%=request.getContextPath() %>/resources/menu/js/menubar.js"></script>
 <%@include file="../bottom.jspf"%>

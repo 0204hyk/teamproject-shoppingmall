@@ -8,7 +8,7 @@
 <title>ONÓRE</title>
 <%@ include file="../header.jspf" %>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=75e78a8a9cdd102b783fb3c5f36e1da5"></script>
-<link href="/project/resources/menu/css/location.css?ver=1" rel="stylesheet"/>
+<link href="<%=request.getContextPath() %>/resources/menu/css/location.css?ver=1" rel="stylesheet"/>
 </head>
 <body>
 <%@ include file="../top.jspf" %>
@@ -94,5 +94,5 @@
 </div>  
 <!-- middle 끝 -->
 
-<script src="/project/resources/menu/js/menubar.js"></script>
+<script src="<%=request.getContextPath() %>/resources/menu/js/menubar.js"></script>
 <%@ include file="../bottom.jspf" %>

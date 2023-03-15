@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-    <link rel="icon" href="/project/resources/main/images/fabicon.png">
+    <link rel="icon" href="<%=request.getContextPath() %>/resources/main/images/fabicon.png">
     <title>ONÓRE</title>
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,14 +20,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-<link rel="stylesheet"href="/project/resources/main/css/main.css">
+<link rel="stylesheet"href="<%=request.getContextPath() %>/resources/main/css/main.css">
 </head>
 <body>
 
 <%@ include file="../top.jspf" %>
     
     <div class="main">
-        <img class="background" src="/project/resources/main/images/img_main.png" alt="background" style="width:100%;">
+        <img class="background" src="<%=request.getContextPath() %>/resources/main/images/img_main.png" alt="background" style="width:100%;">
     </div>
     
     

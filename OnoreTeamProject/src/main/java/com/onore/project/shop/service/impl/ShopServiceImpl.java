@@ -50,9 +50,9 @@ public class ShopServiceImpl implements ShopService{
 
 
 	@Override
-	public List<ProductsDTO> snakersView() {
+	public List<ProductsDTO> sneakersView() {
 
-		return shop_mapper.getSnakers();
+		return shop_mapper.getSneakers();
 
 	}
 	
@@ -87,6 +87,12 @@ public class ShopServiceImpl implements ShopService{
 	public Integer deleteWish(WishDTO wish) {
 		
 		return shop_mapper.deleteWish(wish);
+	}
+	
+	@Override
+	public String checkWish(Integer product_num) {
+		
+		return shop_mapper.checkWish(product_num);
 	}
 	
 	@Override

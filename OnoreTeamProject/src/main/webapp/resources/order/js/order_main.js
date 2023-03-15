@@ -19,7 +19,7 @@ const receiver_phone_msg = document.getElementById('receiver_phone_msg');
 
 function toHomePage() {
 	if(window.confirm('홈페이지로 이동하시겠습니까? 주문 정보가 사라집니다.')) {
-		location.href = 'http://localhost:8888/project/main/';
+		location.href = 'http://localhost:8888' + contextPath + '/main/';
 	}
 }
 

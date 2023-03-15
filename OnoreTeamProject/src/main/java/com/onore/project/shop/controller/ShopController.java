@@ -144,18 +144,6 @@ public class ShopController {
 		}
 	}
 	
-	@PostMapping("/delete_cart")
-	public String deleteCart(Integer cart_num) {
-		
-		Integer row = shopService.deleteCart(cart_num);
-		
-		if(row > 0) {
-			return "redirect:/shop/cart?status=delete_success";
-		} else {
-			return "redirect:/shop/cart?status=delete_failed";
-		}
-	}
-	
 	@PostMapping("/delete_selected_cart")
 	public String deleteCart(@RequestParam("selected_list") List<Integer> cart_num) {
 		

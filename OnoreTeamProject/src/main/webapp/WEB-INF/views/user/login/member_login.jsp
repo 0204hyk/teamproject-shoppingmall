@@ -6,10 +6,17 @@
 <head>
 <meta charset="UTF-8">
 <title>ONÓRE</title>
-<link href="/project/resources/menu/css/login_search.css?ver=1" rel="stylesheet"/>
+<link href="<%=request.getContextPath() %>/resources/menu/css/login_search.css?ver=1" rel="stylesheet"/>
 <%@include file="../header.jspf" %>   
 </head>
 <body>
+<script>
+var urlParams = new URLSearchParams(window.location.search);
+var message = urlParams.get('message');
+if (message === "success") {
+    alert("해당 이메일로 임시 비밀번호가 전송되었습니다.");
+}
+</script>
 <%@include file="../top.jspf" %>
 
 <!-- middle 시작 -->
@@ -26,7 +33,7 @@
 				<a>아이디</a>
 			</div>
 			<div class="input_id_div">
-				<input id="input_id" name="mem_id" type="text" placeholder="아이디를 입력하세요.">
+				<input id="input_id" name="mem_id" type="text" placeholder="아이디를 입력하세요." value="${cookie.saved_id.value}"> <!-- 로그인시 아이디 기억하기 체크하면 cookie에 저장된 아이디가 나온다. -->
 			</div>
 	
 			<div class="login_idpw_div">
@@ -37,7 +44,7 @@
 			</div>
 			
 				<div class="member_search_div">
-				<div class="remember_id_div"><input class="remember_id_input" id="remember_id_input" type="checkbox" name="remember_id_input"><a>아이디 기억하기</a></div>
+				<div class="remember_id_div"><input class="remember_id_input" id="remember_id_input" type="checkbox" name="remember_id_input" ${cookie.saved_id != null ? 'checked' : ''} ><a>아이디 기억하기</a></div>
 				<div class="member_idpw_search_div"><a class="member_idpw_searchBtn" href="./member_search">아이디/비밀번호 찾기</a></div>
 				</div>
 				<div class="message_div">
@@ -69,5 +76,5 @@
 </div>
 <!-- middle 끝 -->
 
-<script src="/project/resources/menu/js/menubar.js"></script>
+<script src="<%=request.getContextPath() %>/resources/menu/js/menubar.js"></script>
 <%@include file="../bottom.jspf"%>

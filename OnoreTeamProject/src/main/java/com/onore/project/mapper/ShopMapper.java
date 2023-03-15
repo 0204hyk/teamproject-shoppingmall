@@ -19,7 +19,7 @@ public interface ShopMapper {
 
 	List<ProductsDTO> getLoafers();
 
-	List<ProductsDTO> getSnakers();
+	List<ProductsDTO> getSneakers();
 	
 	ProductsDTO getDetail(Integer product_num);
 	
@@ -30,6 +30,8 @@ public interface ShopMapper {
 	Integer getWish (WishDTO wish);
 	
 	Integer deleteWish(WishDTO wish);
+	
+	String checkWish(Integer product_num); 
 	
 	Integer addToCart(CartDTO cart);
 		

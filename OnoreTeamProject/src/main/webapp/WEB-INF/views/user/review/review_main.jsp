@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <title>ONÓRE</title>
 <%@ include file="../header.jspf" %>
-<link rel="icon" href="/project/resources/review/image/파비콘.png">
-<link rel="stylesheet"href="/project/resources/review/css/review_list.css?ver=1">
+<link rel="icon" href="<%=request.getContextPath() %>/resources/review/image/파비콘.png">
+<link rel="stylesheet"href="<%=request.getContextPath() %>/resources/review/css/review_list.css?ver=1">
 </head>
 <body>
 
@@ -118,7 +118,7 @@
 		location.href='./write';
 	} else {
 		if(confirm('로그인이 필요한 서비스입니다 로그인 하시겠습니까?')){
-			location.href='/project/login';
+			location.href= contextPath + '/login';
 		}
 	}
 	});

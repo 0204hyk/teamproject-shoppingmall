@@ -7,10 +7,10 @@
 <meta charset="UTF-8">
 <title>ONÓRE</title>
 <%@ include file="../header.jspf"%>
-<link rel="icon" href="/project/resources/review/image/파비콘.png">
+<link rel="icon" href="<%=request.getContextPath()%>/resources/review/image/파비콘.png">
 <link rel="stylesheet"
-	href="/project/resources/review/css/review_modify.css">
-<script src="/project/resources/review/js/review_modify.js" defer></script>
+	href="<%=request.getContextPath()%>/resources/review/css/review_modify.css">
+<script src="<%=request.getContextPath()%>/resources/review/js/review_modify.js" defer></script>
 </head>
 <body>
 
@@ -20,7 +20,7 @@
 		style="padding-top: 127px; width: auto; margin: 50px; margin-top: 0px;">
 		<hr>
 		<div class="write">
-		<form class="mb-3" id="myform" action="./write" method="POST" enctype="multipart/form-data">
+		<form class="mb-3" id="myform" action="./modify" method="POST" enctype="multipart/form-data">
 			<div class="container">
 				<div class="a">
 					<div name="prd_img">
@@ -60,9 +60,9 @@
 			
 			<div class="container2">
 				<div id="img-box">
-					<img id="previewImg1" src="/project/resources/review/image/${contents.review_img_1 }" /> 
-					<img id="previewImg2" src="/project/resources/review/image/${contents.review_img_2 }" /> 
-					<img id="previewImg3" src="/project/resources/review/image/${contents.review_img_3 }"/>
+					<img id="previewImg1" src="<%=request.getContextPath()%>/resources/review/image/${contents.review_img_1 }" /> 
+					<img id="previewImg2" src="<%=request.getContextPath()%>/resources/review/image/${contents.review_img_2 }" /> 
+					<img id="previewImg3" src="<%=request.getContextPath()%>/resources/review/image/${contents.review_img_3 }"/>
 				</div>
 				<br>
 				<!-- 파일선택 input 을 각 div로 감쌈 2023.03.08 수정  -->

@@ -15,7 +15,7 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="/project/resources/qna/css/qna_write.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/qna/css/qna_write.css" />
 <%@include file="../header.jspf"%>
 </head>
 <body>
@@ -24,7 +24,7 @@
 		style="padding-top: 127px; width: auto; margin: 50px; margin-top: 0px;">
 		<hr>
 		<div class="qna-form">
-		<form class="mb-3" id="myform" action="./qna_addWrite" method="post"
+		<form class="mb-3" id="myform" action="<%=request.getContextPath() %>/qna/qna_addWrite" method="post"
 			enctype="multipart/form-data">
 			<select name="qna_category" id="select" onchange="changeSelect(this);">
 				<option value="분류">분류</option>
@@ -75,7 +75,7 @@
 		</div>
 	</div>
 	<hr>
-	<script type="text/javascript" src="/project/resources/qna/js/qna_write.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath() %>/resources/qna/js/qna_write.js"></script>
 
 	<%@include file="../bottom.jspf"%>
 </body>

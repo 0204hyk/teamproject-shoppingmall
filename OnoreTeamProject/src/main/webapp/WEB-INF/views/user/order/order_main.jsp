@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-<link rel="stylesheet" href="/project/resources/order/css/order_main.css"/>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/order/css/order_main.css"/>
 <title>결제 페이지</title>
 </head>
 </head>
@@ -339,6 +339,8 @@
 	<script id="order_script">
 		let clientKey = 'test_ck_D5GePWvyJnrK0W0k6q8gLzN97Eoq';
 	    let tossPayments = TossPayments(clientKey);
+	    
+	    const contextPath = '<%=request.getContextPath() %>';
 	</script>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/order/js/discount.js"></script>

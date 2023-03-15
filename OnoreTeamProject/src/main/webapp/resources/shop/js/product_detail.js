@@ -106,19 +106,23 @@ qna_btn.addEventListener('click', (e) => {
 	
 });
 
+let size = sizes.options[sizes.selectedIndex].value;
+let heel = heels.options[heels.selectedIndex].value;
+let sole = soles.options[soles.selectedIndex].value;
+
 // 사이즈
 sizes.addEventListener('change', (e) => {
-    const size = sizes.options[sizes.selectedIndex].value;
+    size = sizes.options[sizes.selectedIndex].value;
     if (size != 'default') {
         heels.removeAttribute("disabled");
         // 힐
         heels.addEventListener('change', (e) => {
-            const heel = heels.options[heels.selectedIndex].value;
+            heel = heels.options[heels.selectedIndex].value;
             if (heel != 'default') {
                 soles.removeAttribute("disabled");
                 // 밑창
                 soles.addEventListener('change', (e) => {
-                    const sole = soles.options[soles.selectedIndex].value;
+                    sole = soles.options[soles.selectedIndex].value;
                     if (sole != 'default') {
                        
                        /* op.innerHTML ="<div id='box'>" + "<hr>" + "<span>" + name + "&nbsp;&nbsp;[" + size + "/" + heel + "/" + sole + "]</span>" 
@@ -139,10 +143,25 @@ sizes.addEventListener('change', (e) => {
 						cart.removeAttribute("disabled");
 						order.removeAttribute("disabled");
 
+                    } else {
+                    	cart.setAttribute("disabled", "true");
+						order.setAttribute("disabled", "true");
                     }
                 });
+            } else {
+            	soles.selectedIndex = 0;
+            	soles.setAttribute("disabled", "true");
+            	cart.setAttribute("disabled", "true");
+				order.setAttribute("disabled", "true");
             }
         });
+    } else {
+        heels.selectedIndex = 0;
+        soles.selectedIndex = 0;
+    	heels.setAttribute("disabled", "true");
+    	soles.setAttribute("disabled", "true");
+    	cart.setAttribute("disabled", "true");
+		order.setAttribute("disabled", "true");
     }
 });
 

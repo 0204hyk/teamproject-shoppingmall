@@ -2,7 +2,7 @@ const categoryAll = document.getElementById('ajax-all');
 const derbyBtn = document.getElementById('ajax-derby');
 const bootsBtn = document.getElementById('ajax-boots');
 const loaferBtn = document.getElementById('ajax-loafer');
-const snakersBtn = document.getElementById('ajax-snakers');
+const sneakersBtn = document.getElementById('ajax-sneakers');
 
 const onoreImg = document.getElementsByClassName('img-container')[0];
 const info = document.getElementsByClassName('img-info')[0];
@@ -268,7 +268,7 @@ loaferBtn.addEventListener('click', (e) => {
     xhttp.send();
 });
 
-snakersBtn.addEventListener('click', (e) => {
+sneakersBtn.addEventListener('click', (e) => {
 	
 	const imgSize = document.getElementsByClassName('imgs').length;
 	const imgInfo = document.getElementsByClassName('information').length;
@@ -317,6 +317,6 @@ snakersBtn.addEventListener('click', (e) => {
 	});
 	
 
-	xhttp.open('GET', '/project/restful/snakers');
+	xhttp.open('GET', '/project/restful/sneakers');
     xhttp.send();
 });	
