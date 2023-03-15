@@ -43,13 +43,19 @@ public class AdminNoticeController {
 	}
 	
 	@GetMapping("/list")
-	public String noticeList(@ModelAttribute("NoticeDTO") NoticeDTO notice, HttpServletRequest request) {
+	public String noticeList(HttpServletRequest request, NoticeDTO notice) {
+		String search_type = request.getParameter("search_type");
+		String search_keyword = request.getParameter("search_keyword");
+		
+		notice.setSearch_type(search_type);
+		notice.setSearch_keyword(search_keyword);
+		
+		List<NoticeDTO> noticeList = service.readAllNotice(notice);
+
 		String pageStr = request.getParameter("page");
 		
-		List<NoticeDTO> noticeList = service.readAllNotice();
-		
-		int page; 
-		
+		int page;
+				
 		if (pageStr == null) {
 			page = 1;
 		} else {
@@ -97,6 +103,8 @@ public class AdminNoticeController {
 		request.setAttribute("prev", prevBtn);
 		request.setAttribute("next", nextBtn);
 		request.setAttribute("page", page);
+		request.setAttribute("search_type", search_type);
+		request.setAttribute("search_keyword", search_keyword);
 		
 		return "/admin/notice/admin_notice_list";
 	}

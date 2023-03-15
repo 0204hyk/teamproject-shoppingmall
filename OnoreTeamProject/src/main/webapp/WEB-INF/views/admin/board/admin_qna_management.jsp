@@ -117,7 +117,7 @@
         	    });
         	});
   	</script>
-	<script src="/project/resources/admin/js/list_checkbox.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/admin/js/list_checkbox.js"></script>
 	
 </body>
 </html>

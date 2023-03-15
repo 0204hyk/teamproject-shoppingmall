@@ -28,8 +28,8 @@
 	
 	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 	<script src=" https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/lang/summernote-ko-KR.min.js"></script>
-	<script src="/project/resources/admin/js/summernote_notice.js"></script>
-	<script src="/project/resources/admin/js/notice_write.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/admin/js/summernote_notice.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/admin/js/notice_write.js"></script>
 	
 </body>
 </html>

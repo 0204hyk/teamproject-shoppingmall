@@ -14,7 +14,7 @@ function writeNotice(url){
                 data: writeFormData,
                 success: function(data){
                     alert('공지사항이 등록되었습니다.');
-                    movePageByGet('/project/admin/notice/list');
+                    movePageByGet(contextPath + '/admin/notice/list');
                 },
                 error: function (request, status, error){        
                     console.log(error);
@@ -29,7 +29,7 @@ function writeNotice(url){
 $("#write-cancle-btn").click(function(){
     var result = confirm('공지사항 등록을 취소하시겠습니까?');
     if (result) {
-        movePageByGet('/project/admin/notice/list');
+        movePageByGet(contextPath + '/admin/notice/list');
     } else {
 
     }
@@ -51,7 +51,7 @@ function modifyNotice(url){
                 data: modifyFormData,
                 success: function(data){
                     alert('공지사항이 수정되었습니다.');
-                    movePageByGet('/project/admin/notice/list');
+                    movePageByGet(contextPath + '/admin/notice/list');
                 },
                 error: function (request, status, error){        
                     console.log(error);
@@ -66,7 +66,7 @@ function modifyNotice(url){
 $("#modify-cancle-btn").click(function(){
     var result = confirm('공지사항 수정을 취소하시겠습니까?');
     if (result) {
-        movePageByGet('/project/admin/notice/list');
+        movePageByGet(contextPath + '/admin/notice/list');
     } else {
 
     }

@@ -37,7 +37,7 @@ function uploadSummernoteImageFile(file, el) {
     $.ajax({
         data : data,
         type : "POST",
-        url : '/project/admin/product_image.upload',
+        url : contextPath + '/admin/product_image.upload',
         contentType : false,
         enctype : 'multipart/form-data',
         processData : false,

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 	
 	<header class="navbar navbar-white sticky-top bg-light flex-md-nowrap p-0 shadow">
-		<a href="<%=request.getContextPath()%>/admin/main"><img class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 logo-img" src="/project/resources/admin/image/logo.png" alt="logo.png" /></a>
+		<a href="<%=request.getContextPath()%>/admin/main"><img class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 logo-img" src="<%=request.getContextPath()%>/resources/admin/image/logo.png" alt="logo.png" /></a>
 		<div class="navbar-nav navbar-infomsg">
 			<p><i class="fa-solid fa-user profile-img"></i>onore님 &nbsp환영합니다.</p>
 		</div>
@@ -74,6 +74,16 @@
 			         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 			           <li><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/product/regist')" class="link-secondary d-inline-flex text-decoration-none rounded">상품 등록</a></li>
 			           <li><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/product/list')" class="link-secondary d-inline-flex text-decoration-none rounded">상품 관리</a></li>
+			         </ul>
+			       </div>
+			     </li>
+			     <li class="mb-1">
+			       <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#member-collapse" aria-expanded="false">
+			         회원
+			       </button>
+			       <div class="collapse" id="member-collapse">
+			         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+			           <li><a href="#" class="link-secondary d-inline-flex text-decoration-none rounded">회원 관리</a></li>
 			         </ul>
 			       </div>
 			     </li>

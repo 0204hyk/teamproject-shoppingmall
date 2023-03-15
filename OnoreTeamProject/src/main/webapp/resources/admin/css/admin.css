@@ -356,6 +356,7 @@ body {
 }
 
 .notice-title {
+  display: flex;
   padding: 10px;
   margin-bottom: 10px;
 }
@@ -370,11 +371,14 @@ body {
 }
 
 .notice-write-title {
+  border-width: 2px;
   font-size: 18px;
-  border-radius: 5px;
-  width: 100%;
   margin-bottom: 10px;
   padding: 5px;
+  font-family: 'Noto Sans KR', sans-serif; 
+  font-weight: 500;
+  font-size: 18px;
+  width: 100%;
 }
 
 .submit-btn {
@@ -390,6 +394,26 @@ body {
 .pagination-btn {
   margin-right: 20px;
   text-decoration: none;
+}
+
+.notice-search-type {
+  width: 100px;
+  margin-top: 5px;
+  margin-left: 150px;
+  margin-right: 10px;
+  font-family: 'Noto Sans KR', sans-serif; 
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.notice-search {
+  margin-top: 5px;
+  border-width: 2px;
+  font-size: 18px;
+  font-family: 'Noto Sans KR', sans-serif; 
+  font-weight: 500;
+  font-size: 18px;
+  width: 50%;
 }
 
 /* 상품 */
@@ -514,4 +538,13 @@ body {
 
 #review-rating {
   color: rgb(231, 231, 60);
+}
+
+/* 검색 */
+
+#search-btn {
+  border: none;
+  background-color: white;
+  font-size: 30px;
+  margin-left: 10px;
 }

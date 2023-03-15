@@ -39,9 +39,9 @@ function setImageFromFile(input, expression) {
 // 파일 미선택시 이미지 미리보기 초기화, 다음 썸네일 등록창 비활성화, 이전 항목 null 될 경우 뒤의 항목도 null
 $('input[name=product_thumbnail_1]').change(function(){
   if ($('input[name=product_thumbnail_1]').val() == '') {
-    $('#preview1').attr('src', "/project/resources/admin/image/default_image.png");
-    $('#preview2').attr('src', "/project/resources/admin/image/default_image.png");
-    $('#preview3').attr('src', "/project/resources/admin/image/default_image.png");
+    $('#preview1').attr('src', contextPath + '/resources/admin/image/default_image.png');
+    $('#preview2').attr('src', contextPath + '/resources/admin/image/default_image.png');
+    $('#preview3').attr('src', contextPath + '/resources/admin/image/default_image.png');
     $('input[name="product_thumbnail_2"]').val('');
     $('input[name="product_thumbnail_3"]').val('');
     $('input[name="product_thumbnail_2"]').attr("disabled", true);
@@ -50,8 +50,8 @@ $('input[name=product_thumbnail_1]').change(function(){
 })
 $('input[name=product_thumbnail_2]').change(function(){
   if ($('input[name=product_thumbnail_2]').val() == '') {
-    $('#preview2').attr('src', "/project/resources/admin/image/default_image.png");
-    $('#preview3').attr('src', "/project/resources/admin/image/default_image.png");
+    $('#preview2').attr('src', contextPath + '/resources/admin/image/default_image.png');
+    $('#preview3').attr('src', contextPath + '/resources/admin/image/default_image.png');
     $('input[name="product_thumbnail_3"]').val('');
     $('input[name="product_thumbnail_3"]').attr("disabled", true);
   } else if (!$('input[name=product_thumbnail_2]').val() == '') {
@@ -60,7 +60,7 @@ $('input[name=product_thumbnail_2]').change(function(){
 })
 $('input[name=product_thumbnail_3]').change(function(){
   if ($('input[name=product_thumbnail_3]').val() == '') {
-    $('#preview3').attr('src', "/project/resources/admin/image/default_image.png");
+    $('#preview3').attr('src', contextPath + '/resources/admin/image/default_image.png');
   }
 })
 // 상품등록 POST
@@ -81,7 +81,7 @@ function productRegist(url){
     var result = confirm('상품을 등록하시겠습니까?');
     
     if (result) {
-      let product_num = $('#input-num').val;
+      let product_num = $('#input-num').val();
       let category_num = $('#input-category').val();
       let product_name = $('#input-name').val();
       let product_price = $('#input-price').val();
@@ -112,7 +112,7 @@ function productRegist(url){
           processData: false,    
           success: function(data){
               alert('상품이 등록되었습니다.');
-              movePageByGet('/project/admin/product/list');
+              movePageByGet(contextPath + '/admin/product/list');
           },
           error: function (request, status, error){        
               console.log(error);
@@ -128,7 +128,7 @@ function productRegist(url){
 $("#regist-cancle-btn").click(function(){
   var result = confirm('상품등록을 취소하시겠습니까?');
   if (result) {
-      movePageByGet('/project/admin/product/list');
+      movePageByGet(contextPath + '/admin/product/list');
   } else {
 
   }
@@ -184,7 +184,7 @@ function productModify(url){
           processData: false,    
           success: function(data){
               alert('상품이 수정되었습니다.');
-              movePageByGet('/project/admin/product/list');
+              movePageByGet(contextPath + '/admin/product/list');
           },
           error: function (request, status, error){        
               console.log(error);
@@ -200,7 +200,7 @@ function productModify(url){
 $("#modify-cancle-btn").click(function(){
   var result = confirm('상품수정을 취소하시겠습니까?');
   if (result) {
-      movePageByGet('/project/admin/product/list');
+      movePageByGet(contextPath + '/admin/product/list');
   } else {
 
   }

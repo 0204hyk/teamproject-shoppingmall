@@ -10,7 +10,27 @@
 <body>
 	
 	<div class="notice-content shadow">
-		<div class="notice-title"><h1>공지사항 목록</h1></div>
+		<div class="notice-title">
+			<h1>공지사항 목록</h1>
+			<select name="search_type" class="form-select notice-search-type">
+				<c:choose>
+					<c:when test="${search_type eq 'notice_title'}">
+						<option value="notice_title" selected>제목</option>
+						<option value="notice_content">내용</option>				
+					</c:when>
+					<c:when test="${search_type eq 'notice_content'}">
+						<option value="notice_title">제목</option>
+						<option value="notice_content" selected>내용</option>
+					</c:when>
+					<c:otherwise>
+						<option value="notice_title">제목</option>
+						<option value="notice_content">내용</option>
+					</c:otherwise>
+				</c:choose>
+			</select>
+			<input type="text" class="form-control notice-search" name="search_keyword" placeholder="검색어를 입력해주세요." value="${search_keyword}"/>
+			<button type="submit" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+		</div>
 		<form id="notice-list-form" name="notice-list-form" method="POST">
 			<div class="container">
 				<table class="notice-board table table-hover">
@@ -19,6 +39,7 @@
 							<th><input type="checkbox" id="all-check"/></th>
 							<th>NO</th>
 							<th>제목</th>
+							<th>작성자</th>
 							<th>작성일</th>
 						</tr>
 					</thead>
@@ -28,6 +49,7 @@
 								<td style="width: 50px;"><input type="checkbox" class="row-check" name="row_check" value="${notice.notice_num}"/></td>
 								<td style="width: 80px;">${notice.notice_num}</td>
 								<td><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/notice/modify?notice_num=${notice.notice_num}')">${notice.notice_title}</a></td>
+								<td style="width: 150px;">관리자</td>
 								<td style="width: 200px;">${notice.creationNoticeDate}</td>
 							</tr>
 						</c:forEach>
@@ -37,26 +59,26 @@
 					<ul class="pagination justify-content-center" style="margin-bottom: 0px;">
 						<c:if test="${prev == true}">
 							<li class="page-item">
-								<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/notice/list?page=${pagination_start - 1}')">«</a>
+								<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/notice/list?page=${pagination_start - 1}&search_type=${search_type}&search_keyword=${search_keyword}')">«</a>
 							</li>												
 						</c:if>
 						
 						<c:forEach begin="${pagination_start}" end="${pagination_end}" var="i">
 							<c:if test="${page == i}">
 						    	<li class="page-item active">
-						    		<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/notice/list?page=${i}')">${i}</a>
+						    		<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/notice/list?page=${i}&search_type=${search_type}&search_keyword=${search_keyword}')">${i}</a>
 						    	</li>
 							</c:if>
 							<c:if test="${page != i}">
 						    	<li class="page-item">
-						    		<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/notice/list?page=${i}')">${i}</a>
+						    		<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/notice/list?page=${i}&search_type=${search_type}&search_keyword=${search_keyword}')">${i}</a>
 						    	</li>
 							</c:if>
 						</c:forEach>
 						
 					    <c:if test="${next == true }">
 							<li class="page-item">
-								<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/notice/list?page=${pagination_end + 1}')">»</a>
+								<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/notice/list?page=${pagination_end + 1}&search_type=${search_type}&search_keyword=${search_keyword}')">»</a>
 							</li>				    					    
 					    </c:if>
 					</ul>
@@ -67,42 +89,8 @@
 		</form>
 	</div>
 		
-	<script>
-		$(document).ready(function(){
-			var page = <%=request.getParameter("page")%>
-			
-		    $('#notice-delete-btn').click(function() {
-				if ($("input:checkbox[name=row_check]:checked").length == 0) {
-					alert('삭제할 항목을 선택해주세요.');
-				} else {
-					var result = confirm('삭제하시겠습니까?');
-	
-					if(result) {
-						var formData = $('#notice-list-form').serialize();
-						
-						var checked = $("input:checkbox[name=row_check]:checked").length;
-						$.ajax({
-							url: "/project/admin/notice/delete",
-							type: "POST",
-							cache: false,
-							data: formData,
-							cache : false,
-							success: function(data){
-								alert(checked + "개의 글을 삭제하였습니다.");
-								movePageByGet('<%=request.getContextPath()%>/admin/notice/list');
-							},
-							error: function (request, status, error){        
-								console.log(error);
-							}
-						})     
-					} else {
-						
-					}
-				}
-		    });
-		});
-  	</script>
-	<script src="/project/resources/admin/js/list_checkbox.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/admin/js/notice_list.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/admin/js/list_checkbox.js"></script>
 	
 </body>
 </html>

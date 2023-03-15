@@ -21,8 +21,8 @@ public class AdminNoticeService_impl implements AdminNoticeService {
 	}
 
 	@Override
-	public List<NoticeDTO> readAllNotice() {
-		return noticeMapper.getAllNotice();
+	public List<NoticeDTO> readAllNotice(NoticeDTO notice) {
+		return noticeMapper.getAllNotice(notice);
 	}
 
 	@Override
