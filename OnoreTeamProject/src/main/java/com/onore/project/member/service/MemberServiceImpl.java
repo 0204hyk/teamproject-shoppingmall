@@ -215,9 +215,22 @@ public class MemberServiceImpl implements MemberService{
 	}
 	
 	// 회원 탈퇴하기
+	//@Override
+	//public Integer memberDeleteDo(MemberDTO memberdto) throws Exception {
+	//	return mapper.memberDeleteDo(memberdto);
+	 //}
+	
+
+	// 회원 탈퇴하기
 	@Override
-	public Integer memberDeleteDo(MemberDTO memberdto) throws Exception {
-		return mapper.memberDeleteDo(memberdto);
+	public void memberDelete(MemberDTO memberdto) throws Exception {
+		mapper.memberDelete(memberdto);
+	}
+	
+	@Override
+	public Integer passChk(MemberDTO memberdto) throws Exception {
+		int result = mapper.passChk(memberdto);
+		return result;
 	}
 	
 }

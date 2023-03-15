@@ -36,8 +36,8 @@ public interface MemberMapper {
 	 Integer memberPwModify(MemberDTO memberdto) throws Exception;
 	 
 	 // 회원탈퇴 하기
-	 Integer memberDeleteDo(MemberDTO memberdto) throws Exception;
-
+	 void memberDelete(MemberDTO memberdto) throws Exception;
+	 Integer passChk(MemberDTO memberdto) throws Exception;
 
 	
 	 

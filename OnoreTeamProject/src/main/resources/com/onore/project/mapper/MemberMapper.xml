@@ -93,8 +93,13 @@
 </update>
 
 <!-- 회원탈퇴 -->
-<delete id="memberDeleteDo" parameterType="com.onore.project.dto.MemberDTO">
-	DELETE FROM members WHERE mem_id = #{mem_id} AND mem_pw =#{mem_pw}
+<delete id="memberDelete">
+	DELETE FROM members WHERE mem_id = #{mem_id}
 </delete>
+ 
+ <!-- 회원탈퇴 -->
+ <select id="passChk" resultType = "int">
+ 	SELECT COUNT(*) FROM members WHERE mem_id = #{mem_id} AND mem_pw #={mem_pw}
+ </select>
 
 </mapper>				
