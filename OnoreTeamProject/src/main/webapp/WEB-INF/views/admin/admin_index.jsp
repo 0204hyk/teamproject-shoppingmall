@@ -71,11 +71,11 @@
 				<c:forEach items="${recentQna}" var="qna">
 					<div class="index-qna-content">
 						<c:choose>
-							<c:when test="${empty review.review_img_1}">
+							<c:when test="${empty qna.qna_img_1}">
 								<img src="<%=request.getContextPath()%>/resources/admin/image/default_image.png" alt="문의 이미지" />		
 							</c:when>
 							<c:otherwise>
-								<img src="${reivew.review_img_path}${review.review_img_1}" alt="문의 이미지" />
+								<img src="${qna.qna_img_path}${qna.qna_img_1}" alt="문의 이미지" />
 							</c:otherwise>
 						</c:choose>					
 						<div>
@@ -97,11 +97,11 @@
 				<c:forEach items="${recentReview}" var="review">
 					<div class="index-review-content">
 						<c:choose>
-							<c:when test="${empty qna.qna_img_1}">
+							<c:when test="${empty review.review_img_1}">
 								<img src="<%=request.getContextPath()%>/resources/admin/image/default_image.png" alt="문의 이미지" />		
 							</c:when>
 							<c:otherwise>
-								<img src="${qna.qna_img_path}${qna.qna_img_1}" alt="문의 이미지" />
+								<img src="${review.review_img_path}${review.review_img_1}" alt="문의 이미지" />
 							</c:otherwise>
 						</c:choose>					
 						<div>

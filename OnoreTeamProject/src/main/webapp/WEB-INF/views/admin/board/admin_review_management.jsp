@@ -37,7 +37,7 @@
 										<td style="width: 200px;"><img src="<%=request.getContextPath()%>/resources/admin/image/default_image.png" alt="이미지 미리보기" style="width: 100px; height: 100px; border-radius: 10px;"/></td>
 									</c:when>
 									<c:otherwise>							
-										<td style="width: 200px;"><img src="${review_img_path} ${review.review_img_1}" alt="이미지 미리보기" style="width: 100px; height: 100px; border-radius: 10px;"/></td>
+										<td style="width: 200px;"><img src="${review.review_img_path}${review.review_img_1}" alt="이미지 미리보기" style="width: 100px; height: 100px; border-radius: 10px;"/></td>
 									</c:otherwise>
 								</c:choose>
 								<td id="review-content" style="vertical-align: middle;"><a href="">${review.review_content}</a></td>
