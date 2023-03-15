@@ -1,0 +1,105 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+	
+	<header class="navbar navbar-white sticky-top bg-light flex-md-nowrap p-0 shadow">
+		<a href="<%=request.getContextPath()%>/admin/main"><img class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 logo-img" src="<%=request.getContextPath()%>/resources/admin/image/logo.png" alt="logo.png" /></a>
+		<div class="navbar-nav navbar-infomsg">
+			<p><i class="fa-solid fa-user profile-img"></i>onore님 &nbsp환영합니다.</p>
+		</div>
+		<div class="navbar-nav">
+			<div class="nav-item text-nowrap">
+		  		<a class="nav-link px-4" href="#">Sign out</a>
+			</div>
+		</div>
+	</header>
+	
+	<div class="container-fluid">
+		<div class="row row-cols-7">
+			<nav class="col-1 flex-shrink-0 p-3 bg-light shadow" style="width: 280px; height: 100vh; overflow-y: auto; position: fixed;">
+			   <ul class="list-unstyled ps-0">
+			   	 <li class="mb-1"> 
+			   	 	<a href="<%=request.getContextPath()%>/main/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+			     	<span class="fs-5 fw-semibold">홈페이지 바로가기</span>
+			   		</a>
+			   	 </li>
+			   	 <li class="mb-1">
+			       <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#sales-collapse" aria-expanded="false">
+			         매출통계
+			       </button>
+			       <div class="collapse" id="sales-collapse">
+			         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+			           <li><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/stats/daily')" class="link-secondary d-inline-flex text-decoration-none rounded">일별 통계</a></li>
+			           <li><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/stats/monthly')" class="link-secondary d-inline-flex text-decoration-none rounded">월별 통계</a></li>
+			           <li><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/stats/annual')" class="link-secondary d-inline-flex text-decoration-none rounded">연별 통계</a></li>
+			         </ul>
+			       </div>
+			     </li>
+			     <li class="mb-1">
+			       <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+			         주문
+			       </button>
+			       <div class="collapse" id="orders-collapse">
+			         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+			           <li><a href="#" class="link-secondary d-inline-flex text-decoration-none rounded">주문 관리</a></li>
+			         </ul>
+			       </div>
+			     </li>
+			     <li class="mb-1">
+			       <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#notice-collapse" aria-expanded="false">
+			         공지사항
+			       </button>
+			       <div class="collapse" id="notice-collapse">
+			         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+			           <li><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/notice/write')" class="link-secondary d-inline-flex text-decoration-none rounded">공지사항 등록</a></li>
+			           <li><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/notice/list')" class="link-secondary d-inline-flex text-decoration-none rounded">공지사항 관리</a></li>
+			         </ul>
+			       </div>
+			     </li>
+			     <li class="mb-1">
+			       <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#board-collapse" aria-expanded="false">
+			         게시글
+			       </button>
+			       <div class="collapse" id="board-collapse">
+			         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+			           <li><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/board/qna')" class="link-secondary d-inline-flex text-decoration-none rounded">문의글 관리</a></li>
+			           <li><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/board/review')" class="link-secondary d-inline-flex text-decoration-none rounded">후기글 관리</a></li>
+			         </ul>
+			       </div>
+			     </li>
+			     <li class="mb-1">
+			       <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#product-collapse" aria-expanded="false">
+			         상품
+			       </button>
+			       <div class="collapse" id="product-collapse">
+			         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+			           <li><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/product/regist')" class="link-secondary d-inline-flex text-decoration-none rounded">상품 등록</a></li>
+			           <li><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/product/list')" class="link-secondary d-inline-flex text-decoration-none rounded">상품 관리</a></li>
+			         </ul>
+			       </div>
+			     </li>
+			     <li class="mb-1">
+			       <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#member-collapse" aria-expanded="false">
+			         회원
+			       </button>
+			       <div class="collapse" id="member-collapse">
+			         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+			           <li><a href="#" class="link-secondary d-inline-flex text-decoration-none rounded">회원 관리</a></li>
+			         </ul>
+			       </div>
+			     </li>
+			     <li class="border-top my-3"></li>
+			     <li class="mb-1">
+			       <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+			         계정
+			       </button>
+			       <div class="collapse" id="account-collapse">
+			         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+			           <li><a href="#" class="link-secondary d-inline-flex text-decoration-none rounded">계정 관리</a></li>
+			         </ul>
+			       </div>
+			     </li>			     
+			   </ul>
+			</nav>
+		</div>
+	</div>	
+		

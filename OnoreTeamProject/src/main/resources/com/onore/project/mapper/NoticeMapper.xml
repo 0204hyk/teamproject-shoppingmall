@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.onore.project.mapper.NoticeMapper">
+	<insert id="insertNotice" parameterType="com.onore.project.dto.NoticeDTO">
+		<selectKey keyProperty="notice_num" order="BEFORE" resultType="int">
+			SELECT notice_seq.nextval FROM dual
+		</selectKey>
+		INSERT INTO notice VALUES(
+		    #{notice_num},
+		    #{notice_title},
+		    #{notice_content},
+		    SYSDATE)
+	</insert>
+	<select id="getAllNotice" resultType="com.onore.project.dto.NoticeDTO">
+		SELECT * FROM notice
+		<trim prefix="WHERE">
+			<if test="search_type == 'title' and search_keyword != null and search_keyword != ''">
+				notice_title like '%'||#{search_keyword}||'%'
+			</if>
+			<if test="search_type == 'content' and search_keyword != null and search_keyword != ''">
+				notice_content like '%'||#{search_keyword}||'%'
+			</if>
+		</trim>
+		ORDER BY notice_num DESC
+	</select>
+	<select id="getNotice" resultType="com.onore.project.dto.NoticeDTO">
+		SELECT * FROM notice WHERE notice_num = #{notice_num}
+	</select>
+	<update id="updateNotice" parameterType="com.onore.project.dto.NoticeDTO">
+		UPDATE notice
+		SET notice_title = #{notice_title}, notice_content = #{notice_content} 
+		WHERE notice_num = #{notice_num}
+	</update>
+	<delete id="deleteNotice">
+		DELETE FROM notice WHERE notice_num = #{notice_num}
+	</delete>
+</mapper>

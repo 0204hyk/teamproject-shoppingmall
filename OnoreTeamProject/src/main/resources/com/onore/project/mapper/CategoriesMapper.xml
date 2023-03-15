@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.onore.project.mapper.CategoriesMapper">
+	<select id="getAllCategory" resultType="com.onore.project.dto.CategoriesDTO">
+		SELECT * FROM categories ORDER BY category_num
+	</select>
+	<select id="getCategory" resultType="com.onore.project.dto.CategoriesDTO">
+		SELECT * FROM categories WHERE category_num = #{category_num}
+	</select>
+</mapper>

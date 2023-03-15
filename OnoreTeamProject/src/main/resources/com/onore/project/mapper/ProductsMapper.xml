@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.onore.project.mapper.ProductsMapper">
+	<insert id="insertProduct" parameterType="com.onore.project.dto.ProductsDTO">
+		<selectKey keyProperty="product_num" order="BEFORE" resultType="int">
+			SELECT products_seq.nextval FROM dual
+		</selectKey>
+		INSERT INTO products VALUES (
+		    #{product_num},
+		    #{category_num},
+		    #{product_name},
+		    #{product_price},
+		    #{product_info},
+		    #{product_detail},
+		    #{product_thumbnail_1}, 
+		    #{product_thumbnail_2}, 
+		    #{product_thumbnail_3},
+		    SYSDATE)
+	</insert>
+	<select id="getAllProduct" resultType="com.onore.project.dto.ProductsDTO">
+		SELECT * FROM products ORDER BY product_num DESC
+	</select>
+	<select id="getProduct" resultType="com.onore.project.dto.ProductsDTO">
+		SELECT * FROM products WHERE product_num = #{product_num}
+	</select>
+	<update id="updateProduct" parameterType="com.onore.project.dto.ProductsDTO">
+		UPDATE 
+			products
+		SET
+			category_num = #{category_num}, 
+			product_name = #{product_name},
+			product_price = #{product_price},
+			product_info = #{product_info},
+			product_detail = #{product_detail},		
+			product_thumbnail_1 = #{product_thumbnail_1},
+			product_thumbnail_2 = #{product_thumbnail_2},
+			product_thumbnail_3 = #{product_thumbnail_3}
+		WHERE
+			product_num = #{product_num}
+	</update>
+	<delete id="deleteProduct">
+		DELETE FROM products WHERE product_num = #{product_num}
+	</delete>
+	
+</mapper>
