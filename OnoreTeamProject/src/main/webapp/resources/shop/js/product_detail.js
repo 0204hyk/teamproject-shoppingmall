@@ -60,7 +60,7 @@ function count(type) {
 sizes.addEventListener('click', ()=> {
 	if (mem_id === '') {
 			if(confirm("로그인이 필요한 서비스입니다. 로그인 하시겠습니까?")) {
-				location.href='/project/login'
+				location.href= contextPath +'/login'
 			} else {
 				event.preventDefault();
 			}
@@ -87,7 +87,7 @@ review_btn.addEventListener('click', (e) => {
 qna_btn.addEventListener('click', (e) => {
 	if (mem_id === '') {
 			if(confirm("로그인이 필요한 서비스입니다. 로그인 하시겠습니까?")) {
-				location.href='/project/login'
+				location.href= contextPath +'/login'
 			} else {
 				e.preventDefault();
 				e.stopPropagation(); 
@@ -128,7 +128,7 @@ sizes.addEventListener('change', (e) => {
 						
 						cart.removeAttribute("disabled");
 						order.removeAttribute("disabled");
-						
+
                     }
                 });
             }
@@ -140,12 +140,12 @@ const detailView = document.getElementById('detailView');
 const detail = document.getElementsByClassName('mid')[0];
 
 const reviewView= document.getElementById('reviewView');
-const review = document.getElementsByClassName('review')[0];
+const review = document.getElementsByClassName('bottom')[0];
 
 const qnaView= document.getElementById('qnaView');
 const qna = document.getElementsByClassName('qna')[0];
 
-/*
+
 detailView.addEventListener('click', () => {
     window.scrollBy({top: detail.getBoundingClientRect().top, behavior: 'smooth'});
 });
@@ -157,12 +157,13 @@ reviewView.addEventListener('click', () => {
 qnaView.addEventListener('click', () => {
     window.scrollBy({top: qna.getBoundingClientRect().top, behavior: 'smooth'});
 });
-*/
 
+
+/* 
 function move(name) {
 	window.scrollBy({top: name.getBoundingClientRect().top, behavior: 'smooth'});
 }
-
+*/
 
 const nowish = document.getElementById('nowish'); // 빈하트
 const wish = document.getElementById('wish'); // 가득찬하트
@@ -193,10 +194,11 @@ nowish.addEventListener('click', (e) => {
 	    
 	    } else {
 	    	if(confirm('로그인이 필요한 서비스입니다 로그인 하시겠습니까?')) {
-				location.href='/project/login';
+				location.href= contextPath +'/login';
 			}
 	     }
 });
+
 
 wish.addEventListener('click', (e) => {
     const xhttp = new XMLHttpRequest();

@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ONÓRE</title>
-<link href="/project/resources/mypage/css/mypage_main.css?ver=1" rel="stylesheet"/>
+<link href="<%=request.getContextPath() %>/resources/mypage/css/mypage_main.css?ver=1" rel="stylesheet"/>
 <%@include file="../header.jspf"%>
 </head>
 <body>
@@ -50,5 +50,5 @@
 </div>
 <!-- middle 끝 -->
 
-<script src="/project/resources/menu/js/menubar.js?ver=2"></script>
+<script src="<%=request.getContextPath() %>/resources/menu/js/menubar.js?ver=2"></script>
 <%@include file="../bottom.jspf"%>

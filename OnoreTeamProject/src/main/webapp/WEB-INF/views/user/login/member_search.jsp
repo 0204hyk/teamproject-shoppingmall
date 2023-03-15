@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>ONÓRE</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link href="/project/resources/menu/css/login_search.css?ver=1" rel="stylesheet"/>
+<link href="<%=request.getContextPath() %>/resources/menu/css/login_search.css?ver=1" rel="stylesheet"/>
 <script>
 function search_check(num) {
 	if (num == '1'){
@@ -182,5 +182,5 @@ $(function(){
 </div>
 <!-- middle 끝 -->
 
-<script src="/project/resources/menu/js/menubar.js"></script>
+<script src="<%=request.getContextPath() %>/resources/menu/js/menubar.js"></script>
 <%@include file="../bottom.jspf"%>

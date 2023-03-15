@@ -40,14 +40,14 @@ window.addEventListener('load', function() {
 					});
 					
 					onoreImg.addEventListener('click', (e) => {
-						location.href = '/project/shop/detail?product_num=' + number;
+						location.href =  contextPath + '/shop/detail?product_num=' + number;
 					});
 				}	
 		}
 	});
 	
 
-	xhttp.open('GET', '/project/restful/all');
+	xhttp.open('GET', contextPath + '/restful/all');
     xhttp.send();
 });
 
@@ -94,14 +94,14 @@ categoryAll.addEventListener('click', (e) => {
 					});
 					
 					onoreImg.addEventListener('click', (e) => {
-						location.href = '/product/shop/detail/?product_num=' + number;
+						location.href =  contextPath +'/shop/detail/?product_num=' + number;
 					});
 				}	
 		}
 	});
 	
 
-	xhttp.open('GET', '/project/restful/all');
+	xhttp.open('GET', contextPath + '/restful/all');
     xhttp.send();
 });
 
@@ -149,14 +149,14 @@ derbyBtn.addEventListener('click', (e) => {
 					});
 					
 					onoreImg.addEventListener('click', (e) => {
-						location.href = '/product/shop/detail/?product_num=' + number;
+						location.href =  contextPath + '/shop/detail/?product_num=' + number;
 					});
 				}	
 		}
 	});
 	
 
-	xhttp.open('GET', '/project/restful/derby');
+	xhttp.open('GET', contextPath + '/restful/derby');
     xhttp.send();
 });
 
@@ -257,14 +257,14 @@ loaferBtn.addEventListener('click', (e) => {
 					});
 					
 					onoreImg.addEventListener('click', (e) => {
-						location.href = '/product/shop/detail/?product_num=' + number;
+						location.href = contextPath + '/shop/detail/?product_num=' + number;
 					});
 				}	
 		}
 	});
 	
 
-	xhttp.open('GET', '/project/restful/loafers');
+	xhttp.open('GET', contextPath + '/restful/loafers');
     xhttp.send();
 });
 
@@ -310,14 +310,14 @@ snakersBtn.addEventListener('click', (e) => {
 					});
 					
 					onoreImg.addEventListener('click', (e) => {
-						location.href = '/product/shop/detail/?product_num=' + number;
+						location.href = contextPath +'/shop/detail/?product_num=' + number;
 					});
 				}	
 		}
 	});
 	
 
-	xhttp.open('GET', '/project/restful/snakers');
+	xhttp.open('GET', contextPath + '/restful/snakers');
     xhttp.send();
 });
 	

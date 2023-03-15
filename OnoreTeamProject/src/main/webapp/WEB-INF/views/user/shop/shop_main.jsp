@@ -8,8 +8,8 @@
 <meta charset="UTF-8">
 <title>오노레 SHOP</title>
 <%@ include file="../header.jspf" %>
-<link rel="stylesheet" href="/project/resources/shop/css/main.css" />
-<link rel="stylesheet" href="/project/resources/shop/css/category.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/shop/css/main.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/shop/css/category.css" />
 
 </head>
 <body>
@@ -19,14 +19,14 @@
 	<div class="main" style="padding-top: 127px; width: auto; margin: 50px; margin-top: 0px;" >
 	<hr />
 		<div class="image-box">
-			<img class="image-thumbnail" src="/project/resources/shop/image/boots_main.png" alt="메인 구두 사진" />
+			<img class="image-thumbnail" src="<%=request.getContextPath() %>/resources/shop/image/boots_main.png" alt="메인 구두 사진" />
 		</div>
 		<div class="flex-container">
 			<div class="image-box2">
-				<img class="image-thumbnail2" src="/project/resources/shop/image/boots_main_left.png" alt="메인 왼쪽 구두 사진" />
+				<img class="image-thumbnail2" src="<%=request.getContextPath() %>/resources/shop/image/boots_main_left.png" alt="메인 왼쪽 구두 사진" />
 			</div>
 			<div class="image-box3">
-				<img class="image-thumbnail3" src="/project/resources/shop/image/boots_main_right.png" alt="메인 오른쪽 구두 사진" />
+				<img class="image-thumbnail3" src="<%=request.getContextPath() %>/resources/shop/image/boots_main_right.png" alt="메인 오른쪽 구두 사진" />
 			</div>
 		</div>
 		<div class="category-btn">
@@ -156,7 +156,7 @@
 	
 	<hr>
 	
-	<script src="/project/resources/shop/js/category.js"></script>
+	<script src="<%=request.getContextPath() %>/resources/shop/js/category.js"></script>
 	<%@ include file="../bottom.jspf" %>
 		
 </body>

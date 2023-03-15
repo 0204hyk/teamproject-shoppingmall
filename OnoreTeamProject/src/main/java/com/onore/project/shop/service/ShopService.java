@@ -2,6 +2,8 @@ package com.onore.project.shop.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.onore.project.dto.ProductsDTO;
 import com.onore.project.dto.QnaDTO;
 import com.onore.project.dto.ReviewDTO;
@@ -30,5 +32,5 @@ public interface ShopService {
 	
 	Integer deleteWish(WishDTO wish);
 	
-	List<WishDTO> checkWish(Integer product_num); 
+	String checkWish(Integer product_num); 
 }

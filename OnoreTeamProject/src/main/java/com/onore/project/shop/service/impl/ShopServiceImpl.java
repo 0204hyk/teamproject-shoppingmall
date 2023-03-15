@@ -2,9 +2,13 @@ package com.onore.project.shop.service.impl;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.onore.project.dto.MemberDTO;
 import com.onore.project.dto.ProductsDTO;
 import com.onore.project.dto.QnaDTO;
 import com.onore.project.dto.ReviewDTO;
@@ -90,7 +94,7 @@ public class ShopServiceImpl implements ShopService{
 
 
 	@Override
-	public List<WishDTO> checkWish(Integer product_num) {
+	public String checkWish(Integer product_num) {
 		
 		return shop_mapper.checkWish(product_num);
 	}

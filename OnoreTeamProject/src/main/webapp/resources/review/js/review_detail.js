@@ -73,7 +73,7 @@ if (id !== "") {
     xhttp.send(JSON.stringify(com));
 } else {
 	if(confirm('로그인이 필요한 서비스입니다. 로그인하시겠습니까?')) {
-		location.href='/project/login';
+		location.href= contextPath + '/login';
 	}
 	}    
 });

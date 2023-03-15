@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>ONÓRE</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link href="/project/resources/mypage/css/member_info_pw_modify.css?ver=1" rel="stylesheet"/>
+<link href="<%=request.getContextPath() %>/resources/mypage/css/member_info_pw_modify.css?ver=1" rel="stylesheet"/>
 <script>
 //비밀번호 정규식
 function check_pw() {
@@ -108,5 +108,5 @@ $(document).ready(function() {
 </div>
 <!-- middle 끝 -->
 
-<script src="/project/resources/menu/js/menubar.js?ver=2"></script>
+<script src="<%=request.getContextPath() %>/resources/menu/js/menubar.js?ver=2"></script>
 <%@include file="../bottom.jspf"%>

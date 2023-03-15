@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>ONÓRE</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link href="/project/resources/menu/css/join_success.css?ver=1" rel="stylesheet"/>
+<link href="<%=request.getContextPath() %>/resources/menu/css/join_success.css?ver=1" rel="stylesheet"/>
 <script>	
 // 아이디 정규표현식 + 중복체크
 $(document).ready(function () {
@@ -480,5 +480,5 @@ $(document).ready(function() { // 체크를 하나 해제하면 모두 동의합
 </div>
 <!-- middle 끝 -->
 
-<script src="/project/resources/menu/js/menubar.js?ver=2"></script>
+<script src="<%=request.getContextPath() %>/resources/menu/js/menubar.js?ver=2"></script>
 <%@include file="../bottom.jspf"%>

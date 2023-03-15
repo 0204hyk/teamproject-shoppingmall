@@ -8,9 +8,9 @@
 <meta charset="UTF-8">
 <title>ONÓRE</title>
 <%@ include file="../header.jspf" %>
-<link rel="icon" href="/project/resources/review/image/파비콘.png">
-<link rel="stylesheet"href="/project/resources/shop/css/product_detail.css?ver=5">
-<script src="/project/resources/shop/js/product_detail.js?ver=1" defer></script>
+<link rel="icon" href="<%=request.getContextPath()%>/resources/review/image/파비콘.png">
+<link rel="stylesheet"href="<%=request.getContextPath()%>/resources/shop/css/product_detail.css?ver=5">
+<script src="<%=request.getContextPath()%>/resources/shop/js/product_detail.js?ver=1" defer></script>
 </head>
 <body>
 
@@ -26,20 +26,16 @@
 				<h1 id="product_name">${product.product_name }</h1>
 				<c:choose>
 					<c:when test="${not empty sessionScope.signIn.mem_id }">
-						<c:forEach items="${wish }" var="wish">
-								<c:if test="${wish.mem_id eq sessionScope.signIn.mem_id}">		
-									찬하트
-									<button class="heart" id="wish" ><i class="fa-solid fa-heart fa-2x"></i></button>
-									<button class="heart" id="nowish" style="display: none;"><i class="fa-regular fa-heart fa-2x"></i></button>
-								</c:if>
-								<c:if test="${wish.mem_id ne sessionScope.signIn.mem_id}">
-									<button class="heart" id="wish" style="display: none;"><i class="fa-solid fa-heart fa-2x"></i></button>
-									<button class="heart" id="nowish"><i class="fa-regular fa-heart fa-2x"></i></button>
-								</c:if>
-						</c:forEach>
+							<c:if test="${wish eq sessionScope.signIn.mem_id}">		
+								<button class="heart" id="wish" ><i class="fa-solid fa-heart fa-2x"></i></button>
+								<button class="heart" id="nowish" style="display: none;"><i class="fa-regular fa-heart fa-2x"></i></button>	
+							</c:if>
+							<c:if test="${wish ne sessionScope.signIn.mem_id}">
+								<button class="heart" id="wish" style="display: none;"><i class="fa-solid fa-heart fa-2x"></i></button>
+								<button class="heart" id="nowish"><i class="fa-regular fa-heart fa-2x"></i></button>
+							</c:if>
 					</c:when>
 					<c:otherwise>
-						빈하트
 						<button class="heart" id="wish" style="display: none;"><i class="fa-solid fa-heart fa-2x"></i></button>
 						<button class="heart" id="nowish"><i class="fa-regular fa-heart fa-2x"></i></button>
 					</c:otherwise>
@@ -109,17 +105,17 @@
 		<div class="mid">
 		<div id="header">
 			<nav class="nav">
-				<a href="#mid" onclick="move(detail)"><span id="detailView">제품상세</span></a>
-				<a href="#review" onclick="move(review)"><span id="reviewView">리뷰</span></a>
-				<a href="#qna" onclick="move(qna)"><span id="qnaView">문의</span></a>
+				<a href="#mid" ><span id="detailView">제품상세</span></a>
+				<a href="#review" ><span id="reviewView">리뷰</span></a>
+				<a href="#qna" ><span id="qnaView">문의</span></a>
 			</nav>
 		</div>
 			<div id="detail">
-				<img src="/project/resources/shop/image/doby/doby1.jpg">
-				<img src="/project/resources/shop/image/doby/doby2.jpg">
-				<img src="/project/resources/shop/image/doby/doby3.jpg">
-				<img src="/project/resources/shop/image/doby/doby4.jpg">
-				<img src="/project/resources/shop/image/doby/doby5.jpg">
+				<img src="<%=request.getContextPath()%>/resources/shop/image/doby/doby1.jpg">
+				<img src="<%=request.getContextPath()%>/resources/shop/image/doby/doby2.jpg">
+				<img src="<%=request.getContextPath()%>/resources/shop/image/doby/doby3.jpg">
+				<img src="<%=request.getContextPath()%>/resources/shop/image/doby/doby4.jpg">
+				<img src="<%=request.getContextPath()%>/resources/shop/image/doby/doby5.jpg">
 			</div>
 		</div>
 		<hr>
@@ -131,7 +127,14 @@
 				<table id="review-table">
 					<c:forEach items="${reviews }" var="review">
 						<tr>
-							<th rowspan="2" id="review_img"><img src="/project/resources/review/image/${review.review_img_1 }"></th>
+							<c:choose>
+								<c:when test="${not empty review.review_img_1 }">
+									<th rowspan="2" id="review_img"><img src="<%=request.getContextPath()%>/resources/review/image/${review.review_img_1 }"></th>
+								</c:when>
+								<c:otherwise>
+									<th rowspan="2" id="review_img"></th>
+								</c:otherwise>
+							</c:choose>
 							<th class="id" style="width: 200px;">${review.maskingName }/${review.review_date }</th>
 							<c:if test="${review.review_rating eq 5 }">
 								<th class="star">
