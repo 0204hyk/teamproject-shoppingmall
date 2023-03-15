@@ -51,18 +51,6 @@ public class MemberController {
 	public String member_join() throws Exception {
 		return "user/join/member_join";
 	}
-
-	/*
-	// 회원가입성공
-	@RequestMapping("/join.do")
-	public String member_join(MemberDTO dto, HttpServletRequest request) throws Exception {
-		mapper.member_join(dto);
-		MemberDTO member_join = mapper.signIn(dto);
-		HttpSession session = request.getSession();
-		session.setAttribute("member_join", member_join);
-		return "user/join/member_join_success";
-	}
-	*/
 	
 	// 회원가입 성공
 	@RequestMapping("/join.do")

@@ -6,11 +6,11 @@
 
 
 <!-- 메뉴 CSS -->
-<link rel="stylesheet"href="/project/resources/about/css/about_main.css?ver=6">
+<link rel="stylesheet"href="<%=request.getContextPath() %>/resources/about/css/about_main.css?ver=6">
 
 
 <!-- 파비콘 -->
-<link rel="icon" href="/project/resources/main/images/fabicon.png">
+<link rel="icon" href="<%=request.getContextPath() %>/resources/main/images/fabicon.png">
 
 
 <!-- 폰트 -->
@@ -21,8 +21,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
 <!-- CSS -->
-<link rel="stylesheet"href="/project/resources/review/css/main_review.css?ver=6">
-<link href="/project/resources/menu/css/menubar.css?ver=1" rel="stylesheet"/>
+<link rel="stylesheet"href="<%=request.getContextPath() %>/resources/review/css/main_review.css?ver=6">
+<link href="<%=request.getContextPath() %>/resources/menu/css/menubar.css?ver=1" rel="stylesheet"/>
 
 <!-- js -->
-<link href="/project/resources/menu/js/menubar.js?ver=1" rel="stylesheet"/>
+<link href="<%=request.getContextPath() %>/resources/menu/js/menubar.js?ver=1" rel="stylesheet"/>

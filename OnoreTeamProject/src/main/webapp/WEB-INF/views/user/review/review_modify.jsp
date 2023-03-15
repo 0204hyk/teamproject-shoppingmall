@@ -7,9 +7,9 @@
 <meta charset="UTF-8">
 <title>ONÓRE</title>
 <%@ include file="../header.jspf"%>
-<link rel="icon" href="/project/resources/review/image/파비콘.png">
-<link rel="stylesheet"href="/project/resources/review/css/review_modify.css">
-<script src="/project/resources/review/js/review_modify.js" defer></script>
+<link rel="icon" href="<%=request.getContextPath() %>/resources/review/image/파비콘.png">
+<link rel="stylesheet"href="<%=request.getContextPath() %>/resources/review/css/review_modify.css">
+<script src="<%=request.getContextPath() %>/resources/review/js/review_modify.js" defer></script>
 </head>
 <body>
 

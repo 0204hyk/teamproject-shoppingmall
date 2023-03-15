@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="/project/resources/menu/css/error404.css?ver=1" rel="stylesheet"/>
+<link href="<%=request.getContextPath() %>/resources/menu/css/error404.css?ver=1" rel="stylesheet"/>
 <title>ONÓRE</title>
 </head>
 <body>

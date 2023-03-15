@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="icon" href="/project/resources/main/images/fabicon.png">
+<link rel="icon" href="<%=request.getContextPath() %>/resources/main/images/fabicon.png">
 <title>ONÓRE</title>
 <%@ include file="../main_header.jspf" %>
 </head>
@@ -13,10 +13,10 @@
 <%@ include file="../main_top.jspf" %>
 
     <div class="main">
-        <img class="background" src="/project/resources/main/images/img_main.png" alt="background" style="width:100%;">
+        <img class="background" src="<%=request.getContextPath() %>/resources/main/images/img_main.png" alt="background" style="width:100%;">
     </div>
 
-<script type="text/javascript" src="/project/resources/main/js/main.js"></script>	
+<script type="text/javascript" src="<%=request.getContextPath() %>/resources/main/js/main.js"></script>	
 <%@ include file="../bottom.jspf" %>
 </body>
 </html>

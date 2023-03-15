@@ -15,7 +15,7 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="/project/resources/qna/css/qna_write.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/qna/css/qna_write.css" />
 <%@include file="../header.jspf"%>
 </head>
 <body>
@@ -77,7 +77,7 @@
 	</div>
 	<hr>
 	<script type="text/javascript"
-		src="/project/resources/qna/js/qna_write.js"></script>
+		src="<%=request.getContextPath() %>/resources/qna/js/qna_write.js"></script>
 
 	<%@include file="../bottom.jspf"%>
 </body>

@@ -62,15 +62,6 @@ public class MypageController {
 		System.out.println("비밀번호 수정 성공");
 		return "redirect:/mypage";
 	}
-
-	/*
-	// 회원정보수정으로 이동
-	@GetMapping("/member_info_modify")
-	public String member_info_modify(String mem_id, Model model) throws Exception {
-		model.addAttribute("member", mapper.getMember(mem_id)); 
-		return "user/mypage/member_info_modify";
-	}
-	*/
 	
 	// 회원정보수정으로 이동
 	@GetMapping("/member_info_modify")
@@ -97,100 +88,39 @@ public class MypageController {
 
 	// 회원탈퇴로 이동
 	@GetMapping("/memberDelete")
-	public String memberDelete(String mem_id, Model model) throws Exception {
+	public String memberDelete(String mem_id, MemberDTO memberdto, Model model) throws Exception {
+		
+		model.addAttribute("member", memberdto);
+		
 		return "user/mypage/member_delete";
 	}
 
 	/*
-	// 회원탈퇴하기
-	@RequestMapping("/memberDelete.do")
-	public String memberDeleteDo(MemberDTO dto, HttpSession session) throws Exception {
-
-		System.out.println("회원탈퇴 결과");
-
-		MemberDTO member = (MemberDTO) session.getAttribute("signIn");
-		String mem_pw = member.getMem_pw();
-		String pw = dto.getMem_pw();
-
-		System.out.println("mem_pw : " + mem_pw);
-		System.out.println("pw : " + pw);
-
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		boolean isPasswordMatched = encoder.matches(pw, mem_pw);
-
-		if (!isPasswordMatched) {
-			return "redirect:/member_delete";
-		} else {
-			int result = mapper.memberDeleteDo(member);
-			System.out.println("탈퇴 result : " + result);
-
-			if (result != 0) {
-				System.out.println("탈퇴 성공");
-			} else {
-				System.out.println("탈퇴 실패");
-			}
-			
-			session.invalidate();
-			return "redirect:/main/";
-		}
-	}
-	*/	
-	
-	/*
-	// 회원탈퇴 - 4차시도
-	@RequestMapping(value="/memberDelete.do", method = RequestMethod.POST)
-	public String memberDelete(MemberDTO dto, HttpSession session, RedirectAttributes rttr) throws Exception{
-	    
-		MemberDTO member = (MemberDTO) session.getAttribute("signIn");  
-	    String sessionPass = member.getMem_pw();  // 세션에 있는 비밀번호 
-	    String dtoPass = dto.getMem_pw();  // dto로 들어오는 비밀번호
-	    
-	    System.out.println("member : " + member);
-	    System.out.println("sessionPass : " + sessionPass);
-	    System.out.println("dtoPass : " + dtoPass);
-	    
-	    // 비밀번호가 일치하지 않으면 탈퇴 실패 처리
-	    BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-	   
-	    if(!passwordEncoder.matches(dtoPass, sessionPass)) {
-	        String message = "비밀번호가 일치하지 않습니다.";
-	        rttr.addAttribute("message", message);
-	        return "redirect:/memberDelete";
-	    }
-	    
-	    // 비밀번호가 일치하면 탈퇴 완료 처리
-	    service.memberDelete(dto);
-	    session.invalidate();
-
-	    String successMessage = "회원탈퇴가 완료되었습니다.";
-	    rttr.addAttribute("message", successMessage);
-	    
-	    return "redirect:/main/";
-	}
-	*/
-	
 	// 회원탈퇴 - 수정된 소스코드
 	@RequestMapping(value="/memberDelete.do", method = RequestMethod.POST)
-	public void memberDelete(MemberDTO dto, HttpSession session, HttpServletResponse response) throws Exception{
+	public void memberDelete(MemberDTO dto, String mem_pw, HttpSession session, HttpServletResponse response, Model model) throws Exception{
 	    
 		MemberDTO member = (MemberDTO) session.getAttribute("signIn");  
-	    String sessionPass = member.getMem_pw();  // 세션에 있는 비밀번호 
-	    String dtoPass = dto.getMem_pw();  // dto로 들어오는 비밀번호
+	   //  String sessionPass = member.getMem_pw();  // 세션에 있는 비밀번호 
+	    
+		model.addAttribute("member", mapper.getMember(mem_pw));
+		String dtoPass = dto.getMem_pw();  // dto로 들어오는 비밀번호
 	    
 	    System.out.println("member : " + member);
-	    System.out.println("sessionPass : " + sessionPass);
+	    System.out.println("mem_pw : " + mem_pw);
 	    System.out.println("dtoPass : " + dtoPass);
 	    
 	    // 비밀번호가 일치하지 않으면 탈퇴 실패 처리
 	    BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 	   
-	    if(!passwordEncoder.matches(dtoPass, sessionPass)) {
+	    if(!passwordEncoder.matches(dtoPass, mem_pw)) {
+			
 	        response.setContentType("text/html; charset=UTF-8");
 	        PrintWriter out = response.getWriter();
-	        out.println("<script>alert('비밀번호가 일치하지 않습니다.'); history.go(-1);</script>");
+	        out.println("<script>alert('비밀번호가 일치하지 않습니다.'); location.href='./memberDelete';</script>");
 	        out.flush();
 	    } else {
-	        // 비밀번호가 일치하면 탈퇴 완료 처리
+	        // 비밀번호가 일치하면 탈퇴 완료 처리			
 	        service.memberDelete(dto);
 	        session.invalidate();
 	        
@@ -199,6 +129,38 @@ public class MypageController {
 	        out.println("<script>alert('회원탈퇴가 완료되었습니다.'); location.href='./main/';</script>");
 	        out.flush();
 	    }
+	}
+	*/
+	
+	// 회원탈퇴 - 수정된 소스코드
+	@RequestMapping(value="/memberDelete.do", method = RequestMethod.POST)
+	public void memberDelete(MemberDTO dto, HttpSession session, HttpServletResponse response, Model model) throws Exception{
+		
+		MemberDTO member = (MemberDTO) session.getAttribute("signIn");
+		String sessionPass = member.getMem_pw(); // 세션에 있는 비밀번호
+		
+	   System.out.println("member : " + member);
+	    System.out.println("dto.getMem_pw() : " + dto.getMem_pw());
+		
+		// 입력받은 비밀번호를 암호화하여 비교합니다.
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		
+		if(!passwordEncoder.matches(dto.getMem_pw(), sessionPass)) {
+		    // 비밀번호가 일치하지 않으면 탈퇴 실패 처리
+		    response.setContentType("text/html; charset=UTF-8");
+		    PrintWriter out = response.getWriter();
+		    out.println("<script>alert('비밀번호가 일치하지 않습니다.'); location.href='./memberDelete';</script>");
+		    out.flush();
+		} else {
+		    // 비밀번호가 일치하면 탈퇴 완료 처리			
+		    service.memberDelete(member);
+		    session.invalidate();
+		    
+		    response.setContentType("text/html; charset=UTF-8");
+		    PrintWriter out = response.getWriter();
+		    out.println("<script>alert('회원탈퇴가 완료되었습니다.'); location.href='./main/';</script>");
+		    out.flush();
+		}
 	}
 
 	@ResponseBody

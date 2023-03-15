@@ -7,10 +7,10 @@
 <meta charset="UTF-8">
 <title>ONÓRE</title>
 <%@ include file="../header.jspf"%>
-<link rel="icon" href="/project/resources/review/image/파비콘.png">
+<link rel="icon" href="<%=request.getContextPath() %>/resources/review/image/파비콘.png">
 <link rel="stylesheet"
-	href="/project/resources/review/css/review_write.css">
-<script src="/project/resources/review/js/review_write.js" defer></script>
+	href="<%=request.getContextPath() %>/resources/review/css/review_write.css">
+<script src="<%=request.getContextPath() %>/resources/review/js/review_write.js" defer></script>
 </head>
 <body>
 

@@ -3,7 +3,7 @@
 
 
 <!-- 파비콘 -->
-<link rel="icon" href="/project/resources/main/images/fabicon.png">
+<link rel="icon" href="<%=request.getContextPath() %>/resources/main/images/fabicon.png">
 
 
 <!-- 폰트 -->
@@ -16,7 +16,7 @@
 
 <!-- CSS -->
 <script src="https://kit.fontawesome.com/43273b5a4f.js" crossorigin="anonymous"></script>
-<link href="/project/resources/main/css/main.css?ver=1" rel="stylesheet"/>
+<link href="<%=request.getContextPath() %>/resources/main/css/main.css?ver=1" rel="stylesheet"/>
 
 <!-- JS -->
-<link href="/project/resources/main/js/main.js?ver=1" rel="stylesheet"/>
+<link href="<%=request.getContextPath() %>/resources/main/js/main.js?ver=1" rel="stylesheet"/>

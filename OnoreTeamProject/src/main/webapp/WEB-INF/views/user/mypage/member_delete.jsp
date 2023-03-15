@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>ONÓRE</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link href="/project/resources/mypage/css/member_delete.css?ver=1" rel="stylesheet"/>
+<link href="<%=request.getContextPath() %>/resources/mypage/css/member_delete.css?ver=1" rel="stylesheet"/>
 <%@include file="../header.jspf"%>
 </head>
 <body>
@@ -15,7 +15,7 @@
 
 <!-- middle 시작 -->
 <div class="middle_member_info_delete_div">
-	<form id="member_info_delete_form" action="./memberDelete.do" method="POST" name="member_info_delete_form">
+	<form id="member_info_delete_form" action="<%=request.getContextPath() %>/memberDelete.do" method="POST" name="member_info_delete_form">
 		<div class="member_info_delete_div">
 			<div class="member_delete_title_div">
 				<a>회원탈퇴</a>
@@ -25,7 +25,7 @@
 					<a>아이디</a>
 			</div>
 				<div class="delete_input_div">
-					<input class="mem_id" id="mem_id" type="text" name="mem_id" value="${sessionScope.signIn.mem_id}" readonly>
+					<input class="mem_id" id="mem_id" type="text" name="mem_id" value="${signIn.mem_id}" readonly>
 				</div>
 			</div>
 			
@@ -54,5 +54,5 @@
 </div>
 <!-- middle 끝 -->
 
-<script src="/project/resources/menu/js/menubar.js?ver=2"></script>
+<script src="<%=request.getContextPath() %>/resources/menu/js/menubar.js?ver=2"></script>
 <%@include file="../bottom.jspf"%>
