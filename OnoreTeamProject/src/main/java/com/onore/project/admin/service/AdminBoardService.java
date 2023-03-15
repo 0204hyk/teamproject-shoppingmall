@@ -7,8 +7,8 @@ import com.onore.project.dto.QnaDTO;
 import com.onore.project.dto.ReviewandProductDTO;
 
 public interface AdminBoardService {
-	List<QnaAndProductsDTO> readAllQna();
+	List<QnaAndProductsDTO> readAllQna(QnaAndProductsDTO qna);
 	Integer qnaDeleteService(Integer qna_num);
-	List<ReviewandProductDTO> readAllReview();
+	List<ReviewandProductDTO> readAllReview(ReviewandProductDTO review);
 	Integer reviewDeleteService(Integer review_num);
 }

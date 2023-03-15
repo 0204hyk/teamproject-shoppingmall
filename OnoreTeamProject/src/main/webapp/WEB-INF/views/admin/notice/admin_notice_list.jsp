@@ -12,24 +12,24 @@
 	<div class="notice-content shadow">
 		<div class="notice-title">
 			<h1>공지사항 목록</h1>
-			<select name="search_type" class="form-select notice-search-type">
+			<select name="search_type" class="form-select search-type">
 				<c:choose>
-					<c:when test="${search_type eq 'notice_title'}">
-						<option value="notice_title" selected>제목</option>
-						<option value="notice_content">내용</option>				
+					<c:when test="${search_type eq 'title'}">
+						<option value="title" selected>제목</option>
+						<option value="content">내용</option>				
 					</c:when>
-					<c:when test="${search_type eq 'notice_content'}">
-						<option value="notice_title">제목</option>
-						<option value="notice_content" selected>내용</option>
+					<c:when test="${search_type eq 'content'}">
+						<option value="title">제목</option>
+						<option value="content" selected>내용</option>
 					</c:when>
 					<c:otherwise>
-						<option value="notice_title">제목</option>
-						<option value="notice_content">내용</option>
+						<option value="title">제목</option>
+						<option value="content">내용</option>
 					</c:otherwise>
 				</c:choose>
 			</select>
-			<input type="text" class="form-control notice-search" name="search_keyword" placeholder="검색어를 입력해주세요." value="${search_keyword}"/>
-			<button type="submit" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+			<input type="text" class="form-control search-box" name="search_keyword" placeholder="검색어를 입력해주세요." value="${search_keyword}"/>
+			<button type="submit" id="search-btn" style="color: gray;"><i class="fa-solid fa-magnifying-glass"></i></button>
 		</div>
 		<form id="notice-list-form" name="notice-list-form" method="POST">
 			<div class="container">
@@ -88,7 +88,7 @@
 			</div>
 		</form>
 	</div>
-		
+
 	<script src="<%=request.getContextPath()%>/resources/admin/js/notice_list.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/admin/js/list_checkbox.js"></script>
 	

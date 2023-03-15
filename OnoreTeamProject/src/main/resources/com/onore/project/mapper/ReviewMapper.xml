@@ -74,4 +74,24 @@
 	WHERE 
 		<![CDATA[ROWNUM <= 6]]>  
   </select>
+  <select id="getSearchReviewList" resultType="com.onore.project.dto.ReviewandProductDTO">
+  	SELECT
+  		* 
+  	FROM 
+  		reviews 
+  		INNER JOIN products USING (product_num)
+	<trim prefix="WHERE">
+		<if test="search_type == 'content' and search_keyword != null and search_keyword != ''">
+			review_content like '%'||#{search_keyword}||'%'
+		</if>
+		<if test="search_type == 'writer' and search_keyword != null and search_keyword != ''">
+			mem_id like '%'||#{search_keyword}||'%'
+		</if>
+		<if test="search_type == 'product' and search_keyword != null and search_keyword != ''">
+			UPPER(product_name) like UPPER('%'||#{search_keyword}||'%')
+		</if>
+	</trim>
+  	ORDER BY 
+  		review_num DESC	
+  </select>
 </mapper>

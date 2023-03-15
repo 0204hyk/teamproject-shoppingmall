@@ -16,10 +16,10 @@
 	<select id="getAllNotice" resultType="com.onore.project.dto.NoticeDTO">
 		SELECT * FROM notice
 		<trim prefix="WHERE">
-			<if test="search_type == 'notice_title' and search_keyword != null and search_keyword != ''">
+			<if test="search_type == 'title' and search_keyword != null and search_keyword != ''">
 				notice_title like '%'||#{search_keyword}||'%'
 			</if>
-			<if test="search_type == 'notice_content' and search_keyword != null and search_keyword != ''">
+			<if test="search_type == 'content' and search_keyword != null and search_keyword != ''">
 				notice_content like '%'||#{search_keyword}||'%'
 			</if>
 		</trim>

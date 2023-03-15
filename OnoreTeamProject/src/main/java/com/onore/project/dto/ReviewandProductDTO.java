@@ -63,10 +63,14 @@ public class ReviewandProductDTO {
 		 	   timeFormat.format(review_date) : dayFormat.format(review_date);
     }
     
-    // 관리자 메인 페이지에 사용할 시간 형식
+    // 관리자 페이지에서 사용
     private static SimpleDateFormat adminPageFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public String getAdminPageReviewDate() {
     	return adminPageFormat.format(review_date);
     }
+    
+    private String search_type;
+    private String search_keyword;
 }	
+

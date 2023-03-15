@@ -11,7 +11,57 @@
 <body>
 	
 	<div class="board-content shadow">
-		<div class="board-title"><h1>문의글 목록</h1></div>
+		<div class="board-title">
+			<h1>문의글 목록</h1>
+			<select name="search_type" class="form-select search-type">
+				<c:choose>
+					<c:when test="${search_type eq 'title'}">
+						<option value="title" selected>제목</option>
+						<option value="content">내용</option>
+						<option value="writer">작성자</option>
+						<option value="product">상품명</option>
+						<option value="category">분류</option>
+					</c:when>
+					<c:when test="${search_type eq 'content'}">
+						<option value="title">제목</option>
+						<option value="content" selected>내용</option>
+						<option value="writer">작성자</option>
+						<option value="product">상품명</option>
+						<option value="category">분류</option>
+					</c:when>
+					<c:when test="${search_type eq 'writer'}">
+						<option value="title">제목</option>
+						<option value="content">내용</option>
+						<option value="writer" selected>작성자</option>
+						<option value="product">상품명</option>
+						<option value="category">분류</option>
+					</c:when>
+					<c:when test="${search_type eq 'product'}">
+						<option value="title">제목</option>
+						<option value="content">내용</option>
+						<option value="writer">작성자</option>
+						<option value="product" selected>상품명</option>
+						<option value="category">분류</option>
+					</c:when>
+					<c:when test="${search_type eq 'category'}">
+						<option value="title">제목</option>
+						<option value="content">내용</option>
+						<option value="writer">작성자</option>
+						<option value="product">상품명</option>
+						<option value="category" selected>분류</option>
+					</c:when>
+					<c:otherwise>
+						<option value="title">제목</option>
+						<option value="content">내용</option>
+						<option value="writer">작성자</option>
+						<option value="product">상품명</option>
+						<option value="category">분류</option>
+					</c:otherwise>
+				</c:choose>
+			</select>
+			<input type="text" class="form-control search-box" name="search_keyword" placeholder="검색어를 입력해주세요." value="${search_keyword}"/>		
+			<button type="submit" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>						
+		</div>
 		<form id="qna-list-form" name="qna-list-form" method="POST">
 			<div class="container">
 				<table class="qna-board table table-hover">
@@ -53,26 +103,26 @@
 					<ul class="pagination justify-content-center" style="margin-bottom: 0px;">
 						<c:if test="${prev == true}">
 							<li class="page-item">
-								<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/board/qna?page=${pagination_start - 1}')">«</a>
+								<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/board/qna?page=${pagination_start - 1}&search_type=${search_type}&search_keyword=${search_keyword}')">«</a>
 							</li>												
 						</c:if>
 						
 						<c:forEach begin="${pagination_start}" end="${pagination_end}" var="i">
 							<c:if test="${page == i}">
 						    	<li class="page-item active">
-						    		<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/board/qna?page=${i}')">${i}</a>
+						    		<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/board/qna?page=${i}&search_type=${search_type}&search_keyword=${search_keyword}')">${i}</a>
 						    	</li>
 							</c:if>
 							<c:if test="${page != i}">
 						    	<li class="page-item">
-						    		<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/board/qna?page=${i}')">${i}</a>
+						    		<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/board/qna?page=${i}&search_type=${search_type}&search_keyword=${search_keyword}')">${i}</a>
 						    	</li>
 							</c:if>
 						</c:forEach>
 						
 					    <c:if test="${next == true }">
 							<li class="page-item">
-								<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/board/qna?page=${pagination_end + 1}')">»</a>
+								<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/board/qna?page=${pagination_end + 1}&search_type=${search_type}&search_keyword=${search_keyword}')">»</a>
 							</li>				    					    
 					    </c:if>
 					</ul>
@@ -82,41 +132,7 @@
 		</form>
 	</div>
 		
-	<script>
-        	$(document).ready(function(){
-        		var page = <%=request.getParameter("page")%>
-        		
-        	    $('#qna-delete-btn').click(function() {
-					if ($("input:checkbox[name=row_check]:checked").length == 0) {
-						alert('삭제할 항목을 선택해주세요.');
-					} else {
-						var result = confirm('삭제하시겠습니까?');
-						
-						if(result) {
-							var formData = $('#qna-list-form').serialize();
-							
-							var checked = $("input:checkbox[name=row_check]:checked").length;
-							$.ajax({
-								url: "<%=request.getContextPath()%>/admin/board/qna/delete",
-								type: "POST",
-								cache: false,
-								data: formData,
-								cache : false,
-								success: function(data){
-									alert(checked + "개의 문의글을 삭제하였습니다.");
-									movePageByGet('<%=request.getContextPath()%>/admin/board/qna');
-								},
-								error: function (request, status, error){        
-									console.log(error);
-								}
-							})     
-						} else {
-							
-						}
-					}
-        	    });
-        	});
-  	</script>
+	<script src="<%=request.getContextPath()%>/resources/admin/js/qna_list.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/admin/js/list_checkbox.js"></script>
 	
 </body>

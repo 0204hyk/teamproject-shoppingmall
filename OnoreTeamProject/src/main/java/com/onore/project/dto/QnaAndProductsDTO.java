@@ -62,5 +62,9 @@ public class QnaAndProductsDTO {
 	    return creationDate.isEqual(today) ? 
 		 	   timeFormat.format(qna_date) : dayFormat.format(qna_date);
     }
+    
+    // 관리자 검색용
+    private String search_type;
+    private String search_keyword;
 
 }

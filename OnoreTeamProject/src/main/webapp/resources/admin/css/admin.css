@@ -346,7 +346,7 @@ body {
   background-color: white;
   border-radius: 10px;
   width: 1430px;
-  height: 820px;
+  height: 825px;
   margin: 5px;
   padding: 5px;
 }
@@ -363,6 +363,7 @@ body {
 
 .notice-title h1 {
   color: rgb(93, 93, 93);
+  width: 150px;
   font-weight: 600; 
   font-size: 24px;
   margin-top: 10px;
@@ -396,26 +397,6 @@ body {
   text-decoration: none;
 }
 
-.notice-search-type {
-  width: 100px;
-  margin-top: 5px;
-  margin-left: 150px;
-  margin-right: 10px;
-  font-family: 'Noto Sans KR', sans-serif; 
-  font-weight: 500;
-  font-size: 18px;
-}
-
-.notice-search {
-  margin-top: 5px;
-  border-width: 2px;
-  font-size: 18px;
-  font-family: 'Noto Sans KR', sans-serif; 
-  font-weight: 500;
-  font-size: 18px;
-  width: 50%;
-}
-
 /* 상품 */
 .product-content {
   background-color: white;
@@ -433,6 +414,7 @@ body {
 
 .product-title h1 {
   color: rgb(93, 93, 93);
+  width: 150px;
   font-weight: 600; 
   font-size: 24px;
   margin-top: 10px;
@@ -495,18 +477,20 @@ body {
   background-color: white;
   border-radius: 10px;
   width: 1430px;
-  height: 830px;
+  height: 840px;
   margin: 5px;
   padding: 5px;
 }
 
 .board-title {
+  display: flex;
   padding: 10px;
   margin-bottom: 10px;
 }
 
 .board-title h1 {
   color: rgb(93, 93, 93);
+  width: 150px;
   font-weight: 600; 
   font-size: 24px;
   margin-top: 10px;
@@ -541,10 +525,36 @@ body {
 }
 
 /* 검색 */
+.search-type {
+  width: 100px;
+  margin-top: 10px;
+  margin-left: 130px;
+  margin-right: 10px;
+  font-family: 'Noto Sans KR', sans-serif; 
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.search-box {
+  margin-top: 10px;
+  border-width: 2px;
+  font-size: 18px;
+  font-family: 'Noto Sans KR', sans-serif; 
+  font-weight: 500;
+  font-size: 18px;
+  width: 50%;
+}
 
 #search-btn {
   border: none;
   background-color: white;
+  color: rgb(162, 162, 162);
   font-size: 30px;
   margin-left: 10px;
+  margin-top: 5px;
+}
+
+#search-btn:hover {
+  color: rgb(77, 77, 77) !important;
+  transition: 0.5s;
 }

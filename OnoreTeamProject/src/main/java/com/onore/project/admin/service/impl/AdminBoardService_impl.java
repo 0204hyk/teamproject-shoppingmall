@@ -21,8 +21,8 @@ public class AdminBoardService_impl implements AdminBoardService {
 	ReviewMapper reviewMapper;
 	
 	@Override
-	public List<QnaAndProductsDTO> readAllQna() {
-		return qnaMapper.getQnaAndProductsAll();
+	public List<QnaAndProductsDTO> readAllQna(QnaAndProductsDTO qna) {
+		return qnaMapper.getSearchQnaList(qna);
 	}
 
 	@Override
@@ -31,8 +31,8 @@ public class AdminBoardService_impl implements AdminBoardService {
 	}
 	
 	@Override
-	public List<ReviewandProductDTO> readAllReview() {
-		return reviewMapper.getAll();
+	public List<ReviewandProductDTO> readAllReview(ReviewandProductDTO review) {
+		return reviewMapper.getSearchReviewList(review);
 	}
 
 	@Override

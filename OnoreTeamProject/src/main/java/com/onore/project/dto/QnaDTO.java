@@ -35,7 +35,7 @@ public class QnaDTO {
 		 	   timeFormat.format(qna_date) : dayFormat.format(qna_date);		
     }
     
-    // 관리자 메인 페이지에 사용할 시간 형식
+    // 관리자
     private static SimpleDateFormat adminPageFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     
     public String getAdminPageQnaDate() {

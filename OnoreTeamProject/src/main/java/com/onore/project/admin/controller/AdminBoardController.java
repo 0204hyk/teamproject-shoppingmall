@@ -27,10 +27,16 @@ public class AdminBoardController {
 	AdminBoardService service;
 	
 	@GetMapping("/qna")
-	public String qnaList(HttpServletRequest request) {
-		String pageStr = request.getParameter("page");
+	public String qnaList(HttpServletRequest request, QnaAndProductsDTO qna) {
+		String search_type = request.getParameter("search_type");
+		String search_keyword = request.getParameter("search_keyword");
 		
-		List<QnaAndProductsDTO> qnaList = service.readAllQna();
+		qna.setSearch_type(search_type);
+		qna.setSearch_keyword(search_keyword);
+		
+		List<QnaAndProductsDTO> qnaList = service.readAllQna(qna);
+
+		String pageStr = request.getParameter("page");
 		
 		int page; 
 		
@@ -81,6 +87,8 @@ public class AdminBoardController {
 		request.setAttribute("prev", prevBtn);
 		request.setAttribute("next", nextBtn);
 		request.setAttribute("page", page);
+		request.setAttribute("search_type", search_type);
+		request.setAttribute("search_keyword", search_keyword);
 
 		return "/admin/board/admin_qna_management";
 	}
@@ -96,10 +104,16 @@ public class AdminBoardController {
 	}
 	
 	@GetMapping("/review")
-	public String reviewList(HttpServletRequest request) {
-		String pageStr = request.getParameter("page");
+	public String reviewList(HttpServletRequest request, ReviewandProductDTO review) {
+		String search_type = request.getParameter("search_type");
+		String search_keyword = request.getParameter("search_keyword");
+
+		review.setSearch_type(search_type);
+		review.setSearch_keyword(search_keyword);
 		
-		List<ReviewandProductDTO> reviewList = service.readAllReview();
+		List<ReviewandProductDTO> reviewList = service.readAllReview(review);
+		
+		String pageStr = request.getParameter("page");
 		
 		int page; 
 		
@@ -150,6 +164,8 @@ public class AdminBoardController {
 		request.setAttribute("prev", prevBtn);
 		request.setAttribute("next", nextBtn);
 		request.setAttribute("page", page);
+		request.setAttribute("search_type", search_type);
+		request.setAttribute("search_keyword", search_keyword);
 		
 		return "/admin/board/admin_review_management";
 	}

@@ -36,4 +36,5 @@ public interface ReviewMapper {
 	
 	// 관리자
 	List<ReviewandProductDTO> getRecentReview();
+	List<ReviewandProductDTO> getSearchReviewList(ReviewandProductDTO review);
 }

@@ -9,7 +9,6 @@ import com.onore.project.dto.QnaDTO;
 import com.onore.project.dto.QnaReplyDTO;
 
 
-
 public interface QnaMapper {
 
 	List<QnaDTO> getAll();
@@ -40,4 +39,5 @@ public interface QnaMapper {
 	
 	// 관리자
 	List<QnaDTO> getRecentQna();
+	List<QnaAndProductsDTO> getSearchQnaList(QnaAndProductsDTO qna);
 }

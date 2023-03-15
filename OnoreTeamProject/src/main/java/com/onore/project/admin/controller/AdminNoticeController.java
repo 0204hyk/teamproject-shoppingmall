@@ -48,7 +48,7 @@ public class AdminNoticeController {
 		String search_keyword = request.getParameter("search_keyword");
 		
 		notice.setSearch_type(search_type);
-		notice.setSearch_keyword(search_keyword);
+		notice.setSearch_keyword(search_keyword);			
 		
 		List<NoticeDTO> noticeList = service.readAllNotice(notice);
 
