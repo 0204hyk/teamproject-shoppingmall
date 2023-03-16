@@ -135,7 +135,7 @@
 	
 }
 
-
+/*review_histoy_div 추가내용*/
 #review_table {
 	margin: 10px auto 5px auto;
 	width: 100%;
@@ -163,6 +163,12 @@ td {
 	height: 50px;
 }
 
+#more {
+	background-color: white;
+	border: 0px;
+	cursor: pointer;
+}
+/*review_histoy_div 추가내용*/
 
 
 

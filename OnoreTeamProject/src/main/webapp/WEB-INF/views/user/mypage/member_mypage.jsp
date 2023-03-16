@@ -49,7 +49,10 @@
 		</div>
 		
 		<div class="review_history_div">
-       		<div class="review_history_title">나의 리뷰 내역<button id="test">더보기</button> </div>
+       		<div class="review_history_title" style="display: flex;">
+       			<div>나의 리뷰 내역</div>
+       			<div style="margin-left: auto;"><button id="more">더보기</button></div>
+       		</div> 
        		<div class="review_histoy_content">
         	<table id="review_table">
         	<tr>

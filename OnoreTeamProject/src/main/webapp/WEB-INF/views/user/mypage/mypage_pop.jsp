@@ -10,7 +10,7 @@
 <%@include file="../header.jspf"%>
 </head>
 <body>
-	<div>
+	<div style="margin: 20px auto; width: 90%; text-align: center;">
 	<div class="review_history_title">나의 리뷰 내역</div>
        		<div class="review_histoy_content">
         	<table id="review_table">
@@ -21,10 +21,11 @@
 				<th id="rating">평점</th>
 			</tr>	
 				<c:forEach items="${reviews }" var="review">
+					<input type="hidden" value="${review.review_num }" class="num">
 				<tr>
 					<td>${review.product_name }</td>
-					<td id="review_content"><button class="content">
-					${review.review_content }</button><span class="content"></span></td>
+					<td id="review_content"><button class="content" style="background-color: white; border: 0px; cursor:pointer;">
+					${review.review_content }</button></td>
 					<td>${review.creationReviewDate }</td>
 					<c:if test="${review.review_rating eq 5 }">
 						<td class="star">
@@ -74,7 +75,7 @@
 				</tr>
 				</c:forEach>
 			</table>
-			<div class="page">
+			<div class="page" style="margin-top: 50px;">
 				<c:if test="${pagination_start > 5 }">
 					<a href="./pagenation?page=${previous_page }" id="before"><</a>
 				</c:if>
@@ -92,8 +93,10 @@ const test = document.getElementsByClassName('content');
 
 for (var i = 0; i < test.length; ++i) {
 const test2 = document.getElementsByClassName('content')[i];
+console.log(test2);
+const num = document.getElementsByClassName('num')[i].value;
+console.log(num);
 test2.addEventListener('click', (e) =>{
-	const num = document.getElementById('num').value;
     window.opener.location.href = contextPath + '/review/detail?review_num=' + num ;
     window.close();
 });
