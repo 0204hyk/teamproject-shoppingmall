@@ -43,5 +43,41 @@
 	<delete id="deleteProduct">
 		DELETE FROM products WHERE product_num = #{product_num}
 	</delete>
-	
+	<select id="getSearchProduct" resultType="com.onore.project.dto.ProductsDTO">
+		SELECT * FROM products
+		<trim prefix="WHERE">
+			<if test="search_type == 'ALL' and search_keyword != null and search_keyword != ''">
+				product_name like '%'||#{search_keyword}||'%'
+			</if>
+			<if test="search_type == 'DERBY' and search_keyword != null and search_keyword != ''">
+				product_name like '%'||#{search_keyword}||'%' 
+				AND category_num = 1
+			</if>
+			<if test="search_type == 'BOOTS' and search_keyword != null and search_keyword != ''">
+				product_name like '%'||#{search_keyword}||'%' 
+				AND category_num = 2
+			</if>
+			<if test="search_type == 'LOAFER' and search_keyword != null and search_keyword != ''">
+				product_name like '%'||#{search_keyword}||'%' 
+				AND category_num = 3
+			</if>
+			<if test="search_type == 'SNEAKERS' and search_keyword != null and search_keyword != ''">
+				product_name like '%'||#{search_keyword}||'%' 
+				AND category_num = 4
+			</if>
+			<if test="search_type == 'DERBY' and search_keyword == ''">
+				category_num = 1
+			</if>
+			<if test="search_type == 'BOOTS' and search_keyword == ''">
+				category_num = 2
+			</if>
+			<if test="search_type == 'LOAFER' and search_keyword == ''">
+				category_num = 3
+			</if>
+			<if test="search_type == 'SNEAKERS' and search_keyword == ''">
+				category_num = 4
+			</if>
+		</trim>
+		ORDER BY product_num DESC
+	</select>
 </mapper>
