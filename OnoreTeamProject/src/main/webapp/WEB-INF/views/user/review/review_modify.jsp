@@ -20,7 +20,7 @@
 		style="padding-top: 127px; width: auto; margin: 50px; margin-top: 0px;">
 		<hr>
 		<div class="write">
-		<form class="mb-3" id="myform" action="./write" method="POST" enctype="multipart/form-data">
+		<form class="mb-3" id="myform" action="./modify" method="POST" enctype="multipart/form-data">
 			<div class="container">
 				<div class="a">
 					<div name="prd_img">

@@ -8,13 +8,11 @@
 	height: 1500px;
 	width: 70%;
 	margin: auto;
-	background-color: white;
 	text-align: center;
 }
 
 .member_info_div {
 	height : 200px;
-	background: black;
 	margin-bottom: 100px;
 }
 
@@ -22,7 +20,6 @@
 .mypage_title {
 	width: 100%;
 	height: 50px;
-	color: white;
 	font-family: 'Do Hyeon', sans-serif;
 	font-size : 25px;
 	text-align: left;
@@ -33,7 +30,6 @@
 	float: left;
 	width: 20%;
 	height: 150px;
-	color: white;
 	display: flex;
   	justify-content: center;
   	align-items: center;
@@ -41,14 +37,12 @@
 
 .photo_div > i {
 	font-size : 100px;
-	color: white;
 }
 
 .member_id_div {
 	float: left;
 	width: 70%;
 	height: 80px;
-	color: white;
 	display: flex;
 	justify-content: center;
   	align-items: center;
@@ -70,7 +64,6 @@
 	height: 30px;
 	font-size: 12px;
 	background-color: white;
-	color: black;
 	border-radius: 3px;
 	cursor: pointer;
 	float: left;
@@ -121,7 +114,7 @@
 .delivery_btn,
 .cancel_refund_btn {
 	display : block;
-	background-color : black;
+	
 	width: 100px;
 	height: 30px;
 	border-radius : 3px;

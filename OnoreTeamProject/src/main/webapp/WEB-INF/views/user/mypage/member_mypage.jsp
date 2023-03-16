@@ -15,7 +15,7 @@
 <div class="middle_mypage_div">
 	<div class="mypage_div">
 		<div class="member_info_div">
-			<div class="mypage_title">My Page</div>
+			<div class="mypage_title">마이페이지</div>
 			<div class="photo_div"><i id="member_icon" class="fa-solid fa-circle-user"></i></div>
 			<div class="member_id_div">${sessionScope.signIn.mem_id}님</div>
 			<div class="member_modify_div">
@@ -41,10 +41,14 @@
 	        <div class="coupon_content_div">나의 쿠폰 내용</div>
 		</div>
 
-		
         <div class="qna_history_div">
        		<div class="qna_history_title">나의 문의 내역 (1:1 상담)</div>
         	<div class="qna_content_div">나의 문의 내역 (1:1 상담) 내용</div>
+		</div>
+		
+		<div class="review_history_div">
+			<div class="qna_history_title">나의 리뷰 내역</div>
+        	<div class="qna_content_div">나의 리뷰 내용</div>
 		</div>
 	</div>
 </div>
