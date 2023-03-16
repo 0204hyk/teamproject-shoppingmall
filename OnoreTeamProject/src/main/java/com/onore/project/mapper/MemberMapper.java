@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.onore.project.dto.CouponDTO;
 import com.onore.project.dto.MemberDTO;
+import com.onore.project.dto.ReviewandProductDTO;
 
 public interface MemberMapper {
 	
@@ -54,6 +55,9 @@ public List<MemberDTO> getAll();
 	 
 	// 주문완료 후 배송지 수정
 	Integer updateMemberAddress(MemberDTO member);
-
+	
+	// 마이페이지 리뷰 가져오기
+	List<ReviewandProductDTO> getReview(String mem_id);
+	
 }
 

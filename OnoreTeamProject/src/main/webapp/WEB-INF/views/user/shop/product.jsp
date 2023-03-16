@@ -123,11 +123,7 @@
 			</nav>
 		</div>
 			<div id="detail">
-				<img src="<%=request.getContextPath()%>/resources/shop/image/doby/doby1.jpg">
-				<img src="<%=request.getContextPath()%>/resources/shop/image/doby/doby2.jpg">
-				<img src="<%=request.getContextPath()%>/resources/shop/image/doby/doby3.jpg">
-				<img src="<%=request.getContextPath()%>/resources/shop/image/doby/doby4.jpg">
-				<img src="<%=request.getContextPath()%>/resources/shop/image/doby/doby5.jpg">
+				${product.product_detail }
 			</div>
 		</div>
 		<hr>

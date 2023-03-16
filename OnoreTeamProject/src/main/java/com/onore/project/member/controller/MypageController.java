@@ -22,6 +22,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.onore.project.dto.MemberDTO;
 import com.onore.project.mapper.MemberMapper;
 import com.onore.project.member.service.MemberService;
+import com.onore.project.member.service.ReviewPageService;
+import com.onore.project.shop.service.ShopService;
 
 
 @Controller
@@ -36,10 +38,25 @@ public class MypageController {
 	@Autowired
 	MemberDTO memberdto;
 
+	@Autowired
+	ShopService shopService;
+	
+	@Autowired
+	ReviewPageService page;
+	
 	// 마이페이지로 이동
 	@GetMapping("/mypage")
-	public String member_mypage() throws Exception {
+	public String member_mypage(Model model, Integer product_num, String mem_id, HttpServletRequest req) throws Exception {
+		page.service(req, mem_id);
+		
 		return "user/mypage/member_mypage";
+	}
+	
+	@GetMapping("/pagenation")
+	public String pagenation(String mem_id, HttpServletRequest req) {
+		page.service(req, mem_id);
+		
+		return "user/mypage/mypage_pop";
 	}
 
 	// 비밀번호 수정으로 이동

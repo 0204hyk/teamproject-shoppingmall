@@ -112,6 +112,10 @@
 <insert id="updateMemberAddress" parameterType="com.onore.project.dto.MemberDTO">
 		UPDATE members SET mem_zip_code=#{mem_zip_code}, mem_street_address=#{mem_street_address}, mem_detail_address=#{mem_detail_address}
 		WHERE mem_id = #{mem_id}
-</insert>
+</insert> 
+
+<select id="getReview" resultType="com.onore.project.dto.ReviewandProductDTO">
+	SELECT * FROM reviews INNER JOIN products USING (product_num) WHERE mem_id=#{mem_id}
+</select>
 
 </mapper>				

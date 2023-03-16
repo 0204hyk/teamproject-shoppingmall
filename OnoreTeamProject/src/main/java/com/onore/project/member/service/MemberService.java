@@ -2,10 +2,12 @@ package com.onore.project.member.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.onore.project.dto.CouponDTO;
 import com.onore.project.dto.MemberDTO;
+import com.onore.project.dto.ReviewandProductDTO;
 
 
 public interface MemberService {
@@ -59,6 +61,6 @@ public List<MemberDTO> getAll();
 	
 	// 주문완료 후 배송지 수정
 	Integer updateMemberAddress(MemberDTO member);
-
+	
 }
 

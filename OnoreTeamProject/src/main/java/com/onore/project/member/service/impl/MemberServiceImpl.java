@@ -10,7 +10,9 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 import com.onore.project.dto.CouponDTO;
 import com.onore.project.dto.MemberDTO;
+import com.onore.project.dto.ReviewandProductDTO;
 import com.onore.project.mapper.MemberMapper;
 import com.onore.project.member.service.MemberService;
 
@@ -26,7 +29,7 @@ import com.onore.project.member.service.MemberService;
 @Service
 @Qualifier("memberservice")
 public class MemberServiceImpl implements MemberService{
-
+	
 	@Autowired
 	   MemberMapper mapper;
 
@@ -263,4 +266,5 @@ public class MemberServiceImpl implements MemberService{
 			
 		return mapper.updateMemberAddress(member);
 	}
+
 }

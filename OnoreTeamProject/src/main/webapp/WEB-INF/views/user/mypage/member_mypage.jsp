@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,9 +47,88 @@
        		<div class="qna_history_title">나의 문의 내역 (1:1 상담)</div>
         	<div class="qna_content_div">나의 문의 내역 (1:1 상담) 내용</div>
 		</div>
+		
+		<div class="review_history_div">
+       		<div class="review_history_title">나의 리뷰 내역<button id="test">더보기</button> </div>
+       		<div class="review_histoy_content">
+        	<table id="review_table">
+        	<tr>
+				<th id="product">상품이름</th>
+				<th id="title">제목</th>
+				<th id="date">등록일</th>
+				<th id="rating">평점</th>
+			</tr>	
+				<c:forEach items="${reviews }" var="review">
+				<tr>
+					<td>${review.product_name }</td>
+					<td id="review_content"><a href="<%=request.getContextPath() %>/review/detail?review_num=${review.review_num}">
+					${review.review_content }</a></td>
+					<td>${review.creationReviewDate }</td>
+					<c:if test="${review.review_rating eq 5 }">
+						<td class="star">
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+						</td>
+					</c:if>
+					<c:if test="${review.review_rating eq 4 }">
+						<td class="star">
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</td>
+					</c:if>
+					<c:if test="${review.review_rating eq 3 }">
+						<td class="star">
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</td>
+					</c:if>
+					<c:if test="${review.review_rating eq 2 }">
+						<td class="star">
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</td>
+					</c:if>
+					<c:if test="${review.review_rating eq 1 }">
+						<td class="star">
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+						</td>
+					</c:if>
+				</tr>
+				</c:forEach>
+			</table>
+			<div class="page">
+				<c:if test="${pagination_start > 5 }">
+					<a href="./mypage?page=${previous_page }" id="before"><</a>
+				</c:if>
+				<c:forEach begin="${pagination_start }" end="${pagination_end }" var="i">
+					<a href="./mypage?page=${i }" class="pages">${i }</a>
+				</c:forEach>
+				<c:if test="${pagination_end % 5 eq 0 }">
+					<a href="./mypage?page=${next_page }" id="next">></a>
+				</c:if>
+			</div>
+			</div>
+		</div>
+		
 	</div>
 </div>
 <!-- middle 끝 -->
-
+<script src="<%=request.getContextPath() %>/resources/mypage/js/mypage.js"></script>
 <script src="<%=request.getContextPath() %>/resources/menu/js/menubar.js?ver=2"></script>
 <%@include file="../bottom.jspf"%>

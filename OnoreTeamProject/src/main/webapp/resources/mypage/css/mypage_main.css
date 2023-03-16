@@ -1,11 +1,9 @@
 .middle_mypage_div{
-	height: 1700px;
 	padding-top: 200px;
 	background-color: white;
 }
 
 .mypage_div {
-	height: 1500px;
 	width: 70%;
 	margin: auto;
 	background-color: white;
@@ -78,17 +76,22 @@
 }
 
 .recent_order_history_div,
-.coupon_history_div,
-.qna_history_div {
-	height : 300px;
+.coupon_history_div {
 	background: white;
 	margin-bottom: 100px;
 	border-bottom : solid 1px lightgray;
 }
 
+.qna_history_div,
+.review_history_div {
+	background: white;
+	margin-bottom: 100px;
+}
+
 .recent_order_history_title,
 .coupon_history_title,
-.qna_history_title {
+.qna_history_title,
+.review_history_title {
 	height: 50px;
 	font-family: 'Do Hyeon', sans-serif;
 	font-size : 25px;
@@ -131,3 +134,35 @@
 	cursor: pointer;
 	
 }
+
+
+#review_table {
+	margin: 10px auto 5px auto;
+	width: 100%;
+	border-spacing: 0px;
+}
+
+#product, #date, #rating {
+	width: 20%;
+	padding-bottom: 10px;
+	border-bottom: 1px solid gray;
+}
+
+#title {
+	width: 40%;
+	padding-bottom: 10px;
+	border-bottom: 1px solid gray;
+}
+
+.star {
+	color: orange;
+}
+
+td {
+	border-bottom: 1px solid gray;
+	height: 50px;
+}
+
+
+
+
