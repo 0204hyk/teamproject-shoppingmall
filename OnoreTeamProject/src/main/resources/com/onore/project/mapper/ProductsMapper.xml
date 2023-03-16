@@ -43,5 +43,22 @@
 	<delete id="deleteProduct">
 		DELETE FROM products WHERE product_num = #{product_num}
 	</delete>
-	
+	<select id="getSearchProduct" resultType="com.onore.project.dto.ProductsDTO">
+		SELECT * FROM products
+		<trim prefix="WHERE">
+			<choose>
+				<when test="search_type == 0 and search_keyword != null and search_keyword != ''">
+					product_name like '%'||#{search_keyword}||'%'
+				</when>
+				<when test="search_keyword != null and search_keyword != ''">
+					product_name like '%'||#{search_keyword}||'%' 
+					AND category_num = #{search_type}
+				</when>
+				<when test="search_type != 0 and search_keyword == ''">
+					category_num = #{search_type}
+				</when>
+			</choose>
+		</trim>
+		ORDER BY product_num DESC
+	</select>
 </mapper>

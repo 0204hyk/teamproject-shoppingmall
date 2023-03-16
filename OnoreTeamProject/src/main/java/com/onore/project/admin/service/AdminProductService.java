@@ -8,7 +8,7 @@ import com.onore.project.dto.ProductsDTO;
 public interface AdminProductService {
 	List<CategoriesDTO> readCaregoriesList();
 	Integer productRegist(ProductsDTO product);
-	List<ProductsDTO> readAllProduct();
+	List<ProductsDTO> readAllProduct(ProductsDTO product);
 	ProductsDTO readProduct(Integer product_num);
 	Integer productModifyService(ProductsDTO product);
 	Integer productDeleteService(Integer product_num);

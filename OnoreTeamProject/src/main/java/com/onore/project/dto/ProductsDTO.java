@@ -31,5 +31,8 @@ public class ProductsDTO {
 	   return creationDate.isEqual(today) ? 
 			   timeFormat.format(product_date) : dayFormat.format(product_date);		
    }
-
+   
+   private String search_type;
+   private String search_keyword;
+   
 }
