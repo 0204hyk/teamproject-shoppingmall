@@ -14,19 +14,19 @@
 		<div class="product-title">
 			<h1>상품 목록</h1>
 			<select name="search_type" class="form-select search-type" style="width: 150px;">
-				<option value="ALL">ALL</option>
+				<option value="0">ALL</option>
 				<c:forEach items="${categories}" var="category">
 					<c:choose>
-						<c:when test="${search_type eq category.category_name}">
-							<option value="${category.category_name}" selected>${category.category_name}</option>
+						<c:when test="${search_type eq category.category_num}">
+							<option value="${category.category_num}" selected>${category.category_name}</option>
 						</c:when>
 						<c:otherwise>
-							<option value="${category.category_name}">${category.category_name}</option>
+							<option value="${category.category_num}">${category.category_name}</option>
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
 			</select>
-			<input type="text" class="form-control search-box" name="search_keyword" placeholder="상품명을 입력해주세요." value="${search_keyword}"/>
+			<input type="text" class="form-control search-box" name="search_keyword" placeholder="상품명을 입력해주세요." value="${search_keyword}" autocomplete="off"/>
 			<button type="submit" id="search-btn" style="color: gray;"><i class="fa-solid fa-magnifying-glass"></i></button>
 		</div>
 		<form id="product-list-form" name="product-list-form" method="POST">
