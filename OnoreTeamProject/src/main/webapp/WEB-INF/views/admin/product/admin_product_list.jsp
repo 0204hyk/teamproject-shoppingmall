@@ -10,8 +10,25 @@
 </head>
 <body>
 	
-	<div class="product-content shadow" style="height: 830px;">
-		<div class="product-title"><h1>상품 목록</h1></div>
+	<div class="product-content shadow" style="height: 835px;">
+		<div class="product-title">
+			<h1>상품 목록</h1>
+			<select name="search_type" class="form-select search-type" style="width: 150px;">
+				<option value="0">ALL</option>
+				<c:forEach items="${categories}" var="category">
+					<c:choose>
+						<c:when test="${search_type eq category.category_num}">
+							<option value="${category.category_num}" selected>${category.category_name}</option>
+						</c:when>
+						<c:otherwise>
+							<option value="${category.category_num}">${category.category_name}</option>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+			</select>
+			<input type="text" class="form-control search-box" name="search_keyword" placeholder="상품명을 입력해주세요." value="${search_keyword}" autocomplete="off"/>
+			<button type="submit" id="search-btn" style="color: gray;"><i class="fa-solid fa-magnifying-glass"></i></button>
+		</div>
 		<form id="product-list-form" name="product-list-form" method="POST">
 			<div class="container">
 				<table class="product-board table table-hover">
@@ -55,26 +72,26 @@
 					<ul class="pagination justify-content-center" style="margin-bottom: 0px;">
 						<c:if test="${prev == true}">
 							<li class="page-item">
-								<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/product/list?page=${pagination_start - 1}')">«</a>
+								<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/product/list?page=${pagination_start - 1}&search_type=${search_type}&search_keyword=${search_keyword}')">«</a>
 							</li>												
 						</c:if>
 						
 						<c:forEach begin="${pagination_start}" end="${pagination_end}" var="i">
 							<c:if test="${page == i}">
 						    	<li class="page-item active">
-						    		<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/product/list?page=${i}')">${i}</a>
+						    		<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/product/list?page=${i}&search_type=${search_type}&search_keyword=${search_keyword}')">${i}</a>
 						    	</li>
 							</c:if>
 							<c:if test="${page != i}">
 						    	<li class="page-item">
-						    		<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/product/list?page=${i}')">${i}</a>
+						    		<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/product/list?page=${i}&search_type=${search_type}&search_keyword=${search_keyword}')">${i}</a>
 						    	</li>
 							</c:if>
 						</c:forEach>
 						
 					    <c:if test="${next == true }">
 							<li class="page-item">
-								<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/product/list?page=${pagination_end + 1}')">»</a>
+								<a class="page-link" href="javascript:void(0)" onclick="movePageByGet('<%=request.getContextPath()%>/admin/product/list?page=${pagination_end + 1}&search_type=${search_type}&search_keyword=${search_keyword}')">»</a>
 							</li>				    					    
 					    </c:if>
 					</ul>
@@ -85,41 +102,7 @@
 		</form>
 	</div>
 		
-	<script>
-        	$(document).ready(function(){
-        		var page = <%=request.getParameter("page")%>
-        		
-        	    $('#product-delete-btn').click(function() {
-					if ($("input:checkbox[name=row_check]:checked").length == 0) {
-						alert('삭제할 항목을 선택해주세요.');
-					} else {
-						var result = confirm('삭제하시겠습니까?');
-						
-						if(result) {
-							var formData = $('#product-list-form').serialize();
-							
-							var checked = $("input:checkbox[name=row_check]:checked").length;
-							$.ajax({
-								url: "<%=request.getContextPath()%>/admin/product/delete",
-								type: "POST",
-								cache: false,
-								data: formData,
-								cache : false,
-								success: function(data){
-									alert(checked + "개의 상품을 삭제하였습니다.");
-									movePageByGet('<%=request.getContextPath()%>/admin/product/list');
-								},
-								error: function (request, status, error){        
-									console.log(error);
-								}
-							})     
-						} else {
-							
-						}
-					}
-        	    });
-        	});
-  	</script>
+	<script src="<%=request.getContextPath()%>/resources/admin/js/product_list.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/admin/js/list_checkbox.js"></script>
 	
 </body>
