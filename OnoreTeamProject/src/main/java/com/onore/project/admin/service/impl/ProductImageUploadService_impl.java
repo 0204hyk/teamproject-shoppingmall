@@ -27,7 +27,7 @@ public class ProductImageUploadService_impl implements ProductImageUploadService
 		String product_name = request.getParameter("product_name"); 
 		
 		String contextRoot = request.getSession().getServletContext().getRealPath("/");
-		String fileRoot = contextRoot+"resources/admin/image/product/thumbnail/" + product_name + "/";
+		String fileRoot = "/Users/kang/git/teamproject-shoppingmall/OnoreTeamProject/src/main/webapp/resources/shop/image/";
 		
 		// 썸네일 폴더 내부에 상품명으로 하위 폴더 만들기
 		File folder = new File(fileRoot);
@@ -43,7 +43,7 @@ public class ProductImageUploadService_impl implements ProductImageUploadService
 		try {
 			InputStream fileStream = file.getInputStream();
 			FileUtils.copyInputStreamToFile(fileStream, targetFile);	//파일 저장
-			jsonObject.addProperty("url", "/project/resources/admin/image/product/thumbnail/" + product_name + "/" + savedFileName);
+			jsonObject.addProperty("url", "/project/resources/shop/image/" + savedFileName);
 			jsonObject.addProperty("responseCode", "success");
 			fileStream.close();
 		} catch (IOException e) {

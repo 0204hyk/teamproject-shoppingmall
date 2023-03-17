@@ -27,7 +27,7 @@
                       <li><a href="<%=request.getContextPath()%>/mypage"><i class="fa-solid fa-user"></i></a>
                   </c:when>
                   <c:otherwise>
-                      <li><a href="#">관리자메뉴</a></li>
+                      <li><a href="<%=request.getContextPath()%>/admin/main">관리자메뉴</a></li>
                   </c:otherwise>
               </c:choose>
               <c:choose>

@@ -25,11 +25,11 @@ public class ProductsDTO {
    private static SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy.MM.dd");
    private static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
 	
-   public String getCreationProductDate() {		
-	   LocalDate creationDate = LocalDate.ofInstant(product_date.toInstant(), ZoneId.systemDefault());
-	   LocalDate today = LocalDate.ofInstant(new Date().toInstant(), ZoneId.systemDefault());
-	   return creationDate.isEqual(today) ? 
-			   timeFormat.format(product_date) : dayFormat.format(product_date);		
-   }
+//   public String getCreationProductDate() {		
+//	   LocalDate creationDate = LocalDate.ofInstant(product_date.toInstant(), ZoneId.systemDefault());
+//	   LocalDate today = LocalDate.ofInstant(new Date().toInstant(), ZoneId.systemDefault());
+//	   return creationDate.isEqual(today) ? 
+//			   timeFormat.format(_date) : dayFormat.format(product_date);		
+//   }
 
 }

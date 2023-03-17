@@ -40,14 +40,14 @@ window.addEventListener('load', function() {
 					});
 					
 					onoreImg.addEventListener('click', (e) => {
-						location.href = '/project/shop/detail?product_num=' + number;
+						location.href = contextPath + '/shop/detail?product_num=' + number;
 					});
 				}	
 		}
 	});
 	
 
-	xhttp.open('GET', '/project/restful/all');
+	xhttp.open('GET', contextPath + '/restful/all');
     xhttp.send();
 });
 
@@ -94,14 +94,14 @@ categoryAll.addEventListener('click', (e) => {
 					});
 					
 					onoreImg.addEventListener('click', (e) => {
-						location.href = '/product/shop/detail/?product_num=' + number;
+						location.href = contextPath + '/shop/detail/?product_num=' + number;
 					});
 				}	
 		}
 	});
 	
 
-	xhttp.open('GET', '/project/restful/all');
+	xhttp.open('GET', contextPath + '/restful/all');
     xhttp.send();
 });
 
@@ -149,7 +149,7 @@ derbyBtn.addEventListener('click', (e) => {
 					});
 					
 					onoreImg.addEventListener('click', (e) => {
-						location.href = '/product/shop/detail/?product_num=' + number;
+						location.href = '/project/shop/detail/?product_num=' + number;
 					});
 				}	
 		}
@@ -203,14 +203,14 @@ bootsBtn.addEventListener('click', (e) => {
 					});
 					
 					onoreImg.addEventListener('click', (e) => {
-						location.href = '/product/shop/detail/?product_num=' + number;
+						location.href = contextPath + '/shop/detail/?product_num=' + number;
 					});
 				}	
 		}
 	});
 	
 
-	xhttp.open('GET', '/project/restful/boots');
+	xhttp.open('GET', contextPath + '/restful/boots');
     xhttp.send();
 });
 
@@ -257,14 +257,14 @@ loaferBtn.addEventListener('click', (e) => {
 					});
 					
 					onoreImg.addEventListener('click', (e) => {
-						location.href = '/product/shop/detail/?product_num=' + number;
+						location.href = contextPath + '/shop/detail/?product_num=' + number;
 					});
 				}	
 		}
 	});
 	
 
-	xhttp.open('GET', '/project/restful/loafers');
+	xhttp.open('GET', contextPath + '/restful/loafers');
     xhttp.send();
 });
 
@@ -310,13 +310,13 @@ sneakersBtn.addEventListener('click', (e) => {
 					});
 					
 					onoreImg.addEventListener('click', (e) => {
-						location.href = '/product/shop/detail/?product_num=' + number;
+						location.href = contextPath + '/shop/detail/?product_num=' + number;
 					});
 				}	
 		}
 	});
 	
 
-	xhttp.open('GET', '/project/restful/sneakers');
+	xhttp.open('GET', contextPath + '/restful/sneakers');
     xhttp.send();
 });	
