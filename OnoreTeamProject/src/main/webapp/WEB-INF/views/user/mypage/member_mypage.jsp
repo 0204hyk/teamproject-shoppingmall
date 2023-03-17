@@ -115,17 +115,6 @@
 				</tr>
 				</c:forEach>
 			</table>
-			<div class="page">
-				<c:if test="${pagination_start > 5 }">
-					<a href="./mypage?page=${previous_page }" id="before"><</a>
-				</c:if>
-				<c:forEach begin="${pagination_start }" end="${pagination_end }" var="i">
-					<a href="./mypage?page=${i }" class="pages">${i }</a>
-				</c:forEach>
-				<c:if test="${pagination_end % 5 eq 0 }">
-					<a href="./mypage?page=${next_page }" id="next">></a>
-				</c:if>
-			</div>
 			</div>
 		</div>
 		
