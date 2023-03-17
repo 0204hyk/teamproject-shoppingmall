@@ -131,3 +131,33 @@
 	cursor: pointer;
 	
 }
+
+#qna_table {
+   margin: 10px auto 5px auto;
+   width: 100%;
+   border-spacing: 0px;
+}
+
+#category, #date, #reply {
+   width: 20%;
+   padding-bottom: 10px;
+   border-bottom: 1px solid gray;
+}
+
+#title {
+   width: 40%;
+   padding-bottom: 10px;
+   border-bottom: 1px solid gray;
+}
+
+
+td {
+   border-bottom: 1px solid gray;
+   height: 50px;
+}
+
+#more {
+   background-color: white;
+   border: 0px;
+   cursor: pointer;
+}

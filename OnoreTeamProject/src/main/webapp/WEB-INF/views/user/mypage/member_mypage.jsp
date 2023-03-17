@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>ONÓRE</title>
 <link
-	href="<%=request.getContextPath() %>/resources/mypage/css/mypage_main.css?ver=1"
+	href="<%=request.getContextPath()%>/resources/mypage/css/mypage_main.css?ver=1"
 	rel="stylesheet" />
 <%@include file="../header.jspf"%>
 </head>
@@ -50,7 +50,7 @@
 
 			<div class="qna_history_div">
 				<div class="qna_history_title" style="display: flex;">
-					<div>나의 리뷰 내역</div>
+					<div>나의 문의 내역</div>
 					<div style="margin-left: auto;">
 						<button id="more">더보기</button>
 					</div>
@@ -63,8 +63,25 @@
 							<th id="date">등록일</th>
 							<th id="reply">답변</th>
 						</tr>
-						<c:forEach items="${qnas } " var="qna">
-							${qna.qna_num }
+						<c:forEach items="${qnas }" var="qna">
+							<tr>
+								<td>${qna.qna_category }</td>
+								<td id="qna_content"><a
+									href="<%=request.getContextPath() %>/qna/view?qna_num=${qna.qna_num}">
+										${qna.qna_content }</a></td>
+								<td>${qna.creationQnaDate }</td>
+								<c:choose>
+									<c:when test="${qna.qna_status eq 0 }">
+										<td style="color: gray;">답변 대기중</td>
+									</c:when>
+									<c:when test="${qna.qna_status eq 1 }">
+										<td style="font-weight: bold;">답변 완료</td>
+									</c:when>
+									<c:otherwise>
+										<td>${qna.qna_status }</td>
+									</c:otherwise>
+								</c:choose>
+							</tr>
 						</c:forEach>
 					</table>
 				</div>
@@ -74,5 +91,7 @@
 	<!-- middle 끝 -->
 
 	<script
-		src="<%=request.getContextPath() %>/resources/menu/js/menubar.js?ver=2"></script>
+		src="<%=request.getContextPath()%>/resources/menu/js/menubar.js?ver=2">
+	</script>
+	
 	<%@include file="../bottom.jspf"%>
