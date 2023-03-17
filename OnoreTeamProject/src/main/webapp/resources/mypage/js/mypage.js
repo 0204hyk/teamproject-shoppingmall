@@ -6,3 +6,4 @@ test.addEventListener('click',(e) => {
     open(openurl,'pop',popOption);
 });
 
+window.open();

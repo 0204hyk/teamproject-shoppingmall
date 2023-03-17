@@ -143,7 +143,7 @@
 									<th rowspan="2" id="review_img"></th>
 								</c:otherwise>
 							</c:choose>
-							<th class="id" style="width: 200px;">${review.maskingName }/${review.review_date }</th>
+							<th class="id" style="width: 200px;">${review.maskingName }/${review.creationReviewDate }</th>
 							<c:if test="${review.review_rating eq 5 }">
 								<th class="star">
 									<i class="fa-solid fa-star"></i>
@@ -214,7 +214,7 @@
 							<td class="qna_con">${qna.qna_num }</td>
 							<td class="qna_con" id="con">${qna.qna_title }</td>
 							<td class="qna_con">${qna.maskingName }</td>
-							<td class="qna_con">${qna.qna_date }</td>
+							<td class="qna_con">${qna.creationQnaDate }</td>
 							<td class="qna_con">
 								<c:choose>
 									<c:when test="${qna.qna_status eq 0 }">
