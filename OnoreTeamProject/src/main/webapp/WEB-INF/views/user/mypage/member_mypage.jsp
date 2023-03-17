@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
@@ -9,7 +9,11 @@
 <title>ONÓRE</title>
 <link href="<%=request.getContextPath() %>/resources/mypage/css/mypage_main.css?ver=1" rel="stylesheet"/>
 <style>
-
+ .recent_order_detail_td {
+ 	margin-bottom: 20px;
+ 	border-top: 0.5px dotted black;
+ 	border-bottom: 1px solid black;
+ }
 </style>
 <%@include file="../header.jspf"%>
 </head>
@@ -33,7 +37,7 @@
         <div class="recent_order_history_div">
         	<div class="recent_order_history_title">최근 주문내역</div>
 	        	<div class="recent_order_history">
-		        	<table style="margin-bottom : 5px;">
+		        	<table>
 						<colgroup>
 							<col style="width:80px">
 							<col style="width:150px">
@@ -55,11 +59,11 @@
 				       			<c:forEach begin="0" end="${my_orders.size()-1}" var="i">
 					       			<tr class="recent_order">
 					       				<td>
-					       					<i class="fa-solid fa-chevron-up"></i>
+					       					<i title="arrow" class="fa-solid fa-chevron-down"></i>
 					       				</td>
 					       				<td class="recent_order_num">order_${my_orders.get(i).order_num}</td>
 					       				<td class="recent_order_name">
-						       				<input type="checkbox" class="order_accordion" id="order${i}" style="display:none;"/>
+						       				<input type="checkbox" id="order${i}" class="order_accordion" style="display:none;"/>
 						       				<label for="order${i}" style="cursor:pointer;">
 						       					${my_orders.get(i).order_name}
 						       				</label>
@@ -67,13 +71,16 @@
 					       				<td class="recent_order_pay_price"><fmt:formatNumber value="${my_orders.get(i).pay_price}" pattern="#,###" />원</td>
 					        			<td class="recent_order_date">${my_orders.get(i).creationDateTime}</td>
 					        			<td class="recent_order_btns">
-					        				<input type="button" class="review_btn" value="리뷰쓰기">
-							        		<input type="button" class="delivery_btn" value="배송조회">
-								        	<input type="button" class="cancel_refund_btn" value="취소/환불">
+						        			<!-- action="./order/delete" method="POST" -->
+						        			<form class="order_form">
+						        				<input type="hidden" name="order_num" value="${my_orders.get(i).order_num}"/>
+								        		<input type="button" class="delivery_btn" value="배송조회" disabled>
+									        	<input type="submit" class="cancel_refund_btn" value="취소/환불">
+									        </form>
 					        			</td>
 					        		</tr>
 						        		<tr class="recent_order_detail" style="display:none;">
-								        	<td colspan="6" style="margin-bottom: 20px; border-top: 0.5px dotted black; border-bottom: 1px solid black;">
+								        	<td class="recent_order_detail_td" colspan="6">
 								        		<div>
 													<table>
 														<colgroup>
@@ -92,15 +99,19 @@
 															<th>수량</th>
 															<th>버튼</th>
 														</tr>
-														<c:forEach begin="0"
-															end="${my_order_infos.get(i).size()-1}" var="j">
+														<c:forEach begin="0" end="${my_order_infos.get(i).size()-1}" var="j">
 															<tr>
 																<td>order_${my_orders.get(i).order_num}_${j+1}</td>
 																<td>${my_order_infos.get(i).get(j).product_name}</td>
 																<td>${my_order_infos.get(i).get(j).order_info_option}</td>
 																<td>${my_order_infos.get(i).get(j).order_info_price}</td>
 																<td>${my_order_infos.get(i).get(j).order_info_qty}</td>
-																<td></td>
+																<td>
+																<form action="./review/write" method="GET">
+																	<input type="hidden" name="product_num" value="${my_order_infos.get(i).get(j).product_num}"/>
+																	<input type="submit" class="review_btn" value="리뷰쓰기">
+																</form>
+																</td>
 															</tr>
 														</c:forEach>
 													</table>
@@ -121,7 +132,27 @@
         
         <div class="coupon_history_div">
         	<div class="coupon_history_title">나의 쿠폰</div>
-	        <div class="coupon_content_div">나의 쿠폰 내용</div>
+	        <div class="coupon_content_div">
+	        	<table>
+						<colgroup>
+							<col style="width:100px">
+							<col style="width:1000px">
+							<col style="width:200px">
+						</colgroup>
+		       			<tr>
+		       				<th>NUM</th>
+		       				<th>쿠폰 이름</th>
+		       				<th>할인률</th>
+		       			</tr>
+		       			<c:forEach items="${my_coupons}" var="coupon" varStatus="status">
+			       			<tr>
+			       				<td>${status.index+1}</td>
+			       				<td>${coupon.coupon_name}</td>
+			       				<td>${coupon.coupon_discount * 100}%</td>
+			       			</tr>
+			       		</c:forEach>
+		        </table>
+	        </div>
 		</div>
 
 		
@@ -134,22 +165,7 @@
 <!-- middle 끝 -->
 
 <!-- 아코디언 동작 -->
-    <script>
-    	const arrow = document.getElementsByTagName('i[class*="fa-solid"]');
-    	const recent_order_details = document.querySelectorAll('.recent_order_detail');
-    	const order_accordions = document.querySelectorAll('.order_accordion');
-    	
-	    	order_accordions.forEach((check, index) => {
-	    		check.addEventListener('change', () => {    			
-					if(order_accordions[index].checked == true) {
-						arrow.className = 'fa-solid fa-chevron-down';
-						recent_order_details[index].style.display = '';
-					} else {
-						arrow.className = 'fa-solid fa-chevron-up';
-						recent_order_details[index].style.cssText = "display:none;";
-					}
-	    		});
-	    	});
-    </script>
-<script src="<%=request.getContextPath() %>/resources/menu/js/menubar.js?ver=2"></script>
+<script src="<%=request.getContextPath() %>/resources/mypage/js/order_list.js"></script>
+<script src="<%=request.getContextPath() %>/resources/mypage/js/delete_order.js"></script>
+<script src="<%=request.getContextPath() %>/resources/menu/js/menubar.js"></script>
 <%@include file="../bottom.jspf"%>

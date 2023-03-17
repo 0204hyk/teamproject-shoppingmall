@@ -99,7 +99,7 @@
 
 <!-- 회원이 소유한 쿠폰을 조회 -->
 <select id="getCoupons" resultType="com.onore.project.dto.CouponDTO">
-	SELECT * FROM coupon WHERE mem_id = #{mem_id}
+	SELECT * FROM coupon WHERE mem_id = #{mem_id} ORDER BY coupon_discount DESC
 </select>
 
 <!-- 회원이 사용한 쿠폰 제거 -->
