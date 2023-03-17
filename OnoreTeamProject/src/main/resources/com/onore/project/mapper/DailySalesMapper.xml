@@ -74,5 +74,4 @@
 		    WHERE a.dt = b.day(+)
 		    GROUP BY a.dt)
 	</select>
-	
 </mapper>

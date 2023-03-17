@@ -49,7 +49,7 @@ check_all.addEventListener('click', ()=> {
 	if(check_all.checked === true) {
 		for(i = 0; i < check_boxes.length; i++) {
 			check_boxes[i].checked = true;
-			total += parseInt(cart_product_prices[i].innerText);
+			total += parseInt(cart_product_prices[i].value);
 			selected[i] = check_boxes[i].value;
 		}
 	} else {
@@ -61,8 +61,8 @@ check_all.addEventListener('click', ()=> {
 	console.log(selected.toString());
 	selected_list_1.value = selected.toString();
 	selected_list_2.value = selected.toString();
-	product_total_price.innerText = total;
-	total_price.innerText = total;
+	product_total_price.innerText = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '원';
+	total_price.innerText = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '원';
 });
 
 // 개별 체크 액션
@@ -80,7 +80,7 @@ for(i = 0; i < check_boxes.length; i++) {
 		selected = [];
 		for(j = 0; j < check_boxes.length; j++) {
 			if(check_boxes[j].checked === true) {
-				total += parseInt(cart_product_prices[j].innerText);
+				total += parseInt(cart_product_prices[j].value);
 				if(check_boxes[j].value != null) {
 					selected.push(check_boxes[j].value);
 				}
@@ -90,8 +90,8 @@ for(i = 0; i < check_boxes.length; i++) {
 		console.log(selected.toString());
 		selected_list_1.value = selected.toString();
 		selected_list_2.value = selected.toString();
-		product_total_price.innerText = total;
-		total_price.innerText = total;
+		product_total_price.innerText = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '원';
+		total_price.innerText = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '원';
 	});
 }
 // 제거 폼

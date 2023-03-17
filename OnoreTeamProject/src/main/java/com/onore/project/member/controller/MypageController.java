@@ -1,6 +1,7 @@
 package com.onore.project.member.controller;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,6 +23,7 @@ import com.onore.project.dto.CouponDTO;
 import com.onore.project.dto.MemberDTO;
 import com.onore.project.dto.OrderDTO;
 import com.onore.project.dto.OrderInfoDTO;
+import com.onore.project.dto.ProductsDTO;
 import com.onore.project.mapper.MemberMapper;
 import com.onore.project.member.service.MemberService;
 import com.onore.project.order.service.OrderService;
@@ -49,7 +51,6 @@ public class MypageController {
 	// 마이페이지로 이동
 	@GetMapping("/mypage")
 	public String member_mypage(Model model, HttpServletRequest req) throws Exception {
-		
 		MemberDTO member = (MemberDTO)req.getSession().getAttribute("signIn");
 		
 		List<OrderDTO> order_list = service.getMyOrders(req);

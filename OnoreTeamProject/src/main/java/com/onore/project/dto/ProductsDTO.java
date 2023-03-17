@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
-
+import org.springframework.web.multipart.MultipartFile;
 import lombok.Data;
 
 @Data
@@ -30,4 +30,7 @@ public class ProductsDTO {
 			   timeFormat.format(product_date) : dayFormat.format(product_date);		
    }
 
+   private String search_type;
+   private String search_keyword;
+   
 }

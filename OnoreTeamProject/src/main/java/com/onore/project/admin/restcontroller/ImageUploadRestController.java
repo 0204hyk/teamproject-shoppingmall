@@ -82,7 +82,4 @@ public class ImageUploadRestController {
 		return result;
 	}
 	
-	
-
-
 }

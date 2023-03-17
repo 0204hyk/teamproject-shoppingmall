@@ -80,5 +80,4 @@
 		    WHERE a.dt = b.day(+) AND a.dt = c.day(+) AND a.dt = d.day(+)
 		    GROUP BY a.dt) 
 	</select>
-	
 </mapper>

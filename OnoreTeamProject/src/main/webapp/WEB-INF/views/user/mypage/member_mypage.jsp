@@ -164,7 +164,6 @@
 </div>
 <!-- middle 끝 -->
 
-<!-- 아코디언 동작 -->
 <script src="<%=request.getContextPath() %>/resources/mypage/js/order_list.js"></script>
 <script src="<%=request.getContextPath() %>/resources/mypage/js/delete_order.js"></script>
 <script src="<%=request.getContextPath() %>/resources/menu/js/menubar.js"></script>

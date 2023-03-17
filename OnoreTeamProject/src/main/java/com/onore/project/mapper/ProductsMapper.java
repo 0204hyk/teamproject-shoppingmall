@@ -10,4 +10,5 @@ public interface ProductsMapper {
 	ProductsDTO getProduct(Integer product_num);
 	Integer updateProduct(ProductsDTO product);
 	Integer deleteProduct(Integer product_num);
+	List<ProductsDTO> getSearchProduct(ProductsDTO product);
 }
