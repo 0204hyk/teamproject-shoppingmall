@@ -65,7 +65,6 @@ public class AdminProductController {
 	}
 
 	@GetMapping("/list")
-
 	public String productList(HttpServletRequest request, ProductsDTO product) {
 		String search_type = request.getParameter("search_type");
 		String search_keyword = request.getParameter("search_keyword");
