@@ -23,9 +23,9 @@
 	<div class="main"
 		style="padding-top: 127px; width: auto; margin: 50px; margin-top: 0px;">
 		<hr>
-		<div class="qna-form">
 		<form class="mb-3" id="myform" action="<%=request.getContextPath() %>/qna/qna_addWrite" method="post"
 			enctype="multipart/form-data">
+		<div class="qna-form">
 			<select name="qna_category" id="select" onchange="changeSelect(this);">
 				<option value="분류">분류</option>
 				<option value="상품">상품</option>
@@ -71,8 +71,8 @@
 				
 			</div>
 			<input type="submit" id="write_btn" value="문의 등록">
-		</form>
 		</div>
+		</form>
 	</div>
 	<hr>
 	<script type="text/javascript" src="<%=request.getContextPath() %>/resources/qna/js/qna_write.js"></script>
