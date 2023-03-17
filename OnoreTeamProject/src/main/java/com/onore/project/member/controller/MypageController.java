@@ -48,6 +48,14 @@ public class MypageController {
 		model.addAttribute("qnas", service.getQnaView(mem_id, req));
 		return "user/mypage/member_mypage";
 	}
+	
+	@GetMapping("/pagenation")
+	public String pagenation(String mem_id, HttpServletRequest req) {
+		qnaPopUpService.qnaPopUpService(req, mem_id);
+		
+		return "user/mypage/mypage_pop";
+		
+	}
 
 	// 비밀번호 수정으로 이동
 	@GetMapping("/member_pw_modify")
