@@ -22,7 +22,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.onore.project.dto.MemberDTO;
 import com.onore.project.mapper.MemberMapper;
 import com.onore.project.member.service.MemberService;
-import com.onore.project.member.service.MyPagePaginationService;
+import com.onore.project.member.service.QnaPopUpService;
+
 
 
 @Controller
@@ -33,7 +34,10 @@ public class MypageController {
 
 	@Autowired
 	MemberService service;
-
+	
+	@Autowired
+	QnaPopUpService qnaPopUpService;
+	
 	@Autowired
 	MemberDTO memberdto;
 
@@ -41,11 +45,7 @@ public class MypageController {
 	// 마이페이지로 이동
 	@GetMapping("/mypage")
 	public String member_mypage(Model model, String mem_id, HttpServletRequest req) throws Exception {
-		HttpSession se = req.getSession();
-		String id = ((MemberDTO)se.getAttribute("signIn")).getMem_id();
-		mem_id = id;
 		
-		model.addAttribute("qnas", mapper.getQnaView(mem_id));
 		return "user/mypage/member_mypage";
 	}
 

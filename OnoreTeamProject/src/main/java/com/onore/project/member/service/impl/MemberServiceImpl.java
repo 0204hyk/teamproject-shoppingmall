@@ -10,6 +10,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Service;
 
 import com.onore.project.dto.CouponDTO;
 import com.onore.project.dto.MemberDTO;
+import com.onore.project.dto.QnaDTO;
 import com.onore.project.mapper.MemberMapper;
 import com.onore.project.member.service.MemberService;
 
@@ -262,5 +264,11 @@ public class MemberServiceImpl implements MemberService{
 	public Integer updateMemberAddress(MemberDTO member) {
 			
 		return mapper.updateMemberAddress(member);
+	}
+
+	@Override
+	public List<QnaDTO> getQnaView(String mem_id, HttpServletRequest req) {
+		
+		return mapper.getQnaView(mem_id);
 	}
 }
