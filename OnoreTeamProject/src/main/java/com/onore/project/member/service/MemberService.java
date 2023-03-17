@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.onore.project.dto.CouponDTO;
 import com.onore.project.dto.MemberDTO;
 import com.onore.project.dto.QnaDTO;
+import com.onore.project.dto.ReviewandProductDTO;
 
 
 public interface MemberService {
@@ -61,7 +62,11 @@ public List<MemberDTO> getAll();
 
 	// 주문완료 후 배송지 수정
 	Integer updateMemberAddress(MemberDTO member);
-
+	
+	// 마이페이지 문의글 가져오기
 	List<QnaDTO> getQnaView(String mem_id, HttpServletRequest req);
+	
+	// 마이페이지 리뷰글 가져오기 
+	List<ReviewandProductDTO> getReview(String mem_id, HttpServletRequest req);
 }
 

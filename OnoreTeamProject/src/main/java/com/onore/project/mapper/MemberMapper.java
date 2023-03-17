@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import com.onore.project.dto.CouponDTO;
 import com.onore.project.dto.MemberDTO;
 import com.onore.project.dto.QnaDTO;
+import com.onore.project.dto.ReviewandProductDTO;
 
 public interface MemberMapper {
 
@@ -58,6 +59,10 @@ public interface MemberMapper {
 
 	// 마이페이지 문의글 가져오기
 	List<QnaDTO> getQnaView(String mem_id);
-
+	
+	// 마이페이지 리뷰 가져오기
+	List<ReviewandProductDTO> getReview(String mem_id);
+		
+	List<ReviewandProductDTO> getReviewAll(String mem_id);
 }
 

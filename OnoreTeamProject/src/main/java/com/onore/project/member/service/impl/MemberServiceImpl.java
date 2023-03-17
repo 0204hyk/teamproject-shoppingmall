@@ -22,6 +22,7 @@ import org.springframework.stereotype.Service;
 import com.onore.project.dto.CouponDTO;
 import com.onore.project.dto.MemberDTO;
 import com.onore.project.dto.QnaDTO;
+import com.onore.project.dto.ReviewandProductDTO;
 import com.onore.project.mapper.MemberMapper;
 import com.onore.project.member.service.MemberService;
 
@@ -263,12 +264,23 @@ public class MemberServiceImpl implements MemberService{
 
 		return mapper.updateMemberAddress(member);
 	}
-
+	
+	// 마이페이지 문의글 가져오기
 	@Override
 	public List<QnaDTO> getQnaView(String mem_id, HttpServletRequest req) {
 		HttpSession se = req.getSession();
 		String id = ((MemberDTO)se.getAttribute("signIn")).getMem_id();
 		mem_id = id;
 		return mapper.getQnaView(mem_id);
+	}
+	
+	// 마이페이지 리뷰글 가져오기
+	@Override
+	public List<ReviewandProductDTO> getReview(String mem_id, HttpServletRequest req) {
+		HttpSession se = req.getSession();
+		String id = ((MemberDTO)se.getAttribute("signIn")).getMem_id();
+		mem_id = id;
+		
+		return mapper.getReview(mem_id);
 	}
 }

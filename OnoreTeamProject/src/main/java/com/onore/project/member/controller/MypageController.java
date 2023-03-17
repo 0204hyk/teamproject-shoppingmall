@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.onore.project.dto.MemberDTO;
 import com.onore.project.mapper.MemberMapper;
 import com.onore.project.member.service.MemberService;
-import com.onore.project.member.service.QnaPopUpService;
+import com.onore.project.member.service.MyPagePopUpService;
 
 
 
@@ -32,7 +32,7 @@ public class MypageController {
 	MemberService service;
 
 	@Autowired
-	QnaPopUpService qnaPopUpService;
+	MyPagePopUpService qnaPopUpService;
 
 	@Autowired
 	MemberDTO memberdto;
@@ -42,6 +42,7 @@ public class MypageController {
 	@GetMapping("/mypage")
 	public String member_mypage(Model model, String mem_id, HttpServletRequest req) throws Exception {
 		model.addAttribute("qnas", service.getQnaView(mem_id, req));
+		model.addAttribute("reviews", service.getReview(mem_id, req));
 		return "user/mypage/member_mypage";
 	}
 
