@@ -49,11 +49,11 @@ public class MypageController {
 		return "user/mypage/member_mypage";
 	}
 	
-	@GetMapping("/pagenation")
+	@GetMapping("/qnaPagination")
 	public String pagenation(String mem_id, HttpServletRequest req) {
 		qnaPopUpService.qnaPopUpService(req, mem_id);
 		
-		return "user/mypage/mypage_pop";
+		return "user/mypage/qna_pop";
 		
 	}
 

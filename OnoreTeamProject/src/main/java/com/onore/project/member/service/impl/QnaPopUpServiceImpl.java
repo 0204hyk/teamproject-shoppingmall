@@ -26,7 +26,7 @@ public class QnaPopUpServiceImpl implements QnaPopUpService {
 		String id = ((MemberDTO)se.getAttribute("signIn")).getMem_id();
 		mem_id = id;
 		
-		List<QnaDTO> reviews = member_mapper.getQnaView(mem_id);
+		List<QnaDTO> qnas = member_mapper.getQnaView(mem_id);
 
 		int page;
 		if (pageStr == null) {
@@ -36,7 +36,7 @@ public class QnaPopUpServiceImpl implements QnaPopUpService {
 		}
 
 		int page_size = 5;
-		int board_size = reviews.size();
+		int board_size = qnas.size();
 		int start_index = (page - 1) * page_size;
 		int end_index = page * page_size;
 		end_index = end_index > board_size ? board_size : end_index;
@@ -68,7 +68,7 @@ public class QnaPopUpServiceImpl implements QnaPopUpService {
 		System.out.printf("현재 페이지는 %d페이지고, 페이지네이션 시작은 %d, 마지막 숫자는 %d 입니다.",
 				page, pagination_start, pagination_end);
 
-		req.setAttribute("reviews", reviews.subList(start_index, end_index));
+		req.setAttribute("qnas", qnas.subList(start_index, end_index));
 		req.setAttribute("pagination_start", pagination_start);
 		req.setAttribute("pagination_end", pagination_end);
 		req.setAttribute("next_page", next_page);

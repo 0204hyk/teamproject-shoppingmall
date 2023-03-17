@@ -13,12 +13,6 @@
 </head>
 <body>
 			<div class="qna_history_div">
-				<div class="qna_history_title" style="display: flex;">
-					<div>나의 문의 내역</div>
-					<div style="margin-left: auto;">
-						<button id="more">더보기</button>
-					</div>
-				</div>
 				<div class="qna_histoy_content">
 					<table id="qna_table">
 						<tr>
@@ -71,7 +65,7 @@ console.log(test2);
 const num = document.getElementsByClassName('num')[i].value;
 console.log(num);
 test2.addEventListener('click', (e) =>{
-    window.opener.location.href = contextPath + contextPath + '/qna/view?qna_num=' + num ;
+    window.opener.location.href = contextPath + '/qna/view?qna_num=' + num ;
     window.close();
 });
 }

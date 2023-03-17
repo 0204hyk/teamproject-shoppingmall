@@ -89,7 +89,7 @@
 		</div>
 	</div>
 	<!-- middle 끝 -->
-
+	<script src="<%=request.getContextPath() %>/resources/mypage/js/qna_pop.js"></script>
 	<script
 		src="<%=request.getContextPath()%>/resources/menu/js/menubar.js?ver=2">
 	</script>
