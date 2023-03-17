@@ -18,7 +18,7 @@ import com.onore.project.member.service.ReviewPageService;
 public class ReviewPageServiceImpl implements ReviewPageService {
 
 	@Autowired
-	MemberMapper member_service;
+	MemberMapper member_mapper;
 
 	@Override
 	public void service(HttpServletRequest req, String mem_id) {
@@ -27,7 +27,7 @@ public class ReviewPageServiceImpl implements ReviewPageService {
 		String id = ((MemberDTO)se.getAttribute("signIn")).getMem_id();
 		mem_id = id;
 		
-		List<ReviewandProductDTO> reviews = member_service.getReview(mem_id);
+		List<ReviewandProductDTO> reviews = member_mapper.getReviewAll(mem_id);
 
 		int page;
 		if (pageStr == null) {

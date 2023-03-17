@@ -59,5 +59,7 @@ public List<MemberDTO> getAll();
 	// 마이페이지 리뷰 가져오기
 	List<ReviewandProductDTO> getReview(String mem_id);
 	
+	List<ReviewandProductDTO> getReviewAll(String mem_id);
+	
 }
 

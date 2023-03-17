@@ -56,7 +56,7 @@ public class MypageController {
 	public String pagenation(String mem_id, HttpServletRequest req) {
 		page.service(req, mem_id);
 		
-		return "user/mypage/mypage_pop";
+		return "user/mypage/mypage_review_pop";
 	}
 
 	// 비밀번호 수정으로 이동
