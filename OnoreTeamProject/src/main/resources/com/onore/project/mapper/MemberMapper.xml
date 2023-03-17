@@ -63,6 +63,12 @@
 	WHERE mem_id = #{mem_id}
 </select>
 
+<!-- 문의글 가져오기 -->
+<select id="getQnaView" resultType="com.onore.project.dto.QnaDTO">
+	SELECT * FROM qna WHERE mem_id = #{mem_id}
+</select>
+
+
 <!-- 회원정보 수정 -->
 <update id="memberInfoModify">
 	UPDATE members SET mem_email = #{mem_email}, mem_phone = #{mem_phone}, mem_sms_check = #{mem_sms_check}, mem_email_check = #{mem_email_check}  WHERE mem_id = #{mem_id}

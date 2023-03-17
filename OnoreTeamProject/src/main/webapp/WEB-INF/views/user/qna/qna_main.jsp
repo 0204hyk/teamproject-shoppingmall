@@ -36,7 +36,7 @@
 					<tr>
 						<td>${qna.qna_num }</td>
 						<td>${qna.qna_category }</td>
-
+						
 						<c:choose>
 							<c:when test="${not empty qna.product_thumbnail_1}">
 								<td><img style="width: 40px; height: 40px;"
