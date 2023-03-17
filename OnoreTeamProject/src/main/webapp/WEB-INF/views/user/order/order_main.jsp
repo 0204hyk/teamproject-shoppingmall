@@ -16,7 +16,7 @@
 <body>
 
 	<div class="container">
-		<form action="<%=request.getContextPath()%>/order/result" id="order_form" method="POST">
+		<form id="order_form">
 			<div id="header" class="container-sm w-auto">
 		    	<h2><a style="cursor:pointer;" onclick="toHomePage();">ONORE</a></h2>
 		    	<div class="blank bg-white"></div>
@@ -316,14 +316,14 @@
 		      	<input type="hidden" id="order_id" name="order_id"/>
 		    	<input type="hidden" id="amount" name="amount"/>
 		    	<c:choose>
-		    		<c:when test="${products != null}">		        			        		
+		    		<c:when test="${products.size() > 0}">		        			        		
 		        		<button type="button" id="purchase_btn" class="btn btn-lg btn-dark w-100 rounded-1">
 		        			<span id="pay_price_btn">
 		        				<fmt:formatNumber value="${total_price}" pattern="#,###" />
 		        			</span>원 결제하기
 		        		</button>
 		        	</c:when>
-		        	<c:when test="${product != null}">
+		        	<c:when test="${not empty product}">
 		        		<button type="button" id="purchase_btn_2" class="btn btn-lg btn-dark w-100 rounded-1">
 		        			<span id="pay_price_btn">
 		        				<fmt:formatNumber value="${total_price}" pattern="#,###" />

@@ -15,7 +15,7 @@
 	<div class="container">
 		<div id="header" class="container-sm w-auto">
 			<h2 id="header_title">
-				<a style="cursor:pointer;" onclick="location.href = 'http://localhost:8888' + <%= request.getContextPath() %> +'/main/';">
+				<a style="cursor:pointer;" onclick="location.href = 'http://localhost:8888' + '<%= request.getContextPath() %>' +'/main/';">
 					ONORE
 				</a>
 			</h2>
@@ -182,13 +182,13 @@
 									class="col-sm-4 col-form-label fs-6 fw-bold text-black-50">┗ 적립금 할인</label>
 								<div class="col-sm-7">
 								<c:choose>
-									<c:when test="${discount_by_points == null || discount_by_points == 0}">
+									<c:when test="${order.discount_points == null || order.discount_points == 0}">
 										<input type="text" class="form-control-plaintext fs-6 fw-bold text-black-50"
 											id="discount_points" value="0원" readonly />
 									</c:when>
 									<c:otherwise>
 									<input type="text" class="form-control-plaintext fs-6 fw-bold text-black-50"
-										id="discount_points" value="- <fmt:formatNumber value="${discount_by_points}" pattern="#,###" />원" readonly />									
+										id="discount_points" value="- <fmt:formatNumber value="${order.discount_points}" pattern="#,###" />원" readonly />									
 									</c:otherwise>
 								</c:choose>
 								</div>
@@ -268,7 +268,7 @@
 		<div class="blank bg-white"></div>
 		<div id="btn_container" class="container-sm w-auto">
 			<button type="button" id="home_btn" class="btn btn-lg btn-dark w-100 rounded-1"
-					onclick="location.href='http://localhost:8888' + <%= request.getContextPath() %> +'main/';">
+					onclick="location.href='http://localhost:8888' + '<%= request.getContextPath() %>' +'main/';">
 				홈으로
 			</button>
 		</div>

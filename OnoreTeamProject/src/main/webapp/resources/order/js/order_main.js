@@ -52,7 +52,10 @@ purchase_btn.addEventListener('click', (e) => {
 			 									&& element.name != 'receiver_req'
 			 									&& element.name != 'discount_coupon'
 			 									&& element.name != 'discount_points'
-			 									&& element.name != 'paid_price') {
+			 									&& element.name != 'paid_price'
+			 									&& element.name != 'payment_key'
+			 									&& element.name != 'order_id'
+			 									&& element.name != 'amount') {
 			window.alert(element.name + ' is empty!!');
 					
 			 //focus() : 해당 요소로 커서를 옮긴다.

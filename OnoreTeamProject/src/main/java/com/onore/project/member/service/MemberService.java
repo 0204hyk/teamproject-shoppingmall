@@ -2,10 +2,12 @@ package com.onore.project.member.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.onore.project.dto.CouponDTO;
 import com.onore.project.dto.MemberDTO;
+import com.onore.project.dto.OrderDTO;
 
 
 public interface MemberService {
@@ -44,7 +46,10 @@ public List<MemberDTO> getAll();
 	void memberDelete(MemberDTO memberdto) throws Exception;
 	
 	Integer passChk(MemberDTO memberdto) throws Exception;
-	 
+	
+	// 회원의 주문 내역 가져오기
+	List<OrderDTO> getMyOrders(HttpServletRequest req);
+	
 	// 가입시 쿠폰 지급
 	Integer insertCoupon(CouponDTO coupon);
 	

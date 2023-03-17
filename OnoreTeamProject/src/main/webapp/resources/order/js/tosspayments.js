@@ -52,7 +52,7 @@ function tossPay() {
   }
  }
  
- function tossPay2() {
+function tossPay2() {
  if(payment_method == 'card') {
     tossPayments.requestPayment('카드',{
       amount: pay_price.value,

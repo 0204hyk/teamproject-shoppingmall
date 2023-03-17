@@ -80,7 +80,6 @@
 .recent_order_history_div,
 .coupon_history_div,
 .qna_history_div {
-	height : 300px;
 	background: white;
 	margin-bottom: 100px;
 	border-bottom : solid 1px lightgray;
@@ -97,7 +96,7 @@
 	border-bottom : solid 2px black;
 }
 
-.product_photo_div {
+/* .product_photo_div {
 	width: 20%;
 	height: 250px;
 	float: left;
@@ -107,27 +106,24 @@
 	width: 65%;
 	height: 250px;
 	float: left;
-}
+} */
 
-.product_buttons_div {
-	width: 10%;
-	height: 250px;
-	float: right;
-	justify-content: center; /* 수평 가운데 정렬 */
- 	align-items: center; /* 수직 가운데 정렬 */
+.recent_order_btns {
 }
 
 .review_btn,
 .delivery_btn,
 .cancel_refund_btn {
 	display : block;
+	position : relative;
 	background-color : black;
-	width: 100px;
-	height: 30px;
+	width: 80px;
+	height: 25px;
 	border-radius : 3px;
 	color: white;
-	margin-top: 20px;
+	margin-top: 5px;
 	font-size: 12px;	
 	cursor: pointer;
-	
+	left: 50%;
+    transform: translateX(-50%);
 }

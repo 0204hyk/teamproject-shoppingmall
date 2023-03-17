@@ -10,6 +10,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Service;
 
 import com.onore.project.dto.CouponDTO;
 import com.onore.project.dto.MemberDTO;
+import com.onore.project.dto.OrderDTO;
 import com.onore.project.mapper.MemberMapper;
 import com.onore.project.member.service.MemberService;
 
@@ -230,8 +232,16 @@ public class MemberServiceImpl implements MemberService{
 	      int result = mapper.passChk(memberdto);
 	      return result;
 	   }
-
-
+	   
+	   @Override
+	   public List<OrderDTO> getMyOrders(HttpServletRequest req) {
+		   
+		   System.out.println((MemberDTO)req.getSession().getAttribute("signIn"));
+		   MemberDTO member = (MemberDTO)req.getSession().getAttribute("signIn");
+		   
+		   return mapper.getMyOrders(member.getMem_id());
+	   }   
+	 
 	@Override
 	public Integer insertCoupon(CouponDTO coupon) {
 		

@@ -41,7 +41,7 @@
 	<select id="getReply" resultType="com.onore.project.dto.QnaReplyDTO">
 		SELECT * FROM qna_re WHERE qna_num = #{qna_num}
 	
-	</select>
+	</select>	
 	
 	<select id="getProductName" resultType="com.onore.project.dto.ProductsDTO">
 		SELECT product_num, product_name, product_thumbnail_1 FROM products WHERE LOWER(product_name) LIKE '%' || LOWER(#{product_name}) || '%'
@@ -71,5 +71,32 @@
 		DELETE FROM qna WHERE qna_num=#{qna_num}
 	
 	</delete>
-	
+	<select id="getRecentQna" resultType="com.onore.project.dto.QnaDTO">
+		<![CDATA[SELECT * FROM (SELECT * FROM qna ORDER BY qna_num DESC) WHERE ROWNUM <= 6]]>
+	</select>
+	<select id="getSearchQnaList" resultType="com.onore.project.dto.QnaAndProductsDTO">
+		SELECT
+			* 
+		FROM 
+			qna, products
+		WHERE
+			qna.product_num = products.product_num(+)
+		<if test="search_type == 'title' and search_keyword != null and search_keyword != ''">
+			AND qna_title like '%'||#{search_keyword}||'%'
+		</if>
+		<if test="search_type == 'content' and search_keyword != null and search_keyword != ''">
+			AND qna_content like '%'||#{search_keyword}||'%'
+		</if>
+		<if test="search_type == 'writer' and search_keyword != null and search_keyword != ''">
+			AND mem_id like '%'||#{search_keyword}||'%'
+		</if>
+		<if test="search_type == 'product' and search_keyword != null and search_keyword != ''">
+			AND product_name like '%'||#{search_keyword}||'%'
+		</if>
+		<if test="search_type == 'category' and search_keyword != null and search_keyword != ''">
+			AND UPPER(qna_category) like UPPER('%'||#{search_keyword}||'%')
+		</if>
+		ORDER BY 
+			qna_num DESC
+	</select>
 </mapper>

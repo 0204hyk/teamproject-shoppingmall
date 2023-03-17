@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.onore.project.mapper.WeeklyStatsMapper">
+	<select id="getWeeklyStats" resultType="com.onore.project.admin.vo.WeeklyStatsVO"> 
+		SELECT
+		    a.dt AS day ,
+		    NVL(COUNT(DISTINCT b.mem_id), 0) AS register_cnt,
+		    NVL(COUNT(DISTINCT c.qna_num), 0) AS qna_cnt,
+		    NVL(COUNT(DISTINCT d.review_num), 0) AS review_cnt
+		FROM
+		    (SELECT TO_CHAR(SYSDATE-7 + LEVEL, 'YYYY.MM.DD') AS dt
+		     FROM dual
+		     <![CDATA[CONNECT BY LEVEL <= 7) a,]]>
+		    (SELECT TO_CHAR(mem_register_date, 'YYYY.MM.DD') AS day, mem_id 
+		     FROM members 
+		     WHERE mem_register_date BETWEEN TO_CHAR(SYSDATE-6,'YYYY.MM.DD') AND TO_CHAR(SYSDATE+1 , 'YYYY.MM.DD')) b,
+		    (SELECT TO_CHAR(qna_date, 'YYYY.MM.DD') AS day, qna_num 
+		     FROM qna 
+		     WHERE qna_date BETWEEN TO_CHAR(SYSDATE-6,'YYYY.MM.DD') AND TO_CHAR(SYSDATE+1 , 'YYYY.MM.DD')) c,
+		    (SELECT TO_CHAR(review_date, 'YYYY.MM.DD') AS day, review_num 
+		     FROM reviews 
+		     WHERE review_date BETWEEN TO_CHAR(SYSDATE-6,'YYYY.MM.DD') AND TO_CHAR(SYSDATE+1 , 'YYYY.MM.DD')) d
+		WHERE a.dt = b.day(+) AND a.dt = c.day(+) AND a.dt = d.day(+)
+		GROUP BY a.dt
+		ORDER BY a.dt DESC
+	</select>
+	<select id="getWeeklyStatsTotal" resultType="com.onore.project.admin.vo.WeeklyStatsVO"> 
+		SELECT 
+		SUM(register_cnt) AS register_cnt_total,
+		SUM(qna_cnt) AS qna_cnt_total, 
+		SUM(review_cnt) AS review_cnt_total
+		FROM
+		    (SELECT
+		     a.dt AS day ,
+		     NVL(COUNT(DISTINCT b.mem_id), 0) AS register_cnt,
+		     NVL(COUNT(DISTINCT c.qna_num), 0) AS qna_cnt,
+		     NVL(COUNT(DISTINCT d.review_num), 0) AS review_cnt
+		    FROM
+		     (SELECT TO_CHAR(SYSDATE-7 + LEVEL, 'YYYY.MM.DD') AS dt
+		     FROM dual
+		      <![CDATA[CONNECT BY LEVEL <= 7) a,]]>
+		     (SELECT TO_CHAR(mem_register_date, 'YYYY.MM.DD') AS day, mem_id 
+		      FROM members 
+		      WHERE mem_register_date BETWEEN TO_CHAR(SYSDATE-6,'YYYY.MM.DD') AND TO_CHAR(SYSDATE+1 , 'YYYY.MM.DD')) b,
+		     (SELECT TO_CHAR(qna_date, 'YYYY.MM.DD') AS day, qna_num
+		      FROM qna 
+		      WHERE qna_date BETWEEN TO_CHAR(SYSDATE-6,'YYYY.MM.DD') AND TO_CHAR(SYSDATE+1 , 'YYYY.MM.DD')) c,
+		     (SELECT TO_CHAR(review_date, 'YYYY.MM.DD') AS day, review_num 
+		      FROM reviews 
+		      WHERE review_date BETWEEN TO_CHAR(SYSDATE-6,'YYYY.MM.DD') AND TO_CHAR(SYSDATE+1 , 'YYYY.MM.DD')) d
+		    WHERE a.dt = b.day(+) AND a.dt = c.day(+) AND a.dt = d.day(+)
+		    GROUP BY a.dt)
+	</select>
+	<select id="getStatsMonthTotal" resultType="com.onore.project.admin.vo.WeeklyStatsVO">
+		SELECT 
+		    SUM(register_cnt) AS register_cnt_total,
+		    SUM(qna_cnt) AS qna_cnt_total, 
+		    SUM(review_cnt) AS review_cnt_total
+		FROM
+		    (SELECT
+		     a.dt AS day ,
+		     NVL(COUNT(DISTINCT b.mem_id), 0) AS register_cnt,
+		     NVL(COUNT(DISTINCT c.qna_num), 0) AS qna_cnt,
+		     NVL(COUNT(DISTINCT d.review_num), 0) AS review_cnt
+		    FROM
+		     (SELECT TO_CHAR(TRUNC(SYSDATE, 'MM') + LEVEL - 1, 'MM.DD') AS dt
+		     FROM dual
+		     <![CDATA[CONNECT BY LEVEL <= TO_CHAR(LAST_DAY(sysdate),'DD')) a,]]>
+		     (SELECT TO_CHAR(mem_register_date, 'MM.DD') AS day, mem_id 
+		      FROM members 
+		      WHERE mem_register_date BETWEEN (TO_CHAR(TRUNC(SYSDATE,'MM'),'YYYYMMDD')) AND (LAST_DAY(SYSDATE))) b,
+		     (SELECT TO_CHAR(qna_date, 'MM.DD') AS day, qna_num
+		      FROM qna 
+		      WHERE qna_date BETWEEN (TO_CHAR(TRUNC(SYSDATE,'MM'),'YYYYMMDD')) AND (LAST_DAY(SYSDATE))) c,
+		     (SELECT TO_CHAR(review_date, 'MM.DD') AS day, review_num 
+		      FROM reviews 
+		      WHERE review_date BETWEEN (TO_CHAR(TRUNC(SYSDATE,'MM'),'YYYYMMDD')) AND (LAST_DAY(SYSDATE))) d
+		    WHERE a.dt = b.day(+) AND a.dt = c.day(+) AND a.dt = d.day(+)
+		    GROUP BY a.dt) 
+	</select>
+	
+</mapper>

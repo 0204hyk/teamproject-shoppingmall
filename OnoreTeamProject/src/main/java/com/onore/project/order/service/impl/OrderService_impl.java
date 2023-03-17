@@ -29,23 +29,20 @@ public class OrderService_impl implements OrderService {
 	}
 	
 	@Override
-	public Integer insertOrderInfos(OrderDTO order, ProductsDTO product, List<String> product_name, List<String> order_info_option,
-									List<String> order_info_qty, List<String> order_info_price) {
+	public Integer insertOrderInfos(OrderDTO order, ProductsDTO product, String product_name, String order_info_option,
+									String order_info_qty, String order_info_price) {
 		
 		
 		OrderInfoDTO info = new OrderInfoDTO();
-		Integer qty = product_name.size();
 		Integer row = 0;
 		System.out.println(product);
-		for (int i = 0; i < qty; i++) {
-			info.setOrder_num(order.getOrder_num());
-			info.setProduct_num(product.getProduct_num());
-			info.setProduct_name(product_name.get(i));
-			info.setOrder_info_qty(Integer.parseInt(order_info_qty.get(i)));
-			info.setOrder_info_option(order_info_option.get(i));
-			info.setOrder_info_price(Integer.parseInt(order_info_price.get(i)));
-			row += order_mapper.insertOrderInfo(info);
-		}
+		info.setOrder_num(order.getOrder_num());
+		info.setProduct_num(product.getProduct_num());
+		info.setProduct_name(product_name);
+		info.setOrder_info_qty(Integer.parseInt(order_info_qty));
+		info.setOrder_info_option(order_info_option);
+		info.setOrder_info_price(Integer.parseInt(order_info_price));
+		row = order_mapper.insertOrderInfo(info);
 		
 		return row;
 	}

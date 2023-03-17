@@ -59,7 +59,7 @@
 							</c:otherwise>
 						</c:choose>
 						<td id="mem_id">${qna.maskingName }</td>
-						<td>${qna.qna_date}</td>
+						<td>${qna.creationQnaDate}</td>
 						<c:choose>
 							<c:when test="${qna.qna_status eq 0 }">
 								<td style="color:gray;">답변 대기중</td>

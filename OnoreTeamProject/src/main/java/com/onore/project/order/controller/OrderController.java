@@ -147,10 +147,10 @@ public class OrderController {
 		
 		// 주문한 상품정보 받아오기
 		List<ProductsDTO> products = new ArrayList<ProductsDTO>();
-		for(int i = 0; i < cart.size(); i++) {
+		for(int i = 0; i < product_name.size(); i++) {
 			products.add(shop_service.getDetail(cart.get(i).getProduct_num()));
 		}
-		System.out.println(products);
+		System.out.println("result : " + products);
 		
 		// 주문 기록
 		Integer order_result = order_service.insertOrder(order);
@@ -199,8 +199,8 @@ public class OrderController {
 			order.setOrder_num(all_orders.get(all_orders.size()-1).getOrder_num());
 			int result = 0;
 			for(int i = 0; i < products.size(); i++) {
-				result = order_service.insertOrderInfos(order, products.get(i), product_name, order_info_option,
-								order_info_qty, order_info_price);
+				result = order_service.insertOrderInfos(order, products.get(i), product_name.get(i), order_info_option.get(i),
+								order_info_qty.get(i), order_info_price.get(i));
 			}
 		
 			if(result > 0) {
@@ -230,16 +230,16 @@ public class OrderController {
 																@RequestParam String payment_key,
 					   											@RequestParam String amount,
 					   											// order_info 테이블 기록용
-															    @RequestParam List<String> product_name,
-					 										    @RequestParam List<String> order_info_option,
-					 										    @RequestParam List<String> order_info_qty,
-					 										    @RequestParam List<String> order_info_price) throws Exception {
+															    @RequestParam String product_name,
+					 										    @RequestParam String order_info_option,
+					 										    @RequestParam String order_info_qty,
+					 										    @RequestParam String order_info_price) throws Exception {
 		
 		System.out.println("Order : " + order);
 		
 		// 주문한 상품정보 받아오기
 		ProductsDTO product = shop_service.getDetail(product_num);
-		System.out.println(product);
+		System.out.println("direct_result : " + product);
 		
 		// 주문 기록
 		Integer order_result = order_service.insertOrder(order);

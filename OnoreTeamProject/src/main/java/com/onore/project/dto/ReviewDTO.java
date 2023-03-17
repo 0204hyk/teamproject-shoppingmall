@@ -1,7 +1,10 @@
 package com.onore.project.dto;
 
-
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 import lombok.Data;
 
 @Data
@@ -11,7 +14,7 @@ public class ReviewDTO {
 	private Integer product_num;
 	private String mem_id;
 	private String review_content;
-	private LocalDate review_date;
+	private Date review_date;
 	private Integer review_rating;
 	private String review_img_path;
 	private String review_img_1;
@@ -38,4 +41,14 @@ public class ReviewDTO {
 
 		return maskingName;
 	}
+	
+	private static SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy.MM.dd");
+	private static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+
+    public String getCreationReviewDate() {		
+    	LocalDate creationDate = LocalDate.ofInstant(review_date.toInstant(), ZoneId.systemDefault());
+	    LocalDate today = LocalDate.ofInstant(new Date().toInstant(), ZoneId.systemDefault());
+	    return creationDate.isEqual(today) ? 
+		 	   timeFormat.format(review_date) : dayFormat.format(review_date);
+    }
 }

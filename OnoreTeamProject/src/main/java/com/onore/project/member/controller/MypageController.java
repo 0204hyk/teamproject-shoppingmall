@@ -1,27 +1,32 @@
 package com.onore.project.member.controller;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.onore.project.dto.MemberDTO;
+import com.onore.project.dto.OrderDTO;
+import com.onore.project.dto.OrderInfoDTO;
+import com.onore.project.dto.ProductsDTO;
 import com.onore.project.mapper.MemberMapper;
 import com.onore.project.member.service.MemberService;
+import com.onore.project.order.service.OrderService;
+import com.onore.project.shop.service.ShopService;
 
 
 @Controller
@@ -32,13 +37,30 @@ public class MypageController {
 
 	@Autowired
 	MemberService service;
+	
+	@Autowired
+	OrderService order_service;
+	
+	@Autowired
+	ShopService shop_service;
 
 	@Autowired
 	MemberDTO memberdto;
 
 	// 마이페이지로 이동
 	@GetMapping("/mypage")
-	public String member_mypage() throws Exception {
+	public String member_mypage(Model model, HttpServletRequest req) throws Exception {
+		
+		List<OrderDTO> order_list = service.getMyOrders(req);
+		Map<Integer,List<OrderInfoDTO>> order_info_map = new HashMap<Integer,List<OrderInfoDTO>>();
+		// key : 회원의 메인 주문 순번 , value : 상세 주문 리스트  
+		for(int i = 0; i < order_list.size(); i++) {
+			order_info_map.put(i, order_service.getOrderInfos(order_list.get(i).getOrder_num()));
+		}
+		
+		model.addAttribute("my_orders",order_list);
+		model.addAttribute("my_order_infos", order_info_map);
+		
 		return "user/mypage/member_mypage";
 	}
 

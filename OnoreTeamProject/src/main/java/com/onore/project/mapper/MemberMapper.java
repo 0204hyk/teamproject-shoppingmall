@@ -2,10 +2,13 @@ package com.onore.project.mapper;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.ibatis.annotations.Param;
 
 import com.onore.project.dto.CouponDTO;
 import com.onore.project.dto.MemberDTO;
+import com.onore.project.dto.OrderDTO;
 
 public interface MemberMapper {
 	
@@ -39,6 +42,9 @@ public List<MemberDTO> getAll();
 	 // 회원탈퇴 하기
 	 void memberDelete(MemberDTO memberdto) throws Exception;
 	 Integer passChk(MemberDTO memberdto) throws Exception;
+	
+	 // 회원의 주문내역 조회
+	List<OrderDTO> getMyOrders(String mem_id); 
 	 
 	// 가입시 쿠폰 지급
 	Integer insertCoupon(CouponDTO coupon);
