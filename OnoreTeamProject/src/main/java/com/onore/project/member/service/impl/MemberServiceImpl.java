@@ -267,4 +267,13 @@ public class MemberServiceImpl implements MemberService{
 		return mapper.updateMemberAddress(member);
 	}
 
+	@Override
+	public List<ReviewandProductDTO> getReview(String mem_id, HttpServletRequest req) {
+		HttpSession se = req.getSession();
+		String id = ((MemberDTO)se.getAttribute("signIn")).getMem_id();
+		mem_id = id;
+		
+		return mapper.getReview(mem_id);
+	}
+
 }

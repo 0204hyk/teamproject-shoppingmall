@@ -46,8 +46,8 @@ public class MypageController {
 	
 	// 마이페이지로 이동
 	@GetMapping("/mypage")
-	public String member_mypage(Model model, Integer product_num, String mem_id, HttpServletRequest req) throws Exception {
-		page.service(req, mem_id);
+	public String member_mypage(Model model, String mem_id, HttpServletRequest req) throws Exception {
+		model.addAttribute("reviews", service.getReview(mem_id, req));
 		
 		return "user/mypage/member_mypage";
 	}

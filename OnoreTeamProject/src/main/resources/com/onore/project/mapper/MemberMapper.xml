@@ -115,7 +115,7 @@
 </insert> 
 
 <select id="getReview" resultType="com.onore.project.dto.ReviewandProductDTO">
-	SELECT * FROM reviews INNER JOIN products USING (product_num) WHERE mem_id=#{mem_id} ORDER BY review_num DESC
+	SELECT * FROM reviews INNER JOIN products USING (product_num) WHERE mem_id=#{mem_id} <![CDATA[AND ROWNUM <= 5]]> ORDER BY review_num DESC
 </select>
 
 </mapper>				

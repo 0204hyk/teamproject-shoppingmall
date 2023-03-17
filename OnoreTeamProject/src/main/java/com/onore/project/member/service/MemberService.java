@@ -62,5 +62,6 @@ public List<MemberDTO> getAll();
 	// 주문완료 후 배송지 수정
 	Integer updateMemberAddress(MemberDTO member);
 	
+	List<ReviewandProductDTO> getReview(String mem_id, HttpServletRequest req);
 }
 
