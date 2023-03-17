@@ -82,8 +82,8 @@
 					 </div>	
 					<br> 
 					<input type="hidden" name="review_img_1" value="${contents.review_img_1 }"/>
-					<input type="hidden" name="review_img_1" value="${contents.review_img_2 }"/>
-					<input type="hidden" name="review_img_1" value="${contents.review_img_3 }"/>
+					<input type="hidden" name="review_img_2" value="${contents.review_img_2 }"/>
+					<input type="hidden" name="review_img_3" value="${contents.review_img_3 }"/>
 				</div>
 				<!-- 버튼 안밀리게 버튼만큼 위치조정 div 생성 -->
 				<br>

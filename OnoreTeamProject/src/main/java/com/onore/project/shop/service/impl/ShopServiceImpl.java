@@ -55,79 +55,79 @@ public class ShopServiceImpl implements ShopService{
 		return shop_mapper.getSneakers();
 
 	}
-	
+
 	@Override
 	public ProductsDTO getDetail(Integer product_num) {
-		
+
 		return shop_mapper.getDetail(product_num);
 	}
 
 	@Override
 	public List<ReviewDTO> getProReview(Integer product_num) {
-		
+
 		return shop_mapper.getProReview(product_num);
 	}
 
 
 	@Override
 	public List<QnaDTO> getProQna(Integer product_num) {
-		
+
 		return shop_mapper.getProQna(product_num);
 	}
-	
-	
+
+
 	@Override
 	public Integer getWish(WishDTO wish) {
-		
+
 		return shop_mapper.getWish(wish);
 	}
 
 
 	@Override
 	public Integer deleteWish(WishDTO wish) {
-		
+
 		return shop_mapper.deleteWish(wish);
 	}
-	
+
 	@Override
 	public String checkWish(Integer product_num) {
-		
+
 		return shop_mapper.checkWish(product_num);
 	}
-	
+
 	@Override
 	public Integer addToCart(CartDTO cart) {
-		
+
 		return shop_mapper.addToCart(cart);
 	}
-	
+
 	@Override
 	public List<CartDTO> getCartList(String mem_id) {
-		
+
 		return shop_mapper.getCartList(mem_id);
 	}
-	
+
 	@Override
 	public CartDTO getCart(Integer cart_num) {
-		
+
 		return shop_mapper.getCart(cart_num);
 	}
-	
+
 	@Override
 	public Integer updateCart(CartDTO cart) {
-		
+
 		return shop_mapper.updateCart(cart);
 	}
-	
+
 	@Override
 	public Integer deleteCart(Integer cart_num) {
-	
+
 		return shop_mapper.deleteCart(cart_num);
 	}
-	
+
 	@Override
 	public Integer deleteAllCart() {
-		
+
 		return shop_mapper.deleteAllCart();
 	}
 }

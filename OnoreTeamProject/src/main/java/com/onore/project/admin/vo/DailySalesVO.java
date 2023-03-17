@@ -4,11 +4,11 @@ import lombok.Getter;
 
 @Getter
 public class DailySalesVO {
-	
+
 	private String day;
 	private Integer daily_sales;
 	private Integer daily_sales_cnt;
-	
+
 	// 합계
 	private String month;
 	private Integer daily_sales_total;

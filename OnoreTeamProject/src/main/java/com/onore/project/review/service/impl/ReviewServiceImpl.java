@@ -20,41 +20,41 @@ public class ReviewServiceImpl implements ReviewService{
 
 	@Autowired
 	ReviewMapper review_mapper;
-	
+
 	@Override
 	public List<ReviewandProductDTO> getAll() {
-		
+
 		return review_mapper.getAll();
 	}
 
 	@Override
 	public void insert(Model model, ReviewDTO rev) {
-		
+
 		model.addAttribute(review_mapper.insert(rev));
 	}
 
 	@Override
 	public ReviewandProductDTO get(Integer review_num) {
-		
+
 		return review_mapper.get(review_num);
 	}
 
 	@Override
 	public Integer modify(ReviewDTO rev) {
-		
+
 		return review_mapper.modify(rev);
 	}
 
 	@Override
 	public Integer delete(Integer review_num) {
-		
+
 		return review_mapper.delete(review_num);
 	}
 
 	@Override
 	public void fileUpload(ReviewDTO rev, List<MultipartFile> file) throws IllegalStateException, IOException {
-		String imgPath = "C:\\Users\\minbong\\git\\teamproject-shoppingmall\\OnoreTeamProject\\src\\main\\webapp\\resources\\review\\image";
-		//String imgPath = "/Users/kang/git/teamproject-shoppingmall/OnoreTeamProject/src/main/webapp/resources/review/image/"; // 노트북
+		//String imgPath = "C:\\Users\\minbong\\git\\teamproject-shoppingmall\\OnoreTeamProject\\src\\main\\webapp\\resources\\review\\image";
+		String imgPath = "/Users/kang/git/teamproject-shoppingmall/OnoreTeamProject/src/main/webapp/resources/review/image/"; // 노트북
 		UUID uuid = UUID.randomUUID();
 		String[] fileName = new String[3];
 
@@ -78,6 +78,6 @@ public class ReviewServiceImpl implements ReviewService{
 				rev.setReview_img_path(imgPath);
 			}
 		}
-		
+
 	}
 }

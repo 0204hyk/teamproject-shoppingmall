@@ -11,7 +11,6 @@ import com.onore.project.admin.service.AdminMainService;
 import com.onore.project.admin.vo.DailySalesVO;
 import com.onore.project.admin.vo.WeeklyStatsVO;
 import com.onore.project.dto.QnaDTO;
-import com.onore.project.dto.ReviewDTO;
 import com.onore.project.dto.ReviewandProductDTO;
 import com.onore.project.mapper.DailySalesMapper;
 import com.onore.project.mapper.QnaMapper;
@@ -23,30 +22,30 @@ public class AdminMainService_impl implements AdminMainService {
 
 	@Autowired
 	DailySalesMapper dailySalesMapper;
-	
+
 	@Autowired
 	WeeklyStatsMapper weeklyStatsMapper;
-	
+
 	@Autowired
 	QnaMapper qnaMapper;
-	
+
 	@Autowired
 	ReviewMapper reviewMapper;
-	
+
 	@Override
 	public String readDailySalesToChart() {
 		List<DailySalesVO> salesList = dailySalesMapper.getSalesThisWeek();
 		ObjectMapper objMapper = new ObjectMapper();
-		
+
 		try {
 			String jsonStr = objMapper.writeValueAsString(salesList);
 			return jsonStr;
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 			return null;
-		}		
+		}
 	}
-	
+
 	@Override
 	public List<DailySalesVO> readDailySales() {
 		return dailySalesMapper.getSalesThisWeek();
@@ -86,6 +85,6 @@ public class AdminMainService_impl implements AdminMainService {
 	public List<ReviewandProductDTO> readRecentReview() {
 		return reviewMapper.getRecentReview();
 	}
-	
-	
+
+
 }

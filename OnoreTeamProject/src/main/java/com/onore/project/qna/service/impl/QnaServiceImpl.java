@@ -91,7 +91,7 @@ public class QnaServiceImpl implements QnaService {
 		//String imgPath = "C:\\Users\\K\\git\\teamproject-shoppingmall\\OnoreTeamProject\\src\\main\\webapp\\resources\\qna\\images\\";
 		String imgPath = "/Users/kang/git/teamproject-shoppingmall/OnoreTeamProject/src/main/webapp/resources/qna/images/"; // 노트북
 		//String imgPath = "/Users/minbong/Downloads/apache-tomcat-9.0.70/webapps/OnoreTeamProject/resources/qna/images";
-		
+
 		UUID uuid = UUID.randomUUID();
 		String[] fileName = new String[3];
 

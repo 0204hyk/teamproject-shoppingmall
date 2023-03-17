@@ -18,14 +18,14 @@ public class QnaPopUpServiceImpl implements QnaPopUpService {
 
 	@Autowired
 	MemberMapper member_mapper;
-	
+
 	@Override
 	public void qnaPopUpService(HttpServletRequest req, String mem_id) {
 		String pageStr = req.getParameter("page");
 		HttpSession se = req.getSession();
 		String id = ((MemberDTO)se.getAttribute("signIn")).getMem_id();
 		mem_id = id;
-		
+
 		List<QnaDTO> qnas = member_mapper.getQnaView(mem_id);
 
 		int page;
@@ -45,18 +45,18 @@ public class QnaPopUpServiceImpl implements QnaPopUpService {
 				page, start_index, end_index);
 
 
-		int max_page = board_size % page_size == 0 ? 
+		int max_page = board_size % page_size == 0 ?
 				board_size / page_size : board_size / page_size + 1;
 
 		int pagination_size = 5;
 		int pagination_start = (page / pagination_size) * pagination_size + 1;
 		pagination_start = page % pagination_size == 0 ?
-				page - 4 : pagination_start; 
+				page - 4 : pagination_start;
 		int pagination_end = (page/ pagination_size + 1) * pagination_size;
 		if (page % pagination_size == 0) {
 			pagination_end= pagination_end - pagination_size;
 		} else {
-			pagination_end = pagination_end > max_page ? 
+			pagination_end = pagination_end > max_page ?
 					max_page : pagination_end;
 		}
 
@@ -72,7 +72,7 @@ public class QnaPopUpServiceImpl implements QnaPopUpService {
 		req.setAttribute("pagination_start", pagination_start);
 		req.setAttribute("pagination_end", pagination_end);
 		req.setAttribute("next_page", next_page);
-		req.setAttribute("previous_page", previous_page);		
+		req.setAttribute("previous_page", previous_page);
 	}
 
 }

@@ -35,7 +35,7 @@ public class QnaAndProductsDTO {
 	private Integer product_views;
 	private Integer product_likes;
 	private Date product_date;
-	
+
 	public String getmaskingName() {
 
 		String firstName = mem_id.substring(0,1);
@@ -52,17 +52,17 @@ public class QnaAndProductsDTO {
 
 		return maskingName;
 	}
-	
+
 	private static SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy.MM.dd");
 	private static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
 
-    public String getCreationQnaDate() {		
+    public String getCreationQnaDate() {
     	LocalDate creationDate = LocalDate.ofInstant(qna_date.toInstant(), ZoneId.systemDefault());
 	    LocalDate today = LocalDate.ofInstant(new Date().toInstant(), ZoneId.systemDefault());
-	    return creationDate.isEqual(today) ? 
+	    return creationDate.isEqual(today) ?
 		 	   timeFormat.format(qna_date) : dayFormat.format(qna_date);
     }
-    
+
     // 관리자 검색용
     private String search_type;
     private String search_keyword;

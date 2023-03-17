@@ -74,7 +74,7 @@
 				</div>	
 				<input type="hidden" name="qna_img_1" value="${qna.qna_img_1 }"/>
 				<input type="hidden" name="qna_img_2" value="${qna.qna_img_2 }"/>
-				<input type="hidden" name="qna_img_3" value="${qna.qna_img_2 }"/>
+				<input type="hidden" name="qna_img_3" value="${qna.qna_img_3 }"/>
 			</div>			
 				<input type="submit" id="write_btn" value="수정" >
 		</div>

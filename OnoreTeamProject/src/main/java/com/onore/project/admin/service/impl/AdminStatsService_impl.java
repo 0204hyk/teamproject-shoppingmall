@@ -17,28 +17,28 @@ import com.onore.project.mapper.MonthlySalesMapper;
 
 @Service
 public class AdminStatsService_impl implements AdminStatsService{
-	
+
 	@Autowired
 	DailySalesMapper dailySalesMapper;
-	
+
 	@Autowired
 	MonthlySalesMapper monthlySalesMapper;
-	
+
 	@Autowired
 	AnnualSalesMapper annualSalesMapper;
-	
+
 	@Override
 	public String readDailySalesToChart() {
 		List<DailySalesVO> salesList = dailySalesMapper.getSalesThisMonth();
 		ObjectMapper objMapper = new ObjectMapper();
-		
+
 		try {
 			String jsonStr = objMapper.writeValueAsString(salesList);
 			return jsonStr;
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 			return null;
-		}		
+		}
 	}
 
 	@Override
@@ -55,14 +55,14 @@ public class AdminStatsService_impl implements AdminStatsService{
 	public String readMonthlySalesToChart() {
 		List<MonthlySalesVO> salesList = monthlySalesMapper.getMonthlySales();
 		ObjectMapper objMapper = new ObjectMapper();
-		
+
 		try {
 			String jsonStr = objMapper.writeValueAsString(salesList);
 			return jsonStr;
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 			return null;
-		}		
+		}
 	}
 
 	@Override
@@ -79,14 +79,14 @@ public class AdminStatsService_impl implements AdminStatsService{
 	public String readAnnualSalesToChart() {
 		List<AnnualSalesVO> salesList = annualSalesMapper.getAnnualSales();
 		ObjectMapper objMapper = new ObjectMapper();
-		
+
 		try {
 			String jsonStr = objMapper.writeValueAsString(salesList);
 			return jsonStr;
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 			return null;
-		}		
+		}
 	}
 
 	@Override

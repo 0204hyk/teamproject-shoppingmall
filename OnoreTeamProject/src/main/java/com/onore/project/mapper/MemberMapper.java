@@ -55,7 +55,7 @@ public interface MemberMapper {
 
 	// 주문완료 후 배송지 수정
 	Integer updateMemberAddress(MemberDTO member);
-	
+
 	// 마이페이지 문의글 가져오기
 	List<QnaDTO> getQnaView(String mem_id);
 
