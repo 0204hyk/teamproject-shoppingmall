@@ -69,7 +69,7 @@ const handler = {
 
                     document.querySelector('#file-input').files = dataTranster.files;
                     removeTarget.remove();
-                    removeImage.src = '/project/resources/qna/images/blank.png';
+                    removeImage.src = contextPath + '/resources/qna/images/blank.png';
                  
                 })
             }
@@ -132,7 +132,7 @@ const handler2 = {
 
                     document.querySelector('#file-input2').files = dataTranster2.files;
                     removeTarget2.remove();
-                    removeImage2.src = '/project/resources/qna/images/blank.png';
+                    removeImage2.src = contextPath + '/resources/qna/images/blank.png';
                 })
             }
         }
@@ -193,7 +193,7 @@ function PreviewImage3() {
                         });
                     document.querySelector('#file-input3').files = dataTranster3.files;
                     removeTarget3.remove();
-                    removeImage3.src = '/project/resources/qna/images/blank.png';
+                    removeImage3.src = contextPath + '/resources/qna/images/blank.png';
                 })
             }
         }
@@ -250,7 +250,7 @@ function changeSelect() {
 		});
 		var value = document.getElementById('product');
 		var val = value.value;
-		xhttp.open('GET', '/project/restful/getProductName/' + val);
+		xhttp.open('GET', contextPath + '/restful/getProductName/' + val);
    	 	xhttp.send();
 
 	});

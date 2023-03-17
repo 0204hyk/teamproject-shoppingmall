@@ -23,7 +23,7 @@
                   <c:when test="${sessionScope.signIn == null}">
                       <li><a href="<%=request.getContextPath()%>/login"><i class="fa-solid fa-user"></i></a>
                   </c:when>
-                  <c:when test="${sessionScope.signIn.mem_id ne 'admin'}">
+                  <c:when test="${sessionScope.signIn.mem_status ne 1}">
                       <li><a href="<%=request.getContextPath()%>/mypage"><i class="fa-solid fa-user"></i></a>
                   </c:when>
                   <c:otherwise>
@@ -34,7 +34,7 @@
                   <c:when test="${sessionScope.signIn == null}">
                       <li><a href="<%=request.getContextPath()%>/login"><i class="fa-solid fa-cart-shopping"></i></i></a>
                   </c:when>
-                  <c:when test="${sessionScope.signIn.mem_id ne 'admin'}">
+                  <c:when test="${sessionScope.signIn.mem_status ne 1}">
                       <li><a href="<%=request.getContextPath()%>/shop/cart"><i class="fa-solid fa-cart-shopping"></i></i></a>
                   </c:when>
               </c:choose>

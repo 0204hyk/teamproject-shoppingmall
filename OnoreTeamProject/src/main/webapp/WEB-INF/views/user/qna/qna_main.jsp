@@ -7,13 +7,13 @@
 <meta charset="UTF-8">
 <title>오노레 Q&A</title>
 <%@include file="../header.jspf"%>
-<link rel="icon" href="/project/resources/qna/images/favicon.png">
+<link rel="icon" href="<%=request.getContextPath() %>/resources/qna/images/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet" href="/project/resources/qna/css/qna_main.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/qna/css/qna_main.css" />
 </head>
 <body>
 	<%@include file="../top.jspf"%>
@@ -50,7 +50,7 @@
 						 -->
 						<c:choose>
 							<c:when
-								test="${sessionScope.signIn.mem_id eq qna.mem_id || sessionScope.signIn.mem_id eq 'admin' }">
+								test="${sessionScope.signIn.mem_id eq qna.mem_id || sessionScope.signIn.mem_status eq 1 }">
 								<td id="qna_title"><a href="./view?qna_num=${qna.qna_num}">${qna.qna_title }</a></td>
 							</c:when>
 
@@ -59,7 +59,7 @@
 							</c:otherwise>
 						</c:choose>
 						<td id="mem_id">${qna.maskingName }</td>
-						<td>${qna.qna_date}</td>
+						<td>${qna.creationQnaDate}</td>
 						<c:choose>
 							<c:when test="${qna.qna_status eq 0 }">
 								<td style="color:gray;">답변 대기중</td>
