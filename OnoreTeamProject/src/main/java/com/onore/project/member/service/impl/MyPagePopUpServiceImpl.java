@@ -27,7 +27,7 @@ public class MyPagePopUpServiceImpl implements MyPagePopUpService {
 		String id = ((MemberDTO)se.getAttribute("signIn")).getMem_id();
 		mem_id = id;
 
-		List<QnaDTO> qnas = member_mapper.getQnaView(mem_id);
+		List<QnaDTO> qnas = member_mapper.getQnaViewAll(mem_id);
 
 		int page;
 		if (pageStr == null) {
@@ -75,7 +75,7 @@ public class MyPagePopUpServiceImpl implements MyPagePopUpService {
 	}
 
 	@Override
-	public void service(HttpServletRequest req, String mem_id) {
+	public void reviewPopUpService(HttpServletRequest req, String mem_id) {
 		String pageStr = req.getParameter("page");
 		HttpSession se = req.getSession();
 		String id = ((MemberDTO)se.getAttribute("signIn")).getMem_id();

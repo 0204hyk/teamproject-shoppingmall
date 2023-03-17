@@ -12,21 +12,22 @@
 <%@include file="../header.jspf"%>
 </head>
 <body>
-			<div class="qna_history_div">
-				<div class="qna_histoy_content">
-					<table id="qna_table">
-						<tr>
-							<th id="category">분류</th>
-							<th id="title">제목</th>
-							<th id="date">등록일</th>
-							<th id="reply">답변</th>
-						</tr>
+	<div style="margin: 20px auto; width: 90%; text-align: center;">
+		<div class="review_history_title">나의 리뷰 내역</div>
+		<div class="qna_histoy_content">
+			<table id="qna_table">
+				<tr>
+					<th id="category">분류</th>
+					<th id="title">제목</th>
+					<th id="date">등록일</th>
+					<th id="reply">답변</th>
+				</tr>
 				<c:forEach items="${qnas }" var="qna">
 					<tr>
 						<td>${qna.qna_category }</td>
 						<td id="qna_content"><a
 							href="<%=request.getContextPath() %>/qna/view?qna_num=${qna.qna_num}">
-								${qna.qna_content }</a></td>
+								${qna.qna_title }</a></td>
 						<td>${qna.creationQnaDate }</td>
 						<c:choose>
 							<c:when test="${qna.qna_status eq 0 }">

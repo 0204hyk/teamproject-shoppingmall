@@ -32,7 +32,7 @@ public class MypageController {
 	MemberService service;
 
 	@Autowired
-	MyPagePopUpService qnaPopUpService;
+	MyPagePopUpService popUpService;
 
 	@Autowired
 	MemberDTO memberdto;
@@ -45,15 +45,21 @@ public class MypageController {
 		model.addAttribute("reviews", service.getReview(mem_id, req));
 		return "user/mypage/member_mypage";
 	}
-
+	
 	@GetMapping("/qnaPagination")
-	public String pagenation(String mem_id, HttpServletRequest req) {
-		qnaPopUpService.qnaPopUpService(req, mem_id);
+	public String qnaPagination(String mem_id, HttpServletRequest req) {
+		popUpService.qnaPopUpService(req, mem_id);
 
-		return "user/mypage/qna_pop";
+		return "user/mypage/mypage_qna_pop";
 
 	}
 
+	@GetMapping("/reviewPagination")
+	public String reviewPagination(String mem_id, HttpServletRequest req) {
+		popUpService.reviewPopUpService(req, mem_id);
+		return "user/mypage/mypage_review_pop";
+	}
+	
 	// 비밀번호 수정으로 이동
 	@GetMapping("/member_pw_modify")
 	public String member_pw_modify(String mem_id, Model model) throws Exception {

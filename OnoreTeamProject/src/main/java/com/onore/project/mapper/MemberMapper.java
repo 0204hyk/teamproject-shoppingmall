@@ -60,9 +60,13 @@ public interface MemberMapper {
 	// 마이페이지 문의글 가져오기
 	List<QnaDTO> getQnaView(String mem_id);
 	
+	// 마이페이지 문의글 팝업 내용
+	List<QnaDTO> getQnaViewAll(String mem_id);
+	
 	// 마이페이지 리뷰 가져오기
 	List<ReviewandProductDTO> getReview(String mem_id);
-		
+	
+	// 마이페이지 리뷰글 팝업 내용
 	List<ReviewandProductDTO> getReviewAll(String mem_id);
 }
 

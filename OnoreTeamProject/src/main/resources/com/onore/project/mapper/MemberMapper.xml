@@ -65,10 +65,20 @@
 
 <!-- 문의글 가져오기 -->
 <select id="getQnaView" resultType="com.onore.project.dto.QnaDTO">
-	SELECT * FROM qna WHERE mem_id = #{mem_id}
+	SELECT * FROM qna WHERE mem_id = #{mem_id} <![CDATA[AND ROWNUM <= 5]]> ORDER BY qna_num DESC
 </select>
 
+<select id="getQnaViewAll" resultType="com.onore.project.dto.QnaDTO">
+	SELECT * FROM qna WHERE mem_id = #{mem_id} ORDER BY qna_num DESC
+</select>
 
+<select id="getReview" resultType="com.onore.project.dto.ReviewandProductDTO">
+	SELECT * FROM reviews INNER JOIN products USING (product_num) WHERE mem_id=#{mem_id} <![CDATA[AND ROWNUM <= 5]]> ORDER BY review_num DESC
+</select>
+
+<select id="getReviewAll" resultType="com.onore.project.dto.ReviewandProductDTO">
+	SELECT * FROM reviews INNER JOIN products USING (product_num) WHERE mem_id=#{mem_id} ORDER BY review_num DESC
+</select>
 <!-- 회원정보 수정 -->
 <update id="memberInfoModify">
 	UPDATE members SET mem_email = #{mem_email}, mem_phone = #{mem_phone}, mem_sms_check = #{mem_sms_check}, mem_email_check = #{mem_email_check}  WHERE mem_id = #{mem_id}
@@ -120,11 +130,5 @@
 		WHERE mem_id = #{mem_id}
 </insert>
 
-<select id="getReview" resultType="com.onore.project.dto.ReviewandProductDTO">
-	SELECT * FROM reviews INNER JOIN products USING (product_num) WHERE mem_id=#{mem_id} <![CDATA[AND ROWNUM <= 5]]> ORDER BY review_num DESC
-</select>
 
-<select id="getReviewAll" resultType="com.onore.project.dto.ReviewandProductDTO">
-	SELECT * FROM reviews INNER JOIN products USING (product_num) WHERE mem_id=#{mem_id} ORDER BY review_num DESC
-</select>
 </mapper>				

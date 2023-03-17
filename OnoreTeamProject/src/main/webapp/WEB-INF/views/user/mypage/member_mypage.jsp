@@ -52,7 +52,7 @@
 				<div class="qna_history_title" style="display: flex;">
 					<div>나의 문의 내역</div>
 					<div style="margin-left: auto;">
-						<button id="more">더보기</button>
+						<button id="qna_more">더보기</button>
 					</div>
 				</div>
 				<div class="qna_histoy_content">
@@ -68,7 +68,7 @@
 								<td>${qna.qna_category }</td>
 								<td id="qna_content"><a
 									href="<%=request.getContextPath() %>/qna/view?qna_num=${qna.qna_num}">
-										${qna.qna_content }</a></td>
+										${qna.qna_title }</a></td>
 								<td>${qna.creationQnaDate }</td>
 								<c:choose>
 									<c:when test="${qna.qna_status eq 0 }">
@@ -86,12 +86,70 @@
 					</table>
 				</div>
 			</div>
+			<div class="review_history_div">
+				<div class="review_history_title" style="display: flex;">
+					<div>나의 리뷰 내역</div>
+					<div style="margin-left: auto;">
+						<button id="review_more">더보기</button>
+					</div>
+				</div>
+				<div class="review_histoy_content">
+					<table id="review_table">
+						<tr>
+							<th id="product">상품이름</th>
+							<th id="title">제목</th>
+							<th id="date">등록일</th>
+							<th id="rating">평점</th>
+						</tr>
+						<c:forEach items="${reviews }" var="review">
+							<tr>
+								<td>${review.product_name }</td>
+								<td id="review_content"><a
+									href="<%=request.getContextPath() %>/review/detail?review_num=${review.review_num}">
+										${review.review_content }</a></td>
+								<td>${review.creationReviewDate }</td>
+								<c:if test="${review.review_rating eq 5 }">
+									<td class="star"><i class="fa-solid fa-star"></i> <i
+										class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+										<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+									</td>
+								</c:if>
+								<c:if test="${review.review_rating eq 4 }">
+									<td class="star"><i class="fa-solid fa-star"></i> <i
+										class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+										<i class="fa-solid fa-star"></i> <i class="fa-regular fa-star"></i></td>
+								</c:if>
+								<c:if test="${review.review_rating eq 3 }">
+									<td class="star"><i class="fa-solid fa-star"></i> <i
+										class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+										<i class="fa-regular fa-star"></i> <i
+										class="fa-regular fa-star"></i></td>
+								</c:if>
+								<c:if test="${review.review_rating eq 2 }">
+									<td class="star"><i class="fa-solid fa-star"></i> <i
+										class="fa-solid fa-star"></i> <i class="fa-regular fa-star"></i>
+										<i class="fa-regular fa-star"></i> <i
+										class="fa-regular fa-star"></i></td>
+								</c:if>
+								<c:if test="${review.review_rating eq 1 }">
+									<td class="star"><i class="fa-solid fa-star"></i> <i
+										class="fa-regular fa-star"></i> <i class="fa-regular fa-star"></i>
+										<i class="fa-regular fa-star"></i> <i
+										class="fa-regular fa-star"></i></td>
+								</c:if>
+							</tr>
+						</c:forEach>
+					</table>
+				</div>
+			</div>
 		</div>
 	</div>
+
 	<!-- middle 끝 -->
-	<script src="<%=request.getContextPath() %>/resources/mypage/js/qna_pop.js"></script>
+	<script
+		src="<%=request.getContextPath()%>/resources/mypage/js/mypage.js"></script>
 	<script
 		src="<%=request.getContextPath()%>/resources/menu/js/menubar.js?ver=2">
 	</script>
-	
+
 	<%@include file="../bottom.jspf"%>
