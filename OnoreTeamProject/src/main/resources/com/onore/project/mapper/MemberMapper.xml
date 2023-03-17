@@ -19,7 +19,7 @@
 		#{mem_birth_date},
 		SYSDATE,
 		3000,
-		1,
+		0,
 		#{mem_law1_check},	
 		#{mem_law2_check},	
 		#{mem_law3_check},	
@@ -62,6 +62,12 @@
 	FROM members
 	WHERE mem_id = #{mem_id}
 </select>
+
+<!-- 문의글 가져오기 -->
+<select id="getQnaView" resultType="com.onore.project.dto.QnaDTO">
+	SELECT * FROM qna WHERE mem_id = #{mem_id}
+</select>
+
 
 <!-- 회원정보 수정 -->
 <update id="memberInfoModify">

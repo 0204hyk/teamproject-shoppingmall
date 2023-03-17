@@ -10,7 +10,9 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 import com.onore.project.dto.CouponDTO;
 import com.onore.project.dto.MemberDTO;
+import com.onore.project.dto.QnaDTO;
 import com.onore.project.mapper.MemberMapper;
 import com.onore.project.member.service.MemberService;
 
@@ -31,7 +34,7 @@ public class MemberServiceImpl implements MemberService{
 	   MemberMapper mapper;
 
 	   @Override
-	   public List<MemberDTO> getAll() {   
+	   public List<MemberDTO> getAll() {
 	      return null;
 	   }
 
@@ -43,7 +46,7 @@ public class MemberServiceImpl implements MemberService{
 
 	   // 로그인
 	   @Override
-	   public MemberDTO signIn(MemberDTO dto) throws Exception {      
+	   public MemberDTO signIn(MemberDTO dto) throws Exception {
 	      return mapper.signIn(dto);
 	   }
 
@@ -82,7 +85,7 @@ public class MemberServiceImpl implements MemberService{
 	   public Integer memberPwModify(MemberDTO memberdto) throws Exception {
 	      return mapper.memberPwModify(memberdto);
 	   }
-	   
+
 	   // 이메일 전송
 	   @Override
 	   public void send_mail(MemberDTO member, String div) throws Exception {
@@ -105,7 +108,7 @@ public class MemberServiceImpl implements MemberService{
 	               int random = (int) (Math.random() * 36);
 	               pw += (char) (random < 10 ? '0' + random : 'a' + random - 10);
 	           }
-	           
+
 	           // 필수 조건에 맞는지 확인 후 조건에 맞지 않으면 재생성
 	           // 영소문자와 숫자가 필수로 섞여서 랜덤값이 생성되어야 함
 	           while(!(pw.matches(".*[a-z].*") && pw.matches(".*[0-9].*"))) {
@@ -115,7 +118,7 @@ public class MemberServiceImpl implements MemberService{
 	                   pw += (char) (random < 10 ? '0' + random : 'a' + random - 10);
 	               }
 	           }
-	           
+
 	           member.setMem_pw(pw); // 생성된 임시 비밀번호를 DTO에 저장
 
 	           // 비밀번호 암호화
@@ -146,7 +149,8 @@ public class MemberServiceImpl implements MemberService{
 	           props.put("mail.smtp.port", "587");
 
 	           Session session = Session.getInstance(props, new Authenticator() {
-	               protected PasswordAuthentication getPasswordAuthentication() {
+	               @Override
+				protected PasswordAuthentication getPasswordAuthentication() {
 	                   return new PasswordAuthentication(hostSMTPid, hostSMTPpwd);
 	               }
 	           });
@@ -158,7 +162,7 @@ public class MemberServiceImpl implements MemberService{
 	           message.setContent(msg, "text/html;charset=utf-8");
 
 	           Transport.send(message);
-	           
+
 	           System.out.println(mail + "로 메일발송 성공");
 	       } catch (Exception e) {
 	           e.printStackTrace();
@@ -170,20 +174,16 @@ public class MemberServiceImpl implements MemberService{
 	   @Override
 	   public void find_pw(HttpServletResponse response, MemberDTO member) throws Exception {
 	       response.setContentType("text/html;charset=utf-8");
-	       
+
 	       // 아이디 존재여부 확인
 	       MemberDTO search_member = mapper.getMember(member.getMem_id());
-	       
+
 	       // 아이디가 없으면
-	       if (search_member == null) {
+	       // 이메일 존재여부 확인
+	       if ((search_member == null) || !search_member.getMem_email().equals(member.getMem_email())) {
 	          return;
 	       }
 
-	       // 이메일 존재여부 확인
-	       if (!search_member.getMem_email().equals(member.getMem_email())) {
-	          return;
-	       }
-	       
 	    // 랜덤 임시 비밀번호 생성
 	       String pw = "";
 	       for (int i = 0; i < 12; i++) {
@@ -208,23 +208,23 @@ public class MemberServiceImpl implements MemberService{
 	       // 임시비밀번호를 이메일로 전송하기
 	       send_mail(search_member, "find_pw");
 
-	       // 메일 전송 성공시 메세지와 함께 로그인창으로 바뀜(메세지는 member_login.jsp의 script에 있음) 
-	       response.sendRedirect("./login?message=success"); 
+	       // 메일 전송 성공시 메세지와 함께 로그인창으로 바뀜(메세지는 member_login.jsp의 script에 있음)
+	       response.sendRedirect("./login?message=success");
 	   }
-	   
+
 	   // 회원 탈퇴하기
 	   //@Override
 	   //public Integer memberDeleteDo(MemberDTO memberdto) throws Exception {
 	   //   return mapper.memberDeleteDo(memberdto);
 	    //}
-	   
+
 
 	   // 회원 탈퇴하기
 	   @Override
 	   public void memberDelete(MemberDTO memberdto) throws Exception {
 	      mapper.memberDelete(memberdto);
 	   }
-	   
+
 	   @Override
 	   public Integer passChk(MemberDTO memberdto) throws Exception {
 	      int result = mapper.passChk(memberdto);
@@ -234,33 +234,41 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public Integer insertCoupon(CouponDTO coupon) {
-		
+
 		return mapper.insertCoupon(coupon);
-	}   
-	   
-	// 회원이 소유한 쿠폰 조회	
+	}
+
+	// 회원이 소유한 쿠폰 조회
 	@Override
 	public List<CouponDTO> getCoupons(String mem_id) {
-		
+
 		return mapper.getCoupons(mem_id);
 	}
 	// 적립금 할인 사용 후 적립금 차감
 	@Override
 	public Integer updatePoints(MemberDTO member) {
-		
+
 		return mapper.updatePoints(member);
 	}
-	
+
 	@Override
 	public Integer deleteCoupon(String coupon_name) {
-		
+
 		return mapper.deleteCoupon(coupon_name);
 	}
-	
+
 	// 주문 완료 후 배송정보 수정
 	@Override
 	public Integer updateMemberAddress(MemberDTO member) {
-			
+
 		return mapper.updateMemberAddress(member);
+	}
+
+	@Override
+	public List<QnaDTO> getQnaView(String mem_id, HttpServletRequest req) {
+		HttpSession se = req.getSession();
+		String id = ((MemberDTO)se.getAttribute("signIn")).getMem_id();
+		mem_id = id;
+		return mapper.getQnaView(mem_id);
 	}
 }

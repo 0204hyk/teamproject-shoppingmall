@@ -13,10 +13,10 @@ import com.onore.project.mapper.ProductsMapper;
 
 @Service
 public class AdminProductService_impl implements AdminProductService{
-	
+
 	@Autowired
 	CategoriesMapper categoriesMapper;
-	
+
 	@Autowired
 	ProductsMapper productsMapper;
 
@@ -34,7 +34,7 @@ public class AdminProductService_impl implements AdminProductService{
 	public List<ProductsDTO> readAllProduct(ProductsDTO product) {
 		return productsMapper.getSearchProduct(product);
 	}
-	
+
 	@Override
 	public ProductsDTO readProduct(Integer product_num) {
 		return productsMapper.getProduct(product_num);
@@ -44,7 +44,7 @@ public class AdminProductService_impl implements AdminProductService{
 	public Integer productModifyService(ProductsDTO product) {
 		return productsMapper.updateProduct(product);
 	}
-	
+
 	@Override
 	public Integer productDeleteService(Integer product_num) {
 		return productsMapper.deleteProduct(product_num);

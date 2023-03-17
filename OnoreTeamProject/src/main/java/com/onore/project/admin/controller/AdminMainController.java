@@ -1,9 +1,7 @@
 package com.onore.project.admin.controller;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +18,7 @@ public class AdminMainController {
 
 	@Autowired
 	AdminMainService service;
-	
+
 	@GetMapping(value={"/", "/main"})
 	public String main(HttpServletRequest request) {
 		request.setAttribute("dailySalesToChart", service.readDailySalesToChart());
@@ -34,5 +32,5 @@ public class AdminMainController {
 		request.setAttribute("recentReview", service.readRecentReview());
 		return "/admin/admin_index";
 	}
-	
+
 }

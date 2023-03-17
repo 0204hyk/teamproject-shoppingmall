@@ -22,28 +22,28 @@ public class ProductImageUploadService_impl implements ProductImageUploadService
 		if (file == null) {
 			return null;
 		}
-		
+
 		JsonObject jsonObject = new JsonObject();
-		String product_name = request.getParameter("product_name"); 
-		
+		String product_name = request.getParameter("product_name");
+
 		String contextRoot = request.getSession().getServletContext().getRealPath("/");
-		String fileRoot = contextRoot+"resources/admin/image/product/thumbnail/" + product_name + "/";
-		
+		String fileRoot = "/Users/kang/git/teamproject-shoppingmall/OnoreTeamProject/src/main/webapp/resources/shop/image/";
+
 		// 썸네일 폴더 내부에 상품명으로 하위 폴더 만들기
 		File folder = new File(fileRoot);
 		if (!folder.exists()) {
 			folder.mkdir();
 		}
-		
+
 		String originalFileName = file.getOriginalFilename();	//오리지날 파일명
 		String extension = originalFileName.substring(originalFileName.lastIndexOf("."));	//파일 확장자
 		String savedFileName = UUID.randomUUID() + extension;	//저장될 파일 명
-		
-		File targetFile = new File(fileRoot + savedFileName);	
+
+		File targetFile = new File(fileRoot + savedFileName);
 		try {
 			InputStream fileStream = file.getInputStream();
 			FileUtils.copyInputStreamToFile(fileStream, targetFile);	//파일 저장
-			jsonObject.addProperty("url", "/project/resources/admin/image/product/thumbnail/" + product_name + "/" + savedFileName);
+			jsonObject.addProperty("url", "/project/resources/shop/image/" + savedFileName);
 			jsonObject.addProperty("responseCode", "success");
 			fileStream.close();
 		} catch (IOException e) {
@@ -51,7 +51,7 @@ public class ProductImageUploadService_impl implements ProductImageUploadService
 			jsonObject.addProperty("responseCode", "error");
 			e.printStackTrace();
 		}
-		
+
 		return jsonObject.get("url").getAsString();
 	}
 

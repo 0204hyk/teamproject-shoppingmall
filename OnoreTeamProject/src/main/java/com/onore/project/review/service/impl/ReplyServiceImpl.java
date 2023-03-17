@@ -14,10 +14,10 @@ public class ReplyServiceImpl implements ReplyService {
 
 	@Autowired
 	ReviewMapper review_mapper;
-	
+
 	@Override
 	public List<CommentDTO> getReply(Integer reivew_num) {
-		
+
 		return review_mapper.getReplyAll(reivew_num);
 	}
 
@@ -28,19 +28,19 @@ public class ReplyServiceImpl implements ReplyService {
 
 	@Override
 	public Integer replyModify(CommentDTO com) {
-		
+
 		return review_mapper.replyModify(com);
 	}
 
 	@Override
 	public Integer replyDelete(Integer comment_num) {
-		
+
 		return review_mapper.replyDelete(comment_num);
 	}
-	
+
 	@Override
 	public Integer cntReply(Integer review_num) {
-		
+
 		return review_mapper.cntReply(review_num);
 	}
 }

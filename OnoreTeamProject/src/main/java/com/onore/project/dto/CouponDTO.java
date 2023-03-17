@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class CouponDTO {
-	
+
 	Integer coupon_num;
 	String coupon_name;
 	String mem_id;
