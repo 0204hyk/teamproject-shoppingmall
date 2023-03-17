@@ -45,7 +45,7 @@ public class MypageController {
 	// 마이페이지로 이동
 	@GetMapping("/mypage")
 	public String member_mypage(Model model, String mem_id, HttpServletRequest req) throws Exception {
-		
+		model.addAttribute("qnas", service.getQnaView(mem_id, req));
 		return "user/mypage/member_mypage";
 	}
 

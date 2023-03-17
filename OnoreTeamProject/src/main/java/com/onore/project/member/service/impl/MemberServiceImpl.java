@@ -12,6 +12,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -268,7 +269,9 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public List<QnaDTO> getQnaView(String mem_id, HttpServletRequest req) {
-		
+		HttpSession se = req.getSession();
+		String id = ((MemberDTO)se.getAttribute("signIn")).getMem_id();
+		mem_id = id;
 		return mapper.getQnaView(mem_id);
 	}
 }
