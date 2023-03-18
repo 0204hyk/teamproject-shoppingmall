@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.onore.project.dto.CouponDTO;
 import com.onore.project.dto.MemberDTO;
+import com.onore.project.dto.OrderDTO;
 import com.onore.project.dto.QnaDTO;
 import com.onore.project.dto.ReviewandProductDTO;
 
@@ -56,10 +57,13 @@ public List<MemberDTO> getAll();
 
 	// 회원이 사용한 쿠폰 제거
 	Integer deleteCoupon(String coupon_name);
-
+	
+	// 회원의 주문 내역 가져오기
+	List<OrderDTO> getMyOrders(HttpServletRequest req);
+	
 	// 적립금 할인 사용 후 적립금 차감
 	Integer updatePoints(MemberDTO member);
-
+	
 	// 주문완료 후 배송지 수정
 	Integer updateMemberAddress(MemberDTO member);
 	

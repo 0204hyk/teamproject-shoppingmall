@@ -105,6 +105,10 @@
 	UPDATE members SET mem_pw=#{mem_pw} WHERE mem_id=#{mem_id} AND mem_email=#{mem_email}
 </update>
 
+<select id="getMyOrders" resultType="com.onore.project.dto.OrderDTO">
+	SELECT * FROM orders WHERE orderer_id=#{mem_id}
+</select>
+
 <insert id="insertCoupon" parameterType="com.onore.project.dto.CouponDTO">
 	INSERT INTO coupon VALUES(coupon_seq.nextval, #{coupon_name}, #{mem_id}, #{coupon_discount})
 </insert>

@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.onore.project.dto.CouponDTO;
 import com.onore.project.dto.MemberDTO;
+import com.onore.project.dto.OrderDTO;
 import com.onore.project.dto.QnaDTO;
 import com.onore.project.dto.ReviewandProductDTO;
 
@@ -44,7 +45,10 @@ public interface MemberMapper {
 
 	// 가입시 쿠폰 지급
 	Integer insertCoupon(CouponDTO coupon);
-
+	
+	 // 회원의 주문내역 조회
+	List<OrderDTO> getMyOrders(String mem_id); 
+	
 	// 회원이 소유한 쿠폰 가져오기
 	List<CouponDTO> getCoupons(String mem_id);
 
