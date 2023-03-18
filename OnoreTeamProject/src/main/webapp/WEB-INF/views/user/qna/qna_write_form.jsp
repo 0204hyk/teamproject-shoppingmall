@@ -79,9 +79,10 @@
 		</form>
 	</div>
 	<hr>
+	<%@include file="../bottom.jspf"%>
 	<script type="text/javascript"
 		src="<%=request.getContextPath()%>/resources/qna/js/qna_write.js"></script>
 
-	<%@include file="../bottom.jspf"%>
+	
 </body>
 </html>
