@@ -27,7 +27,7 @@ public class ProductImageUploadService_impl implements ProductImageUploadService
 		String product_name = request.getParameter("product_name");
 
 		String contextRoot = request.getSession().getServletContext().getRealPath("/");
-		String fileRoot = "/Users/kang/git/teamproject-shoppingmall/OnoreTeamProject/src/main/webapp/resources/shop/image/";
+		String fileRoot = "C:\\Users\\K\\git\\teamproject-shoppingmall\\OnoreTeamProject\\src\\main\\webapp\\resources\\shop\\image\\";
 		
 		// 썸네일 폴더 내부에 상품명으로 하위 폴더 만들기
 		File folder = new File(fileRoot);

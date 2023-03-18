@@ -19,7 +19,7 @@ public class ProductsDTO {
    private String product_thumbnail_2;
    private String product_thumbnail_3;
    private Date product_date;
- 
+
    
    private static SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy.MM.dd");
    private static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
@@ -29,11 +29,11 @@ public class ProductsDTO {
    private String search_keyword;
 
 
-   public String getCreationProductDate() {
-	   LocalDate creationDate = LocalDate.ofInstant(product_date.toInstant(), ZoneId.systemDefault());
-	   LocalDate today = LocalDate.ofInstant(new Date().toInstant(), ZoneId.systemDefault());
-	   return creationDate.isEqual(today) ?
-			   timeFormat.format(product_date) : dayFormat.format(product_date);
-   }
+//   public String getCreationProductDate() {
+//	   LocalDate creationDate = LocalDate.ofInstant(product_date.toInstant(), ZoneId.systemDefault());
+//	   LocalDate today = LocalDate.ofInstant(new Date().toInstant(), ZoneId.systemDefault());
+//	   return creationDate.isEqual(today) ?
+//			   timeFormat.format(product_date) : dayFormat.format(product_date);
+//   }
 
 }
