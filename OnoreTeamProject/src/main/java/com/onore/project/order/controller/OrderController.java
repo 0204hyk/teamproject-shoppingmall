@@ -336,5 +336,28 @@ public class OrderController {
 			return "redirect:/order/complete?order_num=" + receiver_info.getOrder_num() + "&status=update_failed";
 		}
 	}
-
+	
+	@PostMapping("/delete")
+	public String deleteOrder(Model model, Integer order_num) {
+		
+		Integer row1 = order_service.deleteOrderInfos(order_num);
+		System.out.println("delete_order_infos : " + row1);
+		Integer row2 = order_service.deletePayInfos(order_num);
+		System.out.println("delete_pay_infos : " + row1);
+		
+		if(row1 > 0 && row2 > 0) {
+			Integer row3 = order_service.deleteOrder(order_num);
+			if(row3 > 0) {				
+				model.addAttribute("status","delete_order_success");
+				return "redirect:/mypage";
+			} else {
+				model.addAttribute("status","delete_order_failed");
+				return "redirect:/mypage";
+			}
+		} else {
+			model.addAttribute("status","delete_order_failed");
+			return "redirect:/mypage";			
+		}
+	}
+	
 }
