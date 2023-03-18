@@ -9,7 +9,7 @@
     </div>
 
     <ul class="navbar_menu">
-        <li><a href="">NOTICE</a></li>
+        <li><a href="<%=request.getContextPath()%>/notice/main">NOTICE</a></li>
         <li><a href="<%=request.getContextPath()%>/about/">ABOUT</a></li>
         <li><a href="<%=request.getContextPath()%>/location">LOCATION</a></li>
         <li><a href="<%=request.getContextPath()%>/shop/main">SHOP</a></li>

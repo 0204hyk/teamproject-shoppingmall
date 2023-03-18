@@ -96,7 +96,7 @@
 														<col style="width: 150px">
 													</colgroup>
 													<tr>
-														<th>Num</th>
+														<th>상품 번호</th>
 														<th>상품 이름</th>
 														<th>옵션</th>
 														<th>가격</th>
