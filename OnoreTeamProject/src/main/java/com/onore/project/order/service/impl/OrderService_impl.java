@@ -95,4 +95,24 @@ public class OrderService_impl implements OrderService {
 
 		return row;
 	}
+	
+	@Override
+	public Integer deleteOrder(Integer order_num) {
+		
+		return order_mapper.deleteOrder(order_num);
+	}
+	
+	@Override
+	public Integer deleteOrderInfos(Integer order_num) {
+		
+		return order_mapper.deleteOrderInfos(order_num);
+	}
+	
+	@Override
+	public Integer deletePayInfos(Integer order_num) {
+		
+		return order_mapper.deletePayInfos(order_num);
+	}
 }
+	
+

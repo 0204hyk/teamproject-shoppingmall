@@ -23,4 +23,10 @@ public interface OrderMapper {
 	PurchaseInfoDTO getPurchaseInfo(Integer order_num);
 
 	Integer updateReceiver(OrderDTO order);
+	
+	Integer deleteOrder(Integer order_num);
+	
+	Integer deleteOrderInfos(Integer order_num);
+	
+	Integer deletePayInfos(Integer order_num);
 }
