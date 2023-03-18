@@ -19,8 +19,8 @@
 				<input type="text" class="notice-write-title" name="notice_title" placeholder="제목을 입력해주세요." value="${notice.notice_title}"/>
 		  		<textarea class="summernote" name="notice_content">${notice.notice_content}</textarea>
 		  		<div class="d-grid d-md-flex justify-content-md-end" style="margin-top: 15px;">
-		 			<input type="button" id="modify-cancle-btn" class="submit-btn btn btn-secondary btn-lg" value="취 소"/>
-					<input type="button" onclick="modifyNotice('<%=request.getContextPath()%>/admin/notice/modify')" class="submit-btn btn btn-secondary btn-lg" value="수 정"/>
+		 			<input type="button" id="modify-cancle-btn" class="action-btn" value="취 소"/>
+					<input type="button" onclick="modifyNotice('<%=request.getContextPath()%>/admin/notice/modify')" class="action-btn" value="수 정"/>
 		  		</div>
 		  	</form>
 		</div>

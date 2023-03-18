@@ -382,12 +382,6 @@ body {
   width: 100%;
 }
 
-.submit-btn {
-  width: 120px;
-  font-size: 22px;
-  margin-left: 15px;
-}
-
 .notice-board {
   text-align: center;
 }
@@ -558,4 +552,35 @@ body {
 #search-btn:hover {
   color: rgb(77, 77, 77) !important;
   transition: 0.5s;
+}
+
+/* 버튼 관련*/
+.submit-btn {
+  width: 120px;
+  font-size: 22px;
+  margin-left: 15px;
+}
+
+.action-btn {
+  background-color: white;
+  font-size: 22px;
+  width: 120px;
+  margin-left: 15px;
+  height: 50px;
+  position: relative;
+  border-radius: 15px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+  border: 3px solid #a3a1a1;
+  color: #6e6e6e;
+}
+
+.action-btn:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.action-btn:active {
+  transform: scale(1.2);
 }
