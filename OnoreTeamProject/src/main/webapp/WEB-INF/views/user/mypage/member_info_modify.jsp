@@ -6,48 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>ONÓRE</title>
+<link href="<%=request.getContextPath() %>/resources/mypage/css/member_info_pw_modify.css" rel="stylesheet"/>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link href="<%=request.getContextPath() %>/resources/mypage/css/member_info_pw_modify.css?ver=1" rel="stylesheet"/>
-<script>
-//이메일 정규식
-function check_email() {
-	var email = document.getElementById("mem_email").value;
-	var regEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[a-zA-Z]([-_.]?[a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-	if (regEmail.test(email) == true) {
-		document.getElementById('info_modify_email_message_p').innerHTML = "사용 가능한 이메일입니다."
-		document.getElementById('info_modify_email_message_p').style.color = "blue";
-	} else {
-		document.getElementById('info_modify_email_message_p').innerHTML = "올바른 이메일을 입력하세요."
-		document.getElementById('info_modify_email_message_p').style.color = "red";
-	}
-}
-
-// 연락처(핸드폰번호) 정규식
-function check_phone() {
-	var phone = document.getElementById("mem_phone").value;
-	var regPhone = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/; // - 생략하고 01?(3글자) 방식으로 나머지 적용
-	if (regPhone.test(phone) == true) {
-		document.getElementById('info_modify_phone_message_p').innerHTML = "올바른 연락처 입니다."
-		document.getElementById('info_modify_phone_message_p').style.color = "blue";
-	} else {
-		document.getElementById('info_modify_phone_message_p').innerHTML = "올바른 연락처를 입력하세요."
-		document.getElementById('info_modify_phone_message_p').style.color = "red";
-	}
-}
-
-function check() {
-	var f = document.info_modify_form;
-	if (f.mem_email.value == "") {
-		alert("이메일을 입력해주세요");
-		f.mem_email.focus();
-		return false;
-	}
-	if (f.mem_phone.value == "") {
-		alert("전화번호를 입력해주세요");
-		f.mem_phone.focus();
-		return false;
-	}
-</script>
 <%@include file="../header.jspf"%>
 </head>
 <body>
@@ -66,7 +26,7 @@ function check() {
 						<a>아이디</a>
 					</div>
 					<div class="info_modify_input_div">
-						<input class="mem_id" id="mem_id" type="text" name="mem_id" value="${sessionScope.signIn.mem_id}" readonly>
+						<input class="mem_id" id="mem_id" type="text" name="mem_id" value="${member.mem_id}" readonly>
 					</div>
 				</div>
 	
@@ -75,7 +35,7 @@ function check() {
 						<a>이메일</a>
 					</div>
 					<div class="info_modify_input_div">
-						<input id="mem_email" type="text" name="mem_email" value="${sessionScope.signIn.mem_email}" onchange="check_email()" required>
+						<input id="mem_email" type="text" name="mem_email" value="${member.mem_email}" onchange="check_email()" required>
 					</div>
 				</div>
 				<div class="info_modify_message_div">
@@ -87,7 +47,7 @@ function check() {
 						<a>이름</a>
 					</div>
 					<div class="info_modify_input_div">
-						<input id="mem_name" type="text" name="mem_name" value="${sessionScope.signIn.mem_name}" readonly>
+						<input id="mem_name" type="text" name="mem_name" value="${member.mem_name}" readonly>
 					</div>
 				</div>
 
@@ -96,7 +56,7 @@ function check() {
 						<a>생년월일</a>
 					</div>
 					<div class="info_modify_input_div">
-						<input id="mem_birth_date" type="text" name="mem_birth_date" maxlength="6" value="${fn:substring(sessionScope.signIn.mem_birth_date,2,4)}${fn:substring(sessionScope.signIn.mem_birth_date,5,7)}${fn:substring(sessionScope.signIn.mem_birth_date,8,10)}" readonly> 
+						<input id="mem_birth_date" type="text" name="mem_birth_date" maxlength="6" value="${fn:substring(member.mem_birth_date,2,4)}${fn:substring(member.mem_birth_date,5,7)}${fn:substring(member.mem_birth_date,8,10)}" readonly> 
 					</div>
 				</div>
 
@@ -105,8 +65,8 @@ function check() {
 						<a>성별</a>
 					</div>
 					<div class="info_modify_input_radio_div">
-						<input id="mem_gender" type="radio" name="mem_gender" value="${sessionScope.signIn.mem_gender eq 'M'}" checked readonly><a>남성</a> 
-						<input id="mem_gender" type="radio" name="mem_gender" value="${sessionScope.signIn.mem_gender eq 'F'}" checked readonly><a>여성</a>
+						<input id="mem_gender" type="radio" name="mem_gender" value="${member.mem_gender eq 'M'}" checked readonly><a>남성</a> 
+						<input id="mem_gender" type="radio" name="mem_gender" value="${member.mem_gender eq 'F'}" checked readonly><a>여성</a>
 					</div>
 				</div>
 				<div class="info_modify_phone_div">
@@ -114,7 +74,7 @@ function check() {
 						<a>연락처</a>
 					</div>
 					<div class="info_modify_input_div">
-						<input id="mem_phone" type="text" name="mem_phone" value="${sessionScope.signIn.mem_phone}" oninput="check_phone()" required>
+						<input id="mem_phone" type="text" name="mem_phone" value="${member.mem_phone}" onchange="check_phone()"required>
 					</div>
 				</div>
 				<div class="info_modify_message_div">
@@ -123,29 +83,16 @@ function check() {
 	
 				<div class="info_modify_check_sms_div">
 					<div class="info_modify_input_check_div">
-						<c:choose>
-						<c:when test="${sessionScope.signIn.mem_sms_check eq 'Y'}">
-							<input class="law_check_box" id="mem_sms_check" type="checkbox" name="mem_sms_check" checked>
-						</c:when>
-						<c:otherwise>
-							<input class="law_check_box" id="mem_sms_check" type="checkbox" name="mem_sms_check" value="Y">
-						</c:otherwise>
-						</c:choose>
+						<input class="law_check_box" id="mem_sms_check" type="checkbox" name="mem_sms_check" value="Y" ${member.mem_sms_check == 'Y' ? 'checked' : ''}>
 					</div>
 					<div class="info_modify_a_sms_div">
 						<a>[선택] SMS 수신 여부</a>
 					</div>
 				</div>
-				<div class="info_modify_check_email_div">
+				
+			<div class="info_modify_check_email_div">
 					<div class="info_modify_input_check_div">
-						<c:choose>
-						<c:when test="${sessionScope.signIn.mem_email_check eq 'Y'}">
-							<input class="law_check_box" id="mem_email_check" type="checkbox" name="mem_email_check" checked>
-						</c:when>
-						<c:otherwise>
-							<input class="law_check_box" id="mem_email_check" type="checkbox" name="mem_email_check" value="Y">
-						</c:otherwise>
-						</c:choose>
+						<input class="law_check_box" id="mem_email_check" type="checkbox" name="mem_email_check" value="Y" ${member.mem_email_check == 'Y' ? 'checked' : ''}>
 					</div>
 					<div class="info_modify_a_email_div">
 						<a>[선택] 이메일 수신 여부</a>
@@ -155,7 +102,7 @@ function check() {
 				<!-- 체크박스 그룹 -->
 				<article>
 					<div class="info_modify_Btn_div">
-						<input class="info_modify_Btn" type="submit" value="수정하기">
+						<input id="info_modify_Btn" class="info_modify_Btn" type="submit" onclick="check()" value="수정하기">
 						<button type="button" class="mypage_go_btn" onclick="location.href='./mypage'">취소</button>
 					</div>
 				</article>
@@ -164,5 +111,6 @@ function check() {
 </div>
 <!-- middle 끝 -->
 
-<script src="<%=request.getContextPath() %>/resources/menu/js/menubar.js?ver=2"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/resources/mypage/js/member_info_modify.js"></script>
+<script src="<%=request.getContextPath() %>/resources/menu/js/menubar.js"></script>
 <%@include file="../bottom.jspf"%>

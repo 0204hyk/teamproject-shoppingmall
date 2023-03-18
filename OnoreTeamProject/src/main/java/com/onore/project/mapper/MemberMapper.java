@@ -36,24 +36,27 @@ public List<MemberDTO> getAll();
 	 // 비밀번호 수정하기
 	 Integer memberPwModify(MemberDTO memberdto) throws Exception;
 	 
-	 // 회원탈퇴 하기
-	 void memberDelete(MemberDTO memberdto) throws Exception;
-	 Integer passChk(MemberDTO memberdto) throws Exception;
+	// 회원탈퇴 하기 (쿠폰 삭제 후 회원 삭제 해야함)
+	 Integer memberDeleteCoupon(String mem_id);
+	void memberDelete(MemberDTO memberdto) throws Exception;
 	 
 	// 가입시 쿠폰 지급
 	Integer insertCoupon(CouponDTO coupon);
 	 
-	 // 회원이 소유한 쿠폰 가져오기
-	 List<CouponDTO> getCoupons(String mem_id);
+	// 회원이 소유한 쿠폰 가져오기
+	List<CouponDTO> getCoupons(String mem_id);
 	 
-	 // 회원이 사용한 쿠폰 제거
-	 Integer deleteCoupon(String coupon_name);
+	// 회원이 사용한 쿠폰 제거
+	Integer deleteCoupon(String coupon_name);
 	 
-	 // 적립금 할인 사용 후 적립금 차감
-	 Integer updatePoints(MemberDTO member);
+	// 적립금 할인 사용 후 적립금 차감
+	Integer updatePoints(MemberDTO member);
 	 
 	// 주문완료 후 배송지 수정
 	Integer updateMemberAddress(MemberDTO member);
+	
+	// 회원 적립금 가져오기
+	Integer getMemPoint(String mem_id);
 
 }
 

@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>ONÓRE</title>
-<link href="<%=request.getContextPath() %>/resources/mypage/css/mypage_main.css?ver=1" rel="stylesheet"/>
+<link href="<%=request.getContextPath() %>/resources/mypage/css/mypage_main.css" rel="stylesheet"/>
 <%@include file="../header.jspf"%>
 </head>
 <body>
@@ -18,10 +19,21 @@
 			<div class="mypage_title">My Page</div>
 			<div class="photo_div"><i id="member_icon" class="fa-solid fa-circle-user"></i></div>
 			<div class="member_id_div">${sessionScope.signIn.mem_id}님</div>
+			<div class="member_point_div">
+			  총 적립금
+			  <c:choose>
+			    <c:when test="${mem_point > 0}">
+			      <fmt:formatNumber value="${mem_point}" pattern="#,##0"/>원
+			    </c:when>
+			    <c:otherwise>
+			      0원
+			    </c:otherwise>
+			  </c:choose>
+			</div>
 			<div class="member_modify_div">
+				<input type="button" class="member_delete_btn" onclick="location.href='./memberDelete'" value="회원탈퇴">
 				<input type="button" class="member_pw_btn" onclick="location.href='./member_pw_modify'" value="비밀번호변경">
 				<input type="button" class="member_modify_btn" onclick="location.href='./member_info_modify'" value="회원정보수정">
-				<input type="button" class="member_delete_btn" onclick="location.href='./memberDelete'" value="회원탈퇴">
 			</div>
 		</div>
         
@@ -50,5 +62,5 @@
 </div>
 <!-- middle 끝 -->
 
-<script src="<%=request.getContextPath() %>/resources/menu/js/menubar.js?ver=2"></script>
+<script src="<%=request.getContextPath() %>/resources/menu/js/menubar.js"></script>
 <%@include file="../bottom.jspf"%>

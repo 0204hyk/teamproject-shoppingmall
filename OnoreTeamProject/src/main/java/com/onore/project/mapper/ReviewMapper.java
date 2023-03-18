@@ -10,7 +10,7 @@ import com.onore.project.dto.ReviewandProductDTO;
 
 public interface ReviewMapper {
 	
-	// ê¸€
+	// ±Û
 	
 	List<ReviewandProductDTO> getAll();
 	
@@ -22,7 +22,7 @@ public interface ReviewMapper {
 	
 	Integer delete(Integer review_num); 
 	
-	// ëŒ“ê¸€
+	// ´ñ±Û
 	
 	List<CommentDTO> getReplyAll(Integer review_num);
 	
@@ -34,7 +34,7 @@ public interface ReviewMapper {
 	
 	Integer cntReply(Integer review_num);
 	
-	// ê´€ë¦¬ì
+	// °ü¸®ÀÚ
 	List<ReviewandProductDTO> getRecentReview();
 	List<ReviewandProductDTO> getSearchReviewList(ReviewandProductDTO review);
 }

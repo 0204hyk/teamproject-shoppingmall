@@ -3,12 +3,12 @@ body {
 	background-color: white;
 }
 
-/* ê°€ì¥ í° ì»¨í…Œì´ë„ˆ */
+/* °¡Àå Å« ÄÁÅ×ÀÌ³Ê */
 .container {
 	width: 800px;
 }
 
-/* í°ìƒ‰ ì»¨í…Œì´ë„ˆ */
+/* Èò»ö ÄÁÅ×ÀÌ³Ê */
 .container-sm.w-auto {
 	width: 800px;
 	padding: 1.5rem;
@@ -18,58 +18,58 @@ body {
 	border-bottom: 2px solid black;
 }
 
-/* ì»¨í…Œì´ë„ˆ ì‚¬ì´ ë¹ˆ ê³µê°„ */
+/* ÄÁÅ×ÀÌ³Ê »çÀÌ ºó °ø°£ */
 .blank {
 	/* background-color: rgb(205, 205, 205); */
 	background-color: white;
 	height: 1rem;
 }
 
-/* ìƒí’ˆ ì´ë¯¸ì§€ ì»¨í…Œì´ë„ˆ */
+/* »óÇ° ÀÌ¹ÌÁö ÄÁÅ×ÀÌ³Ê */
 .img-container {
 	margin-right: 1rem;
 }
 
-/* ìƒì„¸ ì •ë³´ valueë“¤ */
+/* »ó¼¼ Á¤º¸ valueµé */
 .form-control-plaintext {
 	text-align: right;
 }
 
-/* ìƒì„¸ ì •ë³´ í‹€ */
+/* »ó¼¼ Á¤º¸ Æ² */
 .mb-3 {
 	margin-left: 0.5rem;
 	margin-right: 0.5rem;
 }
 
-/* ì£¼ë¬¸ ê¸ˆì•¡, ê²°ì œ ìƒì„¸, ì ë¦½ê¸ˆ í˜œíƒ header */
+/* ÁÖ¹® ±İ¾×, °áÁ¦ »ó¼¼, Àû¸³±İ ÇıÅÃ header */
 .accordion-header {
 	margin-top: 0.3rem;
 	margin-bottom: 0.5rem;
 }
 
-/* ì£¼ë¬¸ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤. */
+/* ÁÖ¹®ÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù. */
 #order_detail_title {
 	text-align: center;
 	margin: 1.4rem;
 }
 
-/* ë°°ì†¡ì§€ ë³€ê²½ ë²„íŠ¼ */
+/* ¹è¼ÛÁö º¯°æ ¹öÆ° */
 #revise_btn {
 	float: right;
 	margin-top: 0.2rem;
 }
 
-/* ì˜¤ë…¸ë ˆ header */
+/* ¿À³ë·¹ header */
 #header_title {
 	padding-left: 0.5rem;
 }
 
-/* ì£¼ë¬¸ ê¸ˆì•¡ í‘œì‹œ */
+/* ÁÖ¹® ±İ¾× Ç¥½Ã */
 #pay_price, #expected_points {
 	direction: rtl;
 }
 
-/* ìƒí’ˆ ì •ë³´ë“¤ */
+/* »óÇ° Á¤º¸µé */
 #product_name, #order_info_size, #order_info_price {
 	margin-bottom: 0.5rem;
 }
@@ -79,12 +79,12 @@ body {
 	border: none;
 }
 
-/* ìƒí’ˆ ì •ë³´ í…Œì´ë¸” */
+/* »óÇ° Á¤º¸ Å×ÀÌºí */
 table, tbody {
 	height: 200px;
 }
 
-/* ìƒí’ˆ ì´ë¯¸ì§€ */
+/* »óÇ° ÀÌ¹ÌÁö */
 img {
 	width: 100px;
 	height: 100px;

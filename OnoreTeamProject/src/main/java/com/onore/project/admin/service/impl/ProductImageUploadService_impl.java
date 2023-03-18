@@ -29,25 +29,25 @@ public class ProductImageUploadService_impl implements ProductImageUploadService
 		String contextRoot = request.getSession().getServletContext().getRealPath("/");
 		String fileRoot = contextRoot+"resources/admin/image/product/thumbnail/" + product_name + "/";
 		
-		// ì¸ë„¤ì¼ í´ë” ë‚´ë¶€ì— ìƒí’ˆëª…ìœ¼ë¡œ í•˜ìœ„ í´ë” ë§Œë“¤ê¸°
+		// ½æ³×ÀÏ Æú´õ ³»ºÎ¿¡ »óÇ°¸íÀ¸·Î ÇÏÀ§ Æú´õ ¸¸µé±â
 		File folder = new File(fileRoot);
 		if (!folder.exists()) {
 			folder.mkdir();
 		}
 		
-		String originalFileName = file.getOriginalFilename();	//ì˜¤ë¦¬ì§€ë‚  íŒŒì¼ëª…
-		String extension = originalFileName.substring(originalFileName.lastIndexOf("."));	//íŒŒì¼ í™•ì¥ì
-		String savedFileName = UUID.randomUUID() + extension;	//ì €ì¥ë  íŒŒì¼ ëª…
+		String originalFileName = file.getOriginalFilename();	//¿À¸®Áö³¯ ÆÄÀÏ¸í
+		String extension = originalFileName.substring(originalFileName.lastIndexOf("."));	//ÆÄÀÏ È®ÀåÀÚ
+		String savedFileName = UUID.randomUUID() + extension;	//ÀúÀåµÉ ÆÄÀÏ ¸í
 		
 		File targetFile = new File(fileRoot + savedFileName);	
 		try {
 			InputStream fileStream = file.getInputStream();
-			FileUtils.copyInputStreamToFile(fileStream, targetFile);	//íŒŒì¼ ì €ì¥
+			FileUtils.copyInputStreamToFile(fileStream, targetFile);	//ÆÄÀÏ ÀúÀå
 			jsonObject.addProperty("url", "/project/resources/admin/image/product/thumbnail/" + product_name + "/" + savedFileName);
 			jsonObject.addProperty("responseCode", "success");
 			fileStream.close();
 		} catch (IOException e) {
-			FileUtils.deleteQuietly(targetFile);	//ì €ì¥ëœ íŒŒì¼ ì‚­ì œ
+			FileUtils.deleteQuietly(targetFile);	//ÀúÀåµÈ ÆÄÀÏ »èÁ¦
 			jsonObject.addProperty("responseCode", "error");
 			e.printStackTrace();
 		}

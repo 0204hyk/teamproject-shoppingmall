@@ -35,7 +35,7 @@ public class ReviewandProductDTO {
 	private String product_thumbnail_3;
 	
 
-	// idë§ˆìŠ¤í‚¹ì²˜ë¦¬ ex) ${review.maskingName}
+	// id¸¶½ºÅ·Ã³¸® ex) ${review.maskingName}
 	public String getmaskingName() {
 
 		String firstName = mem_id.substring(0,1);
@@ -63,7 +63,7 @@ public class ReviewandProductDTO {
 		 	   timeFormat.format(review_date) : dayFormat.format(review_date);
     }
     
-    // ê´€ë¦¬ì í˜ì´ì§€ì—ì„œ ì‚¬ìš©
+    // °ü¸®ÀÚ ÆäÀÌÁö¿¡¼­ »ç¿ë
     private static SimpleDateFormat adminPageFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public String getAdminPageReviewDate() {

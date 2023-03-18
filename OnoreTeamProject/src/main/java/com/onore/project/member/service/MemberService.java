@@ -40,10 +40,8 @@ public List<MemberDTO> getAll();
 	Integer memberPwModify(MemberDTO memberdto) throws Exception;
 	
 	// 회원탈퇴 하기
-	// Integer memberDeleteDo(MemberDTO memberdto) throws Exception;
+	Integer memberDeleteCoupon(String mem_id);
 	void memberDelete(MemberDTO memberdto) throws Exception;
-	
-	Integer passChk(MemberDTO memberdto) throws Exception;
 	 
 	// 가입시 쿠폰 지급
 	Integer insertCoupon(CouponDTO coupon);
@@ -59,6 +57,10 @@ public List<MemberDTO> getAll();
 	
 	// 주문완료 후 배송지 수정
 	Integer updateMemberAddress(MemberDTO member);
+	
+	// 회원 적립금 가져오기
+	Integer getMemPoint(String mem_id);
+	
 
 }
 

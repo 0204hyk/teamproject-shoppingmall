@@ -9,7 +9,7 @@ public class MonthlySalesVO {
 	private Integer monthly_sales;
 	private Integer monthly_sales_cnt;
 	
-	// í•©ê³„
+	// ÇÕ°è
 	private String year;
 	private Integer monthly_sales_total;
 	private Integer monthly_sales_cnt_total;

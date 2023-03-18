@@ -19,8 +19,8 @@ public class QnaDTO {
 	private String qna_content;
 	private Date qna_date;
 	private String qna_category;
-	private String qna_img_path; // íŒŒì¼ ê²½ë¡œ
-	private String qna_img_1; // íŒŒì¼ ì´ë¦„
+	private String qna_img_path; // ÆÄÀÏ °æ·Î
+	private String qna_img_1; // ÆÄÀÏ ÀÌ¸§
 	private String qna_img_2;
 	private String qna_img_3;
 	private Integer qna_status;
@@ -52,7 +52,7 @@ public class QnaDTO {
 		 	   timeFormat.format(qna_date) : dayFormat.format(qna_date);		
     }
     
-    // ê´€ë¦¬ì
+    // °ü¸®ÀÚ
     private static SimpleDateFormat adminPageFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     
     public String getAdminPageQnaDate() {

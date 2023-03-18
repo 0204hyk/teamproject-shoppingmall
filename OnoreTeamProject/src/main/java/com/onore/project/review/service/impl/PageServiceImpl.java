@@ -39,7 +39,7 @@ public class PageServiceImpl implements PageService {
 		int end_index = page * page_size;
 		end_index = end_index > board_size ? board_size : end_index;
 		
-		System.out.printf("í˜„ì¬ í˜ì´ì§€ëŠ” %dí˜ì´ì§€ê³ , ì‹œì‘ ì¸ë±ìŠ¤ëŠ” %d, ë§ˆì§€ë§‰ ì¸ë±ìŠ¤ëŠ” %d ì…ë‹ˆë‹¤.\n",
+		System.out.printf("ÇöÀç ÆäÀÌÁö´Â %dÆäÀÌÁö°í, ½ÃÀÛ ÀÎµ¦½º´Â %d, ¸¶Áö¸· ÀÎµ¦½º´Â %d ÀÔ´Ï´Ù.\n",
 				page, start_index, end_index);
 		
 		
@@ -63,7 +63,7 @@ public class PageServiceImpl implements PageService {
 		
 		
 		
-		System.out.printf("í˜„ì¬ í˜ì´ì§€ëŠ” %dí˜ì´ì§€ê³ , í˜ì´ì§€ë„¤ì´ì…˜ ì‹œì‘ì€ %d, ë§ˆì§€ë§‰ ìˆ«ìëŠ” %d ì…ë‹ˆë‹¤.",
+		System.out.printf("ÇöÀç ÆäÀÌÁö´Â %dÆäÀÌÁö°í, ÆäÀÌÁö³×ÀÌ¼Ç ½ÃÀÛÀº %d, ¸¶Áö¸· ¼ıÀÚ´Â %d ÀÔ´Ï´Ù.",
 				page, pagination_start, pagination_end);
 		
 		req.setAttribute("reviews", reviews.subList(start_index, end_index));

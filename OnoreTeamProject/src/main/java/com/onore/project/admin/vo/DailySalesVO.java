@@ -9,7 +9,7 @@ public class DailySalesVO {
 	private Integer daily_sales;
 	private Integer daily_sales_cnt;
 	
-	// í•©ê³„
+	// ÇÕ°è
 	private String month;
 	private Integer daily_sales_total;
 	private Integer sales_cnt_total;

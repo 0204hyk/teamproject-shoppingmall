@@ -20,7 +20,6 @@ $('#review-delete-btn').click(function() {
                 },
                 error: function (request, status, error){        
                     console.log(error);
-                    alert('삭제 실패 (오류)');
                 }
             })     
         } else {

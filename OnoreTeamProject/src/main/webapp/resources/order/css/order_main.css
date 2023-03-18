@@ -2,12 +2,12 @@ body {
 	background-color: white;
 }
 
-/* ê°€ìž¥ í° ì»¨í…Œì´ë„ˆ */
+/* °¡Àå Å« ÄÁÅ×ÀÌ³Ê */
 .container {
 	width: 800px;
 }
 
-/* í°ìƒ‰ ì»¨í…Œì´ë„ˆ */
+/* Èò»ö ÄÁÅ×ÀÌ³Ê */
 .container-sm {
 	width: 800px;
 	padding: 1.5rem;
@@ -18,66 +18,66 @@ body {
 	border-bottom: 2px solid black;
 }
 
-/* ì»¨í…Œì´ë„ˆ ë°– íšŒìƒ‰ ê³µê°„ */
+/* ÄÁÅ×ÀÌ³Ê ¹Û È¸»ö °ø°£ */
 .blank {
 	background-color: white;
 	height: 1rem;
 }
 
-/* ê°€ê²© (~ì›) */
+/* °¡°Ý (~¿ø) */
 .form-control-plaintext {
 	text-align: right;
 }
 
-/* ìƒí’ˆ ì´ë¯¸ì§€ ì»¨í…Œì´ë„ˆ */
+/* »óÇ° ÀÌ¹ÌÁö ÄÁÅ×ÀÌ³Ê */
 .img-container {
 	margin-right: 1rem;
 }
 
-/* ê¸°ì¡´ ë°°ì†¡ì§€ ì‹ ê·œ ë°°ì†¡ì§€ */
+/* ±âÁ¸ ¹è¼ÛÁö ½Å±Ô ¹è¼ÛÁö */
 #shipping_address>.btn-group {
 	margin-bottom: 1.5rem;
 }
 
-/* ë°°ì†¡ì§€ ì£¼ì†Œ */
+/* ¹è¼ÛÁö ÁÖ¼Ò */
 #receiver_address {
 	margin-bottom: 0.5rem;
 }
 
-/* ê²°ì œ ë°©ì‹ ë²„íŠ¼ */
+/* °áÁ¦ ¹æ½Ä ¹öÆ° */
 #card+label, #kakao+label, #deposit+label {
 	width: 45%;
 	margin: 0.7rem;
 }
 
-/* ë°°ë„ˆ */
+/* ¹è³Ê */
 h2 {
 	padding-left: 0.5rem;
 }
 
-/* ê° ì»¨í…Œì´ë„ˆì˜ ì œëª© */
+/* °¢ ÄÁÅ×ÀÌ³ÊÀÇ Á¦¸ñ */
 h5 {
 	font-weight: bolder;
 }
 
-/* ìƒí’ˆ ì •ë³´ í…Œì´ë¸” */
+/* »óÇ° Á¤º¸ Å×ÀÌºí */
 table, tbody {
 	height: 200px;
 }
 
-/* ìƒí’ˆ ì •ë³´ë“¤ */
+/* »óÇ° Á¤º¸µé */
 p {
 	margin-bottom: 0.5rem;
 }
 
-/* ìƒí’ˆ ì´ë¯¸ì§€ */
+/* »óÇ° ÀÌ¹ÌÁö */
 img {
 	width: 100px;
 	height: 100px;
 	object-fit: fill;
 }
 
-/* ê²°ì œ ë²„íŠ¼ ì»¨í…Œì´ë„ˆ */
+/* °áÁ¦ ¹öÆ° ÄÁÅ×ÀÌ³Ê */
 footer {
 	position: fixed;
 	bottom: 0;
@@ -85,7 +85,7 @@ footer {
 	margin-bottom: 1rem;
 }
 
-/* ê²°ì œ ë²„íŠ¼ */
+/* °áÁ¦ ¹öÆ° */
 footer>button {
 	height: 3.5rem;
 	position: relative;

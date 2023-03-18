@@ -85,7 +85,7 @@ img {
     cursor: pointer; 
 }
 
-/* ì²¨ë¶€ ì´ë¯¸ì§€ ì‚¬ì´ì¦ˆ ì„¤ì •  2023.03.08 ìˆ˜ì •  */
+/* Ã·ºÎ ÀÌ¹ÌÁö »çÀÌÁî ¼³Á¤  2023.03.08 ¼öÁ¤  */
 #previewImg1, #previewImg2, #previewImg3 {
 	border: 0px;
 	width: 230px;
@@ -93,12 +93,12 @@ img {
 	margin-right: 80px;
 }
 
-/* íŒŒì¼ ì„ íƒ 3ê°€ì§€ í¬í•¨í•œ div  2023.03.08 ìˆ˜ì • */
+/* ÆÄÀÏ ¼±ÅÃ 3°¡Áö Æ÷ÇÔÇÑ div  2023.03.08 ¼öÁ¤ */
 .sub-container2 {
 	display: flex;
 }
 
-/* ê° íŒŒì¼ ì„ íƒì— ê´€í•œ ê¸¸ì´ ìˆ˜ì •  2023.03.08 ìˆ˜ì • */
+/* °¢ ÆÄÀÏ ¼±ÅÃ¿¡ °üÇÑ ±æÀÌ ¼öÁ¤  2023.03.08 ¼öÁ¤ */
 .sub-container2 > div {
 	width: 200px;
 	overflow: hidden;
@@ -107,7 +107,7 @@ img {
 	margin-right: 120px;
 }
 
-/* íŒŒì¼ ì„ íƒ ìª½ í°íŠ¸ ì‚¬ì´ì¦ˆ  2023.03.08 ìˆ˜ì • */
+/* ÆÄÀÏ ¼±ÅÃ ÂÊ ÆùÆ® »çÀÌÁî  2023.03.08 ¼öÁ¤ */
 #fileUpload1, #fileUpload2, #fileUpload3 {
 	font-size: 16px;
 	background-color: black;
@@ -120,7 +120,7 @@ img {
     cursor: pointer; 
 }
 
-/* ì²¨ë¶€ ì´ë¯¸ì§€ ì‚¬ì´ì¦ˆ ì„¤ì •  2023.03.08 ìˆ˜ì •  */
+/* Ã·ºÎ ÀÌ¹ÌÁö »çÀÌÁî ¼³Á¤  2023.03.08 ¼öÁ¤  */
 #previewImg1, #previewImg2, #previewImg3 {
 	border: 0px;
 	width: 230px;
@@ -128,13 +128,13 @@ img {
 	margin-right: 80px;
 }
 
-/* íŒŒì¼ ì„ íƒ 3ê°€ì§€ í¬í•¨í•œ div  2023.03.08 ìˆ˜ì • */
+/* ÆÄÀÏ ¼±ÅÃ 3°¡Áö Æ÷ÇÔÇÑ div  2023.03.08 ¼öÁ¤ */
 .sub-container2 {
 	display: flex;
 	
 }
 
-/* ê° íŒŒì¼ ì„ íƒì— ê´€í•œ ê¸¸ì´ ìˆ˜ì •  2023.03.08 ìˆ˜ì • */
+/* °¢ ÆÄÀÏ ¼±ÅÃ¿¡ °üÇÑ ±æÀÌ ¼öÁ¤  2023.03.08 ¼öÁ¤ */
 .sub-container2 > div {
 	width: 200px;
 	overflow: hidden;
@@ -142,7 +142,7 @@ img {
     white-space: nowrap;
 	margin-right: 120px;
 }
-<!-- ì´ë¯¸ì§€ ì‚­ì œ ë²„íŠ¼ ëª¨ì•„ë‘” ê³³ -->
+<!-- ÀÌ¹ÌÁö »èÁ¦ ¹öÆ° ¸ğ¾ÆµĞ °÷ -->
 
 #firstImg {
     position: relative;
@@ -198,7 +198,7 @@ img {
 	cursor: pointer;
 }
 
-/* íŒŒì¼ ì„ íƒ ìª½ í°íŠ¸ ì‚¬ì´ì¦ˆ  2023.03.08 ìˆ˜ì • */
+/* ÆÄÀÏ ¼±ÅÃ ÂÊ ÆùÆ® »çÀÌÁî  2023.03.08 ¼öÁ¤ */
 #fileUpload1, #fileUpload2, #fileUpload3 {
 	width: 230px;
 	margin-left: 8px;

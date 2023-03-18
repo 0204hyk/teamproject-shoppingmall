@@ -31,8 +31,8 @@ public class AdminProductService_impl implements AdminProductService{
 	}
 
 	@Override
-	public List<ProductsDTO> readAllProduct(ProductsDTO product) {
-		return productsMapper.getSearchProduct(product);
+	public List<ProductsDTO> readAllProduct() {
+		return productsMapper.getAllProduct();
 	}
 	
 	@Override

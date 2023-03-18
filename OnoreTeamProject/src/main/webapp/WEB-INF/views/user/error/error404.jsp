@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ONÓRE</title>
-<link href="/project/resources/menu/css/join_success.css?ver=1" rel="stylesheet"/>
+<link href="/project/resources/menu/css/join_success.css" rel="stylesheet"/>
 <%@include file="../header.jspf" %>
 </head>
 <body>

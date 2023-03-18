@@ -89,7 +89,7 @@ public class QnaServiceImpl implements QnaService {
 	@Override
 	public void fileUpload(QnaDTO qna, List<MultipartFile> file) throws IllegalStateException, IOException {
 		//String imgPath = "C:\\Users\\K\\git\\teamproject-shoppingmall\\OnoreTeamProject\\src\\main\\webapp\\resources\\qna\\images\\";
-		//String imgPath = "/Users/kang/git/teamproject-shoppingmall/OnoreTeamProject/src/main/webapp/resources/qna/images/"; // ë…¸íŠ¸ë¶
+		//String imgPath = "/Users/kang/git/teamproject-shoppingmall/OnoreTeamProject/src/main/webapp/resources/qna/images/"; // ³ëÆ®ºÏ
 		String imgPath = "/Users/minbong/Downloads/apache-tomcat-9.0.70/webapps/OnoreTeamProject/resources/qna/images";
 		
 		UUID uuid = UUID.randomUUID();
@@ -136,7 +136,7 @@ public class QnaServiceImpl implements QnaService {
 		int end_index = page * page_size;
 		end_index = end_index > board_size ? board_size : end_index;
 
-		System.out.printf("í˜„ì¬ í˜ì´ì§€ëŠ” %dí˜ì´ì§€ê³ , ì‹œì‘ ì¸ë±ìŠ¤ëŠ” %d, ë§ˆì§€ë§‰ ì¸ë±ìŠ¤ëŠ” %d ì…ë‹ˆë‹¤.\n",
+		System.out.printf("ÇöÀç ÆäÀÌÁö´Â %dÆäÀÌÁö°í, ½ÃÀÛ ÀÎµ¦½º´Â %d, ¸¶Áö¸· ÀÎµ¦½º´Â %d ÀÔ´Ï´Ù.\n",
 				page, start_index, end_index);
 
 
@@ -158,7 +158,7 @@ public class QnaServiceImpl implements QnaService {
 		int next_page = pagination_end + 1;
 		int previous_page = pagination_start - 1;
 
-		System.out.printf("í˜„ì¬ í˜ì´ì§€ëŠ” %dí˜ì´ì§€ê³ , í˜ì´ì§€ë„¤ì´ì…˜ ì‹œì‘ì€ %d, ë§ˆì§€ë§‰ ìˆ«ìëŠ” %d ì…ë‹ˆë‹¤.",
+		System.out.printf("ÇöÀç ÆäÀÌÁö´Â %dÆäÀÌÁö°í, ÆäÀÌÁö³×ÀÌ¼Ç ½ÃÀÛÀº %d, ¸¶Áö¸· ¼ıÀÚ´Â %d ÀÔ´Ï´Ù.",
 				page, pagination_start, pagination_end);
 
 		req.setAttribute("qnas", pages.subList(start_index, end_index));

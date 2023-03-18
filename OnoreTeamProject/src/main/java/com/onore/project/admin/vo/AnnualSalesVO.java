@@ -9,7 +9,7 @@ public class AnnualSalesVO {
 	private Integer annual_sales;
 	private Integer annual_sales_cnt;
 	
-	// í•©ê³„
+	// ÇÕ°è
 	private String ten_years;
 	private Integer annual_sales_total;
 	private Integer annual_sales_cnt_total;

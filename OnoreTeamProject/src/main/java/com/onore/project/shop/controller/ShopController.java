@@ -113,11 +113,11 @@ public class ShopController {
 		Integer total_price = 0;
 		List<Integer> total_points = new ArrayList<>();
 		for(int i = 0; i < cart_list.size(); i++) {
-			// ì¹´íŠ¸ì— ë‹´ì€ ìƒí’ˆ ìƒì„¸ ì •ë³´ë“¤
+			// Ä«Æ®¿¡ ´ãÀº »óÇ° »ó¼¼ Á¤º¸µé
 			cart_product_list.add(shopService.getDetail(cart_list.get(i).getProduct_num()));
-			// ì´ ê°€ê²©
+			// ÃÑ °¡°Ý
 			total_price += cart_list.get(i).getCart_product_price();
-			// ìµœëŒ€ í¬ì¸íŠ¸
+			// ÃÖ´ë Æ÷ÀÎÆ®
 			total_points.add(cart_list.get(i).getCart_product_price() / 100 * 3 + 1000);
 		}
 	

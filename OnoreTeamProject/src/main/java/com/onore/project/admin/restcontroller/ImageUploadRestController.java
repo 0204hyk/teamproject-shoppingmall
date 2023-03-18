@@ -30,23 +30,23 @@ public class ImageUploadRestController {
 		
 		JsonObject jsonObject = new JsonObject();
 		
-		// ìƒëŒ€ê²½ë¡œì— ì´ë¯¸ì§€ ì €ì¥ ì‹œ ì¬ë°°í¬í•  ë•Œë§ˆë‹¤ íŒŒì¼ ìœ ì‹¤ ë¨. íŒŒì¼ ìœ ì‹¤ ë§‰ìœ¼ë ¤ë©´ ì ˆëŒ€ê²½ë¡œë¡œ Cë“œë¼ì´ë¸Œ ë‚´ë¶€ì— ì €ì¥í•˜ëŠ”ê²Œ ì¢‹ìŒ
+		// »ó´ë°æ·Î¿¡ ÀÌ¹ÌÁö ÀúÀå ½Ã Àç¹èÆ÷ÇÒ ¶§¸¶´Ù ÆÄÀÏ À¯½Ç µÊ. ÆÄÀÏ À¯½Ç ¸·À¸·Á¸é Àı´ë°æ·Î·Î Cµå¶óÀÌºê ³»ºÎ¿¡ ÀúÀåÇÏ´Â°Ô ÁÁÀ½
 		String contextRoot = request.getSession().getServletContext().getRealPath("/");
 		String fileRoot = contextRoot+"/resources/admin/image/notice/";
 		
-		String originalFileName = multipartFile.getOriginalFilename();	//ì˜¤ë¦¬ì§€ë‚  íŒŒì¼ëª…
-		String extension = originalFileName.substring(originalFileName.lastIndexOf("."));	//íŒŒì¼ í™•ì¥ì
-		String savedFileName = UUID.randomUUID() + extension;	//ì €ì¥ë  íŒŒì¼ ëª…
+		String originalFileName = multipartFile.getOriginalFilename();	//¿À¸®Áö³¯ ÆÄÀÏ¸í
+		String extension = originalFileName.substring(originalFileName.lastIndexOf("."));	//ÆÄÀÏ È®ÀåÀÚ
+		String savedFileName = UUID.randomUUID() + extension;	//ÀúÀåµÉ ÆÄÀÏ ¸í
 		
 		File targetFile = new File(fileRoot + savedFileName);	
 		try {
 			InputStream fileStream = multipartFile.getInputStream();
-			FileUtils.copyInputStreamToFile(fileStream, targetFile);	//íŒŒì¼ ì €ì¥
+			FileUtils.copyInputStreamToFile(fileStream, targetFile);	//ÆÄÀÏ ÀúÀå
 			jsonObject.addProperty("url", "/project/resources/admin/image/notice/" + savedFileName);
 			jsonObject.addProperty("responseCode", "success");		
 			fileStream.close();
 		} catch (IOException e) {
-			FileUtils.deleteQuietly(targetFile);	//ì €ì¥ëœ íŒŒì¼ ì‚­ì œ
+			FileUtils.deleteQuietly(targetFile);	//ÀúÀåµÈ ÆÄÀÏ »èÁ¦
 			jsonObject.addProperty("responseCode", "error");
 			e.printStackTrace();
 		}
@@ -62,19 +62,19 @@ public class ImageUploadRestController {
 		String contextRoot = request.getSession().getServletContext().getRealPath("/");
 		String fileRoot = contextRoot+"resources/admin/image/product/detail_image/";
 		
-		String originalFileName = multipartFile.getOriginalFilename();	//ì˜¤ë¦¬ì§€ë‚  íŒŒì¼ëª…
-		String extension = originalFileName.substring(originalFileName.lastIndexOf("."));	//íŒŒì¼ í™•ì¥ì
-		String savedFileName = UUID.randomUUID() + extension;	//ì €ì¥ë  íŒŒì¼ ëª…
+		String originalFileName = multipartFile.getOriginalFilename();	//¿À¸®Áö³¯ ÆÄÀÏ¸í
+		String extension = originalFileName.substring(originalFileName.lastIndexOf("."));	//ÆÄÀÏ È®ÀåÀÚ
+		String savedFileName = UUID.randomUUID() + extension;	//ÀúÀåµÉ ÆÄÀÏ ¸í
 		
 		File targetFile = new File(fileRoot + savedFileName);	
 		try {
 			InputStream fileStream = multipartFile.getInputStream();
-			FileUtils.copyInputStreamToFile(fileStream, targetFile);	//íŒŒì¼ ì €ì¥
+			FileUtils.copyInputStreamToFile(fileStream, targetFile);	//ÆÄÀÏ ÀúÀå
 			jsonObject.addProperty("url", "/project/resources/admin/image/product/detail_image/" + savedFileName);
 			jsonObject.addProperty("responseCode", "success");		
 			fileStream.close();
 		} catch (IOException e) {
-			FileUtils.deleteQuietly(targetFile);	//ì €ì¥ëœ íŒŒì¼ ì‚­ì œ
+			FileUtils.deleteQuietly(targetFile);	//ÀúÀåµÈ ÆÄÀÏ »èÁ¦
 			jsonObject.addProperty("responseCode", "error");
 			e.printStackTrace();
 		}

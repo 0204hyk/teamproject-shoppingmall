@@ -74,10 +74,13 @@
 </update>
 
 <!-- 회원탈퇴 -->
-<delete id="memberDeleteDo" parameterType="com.onore.project.dto.MemberDTO">
-	DELETE FROM members WHERE mem_id = #{mem_id} AND mem_pw =#{mem_pw}
+<delete id="memberDeleteCoupon" parameterType="com.onore.project.dto.MemberDTO">
+	DELETE FROM coupon WHERE mem_id = #{mem_id}
 </delete>
 
+<delete id="memberDelete" parameterType="com.onore.project.dto.MemberDTO">
+	DELETE FROM members WHERE mem_id = #{mem_id} AND mem_pw = #{mem_pw}
+</delete>
 
 <!-- 아이디와 이메일이 DB에 존재하는지 먼저 검사 (실패) -->
 <select id="searchPwd" parameterType="com.onore.project.dto.MemberDTO" resultType="com.onore.project.dto.MemberDTO">
@@ -113,5 +116,16 @@
 		UPDATE members SET mem_zip_code=#{mem_zip_code}, mem_street_address=#{mem_street_address}, mem_detail_address=#{mem_detail_address}
 		WHERE mem_id = #{mem_id}
 </insert>
+
+<!-- 마이페이지에 총 적립금 가져오기 -->
+<select id="getTotalPoint" resultType="Integer">
+    SELECT mem_point FROM members WHERE mem_id = #{mem_id}
+</select>
+
+<!-- 회원 적립금 가져오기 -->
+<select id="getMemPoint" parameterType="String" resultType="Integer">
+	SELECT mem_point FROM members WHERE mem_id = #{mem_id}
+</select>
+
 
 </mapper>				

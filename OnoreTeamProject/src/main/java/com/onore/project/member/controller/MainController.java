@@ -14,7 +14,7 @@ public class MainController {
 	@Autowired
 	MemberMapper mapper;
 	
-	// ë©”ì¸ í˜ì´ì§€
+	// ¸ŞÀÎ ÆäÀÌÁö
 	@GetMapping("/")
 		public String main() {
 		

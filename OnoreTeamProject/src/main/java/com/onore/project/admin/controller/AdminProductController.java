@@ -66,16 +66,10 @@ public class AdminProductController {
 	}
 	
 	@GetMapping("/list")
-	public String productList(HttpServletRequest request, ProductsDTO product) {
-		String search_type = request.getParameter("search_type");
-		String search_keyword = request.getParameter("search_keyword");
-		
-		product.setSearch_type(search_type);
-		product.setSearch_keyword(search_keyword);
-		
-		List<ProductsDTO> productList = service.readAllProduct(product);
-		
+	public String productList(HttpServletRequest request) {
 		String pageStr = request.getParameter("page");
+		
+		List<ProductsDTO> productList = service.readAllProduct();
 		
 		int page; 
 		
@@ -127,8 +121,6 @@ public class AdminProductController {
 		request.setAttribute("next", nextBtn);
 		request.setAttribute("page", page);
 		request.setAttribute("categories", service.readCaregoriesList());
-		request.setAttribute("search_type", search_type);
-		request.setAttribute("search_keyword", search_keyword);
 		
 		return "/admin/product/admin_product_list";
 	}

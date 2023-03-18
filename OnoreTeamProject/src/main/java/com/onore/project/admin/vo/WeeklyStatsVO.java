@@ -5,13 +5,13 @@ import lombok.Getter;
 @Getter
 public class WeeklyStatsVO {
 	
-	// ì¼ë³„ ë°ì´í„°
+	// ÀÏº° µ¥ÀÌÅÍ
 	private String day;
 	private Integer register_cnt;
 	private Integer qna_cnt;
 	private Integer review_cnt;
 	
-	// ì£¼ê°„ í†µí•© ë°ì´í„°
+	// ÁÖ°£ ÅëÇÕ µ¥ÀÌÅÍ
 	private Integer register_cnt_total;
 	private Integer qna_cnt_total;
 	private Integer review_cnt_total;

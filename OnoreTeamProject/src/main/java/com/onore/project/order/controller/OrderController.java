@@ -38,7 +38,7 @@ public class OrderController {
 	@Autowired
 	ShopService shop_service;
 	
-	// íšŒì›ì •ë³´ì™€ ì£¼ë¬¸ ì •ë³´ë¥¼ ë°›ì•„ ì£¼ë¬¸ í˜ì´ì§€ë¡œ ì´ë™ (ì£¼ë¬¸ ìƒí’ˆì´ ì—¬ëŸ¬ê°œ or ì„ íƒ ìƒí’ˆ ì£¼ë¬¸ í´ë¦­ì‹œ)
+	// È¸¿øÁ¤º¸¿Í ÁÖ¹® Á¤º¸¸¦ ¹Ş¾Æ ÁÖ¹® ÆäÀÌÁö·Î ÀÌµ¿ (ÁÖ¹® »óÇ°ÀÌ ¿©·¯°³ or ¼±ÅÃ »óÇ° ÁÖ¹® Å¬¸¯½Ã)
 		@PostMapping("/order_directly")
 		public String orderDirectly(Model model, HttpServletRequest req, Integer product_num,
 																		 Integer order_cnt,
@@ -47,7 +47,7 @@ public class OrderController {
 																		 String heel,
 																		 String sole) throws Exception {
 			
-			// ì£¼ë¬¸ìì¸ íšŒì› ì •ë³´ ê°€ì ¸ì˜¤ê¸°
+			// ÁÖ¹®ÀÚÀÎ È¸¿ø Á¤º¸ °¡Á®¿À±â
 			MemberDTO member = (MemberDTO)req.getSession().getAttribute("signIn");
 			List<CouponDTO> coupons  = member_service.getCoupons(member.getMem_id());
 			ProductsDTO product = shop_service.getDetail(product_num);
@@ -60,10 +60,10 @@ public class OrderController {
 			cart.setCart_product_option("size: " + size + "<br> " + "heel: " + heel + "<br> " + "sole: " + sole);
 			
 			String order_name = product.getProduct_name();
-					// ìƒí’ˆ í•©ê³„ ë§Œë“¤ê¸°
+					// »óÇ° ÇÕ°è ¸¸µé±â
 			Integer total_price = cart.getCart_product_price();
 			
-			// ì‚¬ìš©ê°€ëŠ¥í•œ ì ë¦½ê¸ˆ ì±…ì •í•˜ê¸° (ì´ ê²°ì œì•¡ì— 5%)
+			// »ç¿ë°¡´ÉÇÑ Àû¸³±İ Ã¥Á¤ÇÏ±â (ÃÑ °áÁ¦¾×¿¡ 5%)
 			Integer accessible_points = total_price / 20;
 			
 			model.addAttribute("product", product);
@@ -77,12 +77,12 @@ public class OrderController {
 			return "user/order/order_main";
 		}
 	
-	// íšŒì›ì •ë³´ì™€ ì£¼ë¬¸ ì •ë³´ë¥¼ ë°›ì•„ ì£¼ë¬¸ í˜ì´ì§€ë¡œ ì´ë™ (ì£¼ë¬¸ ìƒí’ˆì´ ì—¬ëŸ¬ê°œ or ì„ íƒ ìƒí’ˆ ì£¼ë¬¸ í´ë¦­ì‹œ)
+	// È¸¿øÁ¤º¸¿Í ÁÖ¹® Á¤º¸¸¦ ¹Ş¾Æ ÁÖ¹® ÆäÀÌÁö·Î ÀÌµ¿ (ÁÖ¹® »óÇ°ÀÌ ¿©·¯°³ or ¼±ÅÃ »óÇ° ÁÖ¹® Å¬¸¯½Ã)
 	@PostMapping("/from_cart")
 	public String orderMutipleItems(Model model, HttpServletRequest req,
 					@RequestParam("selected_list") List<Integer> selected_list) throws Exception {
 		
-		// ì£¼ë¬¸ìì¸ íšŒì› ì •ë³´ ê°€ì ¸ì˜¤ê¸°
+		// ÁÖ¹®ÀÚÀÎ È¸¿ø Á¤º¸ °¡Á®¿À±â
 		MemberDTO member = (MemberDTO)req.getSession().getAttribute("signIn");
 		List<CouponDTO> coupons  = member_service.getCoupons(member.getMem_id());
 		List<CartDTO> cart = new ArrayList<CartDTO>();
@@ -100,16 +100,16 @@ public class OrderController {
 		Integer total_price = 0;
 		for(int i = 0; i < products.size(); i++) {
 			if(products.size() > 1) {
-				// ì£¼ë¬¸ëª… ë§Œë“¤ê¸°
-				order_name = products.get(i).getProduct_name() + " ì™¸ " + String.valueOf(products.size()-1) + "ê°œ" ;
+				// ÁÖ¹®¸í ¸¸µé±â
+				order_name = products.get(i).getProduct_name() + " ¿Ü " + String.valueOf(products.size()-1) + "°³" ;
 			} else {
 				order_name = products.get(i).getProduct_name();
 			}
-				// ìƒí’ˆ í•©ê³„ ë§Œë“¤ê¸°
+				// »óÇ° ÇÕ°è ¸¸µé±â
 				total_price += cart.get(i).getCart_product_price();
 		}
 		
-		// ì‚¬ìš©ê°€ëŠ¥í•œ ì ë¦½ê¸ˆ ì±…ì •í•˜ê¸° (ì´ ê²°ì œì•¡ì— 5%)
+		// »ç¿ë°¡´ÉÇÑ Àû¸³±İ Ã¥Á¤ÇÏ±â (ÃÑ °áÁ¦¾×¿¡ 5%)
 		Integer accessible_points = total_price / 20;
 		
 		model.addAttribute("products", products);
@@ -130,7 +130,7 @@ public class OrderController {
 														String set_default_check,
 														@RequestParam String payment_key,
 			   											@RequestParam String amount,
-			   											// order_info í…Œì´ë¸” ê¸°ë¡ìš©
+			   											// order_info Å×ÀÌºí ±â·Ï¿ë
 													    @RequestParam List<String> product_name,
 			 										    @RequestParam List<String> order_info_option,
 			 										    @RequestParam List<String> order_info_qty,
@@ -139,34 +139,34 @@ public class OrderController {
 		System.out.println("Order : " + order);
 		System.out.println(cart_num);
 		
-		// ì¹´íŠ¸ ì •ë³´ ë¶ˆëŸ¬ì˜¤ê¸°
+		// Ä«Æ® Á¤º¸ ºÒ·¯¿À±â
 		List<CartDTO> cart = new ArrayList<CartDTO>();
 		for(int i = 0; i < cart_num.size(); i++) {
 			cart.add(shop_service.getCart(cart_num.get(i))); 
 		}
 		
-		// ì£¼ë¬¸í•œ ìƒí’ˆì •ë³´ ë°›ì•„ì˜¤ê¸°
+		// ÁÖ¹®ÇÑ »óÇ°Á¤º¸ ¹Ş¾Æ¿À±â
 		List<ProductsDTO> products = new ArrayList<ProductsDTO>();
 		for(int i = 0; i < cart.size(); i++) {
 			products.add(shop_service.getDetail(cart.get(i).getProduct_num()));
 		}
 		System.out.println(products);
 		
-		// ì£¼ë¬¸ ê¸°ë¡
+		// ÁÖ¹® ±â·Ï
 		Integer order_result = order_service.insertOrder(order);
 		System.out.println(order_result);
 		
-		// ì‚¬ìš©í•´ ì‚¬ìš©í•œ ì¿ í° ì œê±°
+		// »ç¿ëÇØ »ç¿ëÇÑ ÄíÆù Á¦°Å
 		Integer delete_coupon_result = null;
 		
-		System.out.println("ì¿ í° : " + order.getDiscount_coupon());
+		System.out.println("ÄíÆù : " + order.getDiscount_coupon());
 		delete_coupon_result = member_service.deleteCoupon(order.getDiscount_coupon());
 		System.out.println(delete_coupon_result);
 		
-		// íšŒì› ë³´ìœ  ì ë¦½ê¸ˆ += (ë°›ì„ ì ë¦½ê¸ˆ(ê²°ì œ ê¸ˆì•¡ì˜ 3%) - ì‚¬ìš©í•œ ì ë¦½ê¸ˆ)
+		// È¸¿ø º¸À¯ Àû¸³±İ += (¹ŞÀ» Àû¸³±İ(°áÁ¦ ±İ¾×ÀÇ 3%) - »ç¿ëÇÑ Àû¸³±İ)
 		MemberDTO member = member_service.getMember(order.getOrderer_id());
 		member.setMem_point(member.getMem_point() + ((order.getPay_price() / 100 * 3) - order.getDiscount_points()));
-		// ì ë¦½ê¸ˆ ì—…ë°ì´íŠ¸
+		// Àû¸³±İ ¾÷µ¥ÀÌÆ®
 		Integer update_points_result = member_service.updatePoints(member);
 		System.out.println(update_points_result);
 		
@@ -204,7 +204,7 @@ public class OrderController {
 			}
 		
 			if(result > 0) {
-				// ì£¼ë¬¸í•œ ìƒí’ˆ ì¹´íŠ¸ì—ì„œ ì§€ìš°ê¸°
+				// ÁÖ¹®ÇÑ »óÇ° Ä«Æ®¿¡¼­ Áö¿ì±â
 				for(int i = 0; i < cart_num.size(); i++) {
 					shop_service.deleteCart(cart_num.get(i));
 				}
@@ -229,7 +229,7 @@ public class OrderController {
 																String set_default_check,
 																@RequestParam String payment_key,
 					   											@RequestParam String amount,
-					   											// order_info í…Œì´ë¸” ê¸°ë¡ìš©
+					   											// order_info Å×ÀÌºí ±â·Ï¿ë
 															    @RequestParam List<String> product_name,
 					 										    @RequestParam List<String> order_info_option,
 					 										    @RequestParam List<String> order_info_qty,
@@ -237,26 +237,26 @@ public class OrderController {
 		
 		System.out.println("Order : " + order);
 		
-		// ì£¼ë¬¸í•œ ìƒí’ˆì •ë³´ ë°›ì•„ì˜¤ê¸°
+		// ÁÖ¹®ÇÑ »óÇ°Á¤º¸ ¹Ş¾Æ¿À±â
 		ProductsDTO product = shop_service.getDetail(product_num);
 		System.out.println(product);
 		
-		// ì£¼ë¬¸ ê¸°ë¡
+		// ÁÖ¹® ±â·Ï
 		Integer order_result = order_service.insertOrder(order);
 		System.out.println(order_result);
 		
-		// ì‚¬ìš©í•´ ì‚¬ìš©í•œ ì¿ í° ì œê±°
+		// »ç¿ëÇØ »ç¿ëÇÑ ÄíÆù Á¦°Å
 		Integer delete_coupon_result = null;
 		
-		System.out.println("ì¿ í° : " + order.getDiscount_coupon());
+		System.out.println("ÄíÆù : " + order.getDiscount_coupon());
 		delete_coupon_result = member_service.deleteCoupon(order.getDiscount_coupon());
 		System.out.println(delete_coupon_result);
 		
-		// íšŒì› ë³´ìœ  ì ë¦½ê¸ˆ += (ë°›ì„ ì ë¦½ê¸ˆ(ê²°ì œ ê¸ˆì•¡ì˜ 3%) - ì‚¬ìš©í•œ ì ë¦½ê¸ˆ)
+		// È¸¿ø º¸À¯ Àû¸³±İ += (¹ŞÀ» Àû¸³±İ(°áÁ¦ ±İ¾×ÀÇ 3%) - »ç¿ëÇÑ Àû¸³±İ)
 		MemberDTO member = member_service.getMember(order.getOrderer_id());
 		member.setMem_point(member.getMem_point() + ((order.getPay_price() / 100 * 3) - order.getDiscount_points()));
 		
-		// ì ë¦½ê¸ˆ ì—…ë°ì´íŠ¸
+		// Àû¸³±İ ¾÷µ¥ÀÌÆ®
 		Integer update_points_result = member_service.updatePoints(member);
 		System.out.println(update_points_result);
 		

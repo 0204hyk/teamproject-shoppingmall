@@ -24,7 +24,7 @@ public class ReviewDTO {
 	private Integer review_bad;
 
 	
-	// idë§ˆìŠ¤í‚¹ì²˜ë¦¬ ex) ${review.maskingName}
+	// id¸¶½ºÅ·Ã³¸® ex) ${review.maskingName}
 	public String getmaskingName() {
 
 		String firstName = mem_id.substring(0,1);
