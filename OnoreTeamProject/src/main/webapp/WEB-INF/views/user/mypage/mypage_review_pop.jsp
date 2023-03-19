@@ -24,8 +24,11 @@
 					<input type="hidden" value="${review.review_num }" class="num">
 				<tr>
 					<td>${review.product_name }</td>
-					<td id="review_content"><button class="content" style="background-color: white; border: 0px; cursor:pointer;">
-					${review.review_content }</button></td>
+					<td id="review_content">
+						<button class="content" style="background-color: white; border: 0px; cursor:pointer;">
+						${review.review_content }
+						</button>
+					</td>
 					<td>${review.creationReviewDate }</td>
 					<c:if test="${review.review_rating eq 5 }">
 						<td class="star">

@@ -28,7 +28,7 @@
 				<div class="photo_div">
 					<i id="member_icon" class="fa-solid fa-circle-user"></i>
 				</div>
-				<div class="member_id_div">${sessionScope.signIn.mem_id}님</div>
+				<div class="member_id_div">${sessionScope.signIn.mem_name}님</div>
 				<div class="member_modify_div">
 					<input type="button" class="member_pw_btn"
 						onclick="location.href='./member_pw_modify'" value="비밀번호변경">

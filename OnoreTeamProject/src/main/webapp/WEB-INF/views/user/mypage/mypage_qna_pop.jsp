@@ -7,13 +7,13 @@
 <meta charset="UTF-8">
 <title>Review</title>
 <link
-	href="<%=request.getContextPath() %>/resources/mypage/css/mypage_main.css?ver=1"
+	href="<%=request.getContextPath()%>/resources/mypage/css/mypage_main.css?ver=1"
 	rel="stylesheet" />
 <%@include file="../header.jspf"%>
 </head>
 <body>
 	<div style="margin: 20px auto; width: 90%; text-align: center;">
-		<div class="review_history_title">나의 리뷰 내역</div>
+		<div class="qna_history_title">나의 문의 내역</div>
 		<div class="qna_histoy_content">
 			<table id="qna_table">
 				<tr>
@@ -23,11 +23,14 @@
 					<th id="reply">답변</th>
 				</tr>
 				<c:forEach items="${qnas }" var="qna">
+					<input type="hidden" value="${qna.qna_num }" class="num">
 					<tr>
 						<td>${qna.qna_category }</td>
-						<td id="qna_content"><a
-							href="<%=request.getContextPath() %>/qna/view?qna_num=${qna.qna_num}">
-								${qna.qna_title }</a></td>
+						<td id="qna_content">
+							<button class="content" style="background-color: white; border: 0px; cursor: pointer;">
+								${qna.qna_title }
+							</button>
+						</td>
 						<td>${qna.creationQnaDate }</td>
 						<c:choose>
 							<c:when test="${qna.qna_status eq 0 }">
@@ -61,11 +64,13 @@
 const test = document.getElementsByClassName('content');
 
 for (var i = 0; i < test.length; ++i) {
+
 const test2 = document.getElementsByClassName('content')[i];
 console.log(test2);
 const num = document.getElementsByClassName('num')[i].value;
 console.log(num);
 test2.addEventListener('click', (e) =>{
+	console.log('클릭');
     window.opener.location.href = contextPath + '/qna/view?qna_num=' + num ;
     window.close();
 });
