@@ -32,7 +32,8 @@
 		<form action="<%=request.getContextPath()%>/qna/qna_modify"
 			method="POST" enctype="multipart/form-data">
 			<div class="qna-form">
-				<input type="hidden" name="qna_num" value=${qna.qna_num } /> <select
+				<input type="hidden" name="qna_num" value=${qna.qna_num } /> 
+				<select
 					name="qna_category" id="select" onchange="changeSelect(this);">
 					<option value="분류">분류</option>
 					<option value="상품">상품</option>
@@ -107,10 +108,8 @@
 	</div>
 	<hr>
 
-
 	<script type="text/javascript"
 		src="<%=request.getContextPath()%>/resources/qna/js/qna_modify.js"></script>
-
 	<%@include file="../bottom.jspf"%>
 </body>
 </html>
