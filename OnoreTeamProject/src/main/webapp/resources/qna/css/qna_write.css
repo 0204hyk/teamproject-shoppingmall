@@ -161,7 +161,7 @@ hr {
 }
 
 .img-preview > div {
-	width: 200px;
+	width: 210px;
 	overflow: hidden;
 	text-overflow: ellipsis;
     white-space: nowrap;

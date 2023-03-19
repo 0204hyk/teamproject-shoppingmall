@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,7 +67,7 @@
 										<div class="product_name">${cart_product_list.get(i).product_name}</div>
 										<div class="product_options">${cart_list.get(i).cart_product_option}</div>
 									</td>
-									<td>${cart_product_list.get(i).product_price}원</td>
+									<td><fmt:formatNumber value="${cart_product_list.get(i).product_price}" pattern="#,###" />원</td>
 									<td>
 										<form action="./update_cart" method="POST">
 											<input type="hidden" name="cart_num" value="${cart_list.get(i).cart_num}"/>
@@ -76,9 +77,14 @@
 											<input type="submit" value="변경"/>
 										</form>
 									</td>
-									<td>최대<br>${total_points.get(i)}원</td>
+									<td>최대<br><fmt:formatNumber value="${total_points.get(i)}" pattern="#,###" />원</td>
 									<td>무료</td>
-									<td><span class="cart_product_price">${cart_list.get(i).cart_product_price}</span>원</td>
+									<td>
+										<span class="cart_product_price_txt">
+											<fmt:formatNumber value="${cart_list.get(i).cart_product_price}" pattern="#,###" />
+										</span>원
+										<input type="hidden" class="cart_product_price" value="${cart_list.get(i).cart_product_price}"/>
+									</td>
 									<td>
 										<form method="POST">
 											<input type="hidden" name="selected_list" value="${cart_list.get(i).cart_num}"/>
@@ -94,8 +100,8 @@
 			<tfoot>
 				<tr>
 					<td colspan="9">
-						<b>상품 구매 금액: <span id="product_total_price">${total_price}</span>원 + 
-							배송비 무료 = 총 <span id="total_price">${total_price}</span>원</b>
+						<b>상품 구매 금액: <span id="product_total_price"><fmt:formatNumber value="${total_price}" pattern="#,###" />원</span> + 
+							배송비 무료 = 총 <span id="total_price"><fmt:formatNumber value="${total_price}" pattern="#,###" />원</span></b>
 					</td>
 				</tr>
 				<tr>

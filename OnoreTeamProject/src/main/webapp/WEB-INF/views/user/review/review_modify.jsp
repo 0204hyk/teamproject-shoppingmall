@@ -70,26 +70,27 @@
 					<div id="firstImg">
 						<input type="file" name="file" id="fileUpload1" accept="image/*" onchange="PreviewImage();" />
 						<span id="imgBox1"></span>
-						
 					</div>
 					<div id="secondImg">
 						<input type="file" name="file" id="fileUpload2" accept="image/*" onchange="PreviewImage2();" />
 						<span id="imgBox2"></span>
 					 </div>
+					 
 					 <div id="thirdImg">
 						<input type="file" name="file" id="fileUpload3" accept="image/*" onchange="PreviewImage3();" />
 						<span id="imgBox3"></span>
-					 </div>	
+					 </div>
+					 	
 					<br> 
 					<input type="hidden" name="review_img_1" value="${contents.review_img_1 }"/>
-					<input type="hidden" name="review_img_1" value="${contents.review_img_2 }"/>
-					<input type="hidden" name="review_img_1" value="${contents.review_img_3 }"/>
+					<input type="hidden" name="review_img_2" value="${contents.review_img_2 }"/>
+					<input type="hidden" name="review_img_3" value="${contents.review_img_3 }"/>
 				</div>
 				<!-- 버튼 안밀리게 버튼만큼 위치조정 div 생성 -->
+					<div style="height: 80px;">
+						<input type="submit" id="write_btn" value="수정">
+					</div>
 				<br>
-			</div>
-			<div style="height: 80px;">
-				<input type="submit" id="write_btn" value="수정">
 			</div>
 			</form>
 		</div>

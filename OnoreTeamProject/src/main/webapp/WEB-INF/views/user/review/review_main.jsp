@@ -19,6 +19,7 @@
 	<hr>
 		<div class="board" style="padding: 60px;">
 			<table>
+			<tr>
 				<th id="num">번호</th>
 				<th></th>
 				<th id="prduct">상품이름</th>
@@ -26,7 +27,7 @@
 				<th id="writer">글쓴이</th>
 				<th id="date">등록일</th>
 				<th id="rating">평점</th>
-				
+			</tr>	
 				<c:forEach items="${reviews }" var="review">
 				<tr>
 					<td>${review.review_num }</td>
@@ -37,7 +38,7 @@
 					<td id="review_content"><a href="./detail?review_num=${review.review_num}">
 					${review.review_content }</a></td>
 					<td id="mem_id">${review.maskingName }</td>
-					<td>${review.review_date }</td>
+					<td>${review.creationReviewDate }</td>
 					<c:if test="${review.review_rating eq 5 }">
 						<td>
 							<i class="fa-solid fa-star"></i>
@@ -89,7 +90,6 @@
 			
 			<span id="comment_id" style="display: none;">${sessionScope.signIn.mem_id}</span>
 			
-			<button id="write_btn">글쓰기</button>
 			
 			<div class="page">
 				<c:if test="${pagination_start > 5 }">

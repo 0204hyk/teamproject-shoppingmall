@@ -49,7 +49,10 @@
   <update id="modify">
   	UPDATE reviews SET
   	 review_content=#{review_content},
-  	 review_rating=#{review_rating}
+  	 review_rating=#{review_rating},
+  	 review_img_1 = #{review_img_1},
+  	 review_img_2 = #{review_img_2},
+  	 review_img_3 = #{review_img_3}
   	 WHERE review_num=#{review_num}
   </update>
   

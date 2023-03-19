@@ -19,5 +19,5 @@ public class MembersDTO {
 	private Date mem_register_date;
 	private Integer mem_point;
 	private Integer mem_sms;
-	private Integer mem_status; 
+	private Integer mem_status;
 }

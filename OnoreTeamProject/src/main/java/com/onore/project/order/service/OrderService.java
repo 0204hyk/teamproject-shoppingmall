@@ -10,19 +10,25 @@ import com.onore.project.dto.PurchaseInfoDTO;
 public interface OrderService {
 
 	Integer insertOrder(OrderDTO order);
-	
+
 	Integer insertOrderInfos(OrderDTO order, ProductsDTO product, List<String> product_name, List<String> order_info_option,
 							List<String> order_info_qty, List<String> order_info_price);
-	
+
 	Integer insertPurchaseInfo(PurchaseInfoDTO purchase);
-	
+
 	OrderDTO getOrder(Integer order_id);
-	
+
 	List<OrderDTO> getAllOrders();
-	
+
 	PurchaseInfoDTO getPurchaseInfo(Integer order_num);
-	
+
 	List<OrderInfoDTO> getOrderInfos(Integer order_id);
-	
+
 	Integer updateReceiver(OrderDTO order);
+	
+	Integer deleteOrder(Integer order_num);
+	
+	Integer deleteOrderInfos(Integer order_num);
+	
+	Integer deletePayInfos(Integer order_num);
 }

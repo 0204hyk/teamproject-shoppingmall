@@ -74,7 +74,7 @@ const handler = {
 
                     document.querySelector('#file-input').files = dataTranster.files;
                     removeTarget.remove();
-                    removeImage.src = '';
+                    removeImage.src = contextPath + '/resources/qna/images/blank.png';
                 })
             }
         }
@@ -131,8 +131,7 @@ const handler2 = {
                     var removeImage2 = document.getElementById('user-image2');
                     const files2 = document.querySelector('#file-input2').files;
                     var dataTranster2 = new DataTransfer();
-                    // document.querySelector('#file-input').files =
-                    //             Array.from(files).filter(file => file.lastModified !== removeTarget);
+
                     Array.from(files2)
                         .filter(file => file.lastModified != removeTargetId2)
                         .forEach(file => {
@@ -143,7 +142,7 @@ const handler2 = {
 
                     document.querySelector('#file-input2').files = dataTranster2.files;
                     removeTarget2.remove();
-                    removeImage2.src = '';
+                    removeImage2.src = contextPath + '/resources/qna/images/blank.png';
                 })
             }
         }
@@ -215,7 +214,7 @@ function PreviewImage3() {
 
                     document.querySelector('#file-input3').files = dataTranster3.files;
                     removeTarget3.remove();
-                    removeImage3.src = '';
+                    removeImage3.src = contextPath + '/resources/qna/images/blank.png';
                 })
             }
         }
@@ -274,7 +273,7 @@ function changeSelect() {
 		});
 		var value = document.getElementById('product');
 		var val = value.value;
-		xhttp.open('GET', '/project/restful/getProductName/' + val);
+		xhttp.open('GET', contextPath + '/restful/getProductName/' + val);
    	 	xhttp.send();
 
 	});

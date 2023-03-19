@@ -1,6 +1,5 @@
 package com.onore.project.dto;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -31,15 +30,15 @@ public class OrdersDTO {
 	private String pay_method;
 	private Integer order_status;
 	private Date order_date;
-	
+
 	private static SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy.MM.dd");
 	private static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
 
-    public String getCreationDateTime() {		
+    public String getCreationDateTime() {
     	LocalDate creationDate = LocalDate.ofInstant(order_date.toInstant(), ZoneId.systemDefault());
 	    LocalDate today = LocalDate.ofInstant(new Date().toInstant(), ZoneId.systemDefault());
-	    return creationDate.isEqual(today) ? 
-		 	   timeFormat.format(order_date) : dayFormat.format(order_date);		
+	    return creationDate.isEqual(today) ?
+		 	   timeFormat.format(order_date) : dayFormat.format(order_date);
     }
 }
 
