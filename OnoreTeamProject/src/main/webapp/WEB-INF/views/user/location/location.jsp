@@ -28,10 +28,8 @@
                    level: 3
                };
                var map = new kakao.maps.Map(container, options);
-               
                // 위치표시 추가
                var markerPosition  = new kakao.maps.LatLng(37.605099, 127.14046);
-               
                var marker = new kakao.maps.Marker({
                    position: markerPosition,
                    map: map,
