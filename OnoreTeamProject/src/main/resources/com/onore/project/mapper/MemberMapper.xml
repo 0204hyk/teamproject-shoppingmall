@@ -19,7 +19,7 @@
 		#{mem_birth_date},
 		SYSDATE,
 		3000,
-		1,
+		0,
 		#{mem_law1_check},	
 		#{mem_law2_check},	
 		#{mem_law3_check},	
