@@ -14,7 +14,7 @@
 
 <!-- middle 시작 -->
 <div class="middle_join_div">
-	<form id="join_form" action="./join_success" method="POST" name="join_form" onsubmit="return check()">
+	<form id="join_form" action="<%=request.getContextPath() %>/join_success" method="POST" name="join_form" onsubmit="return check()">
 		<div class="join_div">
 			<div class="join_title_div">
 				<a>회원가입</a>
