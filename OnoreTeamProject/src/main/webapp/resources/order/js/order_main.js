@@ -88,7 +88,7 @@ purchase_btn.addEventListener('click', (e) => {
 		}
 				
 		if (element.value == '' && element.name == 'receiver_zip_code') {
-			receiver_zip_code_msg.innerText = '수령인을 입력하세요';
+			receiver_zip_code_msg.innerText = '우편번호를 입력하세요';
 			element.focus();
 			return;
 		}

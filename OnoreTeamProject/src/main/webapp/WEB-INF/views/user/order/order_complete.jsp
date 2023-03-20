@@ -268,7 +268,7 @@
 		<div class="blank bg-white"></div>
 		<div id="btn_container" class="container-sm w-auto">
 			<button type="button" id="home_btn" class="btn btn-lg btn-dark w-100 rounded-1"
-					onclick="location.href='http://localhost:8888' + '<%= request.getContextPath() %>' +'main/';">
+					onclick="location.href='http://localhost:8888' + '<%= request.getContextPath() %>' +'/main/';">
 				홈으로
 			</button>
 		</div>

@@ -55,7 +55,7 @@
 		        			<th>버튼</th>
 		        		</tr>
 		        		<c:choose>
-		        			<c:when test="${not empty my_orders}">
+		        			<c:when test="${not empty my_orders || my_orders.size() > 0}">
 				       			<c:forEach begin="0" end="${my_orders.size()-1}" var="i">
 					       			<tr class="recent_order">
 					       				<td>
@@ -122,7 +122,7 @@
 		        			</c:when>
 		        			<c:otherwise>
 		        				<tr>
-					        		<td colspan="5">주문 내역이 없습니다.</td>
+					        		<td colspan="6">주문 내역이 없습니다.</td>
 					        	</tr>
 		        			</c:otherwise>
 		        		</c:choose>

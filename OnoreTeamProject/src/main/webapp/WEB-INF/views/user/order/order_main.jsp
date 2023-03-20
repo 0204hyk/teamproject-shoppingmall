@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
@@ -148,11 +148,12 @@
 							placeholder="수령인" id="receiver_name" name="receiver_name">
 						<div id="receiver_name_msg" class="text-danger"></div>
 					</div>
-					<label for="receiver_postalcode" class="col-sm-2 col-form-label">우편번호</label>
+					<label for="receiver_zip_code" class="col-sm-2 col-form-label">우편번호</label>
 					<div class="input-group mb-3">
 						<input type="text" class="form-control form-control-lg"
 							placeholder="우편번호" id="receiver_zip_code" name="receiver_zip_code">
 						<button class="btn btn-outline-dark" type="button" id="receiver_address_btn">검색</button>
+						<br>
 						<div id="receiver_zip_code_msg" class="text-danger"></div>
 					</div>
 					<div class="mb-3">

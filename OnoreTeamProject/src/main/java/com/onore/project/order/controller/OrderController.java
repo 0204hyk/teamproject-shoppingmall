@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.ctc.wstx.io.SystemId;
 import com.onore.project.dto.CartDTO;
 import com.onore.project.dto.CouponDTO;
 import com.onore.project.dto.MemberDTO;
@@ -124,7 +124,8 @@ public class OrderController {
 	}
 	
 	@PostMapping("/result")
-	public String purchase(Model model, OrderDTO order, @RequestParam("cart_num")
+	public String purchase(Model model, OrderDTO order, RedirectAttributes ra,
+														@RequestParam("cart_num")
 														List<Integer> cart_num,
 														@RequestParam(required = false)
 														String set_default_check,
@@ -136,13 +137,10 @@ public class OrderController {
 			 										    @RequestParam List<String> order_info_qty,
 			 										    @RequestParam List<String> order_info_price) throws Exception {
 		
-		System.out.println("Order : " + order);
-		System.out.println(cart_num);
-		
 		// 카트 정보 불러오기
 		List<CartDTO> cart = new ArrayList<CartDTO>();
 		for(int i = 0; i < cart_num.size(); i++) {
-			cart.add(shop_service.getCart(cart_num.get(i))); 
+			cart.add(shop_service.getCart(cart_num.get(i)));
 		}
 		
 		// 주문한 상품정보 받아오기
@@ -154,7 +152,6 @@ public class OrderController {
 		
 		// 주문 기록
 		Integer order_result = order_service.insertOrder(order);
-		System.out.println(order_result);
 		
 		// 사용해 사용한 쿠폰 제거
 		Integer delete_coupon_result = null;
@@ -184,13 +181,6 @@ public class OrderController {
 				}
 			}
 			
-//			if(order.getDiscount_coupon() != null || order.getDiscount_coupon() != " " || order.getDiscount_coupon() != "") {
-//				System.out.println("in");
-//				if(delete_coupon_result <= 0) {
-//					return "user/order/order_fail";
-//				}
-//			}
-			
 			if(update_points_result <= 0) {
 				return "user/order/order_fail";
 			}
@@ -209,6 +199,7 @@ public class OrderController {
 					shop_service.deleteCart(cart_num.get(i));
 				}
 				
+			
 				model.addAttribute("order", order);
 				model.addAttribute("payment_key", payment_key);
 				model.addAttribute("amount", amount);

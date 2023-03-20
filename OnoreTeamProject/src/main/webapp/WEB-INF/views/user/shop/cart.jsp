@@ -50,7 +50,7 @@
 			</thead>
 				<tbody>
 					<c:choose>
-						<c:when test="${cart_list eq null || cart_list.size() eq 0}">
+						<c:when test="${empty cart_list || cart_list.size() eq 0}">
 							<tr class="cart_body">
 								<td colspan="9">
 									<b>장바구니가 비어있습니다.</b>
@@ -86,7 +86,7 @@
 										<input type="hidden" class="cart_product_price" value="${cart_list.get(i).cart_product_price}"/>
 									</td>
 									<td>
-										<form method="POST">
+										<form method="GET">
 											<input type="hidden" name="selected_list" value="${cart_list.get(i).cart_num}"/>
 											<input type="submit" class="order_single_btn" formaction="../order/from_cart" value="주문하기">
 											<input type="submit" class="delete_single_btn" formaction="./delete_selected_cart" value="삭제하기">
