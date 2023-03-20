@@ -34,7 +34,7 @@ public class MemberController {
 	@Autowired
 	MemberDTO memberdto;
 	
-	// ì•„ì´ë”” ì¤‘ë³µì²´í¬
+	// ¾ÆÀÌµğ Áßº¹Ã¼Å©
     @RequestMapping("/idCheck")
     public void idCheck(@RequestParam String mem_id, HttpServletResponse res) throws Exception {
         int result = 0;
@@ -44,13 +44,13 @@ public class MemberController {
         res.getWriter().print(result);
     }
 	
-    // íšŒì› ê°€ì… insert
+	//È¸¿ø °¡ÀÔ insert
 	@GetMapping("/join")
 	public String member_join() throws Exception {
 		return "user/join/member_join";
 	}
 	
-	// íšŒì›ê°€ì… ì„±ê³µ
+	// È¸¿ø°¡ÀÔ ¼º°ø
 	@RequestMapping("/join.do")
 	public String member_join(MemberDTO dto, HttpServletRequest request, RedirectAttributes redirectAttributes) throws Exception {
 		try {
@@ -61,33 +61,33 @@ public class MemberController {
 			session.setAttribute("member_join", member_join);
 			return "user/join/member_join_success";
 		} catch (Exception e) {
-			redirectAttributes.addFlashAttribute("message", "íšŒì›ì •ë³´ë¥¼ í™•ì¸í•´ì£¼ì„¸ìš”");
+			redirectAttributes.addFlashAttribute("message", "È¸¿øÁ¤º¸¸¦ È®ÀÎÇØÁÖ¼¼¿ä");
 		return "redirect:/join";
 		}
 	}
 
-	// íšŒì› ê°€ì… ì„±ê³µì‹œ ë‚˜ì˜¤ëŠ” í˜ì´ì§€
+	// È¸¿ø °¡ÀÔ ¼º°ø½Ã ³ª¿À´Â ÆäÀÌÁö
 	@PostMapping("/join_success")
 	public String member_join_success(Model model, MemberDTO memberdto) throws Exception {	
 
-		// ë¹„ë°€ë²ˆí˜¸ ì•”í˜¸í™”
+		// ºñ¹Ğ¹øÈ£ ¾ÏÈ£È­
 		BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
 		System.out.println(memberdto.toString());
 		String password = scpwd.encode(memberdto.getMem_pw());
 		memberdto.setMem_pw(password);
 		System.out.println(memberdto.toString());
-		// ë¹„ë°€ë²ˆí˜¸ ì•”í˜¸í™” ë
+		// ºñ¹Ğ¹øÈ£ ¾ÏÈ£È­ ³¡
 		
 		Integer join = mapper.member_join(memberdto);
 
 		if(join > 0) {
-			// ì¿ í° ì§€ê¸‰
+			// ÄíÆù Áö±Ş
 			CouponDTO welcome_coupon = new CouponDTO();
-			welcome_coupon.setCoupon_name("íšŒì›ê°€ì… ì´ë²¤íŠ¸ 10% í• ì¸ ì¿ í°");
+			welcome_coupon.setCoupon_name("È¸¿ø°¡ÀÔ ÀÌº¥Æ® 10% ÇÒÀÎ ÄíÆù");
 			welcome_coupon.setMem_id(memberdto.getMem_id());
 			welcome_coupon.setCoupon_discount(0.1);
 			Integer coupon_result = service.insertCoupon(welcome_coupon);
-			System.out.println("ì¿ í° ì§€ê¸‰ ê²°ê³¼ : " + coupon_result);
+			System.out.println("ÄíÆù Áö±Ş °á°ú : " + coupon_result);
 			model.addAttribute("member", join);
 		} else {
 			return "redirect:/join";
@@ -98,13 +98,13 @@ public class MemberController {
 		return "user/join/member_join_success";
 	}
 
-	// ë¡œê·¸ì¸ í˜ì´ì§€
+	// ·Î±×ÀÎ ÆäÀÌÁö
 	@GetMapping("/login")
 	public String login() {
 		return "user/login/member_login";
 	}
 	
-	// ë¡œê·¸ì¸ í•˜ê¸° - session, ë¹„ë°€ë²ˆí˜¸ ë³µí˜¸í™”, ì•„ì´ë”” ê¸°ì–µí•˜ê¸°
+	// ·Î±×ÀÎ ÇÏ±â - session, ºñ¹Ğ¹øÈ£ º¹È£È­, ¾ÆÀÌµğ ±â¾ïÇÏ±â
 	@PostMapping("/signIn.do")
 	public String signIn(RedirectAttributes rttr, MemberDTO dto, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
@@ -117,7 +117,7 @@ public class MemberController {
 	        return "redirect:/login";
 	    }
 		
-		MemberDTO signIn = mapper.signIn(dto);  // ì„¸ì…˜ê°’
+		MemberDTO signIn = mapper.signIn(dto); // ¼¼¼Ç°ª
 		HttpSession session = request.getSession();
 		
 		System.out.println("result : " + result);
@@ -126,16 +126,16 @@ public class MemberController {
 		System.out.println("session : " + session);
 		
 	    if (signIn != null) {
-	    	// ë¹„ë°€ë²ˆí˜¸ ë³µí˜¸í™”
+	    	// ºñ¹Ğ¹øÈ£ º¹È£È­
 	        BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
 	        boolean pwdMatch = scpwd.matches(dto.getMem_pw(), signIn.getMem_pw());
-	        if (pwdMatch) { // ë¹„ë°€ë²ˆí˜¸ ì¼ì¹˜
+	        if (pwdMatch) { // ºñ¹Ğ¹øÈ£ ÀÏÄ¡
 	            session.setAttribute("signIn", signIn);
 	            if ("on".equals(request.getParameter("remember_id_input"))) {
-	            	session.setMaxInactiveInterval(60 * 60); // ì„¸ì…˜ìœ ì§€ ì‹œê°„ 60ë¶„
+	            	session.setMaxInactiveInterval(60 * 60); // ¼¼¼ÇÀ¯Áö ½Ã°£ 60ºĞ
 	            	
 	            	Cookie cookie = new Cookie("saved_id", id);
-	            	cookie.setMaxAge(60 * 60 * 24 * 30); // ì¿ í‚¤ ìœ íš¨ê¸°ê°„ 30ì¼
+	            	cookie.setMaxAge(60); // ÄíÅ° À¯È¿±â°£ 30ÀÏ
 	            	cookie.setPath("/");
 	            	response.addCookie(cookie);
 	            } else {
@@ -143,14 +143,14 @@ public class MemberController {
 	            	cookie.setMaxAge(0);
 	            	cookie.setPath("/");
 	                response.addCookie(cookie);
-	            	session.setMaxInactiveInterval(60 * 60); // ì„¸ì…˜ìœ ì§€ ì‹œê°„ 60ë¶„
+	            	session.setMaxInactiveInterval(60 * 60); // ¼¼¼ÇÀ¯Áö ½Ã°£ 60ºĞ
 	            }
-	            System.out.println(session.getId() + "ë¡œê·¸ì¸");
+	            System.out.println(session.getId() + "·Î±×ÀÎ");
 	            return "redirect:/main/";
-	        } else { // ë¹„ë°€ë²ˆí˜¸ ë¶ˆì¼ì¹˜
+	        } else { // ºñ¹Ğ¹øÈ£ ºÒÀÏÄ¡
 	            result = 1;
 	        }
-	    } else { // íšŒì› ì •ë³´ ì—†ìŒ
+	    } else { // È¸¿ø Á¤º¸ ¾øÀ½
 	        result = 1;
 	    }
 	    
@@ -159,23 +159,23 @@ public class MemberController {
 	    return "redirect:/login";
 	}
 	
-	// ë¡œê·¸ì•„ì›ƒ - session
+	// ·Î±×¾Æ¿ô - session
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
 	public String logout(HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		System.out.println("ë¡œê·¸ì•„ì›ƒ");
-		session.invalidate(); // ì•„ì´ë”” ê°’ì„ ì œì™¸í•œ ë‚˜ë¨¸ì§€ ì •ë³´ëŠ” ì ‘ê·¼í•  ìˆ˜ ì—†ë‹¤
+		System.out.println("·Î±×¾Æ¿ô");
+		session.invalidate(); // ¾ÆÀÌµğ °ªÀ» Á¦¿ÜÇÑ ³ª¸ÓÁö Á¤º¸´Â Á¢±ÙÇÒ ¼ö ¾ø´Ù
 		return "user/main/onore";
 	}
 	
-	// ì•„ì´ë””/ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° í˜ì´ì§€
+	//¾ÆÀÌµğ/ºñ¹Ğ¹øÈ£ Ã£±â ÆäÀÌÁö
 	@GetMapping("/member_search")
 	public String member_search(HttpServletRequest request, Model model, MemberDTO memberdto) throws Exception {
 		return "user/login/member_search";
 	}
 	
 	
-	// ì•„ì´ë”” ì°¾ê¸° 
+	//¾ÆÀÌµğ Ã£±â 
 	@RequestMapping(value = "/find_id", method = RequestMethod.POST)
 	@ResponseBody
 	public String find_id(@RequestParam("mem_name") String name,@RequestParam("mem_email") String email) {
@@ -183,7 +183,7 @@ public class MemberController {
 		return result;
 	}
 	
-	// ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° - ì´ë©”ì¼ ì „ì†¡
+	// ºñ¹Ğ¹øÈ£ Ã£±â - ÀÌ¸ŞÀÏ Àü¼Û
 	@RequestMapping(value = "/find_pw", method = RequestMethod.POST)
 	public void find_pw(@RequestParam("input_mem_id") String mem_id, @RequestParam("input_mem_email2") String mem_email, HttpServletResponse response) throws Exception {
 		MemberDTO member = new MemberDTO();

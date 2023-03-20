@@ -82,10 +82,8 @@ public class ReviewController {
 	}
 
 	@PostMapping("/modify")
-	public String modifyReview(ReviewDTO rev, List<MultipartFile> file) throws IllegalStateException, IOException {
-		review_service.fileUpload(rev, file);
-		review_service.modify(rev);
-
+	public String modifyReview(ReviewDTO rev) {
+		Integer row = review_service.modify(rev);
 
 		return "redirect:/review/list";
 	}

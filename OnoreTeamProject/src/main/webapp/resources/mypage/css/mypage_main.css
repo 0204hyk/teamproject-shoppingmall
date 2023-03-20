@@ -69,14 +69,6 @@
 }
 
 .member_modify_div {
-	float: left;
-  	height: 30px;
-  	width: 80%;
-  	text-align: center;
-  	margin-top : 30px;
-}
-
-.member_modify_div {
 	float: right;
   	height: 30px;
   	width: 40%;

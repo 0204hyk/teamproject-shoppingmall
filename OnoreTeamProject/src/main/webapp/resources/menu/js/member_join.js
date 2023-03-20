@@ -51,7 +51,6 @@ function check_pw2() {
 		document.getElementById('pw2_message_p').style.color = "blue";
 	}
 };
-
 //이메일 정규식
 function check_email() {
 	var email = document.getElementById("mem_email").value;
@@ -64,7 +63,6 @@ function check_email() {
 		document.getElementById('email_message_p').style.color = "red";
 	}
 }
-
 //이름 정규식
 function check_name() {
 	var name = document.getElementById("mem_name").value;
@@ -77,7 +75,6 @@ function check_name() {
 		document.getElementById('name_message_p').style.color = "red";
 	}
 }
-
 // 생년월일 + 성별 정규식 : 생년월일 입력 시 주민번호 뒷자리 첫번째 숫자로 성별을 자동으로 체크함
 function check_gender() {
 	var birth1 = document.getElementById('mem_birth_date').value;
