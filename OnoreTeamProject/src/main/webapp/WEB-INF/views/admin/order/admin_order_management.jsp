@@ -65,7 +65,7 @@
 									</c:when>
 								</c:choose>
 								<c:set var="order_number" value="${order.order_id}"/>
-								<td><a href="">${fn:substring(order_number,6,23)}</a></td>
+								<td><a href="#">${fn:substring(order_number,6,23)}</a></td>
 								<td style="width: 230px;">${order.order_name}</td>
 								<td style="width: 100px;">${order.orderer_name}</td>
 								<td style="width: 100px;">${order.receiver_name}</td>

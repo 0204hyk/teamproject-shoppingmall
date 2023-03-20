@@ -1,28 +1,29 @@
 $('#refund-btn').click(function() {
+    // 버튼 클릭 시 해당 테이블의 0번 td(order_num) 가져오기
+    var result = confirm('취소/환불 처리하시겠습니까?');
 
-    // var result = confirm('취소/환불 처리하시겠습니까?');
+    if(result) {
+        var currentRow = $(this).closest('tr');
+        var order_num = currentRow.find('td:eq(0)').text();
 
-    // if(result) {
-    //     var formData = $('#order-list-form').serialize();
-    
-    //     $.ajax({
-    //         url: contextPath + "/admin/order/refund",
-    //         type: "POST",
-    //         cache: false,
-    //         data: formData,
-    //         cache : false,
-    //         success: function(data){
-    //             alert("취소/환불 처리되었습니다.");
-    //             movePageByGet(contextPath + '/admin/order/list');
-    //         },
-    //         error: function (request, status, error){        
-    //             console.log(error);
-    //             alert('환불 실패 (오류)');
-    //         }
-    //     })     
-    // } else {
+        $.ajax({
+            url: contextPath + "/admin/order/refund",
+            type: "POST",
+            cache: false,
+            data: {order_num: order_num},
+            cache : false,
+            success: function(data){
+                alert("취소/환불 처리되었습니다.");
+                movePageByGet(contextPath + '/admin/order/list');
+            },
+            error: function (request, status, error){        
+                console.log(error);
+                alert('환불 실패 (오류)');
+            }
+        })     
+    } else {
         
-    // }
+    }
 });
 
 $('#search-btn').click(function() {
