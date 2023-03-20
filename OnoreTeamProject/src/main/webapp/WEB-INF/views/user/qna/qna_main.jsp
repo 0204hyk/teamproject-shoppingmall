@@ -51,7 +51,7 @@
 						<c:choose>
 							<c:when
 								test="${sessionScope.signIn.mem_id eq qna.mem_id || sessionScope.signIn.mem_status eq 1 }">
-								<td id="qna_title"><a href="<%=request.getContextPath() %>/view?qna_num=${qna.qna_num}">${qna.qna_title }</a></td>
+								<td id="qna_title"><a href="<%=request.getContextPath() %>/qna/view?qna_num=${qna.qna_num}">${qna.qna_title }</a></td>
 							</c:when>
 
 							<c:otherwise>
@@ -102,7 +102,7 @@
 					location.href="../login"
 				}
 			} else {
-				location.href="./qna_write"
+				location.href=contextPath + "/qna/qna_write"
 			}
 		}
 		

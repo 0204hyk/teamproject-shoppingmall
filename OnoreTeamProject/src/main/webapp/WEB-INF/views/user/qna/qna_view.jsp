@@ -86,16 +86,16 @@
 				<div style="margin-bottom: 50px;">
 					<!-- 해당 ID가 작성한게 맞으면 보이게 끔 수정 -->
 					<c:if test="${sessionScope.signIn.mem_status ne 1}">
-						<a href="<%=request.getContextPath() %>/qna_modify?qna_num=${view.qna_num }"
+						<a href="<%=request.getContextPath() %>/qna/qna_modify?qna_num=${view.qna_num }"
 							onclick="return confirm('해당 글을 수정 하시겠습니까?');">글 수정하기</a> /
 				</c:if>
-					<a href="<%=request.getContextPath() %>/qna_delete?qna_num=${view.qna_num }"
+					<a href="<%=request.getContextPath() %>/qna/qna_delete?qna_num=${view.qna_num }"
 						onclick="return confirm('해당 글을 정말로 삭제 하시겠습니까?');">글 삭제하기</a>
 				</div>
 
 				<c:if test="${sessionScope.signIn.mem_status eq 1}">
 					<div id="write_reply">
-						<form action="<%=request.getContextPath() %>/qna_replyWrite" method="POST">
+						<form action="<%=request.getContextPath() %>/qna/qna_replyWrite" method="POST">
 							<input type="hidden" value="${view.qna_num }" name="qna_num"
 								id="num">
 							<textarea id="comment_content" name="reply_content" rows="3"
@@ -128,7 +128,7 @@
 					</c:otherwise>
 				</c:choose>
 			</div>
-			<button onclick="location.href='<%=request.getContextPath() %>/main'" id="list">목록으로</button>
+			<button onclick="location.href='<%=request.getContextPath() %>/main/'" id="list">목록으로</button>
 		</div>
 	</div>
 
