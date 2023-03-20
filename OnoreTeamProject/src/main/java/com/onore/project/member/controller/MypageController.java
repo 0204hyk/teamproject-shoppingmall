@@ -187,41 +187,6 @@ public class MypageController {
 	        out.flush();
 	        return null;
 	    }
+	
 	}
-	
-	/*
-	// 회원탈퇴 -- 2차 수정
-	@RequestMapping(value="/memberDeleteDo", method = RequestMethod.POST)
-	public String memberDelete(@RequestParam("mem_pw") String mem_pw, HttpSession session, HttpServletResponse response) throws Exception{
-		
-	    MemberDTO member = (MemberDTO) session.getAttribute("signIn");
-	    String sessionPass = member.getMem_pw(); // 세션에 있는 비밀번호
-
-	    // 입력받은 비밀번호를 암호화하여 비교합니다.
-	    BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-	    String encodedPassword = passwordEncoder.encode(mem_pw);
-
-	    if(!passwordEncoder.matches(encodedPassword, sessionPass)) {
-	        // 비밀번호가 일치하지 않으면 탈퇴 실패 처리
-	        response.setContentType("text/html; charset=UTF-8");
-	        PrintWriter out = response.getWriter();
-	        out.println("<script>alert('비밀번호가 일치하지 않습니다.'); location.href='./memberDelete';</script>");
-	        out.flush();
-	        return null;
-	    } else {
-	        // coupon 삭제 구문
-	        service.memberDeleteCoupon(member.getMem_id());
-	        // 회원 삭제 구문
-	        service.memberDelete(member);
-	        session.invalidate();
-	        response.setContentType("text/html; charset=UTF-8");
-	        PrintWriter out = response.getWriter();
-	        out.println("<script>alert('회원탈퇴가 완료되었습니다.'); location.href='./main/';</script>");
-	        out.flush();
-	        return null;
-	    }
-	}
-	*/
-	
-	
 }
