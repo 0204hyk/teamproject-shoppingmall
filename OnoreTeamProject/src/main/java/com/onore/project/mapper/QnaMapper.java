@@ -6,6 +6,7 @@ import com.onore.project.dto.ProductsDTO;
 import com.onore.project.dto.QnaAndProductsDTO;
 import com.onore.project.dto.QnaDTO;
 import com.onore.project.dto.QnaReplyDTO;
+import com.onore.project.dto.ShopDTO;
 
 
 public interface QnaMapper {
@@ -34,7 +35,7 @@ public interface QnaMapper {
 	List<QnaAndProductsDTO> getContents(Integer qna_num);
 
 
-	List<ProductsDTO> getProductName(String product_name);
+	List<ShopDTO> getProductName(String product_name);
 
 	// 관리자
 	List<QnaDTO> getRecentQna();

@@ -43,7 +43,7 @@
 	
 	</select>	
 	
-	<select id="getProductName" resultType="com.onore.project.dto.ProductsDTO">
+	<select id="getProductName" resultType="com.onore.project.dto.ShopDTO">
 		SELECT product_num, product_name, product_thumbnail_1 FROM products WHERE LOWER(product_name) LIKE '%' || LOWER(#{product_name}) || '%'
 	
 	</select>
