@@ -72,6 +72,21 @@ public class MypageController {
 		
 		return "user/mypage/member_mypage";
 	}
+	
+	@GetMapping("/qnaPagination")
+	public String qnaPagination(String mem_id, HttpServletRequest req) {
+		popUpService.qnaPopUpService(req, mem_id);
+
+		return "user/mypage/mypage_qna_pop";
+
+	}
+
+	
+	@GetMapping("/reviewPagination")
+	public String reviewPagination(String mem_id, HttpServletRequest req) {
+		popUpService.reviewPopUpService(req, mem_id);
+		return "user/mypage/mypage_review_pop";
+	}
 
 	
 	// 비밀번호 수정으로 이동
