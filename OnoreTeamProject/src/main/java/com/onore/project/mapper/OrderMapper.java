@@ -9,20 +9,22 @@ import com.onore.project.dto.PurchaseInfoDTO;
 public interface OrderMapper {
 
 	Integer insertOrder(OrderDTO order);
-
+	
 	Integer insertOrderInfo(OrderInfoDTO info);
-
+	
 	Integer insertPurchaseInfo(PurchaseInfoDTO info);
-
+	
 	OrderDTO getOrder(Integer order_num);
-
+	
 	List<OrderDTO> getAllOrders();
-
+	
 	List<OrderInfoDTO> getOrderInfos(Integer order_num);
-
+	
 	PurchaseInfoDTO getPurchaseInfo(Integer order_num);
-
+	
 	Integer updateReceiver(OrderDTO order);
+	
+	Integer updateOrderStatus(Integer order_num);
 	
 	Integer deleteOrder(Integer order_num);
 	

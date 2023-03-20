@@ -7,7 +7,7 @@
 		INSERT INTO orders VALUES(order_seq.nextval,#{order_id}, #{order_name}, #{orderer_id}, #{orderer_name},
 			#{orderer_phone}, #{orderer_email}, #{receiver_name}, #{receiver_zip_code}, #{receiver_address}, 
 			#{receiver_detail_address}, #{receiver_phone}, #{receiver_req}, #{discount_coupon},
-			#{discount_points}, #{total_price}, #{total_discount}, #{pay_price}, #{pay_method}, 1, sysdate)
+			#{discount_points}, #{total_price}, #{total_discount}, #{pay_price}, #{pay_method}, 0, sysdate)
 	</insert>
 	<insert id="insertOrderInfo" parameterType="com.onore.project.dto.OrderInfoDTO">
 		INSERT INTO order_infos VALUES(order_info_seq.nextval, #{order_num}, #{product_num}, #{product_name},
@@ -34,7 +34,10 @@
 						  receiver_detail_address=#{receiver_detail_address}, receiver_phone=#{receiver_phone}
 						  WHERE order_num=#{order_num}
 	</update>
-		<delete id="deleteOrder" parameterType="Integer">
+	<update id="updateOrderStatus" parameterType="Integer">
+		UPDATE orders SET order_status=#{1}
+	</update>
+	<delete id="deleteOrder" parameterType="Integer">
 	 	DELETE FROM orders WHERE order_num = #{order_num}
 	</delete>
 	<delete id="deleteOrderInfos" parameterType="Integer">
