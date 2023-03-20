@@ -580,6 +580,60 @@ body {
   text-align: center;
 }
 
+/* 주문 관리 */
+.order-content {
+  background-color: white;
+  border-radius: 10px;
+  width: 1430px;
+  height: 815px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.order-title {
+  display: flex;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.order-title h1 {
+  color: rgb(93, 93, 93);
+  width: 150px;
+  font-weight: 600; 
+  font-size: 24px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  margin-left: 15px;
+}
+
+.order-board {
+  text-align: center;
+}
+
+#refund-btn {
+  background-color: white;
+  font-size: 16px;
+  width: 100px;
+  height: 50px;
+  position: relative;
+  border-radius: 15px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.25s;
+  border: 2px solid #a3a1a1;
+  color: #6e6e6e;
+}
+
+#refund-btn:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+#refund-btn:active {
+  transform: scale(1.2);
+}
+
+
 /* 버튼 관련*/
 .submit-btn {
   width: 120px;

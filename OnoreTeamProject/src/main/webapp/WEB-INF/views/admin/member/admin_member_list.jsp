@@ -55,7 +55,14 @@
 								<td style="width: 50px;"><input type="checkbox" class="row-check" name="row_check" value="${member.mem_id}"/></td>
 								<td style="width: 150px;">${member.mem_id}</td>
 								<td style="width: 70px;">${member.mem_name}</td>
-								<td>${member.mem_street_address}<br/>${member.mem_detail_address}</td>
+								<c:choose>
+									<c:when test="${empty member.mem_street_address}">
+										<td>-</td>
+									</c:when>
+									<c:otherwise>
+										<td>${member.mem_street_address}<br/>${member.mem_detail_address}</td>							
+									</c:otherwise>
+								</c:choose>
 								<c:set var="phone_number" value="${member.mem_phone }"/>
 									<td style="width: 140px;">
 										${fn:substring(phone_number,0,3)}-
@@ -91,7 +98,7 @@
 								</c:choose>
 								<c:choose>
 									<c:when test="${member.mem_status eq 0}">
-										<td style="width: 90px;">일반유저</td>
+										<td style="width: 90px;">고객</td>
 									</c:when>
 									<c:when test="${member.mem_status eq 1}">
 										<td style="width: 90px;">관리자</td>
