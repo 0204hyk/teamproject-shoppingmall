@@ -6,7 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>주문이 완료되었습니다.</title>
-<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<link rel="icon" href="<%=request.getContextPath() %>/resources/main/images/fabicon.png">
+
 </head>
 <body>
 	<h1>주문이 완료되었습니다.</h1>

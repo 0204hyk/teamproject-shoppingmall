@@ -9,6 +9,8 @@
 <link
 	href="<%=request.getContextPath()%>/resources/mypage/css/mypage_main.css?ver=1"
 	rel="stylesheet" />
+<link rel="icon" href="<%=request.getContextPath() %>/resources/main/images/fabicon.png">
+	
 <%@include file="../header.jspf"%>
 </head>
 <body>

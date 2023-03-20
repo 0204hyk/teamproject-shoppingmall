@@ -6,6 +6,8 @@
 <meta charset="UTF-8">
 <title>ONÓRE</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="icon" href="<%=request.getContextPath() %>/resources/main/images/fabicon.png">
+
 <link href="<%=request.getContextPath() %>/resources/menu/css/join_success.css?ver=1" rel="stylesheet"/>
 <script>	
 // 아이디 정규표현식 + 중복체크

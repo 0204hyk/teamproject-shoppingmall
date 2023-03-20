@@ -8,6 +8,8 @@
 <link
 	href="<%=request.getContextPath()%>/resources/mypage/css/mypage_main.css?ver=1"
 	rel="stylesheet" />
+<link rel="icon" href="<%=request.getContextPath() %>/resources/main/images/fabicon.png">
+	
 <style>
 .recent_order_detail_td {
 	margin-bottom: 20px;

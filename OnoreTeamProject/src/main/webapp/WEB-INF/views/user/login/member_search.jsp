@@ -8,6 +8,8 @@
 <title>ONÓRE</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link href="<%=request.getContextPath() %>/resources/menu/css/login_search.css?ver=1" rel="stylesheet"/>
+<link rel="icon" href="<%=request.getContextPath() %>/resources/main/images/fabicon.png">
+
 <script>
 function search_check(num) {
 	if (num == '1'){

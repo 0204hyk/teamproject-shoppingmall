@@ -7,6 +7,8 @@
 <title>ONÓRE</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link href="<%=request.getContextPath() %>/resources/mypage/css/member_info_pw_modify.css?ver=1" rel="stylesheet"/>
+<link rel="icon" href="<%=request.getContextPath() %>/resources/main/images/fabicon.png">
+
 <script>
 //비밀번호 정규식
 function check_pw() {
