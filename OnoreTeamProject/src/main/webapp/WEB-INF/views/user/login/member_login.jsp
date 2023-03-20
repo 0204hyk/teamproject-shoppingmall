@@ -6,17 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>ONÓRE</title>
-<link href="<%=request.getContextPath() %>/resources/menu/css/login_search.css?ver=1" rel="stylesheet"/>
+<link href="<%=request.getContextPath() %>/resources/menu/css/login_search.css" rel="stylesheet"/>
 <%@include file="../header.jspf" %>   
 </head>
 <body>
-<script>
-var urlParams = new URLSearchParams(window.location.search);
-var message = urlParams.get('message');
-if (message === "success") {
-    alert("해당 이메일로 임시 비밀번호가 전송되었습니다.");
-}
-</script>
 <%@include file="../top.jspf" %>
 
 <!-- middle 시작 -->
@@ -76,5 +69,6 @@ if (message === "success") {
 </div>
 <!-- middle 끝 -->
 
+<script src="<%=request.getContextPath() %>/resources/menu/js/member_login.js"></script>
 <script src="<%=request.getContextPath() %>/resources/menu/js/menubar.js"></script>
 <%@include file="../bottom.jspf"%>

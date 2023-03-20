@@ -46,13 +46,34 @@
 
 .member_id_div {
 	float: left;
-	width: 70%;
+	width: 50%;
 	height: 80px;
 	color: white;
 	display: flex;
 	justify-content: center;
   	align-items: center;
   	font-size: 30px;
+  	font-weight: bold;
+}
+
+.member_point_div {
+	float: left;
+	width: 20%;
+	height: 80px;
+	color: white;
+	display: flex;
+	justify-content: center;
+  	align-items: center;
+  	font-size: 15px;
+  	font-weight: bold;
+}
+
+.member_modify_div {
+	float: left;
+  	height: 30px;
+  	width: 80%;
+  	text-align: center;
+  	margin-top : 30px;
 }
 
 .member_modify_div {

@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Lora';
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 a {
@@ -175,9 +175,10 @@ li {
     overflow: hidden;
   }
 
-  .navbar_menu > li:hover .navbar_submenu {
+  .navbar_menu > li > a:hover, .navbar_submenu {
     height: 60px;
     transition-duration: 1s;
+    
   }
 
   .navbar_toggleBtn {

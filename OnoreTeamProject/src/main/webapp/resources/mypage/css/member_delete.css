@@ -1,11 +1,15 @@
+a {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
 .middle_member_info_delete_div {
-	height: 400px;
+	height: 700px;
 	padding-top: 300px;
 	background-color: white;
 }
 
 .member_info_delete_div {
-	height: 400px;
+	height: 260px;
 	background-color: white;
 	text-align: center;
 }
@@ -19,50 +23,72 @@
 
 .member_delete_title_div {
 	padding-bottom: 50px;
-}
-
-.member_delete_title_div > a {
 	font-size: 25px;
 	font-weight: bold;
-	font-family: 'Do Hyeon', sans-serif;
 	color: black;
 }
 
 .member_delete_a_div {
-	width: 120px;
+	width: 80px;
 	height: 15px;
-	display: table-cell; /* ì´ë¦„ê³¼ ì¸í’‹ì„ ì˜†ìœ¼ë¡œ ë‚˜ë€íˆ ë†“ê¸° */
-}
-
-.member_delete_a_div > a {
-	font-size: 20px;
-	font-family: 'Do Hyeon', sans-serif;
-	color: darkgray;
+	display: table-cell; /* ÀÌ¸§°ú ÀÎÇ²À» ¿·À¸·Î ³ª¶õÈ÷ ³õ±â */
+	font-size: 15px;
+	color: black;
+	text-align : left;
 }
 
 .delete_input_div  {
-	display: table-cell; /* ì´ë¦„ê³¼ ì¸í’‹ì„ ì˜†ìœ¼ë¡œ ë‚˜ë€íˆ ë†“ê¸° */
+	display: table-cell; /* ÀÌ¸§°ú ÀÎÇ²À» ¿·À¸·Î ³ª¶õÈ÷ ³õ±â */
+	height: 50px;
 }
 
 .delete_input_div > input {
-	width: 250px;
+	width: 300px;
 	height: 30px;
 	font-size: 12px;
 }
 
 .member_delete_Btn_div {
-	padding-top: 30px;
-	text-align: center;
+  display: inline-block;
+}
+
+.mypage_go_btn_div {
+  display: inline-block;
+  margin-left: 5px;
 }
 
 .member_delete_Btn {
 	width:200px;
 	height: 50px;
 	font-weight: bold;
-	font-family: 'Do Hyeon', sans-serif;
 	font-size: 20px;
 	background-color: black;
 	color: white;
 	border-radius: 3px;
-	cursor: pointer; /* ë§ˆìš°ìŠ¤ ì˜¬ë¦¬ë©´ ì†ê°€ë½ ëª¨ì–‘ìœ¼ë¡œ ë³€í•¨ */
+	border: solid 1px black;
+	cursor: pointer; /* ¸¶¿ì½º ¿Ã¸®¸é ¼Õ°¡¶ô ¸ğ¾çÀ¸·Î º¯ÇÔ */
+}
+
+.mypage_go_btn {
+	margin-top: 30px;
+	width:200px;
+	height: 50px;
+	font-weight: bold;
+	font-size: 20px;
+	background-color: white;
+	color: black;
+	border-radius: 3px;
+	cursor: pointer; /* ¸¶¿ì½º ¿Ã¸®¸é ¼Õ°¡¶ô ¸ğ¾çÀ¸·Î º¯ÇÔ */
+}
+
+.mypage_go_btn:hover {
+	margin-top: 30px;
+	width:200px;
+	height: 50px;
+	font-weight: bold;
+	font-size: 20px;
+	background-color: black;
+	color: white;
+	border-radius: 3px;
+	cursor: pointer; /* ¸¶¿ì½º ¿Ã¸®¸é ¼Õ°¡¶ô ¸ğ¾çÀ¸·Î º¯ÇÔ */
 }
