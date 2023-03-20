@@ -178,5 +178,4 @@ public class AdminBoardController {
 		}
 		return "redirect:/admin/board/review";
 	}
-
 }

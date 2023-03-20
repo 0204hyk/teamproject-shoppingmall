@@ -22,8 +22,6 @@
 <%@include file="../header.jspf"%>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/qna/css/qna_write.css" />
-<link rel="icon" href="<%=request.getContextPath() %>/resources/main/images/fabicon.png">
-
 </head>
 <body>
 	<%@include file="../top.jspf"%>

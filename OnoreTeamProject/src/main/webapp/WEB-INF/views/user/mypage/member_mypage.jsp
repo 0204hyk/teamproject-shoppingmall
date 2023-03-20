@@ -6,8 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>ONÓRE</title>
-<link href="<%=request.getContextPath() %>/resources/mypage/css/mypage_main.css" rel="stylesheet"/>
+<link
+	href="<%=request.getContextPath()%>/resources/mypage/css/mypage_main.css" rel="stylesheet" />
 <link rel="icon" href="<%=request.getContextPath() %>/resources/main/images/fabicon.png">
+	
 <style>
 .recent_order_detail_td {
 	margin-bottom: 20px;
@@ -29,17 +31,17 @@
 					<i id="member_icon" class="fa-solid fa-circle-user"></i>
 				</div>
 				<div class="member_id_div">${sessionScope.signIn.mem_name}님</div>
-					<div class="member_point_div">
-						총 적립금
-						<c:choose>
-							<c:when test="${mem_point > 0}">
-								<fmt:formatNumber value="${mem_point}" pattern="#,##0"/>원
-							</c:when>
-							<c:otherwise>
-								0원
-							</c:otherwise>
-						</c:choose>
-					</div>
+				<div class="member_point_div">
+				  총 적립금
+				  <c:choose>
+				    <c:when test="${mem_point > 0}">
+				      <fmt:formatNumber value="${mem_point}" pattern="#,##0"/>원
+				    </c:when>
+				    <c:otherwise>
+				      0원
+				    </c:otherwise>
+				  </c:choose>
+				</div>				
 				<div class="member_modify_div">
 					<input type="button" class="member_pw_btn"
 						onclick="location.href='./member_pw_modify'" value="비밀번호변경">

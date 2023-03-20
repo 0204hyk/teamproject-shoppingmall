@@ -16,10 +16,10 @@ public class AdminBoardService_impl implements AdminBoardService {
 
 	@Autowired
 	QnaMapper qnaMapper;
-
+	
 	@Autowired
 	ReviewMapper reviewMapper;
-
+	
 	@Override
 	public List<QnaAndProductsDTO> readAllQna(QnaAndProductsDTO qna) {
 		return qnaMapper.getSearchQnaList(qna);
@@ -29,7 +29,7 @@ public class AdminBoardService_impl implements AdminBoardService {
 	public Integer qnaDeleteService(Integer qna_num) {
 		return qnaMapper.qnaDelete(qna_num);
 	}
-
+	
 	@Override
 	public List<ReviewandProductDTO> readAllReview(ReviewandProductDTO review) {
 		return reviewMapper.getSearchReviewList(review);

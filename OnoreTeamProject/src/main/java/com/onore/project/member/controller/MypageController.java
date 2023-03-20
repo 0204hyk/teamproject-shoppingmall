@@ -56,7 +56,6 @@ public class MypageController {
 		model.addAttribute("reviews", service.getReview(mem_id, req));
 		
 		MemberDTO member = (MemberDTO)req.getSession().getAttribute("signIn");
-		Integer mem_point = service.getMemPoint(mem_id); // 적립금 가져오기
 		
 		List<OrderDTO> order_list = service.getMyOrders(req);
 		Map<Integer,List<OrderInfoDTO>> order_info_map = new HashMap<Integer,List<OrderInfoDTO>>();
@@ -70,31 +69,17 @@ public class MypageController {
 		model.addAttribute("my_orders",order_list);
 		model.addAttribute("my_order_infos", order_info_map);
 		model.addAttribute("my_coupons", coupons);
-		model.addAttribute("mem_point", mem_point); // 적립금 가져오기
 		
 		return "user/mypage/member_mypage";
 	}
-	
-	@GetMapping("/qnaPagination")
-	public String qnaPagination(String mem_id, HttpServletRequest req) {
-		popUpService.qnaPopUpService(req, mem_id);
 
-		return "user/mypage/mypage_qna_pop";
-
-	}
-
-	@GetMapping("/reviewPagination")
-	public String reviewPagination(String mem_id, HttpServletRequest req) {
-		popUpService.reviewPopUpService(req, mem_id);
-		return "user/mypage/mypage_review_pop";
-	}
 	
 	// 비밀번호 수정으로 이동
 	@GetMapping("/member_pw_modify")
 	public String member_pw_modify(String mem_id, Model model) throws Exception {
 		return "user/mypage/member_pw_modify";
 	}
-
+	
 	// 비밀번호수정하기
 	@RequestMapping("/memberPwModify")
 	public String memberPwModify(Model model, MemberDTO memberdto, HttpSession session) throws Exception {
@@ -105,11 +90,11 @@ public class MypageController {
 		// 비밀번호 암호화 끝
 		mapper.memberPwModify(memberdto);
 		// session.setAttribute("signIn", memberdto); // 세션에 수정된 정보 저장
-		model.addAttribute("member", mapper.memberPwModify(memberdto));
+		model.addAttribute("member", mapper.memberPwModify(memberdto)); 
 		System.out.println("비밀번호 수정 성공");
 		return "redirect:/mypage";
 	}
-
+	
 	// 회원정보수정으로 이동
 	@GetMapping("/member_info_modify")
 	public String member_info_modify(Model model, HttpSession session) throws Exception {
@@ -122,7 +107,7 @@ public class MypageController {
 				return "redirect:/login";
 		}
 	}
-
+	
 	// 회원정보수정하기
 	@RequestMapping(value = "/memberInfoModify", method=RequestMethod.POST)
 	public String memberInfoModify(Model model, MemberDTO memberdto, HttpSession session) throws Exception {
@@ -136,13 +121,13 @@ public class MypageController {
 	// 회원탈퇴로 이동
 	@GetMapping("/memberDelete")
 	public String memberDelete(String mem_id, MemberDTO memberdto, Model model) throws Exception {
-
+		
 		model.addAttribute("member", memberdto);
-
+		
 		return "user/mypage/member_delete";
 	}
-
-	// 회원탈퇴
+	
+	// 회원탈퇴 -- 2차 수정
 	@RequestMapping(value="/memberDeleteDo", method = RequestMethod.POST)
 	public String memberDelete(@RequestParam("mem_pw") String mem_pw, HttpSession session, HttpServletResponse response) throws Exception{
 
@@ -172,5 +157,4 @@ public class MypageController {
 	        return null;
 	    }
 	}
-
 }

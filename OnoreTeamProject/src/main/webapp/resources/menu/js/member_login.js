@@ -1,4 +1,3 @@
-/* 비밀번호 찾기 */
 var urlParams = new URLSearchParams(window.location.search);
 var message = urlParams.get('message');
 if (message === "success") {

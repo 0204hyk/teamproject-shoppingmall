@@ -6,8 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>ONÓRE</title>
-<link rel="icon" href="<%=request.getContextPath() %>/resources/main/images/fabicon.png">
-
 <link href="<%=request.getContextPath() %>/resources/menu/css/join_success.css?ver=1" rel="stylesheet"/>
 <%@include file="../header.jspf" %>
 </head>

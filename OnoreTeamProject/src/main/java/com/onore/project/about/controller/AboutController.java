@@ -10,10 +10,10 @@ import lombok.extern.log4j.Log4j2;
 @Controller
 @RequestMapping("/about")
 public class AboutController {
-
+	
 	@GetMapping("/")
 	public String about() {
-
+		
 		return "user/about/about_main";
 	}
 }
