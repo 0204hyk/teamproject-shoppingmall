@@ -12,13 +12,7 @@
 <link rel="icon"
 	href="<%=request.getContextPath() %>/resources/main/images/fabicon.png">
 
-<style>
-.recent_order_detail_td {
-	margin-bottom: 20px;
-	border-top: 0.5px dotted black;
-	border-bottom: 1px solid black;
-}
-</style>
+
 <%@include file="../header.jspf"%>
 </head>
 <body>
@@ -144,7 +138,7 @@
 															<td>order_${my_orders.get(i).order_num}_${j+1}</td>
 															<td>${my_order_infos.get(i).get(j).product_name}</td>
 															<td>${my_order_infos.get(i).get(j).order_info_option}</td>
-															<td>${my_order_infos.get(i).get(j).order_info_price}</td>
+															<td><fmt:formatNumber value="${my_order_infos.get(i).get(j).order_info_price}" pattern="#,##0" />원</td>
 															<td>${my_order_infos.get(i).get(j).order_info_qty}</td>
 															<td>
 																<form action="./review/write" method="GET">

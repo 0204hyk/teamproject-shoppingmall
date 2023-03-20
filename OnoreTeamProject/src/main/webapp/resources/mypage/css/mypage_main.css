@@ -108,17 +108,14 @@ color : white;
 
 .recent_order_history_div,
 .coupon_history_div,
-.qna_history_div {
-	height : 300px;
+.qna_history_div,
+.review_history_div {
+	min-height: 300px;
 	background: white;
 	margin-bottom: 100px;
 	
 }
 
-.review_history_div {
-	background: white;
-	margin-bottom: 100px;
-}
 
 
 .recent_order_history_title,
@@ -163,6 +160,7 @@ color : white;
  	align-items: center; /* 수직 가운데 정렬 */
 }
 
+
 .review_btn,
 .delivery_btn,
 .cancel_refund_btn {
@@ -172,10 +170,10 @@ color : white;
 	height: 30px;
 	border-radius : 3px;
 	color: white;
-	margin-top: 20px;
+	margin: 10px auto;
 	font-size: 12px;	
 	cursor: pointer;
-	
+
 }
 
 #qna_table {
@@ -225,4 +223,10 @@ td {
    background-color: white;
    border: 0px;
    cursor: pointer;
+}
+
+.recent_order_detail_td {
+	margin-bottom: 20px;
+	border-top: 0.5px dotted black;
+	border-bottom: 1px solid black;
 }
