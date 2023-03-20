@@ -17,6 +17,8 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/qna/css/qna_write.css" />
+<link rel="icon" href="<%=request.getContextPath() %>/resources/main/images/fabicon.png">
+	
 <%@include file="../header.jspf"%>
 </head>
 <body>

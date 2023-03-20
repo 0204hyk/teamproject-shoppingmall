@@ -7,6 +7,8 @@
 <title>ONÓRE</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link href="<%=request.getContextPath() %>/resources/mypage/css/member_delete.css" rel="stylesheet"/>
+<link rel="icon" href="<%=request.getContextPath() %>/resources/main/images/fabicon.png">
+
 <%@include file="../header.jspf"%>
 </head>
 <body>

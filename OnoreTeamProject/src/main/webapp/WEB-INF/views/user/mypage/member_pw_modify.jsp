@@ -7,6 +7,55 @@
 <title>ONÓRE</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link href="<%=request.getContextPath() %>/resources/mypage/css/member_info_pw_modify.css" rel="stylesheet"/>
+<link rel="icon" href="<%=request.getContextPath() %>/resources/main/images/fabicon.png">
+
+<script>
+//비밀번호 정규식
+function check_pw() {
+	var pw = document.getElementById("mem_pw").value;
+	var regPw = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%^*#?&()])[A-Za-z\d$@$!%^*#?&()]{8,}$/; // 8자 이상 영문자, 숫자, 특수문자 조합 비밀번호
+	if (regPw.test(pw) == true) {
+		document.getElementById('pw_modify_pw_message_p').innerHTML = "사용가능한 비밀번호입니다"
+		document.getElementById('pw_modify_pw_message_p').style.color = "blue";
+	} else {
+		document.getElementById('pw_modify_pw_message_p').innerHTML = "올바르지 않은 비밀번호입니다"
+		document.getElementById('pw_modify_pw_message_p').style.color = "red";
+	}
+}
+
+// 비밀번호 확인
+function check_pw2() {
+	var pw = document.getElementById("mem_pw").value;
+	var pw2 = document.getElementById("mem_pw2").value;
+	if (pw != pw2) {
+		document.getElementById('pw_modify_pw2_message_p').innerHTML = "비밀번호가 일치하지 않습니다"
+		document.getElementById('pw_modify_pw2_message_p').style.color = "red";
+	} else {
+		document.getElementById('pw_modify_pw2_message_p').innerHTML = "비밀번호가 일치합니다"
+		document.getElementById('pw_modify_pw2_message_p').style.color = "blue";
+	}
+};
+//비밀번호 변경 완료 alert창
+$(document).ready(function() {
+	$("#pw_modify_form").submit(function(event) {
+		event.preventDefault();
+		$.ajax({
+			type : "POST",
+			url : "memberPwModify",
+			data : $("#pw_modify_form").serialize(),
+			success : function(data) {
+				alert("비밀번호 변경이 완료되었습니다.");
+				window.location.href = "./mypage";
+			},
+			error : function() {
+				alert("Error");
+			}
+		});
+	});
+});
+
+</script>
+>>>>>>> branch 'main' of https://github.com/0204hyk/teamproject-shoppingmall.git
 <%@include file="../header.jspf"%>
 </head>
 <body>

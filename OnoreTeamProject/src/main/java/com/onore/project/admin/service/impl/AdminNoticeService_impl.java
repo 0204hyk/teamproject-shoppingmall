@@ -11,7 +11,7 @@ import com.onore.project.mapper.NoticeMapper;
 
 @Service
 public class AdminNoticeService_impl implements AdminNoticeService {
-	
+
 	@Autowired
 	NoticeMapper noticeMapper;
 
@@ -39,5 +39,5 @@ public class AdminNoticeService_impl implements AdminNoticeService {
 	public Integer noticeDeleteService(Integer notice_num) {
 		return noticeMapper.deleteNotice(notice_num);
 	}
-	
+
 }

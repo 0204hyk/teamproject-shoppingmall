@@ -10,6 +10,7 @@
 <%@ include file="../header.jspf" %>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/shop/css/main.css" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/shop/css/category.css" />
+<link rel="icon" href="<%=request.getContextPath() %>/resources/main/images/fabicon.png">
 
 </head>
 <body>
