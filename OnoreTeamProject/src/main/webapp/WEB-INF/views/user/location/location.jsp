@@ -14,6 +14,7 @@
 <%@ include file="../top.jspf" %>
 <!-- middle 시작 -->
 <div class="middle_location_div">
+<hr>
 	<div class="location_div">
 		<div class="coming_direction_div">오시는 길</div>
 		

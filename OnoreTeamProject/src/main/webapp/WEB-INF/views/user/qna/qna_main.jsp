@@ -94,7 +94,7 @@
 		</div>
 	</div>
 
-	<hr>
+
 	<script type="text/javascript">
 		function qnaWrite() {
 			if (${empty sessionScope.signIn.mem_id}) {

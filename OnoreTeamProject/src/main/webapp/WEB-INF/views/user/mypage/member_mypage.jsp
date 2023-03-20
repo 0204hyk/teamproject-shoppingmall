@@ -21,9 +21,10 @@
 </head>
 <body>
 	<%@include file="../top.jspf"%>
-
+	
 	<!-- middle 시작 -->
 	<div class="middle_mypage_div">
+	<hr>
 		<div class="mypage_div">
 			<div class="member_info_div">
 				<div class="mypage_title">My Page</div>
@@ -141,7 +142,7 @@
 							</c:when>
 							<c:otherwise>
 								<tr>
-									<td colspan="5">주문 내역이 없습니다.</td>
+									<td colspan="6">주문 내역이 없습니다.</td>
 								</tr>
 							</c:otherwise>
 						</c:choose>
