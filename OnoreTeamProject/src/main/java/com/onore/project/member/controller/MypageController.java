@@ -50,28 +50,45 @@ public class MypageController {
 
 	// 마이페이지로 이동
 	@GetMapping("/mypage")
-	public String member_mypage(Model model, String mem_id, HttpServletRequest req) throws Exception {
-		model.addAttribute("qnas", service.getQnaView(mem_id, req));
-		model.addAttribute("reviews", service.getReview(mem_id, req));
-		
+	public String member_mypage(Model model, String mem_id, HttpServletRequest req, HttpSession session) throws Exception {		
+
 		MemberDTO member = (MemberDTO)req.getSession().getAttribute("signIn");
-		Integer mem_point = service.getMemPoint(mem_id); // 적립금 추가
 		
-		List<OrderDTO> order_list = service.getMyOrders(req);
-		Map<Integer,List<OrderInfoDTO>> order_info_map = new HashMap<Integer,List<OrderInfoDTO>>();
-		// key : 회원의 메인 주문 순번 , value : 상세 주문 리스트  
-		for(int i = 0; i < order_list.size(); i++) {
-			order_info_map.put(i, order_service.getOrderInfos(order_list.get(i).getOrder_num()));
+		if (member != null) {
+			
+			model.addAttribute("qnas", service.getQnaView(mem_id, req));
+			model.addAttribute("reviews", service.getReview(mem_id, req));
+			
+			List<OrderDTO> order_list = service.getMyOrders(req);
+			Map<Integer,List<OrderInfoDTO>> order_info_map = new HashMap<Integer,List<OrderInfoDTO>>();
+			// key : 회원의 메인 주문 순번 , value : 상세 주문 리스트  
+			for(int i = 0; i < order_list.size(); i++) {
+				order_info_map.put(i, order_service.getOrderInfos(order_list.get(i).getOrder_num()));
+			}
+			
+			List<CouponDTO> coupons = service.getCoupons(member.getMem_id());
+			
+			model.addAttribute("my_orders",order_list);
+			model.addAttribute("my_order_infos", order_info_map);
+			model.addAttribute("my_coupons", coupons);
+		
+			String id = member.getMem_id();
+			Integer mem_point = service.getMemPoint(id);
+			model.addAttribute("mem_point", mem_point);
+			
+			System.out.println("member : " + member);
+			System.out.println("id : " + id);
+			System.out.println("mem_point : " + mem_point);
+			System.out.println("model : " + model);
+			return "user/mypage/member_mypage";
+		
+		} else {
+			
+		return "redirect:/login";
+		
 		}
 		
-		List<CouponDTO> coupons = service.getCoupons(member.getMem_id());
 		
-		model.addAttribute("my_orders",order_list);
-		model.addAttribute("my_order_infos", order_info_map);
-		model.addAttribute("my_coupons", coupons);
-		model.addAttribute("mem_point", mem_point);
-		
-		return "user/mypage/member_mypage";
 	}
 	
 	@GetMapping("/qnaPagination")
@@ -86,6 +103,27 @@ public class MypageController {
 	public String reviewPagination(String mem_id, HttpServletRequest req) {
 		popUpService.reviewPopUpService(req, mem_id);
 		return "user/mypage/mypage_review_pop";
+	}
+	
+	// 비밀번호 수정으로 이동
+	@GetMapping("/member_pw_modify")
+	public String member_pw_modify(String mem_id, Model model) throws Exception {
+		return "user/mypage/member_pw_modify";
+	}
+	
+	// 비밀번호수정하기
+	@RequestMapping("/memberPwModify")
+	public String memberPwModify(Model model, MemberDTO memberdto, HttpSession session) throws Exception {
+		// 비밀번호 암호화
+		BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
+		String password = scpwd.encode(memberdto.getMem_pw());
+		memberdto.setMem_pw(password);
+		// 비밀번호 암호화 끝
+		mapper.memberPwModify(memberdto);
+		// session.setAttribute("signIn", memberdto); // 세션에 수정된 정보 저장
+		model.addAttribute("member", mapper.memberPwModify(memberdto)); 
+		System.out.println("비밀번호 수정 성공");
+		return "redirect:/mypage";
 	}
 	
 	// 회원정보수정으로 이동

@@ -1,11 +1,12 @@
 body {
   margin: 0;
-  font-family: 'Lora';
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 a {
   text-decoration:none; /* 밑줄 없애기 */
   color: white;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .navbar_menu > li > i {
