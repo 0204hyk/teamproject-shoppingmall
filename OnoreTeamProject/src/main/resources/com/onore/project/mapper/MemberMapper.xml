@@ -89,7 +89,7 @@
 	UPDATE members SET mem_pw = #{mem_pw} WHERE mem_id = #{mem_id}
 </update>
 
-<!-- 회원탈퇴 -->
+<!-- 회원탈퇴 : 쿠폰, 댓글, 게시글 등도 같이 삭제해야 함--> 
 <delete id="memberDeleteCoupon" parameterType="com.onore.project.dto.MemberDTO">
 	DELETE FROM coupon WHERE mem_id = #{mem_id}
 </delete>
