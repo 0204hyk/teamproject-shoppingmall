@@ -153,16 +153,19 @@ img {
 	background-color: white;
 	border: 0;
 	color: black;
+	cursor: pointer;
 }
 .file-remove2 {
 	background-color: white;
 	border: 0;
 	color: black;
+	cursor: pointer;
 }
 .file-remove3 {
 	background-color: white;
 	border: 0;
 	color: black;
+	cursor: pointer;
 }
 
 /* 파일 선택 쪽 폰트 사이즈  2023.03.08 수정 */

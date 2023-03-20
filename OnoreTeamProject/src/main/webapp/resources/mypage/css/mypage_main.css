@@ -1,11 +1,11 @@
 .middle_mypage_div{
-	height: 1700px;
-	padding-top: 200px;
+	
+	padding-top: 127px;
 	background-color: white;
 }
 
 .mypage_div {
-	height: 1500px;
+	
 	width: 70%;
 	margin: auto;
 	background-color: white;
@@ -92,16 +92,12 @@
 
 .recent_order_history_div,
 .coupon_history_div,
-.qna_history_div {
+.qna_history_div,
+.review_history_div {
 	height : 300px;
 	background: white;
 	margin-bottom: 100px;
 	
-}
-
-.review_history_div {
-	background: white;
-	margin-bottom: 100px;
 }
 
 

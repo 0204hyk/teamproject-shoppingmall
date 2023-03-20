@@ -14,15 +14,15 @@ public class CommentDTO {
 	private Integer review_num;
     private String comment_id;
     private String comment_content;
-    private Date comment_date;
+    private LocalDate comment_date;
 
 	private static SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy.MM.dd");
 	private static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
 
-    public String getCreationCommentDate() {
-    	LocalDate creationDate = LocalDate.ofInstant(comment_date.toInstant(), ZoneId.systemDefault());
-	    LocalDate today = LocalDate.ofInstant(new Date().toInstant(), ZoneId.systemDefault());
-	    return creationDate.isEqual(today) ?
-		 	   timeFormat.format(comment_date) : dayFormat.format(comment_date);
-    }
+//    public String getCreationCommentDate() {
+//    	LocalDate creationDate = LocalDate.ofInstant(comment_date.toInstant(), ZoneId.systemDefault());
+//	    LocalDate today = LocalDate.ofInstant(new Date().toInstant(), ZoneId.systemDefault());
+//	    return creationDate.isEqual(today) ?
+//		 	   timeFormat.format(comment_date) : dayFormat.format(comment_date);
+//    }
 }

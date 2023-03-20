@@ -1,12 +1,12 @@
 .middle_location_div{
 	height: 900px;
-	padding-top: 200px;
+	padding-top: 127px;
 	background-color: white;
-
 }
 
 .location_div {
 	height: 650px;
+	margin-top: 60px;
 }
 
 .coming_direction_div {
