@@ -72,7 +72,7 @@
 										<form action="./update_cart" method="POST">
 											<input type="hidden" name="cart_num" value="${cart_list.get(i).cart_num}"/>
 											<input type="hidden" name="product_price" value="${cart_product_list.get(i).product_price}"/>
-											<input type="number" value="${cart_list.get(i).cart_product_qty}" min="0" max="99" 
+											<input type="number" value="${cart_list.get(i).cart_product_qty}" min="1" max="99" 
 													name="cart_product_qty" style="width: 30px; text-align: center;"/> <br>
 											<input type="submit" value="변경"/>
 										</form>
