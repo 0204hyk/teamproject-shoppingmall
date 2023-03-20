@@ -39,9 +39,9 @@ public interface MemberMapper {
 	// 비밀번호 수정하기
 	Integer memberPwModify(MemberDTO memberdto) throws Exception;
 
-	// 회원탈퇴 하기
+	// 회원탈퇴 하기 (쿠폰 삭제 후 회원 삭제 해야함)
+	Integer memberDeleteCoupon(String mem_id);
 	void memberDelete(MemberDTO memberdto) throws Exception;
-	Integer passChk(MemberDTO memberdto) throws Exception;
 
 	// 가입시 쿠폰 지급
 	Integer insertCoupon(CouponDTO coupon);
@@ -60,6 +60,9 @@ public interface MemberMapper {
 
 	// 주문완료 후 배송지 수정
 	Integer updateMemberAddress(MemberDTO member);
+	
+	// 회원 적립금 가져오기
+	Integer getMemPoint(String mem_id);
 
 	// 마이페이지 문의글 가져오기
 	List<QnaDTO> getQnaView(String mem_id);

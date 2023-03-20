@@ -214,24 +214,18 @@ public class MemberServiceImpl implements MemberService{
 		response.sendRedirect("./login?message=success");
 	}
 
-	// 회원 탈퇴하기
-	//@Override
-	//public Integer memberDeleteDo(MemberDTO memberdto) throws Exception {
-	//   return mapper.memberDeleteDo(memberdto);
-	//}
+	   // 회원 탈퇴하기 (쿠폰 삭제 후 회원 삭제 해야 함)
+		@Override
+		public Integer memberDeleteCoupon(String mem_id) {
+			return mapper.memberDeleteCoupon(mem_id);
+		}
 
+		
+	   @Override
+	   public void memberDelete(MemberDTO memberdto) throws Exception {
+	      mapper.memberDelete(memberdto);
+	   }
 
-	// 회원 탈퇴하기
-	@Override
-	public void memberDelete(MemberDTO memberdto) throws Exception {
-		mapper.memberDelete(memberdto);
-	}
-
-	@Override
-	public Integer passChk(MemberDTO memberdto) throws Exception {
-		int result = mapper.passChk(memberdto);
-		return result;
-	}
 
 
 	@Override
@@ -242,7 +236,7 @@ public class MemberServiceImpl implements MemberService{
 
 		return mapper.getMyOrders(member.getMem_id());
 	}  
-	
+
 	@Override
 	public Integer insertCoupon(CouponDTO coupon) {
 
@@ -275,6 +269,13 @@ public class MemberServiceImpl implements MemberService{
 		return mapper.updateMemberAddress(member);
 	}
 
+
+	// 회원 적립금 가져오기
+	@Override
+	public Integer getMemPoint(String mem_id) {	
+		return mapper.getMemPoint(mem_id);
+	}
+
 	// 마이페이지 문의글 가져오기
 	@Override
 	public List<QnaDTO> getQnaView(String mem_id, HttpServletRequest req) {
@@ -293,4 +294,5 @@ public class MemberServiceImpl implements MemberService{
 
 		return mapper.getReview(mem_id);
 	}
+
 }

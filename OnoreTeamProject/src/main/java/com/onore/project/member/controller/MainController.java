@@ -10,14 +10,14 @@ import com.onore.project.mapper.MemberMapper;
 @Controller
 @RequestMapping("/main")
 public class MainController {
-
+	
 	@Autowired
 	MemberMapper mapper;
-
-	// ë©”ì¸ í˜ì´ì§€
+	
+	// ¸ŞÀÎ ÆäÀÌÁö
 	@GetMapping("/")
 		public String main() {
-
+		
 		return "user/main/onore";
 	}
 
