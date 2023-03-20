@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>ONÓRE</title>
 <link
-	href="<%=request.getContextPath()%>/resources/mypage/css/mypage_main.css?ver=1"
-	rel="stylesheet" />
+	href="<%=request.getContextPath()%>/resources/mypage/css/mypage_main.css" rel="stylesheet" />
 <link rel="icon" href="<%=request.getContextPath() %>/resources/main/images/fabicon.png">
 	
 <style>
@@ -31,6 +31,17 @@
 					<i id="member_icon" class="fa-solid fa-circle-user"></i>
 				</div>
 				<div class="member_id_div">${sessionScope.signIn.mem_name}님</div>
+				<div class="member_point_div">
+				  총 적립금
+				  <c:choose>
+				    <c:when test="${mem_point > 0}">
+				      <fmt:formatNumber value="${mem_point}" pattern="#,##0"/>원
+				    </c:when>
+				    <c:otherwise>
+				      0원
+				    </c:otherwise>
+				  </c:choose>
+				</div>				
 				<div class="member_modify_div">
 					<input type="button" class="member_pw_btn"
 						onclick="location.href='./member_pw_modify'" value="비밀번호변경">

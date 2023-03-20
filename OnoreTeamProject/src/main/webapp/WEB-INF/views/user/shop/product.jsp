@@ -108,8 +108,8 @@
 					<input type="hidden" id="product_num" value="${product.product_num }" name="product_num">
 					<input type="hidden" value="1" id="order_cnt" name="order_cnt">
 					<input type="hidden" id="cart_product_price" name="cart_product_price"/>
-					<input type="submit" value="주문하기" formaction="../order/order_directly" id="order">
-					<input type="submit" value="장바구니" formaction="./insert_cart" id="cart">
+					<input type="submit" value="주문하기" formaction="../order/order_directly" id="order" disabled>
+					<input type="submit" value="장바구니" formaction="./insert_cart" id="cart" disabled>
 				</form>
 			</div>
 		</div>

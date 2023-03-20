@@ -111,7 +111,7 @@
 							</li>				    					    
 					    </c:if>
 					</ul>
-					<input type="button" id="review-delete-btn" class="submit-btn btn btn-secondary btn-lg" value="삭 제"/>
+					<input type="button" id="review-delete-btn" class="action-btn" value="삭 제"/>
 				</div>
 			</div>
 		</form>

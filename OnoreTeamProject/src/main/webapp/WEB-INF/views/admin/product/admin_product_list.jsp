@@ -95,8 +95,8 @@
 							</li>				    					    
 					    </c:if>
 					</ul>
-					<input type="button" id="product-delete-btn" class="submit-btn btn btn-secondary btn-lg" value="삭 제"/>
-					<input type="button" onclick="movePageByGet('<%=request.getContextPath()%>/admin/product/regist')" class="submit-btn btn btn-secondary btn-lg" value="등 록"/>			
+					<input type="button" id="product-delete-btn" class="action-btn" value="삭 제"/>
+					<input type="button" onclick="movePageByGet('<%=request.getContextPath()%>/admin/product/regist')" class="action-btn" value="등 록"/>			
 				</div>
 			</div>
 		</form>
