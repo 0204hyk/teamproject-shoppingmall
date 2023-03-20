@@ -100,7 +100,7 @@ public class MemberController {
 
 
 
-		return "user/join/member_join_success";
+		return "redirect:/join/member_join_success";
 	}
 
 	// 로그인 페이지
