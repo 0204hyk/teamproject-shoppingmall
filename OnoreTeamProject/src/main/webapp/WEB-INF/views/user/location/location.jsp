@@ -9,7 +9,6 @@
 <%@ include file="../header.jspf" %>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=75e78a8a9cdd102b783fb3c5f36e1da5"></script>
 <link href="<%=request.getContextPath() %>/resources/menu/css/location.css" rel="stylesheet"/>
-<link rel="icon" href="<%=request.getContextPath() %>/resources/main/images/fabicon.png">
 </head>
 <body>
 <%@ include file="../top.jspf" %>

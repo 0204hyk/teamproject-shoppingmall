@@ -46,14 +46,14 @@ public class AdminBoardController {
 		}
 
 		int board_size = 5;
-		int notice_size = qnaList.size();
+		int qna_size = qnaList.size();
 		int start_index = (page - 1) * board_size;
 		int end_index = page * board_size;
-		end_index = end_index > notice_size ? notice_size : end_index;
-
-		int max_page = notice_size % board_size == 0 ?
-				notice_size / board_size : notice_size / board_size + 1;
-
+		end_index = end_index > qna_size ? qna_size : end_index;
+		
+		int max_page = qna_size % board_size == 0 ?
+				qna_size / board_size : qna_size / board_size + 1;
+		
 		int page_size = 10;
 		int pagination_start;
 		int pagination_end;
@@ -123,14 +123,14 @@ public class AdminBoardController {
 		}
 
 		int board_size = 5;
-		int notice_size = reviewList.size();
+		int review_size = reviewList.size();
 		int start_index = (page - 1) * board_size;
 		int end_index = page * board_size;
-		end_index = end_index > notice_size ? notice_size : end_index;
-
-		int max_page = notice_size % board_size == 0 ?
-				notice_size / board_size : notice_size / board_size + 1;
-
+		end_index = end_index > review_size ? review_size : end_index;
+		
+		int max_page = review_size % board_size == 0 ?
+				review_size / board_size : review_size / board_size + 1;
+		
 		int page_size = 10;
 		int pagination_start;
 		int pagination_end;

@@ -1,11 +1,12 @@
 body {
   margin: 0;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Lora';
 }
 
 a {
   text-decoration:none; /* 밑줄 없애기 */
   color: white;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .navbar_menu > li > i {
@@ -175,10 +176,9 @@ li {
     overflow: hidden;
   }
 
-  .navbar_menu > li > a:hover, .navbar_submenu {
+  .navbar_menu > li:hover .navbar_submenu {
     height: 60px;
     transition-duration: 1s;
-    
   }
 
   .navbar_toggleBtn {

@@ -8,49 +8,6 @@
 <title>ONÓRE</title>
 <link href="<%=request.getContextPath() %>/resources/mypage/css/member_info_pw_modify.css" rel="stylesheet"/>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link rel="icon" href="<%=request.getContextPath() %>/resources/main/images/fabicon.png">
-
-<script>
-//이메일 정규식
-function check_email() {
-	var email = document.getElementById("mem_email").value;
-	var regEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[a-zA-Z]([-_.]?[a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-	if (regEmail.test(email) == true) {
-		document.getElementById('info_modify_email_message_p').innerHTML = "사용 가능한 이메일입니다."
-		document.getElementById('info_modify_email_message_p').style.color = "blue";
-	} else {
-		document.getElementById('info_modify_email_message_p').innerHTML = "올바른 이메일을 입력하세요."
-		document.getElementById('info_modify_email_message_p').style.color = "red";
-	}
-}
-
-// 연락처(핸드폰번호) 정규식
-function check_phone() {
-	var phone = document.getElementById("mem_phone").value;
-	var regPhone = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/; // - 생략하고 01?(3글자) 방식으로 나머지 적용
-	if (regPhone.test(phone) == true) {
-		document.getElementById('info_modify_phone_message_p').innerHTML = "올바른 연락처 입니다."
-		document.getElementById('info_modify_phone_message_p').style.color = "blue";
-	} else {
-		document.getElementById('info_modify_phone_message_p').innerHTML = "올바른 연락처를 입력하세요."
-		document.getElementById('info_modify_phone_message_p').style.color = "red";
-	}
-}
-
-function check() {
-	var f = document.info_modify_form;
-	if (f.mem_email.value == "") {
-		alert("이메일을 입력해주세요");
-		f.mem_email.focus();
-		return false;
-	}
-	if (f.mem_phone.value == "") {
-		alert("전화번호를 입력해주세요");
-		f.mem_phone.focus();
-		return false;
-	}
-</script>
->>>>>>> branch 'main' of https://github.com/0204hyk/teamproject-shoppingmall.git
 <%@include file="../header.jspf"%>
 </head>
 <body>
@@ -153,7 +110,6 @@ function check() {
 	</form>
 </div>
 <!-- middle 끝 -->
-
 
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/mypage/js/member_info_modify.js"></script>
 <script src="<%=request.getContextPath() %>/resources/menu/js/menubar.js"></script>

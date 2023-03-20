@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
     <link rel="icon" href="<%=request.getContextPath() %>/resources/main/images/fabicon.png">
- <title>ONÓRE</title>
+    <title>ONÓRE</title>
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,7 +30,7 @@
         <img class="background" src="<%=request.getContextPath() %>/resources/main/images/img_main.png" alt="background" style="width:100%;">
     </div>
     
-<script src="<%=request.getContextPath()%>/resources/main/js/onore.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/resources/main/js/onore.js"></script>
 <%@ include file="../bottom.jspf" %>
 </body>
 </html>

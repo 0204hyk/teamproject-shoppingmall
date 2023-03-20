@@ -85,14 +85,14 @@ public class AdminProductController {
 		}
 
 		int board_size = 5;
-		int notice_size = productList.size();
+		int product_size = productList.size();
 		int start_index = (page - 1) * board_size;
 		int end_index = page * board_size;
-		end_index = end_index > notice_size ? notice_size : end_index;
-
-		int max_page = notice_size % board_size == 0 ?
-				notice_size / board_size : notice_size / board_size + 1;
-
+		end_index = end_index > product_size ? product_size : end_index;
+		
+		int max_page = product_size % board_size == 0 ?
+				product_size / board_size : product_size / board_size + 1;
+		
 		int page_size = 10;
 		int pagination_start;
 		int pagination_end;
@@ -141,8 +141,8 @@ public class AdminProductController {
 	}
 
 	@PostMapping("/modify")
-	public String noticeModify(HttpServletRequest request, @RequestParam(value = "product_thumbnail_1", required = false) MultipartFile product_thumbnail_1,
-			@RequestParam(value = "product_thumbnail_2", required = false) MultipartFile product_thumbnail_2,
+	public String productModify(HttpServletRequest request, @RequestParam(value = "product_thumbnail_1", required = false) MultipartFile product_thumbnail_1,
+			@RequestParam(value = "product_thumbnail_2", required = false) MultipartFile product_thumbnail_2, 
 			@RequestParam(value = "product_thumbnail_3", required = false) MultipartFile product_thumbnail_3) {
 
 		String product_num = request.getParameter("product_num");
@@ -166,7 +166,7 @@ public class AdminProductController {
 			product.setProduct_thumbnail_3(uploadService.uploadFile(request, product_thumbnail_3));
 			service.productModifyService(product);
 		}
-		return "redirect:/admin/notice/list";
+		return "redirect:/admin/product/list";
 	}
 
 	@PostMapping("/delete")
