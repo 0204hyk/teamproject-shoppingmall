@@ -250,10 +250,10 @@
 							<th id="rating">평점</th>
 						</tr>
 						<c:forEach items="${reviews }" var="review">
-							<tr>
+							<tr id="review_tr">
 								<td>${review.product_name }</td>
-								<td id="review_content"><a
-									href="<%=request.getContextPath() %>/review/detail?review_num=${review.review_num}">
+								<td id="review_content">
+								<a href="<%=request.getContextPath() %>/review/detail?review_num=${review.review_num}">
 										${review.review_content }</a></td>
 								<td>${review.creationReviewDate }</td>
 								<c:if test="${review.review_rating eq 5 }">

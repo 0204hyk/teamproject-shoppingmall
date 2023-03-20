@@ -116,9 +116,7 @@ color : white;
 	min-height : 300px;
 	background: white;
 	margin-bottom: 100px;
-	
 }
-
 
 .recent_order_history_title,
 .coupon_history_title,
@@ -171,7 +169,7 @@ color : white;
 	height: 30px;
 	border-radius : 3px;
 	color: white;
-	margin-top: 20px;
+	margin: 10px auto;
 	font-size: 12px;	
 	cursor: pointer;
 	
@@ -209,9 +207,10 @@ color : white;
 }
 
 
-td {
+#review_tr > td {
    border-bottom: 1px solid gray;
    height: 50px;
+   white-space: nowrap;
 }
 
 #qna_more {
@@ -225,3 +224,8 @@ td {
    border: 0px;
    cursor: pointer;
 }
+
+#review_content {
+ 	overflow: hidden;
+    text-overflow: ellipsis;
+ }

@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Review</title>
-<link href="<%=request.getContextPath() %>/resources/mypage/css/mypage_main.css?ver=1" rel="stylesheet"/>
+<link href="<%=request.getContextPath() %>/resources/mypage/css/mypage_main.css" rel="stylesheet"/>
 <%@include file="../header.jspf"%>
 </head>
 <body>
@@ -22,7 +22,7 @@
 			</tr>	
 				<c:forEach items="${reviews }" var="review">
 					<input type="hidden" value="${review.review_num }" class="num">
-				<tr>
+				<tr id="review_tr">
 					<td>${review.product_name }</td>
 					<td id="review_content">
 						<button class="content" style="background-color: white; border: 0px; cursor:pointer;">
