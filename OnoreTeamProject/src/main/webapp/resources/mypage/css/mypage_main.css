@@ -3,6 +3,12 @@ a {
 }
 
 
+.recent_order_detail_td {
+ 	margin-bottom: 20px;
+ 	border-top: 0.5px dotted black;
+ 	border-bottom: 1px solid black;
+ }
+
 .middle_mypage_div{
 	height: 1700px;
 	padding-top: 127px;
@@ -208,11 +214,23 @@ color : white;
    border-bottom: 1px solid gray;
 }
 
-
 td {
    border-bottom: 1px solid gray;
    height: 50px;
 }
+
+#qna_more {
+   background-color: white;
+   border: 0px;
+   cursor: pointer;
+}
+
+#review_more {
+   background-color: white;
+   border: 0px;
+   cursor: pointer;
+}
+
 
 #qna_more {
    background-color: white;
