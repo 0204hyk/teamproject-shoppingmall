@@ -87,9 +87,17 @@ public class MypageController {
 		return "redirect:/login";
 		
 		}
-		
-		
+
 	}
+	
+	@GetMapping("/pagenation")
+	public String pagenation(String mem_id, HttpServletRequest req) {
+		popUpService.qnaPopUpService(req, mem_id);
+		popUpService.reviewPopUpService(req, mem_id);
+		
+		return "user/mypage/mypage_review_pop";
+	}
+	
 	
 	@GetMapping("/qnaPagination")
 	public String qnaPagination(String mem_id, HttpServletRequest req) {
