@@ -133,7 +133,6 @@
 	</div>
 
 
-	<hr>
 
 	<!-- BootStrap modal 이미지 모달창 jquery -->
 	<script>
