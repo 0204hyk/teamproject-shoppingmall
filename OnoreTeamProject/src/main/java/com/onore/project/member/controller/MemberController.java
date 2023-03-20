@@ -80,18 +80,18 @@ public class MemberController {
 
 		Integer join = mapper.member_join(memberdto);
 
-		if(join > 0) {
-			// 쿠폰 지급
-			CouponDTO welcome_coupon = new CouponDTO();
-			welcome_coupon.setCoupon_name("회원가입 이벤트 10% 할인 쿠폰");
-			welcome_coupon.setMem_id(memberdto.getMem_id());
-			welcome_coupon.setCoupon_discount(0.1);
-			Integer coupon_result = service.insertCoupon(welcome_coupon);
-			System.out.println("쿠폰 지급 결과 : " + coupon_result);
-			model.addAttribute("member", join);
-		} else {
-			return "redirect:/join";
-		}
+//		if(join > 0) {
+//			// 쿠폰 지급
+//			CouponDTO welcome_coupon = new CouponDTO();
+//			welcome_coupon.setCoupon_name("회원가입 이벤트 10% 할인 쿠폰");
+//			welcome_coupon.setMem_id(memberdto.getMem_id());
+//			welcome_coupon.setCoupon_discount(0.1);
+//			Integer coupon_result = service.insertCoupon(welcome_coupon);
+//			System.out.println("쿠폰 지급 결과 : " + coupon_result);
+//			model.addAttribute("member", join);
+//		} else {
+//			return "redirect:/join";
+//		}
 
 
 
