@@ -4,7 +4,7 @@
 	<header class="navbar navbar-white sticky-top bg-light flex-md-nowrap p-0 shadow">
 		<a href="<%=request.getContextPath()%>/admin/main"><img class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 logo-img" src="<%=request.getContextPath()%>/resources/admin/image/logo.png" alt="logo.png" /></a>
 		<div class="navbar-nav navbar-infomsg">
-			<p><i class="fa-solid fa-user profile-img"></i>onore님 &nbsp환영합니다.</p>
+			<p><i class="fa-solid fa-user profile-img"></i>${signIn.mem_id}님 &nbsp환영합니다.</p>
 		</div>
 		<div class="navbar-nav">
 			<div class="nav-item text-nowrap">
@@ -94,7 +94,7 @@
 			       </button>
 			       <div class="collapse" id="account-collapse">
 			         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-			           <li><a href="#" class="link-secondary d-inline-flex text-decoration-none rounded">계정 관리</a></li>
+			           <li><a href="javascript:movePageByGet('<%=request.getContextPath()%>/admin/account/management')" class="link-secondary d-inline-flex text-decoration-none rounded">계정 관리</a></li>
 			         </ul>
 			       </div>
 			     </li>			     
