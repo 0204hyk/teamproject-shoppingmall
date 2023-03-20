@@ -42,7 +42,7 @@ public class ImageUploadRestController {
 		try {
 			InputStream fileStream = multipartFile.getInputStream();
 			FileUtils.copyInputStreamToFile(fileStream, targetFile);	//파일 저장
-			jsonObject.addProperty("url", "/project/resources/admin/image/notice/" + savedFileName);
+			jsonObject.addProperty("url", "/opt/tomcat/apache-tomcat-9.0.73/webapps/OnoreTeamProject/resources/admin/image/notice/" + savedFileName);
 			jsonObject.addProperty("responseCode", "success");		
 			fileStream.close();
 		} catch (IOException e) {
@@ -70,7 +70,7 @@ public class ImageUploadRestController {
 		try {
 			InputStream fileStream = multipartFile.getInputStream();
 			FileUtils.copyInputStreamToFile(fileStream, targetFile);	//파일 저장
-			jsonObject.addProperty("url", "/project/resources/admin/image/product/detail_image/" + savedFileName);
+			jsonObject.addProperty("url", "/opt/tomcat/apache-tomcat-9.0.73/webapps/OnoreTeamProject/resources/admin/image/product/detail_image/" + savedFileName);
 			jsonObject.addProperty("responseCode", "success");		
 			fileStream.close();
 		} catch (IOException e) {
