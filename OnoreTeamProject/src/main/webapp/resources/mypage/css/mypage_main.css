@@ -1,11 +1,16 @@
+a {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+
 .middle_mypage_div{
-	
+	height: 1700px;
 	padding-top: 127px;
 	background-color: white;
 }
 
 .mypage_div {
-	
+	height: 1500px;
 	width: 70%;
 	margin: auto;
 	background-color: white;
@@ -14,7 +19,7 @@
 
 .member_info_div {
 	height : 200px;
-	background: black;
+	background: #636363;
 	margin-bottom: 100px;
 }
 
@@ -23,7 +28,8 @@
 	width: 100%;
 	height: 50px;
 	color: white;
-	font-family: 'Do Hyeon', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight : bold;
 	font-size : 25px;
 	text-align: left;
 	padding-left : 50px;
@@ -88,16 +94,29 @@
 	cursor: pointer;
 	float: left;
 	margin-right: 15px;
+	border: 0;
+}
+
+.member_pw_btn:hover,
+.member_modify_btn:hover,
+.member_delete_btn:hover {
+cursor: pointer;
+background : black;
+color : white;
 }
 
 .recent_order_history_div,
 .coupon_history_div,
-.qna_history_div,
-.review_history_div {
+.qna_history_div {
 	height : 300px;
 	background: white;
 	margin-bottom: 100px;
 	
+}
+
+.review_history_div {
+	background: white;
+	margin-bottom: 100px;
 }
 
 
@@ -105,8 +124,9 @@
 .coupon_history_title,
 .qna_history_title {
 	height: 50px;
-	font-family: 'Do Hyeon', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 	font-size : 25px;
+	font-weight : bold;
 	text-align: left;
 	padding-left : 50px;
 	border-bottom : solid 2px black;
@@ -114,9 +134,10 @@
 
 .review_history_title {
 	height: 50px;
-	font-family: 'Do Hyeon', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 	font-size : 25px;
 	text-align: left;
+	font-weight : bold;
 	padding-left : 50px;
 	border-bottom : solid 2px black;
 }
