@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>				
+<!DOCTYPE mapper				
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"			
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">			
+<mapper namespace="com.onore.project.mapper.AdminMembersMapper">	
+	<select id="getAllMembers" resultType="com.onore.project.dto.MembersDTO">
+		SELECT * FROM members 
+		<trim prefix="WHERE">
+			<if test="search_type == 'id' and search_keyword != null and search_keyword != ''">
+				mem_id like '%'||#{search_keyword}||'%'
+			</if>
+			<if test="search_type == 'name' and search_keyword != null and search_keyword != ''">
+				mem_name like '%'||#{search_keyword}||'%'
+			</if>
+		</trim>
+		ORDER BY mem_register_date DESC
+	</select>
+	<delete id="deleteMember">
+		DELETE FROM members WHERE mem_id = #{mem_id} 
+	</delete>
+</mapper>
