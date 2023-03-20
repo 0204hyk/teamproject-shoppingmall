@@ -28,12 +28,12 @@ public class ProductsDTO {
    private String search_type;
    private String search_keyword;
 
-
 //   public String getCreationProductDate() {
 //	   LocalDate creationDate = LocalDate.ofInstant(product_date.toInstant(), ZoneId.systemDefault());
 //	   LocalDate today = LocalDate.ofInstant(new Date().toInstant(), ZoneId.systemDefault());
 //	   return creationDate.isEqual(today) ?
 //			   timeFormat.format(product_date) : dayFormat.format(product_date);
 //   }
+
 
 }

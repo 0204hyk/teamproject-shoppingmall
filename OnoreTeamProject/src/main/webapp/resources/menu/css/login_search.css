@@ -132,6 +132,7 @@ a {
 	color: white;
 	border-radius: 3px;
 	cursor: pointer; /* 마우스 올리면 손가락 모양으로 변함 */
+	border : 0;
 }
 
 .joinBtn,

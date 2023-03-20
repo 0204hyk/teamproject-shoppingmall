@@ -105,7 +105,7 @@
 		</div>
 	</div>
 	
-	<hr>
+	
 	
 	<%@ include file="../bottom.jspf" %>
 
