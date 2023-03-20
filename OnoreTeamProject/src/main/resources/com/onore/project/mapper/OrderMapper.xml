@@ -11,7 +11,7 @@
 		#{receiver_address},
 		#{receiver_detail_address}, #{receiver_phone}, #{receiver_req}, #{discount_coupon},
 		#{discount_points}, #{total_price}, #{total_discount}, #{pay_price},
-		#{pay_method}, 1, sysdate)
+		#{pay_method}, 0, sysdate)
 	</insert>
 	<insert id="insertOrderInfo"
 		parameterType="com.onore.project.dto.OrderInfoDTO">
