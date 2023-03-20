@@ -7,14 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ONÓRE</title>
-<link href="<%=request.getContextPath() %>/resources/mypage/css/mypage_main.css?ver=1" rel="stylesheet"/>
-<style>
- .recent_order_detail_td {
- 	margin-bottom: 20px;
- 	border-top: 0.5px dotted black;
- 	border-bottom: 1px solid black;
- }
-</style>
+<link href="<%=request.getContextPath() %>/resources/mypage/css/mypage_main.css" rel="stylesheet"/>
 <%@include file="../header.jspf"%>
 </head>
 <body>
