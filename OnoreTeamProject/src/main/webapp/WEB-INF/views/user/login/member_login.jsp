@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 <title>ONÓRE</title>
 <link href="<%=request.getContextPath() %>/resources/menu/css/login_search.css" rel="stylesheet"/>
-<link rel="icon" href="<%=request.getContextPath() %>/resources/main/images/fabicon.png">
 <%@include file="../header.jspf" %>   
 </head>
 <body>
@@ -70,6 +69,6 @@
 </div>
 <!-- middle 끝 -->
 
-<script src="<%=request.getContextPath() %>/resources/menu/js/member_login.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/resources/menu/js/member_login.js"></script>
 <script src="<%=request.getContextPath() %>/resources/menu/js/menubar.js"></script>
 <%@include file="../bottom.jspf"%>
