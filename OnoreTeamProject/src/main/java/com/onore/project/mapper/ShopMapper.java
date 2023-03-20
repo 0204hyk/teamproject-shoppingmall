@@ -6,20 +6,21 @@ import com.onore.project.dto.CartDTO;
 import com.onore.project.dto.ProductsDTO;
 import com.onore.project.dto.QnaDTO;
 import com.onore.project.dto.ReviewDTO;
+import com.onore.project.dto.ShopDTO;
 import com.onore.project.dto.WishDTO;
 
 
 public interface ShopMapper {
 
-	List<ProductsDTO> getAll();
+	List<ShopDTO> getAll();
 
-	List<ProductsDTO> getDerby();
+	List<ShopDTO> getDerby();
 
-	List<ProductsDTO> getBoots();
+	List<ShopDTO> getBoots();
 
-	List<ProductsDTO> getLoafers();
+	List<ShopDTO> getLoafers();
 
-	List<ProductsDTO> getSneakers();
+	List<ShopDTO> getSneakers();
 
 	ProductsDTO getDetail(Integer product_num);
 

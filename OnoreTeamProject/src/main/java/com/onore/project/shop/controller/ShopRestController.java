@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.onore.project.dto.ProductsDTO;
+import com.onore.project.dto.ShopDTO;
 import com.onore.project.shop.service.ShopService;
 
 import lombok.extern.log4j.Log4j2;
@@ -20,34 +21,34 @@ public class ShopRestController {
 	ShopService shopService;
 
 	@GetMapping(value = {"/restful/all"}, produces = "application/json; charset=UTF-8")
-	public List<ProductsDTO> categoryAll() {
+	public List<ShopDTO> categoryAll() {
 
 		return shopService.all();
 	}
 
 	@GetMapping(value = {"/restful/derby"}, produces = "application/json; charset=UTF-8")
-	public List<ProductsDTO> derby() {
+	public List<ShopDTO> derby() {
 
 		return shopService.derbyView();
 
 	}
 
 	@GetMapping(value = {"/restful/boots"}, produces = "application/json; charset=UTF-8")
-	public List<ProductsDTO> boots() {
+	public List<ShopDTO> boots() {
 
 		return shopService.bootsView();
 
 	}
 
 	@GetMapping(value = {"/restful/loafers"}, produces = "application/json; charset=UTF-8")
-	public List<ProductsDTO> loafer() {
+	public List<ShopDTO> loafer() {
 
 		return shopService.loafersView();
 
 	}
 
 	@GetMapping(value = {"/restful/sneakers"}, produces = "application/json; charset=UTF-8")
-	public List<ProductsDTO> sneakers() {
+	public List<ShopDTO> sneakers() {
 
 		return shopService.sneakersView();
 

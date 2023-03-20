@@ -5,23 +5,23 @@
 
 <mapper namespace="com.onore.project.mapper.ShopMapper">
 	
-	<select id="getAll" resultType="com.onore.project.dto.ProductsDTO">
+	<select id="getAll" resultType="com.onore.project.dto.ShopDTO">
 		select * from products
 	</select>
 	
-	<select id="getDerby" resultType="com.onore.project.dto.ProductsDTO">
+	<select id="getDerby" resultType="com.onore.project.dto.ShopDTO">
 		select * from products where category_num = 1
 	</select>
 	
-	<select id="getBoots" resultType="com.onore.project.dto.ProductsDTO">
+	<select id="getBoots" resultType="com.onore.project.dto.ShopDTO">
 		select * from products where category_num = 2
 	</select>
 	
-	<select id="getLoafers" resultType="com.onore.project.dto.ProductsDTO">
+	<select id="getLoafers" resultType="com.onore.project.dto.ShopDTO">
 		select * from products where category_num = 3
 	</select>
 	
-	<select id="getSneakers" resultType="com.onore.project.dto.ProductsDTO">
+	<select id="getSneakers" resultType="com.onore.project.dto.ShopDTO">
 		select * from products where category_num = 4
 	</select>
 	

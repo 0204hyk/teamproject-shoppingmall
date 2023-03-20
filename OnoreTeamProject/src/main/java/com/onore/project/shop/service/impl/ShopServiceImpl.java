@@ -9,6 +9,7 @@ import com.onore.project.dto.CartDTO;
 import com.onore.project.dto.ProductsDTO;
 import com.onore.project.dto.QnaDTO;
 import com.onore.project.dto.ReviewDTO;
+import com.onore.project.dto.ShopDTO;
 import com.onore.project.dto.WishDTO;
 import com.onore.project.mapper.ShopMapper;
 import com.onore.project.shop.service.ShopService;
@@ -20,7 +21,7 @@ public class ShopServiceImpl implements ShopService{
 	ShopMapper shop_mapper;
 
 	@Override
-	public List<ProductsDTO> all() {
+	public List<ShopDTO> all() {
 
 		return shop_mapper.getAll();
 
@@ -28,21 +29,21 @@ public class ShopServiceImpl implements ShopService{
 
 
 	@Override
-	public List<ProductsDTO> derbyView() {
+	public List<ShopDTO> derbyView() {
 
 		return shop_mapper.getDerby();
 
 	}
 
 	@Override
-	public List<ProductsDTO> bootsView() {
+	public List<ShopDTO> bootsView() {
 
 		return shop_mapper.getBoots();
 
 	}
 
 	@Override
-	public List<ProductsDTO> loafersView() {
+	public List<ShopDTO> loafersView() {
 
 		return shop_mapper.getLoafers();
 
@@ -50,7 +51,7 @@ public class ShopServiceImpl implements ShopService{
 
 
 	@Override
-	public List<ProductsDTO> sneakersView() {
+	public List<ShopDTO> sneakersView() {
 
 		return shop_mapper.getSneakers();
 

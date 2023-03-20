@@ -16,6 +16,7 @@ import com.onore.project.dto.ProductsDTO;
 import com.onore.project.dto.QnaAndProductsDTO;
 import com.onore.project.dto.QnaDTO;
 import com.onore.project.dto.QnaReplyDTO;
+import com.onore.project.dto.ShopDTO;
 import com.onore.project.mapper.QnaMapper;
 import com.onore.project.qna.service.QnaService;
 
@@ -81,7 +82,7 @@ public class QnaServiceImpl implements QnaService {
 	}
 
 	@Override
-	public List<ProductsDTO> getProductName(String product_name) {
+	public List<ShopDTO> getProductName(String product_name) {
 
 		return qna_mapper.getProductName(product_name);
 	}
