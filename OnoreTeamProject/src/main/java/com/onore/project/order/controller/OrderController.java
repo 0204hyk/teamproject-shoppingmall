@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.ctc.wstx.io.SystemId;
 import com.onore.project.dto.CartDTO;
 import com.onore.project.dto.CouponDTO;
 import com.onore.project.dto.MemberDTO;
@@ -31,13 +30,13 @@ public class OrderController {
 
 	@Autowired
 	OrderService order_service;
-	
+
 	@Autowired
 	MemberService member_service;
-	
+
 	@Autowired
 	ShopService shop_service;
-	
+
 	// 회원정보와 주문 정보를 받아 주문 페이지로 이동 (주문 상품이 여러개 or 선택 상품 주문 클릭시)
 		@PostMapping("/order_directly")
 		public String orderDirectly(Model model, HttpServletRequest req, Integer product_num,
@@ -46,26 +45,26 @@ public class OrderController {
 																		 String size,
 																		 String heel,
 																		 String sole) throws Exception {
-			
+
 			// 주문자인 회원 정보 가져오기
 			MemberDTO member = (MemberDTO)req.getSession().getAttribute("signIn");
 			List<CouponDTO> coupons  = member_service.getCoupons(member.getMem_id());
 			ProductsDTO product = shop_service.getDetail(product_num);
 			CartDTO cart = new CartDTO();
-			
+
 			cart.setMem_id(member.getMem_id());
 			cart.setProduct_num(product.getProduct_num());
 			cart.setCart_product_qty(order_cnt);
 			cart.setCart_product_price(cart_product_price);
 			cart.setCart_product_option("size: " + size + "<br> " + "heel: " + heel + "<br> " + "sole: " + sole);
-			
+
 			String order_name = product.getProduct_name();
 					// 상품 합계 만들기
 			Integer total_price = cart.getCart_product_price();
-			
+
 			// 사용가능한 적립금 책정하기 (총 결제액에 5%)
 			Integer accessible_points = total_price / 20;
-			
+
 			model.addAttribute("product", product);
 			model.addAttribute("cart", cart);
 			model.addAttribute("order_name", order_name);
@@ -73,29 +72,29 @@ public class OrderController {
 			model.addAttribute("orderer", member);
 			model.addAttribute("coupons", coupons);
 			model.addAttribute("accessible_points", accessible_points);
-			
+
 			return "user/order/order_main";
 		}
-	
+
 	// 회원정보와 주문 정보를 받아 주문 페이지로 이동 (주문 상품이 여러개 or 선택 상품 주문 클릭시)
 	@PostMapping("/from_cart")
 	public String orderMutipleItems(Model model, HttpServletRequest req,
 					@RequestParam("selected_list") List<Integer> selected_list) throws Exception {
-		
+
 		// 주문자인 회원 정보 가져오기
 		MemberDTO member = (MemberDTO)req.getSession().getAttribute("signIn");
 		List<CouponDTO> coupons  = member_service.getCoupons(member.getMem_id());
-		List<CartDTO> cart = new ArrayList<CartDTO>();
+		List<CartDTO> cart = new ArrayList<>();
 		System.out.println("selected_list: " + selected_list);
-		for(int i = 0; i < selected_list.size(); i++) {		
+		for(int i = 0; i < selected_list.size(); i++) {
 			cart.add(shop_service.getCart(selected_list.get(i)));
 		}
-		
-		List<ProductsDTO> products = new ArrayList<ProductsDTO>();
+
+		List<ProductsDTO> products = new ArrayList<>();
 		for(int i = 0; i < cart.size(); i++) {
 			products.add(shop_service.getDetail(cart.get(i).getProduct_num()));
 		}
-		
+
 		String order_name = null;
 		Integer total_price = 0;
 		for(int i = 0; i < products.size(); i++) {
@@ -108,10 +107,10 @@ public class OrderController {
 				// 상품 합계 만들기
 				total_price += cart.get(i).getCart_product_price();
 		}
-		
+
 		// 사용가능한 적립금 책정하기 (총 결제액에 5%)
 		Integer accessible_points = total_price / 20;
-		
+
 		model.addAttribute("products", products);
 		model.addAttribute("cart", cart);
 		model.addAttribute("order_name", order_name);
@@ -119,10 +118,10 @@ public class OrderController {
 		model.addAttribute("orderer", member);
 		model.addAttribute("coupons", coupons);
 		model.addAttribute("accessible_points", accessible_points);
-		
+
 		return "user/order/order_main";
 	}
-	
+
 	@PostMapping("/result")
 	public String purchase(Model model, OrderDTO order, @RequestParam("cart_num")
 														List<Integer> cart_num,
@@ -135,41 +134,41 @@ public class OrderController {
 			 										    @RequestParam List<String> order_info_option,
 			 										    @RequestParam List<String> order_info_qty,
 			 										    @RequestParam List<String> order_info_price) throws Exception {
-		
+
 		System.out.println("Order : " + order);
 		System.out.println(cart_num);
-		
+
 		// 카트 정보 불러오기
-		List<CartDTO> cart = new ArrayList<CartDTO>();
+		List<CartDTO> cart = new ArrayList<>();
 		for(int i = 0; i < cart_num.size(); i++) {
-			cart.add(shop_service.getCart(cart_num.get(i))); 
+			cart.add(shop_service.getCart(cart_num.get(i)));
 		}
-		
+
 		// 주문한 상품정보 받아오기
-		List<ProductsDTO> products = new ArrayList<ProductsDTO>();
+		List<ProductsDTO> products = new ArrayList<>();
 		for(int i = 0; i < cart.size(); i++) {
 			products.add(shop_service.getDetail(cart.get(i).getProduct_num()));
 		}
 		System.out.println(products);
-		
+
 		// 주문 기록
 		Integer order_result = order_service.insertOrder(order);
 		System.out.println(order_result);
-		
+
 		// 사용해 사용한 쿠폰 제거
 		Integer delete_coupon_result = null;
-		
+
 		System.out.println("쿠폰 : " + order.getDiscount_coupon());
 		delete_coupon_result = member_service.deleteCoupon(order.getDiscount_coupon());
 		System.out.println(delete_coupon_result);
-		
+
 		// 회원 보유 적립금 += (받을 적립금(결제 금액의 3%) - 사용한 적립금)
 		MemberDTO member = member_service.getMember(order.getOrderer_id());
 		member.setMem_point(member.getMem_point() + ((order.getPay_price() / 100 * 3) - order.getDiscount_points()));
 		// 적립금 업데이트
 		Integer update_points_result = member_service.updatePoints(member);
 		System.out.println(update_points_result);
-		
+
 		if(order_result > 0) {
 			if(set_default_check != null) {
 				MemberDTO address = new MemberDTO();
@@ -183,32 +182,32 @@ public class OrderController {
 					return "user/order/order_fail";
 				}
 			}
-			
+
 //			if(order.getDiscount_coupon() != null || order.getDiscount_coupon() != " " || order.getDiscount_coupon() != "") {
 //				System.out.println("in");
 //				if(delete_coupon_result <= 0) {
 //					return "user/order/order_fail";
 //				}
 //			}
-			
+
 			if(update_points_result <= 0) {
 				return "user/order/order_fail";
 			}
-			
+
 			List<OrderDTO> all_orders = order_service.getAllOrders();
 			order.setOrder_num(all_orders.get(all_orders.size()-1).getOrder_num());
 			int result = 0;
-			for(int i = 0; i < products.size(); i++) {
-				result = order_service.insertOrderInfos(order, products.get(i), product_name, order_info_option,
+			for (ProductsDTO product : products) {
+				result = order_service.insertOrderInfos(order, product, product_name, order_info_option,
 								order_info_qty, order_info_price);
 			}
-		
+
 			if(result > 0) {
 				// 주문한 상품 카트에서 지우기
-				for(int i = 0; i < cart_num.size(); i++) {
-					shop_service.deleteCart(cart_num.get(i));
+				for (Integer element : cart_num) {
+					shop_service.deleteCart(element);
 				}
-				
+
 				model.addAttribute("order", order);
 				model.addAttribute("payment_key", payment_key);
 				model.addAttribute("amount", amount);
@@ -222,7 +221,7 @@ public class OrderController {
 			return "user/order/order_fail";
 		}
 	}
-	
+
 	@PostMapping("/direct_result")
 	public String purchase_directly(Model model, OrderDTO order, @RequestParam("product_num") Integer product_num,
 																@RequestParam(required = false)
@@ -234,32 +233,32 @@ public class OrderController {
 					 										    @RequestParam List<String> order_info_option,
 					 										    @RequestParam List<String> order_info_qty,
 					 										    @RequestParam List<String> order_info_price) throws Exception {
-		
+
 		System.out.println("Order : " + order);
-		
+
 		// 주문한 상품정보 받아오기
 		ProductsDTO product = shop_service.getDetail(product_num);
 		System.out.println(product);
-		
+
 		// 주문 기록
 		Integer order_result = order_service.insertOrder(order);
 		System.out.println(order_result);
-		
+
 		// 사용해 사용한 쿠폰 제거
 		Integer delete_coupon_result = null;
-		
+
 		System.out.println("쿠폰 : " + order.getDiscount_coupon());
 		delete_coupon_result = member_service.deleteCoupon(order.getDiscount_coupon());
 		System.out.println(delete_coupon_result);
-		
+
 		// 회원 보유 적립금 += (받을 적립금(결제 금액의 3%) - 사용한 적립금)
 		MemberDTO member = member_service.getMember(order.getOrderer_id());
 		member.setMem_point(member.getMem_point() + ((order.getPay_price() / 100 * 3) - order.getDiscount_points()));
-		
+
 		// 적립금 업데이트
 		Integer update_points_result = member_service.updatePoints(member);
 		System.out.println(update_points_result);
-		
+
 		if(order_result > 0) {
 			if(set_default_check != null) {
 				MemberDTO address = new MemberDTO();
@@ -273,16 +272,16 @@ public class OrderController {
 					return "user/order/order_fail";
 				}
 			}
-			
+
 			if(update_points_result <= 0) {
 				return "user/order/order_fail";
 			}
-			
+
 			List<OrderDTO> all_orders = order_service.getAllOrders();
 			order.setOrder_num(all_orders.get(all_orders.size()-1).getOrder_num());
 			int result = order_service.insertOrderInfos(order, product, product_name, order_info_option,
 								order_info_qty, order_info_price);
-		
+
 			if(result > 0) {
 				model.addAttribute("order", order);
 				model.addAttribute("payment_key", payment_key);
@@ -297,12 +296,12 @@ public class OrderController {
 			return "user/order/order_fail";
 		}
 	}
-	
+
 	@GetMapping("/complete")
 	public String orderComplete(Model model, @RequestParam String order_num) {
 		OrderDTO order = order_service.getOrder(Integer.parseInt(order_num));
 		List<OrderInfoDTO> order_infos = order_service.getOrderInfos(Integer.parseInt(order_num));
-		List<ProductsDTO> products = new ArrayList<ProductsDTO>();
+		List<ProductsDTO> products = new ArrayList<>();
 		for(int i = 0; i < order_infos.size(); i++) {
 			products.add(shop_service.getDetail(order_infos.get(i).getProduct_num()));
 		}
@@ -311,7 +310,7 @@ public class OrderController {
 		Integer discount_by_coupon = order.getTotal_discount() - order.getDiscount_points();
 		Integer expected_points = (order.getPay_price() / 100 * 1) + 1000;
 		Integer basic_points = (order.getPay_price() / 100 * 1);
-		
+
 		model.addAttribute("order", order);
 		model.addAttribute("order_infos", order_infos);
 		model.addAttribute("products", products);
@@ -325,17 +324,40 @@ public class OrderController {
 		}
 		return "user/order/order_complete";
 	}
-	
+
 	@PostMapping("/updateReceiver")
 	public String updateReceiver(Model model, OrderDTO receiver_info) {
-		
+
 		Integer row = order_service.updateReceiver(receiver_info);
-		
+
 		if(row > 0) {
 			return "redirect:/order/complete?order_num=" + receiver_info.getOrder_num();
 		} else {
 			return "redirect:/order/complete?order_num=" + receiver_info.getOrder_num() + "&status=update_failed";
 		}
 	}
-
+	
+	@PostMapping("/delete")
+	public String deleteOrder(Model model, Integer order_num) {
+		
+		Integer row1 = order_service.deleteOrderInfos(order_num);
+		System.out.println("delete_order_infos : " + row1);
+		Integer row2 = order_service.deletePayInfos(order_num);
+		System.out.println("delete_pay_infos : " + row1);
+		
+		if(row1 > 0 && row2 > 0) {
+			Integer row3 = order_service.deleteOrder(order_num);
+			if(row3 > 0) {				
+				model.addAttribute("status","delete_order_success");
+				return "redirect:/mypage";
+			} else {
+				model.addAttribute("status","delete_order_failed");
+				return "redirect:/mypage";
+			}
+		} else {
+			model.addAttribute("status","delete_order_failed");
+			return "redirect:/mypage";			
+		}
+	}
+	
 }

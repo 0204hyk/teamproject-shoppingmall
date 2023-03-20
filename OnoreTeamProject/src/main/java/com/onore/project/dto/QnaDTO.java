@@ -41,20 +41,20 @@ public class QnaDTO {
 
 		return maskingName;
 	}
-	
+
 	private static SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy.MM.dd");
 	private static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
 
-    public String getCreationQnaDate() {		
+    public String getCreationQnaDate() {
     	LocalDate creationDate = LocalDate.ofInstant(qna_date.toInstant(), ZoneId.systemDefault());
 	    LocalDate today = LocalDate.ofInstant(new Date().toInstant(), ZoneId.systemDefault());
-	    return creationDate.isEqual(today) ? 
-		 	   timeFormat.format(qna_date) : dayFormat.format(qna_date);		
+	    return creationDate.isEqual(today) ?
+		 	   timeFormat.format(qna_date) : dayFormat.format(qna_date);
     }
-    
+
     // 관리자
     private static SimpleDateFormat adminPageFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    
+
     public String getAdminPageQnaDate() {
     	return adminPageFormat.format(qna_date);
     }

@@ -2,9 +2,9 @@ package com.onore.project.dto;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
+
 import lombok.Data;
 
 @Data
@@ -23,7 +23,7 @@ public class ReviewDTO {
 	private Integer review_good;
 	private Integer review_bad;
 
-	
+
 	// id마스킹처리 ex) ${review.maskingName}
 	public String getmaskingName() {
 
@@ -41,14 +41,14 @@ public class ReviewDTO {
 
 		return maskingName;
 	}
-	
+
 	private static SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy.MM.dd");
 	private static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
 
-    public String getCreationReviewDate() {		
+    public String getCreationReviewDate() {
     	LocalDate creationDate = LocalDate.ofInstant(review_date.toInstant(), ZoneId.systemDefault());
 	    LocalDate today = LocalDate.ofInstant(new Date().toInstant(), ZoneId.systemDefault());
-	    return creationDate.isEqual(today) ? 
+	    return creationDate.isEqual(today) ?
 		 	   timeFormat.format(review_date) : dayFormat.format(review_date);
     }
 }

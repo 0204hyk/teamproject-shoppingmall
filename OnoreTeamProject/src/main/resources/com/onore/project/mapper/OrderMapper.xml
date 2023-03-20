@@ -34,5 +34,13 @@
 						  receiver_detail_address=#{receiver_detail_address}, receiver_phone=#{receiver_phone}
 						  WHERE order_num=#{order_num}
 	</update>
-
+		<delete id="deleteOrder" parameterType="Integer">
+	 	DELETE FROM orders WHERE order_num = #{order_num}
+	</delete>
+	<delete id="deleteOrderInfos" parameterType="Integer">
+	 	DELETE FROM order_infos WHERE order_num = #{order_num}
+	</delete>
+	<delete id="deletePayInfos" parameterType="Integer">
+	 	DELETE FROM pay WHERE order_num = #{order_num}
+	</delete>
 </mapper>

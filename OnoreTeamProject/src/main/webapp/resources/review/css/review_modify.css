@@ -74,7 +74,7 @@ img {
     font-size: 40px;
 }
 
-#modify_btn {
+#write_btn {
 	background-color: black;
     color: white;
     width: 100px;
@@ -110,14 +110,7 @@ img {
 /* 파일 선택 쪽 폰트 사이즈  2023.03.08 수정 */
 #fileUpload1, #fileUpload2, #fileUpload3 {
 	font-size: 16px;
-	background-color: black;
-    color: white;
-    width: 100px;
-    height: 50px;
-    float: right;
-    border-radius: 5%;
-    margin: 30px 10px 0 0;
-    cursor: pointer; 
+	
 }
 
 /* 첨부 이미지 사이즈 설정  2023.03.08 수정  */
