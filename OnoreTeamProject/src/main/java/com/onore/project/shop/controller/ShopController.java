@@ -109,7 +109,6 @@ public class ShopController {
 		MemberDTO member = (MemberDTO)req.getSession().getAttribute("signIn");
 		List<CartDTO> cart_list = shopService.getCartList(member.getMem_id());
 		List<ProductsDTO> cart_product_list = new ArrayList<>();
-		System.out.println(cart_list);
 		Integer total_price = 0;
 		List<Integer> total_points = new ArrayList<>();
 		for(int i = 0; i < cart_list.size(); i++) {
