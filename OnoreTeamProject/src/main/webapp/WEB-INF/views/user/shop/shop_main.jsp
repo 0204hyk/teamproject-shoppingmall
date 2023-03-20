@@ -154,7 +154,7 @@
 		</div>
 	</div>
 	
-	<hr>
+	
 	
 	<script src="<%=request.getContextPath() %>/resources/shop/js/category.js"></script>
 	<%@ include file="../bottom.jspf" %>

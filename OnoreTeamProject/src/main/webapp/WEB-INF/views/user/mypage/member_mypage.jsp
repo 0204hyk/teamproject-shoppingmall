@@ -21,9 +21,10 @@
 </head>
 <body>
 	<%@include file="../top.jspf"%>
-
+	
 	<!-- middle 시작 -->
 	<div class="middle_mypage_div">
+	<hr>
 		<div class="mypage_div">
 			<div class="member_info_div">
 				<div class="mypage_title">My Page</div>

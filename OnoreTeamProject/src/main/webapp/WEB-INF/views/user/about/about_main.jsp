@@ -33,7 +33,7 @@
 		<div id="shop"><a href="<%=request.getContextPath() %>/shop/main"><img src="<%=request.getContextPath() %>/resources/review/image/shop.jpg"></a></div>
 	</div>
 	
-	<hr>
+	
 	
 	<%@ include file="../bottom.jspf" %>
 

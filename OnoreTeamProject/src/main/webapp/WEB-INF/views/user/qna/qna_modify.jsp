@@ -106,7 +106,7 @@
 			</div>
 		</form>
 	</div>
-	<hr>
+	
 
 	<script type="text/javascript"
 		src="<%=request.getContextPath()%>/resources/qna/js/qna_modify.js"></script>
