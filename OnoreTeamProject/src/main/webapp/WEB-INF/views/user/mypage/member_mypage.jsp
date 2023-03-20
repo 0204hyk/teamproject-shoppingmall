@@ -44,6 +44,7 @@
 							<col style="width:500px">
 							<col style="width:200px">
 							<col style="width:300px">
+							<col style="width:200px">
 							<col style="width:400px">
 						</colgroup>
 		       			<tr>
@@ -52,6 +53,7 @@
 		       				<th>주문 명</th>
 		       				<th>결제 가격</th>
 		        			<th>주문 날짜</th>
+		        			<th>상태</th>
 		        			<th>버튼</th>
 		        		</tr>
 		        		<c:choose>
@@ -59,7 +61,10 @@
 				       			<c:forEach begin="0" end="${my_orders.size()-1}" var="i">
 					       			<tr class="recent_order">
 					       				<td>
-					       					<i title="arrow" class="fa-solid fa-chevron-down"></i>
+					       					<input type="checkbox" id="arrow${i}" class="order_accordion_arrow" style="display:none;"/>
+						       				<label for="arrow${i}" style="cursor:pointer;">
+					       						<i title="arrow" class="fa-solid fa-chevron-down"></i>
+					       					</label>
 					       				</td>
 					       				<td class="recent_order_num">order_${my_orders.get(i).order_num}</td>
 					       				<td class="recent_order_name">
@@ -70,6 +75,22 @@
 					       				</td>
 					       				<td class="recent_order_pay_price"><fmt:formatNumber value="${my_orders.get(i).pay_price}" pattern="#,###" />원</td>
 					        			<td class="recent_order_date">${my_orders.get(i).creationDateTime}</td>
+					        			<td class="recent_order_status">
+					        				<c:choose>
+					        					<c:when test="${my_orders.get(i).order_status eq 0}">
+					        						주문 완료
+					        					</c:when>
+					        					<c:when test="${my_orders.get(i).order_status eq 1}">
+					        						환불 요청
+					        					</c:when>
+					        					<c:when test="${my_orders.get(i).order_status eq 2}">
+					        						환불 완료
+					        					</c:when>
+					        					<c:otherwise>
+					        						ERROR
+					        					</c:otherwise>
+					        				</c:choose>
+					        			</td>
 					        			<td class="recent_order_btns">
 						        			<!-- action="./order/delete" method="POST" -->
 						        			<form class="order_form">
@@ -80,16 +101,16 @@
 					        			</td>
 					        		</tr>
 						        		<tr class="recent_order_detail" style="display:none;">
-								        	<td class="recent_order_detail_td" colspan="6">
+								        	<td class="recent_order_detail_td" colspan="7">
 								        		<div>
 													<table>
 														<colgroup>
 															<col style="width: 100px">
 															<col style="width: 200px">
 															<col style="width: 700px">
-															<col style="width: 100px">
-															<col style="width: 100px">
-															<col style="width: 150px">
+															<col style="width: 250px">
+															<col style="width: 250px">
+															<col style="width: 200px">
 														</colgroup>
 														<tr>
 															<th>Num</th>
@@ -122,7 +143,7 @@
 		        			</c:when>
 		        			<c:otherwise>
 		        				<tr>
-					        		<td colspan="6">주문 내역이 없습니다.</td>
+					        		<td colspan="7">주문 내역이 없습니다.</td>
 					        	</tr>
 		        			</c:otherwise>
 		        		</c:choose>
@@ -165,6 +186,6 @@
 <!-- middle 끝 -->
 
 <script src="<%=request.getContextPath() %>/resources/mypage/js/order_list.js"></script>
-<script src="<%=request.getContextPath() %>/resources/mypage/js/delete_order.js"></script>
+<script src="<%=request.getContextPath() %>/resources/mypage/js/update_order.js"></script>
 <script src="<%=request.getContextPath() %>/resources/menu/js/menubar.js"></script>
 <%@include file="../bottom.jspf"%>

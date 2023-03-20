@@ -24,6 +24,8 @@ public interface OrderMapper {
 	
 	Integer updateReceiver(OrderDTO order);
 	
+	Integer updateOrderStatus(Integer order_num);
+	
 	Integer deleteOrder(Integer order_num);
 	
 	Integer deleteOrderInfos(Integer order_num);

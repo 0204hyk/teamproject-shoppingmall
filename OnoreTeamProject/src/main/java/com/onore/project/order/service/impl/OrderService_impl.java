@@ -96,6 +96,14 @@ public class OrderService_impl implements OrderService {
 	}
 	
 	@Override
+	public Integer updateOrderStatus(Integer order_num) {
+		
+		Integer row = order_mapper.updateOrderStatus(order_num);
+		
+		return row;
+	}
+	
+	@Override
 	public Integer deleteOrder(Integer order_num) {
 		
 		return order_mapper.deleteOrder(order_num);
