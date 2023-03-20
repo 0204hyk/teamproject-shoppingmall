@@ -60,8 +60,8 @@ public class ImageUploadRestController {
 		JsonObject jsonObject = new JsonObject();
 				
 		String contextRoot = request.getSession().getServletContext().getRealPath("/");
-		String fileRoot = contextRoot+"resources/admin/image/product/detail_image/";
-		
+		//String fileRoot = contextRoot+"resources/admin/image/product/detail_image/";
+		String fileRoot = "/opt/tomcat/apache-tomcat-9.0.73/webapps/OnoreTeamProject/resources/admin/image/product/detail_image/"; 	// 서버경로
 		String originalFileName = multipartFile.getOriginalFilename();	//오리지날 파일명
 		String extension = originalFileName.substring(originalFileName.lastIndexOf("."));	//파일 확장자
 		String savedFileName = UUID.randomUUID() + extension;	//저장될 파일 명
