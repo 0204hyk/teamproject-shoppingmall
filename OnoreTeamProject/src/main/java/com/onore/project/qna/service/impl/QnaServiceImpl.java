@@ -89,8 +89,10 @@ public class QnaServiceImpl implements QnaService {
 
 	@Override
 	public void fileUpload(QnaDTO qna, List<MultipartFile> file) throws IllegalStateException, IOException {
-		String imgPath = "C:\\Users\\K\\git\\teamproject-shoppingmall\\OnoreTeamProject\\src\\main\\webapp\\resources\\qna\\images\\";
-
+		//String imgPath = "C:\\Users\\K\\git\\teamproject-shoppingmall\\OnoreTeamProject\\src\\main\\webapp\\resources\\qna\\images\\";
+		
+		// 서버 경로
+		String imgPath = "/opt/tomcat/apache-tomcat-9.0.73/webapps/OnoreTeamProject/resources/qna/images/";
 		UUID uuid = UUID.randomUUID();
 		String[] fileName = new String[3];
 
