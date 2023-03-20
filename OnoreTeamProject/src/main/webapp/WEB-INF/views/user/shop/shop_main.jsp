@@ -10,6 +10,7 @@
 <%@ include file="../header.jspf" %>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/shop/css/main.css" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/shop/css/category.css" />
+<link rel="icon" href="<%=request.getContextPath()%>/resources/review/image/파비콘.png">
 
 </head>
 <body>
