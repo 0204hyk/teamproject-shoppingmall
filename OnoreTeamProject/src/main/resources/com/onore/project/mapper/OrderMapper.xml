@@ -3,44 +3,64 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.onore.project.mapper.OrderMapper">
-	<insert id="insertOrder" parameterType="com.onore.project.dto.OrderDTO">
-		INSERT INTO orders VALUES(order_seq.nextval,#{order_id}, #{order_name}, #{orderer_id}, #{orderer_name},
-			#{orderer_phone}, #{orderer_email}, #{receiver_name}, #{receiver_zip_code}, #{receiver_address}, 
-			#{receiver_detail_address}, #{receiver_phone}, #{receiver_req}, #{discount_coupon},
-			#{discount_points}, #{total_price}, #{total_discount}, #{pay_price}, #{pay_method}, 1, sysdate)
+	<insert id="insertOrder"
+		parameterType="com.onore.project.dto.OrderDTO">
+		INSERT INTO orders VALUES(order_seq.nextval,#{order_id},
+		#{order_name}, #{orderer_id}, #{orderer_name},
+		#{orderer_phone}, #{orderer_email}, #{receiver_name}, #{receiver_zip_code},
+		#{receiver_address},
+		#{receiver_detail_address}, #{receiver_phone}, #{receiver_req}, #{discount_coupon},
+		#{discount_points}, #{total_price}, #{total_discount}, #{pay_price},
+		#{pay_method}, 1, sysdate)
 	</insert>
-	<insert id="insertOrderInfo" parameterType="com.onore.project.dto.OrderInfoDTO">
-		INSERT INTO order_infos VALUES(order_info_seq.nextval, #{order_num}, #{product_num}, #{product_name},
-										#{order_info_qty}, #{order_info_option}, #{order_info_price}, sysdate)
+	<insert id="insertOrderInfo"
+		parameterType="com.onore.project.dto.OrderInfoDTO">
+		INSERT INTO order_infos VALUES(order_info_seq.nextval,
+		#{order_num}, #{product_num}, #{product_name},
+		#{order_info_qty}, #{order_info_option}, #{order_info_price}, sysdate)
 	</insert>
-	<insert id="insertPurchaseInfo" parameterType="com.onore.project.dto.PurchaseInfoDTO">
-		INSERT INTO pay VALUES(pay_seq.nextval, #{pay_id}, #{order_num}, #{pay_price}, #{pay_method}, #{pay_status},
-								#{refund_req}, #{refund_status}) 
+	<insert id="insertPurchaseInfo"
+		parameterType="com.onore.project.dto.PurchaseInfoDTO">
+		INSERT INTO pay VALUES(pay_seq.nextval, #{pay_id},
+		#{order_num}, #{pay_price}, #{pay_method}, #{pay_status},
+		#{refund_req}, #{refund_status})
 	</insert>
-	<select id="getOrder" resultType="com.onore.project.dto.OrderDTO">
+	<select id="getOrder"
+		resultType="com.onore.project.dto.OrderDTO">
 		SELECT * FROM orders WHERE order_num = #{order_num}
 	</select>
-	<select id="getAllOrders" resultType="com.onore.project.dto.OrderDTO">
+	<select id="getAllOrders"
+		resultType="com.onore.project.dto.OrderDTO">
 		SELECT * FROM orders
 	</select>
-	<select id="getOrderInfos" resultType="com.onore.project.dto.OrderInfoDTO">
+	<select id="getOrderInfos"
+		resultType="com.onore.project.dto.OrderInfoDTO">
 		SELECT * FROM order_infos WHERE order_num = #{order_num}
 	</select>
-	<select id="getPurchaseInfo" resultType="com.onore.project.dto.PurchaseInfoDTO">
+	<select id="getPurchaseInfo"
+		resultType="com.onore.project.dto.PurchaseInfoDTO">
 		SELECT * FROM pay WHERE order_num = #{order_num}
 	</select>
-	<update id="updateReceiver" parameterType="com.onore.project.dto.OrderDTO">
-		UPDATE orders SET receiver_name=#{receiver_name}, receiver_zip_code=#{receiver_zip_code}, receiver_address=#{receiver_address},
-						  receiver_detail_address=#{receiver_detail_address}, receiver_phone=#{receiver_phone}
-						  WHERE order_num=#{order_num}
+	<update id="updateReceiver"
+		parameterType="com.onore.project.dto.OrderDTO">
+		UPDATE orders SET receiver_name=#{receiver_name},
+		receiver_zip_code=#{receiver_zip_code},
+		receiver_address=#{receiver_address},
+		receiver_detail_address=#{receiver_detail_address},
+		receiver_phone=#{receiver_phone}
+		WHERE order_num=#{order_num}
 	</update>
-		<delete id="deleteOrder" parameterType="Integer">
-	 	DELETE FROM orders WHERE order_num = #{order_num}
+	<update id="updateOrderStatus" parameterType="Integer">
+		UPDATE orders SET
+		order_status=#{1}
+	</update>
+	<delete id="deleteOrder" parameterType="Integer">
+		DELETE FROM orders WHERE order_num = #{order_num}
 	</delete>
 	<delete id="deleteOrderInfos" parameterType="Integer">
-	 	DELETE FROM order_infos WHERE order_num = #{order_num}
+		DELETE FROM order_infos WHERE order_num = #{order_num}
 	</delete>
 	<delete id="deletePayInfos" parameterType="Integer">
-	 	DELETE FROM pay WHERE order_num = #{order_num}
+		DELETE FROM pay WHERE order_num = #{order_num}
 	</delete>
 </mapper>
