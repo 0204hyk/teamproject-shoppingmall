@@ -22,6 +22,9 @@ import com.onore.project.dto.MemberDTO;
 import com.onore.project.mapper.MemberMapper;
 import com.onore.project.member.service.MemberService;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 @Controller
 public class MemberController {
 
@@ -89,7 +92,9 @@ public class MemberController {
 			Integer coupon_result = service.insertCoupon(welcome_coupon);
 			System.out.println("쿠폰 지급 결과 : " + coupon_result);
 			model.addAttribute("member", join);
+			log.info("회원가입 성공");
 		} else {
+			log.info("회원가입 실패");
 			return "redirect:/join";
 		}
 
