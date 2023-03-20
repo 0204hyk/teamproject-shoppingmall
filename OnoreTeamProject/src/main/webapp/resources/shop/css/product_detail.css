@@ -308,3 +308,14 @@ dialog {
 	height: 100px;
 	position: absolute;
 }
+
+#thumbnail > button {
+	background-color: white;
+	border: 0px;
+	cursor: pointer; 
+}
+
+#thumbnail > button > img {
+	width: 100px;
+	height: 100px;
+}

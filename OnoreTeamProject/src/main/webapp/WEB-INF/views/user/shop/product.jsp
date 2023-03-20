@@ -35,6 +35,18 @@
 			<div class="top">
 				<div class="left">
 					<img src="${product.product_thumbnail_1 }" id="test">
+					<div id="thumbnail">
+						<c:if test="${not empty product.product_thumbnail_2 }">
+							<button id="tb_1"><img src="${product.product_thumbnail_1 }" ></button>
+							<button id="tb_2"><img src="${product.product_thumbnail_2 }" ></button>
+							<input type="hidden" value="${product.product_thumbnail_1 }" id="tbi_1">
+							<input type="hidden" value="${product.product_thumbnail_2 }" id="tbi_2">
+						</c:if>
+						<c:if test="${not empty product.product_thumbnail_3 }">
+							<button id="tb_3"><img src="${product.product_thumbnail_3 }"></button>
+							<input type="hidden" value="${product.product_thumbnail_3 }" id="tbi_3">
+						</c:if>
+					</div>
 				</div>
 				<div class="right">
 					<h1 id="product_name">${product.product_name }</h1>

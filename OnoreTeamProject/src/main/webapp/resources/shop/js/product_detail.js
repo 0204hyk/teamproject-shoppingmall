@@ -243,3 +243,28 @@ wish.addEventListener('click', (e) => {
     
     xhttp.send(JSON.stringify(obj));
 });
+
+const tb_1 = document.getElementById('tb_1'); // 버튼
+const tbi_1 = document.getElementById('tbi_1').value; // img
+
+const tb_2 = document.getElementById('tb_2');
+const tbi_2 = document.getElementById('tbi_2').value;
+
+const test = document.getElementById('test');
+
+tb_1.addEventListener('click', (e) =>{
+	test.setAttribute('src', tbi_1);
+});
+
+
+tb_2.addEventListener('click', (e) =>{
+	test.setAttribute('src', tbi_2);
+});
+
+const tb_3 = document.getElementById('tb_3');
+const tbi_3 = document.getElementById('tbi_3').value;
+
+
+tb_3.addEventListener('click', (e) =>{
+	test.setAttribute('src', tbi_3)
+});
