@@ -1,27 +1,24 @@
+a {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
 /* member_info_modify */
 .middle_info_modify_div{
-	height: 1800px;
+	height: 900px;
 	padding-top: 200px;
 	background-color: white;
 }
 
 .info_modify_div {
-	height: 1500px;
-	height: 800px;
-	padding-top: 200px;
+	height: 700px;
 	background-color: white;
 	text-align: center;
 }
 
 .info_modify_title_div {
 	padding-bottom: 50px;
-}
-
-.info_modify_title_div > a {
 	font-size: 25px;
 	font-weight: bold;
-	font-family: 'Do Hyeon', sans-serif;
-	color: black;
 }
 
 .info_modify_div > div {
@@ -31,39 +28,31 @@
 	display: block;
 }
 
-.info_modify_message_div {
-	height: 30px;
-	margin-bottom: 5px;
-}
-
 .info_modify_message_div > p {
-	padding-top: 0;
-	font-size: 10px;
+	font-size: 12px;
 	font-weight: bold;
-	margin-left: 120px;
+	margin:0;
+	margin-left: 80px;
 }
 
 .info_modify_a_div {
-	width: 120px;
-	height: 15px;
-	display: table-cell; /* ì´ë¦„ê³¼ ì¸í’‹ì„ ì˜†ìœ¼ë¡œ ë‚˜ë€íˆ ë†“ê¸° */
-	padding-bottom: 20px;
+	width: 80px;
+	height: 50px;
+	display: table-cell; /* ÀÌ¸§°ú ÀÎÇ²À» ¿·À¸·Î ³ª¶õÈ÷ ³õ±â */
+	text-align: left;
 }
 
-.info_modify_email_div > div {
-	padding-bottom: 0;
-}
-
-.info_modify_a_div > a {
-	font-size: 20px;
-	font-family: 'Do Hyeon', sans-serif;
-	color: darkgray;
+.info_modify_a_div > a,
+.info_modify_a_sms_div > a,
+.info_modify_a_email_div > a {
+	font-size: 15px;
+	text-align: left;
 }
 
 .info_modify_input_check_div {
 	width: 30px;
 	height: 30px;
-	display: table-cell; /* ì´ë¦„ê³¼ ì¸í’‹ì„ ì˜†ìœ¼ë¡œ ë‚˜ë€íˆ ë†“ê¸° */
+	display: table-cell; /* ÀÌ¸§°ú ÀÎÇ²À» ¿·À¸·Î ³ª¶õÈ÷ ³õ±â */
 	padding-bottom: 10px;
 }
 
@@ -71,31 +60,23 @@
 .info_modify_input_radio_div,
 .info_modify_a_sms_div,
 .info_modify_a_email_div  {
-	display: table-cell; /* ì´ë¦„ê³¼ ì¸í’‹ì„ ì˜†ìœ¼ë¡œ ë‚˜ë€íˆ ë†“ê¸° */
+	display: table-cell; /* ÀÌ¸§°ú ÀÎÇ²À» ¿·À¸·Î ³ª¶õÈ÷ ³õ±â */
 }
 
 .info_modify_input_div > input {
-	width: 250px;
+	width: 300px;
 	height: 30px;
-	font-size: 12px;
 }
 
 .info_modify_a_sms_div,
 .info_modify_a_email_div {
 	width: 250px;
 	height: 30px;
-}
-
-.info_modify_a_sms_div > a,
-.info_modify_a_email_div > a {
-	font-size: 20px;
-	font-family: 'Do Hyeon', sans-serif;
-	color: darkgray;
+	font-size: 15px;
+	text-align: left;
 }
 
 .check_gender_div {
-	padding: 0;
-	border: solid 1px black;
 	width: 100px;
 	display: inline-block;
 }
@@ -108,12 +89,11 @@
 	width:200px;
 	height: 50px;
 	font-weight: bold;
-	font-family: 'Do Hyeon', sans-serif;
 	font-size: 20px;
 	background-color: black;
 	color: white;
 	border-radius: 3px;
-	cursor: pointer; /* ë§ˆìš°ìŠ¤ ì˜¬ë¦¬ë©´ ì†ê°€ë½ ëª¨ì–‘ìœ¼ë¡œ ë³€í•¨ */
+	cursor: pointer; /* ¸¶¿ì½º ¿Ã¸®¸é ¼Õ°¡¶ô ¸ğ¾çÀ¸·Î º¯ÇÔ */
 }
 
 .mypage_go_btn {
@@ -121,36 +101,31 @@
 	width:200px;
 	height: 50px;
 	font-weight: bold;
-	font-family: 'Do Hyeon', sans-serif;
 	font-size: 20px;
 	background-color: black;
 	color: white;
 	border-radius: 3px;
-	cursor: pointer; /* ë§ˆìš°ìŠ¤ ì˜¬ë¦¬ë©´ ì†ê°€ë½ ëª¨ì–‘ìœ¼ë¡œ ë³€í•¨ */
+	cursor: pointer; /* ¸¶¿ì½º ¿Ã¸®¸é ¼Õ°¡¶ô ¸ğ¾çÀ¸·Î º¯ÇÔ */
 }
 
 
 /* member_pw_modify */
 .middle_pw_modify_div {
-	height: 1800px;
+	height: 700px;
 	padding-top: 200px;
 	background-color: white;
 }
 
 .pw_modify_div {
-	height: 1500px;
+	height: 350px;
 	background-color: white;
 	text-align: center;
 }
 
 .pw_modify_title_div {
 	padding-bottom: 50px;
-}
-
-.pw_modify_title_div > a {
 	font-size: 25px;
 	font-weight: bold;
-	font-family: 'Do Hyeon', sans-serif;
 	color: black;
 }
 
@@ -164,24 +139,15 @@
 .pw_modify_input_div {
 	width: 120px;
 	height: 15px;
-	display: table-cell; /* ì´ë¦„ê³¼ ì¸í’‹ì„ ì˜†ìœ¼ë¡œ ë‚˜ë€íˆ ë†“ê¸° */
-}
-
-.pw_modify_id_div {
-	width: 150px;
-	display: table-cell; /* ì´ë¦„ê³¼ ì¸í’‹ì„ ì˜†ìœ¼ë¡œ ë‚˜ë€íˆ ë†“ê¸° */
-	padding-bottom: 20px;
+	display: table-cell; /* ÀÌ¸§°ú ÀÎÇ²À» ¿·À¸·Î ³ª¶õÈ÷ ³õ±â */
 }
 
 .pw_modify_a_div {
-	width: 150px;
-	display: table-cell; /* ì´ë¦„ê³¼ ì¸í’‹ì„ ì˜†ìœ¼ë¡œ ë‚˜ë€íˆ ë†“ê¸° */
-}
-
-.pw_modify_a_div > a {
-	font-size: 20px;
-	font-family: 'Do Hyeon', sans-serif;
-	color: darkgray;
+	text-align: left;
+	height: 50px;
+	font-size: 15px;
+	width: 130px;
+	display: table-cell; /* ÀÌ¸§°ú ÀÎÇ²À» ¿·À¸·Î ³ª¶õÈ÷ ³õ±â */
 }
 
 .pw_modify_input_div > input {
@@ -190,26 +156,23 @@
 	font-size: 12px;
 }
 
-.pw_modify_message_div {
-	height: 30px;
-}
-
 .pw_modify_message_div > p {
-	font-size: 10px;
+	font-size: 12px;
 	font-weight: bold;
-	margin-left: 140px;
+	margin: 0px;
+	margin-left: 130px;
+	margin-bottom:10px;
 }
 
 .pw_modify_Btn {
 	width:200px;
 	height: 50px;
 	font-weight: bold;
-	font-family: 'Do Hyeon', sans-serif;
 	font-size: 20px;
 	background-color: black;
 	color: white;
 	border-radius: 3px;
-	cursor: pointer; /* ë§ˆìš°ìŠ¤ ì˜¬ë¦¬ë©´ ì†ê°€ë½ ëª¨ì–‘ìœ¼ë¡œ ë³€í•¨ */
+	cursor: pointer; /* ¸¶¿ì½º ¿Ã¸®¸é ¼Õ°¡¶ô ¸ğ¾çÀ¸·Î º¯ÇÔ */
 }
 
 .mypage_go_btn {
@@ -217,12 +180,11 @@
 	width:200px;
 	height: 50px;
 	font-weight: bold;
-	font-family: 'Do Hyeon', sans-serif;
 	font-size: 20px;
 	background-color: white;
 	color: black;
 	border-radius: 3px;
-	cursor: pointer; /* ë§ˆìš°ìŠ¤ ì˜¬ë¦¬ë©´ ì†ê°€ë½ ëª¨ì–‘ìœ¼ë¡œ ë³€í•¨ */
+	cursor: pointer; /* ¸¶¿ì½º ¿Ã¸®¸é ¼Õ°¡¶ô ¸ğ¾çÀ¸·Î º¯ÇÔ */
 }
 
 .mypage_go_btn:hover {
@@ -230,10 +192,9 @@
 	width:200px;
 	height: 50px;
 	font-weight: bold;
-	font-family: 'Do Hyeon', sans-serif;
 	font-size: 20px;
 	background-color: black;
 	color: white;
 	border-radius: 3px;
-	cursor: pointer; /* ë§ˆìš°ìŠ¤ ì˜¬ë¦¬ë©´ ì†ê°€ë½ ëª¨ì–‘ìœ¼ë¡œ ë³€í•¨ */
+	cursor: pointer; /* ¸¶¿ì½º ¿Ã¸®¸é ¼Õ°¡¶ô ¸ğ¾çÀ¸·Î º¯ÇÔ */
 }
