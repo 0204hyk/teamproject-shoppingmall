@@ -146,7 +146,7 @@
 			<div class="comment_box">
 				<input type="hidden" class="com_num" value="${comment.comment_num }">
 				<span class="mem" style="display: none">${comment.comment_id }</span>
-				<div><span class="com_id"></span> &nbsp;&nbsp; ${comment.creationCommentDate }</div>
+				<div><span class="com_id"></span> &nbsp;&nbsp; ${comment.comment_date }</div>
 				<br>
 				<div id="reply_detail">
 					<div id="get_content">${comment.comment_content }</div>
