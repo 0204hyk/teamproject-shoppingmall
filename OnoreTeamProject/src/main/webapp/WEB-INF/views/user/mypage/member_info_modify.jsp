@@ -65,8 +65,8 @@
 						<a>성별</a>
 					</div>
 					<div class="info_modify_input_radio_div">
-						<input id="mem_gender" type="radio" name="mem_gender" value="${member.mem_gender eq 'M'}" checked readonly><a>남성</a> 
-						<input id="mem_gender" type="radio" name="mem_gender" value="${member.mem_gender eq 'F'}" checked readonly><a>여성</a>
+  						<input id="mem_gender" type="radio" name="mem_gender" value="M" ${member.mem_gender == 'M' ? 'checked' : ''} disabled="disabled"><label for="mem_gender_male">남성</label> 
+  						<input id="mem_gender" type="radio" name="mem_gender" value="F" ${member.mem_gender == 'F' ? 'checked' : ''} disabled="disabled"><label for="mem_gender_female">여성</label>
 					</div>
 				</div>
 				<div class="info_modify_phone_div">
