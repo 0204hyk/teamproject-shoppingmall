@@ -207,7 +207,7 @@
 						</tr>
 				</c:forEach>
 			</table>
-			<button id="review">리뷰쓰기</button>
+		
 			</div>
 			<div class="qna">
 				<h3>Q & A</h3>
