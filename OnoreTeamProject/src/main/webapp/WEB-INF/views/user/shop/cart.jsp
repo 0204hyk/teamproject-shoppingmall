@@ -89,7 +89,7 @@
 										<form method="POST">
 											<input type="hidden" name="selected_list" value="${cart_list.get(i).cart_num}"/>
 											<input type="submit" class="order_single_btn" formaction="../order/from_cart" value="주문하기">
-											<input type="submit" class="delete_single_btn" formaction="./delete_selected_cart" value="삭제하기">
+											<input type="submit" class="delete_single_btn" formaction="<%=request.getContextPath()%>/delete_selected_cart" value="삭제하기">
 										</form>
 									</td>
 								</tr>

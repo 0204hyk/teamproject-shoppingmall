@@ -121,7 +121,7 @@
 					<input type="hidden" value="1" id="order_cnt" name="order_cnt">
 					<input type="hidden" id="cart_product_price" name="cart_product_price"/>
 					<input type="submit" value="주문하기" formaction="../order/order_directly" id="order" disabled>
-					<input type="submit" value="장바구니" formaction="./insert_cart" id="cart" disabled>
+					<input type="submit" value="장바구니" formaction="<%=request.getContextPath()%>/insert_cart" id="cart" disabled>
 				</form>
 			</div>
 		</div>
