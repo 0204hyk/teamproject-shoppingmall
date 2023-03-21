@@ -1,6 +1,5 @@
 # :pushpin: 오노레 쇼핑몰 프로젝트
 >스프링을 활용한 남성 수제화 쇼핑몰 프로젝트
-
 </br>
 
 ## 1. 제작 기간 & 참여 인원
@@ -10,13 +9,10 @@
 
 ## 2. 사용 기술
 ![사용기술](https://user-images.githubusercontent.com/114713801/226496252-a55c3ce5-4c9b-4da1-9c2d-58bbcb974bbc.png)
-
-
 </br>
 
 ## 3. Usecase Diagram
 ![image](https://user-images.githubusercontent.com/118063903/218922203-fb179f0b-58ae-49ad-a4a4-7a5bae93c799.png)
- 
 </br>
 
 ## 4. Story Board
@@ -26,7 +22,7 @@
 
 ## 4. ERD 
 ![ERD](https://user-images.githubusercontent.com/114713801/226496272-330dd99d-7f66-4dd2-9799-dd183744835b.png)
-
+</br>
 
 ## 5. 기능
 
@@ -51,7 +47,7 @@
 
  ### 5.5. 
  <br>
-
+ 
 </div>
 </details>
 
