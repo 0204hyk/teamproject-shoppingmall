@@ -37,7 +37,7 @@ public class ShopController {
 
 	@GetMapping("/detail")
 	public String detailProduct(Model model, Integer product_num) {
-
+		model.addAttribute("wish", shopService.checkWish(product_num));
 		model.addAttribute("product", shopService.getDetail(product_num));
 		model.addAttribute("reviews", shopService.getProReview(product_num));
 		model.addAttribute("qnas", shopService.getProQna(product_num));
