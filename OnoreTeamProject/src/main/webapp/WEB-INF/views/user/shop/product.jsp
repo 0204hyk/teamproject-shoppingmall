@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>ONÓRE</title>
 <%@ include file="../header.jspf" %>
-<link rel="icon" href="<%=request.getContextPath()%>/resources/review/image/파비콘.png">
+<link rel="icon" href="<%=request.getContextPath()%>/resources/main/image/fabicon.png">
 <link rel="stylesheet"href="<%=request.getContextPath()%>/resources/shop/css/product_detail.css?ver=5">
 <script src="<%=request.getContextPath()%>/resources/shop/js/product_detail.js?ver=1" defer></script>
 </head>
