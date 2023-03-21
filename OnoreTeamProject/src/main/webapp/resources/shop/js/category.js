@@ -154,7 +154,7 @@ derbyBtn.addEventListener('click', (e) => {
 				}	
 		}
 	});
-	
+	 
 
 	xhttp.open('GET', contextPath + '/restful/derby');
     xhttp.send();
