@@ -80,7 +80,7 @@
 						</c:choose>					
 						<div>
 							<div>[ ${qna.qna_category} ]</div>
-							<div><a href="#">${qna.qna_title}</a></div>
+							<div><a href="<%=request.getContextPath()%>/qna/view?qna_num=${qna.qna_num}">${qna.qna_title}</a></div>
 							<div>${qna.mem_id}</div>
 							<div>${qna.adminPageQnaDate}</div>
 						</div>
@@ -106,7 +106,7 @@
 						</c:choose>					
 						<div>
 							<div>[ ${review.product_name} ]</div>
-							<div><a href="#">${review.review_content}</a></div>
+							<div><a href="<%=request.getContextPath()%>/review/detail?review_num=${review.review_num}">${review.review_content}</a></div>
 							<div>${review.mem_id}</div>
 							<div>${review.adminPageReviewDate}</div>
 						</div>
