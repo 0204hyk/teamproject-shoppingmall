@@ -67,7 +67,7 @@
 										<td style="width: 200px;"><img src="${review.review_img_path}${review.review_img_1}" alt="이미지 미리보기" style="width: 100px; height: 100px; border-radius: 10px;"/></td>
 									</c:otherwise>
 								</c:choose>
-								<td id="review-content" style="vertical-align: middle;"><a href="">${review.review_content}</a></td>
+								<td id="review-content" style="vertical-align: middle;"><a href="<%=request.getContextPath()%>/review/detail?review_num=${review.review_num}" target="_blank">${review.review_content}</a></td>
 								<td style="width: 150px; vertical-align: middle;">${review.product_name}</td>
 								<td id="review-rating" style="width: 150px; vertical-align: middle">
 									<c:choose>
@@ -111,7 +111,7 @@
 							</li>				    					    
 					    </c:if>
 					</ul>
-					<input type="button" id="review-delete-btn" class="submit-btn btn btn-secondary btn-lg" value="삭 제"/>
+					<input type="button" id="review-delete-btn" class="action-btn" value="삭 제"/>
 				</div>
 			</div>
 		</form>

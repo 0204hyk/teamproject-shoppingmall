@@ -19,7 +19,7 @@ const receiver_phone_msg = document.getElementById('receiver_phone_msg');
 
 function toHomePage() {
 	if(window.confirm('홈페이지로 이동하시겠습니까? 주문 정보가 사라집니다.')) {
-		location.href = 'http://localhost:8888' + contextPath + '/main/';
+		location.href = contextPath + '/main/';
 	}
 }
 
@@ -52,7 +52,10 @@ purchase_btn.addEventListener('click', (e) => {
 			 									&& element.name != 'receiver_req'
 			 									&& element.name != 'discount_coupon'
 			 									&& element.name != 'discount_points'
-			 									&& element.name != 'paid_price') {
+			 									&& element.name != 'paid_price'
+			 									&& element.name != 'payment_key'
+			 									&& element.name != 'order_id'
+			 									&& element.name != 'amount') {
 			window.alert(element.name + ' is empty!!');
 					
 			 //focus() : 해당 요소로 커서를 옮긴다.
@@ -85,7 +88,7 @@ purchase_btn.addEventListener('click', (e) => {
 		}
 				
 		if (element.value == '' && element.name == 'receiver_zip_code') {
-			receiver_zip_code_msg.innerText = '수령인을 입력하세요';
+			receiver_zip_code_msg.innerText = '우편번호를 입력하세요';
 			element.focus();
 			return;
 		}

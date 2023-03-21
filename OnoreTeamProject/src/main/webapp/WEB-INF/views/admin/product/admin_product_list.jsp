@@ -13,7 +13,7 @@
 	<div class="product-content shadow" style="height: 835px;">
 		<div class="product-title">
 			<h1>상품 목록</h1>
-			<select name="search_type" class="form-select search-type" style="width: 150px;">
+			<select name="search_type" class="form-select search-type" style="width: 150px; margin-left: 100px;">
 				<option value="0">ALL</option>
 				<c:forEach items="${categories}" var="category">
 					<c:choose>
@@ -95,8 +95,8 @@
 							</li>				    					    
 					    </c:if>
 					</ul>
-					<input type="button" id="product-delete-btn" class="submit-btn btn btn-secondary btn-lg" value="삭 제"/>
-					<input type="button" onclick="movePageByGet('<%=request.getContextPath()%>/admin/product/regist')" class="submit-btn btn btn-secondary btn-lg" value="등 록"/>			
+					<input type="button" id="product-delete-btn" class="action-btn" value="삭 제"/>
+					<input type="button" onclick="movePageByGet('<%=request.getContextPath()%>/admin/product/regist')" class="action-btn" value="등 록"/>			
 				</div>
 			</div>
 		</form>

@@ -48,14 +48,14 @@
 			</table>
 			<div class="page" style="margin-top: 50px;">
 				<c:if test="${pagination_start > 5 }">
-					<a href="./pagenation?page=${previous_page }" id="before"><</a>
+					<a href="./qnaPagination?page=${previous_page }" id="before"><</a>
 				</c:if>
 				<c:forEach begin="${pagination_start }" end="${pagination_end }"
 					var="i">
-					<a href="./pagenation?page=${i }" class="pages">${i }</a>
+					<a href="./qnaPagination?page=${i }" class="pages">${i }</a>
 				</c:forEach>
 				<c:if test="${pagination_end % 5 eq 0 }">
-					<a href="./pagenation?page=${next_page }" id="next">></a>
+					<a href="./qnaPagination?page=${next_page }" id="next">></a>
 				</c:if>
 			</div>
 		</div>

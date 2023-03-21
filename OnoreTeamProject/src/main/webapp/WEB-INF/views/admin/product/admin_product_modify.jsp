@@ -42,7 +42,7 @@
 				</div>
 				<div>
 					<p class="thumbnail-title" style="font-size: 20px; margin-top: 5px;">상품 소개글</p>
-					<textarea name="product_info" id="input-info" class="form-control product-info" rows="5" placeholder="상품의 소개글을 작성해주세요." style="resize: none; width: 100%;">${product.product_info}</textarea>
+					<textarea id="input-info" name="product_info" class="summernote">${product.product_info}</textarea>
 				</div>
 				<div class="thumbnail-contaioner">
 					<p class="thumbnail-title" style="font-size: 20px; margin-top: 15px;">상품 썸네일</p>
@@ -83,10 +83,10 @@
 					</div>
 				</div>
 				<p style="font-size: 20px; margin-top: 10px;">상품 상세 정보</p>
-		  		<textarea id="input-detail" class="summernote" name="product_detail">${product.product_detail}</textarea>
+		  		<textarea id="input-detail" class="summernote2" name="product_detail">${product.product_detail}</textarea>
 		  		<div class="d-grid d-md-flex justify-content-md-end" style="margin-top: 15px; margin-bottom: 10px;">
-		  			<input type="button" id="modify-cancle-btn" class="submit-btn btn btn-secondary btn-lg" value="취 소" />
-		  			<input type="button" onclick="productModify('<%=request.getContextPath()%>/admin/product/modify')" class="submit-btn btn btn-secondary btn-lg" value="수 정"/>
+		  			<input type="button" id="modify-cancle-btn" class="action-btn" value="취 소" />
+		  			<input type="button" onclick="productModify('<%=request.getContextPath()%>/admin/product/modify')" class="action-btn" value="수 정"/>
 		  		</div>
 		  	</form>
 		</div>

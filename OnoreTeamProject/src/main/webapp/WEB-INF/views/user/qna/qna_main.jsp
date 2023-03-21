@@ -51,7 +51,7 @@
 						<c:choose>
 							<c:when
 								test="${sessionScope.signIn.mem_id eq qna.mem_id || sessionScope.signIn.mem_status eq 1 }">
-								<td id="qna_title"><a href="./view?qna_num=${qna.qna_num}">${qna.qna_title }</a></td>
+								<td id="qna_title"><a href="<%=request.getContextPath() %>/qna/view?qna_num=${qna.qna_num}">${qna.qna_title }</a></td>
 							</c:when>
 
 							<c:otherwise>
@@ -81,20 +81,20 @@
 
 			<div class="page">
 				<c:if test="${pagination_start > 5 }">
-					<a href="./main?page=${previous_page }"><</a>
+					<a href="<%=request.getContextPath() %>/main?page=${previous_page }"><</a>
 				</c:if>
 				<c:forEach begin="${pagination_start }" end="${pagination_end }"
 					var="i">
-					<a href="./main?page=${i }">${i }</a>
+					<a href="<%=request.getContextPath() %>/main?page=${i }">${i }</a>
 				</c:forEach>
 				<c:if test="${pagination_end % 5 eq 0 }">
-					<a href="./main?page=${next_page }">></a>
+					<a href="<%=request.getContextPath() %>/main?page=${next_page }">></a>
 				</c:if>
 			</div>
 		</div>
 	</div>
 
-	<hr>
+
 	<script type="text/javascript">
 		function qnaWrite() {
 			if (${empty sessionScope.signIn.mem_id}) {
@@ -102,7 +102,7 @@
 					location.href="../login"
 				}
 			} else {
-				location.href="./qna_write"
+				location.href=contextPath + "/qna/qna_write"
 			}
 		}
 		

@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>ONÓRE</title>
 <%@ include file="../header.jspf" %>
-<link rel="icon" href="<%=request.getContextPath()%>/resources/review/image/파비콘.png">
+<link rel="icon" href="<%=request.getContextPath()%>/resources/main/image/fabicon.png">
 <link rel="stylesheet"href="<%=request.getContextPath()%>/resources/shop/css/product_detail.css?ver=5">
 <script src="<%=request.getContextPath()%>/resources/shop/js/product_detail.js?ver=1" defer></script>
 </head>
@@ -35,6 +35,18 @@
 			<div class="top">
 				<div class="left">
 					<img src="${product.product_thumbnail_1 }" id="test">
+					<div id="thumbnail">
+						<c:if test="${not empty product.product_thumbnail_2 }">
+							<button id="tb_1"><img src="${product.product_thumbnail_1 }" ></button>
+							<button id="tb_2"><img src="${product.product_thumbnail_2 }" ></button>
+							<input type="hidden" value="${product.product_thumbnail_1 }" id="tbi_1">
+							<input type="hidden" value="${product.product_thumbnail_2 }" id="tbi_2">
+						</c:if>
+						<c:if test="${not empty product.product_thumbnail_3 }">
+							<button id="tb_3"><img src="${product.product_thumbnail_3 }"></button>
+							<input type="hidden" value="${product.product_thumbnail_3 }" id="tbi_3">
+						</c:if>
+					</div>
 				</div>
 				<div class="right">
 					<h1 id="product_name">${product.product_name }</h1>
@@ -108,8 +120,8 @@
 					<input type="hidden" id="product_num" value="${product.product_num }" name="product_num">
 					<input type="hidden" value="1" id="order_cnt" name="order_cnt">
 					<input type="hidden" id="cart_product_price" name="cart_product_price"/>
-					<input type="submit" value="주문하기" formaction="../order/order_directly" id="order">
-					<input type="submit" value="장바구니" formaction="./insert_cart" id="cart">
+					<input type="submit" value="주문하기" formaction="../order/order_directly" id="order" disabled>
+					<input type="submit" value="장바구니" formaction="<%=request.getContextPath()%>/shop/insert_cart" id="cart" disabled>
 				</form>
 			</div>
 		</div>
@@ -236,7 +248,7 @@
 		</div>
 			<br>
 	</div>
-	<hr>
+	
 	
 	<%@ include file="../bottom.jspf" %>
 

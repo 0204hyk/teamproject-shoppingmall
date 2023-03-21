@@ -14,7 +14,8 @@
 		     <![CDATA[CONNECT BY LEVEL <= 7) a,]]>
 		    (SELECT TO_CHAR(order_date, 'YYYY.MM.DD') AS day , pay_price
 		     FROM orders
-		     WHERE order_date BETWEEN TO_CHAR(SYSDATE-6,'YYYY.MM.DD') AND TO_CHAR(SYSDATE+1 , 'YYYY.MM.DD')) b
+		     WHERE order_status = 0 AND 
+		     order_date BETWEEN TO_CHAR(SYSDATE-6,'YYYY.MM.DD') AND TO_CHAR(SYSDATE+1 , 'YYYY.MM.DD')) b
 		WHERE a.dt = b.day(+)
 		GROUP BY a.dt
 		ORDER BY a.dt DESC
@@ -34,7 +35,8 @@
 		      <![CDATA[CONNECT BY LEVEL <= 7) a,]]>
 		     (SELECT TO_CHAR(order_date, 'YYYY.MM.DD') AS day , pay_price
 		      FROM orders
-		      WHERE order_date BETWEEN TO_CHAR(SYSDATE-6,'YYYY.MM.DD') AND TO_CHAR(SYSDATE+1 , 'YYYY.MM.DD')) b
+		      WHERE order_status = 0 AND 
+		      order_date BETWEEN TO_CHAR(SYSDATE-6,'YYYY.MM.DD') AND TO_CHAR(SYSDATE+1 , 'YYYY.MM.DD')) b
 		    WHERE a.dt = b.day(+)
 		    GROUP BY a.dt)
 	</select>
@@ -49,7 +51,8 @@
 		     <![CDATA[CONNECT BY LEVEL <= TO_CHAR(LAST_DAY(sysdate),'DD')) a,]]>
 		    (SELECT TO_CHAR(order_date, 'MM.DD') AS day , pay_price
 		     FROM orders
-		     WHERE order_date BETWEEN (TO_CHAR(TRUNC(SYSDATE,'MM'),'YYYYMMDD')) AND (LAST_DAY(SYSDATE))) b
+		     WHERE order_status = 0 AND 
+		     order_date BETWEEN (TO_CHAR(TRUNC(SYSDATE,'MM'),'YYYYMMDD')) AND (LAST_DAY(SYSDATE))) b
 		WHERE a.dt = b.day(+)
 		GROUP BY a.dt
 		ORDER BY a.dt
@@ -70,9 +73,9 @@
 		     <![CDATA[CONNECT BY LEVEL <= TO_CHAR(LAST_DAY(sysdate),'DD')) a,]]>
 		     (SELECT TO_CHAR(order_date, 'MM.DD') AS day , pay_price
 		     FROM orders
-		     WHERE order_date BETWEEN (TO_CHAR(TRUNC(SYSDATE,'MM'),'YYYYMMDD')) AND (LAST_DAY(SYSDATE))) b
+		     WHERE order_status = 0 AND 
+		     order_date BETWEEN (TO_CHAR(TRUNC(SYSDATE,'MM'),'YYYYMMDD')) AND (LAST_DAY(SYSDATE))) b
 		    WHERE a.dt = b.day(+)
 		    GROUP BY a.dt)
 	</select>
-	
 </mapper>

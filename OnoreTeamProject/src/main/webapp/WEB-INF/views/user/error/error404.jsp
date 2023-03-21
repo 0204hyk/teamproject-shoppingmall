@@ -24,5 +24,5 @@
 </div>
 <!-- middle 끝 -->
        
-<script src="/project/resources/menu/js/menubar.js"></script>
+<script src="<%=request.getContextPath() %>/resources/menu/js/menubar.js"></script>
 <%@include file="../bottom.jspf" %>

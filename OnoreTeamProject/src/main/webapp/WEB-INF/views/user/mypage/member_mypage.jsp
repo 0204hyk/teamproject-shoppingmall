@@ -1,22 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>ONÓRE</title>
 <link
-	href="<%=request.getContextPath()%>/resources/mypage/css/mypage_main.css" rel="stylesheet" />
-<link rel="icon" href="<%=request.getContextPath() %>/resources/main/images/fabicon.png">
-	
-<style>
-.recent_order_detail_td {
-	margin-bottom: 20px;
-	border-top: 0.5px dotted black;
-	border-bottom: 1px solid black;
-}
-</style>
+	href="<%=request.getContextPath()%>/resources/mypage/css/mypage_main.css"
+	rel="stylesheet" />
+<link rel="icon"
+	href="<%=request.getContextPath() %>/resources/main/images/fabicon.png">
+
+
 <%@include file="../header.jspf"%>
 </head>
 <body>
@@ -24,6 +20,7 @@
 
 	<!-- middle 시작 -->
 	<div class="middle_mypage_div">
+		<hr>
 		<div class="mypage_div">
 			<div class="member_info_div">
 				<div class="mypage_title">My Page</div>
@@ -32,16 +29,16 @@
 				</div>
 				<div class="member_id_div">${sessionScope.signIn.mem_name}님</div>
 				<div class="member_point_div">
-				  총 적립금
-				  <c:choose>
-				    <c:when test="${mem_point > 0}">
-				      <fmt:formatNumber value="${mem_point}" pattern="#,##0"/>원
+					총 적립금
+					<c:choose>
+						<c:when test="${mem_point > 0}">
+							<fmt:formatNumber value="${mem_point}" pattern="#,##0" />원
 				    </c:when>
-				    <c:otherwise>
+						<c:otherwise>
 				      0원
 				    </c:otherwise>
-				  </c:choose>
-				</div>				
+					</c:choose>
+				</div>
 				<div class="member_modify_div">
 					<input type="button" class="member_pw_btn"
 						onclick="location.href='./member_pw_modify'" value="비밀번호변경">
@@ -62,6 +59,7 @@
 							<col style="width: 500px">
 							<col style="width: 200px">
 							<col style="width: 300px">
+							<col style="width: 200px">
 							<col style="width: 400px">
 						</colgroup>
 						<tr>
@@ -70,14 +68,18 @@
 							<th>주문 명</th>
 							<th>결제 가격</th>
 							<th>주문 날짜</th>
+							<th>상태</th>
 							<th>버튼</th>
 						</tr>
 						<c:choose>
-							<c:when test="${not empty my_orders}">
+							<c:when test="${not empty my_orders || my_orders.size() > 0}">
 								<c:forEach begin="0" end="${my_orders.size()-1}" var="i">
 									<tr class="recent_order">
-										<td><i title="arrow" class="fa-solid fa-chevron-down"></i>
-										</td>
+										<td><input type="checkbox" id="arrow${i}"
+											class="order_accordion_arrow" style="display: none;" /> <label
+											for="arrow${i}" style="cursor: pointer;"> <i
+												title="arrow" class="fa-solid fa-chevron-down"></i>
+										</label></td>
 										<td class="recent_order_num">order_${my_orders.get(i).order_num}</td>
 										<td class="recent_order_name"><input type="checkbox"
 											id="order${i}" class="order_accordion" style="display: none;" />
@@ -86,6 +88,20 @@
 										<td class="recent_order_pay_price"><fmt:formatNumber
 												value="${my_orders.get(i).pay_price}" pattern="#,###" />원</td>
 										<td class="recent_order_date">${my_orders.get(i).creationDateTime}</td>
+										<td class="recent_order_status"><c:choose>
+												<c:when test="${my_orders.get(i).order_status eq 0}">
+					        						주문 완료
+					        					</c:when>
+												<c:when test="${my_orders.get(i).order_status eq 1}">
+					        						환불 요청
+					        					</c:when>
+												<c:when test="${my_orders.get(i).order_status eq 2}">
+					        						환불 완료
+					        					</c:when>
+												<c:otherwise>
+					        						ERROR
+					        					</c:otherwise>
+											</c:choose></td>
 										<td class="recent_order_btns">
 											<!-- action="./order/delete" method="POST" -->
 											<form class="order_form">
@@ -97,21 +113,21 @@
 										</td>
 									</tr>
 									<tr class="recent_order_detail" style="display: none;">
-										<td class="recent_order_detail_td" colspan="6">
+										<td class="recent_order_detail_td" colspan="7">
 											<div>
 												<table>
 													<colgroup>
 														<col style="width: 100px">
 														<col style="width: 200px">
 														<col style="width: 700px">
-														<col style="width: 100px">
-														<col style="width: 100px">
-														<col style="width: 150px">
+														<col style="width: 250px">
+														<col style="width: 250px">
+														<col style="width: 200px">
 													</colgroup>
 													<tr>
 														<th>상품 번호</th>
 														<th>상품 이름</th>
-								 						<th>옵션</th>
+														<th>옵션</th>
 														<th>가격</th>
 														<th>수량</th>
 														<th>버튼</th>
@@ -122,7 +138,7 @@
 															<td>order_${my_orders.get(i).order_num}_${j+1}</td>
 															<td>${my_order_infos.get(i).get(j).product_name}</td>
 															<td>${my_order_infos.get(i).get(j).order_info_option}</td>
-															<td>${my_order_infos.get(i).get(j).order_info_price}</td>
+															<td><fmt:formatNumber value="${my_order_infos.get(i).get(j).order_info_price}" pattern="#,##0" />원</td>
 															<td>${my_order_infos.get(i).get(j).order_info_qty}</td>
 															<td>
 																<form action="./review/write" method="GET">
@@ -141,7 +157,7 @@
 							</c:when>
 							<c:otherwise>
 								<tr>
-									<td colspan="6">주문 내역이 없습니다.</td>
+									<td colspan="7">주문 내역이 없습니다.</td>
 								</tr>
 							</c:otherwise>
 						</c:choose>

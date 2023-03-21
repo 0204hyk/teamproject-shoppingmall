@@ -9,7 +9,8 @@
 <title>장바구니</title>
 <%@ include file="../header.jspf" %>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/shop/css/cart.css">
-<link rel="icon" href="<%=request.getContextPath() %>/resources/shop/image/파비콘.png">
+<link rel="icon" href="<%=request.getContextPath()%>/resources/main/image/fabicon.png">
+
 </head>
 <body>
 <script src="<%=request.getContextPath() %>/resources/shop/js/cart.js" defer></script>
@@ -72,7 +73,7 @@
 										<form action="./update_cart" method="POST">
 											<input type="hidden" name="cart_num" value="${cart_list.get(i).cart_num}"/>
 											<input type="hidden" name="product_price" value="${cart_product_list.get(i).product_price}"/>
-											<input type="number" value="${cart_list.get(i).cart_product_qty}" min="0" max="99" 
+											<input type="number" value="${cart_list.get(i).cart_product_qty}" min="1" max="99" 
 													name="cart_product_qty" style="width: 30px; text-align: center;"/> <br>
 											<input type="submit" value="변경"/>
 										</form>
@@ -89,7 +90,7 @@
 										<form method="POST">
 											<input type="hidden" name="selected_list" value="${cart_list.get(i).cart_num}"/>
 											<input type="submit" class="order_single_btn" formaction="../order/from_cart" value="주문하기">
-											<input type="submit" class="delete_single_btn" formaction="./delete_selected_cart" value="삭제하기">
+											<input type="submit" class="delete_single_btn" formaction="<%=request.getContextPath()%>/delete_selected_cart" value="삭제하기">
 										</form>
 									</td>
 								</tr>

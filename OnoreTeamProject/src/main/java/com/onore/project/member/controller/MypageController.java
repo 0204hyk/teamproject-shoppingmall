@@ -87,10 +87,9 @@ public class MypageController {
 		return "redirect:/login";
 		
 		}
-		
-		
+
 	}
-	
+
 	@GetMapping("/qnaPagination")
 	public String qnaPagination(String mem_id, HttpServletRequest req) {
 		popUpService.qnaPopUpService(req, mem_id);

@@ -1,11 +1,9 @@
 					// 지도 띄우기
 					var container = document.getElementById('location_map_div2');
-					
 					var options = {
 					    center: new kakao.maps.LatLng(37.605099, 127.14046), // 위도, 경도
 					    level: 3
 					};
-					
 					var map = new kakao.maps.Map(container, options);
 					
 					// 위치표시 추가

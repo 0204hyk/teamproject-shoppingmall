@@ -18,7 +18,7 @@ const pay_method = document.getElementById('pay_method');
 const payment_key = document.getElementById('payment_key');
 const amount = document.getElementById('amount');
 
-const purchase_url = window.location.protocol + "//" + window.location.host + "/project/order/purchase";
+const purchase_url = window.location.protocol + "//" + window.location.host + contextPath + "/order/purchase";
 
 function purchase_submit() {
 		console.log(payment_key.value);

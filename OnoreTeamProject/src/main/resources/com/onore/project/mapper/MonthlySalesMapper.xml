@@ -14,7 +14,8 @@
 		     <![CDATA[CONNECT BY LEVEL <= 12) a,]]>
 		    (SELECT TO_CHAR(order_date, 'YYYY-MM') AS month , pay_price
 		     FROM orders
-		     WHERE order_date BETWEEN TO_CHAR(TRUNC(SYSDATE,'YY')) AND TO_CHAR(SYSDATE, 'YYYY') || '-12-31') b
+		     WHERE order_status = 0 AND 
+		     order_date BETWEEN TO_CHAR(TRUNC(SYSDATE,'YY')) AND TO_CHAR(SYSDATE, 'YYYY') || '-12-31') b
 		WHERE a.dt = b.month(+)
 		GROUP BY a.dt
 		ORDER BY a.dt
@@ -35,7 +36,8 @@
 		     <![CDATA[CONNECT BY LEVEL <= 12) a,]]>
 		     (SELECT TO_CHAR(order_date, 'YYYY-MM') AS month , pay_price
 		     FROM orders
-		     WHERE order_date BETWEEN TO_CHAR(TRUNC(SYSDATE,'YY')) AND TO_CHAR(SYSDATE, 'YYYY') || '-12-31') b
+		     WHERE order_status = 0 AND 
+		     order_date BETWEEN TO_CHAR(TRUNC(SYSDATE,'YY')) AND TO_CHAR(SYSDATE, 'YYYY') || '-12-31') b
 		    WHERE a.dt = b.month(+)
 		    GROUP BY a.dt)
 	</select>

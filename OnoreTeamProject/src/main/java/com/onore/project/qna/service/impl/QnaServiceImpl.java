@@ -16,6 +16,7 @@ import com.onore.project.dto.ProductsDTO;
 import com.onore.project.dto.QnaAndProductsDTO;
 import com.onore.project.dto.QnaDTO;
 import com.onore.project.dto.QnaReplyDTO;
+import com.onore.project.dto.ShopDTO;
 import com.onore.project.mapper.QnaMapper;
 import com.onore.project.qna.service.QnaService;
 
@@ -81,15 +82,17 @@ public class QnaServiceImpl implements QnaService {
 	}
 
 	@Override
-	public List<ProductsDTO> getProductName(String product_name) {
+	public List<ShopDTO> getProductName(String product_name) {
 
 		return qna_mapper.getProductName(product_name);
 	}
 
 	@Override
 	public void fileUpload(QnaDTO qna, List<MultipartFile> file) throws IllegalStateException, IOException {
-		String imgPath = "C:\\Users\\K\\git\\teamproject-shoppingmall\\OnoreTeamProject\\src\\main\\webapp\\resources\\qna\\images\\";
-
+		//String imgPath = "C:\\Users\\K\\git\\teamproject-shoppingmall\\OnoreTeamProject\\src\\main\\webapp\\resources\\qna\\images\\";
+		
+		// 서버 경로
+		String imgPath = "/opt/tomcat/apache-tomcat-9.0.73/webapps/OnoreTeamProject/resources/qna/images/";
 		UUID uuid = UUID.randomUUID();
 		String[] fileName = new String[3];
 

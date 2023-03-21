@@ -32,8 +32,8 @@ public class ImageUploadRestController {
 		
 		// 상대경로에 이미지 저장 시 재배포할 때마다 파일 유실 됨. 파일 유실 막으려면 절대경로로 C드라이브 내부에 저장하는게 좋음
 		String contextRoot = request.getSession().getServletContext().getRealPath("/");
-		String fileRoot = contextRoot+"/resources/admin/image/notice/";
-		
+		//String fileRoot = contextRoot+"/resources/admin/image/notice/";
+		String fileRoot = "/opt/tomcat/apache-tomcat-9.0.73/webapps/OnoreTeamProject/resources/admin/image/notice/"; 	// 서버경로
 		String originalFileName = multipartFile.getOriginalFilename();	//오리지날 파일명
 		String extension = originalFileName.substring(originalFileName.lastIndexOf("."));	//파일 확장자
 		String savedFileName = UUID.randomUUID() + extension;	//저장될 파일 명
@@ -42,7 +42,7 @@ public class ImageUploadRestController {
 		try {
 			InputStream fileStream = multipartFile.getInputStream();
 			FileUtils.copyInputStreamToFile(fileStream, targetFile);	//파일 저장
-			jsonObject.addProperty("url", "/project/resources/admin/image/notice/" + savedFileName);
+			jsonObject.addProperty("url", "/OnoreTeamProject/resources/admin/image/notice/" + savedFileName);
 			jsonObject.addProperty("responseCode", "success");		
 			fileStream.close();
 		} catch (IOException e) {
@@ -60,8 +60,8 @@ public class ImageUploadRestController {
 		JsonObject jsonObject = new JsonObject();
 				
 		String contextRoot = request.getSession().getServletContext().getRealPath("/");
-		String fileRoot = contextRoot+"resources/admin/image/product/detail_image/";
-		
+		//String fileRoot = contextRoot+"resources/admin/image/product/detail_image/";
+		String fileRoot = "/opt/tomcat/apache-tomcat-9.0.73/webapps/OnoreTeamProject/resources/admin/image/product/detail_image/"; 	// 서버경로
 		String originalFileName = multipartFile.getOriginalFilename();	//오리지날 파일명
 		String extension = originalFileName.substring(originalFileName.lastIndexOf("."));	//파일 확장자
 		String savedFileName = UUID.randomUUID() + extension;	//저장될 파일 명
@@ -70,7 +70,7 @@ public class ImageUploadRestController {
 		try {
 			InputStream fileStream = multipartFile.getInputStream();
 			FileUtils.copyInputStreamToFile(fileStream, targetFile);	//파일 저장
-			jsonObject.addProperty("url", "/project/resources/admin/image/product/detail_image/" + savedFileName);
+			jsonObject.addProperty("url", "/OnoreTeamProject/resources/admin/image/product/detail_image/" + savedFileName);
 			jsonObject.addProperty("responseCode", "success");		
 			fileStream.close();
 		} catch (IOException e) {

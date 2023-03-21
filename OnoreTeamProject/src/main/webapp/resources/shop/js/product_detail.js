@@ -68,7 +68,7 @@ function count(type) {
 sizes.addEventListener('click', ()=> {
 	if (mem_id === '') {
 			if(confirm("로그인이 필요한 서비스입니다. 로그인 하시겠습니까?")) {
-				location.href='/project/login'
+				location.href=contextPaht + '/login'
 			} else {
 				event.preventDefault();
 			}
@@ -204,7 +204,7 @@ nowish.addEventListener('click', (e) => {
 	        }
 	    });
 	    
-	    xhttp.open('POST', './wish');
+	    xhttp.open('POST', contextPath + '/wish');
 	    xhttp.setRequestHeader('Content-type', 'application/json');
 	    
 	     const obj = {
@@ -216,7 +216,7 @@ nowish.addEventListener('click', (e) => {
 	    
     	} else {
 	    	if(confirm('로그인이 필요한 서비스입니다 로그인 하시겠습니까?')) {
-				location.href='/project/login';
+				location.href=contextPath + '/login';
 			}
 	     }
 });
@@ -232,7 +232,7 @@ wish.addEventListener('click', (e) => {
         }
     });
   
-    xhttp.open('POST', './nowish');
+    xhttp.open('POST', contextPath + '/nowish');
     
     xhttp.setRequestHeader('Content-type', 'application/json');
     
@@ -242,4 +242,29 @@ wish.addEventListener('click', (e) => {
     }
     
     xhttp.send(JSON.stringify(obj));
+});
+
+const tb_1 = document.getElementById('tb_1'); // 버튼
+const tbi_1 = document.getElementById('tbi_1').value; // img
+
+const tb_2 = document.getElementById('tb_2');
+const tbi_2 = document.getElementById('tbi_2').value;
+
+const test = document.getElementById('test');
+
+tb_1.addEventListener('click', (e) =>{
+	test.setAttribute('src', tbi_1);
+});
+
+
+tb_2.addEventListener('click', (e) =>{
+	test.setAttribute('src', tbi_2);
+});
+
+const tb_3 = document.getElementById('tb_3');
+const tbi_3 = document.getElementById('tbi_3').value;
+
+
+tb_3.addEventListener('click', (e) =>{
+	test.setAttribute('src', tbi_3)
 });

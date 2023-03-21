@@ -22,7 +22,7 @@
 	    	<p style="font-weight : bold; font-size: 12px; color: darkgray"> 보다 좋은 서비스를 받으실 수 있도록 노력하겠습니다. </p>
 	    	<p style="font-weight : bold; font-size: 12px; color: darkgray"> 감사합니다. </p>
 	    	
-	    	<button type="button" class="login_go_btn" onclick="location.href='./login'">로그인하러 가기</button>  	
+	    	<button type="button" class="login_go_btn" onclick="location.href='<%=request.getContextPath() %>/login'">로그인하러 가기</button>  	
 	 </div>
 </div>
 <!-- middle 끝 -->

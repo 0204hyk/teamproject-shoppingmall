@@ -14,7 +14,7 @@
 
 <!-- middle 시작 -->
 <div class="middle_member_info_delete_div">
-	<form id="member_info_delete_form" action="./memberDeleteDo" method="POST" name="member_info_delete_form">
+	<form id="member_info_delete_form" action="<%=request.getContextPath() %>/memberDeleteDo" method="POST" name="member_info_delete_form">
 		<div class="member_info_delete_div">
 			<div class="member_delete_title_div">
 				<a>회원탈퇴</a>

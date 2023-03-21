@@ -90,7 +90,7 @@
 										<td style="width: 200px;"><img src="${qna.qna_img_path}${qna.qna_img_1}" alt="이미지 미리보기" style="width: 100px; height: 100px; border-radius: 10px;"/></td>
 									</c:otherwise>
 								</c:choose>
-								<td id="qna-title" style="vertical-align: middle;"><a href="">${qna.qna_title}</a></td>
+								<td id="qna-title" style="vertical-align: middle;"><a href="<%=request.getContextPath()%>/qna/view?qna_num=${qna.qna_num}" target="_blank">${qna.qna_title}</a></td>
 								<td style="width: 150px; vertical-align: middle;">${qna.product_name}</td>
 								<td style="width: 150px; vertical-align: middle;">${qna.qna_category}</td>
 								<td style="width: 150px; vertical-align: middle;">${qna.mem_id}</td>
@@ -126,7 +126,7 @@
 							</li>				    					    
 					    </c:if>
 					</ul>
-					<input type="button" id="qna-delete-btn" class="submit-btn btn btn-secondary btn-lg" value="삭 제"/>
+					<input type="button" id="qna-delete-btn" class="action-btn" value="삭 제"/>
 				</div>
 			</div>
 		</form>

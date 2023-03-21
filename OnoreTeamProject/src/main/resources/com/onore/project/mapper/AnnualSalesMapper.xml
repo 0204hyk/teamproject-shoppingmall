@@ -15,7 +15,8 @@
 		     <![CDATA[CONNECT BY LEVEL <= TO_NUMBER(TO_CHAR(SYSDATE, 'YYYY'))) a,]]>
 		    (SELECT TO_CHAR(order_date, 'YYYY') AS year , pay_price
 		     FROM orders
-		     WHERE TO_CHAR(order_date, 'YYYY') BETWEEN TO_CHAR(ADD_MONTHS(SYSDATE, -108), 'YYYY') AND TO_CHAR(SYSDATE, 'YYYY')) b
+		     WHERE order_status = 0 AND 
+		     TO_CHAR(order_date, 'YYYY') BETWEEN TO_CHAR(ADD_MONTHS(SYSDATE, -108), 'YYYY') AND TO_CHAR(SYSDATE, 'YYYY')) b
 		WHERE a.dt = b.year(+)
 		GROUP BY a.dt
 		ORDER BY a.dt
@@ -37,7 +38,8 @@
 		     <![CDATA[CONNECT BY LEVEL <= TO_NUMBER(TO_CHAR(SYSDATE, 'YYYY'))) a,]]>
 		    (SELECT TO_CHAR(order_date, 'YYYY') AS year , pay_price
 		     FROM orders
-		     WHERE TO_CHAR(order_date, 'YYYY') BETWEEN TO_CHAR(ADD_MONTHS(SYSDATE, -108), 'YYYY') AND TO_CHAR(SYSDATE, 'YYYY')) b
+		     WHERE order_status = 0 AND 
+		     TO_CHAR(order_date, 'YYYY') BETWEEN TO_CHAR(ADD_MONTHS(SYSDATE, -108), 'YYYY') AND TO_CHAR(SYSDATE, 'YYYY')) b
 		    WHERE a.dt = b.year(+)
 		    GROUP BY a.dt
 		    ORDER BY a.dt)

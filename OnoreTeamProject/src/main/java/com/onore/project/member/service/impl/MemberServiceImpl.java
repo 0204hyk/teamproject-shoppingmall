@@ -220,7 +220,6 @@ public class MemberServiceImpl implements MemberService{
 			return mapper.memberDeleteCoupon(mem_id);
 		}
 
-		
 	   @Override
 	   public void memberDelete(MemberDTO memberdto) throws Exception {
 	      mapper.memberDelete(memberdto);

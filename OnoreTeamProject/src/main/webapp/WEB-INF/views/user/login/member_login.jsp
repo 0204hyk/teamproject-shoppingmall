@@ -15,7 +15,7 @@
 <!-- middle 시작 -->
 <div class="middle_login_div">
 	<c:if test="${signIn == null }">
-	<form id="login_form" method="POST" action="./signIn.do" name="login_form" class="login_form" autocomplete="off">
+	<form id="login_form" method="POST" action="<%=request.getContextPath() %>/signIn.do" name="login_form" class="login_form" autocomplete="off">
 		<div class="login_div">
 			
 			<div class="login_title_div">
@@ -38,7 +38,7 @@
 			
 				<div class="member_search_div">
 				<div class="remember_id_div"><input class="remember_id_input" id="remember_id_input" type="checkbox" name="remember_id_input" ${cookie.saved_id != null ? 'checked' : ''} ><a>아이디 기억하기</a></div>
-				<div class="member_idpw_search_div"><a class="member_idpw_searchBtn" href="./member_search">아이디/비밀번호 찾기</a></div>
+				<div class="member_idpw_search_div"><a class="member_idpw_searchBtn" href="<%=request.getContextPath() %>/member_search">아이디/비밀번호 찾기</a></div>
 				</div>
 				<div class="message_div">
 				<c:if test="${result == 0}">

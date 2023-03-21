@@ -82,8 +82,8 @@
 							</li>				    					    
 					    </c:if>
 					</ul>
-					<input type="button" id="notice-delete-btn" class="submit-btn btn btn-secondary btn-lg" value="삭 제"/>
-					<input type="button" onclick="movePageByGet('<%=request.getContextPath()%>/admin/notice/write')" class="submit-btn btn btn-secondary btn-lg" value="등 록"/>			
+					<input type="button" id="notice-delete-btn" class="action-btn" value="삭 제"/>
+					<input type="button" onclick="movePageByGet('<%=request.getContextPath()%>/admin/notice/write')" class="action-btn" value="등 록"/>			
 				</div>
 			</div>
 		</form>

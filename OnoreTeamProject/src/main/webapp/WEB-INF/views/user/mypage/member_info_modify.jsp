@@ -15,7 +15,7 @@
 
 <!-- middle 시작 -->
 <div class="middle_info_modify_div">
-	<form id="info_modify_form" action="memberInfoModify" method="POST" name="info_modify_form">
+	<form id="info_modify_form" action="<%=request.getContextPath() %>/memberInfoModify" method="POST" name="info_modify_form">
 		<div class="info_modify_div">
 			<div class="info_modify_title_div">
 				<a>회원정보 수정</a>

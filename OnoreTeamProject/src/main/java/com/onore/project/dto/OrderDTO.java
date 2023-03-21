@@ -41,5 +41,8 @@ public class OrderDTO {
 		return creationDate.isEqual(today) ? 
 				timeFormat.format(order_date) : dayFormat.format(order_date);		
 	}
-
+	
+	// 관리자 페이지
+	private String search_type;
+	private String search_keyword;
 }
