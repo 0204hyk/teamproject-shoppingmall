@@ -24,19 +24,20 @@
 				<th class="stats-table-col-3">주문 건수</th>
 			</tr>
 			<c:forEach items="${monthlySales}" var="monthSaleData">
-				<tr>
-					<td class="stats-table-col-1">${monthSaleData.month}</td>
-					<td class="stats-table-col-2"><fmt:formatNumber value="${monthSaleData.monthly_sales}" pattern="#,###"/> 원</td>
-					<td class="stats-table-col-3"><fmt:formatNumber value="${monthSaleData.monthly_sales_cnt}" pattern="#,###"/> 건</td>
-				</tr>
+				<c:if test="${monthSaleData.monthly_sales ne 0}">
+					<tr>					
+						<td class="stats-table-col-1">${monthSaleData.month}</td>
+						<td class="stats-table-col-2"><fmt:formatNumber value="${monthSaleData.monthly_sales}" pattern="#,###"/> 원</td>
+						<td class="stats-table-col-3"><fmt:formatNumber value="${monthSaleData.monthly_sales_cnt}" pattern="#,###"/> 건</td>
+					</tr>
+				</c:if>
 			</c:forEach>
 		</table>
 		<table class="stats-table">
 			<tr>
-				<th class="stats-table-col-1">${monthlySalesTotal.year}</td>
+				<th class="stats-table-col-1">${monthlySalesTotal.year}</th>
 				<td class="stats-table-col-2"><fmt:formatNumber value="${monthlySalesTotal.monthly_sales_total}" pattern="#,###"/> 원</td>
 				<td class="stats-table-col-3"><fmt:formatNumber value="${monthlySalesTotal.monthly_sales_cnt_total}" pattern="#,###"/> 건</td>
-
 			</tr>
 		</table>
 	</div>
@@ -51,8 +52,11 @@
 
 		for (var i = 0; i < jData.length; ++i) {
 			var d = jData[i];
-			labelList.push(d.month);
-			dataList.push(d.monthly_sales);
+			
+			if (d.monthly_sales != '0') {
+				labelList.push(d.month);
+				dataList.push(d.monthly_sales);				
+			}
 		}
 
 		monthlyChart = document.getElementById('monthly-chart');

@@ -24,16 +24,18 @@
 				<th class="stats-table-col-3">주문 건수</th>
 			</tr>
 			<c:forEach items="${dailySales}" var="daySaleData">
-				<tr>
-					<td class="stats-table-col-1">${daySaleData.day}</td>
-					<td class="stats-table-col-2"><fmt:formatNumber value="${daySaleData.daily_sales}" pattern="#,###"/> 원</td>
-					<td class="stats-table-col-3"><fmt:formatNumber value="${daySaleData.daily_sales_cnt}" pattern="#,###"/> 건</td>
-				</tr>
+				<c:if test="${daySaleData.daily_sales ne 0}">
+					<tr>
+						<td class="stats-table-col-1">${daySaleData.day}</td>
+						<td class="stats-table-col-2"><fmt:formatNumber value="${daySaleData.daily_sales}" pattern="#,###"/> 원</td>
+						<td class="stats-table-col-3"><fmt:formatNumber value="${daySaleData.daily_sales_cnt}" pattern="#,###"/> 건</td>
+					</tr>
+				</c:if>
 			</c:forEach>
 		</table>
 		<table class="stats-table">
 			<tr>
-				<th class="stats-table-col-1">${dailySalesTotal.month}</td>
+				<th class="stats-table-col-1">${dailySalesTotal.month}</th>
 				<td class="stats-table-col-2"><fmt:formatNumber value="${dailySalesTotal.daily_sales_total}" pattern="#,###"/> 원</td>
 				<td class="stats-table-col-3"><fmt:formatNumber value="${dailySalesTotal.sales_cnt_total}" pattern="#,###"/> 건</td>
 			</tr>
@@ -50,8 +52,11 @@
 
 		for (var i = 0; i < jData.length; ++i) {
 			var d = jData[i];
-			labelList.push(d.day);
-			dataList.push(d.daily_sales);
+			
+			if (d.daily_sales != '0') {
+				labelList.push(d.day);
+				dataList.push(d.daily_sales);				
+			}
 		}
 
 		dailyChart = document.getElementById('daily-chart');

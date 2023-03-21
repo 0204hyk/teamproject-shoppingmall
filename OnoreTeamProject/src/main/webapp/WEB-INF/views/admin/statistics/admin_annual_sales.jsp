@@ -33,7 +33,7 @@
 		</table>
 		<table class="stats-table">
 			<tr>
-				<th class="stats-table-col-1">${annualSalesTotal.ten_years}</td>
+				<th class="stats-table-col-1">${annualSalesTotal.ten_years}</th>
 				<td class="stats-table-col-2"><fmt:formatNumber value="${annualSalesTotal.annual_sales_total}" pattern="#,###"/> 원</td>
 				<td class="stats-table-col-3"><fmt:formatNumber value="${annualSalesTotal.annual_sales_cnt_total}" pattern="#,###"/> 건</td>
 
