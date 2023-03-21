@@ -31,4 +31,8 @@ public interface OrderMapper {
 	Integer deleteOrderInfos(Integer order_num);
 	
 	Integer deletePayInfos(Integer order_num);
+	
+	List<OrderDTO> getSearchOrders(OrderDTO order);
+	
+	Integer updateRefundOrder (OrderDTO order);
 }

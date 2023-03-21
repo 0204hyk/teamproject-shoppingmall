@@ -13,7 +13,7 @@
 	<div class="product-content shadow" style="height: 835px;">
 		<div class="product-title">
 			<h1>상품 목록</h1>
-			<select name="search_type" class="form-select search-type" style="width: 150px;">
+			<select name="search_type" class="form-select search-type" style="width: 150px; margin-left: 100px;">
 				<option value="0">ALL</option>
 				<c:forEach items="${categories}" var="category">
 					<c:choose>

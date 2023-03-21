@@ -63,4 +63,19 @@
 	<delete id="deletePayInfos" parameterType="Integer">
 		DELETE FROM pay WHERE order_num = #{order_num}
 	</delete>
+	<select id="getSearchOrders" resultType="com.onore.project.dto.OrderDTO">
+		SELECT * FROM orders 
+		<trim prefix="WHERE">
+			<if test="search_type == 'id' and search_keyword != null and search_keyword != ''">
+				order_id like '%'||#{search_keyword}||'%'
+			</if>
+			<if test="search_type == 'name' and search_keyword != null and search_keyword != ''">
+				orderer_name like '%'||#{search_keyword}||'%'
+			</if>
+		</trim>
+		ORDER BY order_date DESC
+	</select>
+	<update id="updateRefundOrder" parameterType="com.onore.project.dto.OrderDTO">
+		UPDATE orders SET order_status = 2 WHERE order_num = #{order_num}
+	</update>
 </mapper>
