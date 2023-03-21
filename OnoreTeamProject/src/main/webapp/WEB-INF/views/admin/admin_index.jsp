@@ -75,7 +75,7 @@
 								<img src="<%=request.getContextPath()%>/resources/admin/image/default_image.png" alt="문의 이미지" />		
 							</c:when>
 							<c:otherwise>
-								<img src="${qna.qna_img_path}${qna.qna_img_1}" alt="문의 이미지" />
+								<img src="<%=request.getContextPath() %>/resources/qna/images/${qna.qna_img_1}" alt="문의 이미지" />
 							</c:otherwise>
 						</c:choose>					
 						<div>
@@ -101,7 +101,7 @@
 								<img src="<%=request.getContextPath()%>/resources/admin/image/default_image.png" alt="문의 이미지" />		
 							</c:when>
 							<c:otherwise>
-								<img src="${review.review_img_path}${review.review_img_1}" alt="문의 이미지" />
+								<img src="<%=request.getContextPath()%>/resources/review/image/${review.review_img_1}" alt="문의 이미지" />
 							</c:otherwise>
 						</c:choose>					
 						<div>
