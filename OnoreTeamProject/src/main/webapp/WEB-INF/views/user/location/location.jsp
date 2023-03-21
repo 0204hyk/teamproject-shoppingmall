@@ -7,13 +7,13 @@
 <meta charset="UTF-8">
 <title>ONÓRE</title>
 <%@ include file="../header.jspf" %>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=75e78a8a9cdd102b783fb3c5f36e1da5"></script>
 <link href="<%=request.getContextPath() %>/resources/menu/css/location.css" rel="stylesheet"/>
 <link rel="icon" href="<%=request.getContextPath()%>/resources/main/image/fabicon.png">
 
 </head>
 <body>
 <%@ include file="../top.jspf" %>
+
 <!-- middle 시작 -->
 <div class="middle_location_div">
 <hr>
@@ -68,7 +68,7 @@
 	</div>
 </div>  
 <!-- middle 끝 -->
-
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=75e78a8a9cdd102b783fb3c5f36e1da5"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/menu/js/location.js"></script>
 <script src="<%=request.getContextPath() %>/resources/menu/js/menubar.js"></script>
 <%@ include file="../bottom.jspf" %>
