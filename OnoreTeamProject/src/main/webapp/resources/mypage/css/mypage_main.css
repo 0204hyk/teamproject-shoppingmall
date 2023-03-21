@@ -4,13 +4,11 @@ a {
 
 
 .middle_mypage_div{
-	height: 1700px;
 	padding-top: 127px;
 	background-color: white;
 }
 
 .mypage_div {
-	height: 1500px;
 	width: 70%;
 	margin: auto;
 	background-color: white;
@@ -119,6 +117,10 @@ color : white;
 	margin-bottom: 100px;
 }
 
+.order_number {
+border : solid 1px blue;	
+}
+
 
 .recent_order_history_title,
 .coupon_history_title,
@@ -130,6 +132,14 @@ color : white;
 	text-align: left;
 	padding-left : 50px;
 	border-bottom : solid 2px black;
+}
+
+.recent_order_btns > form > input {
+	margin-top : 5px;
+	margin-bottom: 5px;
+	margin : auto;
+	margin-top : 5px;
+	margin-bottom : 5px;
 }
 
 .review_history_title {

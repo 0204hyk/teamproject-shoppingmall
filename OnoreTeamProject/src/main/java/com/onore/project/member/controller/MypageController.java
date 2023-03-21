@@ -187,6 +187,5 @@ public class MypageController {
 	        out.flush();
 	        return null;
 	    }
-	
 	}
 }
