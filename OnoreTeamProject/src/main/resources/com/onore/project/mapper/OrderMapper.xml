@@ -52,7 +52,8 @@
 	</update>
 	<update id="updateOrderStatus" parameterType="Integer">
 		UPDATE orders SET
-		order_status=#{1}
+		order_status=1
+		WHERE order_num=#{order_num}
 	</update>
 	<delete id="deleteOrder" parameterType="Integer">
 		DELETE FROM orders WHERE order_num = #{order_num}
