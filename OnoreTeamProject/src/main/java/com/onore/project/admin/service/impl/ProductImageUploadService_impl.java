@@ -43,7 +43,7 @@ public class ProductImageUploadService_impl implements ProductImageUploadService
 		try {
 			InputStream fileStream = file.getInputStream();
 			FileUtils.copyInputStreamToFile(fileStream, targetFile);	//파일 저장
-			jsonObject.addProperty("url", "/opt/tomcat/apache-tomcat-9.0.73/webapps/OnoreTeamProject/resources/admin/image/product/thumbnail/" + product_name + "/" + savedFileName);
+			jsonObject.addProperty("url", "/OnoreTeamProject/resources/admin/image/product/thumbnail/" + product_name + "/" + savedFileName);
 			jsonObject.addProperty("responseCode", "success");
 			fileStream.close();
 		} catch (IOException e) {

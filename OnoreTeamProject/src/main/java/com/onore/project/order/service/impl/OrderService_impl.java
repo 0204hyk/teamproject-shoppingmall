@@ -117,7 +117,7 @@ public class OrderService_impl implements OrderService {
 	
 	@Override
 	public Integer deletePayInfos(Integer order_num) {
-		// TODO Auto-generated method stub
+		
 		return order_mapper.deletePayInfos(order_num);
 	}
 }
