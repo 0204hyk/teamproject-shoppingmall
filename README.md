@@ -10,7 +10,10 @@
 
 ## 2. 사용 기술
 #### `Stack`
-  - 업데이트하세요
+  - Spring
+  - HTML, CSS, Javascript
+  - JQuery
+  - Oracle Database
 </br>
 
 ## 3. Usecase Diagram
