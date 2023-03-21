@@ -204,7 +204,7 @@ nowish.addEventListener('click', (e) => {
 	        }
 	    });
 	    
-	    xhttp.open('POST', contextPath + '/wish');
+	    xhttp.open('POST', contextPath + '/shop/wish');
 	    xhttp.setRequestHeader('Content-type', 'application/json');
 	    
 	     const obj = {
@@ -232,7 +232,7 @@ wish.addEventListener('click', (e) => {
         }
     });
   
-    xhttp.open('POST', contextPath + '/nowish');
+    xhttp.open('POST', contextPath + '/shop/nowish');
     
     xhttp.setRequestHeader('Content-type', 'application/json');
     
