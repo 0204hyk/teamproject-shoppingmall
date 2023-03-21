@@ -9,6 +9,7 @@
 </br>
 
 ## 2. 사용 기술
+![사용기술](https://user-images.githubusercontent.com/114713801/226495520-7ff38a61-e279-4171-86cd-bc50b681fe22.png)
 
   
 </br>
