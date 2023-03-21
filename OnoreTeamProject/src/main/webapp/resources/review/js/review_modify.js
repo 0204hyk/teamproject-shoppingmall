@@ -60,7 +60,7 @@ const handler = {
 
                     document.querySelector('#fileUpload1').files = dataTranster.files;
                     removeTarget.remove();
-                    removeImage.src = '';
+                    removeImage.src = contextPath + '/resources/qna/images/blank.png';
                 })
             }
         }
@@ -120,7 +120,7 @@ const handler2 = {
 
                     document.querySelector('#fileUpload2').files = dataTranster2.files;
                     removeTarget2.remove();
-                    removeImage2.src = '';
+                    removeImage2.src = contextPath + '/resources/qna/images/blank.png';
                 })
             }
         }
@@ -192,7 +192,7 @@ function PreviewImage3() {
 
                     document.querySelector('#fileUpload3').files = dataTranster3.files;
                     removeTarget3.remove();
-                    removeImage3.src = '';
+                    removeImage3.src = contextPath + '/resources/qna/images/blank.png';
                 })
             }
         }
