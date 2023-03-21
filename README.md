@@ -2,6 +2,10 @@
 >스프링을 활용한 남성 수제화 쇼핑몰 프로젝트
 
 http://118.67.135.214:8888/OnoreTeamProject/admin/main
+
+관리자용 계정 ID : admin
+관리자용 계정 PW : 1q2w3e4r!
+
 </br>
 
 ## 1. 제작 기간 & 참여 인원
