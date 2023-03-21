@@ -9,7 +9,8 @@
 <title>장바구니</title>
 <%@ include file="../header.jspf" %>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/shop/css/cart.css">
-<link rel="icon" href="<%=request.getContextPath() %>/resources/shop/image/파비콘.png">
+<link rel="icon" href="<%=request.getContextPath()%>/resources/main/image/fabicon.png">
+
 </head>
 <body>
 <script src="<%=request.getContextPath() %>/resources/shop/js/cart.js" defer></script>
