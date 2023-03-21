@@ -123,8 +123,8 @@
 			<hr>
 			<div class="button">
 				<c:if test="${sessionScope.signIn.mem_id eq contents.mem_id || sessionScope.signIn.mem_id eq 'admin'}">
-					<a href="<%=request.getContextPath() %>/modify?review_num=${contents.review_num }&product_num=${contents.product_num}">수정하기</a> / 
-					<a href="<%=request.getContextPath() %>/delete?review_num=${contents.review_num }" onclick="return confirm('삭제하시겠습니까?')">삭제하기</a><br>
+					<a href="<%=request.getContextPath() %>/review/modify?review_num=${contents.review_num }&product_num=${contents.product_num}">수정하기</a> / 
+					<a href="<%=request.getContextPath() %>/review/delete?review_num=${contents.review_num }" onclick="return confirm('삭제하시겠습니까?')">삭제하기</a><br>
 				</c:if>
 				
 			</div>
@@ -132,7 +132,7 @@
 			<span id="comment_id" style="display: none;" >${sessionScope.signIn.mem_id}</span>
 			<div id="write_reply">
 			<h4> 댓글(${cnt })</h4>
-				<form action="<%=request.getContextPath() %>/comment" method="POST">
+				<form action="<%=request.getContextPath() %>/review/comment" method="POST">
 					<input type="hidden" value="${contents.review_num }" id="num">
 					<textarea id="comment_content" rows="3" cols="120" placeholder="댓글을 입력해주세요"></textarea><br>
 					<button type="button" id="comment">댓글달기</button>

@@ -27,7 +27,7 @@
 			<br>
 			<br>
 			<p class="fs-3">3초 뒤 주문 결과가 출력됩니다.</p>
-			<form id="purchase_form" action="/project/order/complete"
+			<form id="purchase_form" action="<%=request.getContextPath() %>/order/complete"
 				method="GET">
 				<input type="hidden" id="order_id" name="order_id"
 					value="${order.order_id}" /> <input type="hidden" id="order_num"

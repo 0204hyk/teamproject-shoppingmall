@@ -289,6 +289,8 @@
 
 	<!-- middle 끝 -->
 	<script
+		src="<%=request.getContextPath() %>/resources/mypage/js/update_order.js"></script>
+	<script
 		src="<%=request.getContextPath() %>/resources/mypage/js/order_list.js"></script>
 	<script
 		src="<%=request.getContextPath()%>/resources/mypage/js/mypage.js"></script>

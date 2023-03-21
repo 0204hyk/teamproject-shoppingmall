@@ -149,14 +149,14 @@ derbyBtn.addEventListener('click', (e) => {
 					});
 					
 					onoreImg.addEventListener('click', (e) => {
-						location.href = '/project/shop/detail/?product_num=' + number;
+						location.href = contextPath + '/shop/detail/?product_num=' + number;
 					});
 				}	
 		}
 	});
-	
+	 
 
-	xhttp.open('GET', '/project/restful/derby');
+	xhttp.open('GET', contextPath + '/restful/derby');
     xhttp.send();
 });
 

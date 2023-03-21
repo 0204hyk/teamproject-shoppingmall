@@ -52,7 +52,7 @@ if (id !== "") {
             refreshList();
         }
     });
-    xhttp.open('POST', './comment');
+    xhttp.open('POST', contextPath + '/review/comment');
 
     xhttp.setRequestHeader('Content-type', 'application/json');
     
@@ -73,7 +73,7 @@ if (id !== "") {
     xhttp.send(JSON.stringify(com));
 } else {
 	if(confirm('로그인이 필요한 서비스입니다. 로그인하시겠습니까?')) {
-		location.href='/project/login';
+		location.href=contextPath + '/login';
 	}
 	}    
 });
@@ -112,7 +112,7 @@ modify.addEventListener('click', (e) => {
         }
     });
 
-    xhttp.open('POST', './com_modify');
+    xhttp.open('POST', contextPath + '/review/com_modify');
 
     xhttp.setRequestHeader('Content-type', 'application/json');
    
@@ -154,7 +154,7 @@ re_delete.addEventListener('click', (e) => {
     console.log(num);
     console.log(com_num);
 
-    xhttp.open('GET', './com_delete/'+com_num);
+    xhttp.open('GET', contextPath + '/review/com_delete/'+com_num);
     xhttp.send();
 });
 }

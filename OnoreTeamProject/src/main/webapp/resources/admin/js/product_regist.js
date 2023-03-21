@@ -71,9 +71,9 @@ function productRegist(url){
     alert('상품명을 입력해주세요.');
   } else if ($('input[name=product_price]').val() == '') {
     alert('상품의 가격을 입력해주세요.');
-  } else if ($('textarea[name=product_info]').val() == '') {
-    alert('상품의 소개글을 작성해주세요.')
   } else if ($('.summernote').summernote('isEmpty')) {
+    alert('상품의 소개글을 작성해주세요.')
+  } else if ($('.summernote2').summernote('isEmpty')) {
     alert('상품의 상세정보를 작성해주세요.')
   } else if ($('input[name=product_thumbnail_1]').val() == '') {
     alert('상품 썸네일 이미지를 1개 이상 등록해주세요');
@@ -143,9 +143,9 @@ function productModify(url){
     alert('상품명을 입력해주세요.');
   } else if ($('input[name=product_price]').val() == '') {
     alert('상품의 가격을 입력해주세요.');
-  } else if ($('textarea[name=product_info]').val() == '') {
-    alert('상품의 소개글을 작성해주세요.')
   } else if ($('.summernote').summernote('isEmpty')) {
+    alert('상품의 소개글을 작성해주세요.')
+  } else if ($('.summernote2').summernote('isEmpty')) {
     alert('상품의 상세정보를 작성해주세요.')
   } else if ($('input[name=product_thumbnail_1]').val() == '') {
     alert('상품 썸네일 이미지를 1개 이상 등록해주세요');
@@ -162,7 +162,7 @@ function productModify(url){
       let product_thumbnail_2 = $('#thumbnail2')[0];
       let product_thumbnail_3 = $('#thumbnail3')[0];
       let product_detail = $('#input-detail').val();
-      
+
       let registFormData = new FormData();
       registFormData.append("product_num", product_num);
       registFormData.append("category_num", category_num);
@@ -173,7 +173,7 @@ function productModify(url){
       registFormData.append("product_thumbnail_2", product_thumbnail_2.files[0]);
       registFormData.append("product_thumbnail_3", product_thumbnail_3.files[0]);
       registFormData.append("product_detail", product_detail);
-    
+
       $.ajax({
           url: url,
           type: "POST",

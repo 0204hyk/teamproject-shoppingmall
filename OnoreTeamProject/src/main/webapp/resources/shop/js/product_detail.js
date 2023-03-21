@@ -75,22 +75,9 @@ sizes.addEventListener('click', ()=> {
 		}
 }); 
 
-const review_btn = document.getElementById('review');
+
 const qna_btn = document.getElementById('qna');
 
-review_btn.addEventListener('click', (e) => {
-	if (mem_id === '') {
-			if(confirm("로그인이 필요한 서비스입니다. 로그인 하시겠습니까?")) {
-				location.href='/project/login'
-			} else {
-				e.preventDefault();
-				e.stopPropagation(); 
-			}
-	} else {
-		location.href='../review/write?product_num=' + prd_num 
-	}
-	
-});
 
 qna_btn.addEventListener('click', (e) => {
 	if (mem_id === '') {
@@ -204,7 +191,7 @@ nowish.addEventListener('click', (e) => {
 	        }
 	    });
 	    
-	    xhttp.open('POST', contextPath + '/wish');
+	    xhttp.open('POST', contextPath + '/shop/wish');
 	    xhttp.setRequestHeader('Content-type', 'application/json');
 	    
 	     const obj = {
@@ -232,7 +219,7 @@ wish.addEventListener('click', (e) => {
         }
     });
   
-    xhttp.open('POST', contextPath + '/nowish');
+    xhttp.open('POST', contextPath + '/shop/nowish');
     
     xhttp.setRequestHeader('Content-type', 'application/json');
     

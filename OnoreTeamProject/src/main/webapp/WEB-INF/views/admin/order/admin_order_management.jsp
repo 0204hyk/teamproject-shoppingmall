@@ -69,7 +69,7 @@
 								<td style="width: 230px;">${order.order_name}</td>
 								<td style="width: 100px;">${order.orderer_name}</td>
 								<td style="width: 100px;">${order.receiver_name}</td>
-								<td style="width: 100px;"><fmt:formatNumber value="${order.pay_price}" pattern="#,###"/> 원</td>
+								<td style="width: 130px;"><fmt:formatNumber value="${order.pay_price}" pattern="#,###"/> 원</td>
 								<td style="width: 120px;">${order.creationDateTime}</td>
 								<c:choose>
 									<c:when test="${order.order_status eq 1}">
