@@ -9,9 +9,9 @@
 </br>
 
 ## 2. 사용 기술
-![사용기술](https://user-images.githubusercontent.com/114713801/226495982-8ce055d2-4348-4db4-859c-706efc171aa1.png)
+![사용기술](https://user-images.githubusercontent.com/114713801/226496252-a55c3ce5-4c9b-4da1-9c2d-58bbcb974bbc.png)
 
-  
+
 </br>
 
 ## 3. Usecase Diagram
@@ -25,10 +25,10 @@
 </br>
 
 ## 4. ERD 
- - 업데이트하세요
+![ERD](https://user-images.githubusercontent.com/114713801/226496272-330dd99d-7f66-4dd2-9799-dd183744835b.png)
+
 
 ## 5. 기능
-- 업데이트 하세요
 
 <details>
 <summary><b>기능 설명</b></summary>
