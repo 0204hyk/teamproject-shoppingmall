@@ -132,7 +132,7 @@
 			<span id="comment_id" style="display: none;" >${sessionScope.signIn.mem_id}</span>
 			<div id="write_reply">
 			<h4> 댓글(${cnt })</h4>
-				<form action="<%=request.getContextPath() %>/comment" method="POST">
+				<form action="<%=request.getContextPath() %>/review/comment" method="POST">
 					<input type="hidden" value="${contents.review_num }" id="num">
 					<textarea id="comment_content" rows="3" cols="120" placeholder="댓글을 입력해주세요"></textarea><br>
 					<button type="button" id="comment">댓글달기</button>
