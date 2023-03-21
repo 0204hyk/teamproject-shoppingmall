@@ -9,7 +9,7 @@
 </br>
 
 ## 2. 사용 기술
-![사용기술](https://user-images.githubusercontent.com/114713801/226495520-7ff38a61-e279-4171-86cd-bc50b681fe22.png)
+![사용기술](https://user-images.githubusercontent.com/114713801/226495982-8ce055d2-4348-4db4-859c-706efc171aa1.png)
 
   
 </br>
