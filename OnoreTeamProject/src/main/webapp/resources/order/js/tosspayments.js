@@ -35,7 +35,7 @@ function tossPay() {
 		order_id.value = data.orderId;
 		amount.value = data.amount;
 	    
-	    form.action = '/project/order/result';
+	    form.action = contextPath + '/order/result';
 	    form.method = 'POST';
 	    form.submit();
     	
@@ -66,7 +66,7 @@ function tossPay2() {
 		order_id.value = data.orderId;
 		amount.value = data.amount;
 	    
-	    form.action = '/project/order/direct_result';
+	    form.action = contextPath + '/order/direct_result';
 	    form.method = 'POST';
 	    form.submit();
     	
