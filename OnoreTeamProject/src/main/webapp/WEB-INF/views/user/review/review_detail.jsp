@@ -123,8 +123,8 @@
 			<hr>
 			<div class="button">
 				<c:if test="${sessionScope.signIn.mem_id eq contents.mem_id || sessionScope.signIn.mem_id eq 'admin'}">
-					<a href="<%=request.getContextPath() %>/modify?review_num=${contents.review_num }&product_num=${contents.product_num}">수정하기</a> / 
-					<a href="<%=request.getContextPath() %>/delete?review_num=${contents.review_num }" onclick="return confirm('삭제하시겠습니까?')">삭제하기</a><br>
+					<a href="<%=request.getContextPath() %>/review/modify?review_num=${contents.review_num }&product_num=${contents.product_num}">수정하기</a> / 
+					<a href="<%=request.getContextPath() %>/review/delete?review_num=${contents.review_num }" onclick="return confirm('삭제하시겠습니까?')">삭제하기</a><br>
 				</c:if>
 				
 			</div>
