@@ -60,9 +60,6 @@ const handler = {
 
                     var dataTranster = new DataTransfer();
 
-                    // document.querySelector('#file-input').files =
-                    //             Array.from(files).filter(file => file.lastModified !== removeTarget);
-
 
                     Array.from(files)
                         .filter(file => file.lastModified != removeTargetId)
@@ -104,7 +101,6 @@ const handler2 = {
                 const fileInput2 = document.querySelector('#file-input2');
 
                 var fileList = document.getElementById('imgBox2');
-
 
                 fileInput2.addEventListener('change', () => {
            
