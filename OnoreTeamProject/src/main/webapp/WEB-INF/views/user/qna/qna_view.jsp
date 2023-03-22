@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>오노레 Q&A</title>
-
+<link rel="icon" href="<%=request.getContextPath() %>/resources/qna/images/favicon.png">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
 <link
@@ -128,7 +128,7 @@
 					</c:otherwise>
 				</c:choose>
 			</div>
-			<button onclick="location.href='<%=request.getContextPath() %>/main/'" id="list">목록으로</button>
+			<button onclick="location.href='<%=request.getContextPath() %>/qna/main'" id="list">목록으로</button>
 		</div>
 	</div>
 

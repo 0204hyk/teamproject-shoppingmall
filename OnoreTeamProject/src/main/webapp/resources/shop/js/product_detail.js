@@ -68,7 +68,7 @@ function count(type) {
 sizes.addEventListener('click', ()=> {
 	if (mem_id === '') {
 			if(confirm("로그인이 필요한 서비스입니다. 로그인 하시겠습니까?")) {
-				location.href=contextPaht + '/login'
+				location.href=contextPath + '/login'
 			} else {
 				event.preventDefault();
 			}
@@ -82,7 +82,7 @@ const qna_btn = document.getElementById('qna');
 qna_btn.addEventListener('click', (e) => {
 	if (mem_id === '') {
 			if(confirm("로그인이 필요한 서비스입니다. 로그인 하시겠습니까?")) {
-				location.href='/project/login'
+				location.href=contextPath + '/login'
 			} else {
 				e.preventDefault();
 				e.stopPropagation(); 

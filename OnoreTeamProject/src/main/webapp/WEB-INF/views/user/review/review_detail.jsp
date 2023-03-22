@@ -6,8 +6,20 @@
 <head>
 <meta charset="UTF-8">
 <title>ONÓRE</title>
-<%@ include file="../header.jspf"%>
 <link rel="icon" href="<%=request.getContextPath() %>/resources/review/image/파비콘.png">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css"
+	rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+<%@ include file="../header.jspf"%>
 <link rel="stylesheet"
 	href="<%=request.getContextPath() %>/resources/review/css/review_detail.css?ver=8">
 </head>
@@ -171,16 +183,21 @@
 				</div>	
 				<hr>
 			</c:forEach>
-			<button onclick="location.href='./list'" id="list">목록으로</button>
+			<button onclick="location.href='<%=request.getContextPath() %>/list'" id="list">목록으로</button>
 			<br>
 		</div>
 	</div>
-
+		<!-- BootStrap modal 이미지 모달창 jquery -->
+	<script>
+		$(document).on('click', '[data-toggle="lightbox"]', function(event) {
+			event.preventDefault();
+			$(this).ekkoLightbox();
+		});
+	</script>
 	
 
 	<%@ include file="../bottom.jspf"%>
 
 	<script src="<%=request.getContextPath() %>/resources/review/js/review_detail.js?ver=5" defer></script>
 </body>
-
 </html>

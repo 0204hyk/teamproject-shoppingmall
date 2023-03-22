@@ -99,7 +99,7 @@
 					<a href="./list?page=${i }">${i }</a>
 				</c:forEach>
 				<c:if test="${pagination_end % 5 eq 0 }">
-					<a href="./list?page=${next_page }">></a>
+					<a href="./list?page=${next_page }"></a>
 				</c:if>
 			</div>
 		</div>

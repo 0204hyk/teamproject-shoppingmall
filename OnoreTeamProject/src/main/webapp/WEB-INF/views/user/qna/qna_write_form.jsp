@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>오노레 글쓰기</title>
-
+<link rel="icon" href="<%=request.getContextPath() %>/resources/qna/images/favicon.png">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script

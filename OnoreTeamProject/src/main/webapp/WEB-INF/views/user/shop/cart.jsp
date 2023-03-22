@@ -70,7 +70,9 @@
 									</td>
 									<td><fmt:formatNumber value="${cart_product_list.get(i).product_price}" pattern="#,###" />원</td>
 									<td>
+
 										<form action="<%=request.getContextPath()%>/shop/update_cart" method="POST">
+
 											<input type="hidden" name="cart_num" value="${cart_list.get(i).cart_num}"/>
 											<input type="hidden" name="product_price" value="${cart_product_list.get(i).product_price}"/>
 											<input type="number" value="${cart_list.get(i).cart_product_qty}" min="1" max="99" 
@@ -89,7 +91,9 @@
 									<td>
 										<form method="POST">
 											<input type="hidden" name="selected_list" value="${cart_list.get(i).cart_num}"/>
+
 											<input type="submit" class="order_single_btn" formaction="<%=request.getContextPath()%>/order/from_cart" value="주문하기">
+
 											<input type="submit" class="delete_single_btn" formaction="<%=request.getContextPath()%>/shop/delete_selected_cart" value="삭제하기">
 										</form>
 									</td>
