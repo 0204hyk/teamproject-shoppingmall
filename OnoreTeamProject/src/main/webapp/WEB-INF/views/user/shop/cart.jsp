@@ -70,7 +70,7 @@
 									</td>
 									<td><fmt:formatNumber value="${cart_product_list.get(i).product_price}" pattern="#,###" />원</td>
 									<td>
-										<form action="./update_cart" method="POST">
+										<form action="<%=request.getContextPath() %>/update_cart" method="POST">
 											<input type="hidden" name="cart_num" value="${cart_list.get(i).cart_num}"/>
 											<input type="hidden" name="product_price" value="${cart_product_list.get(i).product_price}"/>
 											<input type="number" value="${cart_list.get(i).cart_product_qty}" min="1" max="99" 
