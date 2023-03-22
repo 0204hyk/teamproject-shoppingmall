@@ -6,7 +6,7 @@ for(i = 0; i < form.length; i++) {
 		e.preventDefault();
 			
 		if(window.confirm('정말로 환불처리 하시겠습니까?')) {
-			form[i].action = contextPath + "/order/delete";
+			form[i].action = contextPath + "/order/updateStatus";
 			form[i].method = "POST";
 			form[i].submit();
 		}

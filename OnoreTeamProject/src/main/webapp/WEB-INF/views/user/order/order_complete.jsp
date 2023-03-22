@@ -42,7 +42,7 @@
 				<div class="col-sm-9">
 					<input type="button" class="btn btn-dark rounded-1" id="revise_btn" value="변경"
 						data-bs-toggle="modal" data-bs-target="#exampleModal"/>
-				 <form action="/project/order/updateReceiver" method="POST">
+				 <form action="<%=request.getContextPath()%>/order/updateReceiver" method="POST">
 				 	<input type="hidden" id="order_num" name="order_num" value="${order.order_num}"/>
 					<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					  <div class="modal-dialog modal-dialog-centered">
