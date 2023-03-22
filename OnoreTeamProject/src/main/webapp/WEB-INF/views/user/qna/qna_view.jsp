@@ -128,7 +128,7 @@
 					</c:otherwise>
 				</c:choose>
 			</div>
-			<button onclick="location.href='<%=request.getContextPath() %>/main/'" id="list">목록으로</button>
+			<button onclick="location.href='<%=request.getContextPath() %>/qna/main'" id="list">목록으로</button>
 		</div>
 	</div>
 
