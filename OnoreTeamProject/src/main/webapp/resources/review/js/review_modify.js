@@ -46,10 +46,6 @@ const handler = {
 
                     var dataTranster = new DataTransfer();
 
-                    // document.querySelector('#file-input').files =
-                    //             Array.from(files).filter(file => file.lastModified !== removeTarget);
-
-
                     Array.from(files)
                         .filter(file => file.lastModified != removeTargetId)
                         .forEach(file => {
@@ -60,7 +56,7 @@ const handler = {
 
                     document.querySelector('#fileUpload1').files = dataTranster.files;
                     removeTarget.remove();
-                    removeImage.src = contextPath + '/resources/qna/images/blank.png';
+                    removeImage.src = contextPath + '/resources/review/image/파비콘.png';
                 })
             }
         }
@@ -120,7 +116,7 @@ const handler2 = {
 
                     document.querySelector('#fileUpload2').files = dataTranster2.files;
                     removeTarget2.remove();
-                    removeImage2.src = contextPath + '/resources/qna/images/blank.png';
+                    removeImage2.src = contextPath + '/resources/review/image/파비콘.png';
                 })
             }
         }
@@ -192,7 +188,7 @@ function PreviewImage3() {
 
                     document.querySelector('#fileUpload3').files = dataTranster3.files;
                     removeTarget3.remove();
-                    removeImage3.src = contextPath + '/resources/qna/images/blank.png';
+                    removeImage3.src = contextPath + '/resources/review/image/파비콘.png';
                 })
             }
         }

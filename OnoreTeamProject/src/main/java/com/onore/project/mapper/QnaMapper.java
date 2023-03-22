@@ -29,11 +29,7 @@ public interface QnaMapper {
 
 	QnaReplyDTO getReply(Integer qna_num);
 
-
-	// 제목 클릭 후 화면 출력
-	//List<QnaDTO> getContents(Integer qna_num);
 	List<QnaAndProductsDTO> getContents(Integer qna_num);
-
 
 	List<ShopDTO> getProductName(String product_name);
 
