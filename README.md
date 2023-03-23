@@ -1,7 +1,7 @@
 # :pushpin: 오노레 쇼핑몰 프로젝트
 >스프링을 활용한 남성 수제화 쇼핑몰 프로젝트
 
-http://118.67.135.214:8888/OnoreTeamProject/admin/main
+http://localhost:8888/project/main/
 
 관리자용 계정 ID : admin
 </br>
