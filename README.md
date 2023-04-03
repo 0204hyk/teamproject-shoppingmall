@@ -74,6 +74,8 @@
 </br>
 
 ## 7. 프로젝트 진행과정
+![226591720-3eb45184-a7df-45c1-8fbd-9cf66ed1dcc5](https://user-images.githubusercontent.com/119827171/229508873-46f5a9e4-335e-4f6d-a271-e03c22435553.png)
+![226591738-d8f5e39d-d4a0-45a8-aaa3-5530cbbeb3b9](https://user-images.githubusercontent.com/119827171/229508893-4fa7c1a3-0531-4f00-8c55-39e820382062.png)
 
 <br>
 
